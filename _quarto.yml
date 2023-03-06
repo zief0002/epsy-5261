@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 4200
+    browser: true
+
+book:
+  title: "An Introduction to Data Analysis and Randomization Methods"
+  author: ["Andrew Zieffler", "Chelsey Legacy"]
+  date: "`r Sys.Date()`"
+  sidebar:
+    search: true
+    background: "#0677a3"
+  # cover-image: "figs/banner.png"
+  chapters:
+    - index.qmd
+    - part: 01-statistical-computation.qmd
+      chapters:
+        - 02-r-and-rstudio-installation.qmd
+        - 04-data-structures-in-r.qmd
+
+bibliography: ['assets/epsy-5261.bib']
+csl: 'assets/apa-single-spaced.csl'
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - "assets/theme.scss"
+    css: ["assets/notes.css", "assets/table-styles.css"]
+    code-copy: true
+    highlight-style: zenburn
+    df-print: paged
+    mainfont: 'Crimson Text'
+    fontsize: '12pt'
+    linestretch: '1.5em'
+    linkcolor: "#0099d4"
+
+editor: source
