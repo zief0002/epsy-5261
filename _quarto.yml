@@ -19,6 +19,8 @@ book:
       chapters:
         - 02-r-and-rstudio-installation.qmd
         - 04-data-structures-in-r.qmd
+        - 05-data.qmd
+        - 06-visualization.qmd
 
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
