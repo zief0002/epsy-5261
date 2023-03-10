@@ -1,0 +1,14 @@
+# Exploring and Describing Data
+
+Data are at the core of all statistical analyses. In this section you will learn about:
+
+- The tabular data structure;
+- Understanding your data including:
+  + Classifying attributes;
+  + Whether your data constitute the population of cases or a sample of cases;
+  + Sampling methods for producing reasonable estimates 
+- Visualizing distributions of data; and
+- Numerically summarizing distrubtions of data.
+
+
+<br /><br />

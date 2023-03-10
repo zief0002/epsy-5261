@@ -1,6 +1,9 @@
 # Descriptive Statistics: Numerically Describing the Sample Data 
 
 
+ADD. THIS:  Typically we denote parameters using Greek letters and Statistics are denoted using Roman letters.
+
+
 Data visualization is often the first step on the statistical journey to explore a research question. However, this is usually not where the journey stops, instead additional analyses are often performed to learn more about the trends and structure in the data. In this chapter we will learn about methods that useful for numerically summarizing a sample of data. These methods are commonly referred to as *descriptive statistics*.
 
 We will again use the data provided in the file *College-scorecard-clean.csv* to examine admissions rates for 2,019 institutions of higher education. As in the previous chapter, before we begin the analysis, we will load several packages that include functions we will use in the chapter. We also import the College Scorecard data using the `read_csv()` function.

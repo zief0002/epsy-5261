@@ -17,13 +17,16 @@ book:
     - index.qmd
     - part: 01-statistical-computation.qmd
       chapters:
-        - 02-r-and-rstudio-installation.qmd
-        - 04-data-structures-in-r.qmd
-        - 05-data.qmd
-        - 06-visualization.qmd
+        - 01-01-r-and-rstudio-installation.qmd
+        #- 04-data-structures-in-r.qmd
+    - part: 02-exploring-and-describing-data.qmd
+      chapters:
+        - 02-01-data.qmd
+        - 02-02-visualization.qmd
 
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
+include-in-header: 'assets/epsy-5261.js'
 
 format:
   html:
