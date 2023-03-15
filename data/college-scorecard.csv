@@ -1,251 +1,236 @@
-name,state,region,bachelor_degree,locale,adm_rate,undergrads,tuition_instate,tuition_outstate,debt_mdn,debt_mdn_grads,female
-Abilene Christian University,TX,Southwest,1,City: Midsize,0.5806,3655,33330,33330,15000,23628,0.611820013
-Abraham Baldwin Agricultural College,GA,Southeast,0,Town: Distant,0.7021,3185,3503,10241,6500,14681.5,0.573970514
-AdventHealth University,FL,Southeast,1,City: Large,0.9685,1316,14400,14400,16917,22500,0.825105783
-Akron School of Practical Nursing,OH,Great Lakes,0,City: Midsize,0.8375,70,NA,NA,5500,9500,0.847058824
-Andrews University,MI,Great Lakes,1,Town: Fringe,0.5766,1439,28436,28436,22500,27000,0.580270793
-Arizona Christian University,AZ,Southwest,1,City: Large,0.6444,696,24958,24958,9500,18850,0.289473684
-Armstrong State University,GA,Southeast,1,City: Midsize,0.7962,5965,5439,15900,12500,21791,0.695486332
-Art Center College of Design,CA,Far West,1,City: Midsize,0.7036,1974,42008,42008,29561,31624,0.55234657
-Augsburg University,MN,Plains,1,City: Large,0.6458,2405,37615,37615,21500,27000,0.546448087
-Ave Maria University,FL,Southeast,1,Rural: Distant,0.4212,1052,19970,19970,13157,20616.5,0.483940043
-Baptist Health College Little Rock,AR,Southeast,0,City: Midsize,0.6875,676,9867,9867,9500,11000,0.864
-Bard College,NY,Mid East,1,Town: Fringe,0.5821,1846,52906,52906,20297.5,25140,0.61971831
-Beacon College,FL,Southeast,1,Suburb: Midsize,0.5287,348,37788,37788,9500,20000,0.465753425
-Belanger School of Nursing,NY,Mid East,0,City: Small,0.2,114,11014,11014,9500,14889,0.872727273
-Bet Medrash Gadol Ateret Torah,NY,Mid East,1,City: Large,0.8571,93,9700,9700,NA,NA,NA
-Beth Medrash Meor Yitzchok,NY,Mid East,0,Suburb: Large,0.6667,129,9100,9100,NA,NA,NA
-Binghamton University,NY,Mid East,1,Suburb: Midsize,0.4036,13702,9523,24403,16750,19500,0.517791676
-Biola University,CA,Far West,1,Suburb: Large,0.7198,4039,38448,38448,19500,24188,0.667792032
-Bloomfield College,NJ,Mid East,1,Suburb: Large,0.6398,1833,29300,29300,16750,30966.5,0.6263287
-Bluffton University,OH,Great Lakes,1,Town: Distant,0.4884,703,31672,31672,19500,27000,0.467532468
-Bolivar Technical College,MO,Plains,0,Town: Distant,0.7778,119,15869,15869,NA,NA,NA
-Brandeis University,MA,New England,1,City: Small,0.3422,3624,53537,53537,26250,27000,0.602708804
-Broome Delaware Tioga BOCES-Practical Nursing Program,NY,Mid East,0,Suburb: Midsize,0.5714,66,NA,NA,9500,9500,NA
-CUNY City College,NY,Mid East,1,City: Large,0.4637,12480,6940,14330,8615,11580,0.537749288
-CUNY Lehman College,NY,Mid East,1,City: Large,0.35,10949,7010,14400,7499,9993,0.71029969
-Cabrini University,PA,Mid East,1,Suburb: Large,0.7321,1536,31350,31350,17750,26000,0.627828054
-Cairn University-Langhorne,PA,Mid East,1,Suburb: Large,0.9855,757,26493,26493,19500,27000,0.489795918
-California Jazz Conservatory,CA,Far West,1,City: Midsize,1,61,18300,18300,NA,NA,NA
-California State University-Chico,CA,Far West,1,City: Small,0.6778,16546,7348,19228,14250,16750,0.574591709
-California State University-Monterey Bay,CA,Far West,1,Suburb: Midsize,0.532,6557,7043,18923,11000,13750,0.670987039
-California State University-San Marcos,CA,Far West,1,Suburb: Large,0.5676,14516,7653,19533,12500,17498,0.65968394
-Carlos Albizu University-San Juan,PR,Outlying Areas,1,City: Large,0.7083,267,7868,7868,6500,16250,0.804210526
-Carroll College,MT,Rocky Mountains,1,Town: Remote,0.7781,1309,34480,34480,21500,26582.5,0.603846154
-Carson-Newman University,TN,Southeast,1,Suburb: Small,0.6736,1633,27400,27400,14669.5,24250,0.56142132
-Catawba College,NC,Southeast,1,Suburb: Midsize,0.424,1321,29920,29920,18944.5,25000,0.531556802
-Cedar Crest College,PA,Mid East,1,City: Midsize,0.6333,1413,38092,38092,21000,27000,0.955026455
-Cedarville University,OH,Great Lakes,1,Town: Fringe,0.7145,3132,29156,29156,16000,21460.5,0.53368329
-Central Christian College of the Bible,MO,Plains,1,Town: Distant,0.2135,226,13900,13900,7971.5,16100,0.361290323
-Central Connecticut State University,CT,New England,1,Suburb: Large,0.6676,9317,10225,22914,15834.5,22000,0.491322415
-Central State University,OH,Great Lakes,1,Rural: Fringe,0.4801,1772,6246,8096,10750,35000,0.54954955
-Chaminade University of Honolulu,HI,Far West,1,City: Large,0.9223,1785,24514,24514,13000,21500,0.713097713
-Chatham University,PA,Mid East,1,City: Large,0.5455,981,36510,36510,14191,19451,0.750883392
-Clemson University,SC,Southeast,1,Suburb: Large,0.4718,19172,15116,36058,19000,21500,0.50370934
-Colby-Sawyer College,NH,New England,1,Rural: Distant,0.8727,963,41186,41186,26000,27000,0.719298246
-Colorado State University-Fort Collins,CO,Rocky Mountains,1,City: Midsize,0.8262,23804,11395,28903,15000,20502,0.549675487
-Columbus College of Art and Design,OH,Great Lakes,1,City: Large,0.7011,1024,34440,34440,24116,27000,0.7
-Concorde Career College-Grand Prairie,TX,Southwest,0,Suburb: Large,0.935,768,NA,NA,9500,9500,0.873839009
-Concorde Career College-San Antonio,TX,Southwest,0,City: Large,0.8333,692,NA,NA,9500,9500,0.872982821
-Concordia College at Moorhead,MN,Plains,1,Suburb: Midsize,0.616,1980,38378,38378,24250,27000,0.581032413
-Converse College,SC,Southeast,1,City: Small,0.7126,916,17680,17680,15000,26544.5,NA
-Culver-Stockton College,MO,Plains,1,Rural: Remote,0.5466,1029,26040,26040,16753,27000,0.523489933
-DeSales University,PA,Mid East,1,Suburb: Large,0.7379,2291,35900,35900,18750,25334,0.657142857
-DeVry College of New York,NY,Mid East,1,City: Large,0.9206,940,18020,18020,18371.5,35766.5,0.605904902
-DeVry University-Arizona,AZ,Southwest,1,City: Large,0.9231,499,17188,17188,18371.5,35766.5,0.605904902
-DeVry University-Colorado,CO,Rocky Mountains,1,Suburb: Large,1,194,17380,17380,18371.5,35766.5,0.605904902
-DeVry University-New Jersey,NJ,Mid East,1,Suburb: Large,1,492,17348,17348,18371.5,35766.5,0.605904902
-DeVry University-Virginia,VA,Southeast,1,City: Midsize,0.7,227,17572,17572,18371.5,35766.5,0.605904902
-Design Institute of San Diego,CA,Far West,1,City: Large,0.5,126,22510,22510,24335,42485.5,NA
-Dickinson College,PA,Mid East,1,City: Small,0.4871,2339,52955,52955,19700,21000,0.571663921
-Doane University-Arts & Sciences,NE,Plains,1,Town: Distant,0.6518,1068,32250,32250,17000,23862.5,0.556331007
-Dordt College,IA,Plains,1,Town: Remote,0.7207,1353,30000,30000,18989.5,23250,0.482078853
-Drew University,NJ,Mid East,1,Suburb: Large,0.6343,1404,49468,49468,22500,26670,0.621621622
-Duquesne University,PA,Mid East,1,City: Large,0.717,5930,36394,36394,25000,27000,0.642581144
-Dutchess BOCES-Practical Nursing Program,NY,Mid East,0,Suburb: Large,0.7901,132,NA,NA,8471,9500,0.919354839
-EDP University of Puerto Rico Inc-San Juan,PR,Outlying Areas,0,City: Large,0.8367,1958,6200,10712,9500,10500,0.664742268
-East Texas Baptist University,TX,Southwest,1,Town: Distant,0.5442,1298,25470,25470,12250,26000,0.471980075
-Eastern Michigan University,MI,Great Lakes,1,Suburb: Large,0.4474,16536,12019,29200,18500,25270,0.610537751
-Eastern New Mexico University-Main Campus,NM,Southwest,1,Town: Remote,0.6045,3431,6013,11788,8276,14611,0.582059533
-Edward Waters College,FL,Southeast,1,City: Large,0.6045,946,13525,13525,12000,29875,0.463114754
-Elmira College,NY,Mid East,1,City: Small,0.8511,908,41900,41900,23250,27000,0.711155379
-Emmanuel College,GA,Southeast,1,Town: Distant,0.4307,800,19710,19710,12000,25500,0.45194274
-Erie 1 BOCES,NY,Mid East,0,Suburb: Large,0.2398,420,NA,NA,9500,9500,0.788461539
-FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,Far West,0,City: Large,0.3947,2367,32293,32293,12500,14167,0.890282132
-Ferrum College,VA,Southeast,1,Rural: Distant,0.7193,1122,33025,33025,12500,28000,0.395878525
-Finlandia University,MI,Great Lakes,1,Town: Remote,0.3564,365,22758,22758,8944,22500,0.421875
-Florida Institute of Technology,FL,Southeast,1,City: Small,0.6346,3395,41240,41240,10500,27000,0.524374177
-Fort Lewis College,CO,Rocky Mountains,1,Town: Distant,0.8321,3150,8609,18761,10500,18866,0.52879902
-Fox College,IL,Great Lakes,0,Suburb: Large,0.6053,433,15160,15160,11461.5,13518,0.830508475
-Franklin W Olin College of Engineering,MA,New England,1,Suburb: Large,0.1337,345,51936,51936,14857,16028,0.492307692
-Frostburg State University,MD,Mid East,1,Suburb: Small,0.7229,4486,8914,22262,14000,21499,0.527020992
-Gemini School of Visual Arts & Communication,TX,Southwest,1,Suburb: Large,0,18,NA,NA,NA,NA,NA
-Good Samaritan College of Nursing and Health Science,OH,Great Lakes,0,City: Large,0.4464,413,15470,15470,17500,20869.5,0.909448819
-Gordon College,MA,New England,1,Suburb: Large,0.8889,1573,36740,36740,23250,27000,0.649762282
-Hampden-Sydney College,VA,Southeast,1,Rural: Distant,0.5505,1046,43940,43940,22500,27000,NA
-Hannibal-LaGrange University,MO,Plains,1,Town: Remote,0.5455,744,21810,21810,13062,19050,0.679775281
-Harrison College-Grove City,OH,Great Lakes,0,Suburb: Large,1,158,16275,16275,12663,24667,0.804054054
-Harrison College-Morrisville,NC,Southeast,0,Rural: Fringe,1,89,16500,16500,12663,24667,0.804054054
-Haverford College,PA,Mid East,1,Suburb: Large,0.2005,1291,52994,52994,11944,13000,0.471910112
-Henderson State University,AR,Southeast,1,Town: Distant,0.7968,2829,8530,10180,11000,20050,0.554341576
-Holy Name Medical Center-Sister Claire Tynan School of Nursing,NJ,Mid East,0,Suburb: Large,1,159,22309,22309,13909,17900,0.864864865
-Hope College,MI,Great Lakes,1,City: Small,0.7363,3029,32780,32780,24800,27000,0.589515331
-Houghton College,NY,Mid East,1,Rural: Remote,0.9135,1026,31540,31540,19852,23648.5,0.578754579
-Illinois State University,IL,Great Lakes,1,Suburb: Midsize,0.8913,18264,14061,25168,16750,21250,0.562434964
-Indiana State University,IN,Great Lakes,1,City: Small,0.8451,10817,8916,19452,12000,23708,0.585659368
-Inter American University of Puerto Rico-Arecibo,PR,Outlying Areas,1,City: Small,0.5755,3870,5872,5872,4500,5500,0.59634425
-Jewish Theological Seminary of America,NY,Mid East,1,City: Large,0.5268,158,54684,54684,21750,NA,NA
-Johnson & Wales University-Online,RI,New England,1,City: Midsize,0.2868,681,13365,13365,17836,25899,0.635339712
-Johnson C Smith University,NC,Southeast,1,City: Large,0.381,1392,18236,18236,19000,32500,0.586096257
-Johnson University,TN,Southeast,1,Rural: Fringe,0.9798,808,14920,14920,15800,23250,0.432122371
-Judson College,AL,Southeast,1,Rural: Remote,0.507,315,17896,17896,9500,21744,NA
-Kennesaw State University,GA,Southeast,1,Suburb: Large,0.6063,32309,6347,17329,12000,20375,0.47412539
-Keuka College,NY,Mid East,1,Town: Distant,0.7003,1640,30946,30946,18750,25000,0.758450124
-La Roche University,PA,Mid East,1,Suburb: Large,0.9657,1312,27720,27720,19000,25963.5,0.633888048
-La Sierra University,CA,Far West,1,City: Large,0.4821,1929,32130,32130,16000,30250,0.633611691
-Lamar University,TX,Southwest,1,City: Midsize,0.8165,8928,8314,18274,11250,21180,0.653966831
-Lee University,TN,Southeast,1,City: Small,0.8504,4265,16730,16730,16815,27000,0.589823468
-Life University,GA,Southeast,1,City: Small,0.689,751,11715,11715,8333,10000,0.577603143
-Lindenwood University,MO,Plains,1,City: Small,0.7375,6807,16960,16960,19500,26529,0.577721661
-Long Island Business Institute,NY,Mid East,0,City: Large,0.7885,693,14475,14475,12391,20500,0.741176471
-Loyola University New Orleans,LA,Southeast,1,City: Large,0.6911,2534,39492,39492,20500,27000,0.643323996
-Lyon College,AR,Southeast,1,Town: Remote,0.6418,664,27340,27340,12000,24720,0.432506887
-Madison Oneida BOCES-Practical Nursing Program,NY,Mid East,0,Town: Fringe,0.6,42,NA,NA,9500,9500,NA
-Manhattanville College,NY,Mid East,1,Suburb: Large,0.8206,1674,37910,37910,19500,26000,0.707349081
-Mansfield University of Pennsylvania,PA,Mid East,1,Town: Distant,0.8919,1770,12316,22008,19500,27000,0.593085106
-Marquette University,WI,Great Lakes,1,City: Large,0.8933,8093,39900,39900,24250,27000,0.585407001
-Massachusetts Institute of Technology,MA,New England,1,City: Midsize,0.0717,4489,49892,49892,15346,17125,0.371888726
-McPherson College,KS,Plains,1,Town: Remote,0.4847,688,27823,27823,15000,26000,0.368181818
-Mercy Hospital School of Nursing,PA,Mid East,0,City: Large,0.8571,154,15315,15315,10500,12000,0.852941177
-Mercyhurst University,PA,Mid East,1,City: Small,0.6992,2448,36320,36320,19000,26850,0.567702553
-Merkaz Bnos-Business School,NY,Mid East,0,City: Large,0.8864,73,NA,NA,NA,NA,0.925
-Mesivta Torah Vodaath Rabbinical Seminary,NY,Mid East,1,City: Large,0.8333,252,11510,11510,NA,NA,NA
-Messiah College,PA,Mid East,1,Suburb: Large,0.7701,2670,34160,34160,21072,25000,0.633608815
-Miami University-Oxford,OH,Great Lakes,1,Town: Fringe,0.682,16816,14958,34211,16500,23951.5,0.541991342
-Midwestern Baptist Theological Seminary,MO,Plains,1,City: Large,0.9455,417,7810,7810,7917,14251,0.260416667
-Millersville University of Pennsylvania,PA,Mid East,1,Suburb: Large,0.7949,6613,11858,21560,17058,24640,0.568294823
-Mills College,CA,Far West,1,City: Large,0.871,757,46236,46236,19000,24154,NA
-Mirrer Yeshiva Cent Institute,NY,Mid East,1,City: Large,1,137,7260,7260,NA,NA,NA
-Mississippi College,MS,Southeast,1,Suburb: Large,0.3903,3041,17392,17392,16000,24252.5,0.621725732
-Mitchell College,CT,New England,1,City: Small,0.7797,617,32442,32442,18107,26000,0.436241611
-Moody Bible Institute,IL,Great Lakes,1,City: Large,0.6589,2671,12960,12960,NA,NA,0.450229709
-Moore College of Art and Design,PA,Mid East,1,City: Large,0.5407,373,39833,39833,23171,27000,NA
-Mount Aloysius College,PA,Mid East,1,Town: Fringe,0.6087,1185,22430,22430,17220,25000,0.748743719
-Nebraska Wesleyan University,NE,Plains,1,City: Large,0.7126,1748,32894,32894,17225,24491,0.574115044
-New Hampshire Institute of Art,NH,New England,1,City: Midsize,0.9943,307,26880,26880,27000,NA,0.691489362
-New Jersey Institute of Technology,NJ,Mid East,1,City: Large,0.6139,7489,16898,31918,18250,23261,0.209484818
-New Mexico State University-Main Campus,NM,Southwest,1,Suburb: Midsize,0.6384,11173,6461,21022,10500,17000,0.576561404
-North Central College,IL,Great Lakes,1,City: Midsize,0.544,2688,37749,37749,20000,25000,0.538636364
-Northwestern College-Chicago Campus,IL,Great Lakes,0,City: Large,0.9615,67,17475,17475,12139,24112,0.884730539
-Northwestern University,IL,Great Lakes,1,City: Small,0.0924,8489,52678,52678,16500,17500,0.524346793
-Notre Dame College,OH,Great Lakes,1,Suburb: Large,0.8948,1500,29300,29300,16184,27000,0.514736842
-Notre Dame of Maryland University,MD,Mid East,1,City: Large,0.714,808,36070,36070,18666,25000,0.938215103
-Nyack College,NY,Mid East,1,Suburb: Large,0.984,1387,25350,25350,15645,25000,0.592677346
-Oberlin College,OH,Great Lakes,1,Town: Fringe,0.3372,2827,53460,53460,24931.5,27000,0.5568
-Occidental College,CA,Far West,1,City: Large,0.4179,1958,52838,52838,21000,23215,0.584507042
-Oklahoma Baptist University,OK,Southwest,1,Town: Distant,0.6472,1852,26840,26840,13403.5,23875,0.571428571
-Oral Roberts University,OK,Southwest,1,City: Large,0.9334,3068,26792,26792,22178.5,30402,0.605820106
-Otis College of Art and Design,CA,Far West,1,City: Large,0.9125,1056,45620,45620,25000,27000,0.616766467
-Pacific Islands University,GU,Outlying Areas,1,Town: Remote,1,53,5428,5428,NA,NA,0.53030303
-Park University,MO,Plains,1,Suburb: Large,0.6904,9442,10774,10774,11118,18125,0.541274817
-Paroba College of Cosmetology,WA,Far West,0,City: Midsize,0.8667,138,NA,NA,7917,7917,0.767241379
-Pennsylvania State University-Penn State Berks,PA,Mid East,1,Suburb: Large,0.857,2635,15190,23692,19500,26120,0.501226005
-Plaza College,NY,Mid East,0,City: Large,0.3007,811,12450,12450,9495.5,14842,0.834146342
-Point Park University,PA,Mid East,1,City: Large,0.6486,3230,30130,30130,20500,27000,0.630620985
-Pomona College,CA,Far West,1,Suburb: Large,0.0836,1567,51075,51075,11700,13400,0.501886793
-Providence College,RI,New England,1,City: Midsize,0.5152,4011,48764,48764,27000,27000,0.577102804
-Quinnipiac University,CT,New England,1,Suburb: Large,0.7388,7249,46780,46780,21500,26000,0.623208191
-Randolph-Macon College,VA,Southeast,1,Suburb: Large,0.6223,1439,40000,40000,24318,27000,0.546191248
-Rhode Island College,RI,New England,1,Suburb: Large,0.7359,6900,8776,21289,13320.5,20906,0.685519692
-Rice University,TX,Southwest,1,City: Large,0.1586,3970,45608,45608,10000,11200,0.451816746
-Rider University,NJ,Mid East,1,Suburb: Large,0.6712,4042,41310,41310,20500,25827,0.597790055
-Riverside College of Health Careers,VA,Southeast,0,City: Midsize,0.5455,336,15849,15849,12500,13669,NA
-Rochester College,MI,Great Lakes,1,Suburb: Large,1,987,22312,22312,14904.5,23611,0.662480377
-Rollins College,FL,Southeast,1,Suburb: Large,0.6389,2612,48335,48335,21309.5,25251,0.6425
-SUNY College at Geneseo,NY,Mid East,1,Town: Distant,0.7236,5522,8408,18026,18250,21684,0.618975904
-SUNY College at Old Westbury,NY,Mid East,1,Suburb: Large,0.7822,4481,7883,17533,13000,17000,0.615720524
-SUNY College of Technology at Alfred,NY,Mid East,0,Town: Remote,0.6766,3665,8327,8327,12000,15000,0.360236221
-Sacred Heart University,CT,New England,1,Suburb: Large,0.6028,5496,39820,39820,19500,25375,0.66259058
-Saint Ambrose University,IA,Plains,1,City: Midsize,0.6081,2354,30016,30016,20858.5,25500,0.595194085
-Saint Mary's University of Minnesota,MN,Plains,1,Town: Distant,0.6438,1471,33560,33560,17376,23250,0.597074468
-Sam Houston State University,TX,Southwest,1,Town: Distant,0.7439,18416,8062,18022,15140,21250,0.661414247
-San Diego Culinary Institute,CA,Far West,0,Suburb: Large,0.6809,39,NA,NA,8143,9500,0.48
-San Francisco Conservatory of Music,CA,Far West,1,City: Large,0.438,205,44810,44810,26000,27000,0.372881356
-San Francisco State University,CA,Far West,1,City: Large,0.7046,25966,7254,19134,13000,16711.5,0.584023669
-Shepherd University,WV,Southeast,1,Town: Fringe,0.8913,2956,7328,17869,14190,21966,0.600388601
-Silver Lake College of the Holy Family,WI,Great Lakes,1,Town: Distant,0.5154,309,27360,27360,19347,27797.5,0.623529412
-Southeast Missouri State University,MO,Plains,1,City: Small,0.8455,8910,7185,12720,13485,22185,0.595410005
-Southern Connecticut State University,CT,New England,1,City: Midsize,0.6492,7703,10538,23226,16000,23000,0.630537975
-Southern Illinois University-Edwardsville,IL,Great Lakes,1,Suburb: Large,0.8951,11339,11493,24651,14250,21434,0.579223929
-Southern New Hampshire University,NH,New England,1,Suburb: Midsize,0.7805,68214,31136,31136,6333,18347.5,0.67667104
-Southern Vermont College,VT,New England,1,Rural: Fringe,0.9068,347,24775,24775,21500,27000,0.594594595
-Southwestern Christian University,OK,Southwest,1,Suburb: Large,0.7704,610,13880,13880,13075.5,27500,0.504385965
-Southwestern College,KS,Plains,1,Town: Distant,0.9688,1096,28750,28750,15775,25975,0.462643678
-Southwestern Oklahoma State University,OK,Southwest,1,Town: Remote,0.9197,4358,7005,13905,9215,14334.5,0.601328904
-St. John's College,MD,Mid East,1,Suburb: Large,0.5445,458,51795,51795,19000,27000,0.409937888
-St. Joseph's College of Nursing,NY,Mid East,0,City: Midsize,0.2,298,19700,19700,12000,12000,0.868217054
-Stanford University,CA,Far West,1,Suburb: Large,0.0473,7056,49617,49617,10873.5,11446.5,0.494019139
-Stevens Institute of Technology,NJ,Mid East,1,Suburb: Large,0.4388,3114,50554,50554,26000,27000,0.284735812
-Stevenson University,MD,Mid East,1,Rural: Fringe,0.6087,3375,35490,35490,20632,26905,0.66090584
-Stony Brook University,NY,Mid East,1,Suburb: Large,0.4219,17215,9257,26767,15646,18960,0.510155721
-Sweet Briar College,VA,Southeast,1,Suburb: Midsize,0.928,281,37155,37155,21000,27000,NA
-Temple University,PA,Mid East,1,City: Large,0.5667,29037,16658,28418,21125,25500,0.550251859
-Tennessee Technological University,TN,Southeast,1,Town: Remote,0.644,9084,8513,24377,11000,16532,0.500758265
-Texas A & M University-Kingsville,TX,Southwest,1,Town: Distant,0.8413,5694,8462,22102,12500,20665,0.556596794
-Texas County Technical College,MO,Plains,0,Rural: Remote,0.8571,54,15869,15869,9500,12969,0.9
-Texas Tech University,TX,Southwest,1,City: Large,0.6918,30330,8860,18652,15500,22102,0.496752243
-Texas Wesleyan University,TX,Southwest,1,City: Large,0.3427,1656,27800,27800,13750,22000,0.605876393
-The College of New Rochelle,NY,Mid East,1,Suburb: Large,0.6757,2521,36618,36618,16500,23000,0.827272727
-The College of Wooster,OH,Great Lakes,1,Town: Distant,0.5644,1970,48600,48600,21500,26000,0.506557377
-The Evergreen State College,WA,Far West,1,Suburb: Midsize,0.9628,3560,7591,25051,12659,17116,0.60723933
-The New England Conservatory of Music,MA,New England,1,City: Large,0.3281,413,46930,46930,29000,30791,0.423529412
-The New School,NY,Mid East,1,City: Large,0.6151,6982,47276,47276,17541.5,24526.5,0.753630203
-The Southern Baptist Theological Seminary,KY,Southeast,1,City: Large,0.7811,873,18860,18860,NA,NA,NA
-The University of Alabama,AL,Southeast,1,City: Midsize,0.533,32387,10780,28100,17340,23290,0.615252417
-The University of Texas at Arlington,TX,Southwest,1,City: Large,0.7122,32955,9952,25152,11686,17750,0.664199279
-The University of Texas at El Paso,TX,Southwest,1,City: Large,1,21216,7851,21596,11000,17075,0.551145361
-Tougaloo College,MS,Southeast,1,City: Midsize,0.7472,789,10600,10600,21875,35500,0.636363636
-Trine University,IN,Great Lakes,1,Town: Distant,0.701,1939,31540,31540,16000,25000,0.391951006
-Trinity Health System School of Nursing,OH,Great Lakes,0,City: Small,0.8462,86,8809,9673,9787,15450,0.844155844
-Tusculum University,TN,Southeast,1,Town: Distant,0.8864,1484,23700,23700,17137,24750,0.502132196
-Union College,NY,Mid East,1,City: Small,0.3737,2167,53490,53490,23000,25828,0.495682211
-Universidad Central Del Caribe,PR,Outlying Areas,0,Suburb: Large,0.7742,136,8032,8032,5500,4500,0.747663551
-Universidad del Sagrado Corazon,PR,Outlying Areas,1,City: Large,0.4073,4294,6000,6000,10240,13650,0.611288605
-University of Alaska Fairbanks,AK,Far West,1,Suburb: Small,0.767,4910,6262,19183,9500,15000,0.594048288
-University of Alaska Southeast,AK,Far West,1,Town: Remote,0.7105,1214,6828,19533,9151.5,16000,0.697855751
-University of Baltimore,MD,Mid East,1,City: Large,0.8099,2856,8824,20704,15750,20000,0.610481586
-University of Connecticut-Hartford Campus,CT,New England,1,City: Midsize,0.9597,1244,12828,34896,NA,NA,NA
-University of Evansville,IN,Great Lakes,1,City: Midsize,0.6996,2049,35394,35394,21500,26950,0.613607189
-University of Florida,FL,Southeast,1,City: Midsize,0.4201,33655,6381,28659,15000,16195.5,0.593790288
-University of Hartford,CT,New England,1,City: Midsize,0.8089,4835,38910,38910,19000,27000,0.567121024
-University of Hawaii-West Oahu,HI,Far West,1,Suburb: Large,0.7875,2747,7440,20400,9500,14544,0.703349282
-University of Illinois at Urbana-Champaign,IL,Great Lakes,1,City: Small,0.6153,32884,15074,31194,17750,20127,0.494837172
-University of Lynchburg,VA,Southeast,1,City: Small,0.7455,1979,37690,37690,21555,27000,0.617154812
-University of Maine at Farmington,ME,New England,1,Town: Remote,0.8257,1741,9458,19026,18375,26716,0.676258993
-University of Mary,ND,Plains,1,Rural: Fringe,0.7635,2064,18224,18224,14714.5,21000,0.650952859
-University of Massachusetts-Amherst,MA,New England,1,Suburb: Large,0.5758,23010,15411,33477,20600,23450.5,0.515474436
-University of Minnesota-Duluth,MN,Plains,1,City: Small,0.7661,9199,13344,18462,17000,24250,0.488211174
-University of Missouri-Kansas City,MO,Plains,1,City: Large,0.6415,7854,8011,19793,15000,21000,0.606357616
-University of Nebraska-Lincoln,NE,Plains,1,City: Large,0.6438,20954,8978,24098,13875,21787.5,0.525061037
-University of New Haven,CT,New England,1,Suburb: Large,0.8776,5147,38170,38170,21500,27000,0.575202386
-University of North Carolina at Chapel Hill,NC,Southeast,1,City: Small,0.244,18658,9005,34588,15000,16661,0.619639794
-University of North Florida,FL,Southeast,1,City: Large,0.5871,13962,6394,20798,12186,15947,0.61454833
-University of Oklahoma-Norman Campus,OK,Southwest,1,Suburb: Midsize,0.74,21536,11538,26919,15000,20000,0.557354514
-University of South Carolina-Aiken,SC,Southeast,1,Suburb: Large,0.5294,3029,10502,20702,14255.5,25974,0.656100479
-University of Wisconsin-River Falls,WI,Great Lakes,1,Town: Distant,0.7452,5515,8013,15586,15500,21679,0.6388334
-University of Wisconsin-Stevens Point,WI,Great Lakes,1,Town: Distant,0.8356,7768,8209,16476,17500,24444,0.543250689
-Upper Iowa University,IA,Plains,1,Rural: Remote,0.5558,4058,29600,29600,16378,23000,0.677285319
-Utah State University,UT,Rocky Mountains,1,City: Small,0.8908,21473,7870,21520,8000,13491,0.549590875
-Warrensburg Area Career Center,MO,Plains,0,Town: Distant,0.8095,23,NA,NA,7151,9500,NA
-Watkins College of Art Design & Film,TN,Southeast,1,City: Large,0.4213,199,23700,23700,20500,28479.5,0.603448276
-Webster University,MO,Plains,1,Suburb: Large,0.5356,2954,27100,27100,17436,23225.5,0.604387827
-West Coast University-Ontario,CA,Far West,1,City: Midsize,0.9259,1253,34635,34635,26500,33937.5,0.797790055
-Western Kentucky University,KY,Southeast,1,City: Small,0.9545,14529,10202,25512,14250,23197,0.602534738
-Western Michigan University,MI,Great Lakes,1,City: Small,0.8232,17704,11943,14699,20188,26364,0.5443729
-Westmont College,CA,Far West,1,Suburb: Midsize,0.8471,1285,44044,44044,18750,23250,0.60362173
-Widener University,PA,Mid East,1,Suburb: Large,0.6543,3224,44166,44166,20928.5,27000,0.60591716
-William Jessup University,CA,Far West,1,Rural: Fringe,0.6605,1188,30550,30550,15000,20500,0.622186495
-Xavier University,OH,Great Lakes,1,City: Large,0.7391,4571,37230,37230,21500,27000,0.568421053
-Yeshiva D'monsey Rabbinical College,NY,Mid East,1,Suburb: Large,0.5122,70,6800,6800,NA,NA,NA
-Yeshivas Be'er Yitzchok,NJ,Mid East,1,Suburb: Large,0.8,43,10650,10650,NA,NA,NA
-Yeshivath Beth Moshe,PA,Mid East,1,City: Small,0.9167,34,9200,9200,NA,NA,NA
+name,state,region,adm_rate,num_undergrads,median_debt,median_debt_grads,median_earnings,bachelors_degree
+Abilene Christian University,TX,6,0.634,3480,15040,24000,49294,1
+Abraham Baldwin Agricultural College,GA,5,0.7599,3546,8750,17500,32130,1
+AdventHealth University,FL,5,0.9087,1129,18142,25034,58788,1
+Andrews University,MI,3,0.4878,1381,20750,26076,51909,1
+Arizona Christian University,AZ,6,0.7147,883,7132,21500,37531,1
+Art Center College of Design,CA,8,0.7609,1907,27563,31218,66407,1
+Augsburg University,MN,4,0.7312,2487,19329,25000,53472,1
+Ave Maria University,FL,5,0.9179,1048,12000,21500,45789,1
+Baptist Health College Little Rock,AR,5,0.5,661,9500,10000,54924,0
+Bard College,NY,2,0.5695,1932,19000,25910,43441,1
+Beacon College,FL,5,0.4461,426,16313,25718,22833,1
+Belanger School of Nursing,NY,2,0.4,143,13250,15250,67700,0
+Bet Medrash Gadol Ateret Torah,NY,2,0.6923,142,NA,NA,NA,1
+Beth Medrash Meor Yitzchok,NY,2,0.7375,187,NA,NA,NA,1
+Binghamton University,NY,2,0.4303,14300,15000,18750,72980,1
+Biola University,CA,8,0.6438,3683,19500,24273,47704,1
+Bloomfield College,NJ,2,0.8465,1530,19500,27000,44790,1
+Bluffton University,OH,3,0.6051,675,21500,27000,44911,1
+Bolivar Technical College,MO,4,1,129,11000,15000,NA,0
+Brandeis University,MA,1,0.334,3481,23250,25797,70327,1
+Broome Delaware Tioga BOCES-Practical Nursing Program,NY,2,0.6087,63,9500,NA,40243,0
+CUNY City College,NY,2,0.5054,11967,9500,12348,55741,1
+CUNY Lehman College,NY,2,0.4701,12087,8500,10812,51661,1
+Cabrini University,PA,2,0.6167,1463,19500,27000,53142,1
+Cairn University-Langhorne,PA,2,0.8145,885,19000,27000,41013,1
+California Jazz Conservatory,CA,8,1,35,NA,NA,NA,1
+California State University-Chico,CA,8,0.9017,15689,14964,16931,56270,1
+California State University-Monterey Bay,CA,8,0.8562,6456,11500,13750,53190,1
+California State University-San Marcos,CA,8,0.7942,15016,12750,17134,54811,1
+Carroll College,MT,7,0.7302,1093,21000,25602,57154,1
+Carson-Newman University,TN,5,0.7932,1635,15000,22438,42546,1
+Catawba College,NC,5,0.5212,1312,14486,25000,43015,1
+Cedar Crest College,PA,2,0.5246,1078,21988,27000,52679,1
+Cedarville University,OH,3,0.5933,3566,17500,21500,49074,1
+Central Christian College of the Bible,MO,4,NA,164,10925,18058,33486,1
+Central Connecticut State University,CT,1,0.6485,8402,16668,22000,52515,1
+Central State University,OH,3,0.5804,4009,10250,31000,31922,1
+Chaminade University of Honolulu,HI,8,0.8897,1623,19000,23235,44647,1
+Chatham University,PA,2,0.6619,1119,16750,22250,42808,1
+Clemson University,SC,5,0.6194,20796,19500,21500,63857,1
+Colby-Sawyer College,NH,1,0.91,871,19500,27000,44780,1
+Colorado State University-Fort Collins,CO,7,0.8352,23332,15000,20500,54983,1
+Columbus College of Art and Design,OH,3,0.9169,981,20700,27000,38557,1
+Concorde Career College-Grand Prairie,TX,6,0.9611,862,9500,9500,34458,0
+Concorde Career College-San Antonio,TX,6,0.9806,519,9500,9500,27995,0
+Concordia College at Moorhead,MN,4,0.5808,1873,20601,26490,51988,1
+Culver-Stockton College,MO,4,0.9833,918,15268,26000,42206,1
+DeSales University,PA,2,0.8177,2352,20320,25252,56641,1
+DeVry College of New York,NY,2,0.398,874,12809,28308,44484,1
+DeVry University-Arizona,AZ,6,0.4,178,12809,28308,44484,1
+DeVry University-Colorado,CO,7,0.5,108,12809,28308,44484,1
+DeVry University-New Jersey,NJ,2,0.3333,169,12809,28308,44484,1
+DeVry University-Virginia,VA,5,0.6667,118,12809,28308,44484,1
+Design Institute of San Diego,CA,8,1,124,31000,45000,45321,1
+Dickinson College,PA,2,0.5165,1899,19000,19000,69562,1
+Drew University,NJ,2,0.7315,1541,21500,26222,57185,1
+Duquesne University,PA,2,0.7719,5373,23250,26988,66207,1
+Dutchess BOCES-Practical Nursing Program,NY,2,0.8,81,5350,6425,52370,0
+EDP University of Puerto Rico Inc-San Juan,PR,9,0.558,1233,9500,11400,19513,1
+East Texas Baptist University,TX,6,0.9207,1373,14000,23250,45717,1
+Eastern Michigan University,MI,3,0.7518,13148,18750,25000,46112,1
+Eastern New Mexico University-Main Campus,NM,6,0.506,3129,10500,16000,33395,1
+Elmira College,NY,2,0.8313,713,23500,27000,53878,1
+Emmanuel College,GA,5,0.5275,779,12000,24728,37494,1
+Emmanuel College,MA,1,0.7552,1785,23500,27000,55158,1
+Erie 1 BOCES,NY,2,NA,403,9463,9500,42525,0
+FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,8,0.3864,1847,12000,14165,45551,1
+Ferrum College,VA,5,0.7583,962,14000,27000,40224,1
+Finlandia University,MI,3,0.83,379,11000,21100,37894,1
+Florida Institute of Technology,FL,5,0.7037,3188,14798,27000,63704,1
+Fort Lewis College,CO,7,0.9151,3205,9726,18013,38083,1
+Fox College,IL,3,0.5,404,13624,16000,36715,0
+Franklin W Olin College of Engineering,MA,1,0.1644,290,12000,15846,132969,1
+Frostburg State University,MD,2,0.7361,3749,15500,22250,49230,1
+Gemini School of Visual Arts & Communication,TX,6,0.25,7,NA,NA,NA,1
+Good Samaritan College of Nursing and Health Science,OH,3,0.3462,353,17000,20843,57071,1
+Gordon College,MA,1,0.6827,1428,22250,26310,46746,1
+Hampden-Sydney College,VA,5,0.4701,881,19500,27000,65446,1
+Hannibal-LaGrange University,MO,4,0.6463,559,14968,18750,37541,1
+Haverford College,PA,2,0.1823,1306,10214,13177,69192,1
+Henderson State University,AR,5,0.749,2603,11000,18933,39020,1
+Holy Name Medical Center-Sister Claire Tynan School of Nursing,NJ,2,0.5,183,14750,19999,79610,0
+Hope College,MI,3,0.7783,2963,23830,26960,53796,1
+Houghton College,NY,2,0.7998,838,20000,25000,43767,1
+Illinois State University,IL,3,0.8131,17955,16000,20000,55457,1
+Indiana State University,IN,3,0.9229,8897,14000,23457,42877,1
+Inter American University of Puerto Rico-Arecibo,PR,9,0.3899,2955,5500,8725,22457,1
+Jewish Theological Seminary of America,NY,2,0.5833,132,16750,NA,NA,1
+Johnson & Wales University-Online,RI,1,0.3649,1314,16000,25750,41977,1
+Johnson C Smith University,NC,5,0.492,1248,19226,31000,37073,1
+Johnson University,TN,5,0.5497,708,15250,23250,36422,1
+Judson College,AL,5,0.5648,219,15750,27000,29569,1
+Kennesaw State University,GA,5,0.8311,36284,15631,24000,51792,1
+Keuka College,NY,2,0.9091,1300,21255,26000,52489,1
+La Roche University,PA,2,0.6891,1079,19500,25000,46784,1
+La Sierra University,CA,8,0.5697,1462,17750,27000,55004,1
+Lamar University,TX,6,0.8268,8220,13000,21119,44159,1
+Lee University,TN,5,0.8301,3812,18750,25750,40101,1
+Life University,GA,5,0.9681,938,9500,16801,46619,1
+Lindenwood University,MO,4,0.9213,4780,21065,26327,47009,1
+Long Island Business Institute,NY,2,0.8173,1131,12095,19090,23428,0
+Loyola University New Orleans,LA,5,0.7239,3144,16749,25792,48747,1
+Lyon College,AR,5,0.5015,665,9500,27000,43343,1
+Madison Oneida BOCES-Practical Nursing Program,NY,2,0.875,25,7125,8633,34239,0
+Manhattanville College,NY,2,0.8981,1373,20500,25000,54038,1
+Mansfield University of Pennsylvania,PA,2,0.9602,1614,19051,25990,42931,1
+Marquette University,WI,3,0.8249,7828,20500,24000,72489,1
+Massachusetts Institute of Technology,MA,1,0.0726,4360,12000,13418,111222,1
+McPherson College,KS,4,0.5216,808,15000,25949,42168,1
+Mercyhurst University,PA,2,0.8802,2369,19000,26000,46423,1
+Merkaz Bnos-Business School,NY,2,0.8776,139,NA,NA,26431,0
+Mesivta Torah Vodaath Rabbinical Seminary,NY,2,0.9,364,NA,NA,NA,1
+Miami University-Oxford,OH,3,0.9195,16418,16000,23522,54650,1
+Midwestern Baptist Theological Seminary,MO,4,0.97,858,11500,16871,41664,1
+Millersville University of Pennsylvania,PA,2,0.8455,6314,16750,24194,48420,1
+Mills College,CA,8,0.9114,603,16750,22500,58594,1
+Mirrer Yeshiva Cent Institute,NY,2,0.8621,131,NA,NA,NA,1
+Mississippi College,MS,5,0.2876,2515,16595,22500,45183,1
+Mitchell College,CT,1,0.7422,571,13500,25500,36391,1
+Moody Bible Institute,IL,3,0.9751,2134,10664,14000,NA,1
+Moore College of Art and Design,PA,2,0.5004,365,20000,27000,38677,1
+Mount Aloysius College,PA,2,0.9524,1082,18500,25284,43272,1
+Nebraska Wesleyan University,NE,4,0.6953,1767,18063,26966,52697,1
+New Jersey Institute of Technology,NJ,2,0.6603,8311,17500,21500,80043,1
+New Mexico State University-Main Campus,NM,6,0.6267,11107,10500,18464,36683,1
+North Central College,IL,3,0.5329,2453,19000,24289,54460,1
+Northwestern University,IL,3,0.0931,8401,14000,15000,80033,1
+Notre Dame College,OH,3,0.8743,1217,16775,27000,43634,1
+Notre Dame of Maryland University,MD,2,0.6229,751,16199,22500,50974,1
+Nyack College,NY,2,0.9732,1171,17500,25999,44409,1
+Oberlin College,OH,3,0.3536,2647,21000,25986,47921,1
+Occidental College,CA,8,0.409,1835,19500,22336,67388,1
+Oklahoma Baptist University,OK,6,0.5821,1610,13900,22795,43596,1
+Oral Roberts University,OK,6,0.7839,3080,19000,27000,42161,1
+Otis College of Art and Design,CA,8,0.8032,1030,21500,27000,54531,1
+Pacific Islands University,GU,9,0.9732,273,NA,NA,20443,1
+Park University,MO,4,NA,8217,12380,21397,51085,1
+Paroba College of Cosmetology,WA,8,NA,103,7917,7917,27020,0
+Pennsylvania State University-Penn State Berks,PA,2,NA,NA,NA,NA,NA,0
+Plaza College,NY,2,0.3001,869,11843,18842,29986,1
+Point Park University,PA,2,0.6951,2787,19582,27000,43351,1
+Pomona College,CA,8,0.0862,1462,10000,12000,69149,1
+Providence College,RI,1,0.5386,4242,26800,27000,69532,1
+Quinnipiac University,CT,1,0.8239,6787,21500,26000,75575,1
+Randolph-Macon College,VA,5,0.7131,1551,21500,27000,53288,1
+Rhode Island College,RI,1,0.8127,5892,14000,21002,49249,1
+Rice University,TX,6,0.1089,4052,10500,12000,77683,1
+Rider University,NJ,2,0.7566,3567,20075,26000,56442,1
+Riverside College of Health Careers,VA,5,NA,303,13500,14534,53302,0
+Rollins College,FL,5,0.6081,2536,22048,26000,53363,1
+SUNY College at Geneseo,NY,2,0.6136,4820,15500,20047,56241,1
+SUNY College at Old Westbury,NY,2,0.5308,4543,12000,15250,50921,1
+SUNY College of Technology at Alfred,NY,2,0.7172,3651,12000,15000,48256,1
+Sacred Heart University,CT,1,0.6553,6356,20000,25561,72191,1
+Saint Ambrose University,IA,4,0.7384,2299,19000,25000,54600,1
+Saint Mary's University of Minnesota,MN,4,0.841,1315,15250,20832,54950,1
+Sam Houston State University,TX,6,0.925,18811,16694,22020,50125,1
+San Francisco Conservatory of Music,CA,8,0.4562,243,20875,26835,37744,1
+San Francisco State University,CA,8,0.8409,23411,12500,15369,60126,1
+Shepherd University,WV,5,0.977,2479,14168,21170,45723,1
+Southeast Missouri State University,MO,4,0.9333,7659,14450,21614,39874,1
+Southern Connecticut State University,CT,1,0.7968,7239,14250,21500,51551,1
+Southern Illinois University-Edwardsville,IL,3,0.8505,9892,16373,20935,51671,1
+Southern New Hampshire University,NH,1,0.9354,109233,9250,20867,52024,1
+Southwestern Christian University,OK,6,NA,452,13881,22500,36198,1
+Southwestern College,CA,8,NA,15548,4072,4900,37777,0
+Southwestern College,KS,4,0.5624,1253,12719,23250,50205,1
+Southwestern College,NM,6,NA,NA,NA,NA,NA,1
+Southwestern Oklahoma State University,OK,6,0.932,3834,11000,16156,43079,1
+St. John's College,MD,2,0.6139,383,19500,27000,48751,1
+St. John's College,NM,6,0.6891,268,15000,27000,43203,1
+St. Joseph's College of Nursing,NY,2,0.7273,383,12000,12000,68467,0
+Stanford University,CA,8,0.0519,6366,11000,12000,97798,1
+Stevens Institute of Technology,NJ,2,0.5306,3787,25000,27000,98159,1
+Stevenson University,MD,2,0.8918,3008,24000,27000,56567,1
+Stony Brook University,NY,2,0.4891,17962,15000,18750,66678,1
+Sweet Briar College,VA,5,0.7595,356,14000,27000,48425,1
+Temple University,PA,2,0.7142,26969,20000,24499,56800,1
+Tennessee Technological University,TN,5,0.7963,8564,11000,16144,43326,1
+Texas A & M University-Kingsville,TX,6,0.8792,5114,15131,23250,47368,1
+Texas County Technical College,MO,4,0.625,52,12000,13875,29463,0
+Texas Tech University,TX,6,0.7003,32412,15750,22000,58435,1
+Texas Wesleyan University,TX,6,0.4679,1403,14000,23495,49382,1
+The College of Wooster,OH,3,0.653,1924,21500,26000,51866,1
+The Evergreen State College,WA,8,0.9838,2053,14500,19089,40782,1
+The New England Conservatory of Music,MA,1,0.3627,386,19500,25250,38489,1
+The New School,NY,2,0.691,6339,15000,23250,53981,1
+The Southern Baptist Theological Seminary,KY,5,0.7726,794,NA,NA,NA,1
+The University of Alabama,AL,5,0.8039,30610,17671,23072,52751,1
+The University of Texas at Arlington,TX,6,0.8775,34726,12477,18166,54633,1
+The University of Texas at El Paso,TX,6,0.9997,21070,12500,18460,44770,1
+Tougaloo College,MS,5,0.712,654,21000,32100,33291,1
+Trine University,IN,3,0.7894,2254,16822,23945,52957,1
+Trinity Health System School of Nursing,OH,3,1,49,13625,14625,55435,0
+Tusculum University,TN,5,0.6715,1194,16000,24141,40083,1
+Union College,KY,5,0.5733,927,15000,25291,38076,1
+Union College,NE,4,0.976,602,19000,27000,45198,1
+Union College,NY,2,0.4126,2035,21500,25831,71055,1
+Universidad Central Del Caribe,PR,9,0.8571,123,7500,7500,28509,1
+Universidad del Sagrado Corazon,PR,9,0.4331,4067,12650,16750,26108,1
+University of Alaska Fairbanks,AK,8,0.6701,4259,11000,19582,43728,1
+University of Alaska Southeast,AK,8,0.6352,1063,10223,20000,40727,1
+University of Baltimore,MD,2,0.7993,1856,18750,22956,58128,1
+University of Connecticut-Hartford Campus,CT,1,0.9616,1659,19292,21500,72460,1
+University of Evansville,IN,3,0.643,1763,19500,25183,50415,1
+University of Florida,FL,5,0.3113,34237,14986,15580,64463,1
+University of Hartford,CT,1,0.7741,4378,19500,27000,58087,1
+University of Hawaii-West Oahu,HI,8,0.9523,2755,11500,15453,48268,1
+University of Lynchburg,VA,5,0.9727,1801,21855,27000,49490,1
+University of Maine at Farmington,ME,1,0.9461,1509,16756,24499,35051,1
+University of Mary,ND,4,0.7168,2178,18500,23250,55720,1
+University of Massachusetts-Amherst,MA,1,0.6532,23884,20500,23149,62048,1
+University of Minnesota-Duluth,MN,4,0.7855,8351,16034,22514,54750,1
+University of Missouri-Kansas City,MO,4,0.6301,7077,14750,18751,52279,1
+University of Nebraska-Lincoln,NE,4,0.7774,20128,15000,21362,52360,1
+University of New Haven,CT,1,0.911,5078,19500,27000,52610,1
+University of North Carolina at Chapel Hill,NC,5,0.25,19261,13000,14500,61915,1
+University of North Florida,FL,5,0.7992,14308,12000,16331,49338,1
+University of Oklahoma-Norman Campus,OK,6,0.8338,21087,15250,20718,57071,1
+University of Wisconsin-River Falls,WI,3,0.7685,5238,14500,20500,47441,1
+University of Wisconsin-Stevens Point,WI,3,0.8654,7258,15487,22140,45855,1
+Upper Iowa University,IA,4,0.653,2934,16833,24972,49292,1
+Utah State University,UT,7,0.9104,21087,9240,14429,50432,1
+Warrensburg Area Career Center,MO,4,0.8571,19,8591,NA,41787,0
+Webster University,MO,4,0.5312,2535,17900,22500,47663,1
+West Coast University-Ontario,CA,8,NA,2408,22846,33319,97371,1
+Western Kentucky University,KY,5,0.9775,13086,15000,22500,39268,1
+Western Michigan University,MI,3,0.8494,15706,20000,26000,49652,1
+Westmont College,CA,8,0.7016,1226,19500,23250,60057,1
+Widener University,PA,2,0.7458,2866,24219,27000,62030,1
+William Jessup University,CA,8,0.6521,1279,16167,22334,51693,1
+Xavier University,OH,3,0.8122,5250,19500,24536,62015,1
+Yeshiva D'monsey Rabbinical College,NY,2,0.4906,71,NA,NA,NA,1
+Yeshivas Be'er Yitzchok,NJ,2,1,55,NA,NA,NA,1
+Yeshivath Beth Moshe,PA,2,0.8333,39,NA,NA,NA,1
