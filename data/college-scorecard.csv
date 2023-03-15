@@ -1,4 +1,4 @@
-instnm,stabbr,region,bachelor_degree,locale,adm_rate,ugds,tuitionfee_in,tuitionfee_out,debt_mdn,grad_debt_mdn,female
+name,state,region,bachelor_degree,locale,adm_rate,undergrads,tuition_instate,tuition_outstate,debt_mdn,debt_mdn_grads,female
 Alabama A & M University,AL,Southeast,1,City: Midsize,0.9027,4824,9857,18236,13246,32750,0.564030132
 University of Alabama at Birmingham,AL,Southeast,1,City: Midsize,0.9181,12866,8328,19032,14979.5,21833,0.63909074
 University of Alabama in Huntsville,AL,Southeast,1,City: Midsize,0.8123,6917,10280,21480,13522,22647,0.476349937
@@ -102,7 +102,7 @@ Columbia College Hollywood,CA,Far West,1,City: Large,0.4953,453,24495,24495,1341
 Design Institute of San Diego,CA,Far West,1,City: Large,0.5,126,22510,22510,24335,42485.5,
 Dominican University of California,CA,Far West,1,City: Small,0.8843,1284,44690,44690,27000,27000,0.729166667
 FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,Far West,0,City: Large,0.3947,2367,32293,32293,12500,14167,0.890282132
-FIDM-Fashion Institute of Design & Merchandising-San Francisco,CA,Far West,0,City: Large,0.36870000000000003,279,32293,32293,12500,14167,0.890282132
+FIDM-Fashion Institute of Design & Merchandising-San Francisco,CA,Far West,0,City: Large,0.3687,279,32293,32293,12500,14167,0.890282132
 FIDM-Fashion Institute of Design & Merchandising-Orange County,CA,Far West,0,City: Large,0.5669,71,32293,32293,12500,14167,0.890282132
 Fresno Pacific University,CA,Far West,1,City: Large,0.7239,2791,30458,30458,18000,21500,0.74513173
 Harvey Mudd College,CA,Far West,1,Suburb: Large,0.1542,844,54636,54636,21254,23500,0.43627451
@@ -775,7 +775,7 @@ University of Missouri-Kansas City,MO,Plains,1,City: Large,0.6415,7854,8011,1979
 Missouri University of Science and Technology,MO,Plains,1,Town: Remote,0.8351,6872,9246,25918,16998,24250,0.241320189
 University of Missouri-St Louis,MO,Plains,1,Suburb: Large,0.7594,7362,9590,25505,16530,20460,0.609886837
 Hillyard Technical Center,MO,Plains,0,City: Small,0.4769,106,,,9500,9500,0.717241379
-Truman State University,MO,Plains,1,Town: Remote,0.67490000000000006,5241,7656,14440,17250,22402,0.599009901
+Truman State University,MO,Plains,1,Town: Remote,0.6749,5241,7656,14440,17250,22402,0.599009901
 Northwest Missouri State University,MO,Plains,1,Town: Remote,0.7411,5065,7657,12908,13827,23557,0.6122856
 Ozark Christian College,MO,Plains,1,City: Small,0.4922,577,12720,12720,12500,19047,0.502040816
 College of the Ozarks,MO,Plains,1,Town: Distant,0.1348,1491,19130,19130,,,0.581730769
