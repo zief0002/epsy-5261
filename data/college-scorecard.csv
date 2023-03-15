@@ -1,4 +1,4 @@
-name,state,region,adm_rate,num_undergrads,median_debt,median_debt_grads,median_earnings,bachelors_degree
+name,state,region,adm_rate,num_undergrads,debt_mdn,debt_mdn_grads,earn_mdn,bachelors_degree
 Abilene Christian University,TX,6,0.634,3480,15040,24000,49294,1
 Abraham Baldwin Agricultural College,GA,5,0.7599,3546,8750,17500,32130,1
 AdventHealth University,FL,5,0.9087,1129,18142,25034,58788,1
