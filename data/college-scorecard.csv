@@ -1,236 +1,235 @@
-name,state,region,adm_rate,num_undergrads,debt_mdn,debt_mdn_grads,earn_mdn,bachelors_degree
-Abilene Christian University,TX,6,0.634,3480,15040,24000,49294,1
-Abraham Baldwin Agricultural College,GA,5,0.7599,3546,8750,17500,32130,1
-AdventHealth University,FL,5,0.9087,1129,18142,25034,58788,1
-Andrews University,MI,3,0.4878,1381,20750,26076,51909,1
-Arizona Christian University,AZ,6,0.7147,883,7132,21500,37531,1
-Art Center College of Design,CA,8,0.7609,1907,27563,31218,66407,1
-Augsburg University,MN,4,0.7312,2487,19329,25000,53472,1
-Ave Maria University,FL,5,0.9179,1048,12000,21500,45789,1
-Baptist Health College Little Rock,AR,5,0.5,661,9500,10000,54924,0
-Bard College,NY,2,0.5695,1932,19000,25910,43441,1
-Beacon College,FL,5,0.4461,426,16313,25718,22833,1
-Belanger School of Nursing,NY,2,0.4,143,13250,15250,67700,0
-Bet Medrash Gadol Ateret Torah,NY,2,0.6923,142,NA,NA,NA,1
-Beth Medrash Meor Yitzchok,NY,2,0.7375,187,NA,NA,NA,1
-Binghamton University,NY,2,0.4303,14300,15000,18750,72980,1
-Biola University,CA,8,0.6438,3683,19500,24273,47704,1
-Bloomfield College,NJ,2,0.8465,1530,19500,27000,44790,1
-Bluffton University,OH,3,0.6051,675,21500,27000,44911,1
-Bolivar Technical College,MO,4,1,129,11000,15000,NA,0
-Brandeis University,MA,1,0.334,3481,23250,25797,70327,1
-Broome Delaware Tioga BOCES-Practical Nursing Program,NY,2,0.6087,63,9500,NA,40243,0
-CUNY City College,NY,2,0.5054,11967,9500,12348,55741,1
-CUNY Lehman College,NY,2,0.4701,12087,8500,10812,51661,1
-Cabrini University,PA,2,0.6167,1463,19500,27000,53142,1
-Cairn University-Langhorne,PA,2,0.8145,885,19000,27000,41013,1
-California Jazz Conservatory,CA,8,1,35,NA,NA,NA,1
-California State University-Chico,CA,8,0.9017,15689,14964,16931,56270,1
-California State University-Monterey Bay,CA,8,0.8562,6456,11500,13750,53190,1
-California State University-San Marcos,CA,8,0.7942,15016,12750,17134,54811,1
-Carroll College,MT,7,0.7302,1093,21000,25602,57154,1
-Carson-Newman University,TN,5,0.7932,1635,15000,22438,42546,1
-Catawba College,NC,5,0.5212,1312,14486,25000,43015,1
-Cedar Crest College,PA,2,0.5246,1078,21988,27000,52679,1
-Cedarville University,OH,3,0.5933,3566,17500,21500,49074,1
-Central Christian College of the Bible,MO,4,NA,164,10925,18058,33486,1
-Central Connecticut State University,CT,1,0.6485,8402,16668,22000,52515,1
-Central State University,OH,3,0.5804,4009,10250,31000,31922,1
-Chaminade University of Honolulu,HI,8,0.8897,1623,19000,23235,44647,1
-Chatham University,PA,2,0.6619,1119,16750,22250,42808,1
-Clemson University,SC,5,0.6194,20796,19500,21500,63857,1
-Colby-Sawyer College,NH,1,0.91,871,19500,27000,44780,1
-Colorado State University-Fort Collins,CO,7,0.8352,23332,15000,20500,54983,1
-Columbus College of Art and Design,OH,3,0.9169,981,20700,27000,38557,1
-Concorde Career College-Grand Prairie,TX,6,0.9611,862,9500,9500,34458,0
-Concorde Career College-San Antonio,TX,6,0.9806,519,9500,9500,27995,0
-Concordia College at Moorhead,MN,4,0.5808,1873,20601,26490,51988,1
-Culver-Stockton College,MO,4,0.9833,918,15268,26000,42206,1
-DeSales University,PA,2,0.8177,2352,20320,25252,56641,1
-DeVry College of New York,NY,2,0.398,874,12809,28308,44484,1
-DeVry University-Arizona,AZ,6,0.4,178,12809,28308,44484,1
-DeVry University-Colorado,CO,7,0.5,108,12809,28308,44484,1
-DeVry University-New Jersey,NJ,2,0.3333,169,12809,28308,44484,1
-DeVry University-Virginia,VA,5,0.6667,118,12809,28308,44484,1
-Design Institute of San Diego,CA,8,1,124,31000,45000,45321,1
-Dickinson College,PA,2,0.5165,1899,19000,19000,69562,1
-Drew University,NJ,2,0.7315,1541,21500,26222,57185,1
-Duquesne University,PA,2,0.7719,5373,23250,26988,66207,1
-Dutchess BOCES-Practical Nursing Program,NY,2,0.8,81,5350,6425,52370,0
-EDP University of Puerto Rico Inc-San Juan,PR,9,0.558,1233,9500,11400,19513,1
-East Texas Baptist University,TX,6,0.9207,1373,14000,23250,45717,1
-Eastern Michigan University,MI,3,0.7518,13148,18750,25000,46112,1
-Eastern New Mexico University-Main Campus,NM,6,0.506,3129,10500,16000,33395,1
-Elmira College,NY,2,0.8313,713,23500,27000,53878,1
-Emmanuel College,GA,5,0.5275,779,12000,24728,37494,1
-Emmanuel College,MA,1,0.7552,1785,23500,27000,55158,1
-Erie 1 BOCES,NY,2,NA,403,9463,9500,42525,0
-FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,8,0.3864,1847,12000,14165,45551,1
-Ferrum College,VA,5,0.7583,962,14000,27000,40224,1
-Finlandia University,MI,3,0.83,379,11000,21100,37894,1
-Florida Institute of Technology,FL,5,0.7037,3188,14798,27000,63704,1
-Fort Lewis College,CO,7,0.9151,3205,9726,18013,38083,1
-Fox College,IL,3,0.5,404,13624,16000,36715,0
-Franklin W Olin College of Engineering,MA,1,0.1644,290,12000,15846,132969,1
-Frostburg State University,MD,2,0.7361,3749,15500,22250,49230,1
-Gemini School of Visual Arts & Communication,TX,6,0.25,7,NA,NA,NA,1
-Good Samaritan College of Nursing and Health Science,OH,3,0.3462,353,17000,20843,57071,1
-Gordon College,MA,1,0.6827,1428,22250,26310,46746,1
-Hampden-Sydney College,VA,5,0.4701,881,19500,27000,65446,1
-Hannibal-LaGrange University,MO,4,0.6463,559,14968,18750,37541,1
-Haverford College,PA,2,0.1823,1306,10214,13177,69192,1
-Henderson State University,AR,5,0.749,2603,11000,18933,39020,1
-Holy Name Medical Center-Sister Claire Tynan School of Nursing,NJ,2,0.5,183,14750,19999,79610,0
-Hope College,MI,3,0.7783,2963,23830,26960,53796,1
-Houghton College,NY,2,0.7998,838,20000,25000,43767,1
-Illinois State University,IL,3,0.8131,17955,16000,20000,55457,1
-Indiana State University,IN,3,0.9229,8897,14000,23457,42877,1
-Inter American University of Puerto Rico-Arecibo,PR,9,0.3899,2955,5500,8725,22457,1
-Jewish Theological Seminary of America,NY,2,0.5833,132,16750,NA,NA,1
-Johnson & Wales University-Online,RI,1,0.3649,1314,16000,25750,41977,1
-Johnson C Smith University,NC,5,0.492,1248,19226,31000,37073,1
-Johnson University,TN,5,0.5497,708,15250,23250,36422,1
-Judson College,AL,5,0.5648,219,15750,27000,29569,1
-Kennesaw State University,GA,5,0.8311,36284,15631,24000,51792,1
-Keuka College,NY,2,0.9091,1300,21255,26000,52489,1
-La Roche University,PA,2,0.6891,1079,19500,25000,46784,1
-La Sierra University,CA,8,0.5697,1462,17750,27000,55004,1
-Lamar University,TX,6,0.8268,8220,13000,21119,44159,1
-Lee University,TN,5,0.8301,3812,18750,25750,40101,1
-Life University,GA,5,0.9681,938,9500,16801,46619,1
-Lindenwood University,MO,4,0.9213,4780,21065,26327,47009,1
-Long Island Business Institute,NY,2,0.8173,1131,12095,19090,23428,0
-Loyola University New Orleans,LA,5,0.7239,3144,16749,25792,48747,1
-Lyon College,AR,5,0.5015,665,9500,27000,43343,1
-Madison Oneida BOCES-Practical Nursing Program,NY,2,0.875,25,7125,8633,34239,0
-Manhattanville College,NY,2,0.8981,1373,20500,25000,54038,1
-Mansfield University of Pennsylvania,PA,2,0.9602,1614,19051,25990,42931,1
-Marquette University,WI,3,0.8249,7828,20500,24000,72489,1
-Massachusetts Institute of Technology,MA,1,0.0726,4360,12000,13418,111222,1
-McPherson College,KS,4,0.5216,808,15000,25949,42168,1
-Mercyhurst University,PA,2,0.8802,2369,19000,26000,46423,1
-Merkaz Bnos-Business School,NY,2,0.8776,139,NA,NA,26431,0
-Mesivta Torah Vodaath Rabbinical Seminary,NY,2,0.9,364,NA,NA,NA,1
-Miami University-Oxford,OH,3,0.9195,16418,16000,23522,54650,1
-Midwestern Baptist Theological Seminary,MO,4,0.97,858,11500,16871,41664,1
-Millersville University of Pennsylvania,PA,2,0.8455,6314,16750,24194,48420,1
-Mills College,CA,8,0.9114,603,16750,22500,58594,1
-Mirrer Yeshiva Cent Institute,NY,2,0.8621,131,NA,NA,NA,1
-Mississippi College,MS,5,0.2876,2515,16595,22500,45183,1
-Mitchell College,CT,1,0.7422,571,13500,25500,36391,1
-Moody Bible Institute,IL,3,0.9751,2134,10664,14000,NA,1
-Moore College of Art and Design,PA,2,0.5004,365,20000,27000,38677,1
-Mount Aloysius College,PA,2,0.9524,1082,18500,25284,43272,1
-Nebraska Wesleyan University,NE,4,0.6953,1767,18063,26966,52697,1
-New Jersey Institute of Technology,NJ,2,0.6603,8311,17500,21500,80043,1
-New Mexico State University-Main Campus,NM,6,0.6267,11107,10500,18464,36683,1
-North Central College,IL,3,0.5329,2453,19000,24289,54460,1
-Northwestern University,IL,3,0.0931,8401,14000,15000,80033,1
-Notre Dame College,OH,3,0.8743,1217,16775,27000,43634,1
-Notre Dame of Maryland University,MD,2,0.6229,751,16199,22500,50974,1
-Nyack College,NY,2,0.9732,1171,17500,25999,44409,1
-Oberlin College,OH,3,0.3536,2647,21000,25986,47921,1
-Occidental College,CA,8,0.409,1835,19500,22336,67388,1
-Oklahoma Baptist University,OK,6,0.5821,1610,13900,22795,43596,1
-Oral Roberts University,OK,6,0.7839,3080,19000,27000,42161,1
-Otis College of Art and Design,CA,8,0.8032,1030,21500,27000,54531,1
-Pacific Islands University,GU,9,0.9732,273,NA,NA,20443,1
-Park University,MO,4,NA,8217,12380,21397,51085,1
-Paroba College of Cosmetology,WA,8,NA,103,7917,7917,27020,0
-Pennsylvania State University-Penn State Berks,PA,2,NA,NA,NA,NA,NA,0
-Plaza College,NY,2,0.3001,869,11843,18842,29986,1
-Point Park University,PA,2,0.6951,2787,19582,27000,43351,1
-Pomona College,CA,8,0.0862,1462,10000,12000,69149,1
-Providence College,RI,1,0.5386,4242,26800,27000,69532,1
-Quinnipiac University,CT,1,0.8239,6787,21500,26000,75575,1
-Randolph-Macon College,VA,5,0.7131,1551,21500,27000,53288,1
-Rhode Island College,RI,1,0.8127,5892,14000,21002,49249,1
-Rice University,TX,6,0.1089,4052,10500,12000,77683,1
-Rider University,NJ,2,0.7566,3567,20075,26000,56442,1
-Riverside College of Health Careers,VA,5,NA,303,13500,14534,53302,0
-Rollins College,FL,5,0.6081,2536,22048,26000,53363,1
-SUNY College at Geneseo,NY,2,0.6136,4820,15500,20047,56241,1
-SUNY College at Old Westbury,NY,2,0.5308,4543,12000,15250,50921,1
-SUNY College of Technology at Alfred,NY,2,0.7172,3651,12000,15000,48256,1
-Sacred Heart University,CT,1,0.6553,6356,20000,25561,72191,1
-Saint Ambrose University,IA,4,0.7384,2299,19000,25000,54600,1
-Saint Mary's University of Minnesota,MN,4,0.841,1315,15250,20832,54950,1
-Sam Houston State University,TX,6,0.925,18811,16694,22020,50125,1
-San Francisco Conservatory of Music,CA,8,0.4562,243,20875,26835,37744,1
-San Francisco State University,CA,8,0.8409,23411,12500,15369,60126,1
-Shepherd University,WV,5,0.977,2479,14168,21170,45723,1
-Southeast Missouri State University,MO,4,0.9333,7659,14450,21614,39874,1
-Southern Connecticut State University,CT,1,0.7968,7239,14250,21500,51551,1
-Southern Illinois University-Edwardsville,IL,3,0.8505,9892,16373,20935,51671,1
-Southern New Hampshire University,NH,1,0.9354,109233,9250,20867,52024,1
-Southwestern Christian University,OK,6,NA,452,13881,22500,36198,1
-Southwestern College,CA,8,NA,15548,4072,4900,37777,0
-Southwestern College,KS,4,0.5624,1253,12719,23250,50205,1
-Southwestern College,NM,6,NA,NA,NA,NA,NA,1
-Southwestern Oklahoma State University,OK,6,0.932,3834,11000,16156,43079,1
-St. John's College,MD,2,0.6139,383,19500,27000,48751,1
-St. John's College,NM,6,0.6891,268,15000,27000,43203,1
-St. Joseph's College of Nursing,NY,2,0.7273,383,12000,12000,68467,0
-Stanford University,CA,8,0.0519,6366,11000,12000,97798,1
-Stevens Institute of Technology,NJ,2,0.5306,3787,25000,27000,98159,1
-Stevenson University,MD,2,0.8918,3008,24000,27000,56567,1
-Stony Brook University,NY,2,0.4891,17962,15000,18750,66678,1
-Sweet Briar College,VA,5,0.7595,356,14000,27000,48425,1
-Temple University,PA,2,0.7142,26969,20000,24499,56800,1
-Tennessee Technological University,TN,5,0.7963,8564,11000,16144,43326,1
-Texas A & M University-Kingsville,TX,6,0.8792,5114,15131,23250,47368,1
-Texas County Technical College,MO,4,0.625,52,12000,13875,29463,0
-Texas Tech University,TX,6,0.7003,32412,15750,22000,58435,1
-Texas Wesleyan University,TX,6,0.4679,1403,14000,23495,49382,1
-The College of Wooster,OH,3,0.653,1924,21500,26000,51866,1
-The Evergreen State College,WA,8,0.9838,2053,14500,19089,40782,1
-The New England Conservatory of Music,MA,1,0.3627,386,19500,25250,38489,1
-The New School,NY,2,0.691,6339,15000,23250,53981,1
-The Southern Baptist Theological Seminary,KY,5,0.7726,794,NA,NA,NA,1
-The University of Alabama,AL,5,0.8039,30610,17671,23072,52751,1
-The University of Texas at Arlington,TX,6,0.8775,34726,12477,18166,54633,1
-The University of Texas at El Paso,TX,6,0.9997,21070,12500,18460,44770,1
-Tougaloo College,MS,5,0.712,654,21000,32100,33291,1
-Trine University,IN,3,0.7894,2254,16822,23945,52957,1
-Trinity Health System School of Nursing,OH,3,1,49,13625,14625,55435,0
-Tusculum University,TN,5,0.6715,1194,16000,24141,40083,1
-Union College,KY,5,0.5733,927,15000,25291,38076,1
-Union College,NE,4,0.976,602,19000,27000,45198,1
-Union College,NY,2,0.4126,2035,21500,25831,71055,1
-Universidad Central Del Caribe,PR,9,0.8571,123,7500,7500,28509,1
-Universidad del Sagrado Corazon,PR,9,0.4331,4067,12650,16750,26108,1
-University of Alaska Fairbanks,AK,8,0.6701,4259,11000,19582,43728,1
-University of Alaska Southeast,AK,8,0.6352,1063,10223,20000,40727,1
-University of Baltimore,MD,2,0.7993,1856,18750,22956,58128,1
-University of Connecticut-Hartford Campus,CT,1,0.9616,1659,19292,21500,72460,1
-University of Evansville,IN,3,0.643,1763,19500,25183,50415,1
-University of Florida,FL,5,0.3113,34237,14986,15580,64463,1
-University of Hartford,CT,1,0.7741,4378,19500,27000,58087,1
-University of Hawaii-West Oahu,HI,8,0.9523,2755,11500,15453,48268,1
-University of Lynchburg,VA,5,0.9727,1801,21855,27000,49490,1
-University of Maine at Farmington,ME,1,0.9461,1509,16756,24499,35051,1
-University of Mary,ND,4,0.7168,2178,18500,23250,55720,1
-University of Massachusetts-Amherst,MA,1,0.6532,23884,20500,23149,62048,1
-University of Minnesota-Duluth,MN,4,0.7855,8351,16034,22514,54750,1
-University of Missouri-Kansas City,MO,4,0.6301,7077,14750,18751,52279,1
-University of Nebraska-Lincoln,NE,4,0.7774,20128,15000,21362,52360,1
-University of New Haven,CT,1,0.911,5078,19500,27000,52610,1
-University of North Carolina at Chapel Hill,NC,5,0.25,19261,13000,14500,61915,1
-University of North Florida,FL,5,0.7992,14308,12000,16331,49338,1
-University of Oklahoma-Norman Campus,OK,6,0.8338,21087,15250,20718,57071,1
-University of Wisconsin-River Falls,WI,3,0.7685,5238,14500,20500,47441,1
-University of Wisconsin-Stevens Point,WI,3,0.8654,7258,15487,22140,45855,1
-Upper Iowa University,IA,4,0.653,2934,16833,24972,49292,1
-Utah State University,UT,7,0.9104,21087,9240,14429,50432,1
-Warrensburg Area Career Center,MO,4,0.8571,19,8591,NA,41787,0
-Webster University,MO,4,0.5312,2535,17900,22500,47663,1
-West Coast University-Ontario,CA,8,NA,2408,22846,33319,97371,1
-Western Kentucky University,KY,5,0.9775,13086,15000,22500,39268,1
-Western Michigan University,MI,3,0.8494,15706,20000,26000,49652,1
-Westmont College,CA,8,0.7016,1226,19500,23250,60057,1
-Widener University,PA,2,0.7458,2866,24219,27000,62030,1
-William Jessup University,CA,8,0.6521,1279,16167,22334,51693,1
-Xavier University,OH,3,0.8122,5250,19500,24536,62015,1
-Yeshiva D'monsey Rabbinical College,NY,2,0.4906,71,NA,NA,NA,1
-Yeshivas Be'er Yitzchok,NJ,2,1,55,NA,NA,NA,1
-Yeshivath Beth Moshe,PA,2,0.8333,39,NA,NA,NA,1
+name,state,region,inst_type,control,adm_rate,num_undergrads,median_debt,median_debt_grads,median_earnings
+Abilene Christian University,TX,Southwest,Four-year undergraduate,Private nonprofit,0.634,3480,15040,24000,49294
+Abraham Baldwin Agricultural College,GA,Southeast,Four-year undergraduate,Public,0.7599,3546,8750,17500,32130
+AdventHealth University,FL,Southeast,Four-year undergraduate,Private nonprofit,0.9087,1129,18142,25034,58788
+Andrews University,MI,Great Lakes,Four-year undergraduate,Private nonprofit,0.4878,1381,20750,26076,51909
+Arizona Christian University,AZ,Southwest,Four-year undergraduate,Private nonprofit,0.7147,883,7132,21500,37531
+Art Center College of Design,CA,Far West,Four-year undergraduate,Private nonprofit,0.7609,1907,27563,31218,66407
+Augsburg University,MN,Plains,Four-year undergraduate,Private nonprofit,0.7312,2487,19329,25000,53472
+Ave Maria University,FL,Southeast,Four-year undergraduate,Private nonprofit,0.9179,1048,12000,21500,45789
+Baptist Health College Little Rock,AR,Southeast,Two-year undergraduate,Private nonprofit,0.5,661,9500,10000,54924
+Bard College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.5695,1932,19000,25910,43441
+Beacon College,FL,Southeast,Four-year undergraduate,Private nonprofit,0.4461,426,16313,25718,22833
+Belanger School of Nursing,NY,Mid East,Two-year undergraduate,Private nonprofit,0.4,143,13250,15250,67700
+Bet Medrash Gadol Ateret Torah,NY,Mid East,Four-year undergraduate,Private nonprofit,0.6923,142,NA,NA,NA
+Beth Medrash Meor Yitzchok,NY,Mid East,Four-year undergraduate,Private nonprofit,0.7375,187,NA,NA,NA
+Binghamton University,NY,Mid East,Four-year undergraduate,Public,0.4303,14300,15000,18750,72980
+Biola University,CA,Far West,Four-year undergraduate,Private nonprofit,0.6438,3683,19500,24273,47704
+Bloomfield College,NJ,Mid East,Four-year undergraduate,Private nonprofit,0.8465,1530,19500,27000,44790
+Bluffton University,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.6051,675,21500,27000,44911
+Bolivar Technical College,MO,Plains,Two-year undergraduate,Private nonprofit,1,129,11000,15000,NA
+Brandeis University,MA,New England,Four-year undergraduate,Private nonprofit,0.334,3481,23250,25797,70327
+Broome Delaware Tioga BOCES-Practical Nursing Program,NY,Mid East,NA,Public,0.6087,63,9500,NA,40243
+CUNY City College,NY,Mid East,Four-year undergraduate,Public,0.5054,11967,9500,12348,55741
+CUNY Lehman College,NY,Mid East,Four-year undergraduate,Public,0.4701,12087,8500,10812,51661
+Cabrini University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.6167,1463,19500,27000,53142
+Cairn University-Langhorne,PA,Mid East,Four-year undergraduate,Private nonprofit,0.8145,885,19000,27000,41013
+California Jazz Conservatory,CA,Far West,Four-year undergraduate,Private nonprofit,1,35,NA,NA,NA
+California State University-Chico,CA,Far West,Four-year undergraduate,Public,0.9017,15689,14964,16931,56270
+California State University-Monterey Bay,CA,Far West,Four-year undergraduate,Public,0.8562,6456,11500,13750,53190
+California State University-San Marcos,CA,Far West,Four-year undergraduate,Public,0.7942,15016,12750,17134,54811
+Carroll College,MT,Rocky Mountains,Four-year undergraduate,Private nonprofit,0.7302,1093,21000,25602,57154
+Carson-Newman University,TN,Southeast,Four-year undergraduate,Private nonprofit,0.7932,1635,15000,22438,42546
+Catawba College,NC,Southeast,Four-year undergraduate,Private nonprofit,0.5212,1312,14486,25000,43015
+Cedar Crest College,PA,Mid East,Four-year undergraduate,Private nonprofit,0.5246,1078,21988,27000,52679
+Cedarville University,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.5933,3566,17500,21500,49074
+Central Christian College of the Bible,MO,Plains,Four-year undergraduate,Private nonprofit,NA,164,10925,18058,33486
+Central Connecticut State University,CT,New England,Four-year undergraduate,Public,0.6485,8402,16668,22000,52515
+Central State University,OH,Great Lakes,Four-year undergraduate,Public,0.5804,4009,10250,31000,31922
+Chaminade University of Honolulu,HI,Far West,Four-year undergraduate,Private nonprofit,0.8897,1623,19000,23235,44647
+Chatham University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.6619,1119,16750,22250,42808
+Clemson University,SC,Southeast,Four-year undergraduate,Public,0.6194,20796,19500,21500,63857
+Colby-Sawyer College,NH,New England,Four-year undergraduate,Private nonprofit,0.91,871,19500,27000,44780
+Colorado State University-Fort Collins,CO,Rocky Mountains,Four-year undergraduate,Public,0.8352,23332,15000,20500,54983
+Columbus College of Art and Design,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.9169,981,20700,27000,38557
+Concorde Career College-Grand Prairie,TX,Southwest,Two-year undergraduate,Private for-profit,0.9611,862,9500,9500,34458
+Concorde Career College-San Antonio,TX,Southwest,Two-year undergraduate,Private for-profit,0.9806,519,9500,9500,27995
+Concordia College at Moorhead,MN,Plains,Four-year undergraduate,Private nonprofit,0.5808,1873,20601,26490,51988
+Culver-Stockton College,MO,Plains,Four-year undergraduate,Private nonprofit,0.9833,918,15268,26000,42206
+DeSales University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.8177,2352,20320,25252,56641
+DeVry College of New York,NY,Mid East,Four-year undergraduate,Private for-profit,0.398,874,12809,28308,44484
+DeVry University-Arizona,AZ,Southwest,Four-year undergraduate,Private for-profit,0.4,178,12809,28308,44484
+DeVry University-Colorado,CO,Rocky Mountains,Four-year undergraduate,Private for-profit,0.5,108,12809,28308,44484
+DeVry University-New Jersey,NJ,Mid East,Four-year undergraduate,Private for-profit,0.3333,169,12809,28308,44484
+DeVry University-Virginia,VA,Southeast,Four-year undergraduate,Private for-profit,0.6667,118,12809,28308,44484
+Design Institute of San Diego,CA,Far West,Four-year undergraduate,Private for-profit,1,124,31000,45000,45321
+Dickinson College,PA,Mid East,Four-year undergraduate,Private nonprofit,0.5165,1899,19000,19000,69562
+Drew University,NJ,Mid East,Four-year undergraduate,Private nonprofit,0.7315,1541,21500,26222,57185
+Duquesne University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.7719,5373,23250,26988,66207
+Dutchess BOCES-Practical Nursing Program,NY,Mid East,NA,Public,0.8,81,5350,6425,52370
+EDP University of Puerto Rico Inc-San Juan,PR,Outlying Areas,Four-year undergraduate,Private nonprofit,0.558,1233,9500,11400,19513
+East Texas Baptist University,TX,Southwest,Four-year undergraduate,Private nonprofit,0.9207,1373,14000,23250,45717
+Eastern Michigan University,MI,Great Lakes,Four-year undergraduate,Public,0.7518,13148,18750,25000,46112
+Eastern New Mexico University-Main Campus,NM,Southwest,Four-year undergraduate,Public,0.506,3129,10500,16000,33395
+Elmira College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.8313,713,23500,27000,53878
+Emmanuel College,GA,Southeast,Four-year undergraduate,Private nonprofit,0.5275,779,12000,24728,37494
+Emmanuel College,MA,New England,Four-year undergraduate,Private nonprofit,0.7552,1785,23500,27000,55158
+Erie 1 BOCES,NY,Mid East,NA,Public,NA,403,9463,9500,42525
+FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,Far West,Four-year undergraduate,Private for-profit,0.3864,1847,12000,14165,45551
+Ferrum College,VA,Southeast,Four-year undergraduate,Private nonprofit,0.7583,962,14000,27000,40224
+Finlandia University,MI,Great Lakes,Four-year undergraduate,Private nonprofit,0.83,379,11000,21100,37894
+Florida Institute of Technology,FL,Southeast,Four-year undergraduate,Private nonprofit,0.7037,3188,14798,27000,63704
+Fort Lewis College,CO,Rocky Mountains,Four-year undergraduate,Public,0.9151,3205,9726,18013,38083
+Fox College,IL,Great Lakes,Two-year undergraduate,Private for-profit,0.5,404,13624,16000,36715
+Franklin W Olin College of Engineering,MA,New England,Four-year undergraduate,Private nonprofit,0.1644,290,12000,15846,132969
+Frostburg State University,MD,Mid East,Four-year undergraduate,Public,0.7361,3749,15500,22250,49230
+Gemini School of Visual Arts & Communication,TX,Southwest,Four-year undergraduate,Private for-profit,0.25,7,NA,NA,NA
+Good Samaritan College of Nursing and Health Science,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.3462,353,17000,20843,57071
+Gordon College,MA,New England,Four-year undergraduate,Private nonprofit,0.6827,1428,22250,26310,46746
+Hampden-Sydney College,VA,Southeast,Four-year undergraduate,Private nonprofit,0.4701,881,19500,27000,65446
+Hannibal-LaGrange University,MO,Plains,Four-year undergraduate,Private nonprofit,0.6463,559,14968,18750,37541
+Haverford College,PA,Mid East,Four-year undergraduate,Private nonprofit,0.1823,1306,10214,13177,69192
+Henderson State University,AR,Southeast,Four-year undergraduate,Public,0.749,2603,11000,18933,39020
+Holy Name Medical Center-Sister Claire Tynan School of Nursing,NJ,Mid East,NA,Private nonprofit,0.5,183,14750,19999,79610
+Hope College,MI,Great Lakes,Four-year undergraduate,Private nonprofit,0.7783,2963,23830,26960,53796
+Houghton College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.7998,838,20000,25000,43767
+Illinois State University,IL,Great Lakes,Four-year undergraduate,Public,0.8131,17955,16000,20000,55457
+Indiana State University,IN,Great Lakes,Four-year undergraduate,Public,0.9229,8897,14000,23457,42877
+Inter American University of Puerto Rico-Arecibo,PR,Outlying Areas,Four-year undergraduate,Private nonprofit,0.3899,2955,5500,8725,22457
+Jewish Theological Seminary of America,NY,Mid East,Four-year undergraduate,Private nonprofit,0.5833,132,16750,NA,NA
+Johnson & Wales University-Online,RI,New England,Four-year undergraduate,Private nonprofit,0.3649,1314,16000,25750,41977
+Johnson C Smith University,NC,Southeast,Four-year undergraduate,Private nonprofit,0.492,1248,19226,31000,37073
+Johnson University,TN,Southeast,Four-year undergraduate,Private nonprofit,0.5497,708,15250,23250,36422
+Judson College,AL,Southeast,Four-year undergraduate,Private nonprofit,0.5648,219,15750,27000,29569
+Kennesaw State University,GA,Southeast,Four-year undergraduate,Public,0.8311,36284,15631,24000,51792
+Keuka College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.9091,1300,21255,26000,52489
+La Roche University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.6891,1079,19500,25000,46784
+La Sierra University,CA,Far West,Four-year undergraduate,Private nonprofit,0.5697,1462,17750,27000,55004
+Lamar University,TX,Southwest,Four-year undergraduate,Public,0.8268,8220,13000,21119,44159
+Lee University,TN,Southeast,Four-year undergraduate,Private nonprofit,0.8301,3812,18750,25750,40101
+Life University,GA,Southeast,Four-year undergraduate,Private nonprofit,0.9681,938,9500,16801,46619
+Lindenwood University,MO,Plains,Four-year undergraduate,Private nonprofit,0.9213,4780,21065,26327,47009
+Long Island Business Institute,NY,Mid East,Two-year undergraduate,Private for-profit,0.8173,1131,12095,19090,23428
+Loyola University New Orleans,LA,Southeast,Four-year undergraduate,Private nonprofit,0.7239,3144,16749,25792,48747
+Lyon College,AR,Southeast,Four-year undergraduate,Private nonprofit,0.5015,665,9500,27000,43343
+Madison Oneida BOCES-Practical Nursing Program,NY,Mid East,NA,Public,0.875,25,7125,8633,34239
+Manhattanville College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.8981,1373,20500,25000,54038
+Mansfield University of Pennsylvania,PA,Mid East,Four-year undergraduate,Public,0.9602,1614,19051,25990,42931
+Marquette University,WI,Great Lakes,Four-year undergraduate,Private nonprofit,0.8249,7828,20500,24000,72489
+Massachusetts Institute of Technology,MA,New England,Four-year undergraduate,Private nonprofit,0.0726,4360,12000,13418,111222
+McPherson College,KS,Plains,Four-year undergraduate,Private nonprofit,0.5216,808,15000,25949,42168
+Mercyhurst University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.8802,2369,19000,26000,46423
+Merkaz Bnos-Business School,NY,Mid East,NA,Private nonprofit,0.8776,139,NA,NA,26431
+Mesivta Torah Vodaath Rabbinical Seminary,NY,Mid East,Four-year undergraduate,Private nonprofit,0.9,364,NA,NA,NA
+Miami University-Oxford,OH,Great Lakes,Four-year undergraduate,Public,0.9195,16418,16000,23522,54650
+Midwestern Baptist Theological Seminary,MO,Plains,Four-year undergraduate,Private nonprofit,0.97,858,11500,16871,41664
+Millersville University of Pennsylvania,PA,Mid East,Four-year undergraduate,Public,0.8455,6314,16750,24194,48420
+Mills College,CA,Far West,Four-year undergraduate,Private nonprofit,0.9114,603,16750,22500,58594
+Mirrer Yeshiva Cent Institute,NY,Mid East,Four-year undergraduate,Private nonprofit,0.8621,131,NA,NA,NA
+Mississippi College,MS,Southeast,Four-year undergraduate,Private nonprofit,0.2876,2515,16595,22500,45183
+Mitchell College,CT,New England,Four-year undergraduate,Private nonprofit,0.7422,571,13500,25500,36391
+Moody Bible Institute,IL,Great Lakes,Four-year undergraduate,Private nonprofit,0.9751,2134,10664,14000,NA
+Moore College of Art and Design,PA,Mid East,Four-year undergraduate,Private nonprofit,0.5004,365,20000,27000,38677
+Mount Aloysius College,PA,Mid East,Four-year undergraduate,Private nonprofit,0.9524,1082,18500,25284,43272
+Nebraska Wesleyan University,NE,Plains,Four-year undergraduate,Private nonprofit,0.6953,1767,18063,26966,52697
+New Jersey Institute of Technology,NJ,Mid East,Four-year undergraduate,Public,0.6603,8311,17500,21500,80043
+New Mexico State University-Main Campus,NM,Southwest,Four-year undergraduate,Public,0.6267,11107,10500,18464,36683
+North Central College,IL,Great Lakes,Four-year undergraduate,Private nonprofit,0.5329,2453,19000,24289,54460
+Northwestern University,IL,Great Lakes,Four-year undergraduate,Private nonprofit,0.0931,8401,14000,15000,80033
+Notre Dame College,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.8743,1217,16775,27000,43634
+Notre Dame of Maryland University,MD,Mid East,Four-year undergraduate,Private nonprofit,0.6229,751,16199,22500,50974
+Nyack College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.9732,1171,17500,25999,44409
+Oberlin College,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.3536,2647,21000,25986,47921
+Occidental College,CA,Far West,Four-year undergraduate,Private nonprofit,0.409,1835,19500,22336,67388
+Oklahoma Baptist University,OK,Southwest,Four-year undergraduate,Private nonprofit,0.5821,1610,13900,22795,43596
+Oral Roberts University,OK,Southwest,Four-year undergraduate,Private nonprofit,0.7839,3080,19000,27000,42161
+Otis College of Art and Design,CA,Far West,Four-year undergraduate,Private nonprofit,0.8032,1030,21500,27000,54531
+Pacific Islands University,GU,Outlying Areas,Four-year undergraduate,Private nonprofit,0.9732,273,NA,NA,20443
+Park University,MO,Plains,Four-year undergraduate,Private nonprofit,NA,8217,12380,21397,51085
+Paroba College of Cosmetology,WA,Far West,NA,Private for-profit,NA,103,7917,7917,27020
+Pennsylvania State University-Penn State Berks,PA,Mid East,NA,Public,NA,NA,NA,NA,NA
+Plaza College,NY,Mid East,Four-year undergraduate,Private for-profit,0.3001,869,11843,18842,29986
+Point Park University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.6951,2787,19582,27000,43351
+Pomona College,CA,Far West,Four-year undergraduate,Private nonprofit,0.0862,1462,10000,12000,69149
+Providence College,RI,New England,Four-year undergraduate,Private nonprofit,0.5386,4242,26800,27000,69532
+Quinnipiac University,CT,New England,Four-year undergraduate,Private nonprofit,0.8239,6787,21500,26000,75575
+Randolph-Macon College,VA,Southeast,Four-year undergraduate,Private nonprofit,0.7131,1551,21500,27000,53288
+Rhode Island College,RI,New England,Four-year undergraduate,Public,0.8127,5892,14000,21002,49249
+Rice University,TX,Southwest,Four-year undergraduate,Private nonprofit,0.1089,4052,10500,12000,77683
+Rider University,NJ,Mid East,Four-year undergraduate,Private nonprofit,0.7566,3567,20075,26000,56442
+Riverside College of Health Careers,VA,Southeast,Two-year undergraduate,Private nonprofit,NA,303,13500,14534,53302
+Rollins College,FL,Southeast,Four-year undergraduate,Private nonprofit,0.6081,2536,22048,26000,53363
+SUNY College at Geneseo,NY,Mid East,Four-year undergraduate,Public,0.6136,4820,15500,20047,56241
+SUNY College at Old Westbury,NY,Mid East,Four-year undergraduate,Public,0.5308,4543,12000,15250,50921
+SUNY College of Technology at Alfred,NY,Mid East,Four-year undergraduate,Public,0.7172,3651,12000,15000,48256
+Sacred Heart University,CT,New England,Four-year undergraduate,Private nonprofit,0.6553,6356,20000,25561,72191
+Saint Ambrose University,IA,Plains,Four-year undergraduate,Private nonprofit,0.7384,2299,19000,25000,54600
+Saint Mary's University of Minnesota,MN,Plains,Four-year undergraduate,Private nonprofit,0.841,1315,15250,20832,54950
+Sam Houston State University,TX,Southwest,Four-year undergraduate,Public,0.925,18811,16694,22020,50125
+San Francisco Conservatory of Music,CA,Far West,Four-year undergraduate,Private nonprofit,0.4562,243,20875,26835,37744
+San Francisco State University,CA,Far West,Four-year undergraduate,Public,0.8409,23411,12500,15369,60126
+Shepherd University,WV,Southeast,Four-year undergraduate,Public,0.977,2479,14168,21170,45723
+Southeast Missouri State University,MO,Plains,Four-year undergraduate,Public,0.9333,7659,14450,21614,39874
+Southern Connecticut State University,CT,New England,Four-year undergraduate,Public,0.7968,7239,14250,21500,51551
+Southern Illinois University-Edwardsville,IL,Great Lakes,Four-year undergraduate,Public,0.8505,9892,16373,20935,51671
+Southern New Hampshire University,NH,New England,Four-year undergraduate,Private nonprofit,0.9354,109233,9250,20867,52024
+Southwestern Christian University,OK,Southwest,Four-year undergraduate,Private nonprofit,NA,452,13881,22500,36198
+Southwestern College,CA,Far West,Two-year undergraduate,Public,NA,15548,4072,4900,37777
+Southwestern College,KS,Plains,Four-year undergraduate,Private nonprofit,0.5624,1253,12719,23250,50205
+Southwestern College,NM,Southwest,Exclusively graduate/professional,Private nonprofit,NA,NA,NA,NA,NA
+Southwestern Oklahoma State University,OK,Southwest,Four-year undergraduate,Public,0.932,3834,11000,16156,43079
+St. John's College,MD,Mid East,Four-year undergraduate,Private nonprofit,0.6139,383,19500,27000,48751
+St. John's College,NM,Southwest,Four-year undergraduate,Private nonprofit,0.6891,268,15000,27000,43203
+St. Joseph's College of Nursing,NY,Mid East,Two-year undergraduate,Private nonprofit,0.7273,383,12000,12000,68467
+Stanford University,CA,Far West,Four-year undergraduate,Private nonprofit,0.0519,6366,11000,12000,97798
+Stevens Institute of Technology,NJ,Mid East,Four-year undergraduate,Private nonprofit,0.5306,3787,25000,27000,98159
+Stevenson University,MD,Mid East,Four-year undergraduate,Private nonprofit,0.8918,3008,24000,27000,56567
+Stony Brook University,NY,Mid East,Four-year undergraduate,Public,0.4891,17962,15000,18750,66678
+Sweet Briar College,VA,Southeast,Four-year undergraduate,Private nonprofit,0.7595,356,14000,27000,48425
+Temple University,PA,Mid East,Four-year undergraduate,Public,0.7142,26969,20000,24499,56800
+Tennessee Technological University,TN,Southeast,Four-year undergraduate,Public,0.7963,8564,11000,16144,43326
+Texas A & M University-Kingsville,TX,Southwest,Four-year undergraduate,Public,0.8792,5114,15131,23250,47368
+Texas County Technical College,MO,Plains,Two-year undergraduate,Private nonprofit,0.625,52,12000,13875,29463
+Texas Tech University,TX,Southwest,Four-year undergraduate,Public,0.7003,32412,15750,22000,58435
+Texas Wesleyan University,TX,Southwest,Four-year undergraduate,Private nonprofit,0.4679,1403,14000,23495,49382
+The College of Wooster,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.653,1924,21500,26000,51866
+The Evergreen State College,WA,Far West,Four-year undergraduate,Public,0.9838,2053,14500,19089,40782
+The New England Conservatory of Music,MA,New England,Four-year undergraduate,Private nonprofit,0.3627,386,19500,25250,38489
+The New School,NY,Mid East,Four-year undergraduate,Private nonprofit,0.691,6339,15000,23250,53981
+The Southern Baptist Theological Seminary,KY,Southeast,Four-year undergraduate,Private nonprofit,0.7726,794,NA,NA,NA
+The University of Alabama,AL,Southeast,Four-year undergraduate,Public,0.8039,30610,17671,23072,52751
+The University of Texas at Arlington,TX,Southwest,Four-year undergraduate,Public,0.8775,34726,12477,18166,54633
+The University of Texas at El Paso,TX,Southwest,Four-year undergraduate,Public,0.9997,21070,12500,18460,44770
+Tougaloo College,MS,Southeast,Four-year undergraduate,Private nonprofit,0.712,654,21000,32100,33291
+Trine University,IN,Great Lakes,Four-year undergraduate,Private nonprofit,0.7894,2254,16822,23945,52957
+Tusculum University,TN,Southeast,Four-year undergraduate,Private nonprofit,0.6715,1194,16000,24141,40083
+Union College,KY,Southeast,Four-year undergraduate,Private nonprofit,0.5733,927,15000,25291,38076
+Union College,NE,Plains,Four-year undergraduate,Private nonprofit,0.976,602,19000,27000,45198
+Union College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.4126,2035,21500,25831,71055
+Universidad Central Del Caribe,PR,Outlying Areas,Four-year undergraduate,Private nonprofit,0.8571,123,7500,7500,28509
+Universidad del Sagrado Corazon,PR,Outlying Areas,Four-year undergraduate,Private nonprofit,0.4331,4067,12650,16750,26108
+University of Alaska Fairbanks,AK,Far West,Four-year undergraduate,Public,0.6701,4259,11000,19582,43728
+University of Alaska Southeast,AK,Far West,Four-year undergraduate,Public,0.6352,1063,10223,20000,40727
+University of Baltimore,MD,Mid East,Four-year undergraduate,Public,0.7993,1856,18750,22956,58128
+University of Connecticut-Hartford Campus,CT,New England,NA,Public,0.9616,1659,19292,21500,72460
+University of Evansville,IN,Great Lakes,Four-year undergraduate,Private nonprofit,0.643,1763,19500,25183,50415
+University of Florida,FL,Southeast,Four-year undergraduate,Public,0.3113,34237,14986,15580,64463
+University of Hartford,CT,New England,Four-year undergraduate,Private nonprofit,0.7741,4378,19500,27000,58087
+University of Hawaii-West Oahu,HI,Far West,Four-year undergraduate,Public,0.9523,2755,11500,15453,48268
+University of Lynchburg,VA,Southeast,Four-year undergraduate,Private nonprofit,0.9727,1801,21855,27000,49490
+University of Maine at Farmington,ME,New England,Four-year undergraduate,Public,0.9461,1509,16756,24499,35051
+University of Mary,ND,Plains,Four-year undergraduate,Private nonprofit,0.7168,2178,18500,23250,55720
+University of Massachusetts-Amherst,MA,New England,Four-year undergraduate,Public,0.6532,23884,20500,23149,62048
+University of Minnesota-Duluth,MN,Plains,Four-year undergraduate,Public,0.7855,8351,16034,22514,54750
+University of Missouri-Kansas City,MO,Plains,Four-year undergraduate,Public,0.6301,7077,14750,18751,52279
+University of Nebraska-Lincoln,NE,Plains,Four-year undergraduate,Public,0.7774,20128,15000,21362,52360
+University of New Haven,CT,New England,Four-year undergraduate,Private nonprofit,0.911,5078,19500,27000,52610
+University of North Carolina at Chapel Hill,NC,Southeast,Four-year undergraduate,Public,0.25,19261,13000,14500,61915
+University of North Florida,FL,Southeast,Four-year undergraduate,Public,0.7992,14308,12000,16331,49338
+University of Oklahoma-Norman Campus,OK,Southwest,Four-year undergraduate,Public,0.8338,21087,15250,20718,57071
+University of Wisconsin-River Falls,WI,Great Lakes,Four-year undergraduate,Public,0.7685,5238,14500,20500,47441
+University of Wisconsin-Stevens Point,WI,Great Lakes,Four-year undergraduate,Public,0.8654,7258,15487,22140,45855
+Upper Iowa University,IA,Plains,Four-year undergraduate,Private nonprofit,0.653,2934,16833,24972,49292
+Utah State University,UT,Rocky Mountains,Four-year undergraduate,Public,0.9104,21087,9240,14429,50432
+Warrensburg Area Career Center,MO,Plains,NA,Public,0.8571,19,8591,NA,41787
+Webster University,MO,Plains,Four-year undergraduate,Private nonprofit,0.5312,2535,17900,22500,47663
+West Coast University-Ontario,CA,Far West,Four-year undergraduate,Private for-profit,NA,2408,22846,33319,97371
+Western Kentucky University,KY,Southeast,Four-year undergraduate,Public,0.9775,13086,15000,22500,39268
+Western Michigan University,MI,Great Lakes,Four-year undergraduate,Public,0.8494,15706,20000,26000,49652
+Westmont College,CA,Far West,Four-year undergraduate,Private nonprofit,0.7016,1226,19500,23250,60057
+Widener University,PA,Mid East,Four-year undergraduate,Private nonprofit,0.7458,2866,24219,27000,62030
+William Jessup University,CA,Far West,Four-year undergraduate,Private nonprofit,0.6521,1279,16167,22334,51693
+Xavier University,OH,Great Lakes,Four-year undergraduate,Private nonprofit,0.8122,5250,19500,24536,62015
+Yeshiva D'monsey Rabbinical College,NY,Mid East,Four-year undergraduate,Private nonprofit,0.4906,71,NA,NA,NA
+Yeshivas Be'er Yitzchok,NJ,Mid East,Four-year undergraduate,Private nonprofit,1,55,NA,NA,NA
+Yeshivath Beth Moshe,PA,Mid East,Four-year undergraduate,Private nonprofit,0.8333,39,NA,NA,NA
