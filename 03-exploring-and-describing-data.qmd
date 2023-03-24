@@ -1,0 +1,34 @@
+# Summarizing and Visualizing Data {#sec-summarize-visualize-data}
+
+The chapters in this section will introduce methods for exploring and describing data. In particular we will focus on the visualization and numerical summarization of **univariate distributions** (i.e., single attribute). In @sec-categorical-attributes you will learn methods for summarizing and visualizing categorical attributes and @sec-quantitative-attributes will introduce methods for quantitative attributes.
+
+
+<br />
+
+
+## Goals for Summarization and Visualization
+
+Data scientists and statisticians visualize data and compute numerical summaries to explore and understand data. In addition to visualizing distributions of data, it is common to also summarize certain feature of the data using numbers. (For example, the mean is one summarization of a distribution of quantitative data.) Together visualizing and summarizing data can help analysts identify features in the data such as typical or extreme observations, and also describe and explore the variation in the data. Data exploration is an important first step in any statistical analysis. 
+
+
+## College Scorecard Data
+
+Throughout the chapters in this section we will use the College Scorecard data to illustrate the methods of data exploration. These data were collected and made available by the U.S. Department of Education (DOE). The DOE publishes data on institutions of higher education in their [College Scorecard](https://collegescorecard.ed.gov/) to facilitate transparency and provide information for interested stakeholders (e.g., parents, students, educators). A subset of this data is provided in the file *college-scorecard.csv*. 
+
+- [CSV File](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv)
+- [Data Codebook](http://zief0002.github.io/epsy-5261/codebooks/college-scorecard.html)
+
+
+```{r}
+#| label: import-data
+#| message: false
+#| echo: false
+# Import data
+colleges <- readr::read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+
+# View data
+DT::datatable(colleges)
+```
+
+<br />
+

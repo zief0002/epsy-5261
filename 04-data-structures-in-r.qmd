@@ -1,5 +1,12 @@
 # Data Structures in R
 
+<!-- Here is some text about importing data into R. -->
+
+<!-- As a reminder, to import the data into R, we will use the function `read_csv()`. This function reads in a comma separated value (CSV) file.^[This function is a part of the **tidyverse** package, so you need to be sure to run `library(tidyverse)` prior to using `read_csv()`.] CSV files are a common format for storing data. Since they are encoded as text files they generally do not take up a lot of space nor computer memory. They get their name from the fact that in the text file, each data attribute (i.e. column in the data) is separated by a comma within each row. Each row represents a unique case or observation from the data. The syntax to import the college scorecard data is as follows: -->
+
+<!-- Once we have imported and assigned the data to an object, it is quite useful to ensure that it was read in appropriately. We can obtain a snapshot of the data by entering the name of the object we imported the data into and hitting `<enter>`. -->
+
+
 In this chapter, you will be learn about two common data structures that are used in the R statistical computing environment: vectors and data frames. You will also learn about particular types (or classes) of vectors, namely numeric, character, and logical vectors. 
 
 One way to think about vectors and data frames is to use the metaphor of bookcases. Vectors are single column bookcases and data frames are multi-column bookcases.^[Technically, a data frame can have a single column, but in practice most data frames you encounter will have many columns.]

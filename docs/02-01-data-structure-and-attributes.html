@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis and Randomization Methods - 2&nbsp; Data Structure and Attribute Classification</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-exploring-and-describing-data.html" rel="next">
+<link href="./02-data.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+
+<script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.27/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="assets/notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Foreword</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#classifying-attributes" id="toc-classifying-attributes" class="nav-link active" data-scroll-target="#classifying-attributes"><span class="toc-section-number">2.1</span>  Classifying Attributes</a>
+  <ul class="collapse">
+  <li><a href="#further-classifications-of-attributes" id="toc-further-classifications-of-attributes" class="nav-link" data-scroll-target="#further-classifications-of-attributes"><span class="toc-section-number">2.1.1</span>  Further Classifications of Attributes</a></li>
+  </ul></li>
+  <li><a href="#how-were-the-data-generated" id="toc-how-were-the-data-generated" class="nav-link" data-scroll-target="#how-were-the-data-generated"><span class="toc-section-number">2.2</span>  How Were the Data Generated?</a>
+  <ul class="collapse">
+  <li><a href="#drawing-conclusions-from-a-sample" id="toc-drawing-conclusions-from-a-sample" class="nav-link" data-scroll-target="#drawing-conclusions-from-a-sample"><span class="toc-section-number">2.2.1</span>  Drawing Conclusions from a Sample</a></li>
+  <li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling"><span class="toc-section-number">2.2.2</span>  Random Sampling</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">2.3</span>  Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.4</span>  References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-structure" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Consider the following data which constitute a random sample of 25 New York Times bestselling harcover books <span class="citation" data-cites="Pruett:2021">(<a href="#ref-Pruett:2021" role="doc-biblioref">Pruett, 2021</a>)</span>. Take a minute to look familiarize yourself with these data.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6f65a0e362601649bc89" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6f65a0e362601649bc89">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"],[1945,1940,1992,2003,1950,2004,2019,2000,2016,1978,1982,1943,1980,1997,1989,2008,1995,2011,2014,1995,1986,2002,2011,2016,1987],["A LION IS IN THE STREETS","AFTER MANY A SUMMER DIES THE SWAN","TURTLE MOON","THE PROBABLE FUTURE","MR.MIDSHIPMAN HORNBLOWER","BLOWOUT","BLESSING IN DISGUISE","FALSE MEMORY","ZERO K","PRELUDE TO TERROR","PUBLIC SMILES, PRIVATE TEARS","IN BED WE CRY","THE CLAN OF THE CAVE BEAR","DEJA DEAD","RED PHOENIX","SWALLOWING DARKNESS","REDEMPTION","SILENT MERCY","THE LONG WAY HOME","PHENOMENAL WOMAN","Q CLEARANCE","THE THOUSAND ORCS","LOST DECEMBER","STING","THE BONFIRE OF THE VANITIES"],["Adria Locke Langley","Aldous Huxley","Alice Hoffman","Alice Hoffman","C.S. Forester","Catherine Coulter","Danielle Steel","Dean Koontz","Don DeLillo","Helen MacInnes","Helen Van Slyke with James Elward","Ilka Chase","Jean M. Auel","Kathy Reichs","Larry Bond","Laurell K. Hamilton","Leon Uris","Linda Fairstein","Louise Penny","Maya Angelou","Peter Benchley","R. A. Salvatore","Richard Paul Evans","Sandra Brown","Tom Wolfe"],[1,0,1,1,0,1,1,0,0,1,1,1,1,1,0,1,0,1,1,1,0,0,0,1,0],[30,3,3,1,8,4,4,9,2,11,14,12,18,7,15,2,4,1,2,10,2,2,3,4,56],["6/10/45","2/5/40","5/24/92","7/13/03","4/2/50","7/4/04","5/26/19","1/16/00","5/22/16","11/12/78","4/25/82","11/22/43","10/12/80","9/14/97","6/4/89","11/23/08","7/2/95","3/27/11","9/14/14","3/26/95","7/27/86","11/3/02","11/20/11","9/4/16","11/8/87"],[5,6,10,8,1,13,6,9,9,7,1,5,2,10,6,11,7,8,12,7,15,6,2,10,1],[1,5,10,15,8,6,3,4,12,6,7,3,8,8,4,3,12,10,1,7,15,11,5,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>year<\/th>\n      <th>title<\/th>\n      <th>author<\/th>\n      <th>female<\/th>\n      <th>total_weeks<\/th>\n      <th>first_week<\/th>\n      <th>debut_rank<\/th>\n      <th>best_rank<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,4,5,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>These data have a tabular structure, that is, it is organized into rows and columns. In well-organized tabular data, the rows represent <strong>cases</strong> (also called <strong>units</strong>) and the columns represent <strong>attributes</strong> (also referred to as <strong>variables</strong>). It is important to identify what the cases and attributes are when you initially look at a new data set.</p>
+<p>In these data, there are 25 cases, and each case is a NYT best selling book. That is, each row represents a different NYT best selling book. There are eight attributes in these data. Attributes are the information or characteristics that are collected for each of the cases. The attributes in these data are:</p>
+<ul>
+<li>The year the book was published,</li>
+<li>The title of the book,</li>
+<li>The author of the book,</li>
+<li>Whether the author identifies as a female (0 = no, 1 = yes),</li>
+<li>The total number of weeks the book was on the NYT Best Sellers list,</li>
+<li>The first week the book appeared on the NYT Best Sellers list,</li>
+<li>The book’s debut rank on the NYT Best Sellers list, and</li>
+<li>The book’s highest rank while it was on the NYT Best Sellers list.</li>
+</ul>
+<div class="protip">
+<p>Tabular data are required in order to carry out most analyses with computational tools, although not all data are tabular. For example, many websites store data in non-tabular forms such as <a href="https://www.w3.org/standards/xml/core">XML</a> or <a href="https://www.json.org/">JSON</a>. In this course, all the data you work with will be tabular.</p>
+</div>
+<p>Aside from identifying the cases and attributes, here are some other questions about collected data that you should answer <span class="citation" data-cites="Gould:2013">(<a href="#ref-Gould:2013" role="doc-biblioref">Gould &amp; Ryan, 2013</a>)</span>:</p>
+<ul>
+<li>What are the units of measurement for each quantitative attribute?</li>
+<li>Who collected the data?</li>
+<li>How and where were the data collected?</li>
+<li>Why were the data collected?</li>
+</ul>
+<p>The answers to these questions give us information about the data’s context, which is key to drawing reasonable conclusions and interpreting any statistical analyses. If you are the one collecting the data, you should record all of this information so others have access to it. For the NYT bests sellers data here are the answers to these questions:</p>
+<ul>
+<li><strong>What are the units of measurement for each quantitative attribute?</strong>
+<ul>
+<li><code>total_weeks</code>: Number of weeks</li>
+<li><code>first_week</code>: Date given in month/day/year format</li>
+<li><code>debut_rank</code> and <code>best_rank</code>: Rank on the NYT Best Sellers List (smaller values indicate a higher rank)</li>
+</ul></li>
+<li><strong>Who collected the data?</strong> Jordan Pruett for the Post45 Data Collective. The Post45 Data Collective peer reviews and houses post-1945 literary data on an open-access website designed, hosted, and maintained by Emory University’s Center for Digital Scholarship.</li>
+<li><strong>How and where were the data collected?</strong> These data were scraped from Hawes Publications, an online repository that publishes a PDF transcript of the list for every year of the last going back to 1931, using the open-source Python library pdfminer.</li>
+<li><strong>Why were the data collected?</strong> As per the <a href="https://data.post45.org/new-york-times-hardcover-fiction-bestsellers-1931-2020-curatorial-statement/">curatorial statement</a>, “[t]his dataset provides valuable metadata for researchers of 20th century American literature working in fields such as cultural analytics, book and publishing history, and the sociology of literature.”</li>
+</ul>
+<div class="protip">
+<p>Often these types of metadata (data about the data) are included in a <strong>data codebook</strong>. If you collect data as part of a study or project, you should create codebook for the data.</p>
+</div>
+<p><br></p>
+<section id="classifying-attributes" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="classifying-attributes"><span class="header-section-number">2.1</span> Classifying Attributes</h2>
+<p>Our ultimate goal is often to analyze the data we have to learn from it. For example, in our NYT Best Seller data, we may be interested in the proportion of authors that identify as female. Or, we may want to. know how many weeks a book stays on the Best Sellers list. The type of analyses we can do, however, depend on the type of attributes we have.</p>
+<p>We typically classify attributes as either <strong>categorical attributes</strong> or <strong>quantitative attributes</strong>. These classifications are based on the type of information (data) in the attribute. A categorical attribute has values that represent categorical (or qualitative) differences between the cases, whereas a quantitative attribute represents numerical (or quantitative) differences between cases. For example, in the NYT Best Seller data, title and author are categorical variables, whereas year, and total number of weeks the book was on the NYT Best Sellers list are quantitative attributes.</p>
+<p>Typically attributes that have numerical values are quantitative, but not always. In our data, consider the attribute that indicates whether the author identifies as a female. Although the values in the data are numeric, these numbers actually represent different categories: 0 = no (not female) and 1 = yes (female). Therefore, this attribute is actually a categorical attribute, not a quantitative attribute.</p>
+<p>One check of whether anattribute is actually quantitative is whether numeric computations, such as finding an average of the attribute, can be carried out <em>and</em> the result makes conceptual sense. For example, we cannot compute the mean author value (it is thus a categorical attribute). If we compute the mean of the <code>female</code> attribute we get a result, but it does not indicate anything about the gender identity of a NYT best selling author. The mean does not make conceptual sense and thus we classify <code>female</code> as a categorical attribute.</p>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<p>Classify the <code>best_rank</code> attribute (the book’s highest rank while it was on the NYT Best Sellers list) as either categorical or quantitative. Explain.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_01');">
+Show/Hide Solution
+</button>
+<div id="exercise_01" style="display:none; margin: -40px 0 40px 40px;">
+<p>The attribute <code>best_rank</code> is a quantitative attribute. The data in this attribute are numeric values, and it makes conceptual sense to compute summaries such as the mean for this attribute.</p>
+</div>
+</section>
+<p><br></p>
+<section id="further-classifications-of-attributes" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="further-classifications-of-attributes"><span class="header-section-number">2.1.1</span> Further Classifications of Attributes</h3>
+<p>While categorizing each attribute as categorical or quantitative is a good first step, statisticians and data analysts often go a step further and classify attributes based on their <strong>scale of measurement</strong>. This classification is based on how attributes were measured (i.e., how we assign numerals to objects of events) and what this implies about the empirical statements we can make about the constructs measured on that particular scale. The most common taxonomy for this was described by <span class="citation" data-cites="Stevens:1946">Stevens (<a href="#ref-Stevens:1946" role="doc-biblioref">1946</a>)</span> who classified four scales of measurement: nominal, ordinal, interval, or ratio (NOIR). Below we describe each of these scales of measurement:</p>
+<p><strong>Nominal Scale of Measurement:</strong> In nominal scales of measurement, any numerals assigned to different values would only be useful as labels, for distinguishing or organizing values. Most categorical attributes have this scale of measurement. For example, in the NYT bests sellers data, the numerical values in the gender identity attribute (<code>female</code>) are only useful as labels and for distinguishing authors who identify as female and authors who don’t. Because of this, only the following type of statement would be meaningful:</p>
+<ul>
+<li>In the NYT bestseller data, more authors identify as female (15) than do not identify as female (10).</li>
+</ul>
+<p>The only type of empirical statements we can make are comparisons of the number of cases between different labels (e.g., counts, percentages).</p>
+<p><strong>Ordinal Scale of Measurement:</strong> Data measured using an ordinal scales of measurement, is still categorical. It has all the features of nominal measured data (e.g., labeling, distinguishing, organizing), but we can also rank order the values in a meaningful way. A classic example of the ordinal scale of measurement is in the 5-star review rating used on sites like Amazon. All of these statements would be meaningful:</p>
+<ul>
+<li>There are more 4-star reviews than 5-star reviews (comparison of counts).</li>
+<li>A review of 3 stars is better than a review of 2 stars (rank ordering).</li>
+</ul>
+<p>With this scale of measurement, it is reasonable to not only provide counts of the different values (e.g., the number of 5-star reviews), but now because there is a rank ordering, we can also make empirical statements related to the rank ordering of the measured construct based on the numeral values. In nominal level data, these latter types of statements are not appropriate since the values for the labels are arbitrary. For example, authors with a gender identity of female were assigned a 1 and others were assigned a 0. This is arbitrary in that authors identifying as female could just as easily have been assigned a value of 0 and those that didn’t identify as female a value of 1. This implies that even though the numeral 1 is greater than the numeral 0, the attribute values associated with these numerals (identifying as female or not) do not have any meaningful rank order. Because of this, saying something about one identity being greater than or less than another is inappropriate.</p>
+<p><strong>Interval Scale of Measurement:</strong> In interval level data, the rank order of the numbers assigned to attribute values is meaningful, similar to ordinal data. Moreover, the difference between consecutive values represents the same amount of difference on the underlying attribute. For example, consider the Fahrenheit temperature scale. All of these statements would be meaningful:</p>
+<ul>
+<li>There are more 30 degrees F days than 0 degrees F days (comparison of counts).</li>
+<li>A day that is 10 degrees F is warmer than a day that is 9 degrees F (rank ordering).</li>
+<li>The difference in temperature when you are comparing days that are 9 and 10 degrees F is the same as when you are comparing days that are 0 and 1 degrees F. (interval comparison).</li>
+</ul>
+<p>The critical component is that on an interval scale, the difference in consecutive numerals has the same level of difference in the construct being measured, regardless of scale location. Again consider our 5-star rating system. The difference between a 1- and 2-star review is not the same as the difference between a 4- and 5-star review. While the numbers themselves have a constant difference, the difference in the amount of the underlying construct (satisfaction, happiness with the product, etc.) does not. With interval level scales we can compute summaries like means, standard deviations, and correlations.</p>
+<p><strong>Ratio Scale of Measurement:</strong> With attributes that have the ratio scale of measurement, the rank ordering of the numbers assigned to attribute values is meaningful, the differences between consecutive numerals indicates the same amount of difference in the underlying construct being measured, and ratio type statements about these differences are also meaningful. For example, the amount of snowfall is an attribute on the ratio scale of measurement. All of these statements would be meaningful:</p>
+<ul>
+<li>There are more days with 0 inches of snowfall than days with 10 inches of snowfall (comparison of counts).</li>
+<li>A day with 8 inches of snowfall got more snow than a day with 4 inches of snowfall (rank ordering).</li>
+<li>The difference in snowfall when you are comparing days with 8 inches of snowfall and 7 inches of snowfall is the same as when you are comparing days with 15 and 16 inches of snow (interval comparison).</li>
+<li>A day with 8 inches of snow got twice the amount of snow as a day with 4 inches of snow (ratio comparison).</li>
+</ul>
+<p>Going back to our temperature scale, we cannot make these ratio type statements. For example, a day that is 60 degrees F is not twice as warm as a day that is 30 degrees F. This is because the Fahrenheit scale does not have a “true” zero value. (Zero degrees F does not indicate absence of temperature.) Whereas, in our snowfall attribute, a day with 0 inches of snow does indeed indicate no snow fell on that day.</p>
+<p>Aside from the type of empirical statements we can make, the level of measurement also puts limits on the type of statistical analyses that are appropriate.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-measurement" class="anchored">
+
+<div id="mybjzfbzco" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#mybjzfbzco) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#mybjzfbzco) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#mybjzfbzco) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#mybjzfbzco) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#mybjzfbzco) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#mybjzfbzco) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#mybjzfbzco) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#mybjzfbzco) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#mybjzfbzco) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#mybjzfbzco) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#mybjzfbzco) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#mybjzfbzco) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#mybjzfbzco) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#mybjzfbzco) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#mybjzfbzco) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#mybjzfbzco) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#mybjzfbzco) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#mybjzfbzco) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#mybjzfbzco) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#mybjzfbzco) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#mybjzfbzco) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#mybjzfbzco) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#mybjzfbzco) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#mybjzfbzco) .gt_left {
+  text-align: left;
+}
+
+:where(#mybjzfbzco) .gt_center {
+  text-align: center;
+}
+
+:where(#mybjzfbzco) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#mybjzfbzco) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#mybjzfbzco) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#mybjzfbzco) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#mybjzfbzco) .gt_super {
+  font-size: 65%;
+}
+
+:where(#mybjzfbzco) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#mybjzfbzco) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#mybjzfbzco) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#mybjzfbzco) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#mybjzfbzco) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#mybjzfbzco) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#mybjzfbzco) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;2.1:  The four measurement scales and the types of empirical statements and statistical summaries that are appropriate for each scale. </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<em>Scale</em>"><em>Scale</em></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Empirical Statement">Empirical Statement</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Statistical Summaries">Statistical Summaries</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="scale" class="gt_row gt_left"><div class="gt_from_md"><p>Nominal</p>
+</div></td>
+<td headers="statement" class="gt_row gt_left"><div class="gt_from_md"><p>Comparison of counts</p>
+</div></td>
+<td headers="stat" class="gt_row gt_left"><div class="gt_from_md"><p>Counts, percentages</p>
+</div></td></tr>
+    <tr><td headers="scale" class="gt_row gt_left"><div class="gt_from_md"><p>Ordinal</p>
+</div></td>
+<td headers="statement" class="gt_row gt_left"><div class="gt_from_md"><p>Comparison of counts <br> Rank ordering</p>
+</div></td>
+<td headers="stat" class="gt_row gt_left"><div class="gt_from_md"><p>Counts, percentages <br> Median, percentiles</p>
+</div></td></tr>
+    <tr><td headers="scale" class="gt_row gt_left"><div class="gt_from_md"><p>Interval</p>
+</div></td>
+<td headers="statement" class="gt_row gt_left"><div class="gt_from_md"><p>Comparison of counts <br> Rank ordering <br> Interval comparisons</p>
+</div></td>
+<td headers="stat" class="gt_row gt_left"><div class="gt_from_md"><p>Counts, percentages <br> Median, percentiles <br> Mean, standard deviation</p>
+</div></td></tr>
+    <tr><td headers="scale" class="gt_row gt_left"><div class="gt_from_md"><p>Ratio</p>
+</div></td>
+<td headers="statement" class="gt_row gt_left"><div class="gt_from_md"><p>Comparison of counts <br> Rank ordering <br> Interval comparisons <br> Ratio comparisons</p>
+</div></td>
+<td headers="stat" class="gt_row gt_left"><div class="gt_from_md"><p>Counts, percentages <br> Median, percentiles <br> Mean, standard deviation <br> Coefficient of variation</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="how-were-the-data-generated" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="how-were-the-data-generated"><span class="header-section-number">2.2</span> How Were the Data Generated?</h2>
+<p>Another question that has direct implications on the methods used in data analysis is: How were the data generated or collected? Were they collected from a survey? Were they mined from the web? Were they generated as part of an experimental study? Knowing the answer to these questions also is important for the degree to which we can draw conclusions from the analysis.</p>
+<p>Understanding how the data were generated allows us to determine whether the data we have constitute a <strong>sample</strong> of cases or the entire <strong>population</strong> of cases we are interested in learning about. Importantly, whether you have a sample or the entire population depends on how you define the cases/observations you are interested in drawing conclusions about.</p>
+<div class="fyi">
+<p>A <strong>population</strong> includes <em>all</em> cases/observations of interest, whereas a. <strong>sample</strong> includes a subset of cases from the population.</p>
+</div>
+<p>For example, consider a child psychologist who wants to draw conclusions about all students at a particular school in Minnesota. To do this, she collects data from every student in that school. Since her data includes every case (student) she is interest in drawing conclusions for, her data would be a population, Now consider a second child psychologist who is interested in drawing conclusions about all students in Minnesota. This psychologist also collects data from every student in the same school as the first psychologist. This second psychologist’s data would be considered a sample since the cases they included in their data are only a subset of the cases they want to draw conclusions about.</p>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
+<p>Is the New York Time best sellers data a population or a sample? Explain.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_02');">
+Show/Hide Solution
+</button>
+<div id="exercise_02" style="display:none; margin: -40px 0 40px 40px;">
+<p>The New York Time best sellers data is a sample since it is only a subset of all the New York Times best selling books.</p>
+</div>
+</section>
+<p><br></p>
+<section id="drawing-conclusions-from-a-sample" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="drawing-conclusions-from-a-sample"><span class="header-section-number">2.2.1</span> Drawing Conclusions from a Sample</h3>
+<p>In practice, we rarely have data collected from an entire population, but we still want to use the data we have in our sample to draw conclusions about that population. Drawing conclusions about an entire population when you only have data from a subset cases is what statisticians call <strong>statistical inference</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pop-sample" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/03-01-population-to-sample.png" class="img-fluid figure-img" width="536"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: A sample of data is drawn from the population. Information from the sample is then analyzed and used to make a statistical inference about the population.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This can be a very tricky thing to do since the sample does not give us complete information about the population. As an example, consider if you wanted to figure out the average monthly living expenses for all graduate students at the University of Minnesota. To do this you collect data on the monthly living expenses for the students in your EPSY 5261 class and compute the average monthly living expense based on the data you collected and use that value as a guess for the average monthly living expenses for all graduate students at the University of Minnesota. (Note that the cases in your data (students in your EPSY 5261 class) are a subset of the population you want to draw conclusions about (all graduate students at the University of Minnesota) and thus are a sample.)</p>
+<div class="fyi">
+<p>Summaries computed from the population are referred to as <strong>parameters</strong> and summaries computed from a sample are referred to as <strong>statistics</strong>.</p>
+</div>
+<p>In statistical inference the statistics we compute from a sample are estimates for the population parameters that we are interested in. The word “estimate” may have clued you in that the value of a statistic is generally not equal to the value of the parameter. In our example, the average monthly living expenses we computed based on your sample of cases is probably not the same as the average monthly living expenses for all graduate students at the University of Minnesota. This is because our sample only includes data for some (not all) of the cases.</p>
+<p>We don’t expect the value of the statistic to be the same as that for the parameter we are trying to estimate, but a key question is: Is the value of the statistic a <em>reasonable</em> estimate of the parameter? The answer to this question can sometimes be difficult to answer. What do we mean by reasonable? In statistical analysis, there are a few ways that we consider reasonableness of an estimate. We will explore these below.</p>
+<p><br></p>
+<section id="sampling-error-quantifying-the-amount-of-uncertainty-in-our-sample-estimate" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="sampling-error-quantifying-the-amount-of-uncertainty-in-our-sample-estimate"><span class="header-section-number">2.2.1.1</span> Sampling Error: Quantifying the Amount of Uncertainty in our Sample Estimate</h4>
+<p>One way we consider whether an answer is reasonable is how much uncertainty we have in the estimate from our sample. Imagine if you repeated the study, but this time, you collected data on the monthly living expenses in a different section of EPSY 5261. The average computed from these data would likely be different from the average you computed from your section of EPSY 5261, and therefore your guess for the average monthly living expenses for all graduate students at the University of Minnesota would be different. This is because you would have different cases in your sample.</p>
+<div class="fyi">
+<p>When using a sample to infer about a population, our guesses or estimates vary depending on the cases in our sample. This means that when we make inferences there is always some degree of uncertainty in our estimates.</p>
+</div>
+<p>The idea that estimates from samples vary depending on the cases in your sample is well known and is referred to as <strong>sampling error</strong>. In carrying out statistical inference, we not only acknowledge that we have uncertainty in our guess from the sample data, but we also try and quantify how much uncertainty there is in that estimate. For example, do we think that the average monthly living expenses for all graduate students at the University of Minnesota is within a few dollars of our sample estimate? Or do we think that it is within a few hundred dollars of our sample estimate? By providing this estimate of the uncertainty, it lets other people know “how reasonable” our guess might be.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sampling-error" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/03-02-sampling-error.png" class="img-fluid figure-img" width="553"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.2: Estimates for the mean living expense for all graduate students at the University of Minnesota will vary from sample to sample because of sampling error. In statistical inference this is expected and quantifying the amount of sampling error gives us an indication of how much uncertainty we have in our estimate.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="sampling-bias-does-the-sample-represent-the-population" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="sampling-bias-does-the-sample-represent-the-population"><span class="header-section-number">2.2.1.2</span> Sampling Bias: Does the Sample Represent the Population?</h4>
+<p>A second way we consider whether an answer is reasonable is to consider whether our sample of cases is representative of the population as a whole. In our example, we are asking the question of whether the students in your section of EPSY 5261 are representative of all graduate students at the University of Minnesota when it comes to living expenses. This is a really difficult question to answer, but generally (unless you have selected your sample randomly from the population), your sample is not representative. The key here is that the sampling method (how you chose your cases) matters!</p>
+<div class="fyi">
+<p>When a sample is not randomly selected from the population we say that the sampling method is biased.</p>
+</div>
+<p>A biased sampling method leads to systematically wrong answers. For example, again say you were interested in determining the average monthly living expenses for all graduate students at the University of Minnesota. This time, your sampling method is to collect data about the monthly living expenses from all the graduate students who live in a particular apartment building in Downtown Minneapolis. Would these students’ living expenses be representative of all graduate students at the University of Minnesota?</p>
+<p>Again, probably not. The living expenses in Downtown Minneapolis are different (generally higher) than the living expenses of students who live in Dinkytown or one of the suburbs. Because the cases in your sample all come from the same apartment building in Downtown Minneapolis, their average monthly living expense will be systematically higher than the average monthly living expenses for all graduate students at the University of Minnesota.</p>
+<p>What about our original sampling method of collecting data from each of the graduate students in your EPSY 5261 section? While these students might live in different areas, and seem more representative, this sampling method is likely still biased. Even if we have a hard time identifying how, the estimate for the average monthly living expenses based on students in EPSY 5261 is likely systematically different than the average monthly living expenses for all graduate students at the University of Minnesota. (It may be systematically too low, or too high.)</p>
+<div class="fyi">
+<p>The only sampling method that is guaranteed to be unbiased (and therefore representative) is to select your sample randomly from the population.</p>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="random-sampling" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="random-sampling"><span class="header-section-number">2.2.2</span> Random Sampling</h3>
+<p>There are many methods for randomly selecting a sample from the population. The simplest method that incorporates randomness into the sampling process is <strong>Simple Random Sampling</strong>. In simple random sampling each case in the population has an equal probability of being selected into the sample.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="protip">
+<p>In the discipline of statistics, there are words that we use that have very different meanings from their use in colloquial English. “Random” is one of those words. In our everyday language “random” might mean happenstance or unexpected. For example: It was so random that I saw Ferris Bueller at the 31 Flavors last night. In statistics, “random” does not mean happenstance at all. Random sampling is quite formal in ensuring that cases have a specified probability of being selected into the sample.</p>
+</div>
+<p>One of the most compelling and useful results in statistics is that a simple random sample is representative of the population, and moreover that even small samples that are selected with this method can be representative of very large populations. This is powerful!</p>
+<p>But, it can sometimes be very difficult to draw a simple random sample in practice. For one thing, it requires that you have a list of all the cases in the population (called a <strong>sampling frame</strong>). This allows you to make sure that everyone in the population has the same probability of being selected. While it might be possible to obtain a list of all graduate students enrolled at the University of Minnesota, it is another thing to obtain a list of all people living in Minnesota. Or even a list of people living in Dinkytown. Depending on your population of interest you may not be able to get a simple random sample.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<section id="your-turn-2" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-2">Your Turn</h4>
+<p>What is the sampling method for the New York Time best sellers data. Based on this method, are the estimates of the population parameters we compute from these data going to be biased or unbiased?</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03');">
+Show/Hide Solution
+</button>
+<div id="exercise_03" style="display:none; margin: -40px 0 40px 40px;">
+<p>The New York Time best sellers data was sampled using simple random sampling. Because the sampling method employed randomness, the estimates we compute from the data are unbiased estimates of the population parameters.</p>
+</div>
+</section>
+<p><br></p>
+</section>
+</section>
+<section id="summary" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.3</span> Summary</h2>
+<p>Every time you encounter data, you should identify the cases and attributes in the data. Understanding the cases, especially in relation to the cases you want to draw conclusions about, helps you identify whether you have a sample, or the entire population. Classifying the attributes helps you think about the type of analysis you can undertake. If your data are a sample (rather than a population), you also need to ask how they were collected. Were they collected using randomness in the sampling method? Or is the sampling method used to collect the data biased?</p>
+<p><br></p>
+</section>
+<section id="references" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
+<!-- ## Experiments vs Observations -->
+<!-- The type of analysis that is relevant for a given problem depends on the experimental design. More generally, experimental design refers to how the data were collected. How the data were collected has implications for the type of conclusions that can be drawn from the data (i.e., you may have heard the phrase, "correlation does not imply causation") and the subsequent analysis. A extremely sophisticated analysis does not overcome limitations in how the data were collected.  -->
+<!-- Given that how the data were collected greatly impacts the types of conclusions that can be drawn from the analysis, what are design features are important to consider? This topic is large, nuanced, and an entire series of courses have been created on this topic. The goal here is to think about some concepts that are particularly helpful to consider for any analysis.  -->
+<!-- The discussion will be framed around articulating whether the data collected were part of an experiment or were simply observed. The simplest definition for observational data are those that were collected without strong consideration about who is or how the data are collected. One example of observational data could be collected information about the shoes that people wear as they are walking in a busy part of town. Given this type of data collected, what could be some limitations about this type of data?  -->
+<!-- To contrast observational data, experimental data are those in which care was taken to how the data were collected. Within experimental data, it is common for there to be two or more conditions that are being explored. For example, in a clinical trial that is testing whether a vaccine or drug is effective and safe, the new vaccine or drug is often tested against a placebo. The placebo is a harmless substance that does not produce any change to the body, for example, the placebo could be a sugar pill that looks just like a new drug to be tested in every other way. The placebo would simply not contain the active ingredients of the new drug.  -->
+<!-- When conducting these experiments with two or more groups that are of interest to be compared, those who are participating in the study are randomly assigned or selected to be in one of the groups. Using the placebo vs new drug example, this would mean that each participant is randomly assigned to either receive the placebo or the new drug, but the participant does not know which one they are receiving. Often, those administering the treatment also do not know whether the placebo or active drug is being given as well.  -->
+<!-- <br /> -->
+<!-- ### Explore Random Assignment -->
+<!-- How does the random assignment of individuals to treatment conditions change the design from an observational to an experimental design? The random process is really the primary difference between being an observational vs an experiment. The random assignment to each condition in the study has the ability to, on average, even out differences across the two groups. Since the inclusion of being in one of the two groups is random, if the study has enough participants, it is more likely for the two groups to be as equal as possible across all characteristics for the study participants.  -->
+<!-- <!-- What could random assignment look like in practice? More to come ... . -->
+<!-- <br /> -->
+<!-- ### Example: Natural Experiments -->
+<!-- <br /> -->
+<!-- ## Data Structure -->
+<!-- Data are often stored in tabular form for ease of use with common statistical programs, however data need not be in this structure. Data can come from anywhere and could consist of text, numbers representing some quantity, text labels representing groups, or many other formats. This section aims to give an introduction to the form and format of data, both common and uncommon. -->
+<!-- <br /> -->
+<!-- ### Tabular Data -->
+
+<!-- Tabular data are those that are most commonly used in statistics courses. Tabular data are such that rows indicate unique cases of data and the columns represent different attributes for those cases. Table @tbl-tabular-data shows the an example of tabular data.  -->
+<!-- ```{r} -->
+<!-- #| label: tbl-tabular-data -->
+<!-- #| tbl-cap: "Example of tabular data." -->
+<!-- #| echo: false -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
+<!-- knitr::kable( -->
+<!--   data.frame(name = c('He-Man', 'She-Ra', 'Voltron'), -->
+<!--     human = c('Yes', 'Yes', 'No'), -->
+<!--     fictional = c('Yes', 'Yes', 'Yes'), -->
+<!--     height = c(83, 96, 3936) -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
+
+<!-- In this table, each row represents a unique person and the first column would represent the identifying attribute for each unique row. For example, the first row represents characteristics for He-Man and each subsequent column represents specific attributes about them. For example, the second and third columns are Yes/No attributes indicating if the person is human or fictional or not. What are the primary differences between the second and third columns? Notice that the third column, the fictional attribute, is one in which all elements in the current tabular data are the same value. This would be an attribute that does not vary across the different rows in the data. These attributes are not helpful from a statistical perspective in this small data set, but if more data were added in which some elements were not fictional, then this attribute would contain useful information. In statistics terminology, this type of attribute would be called a **constant attribute**. In statistics, we are interested in attributes that **vary** across our units in the data. Attributes that vary are often referred to as **variables** in statistics terminology. Throughout this textbook, the term attribute will be used instead of variable. An attribute will refer to a column of data that carries information about the units in the data.  -->
+<!-- The final column of data in Table @tbl-tabular-data is one that represents the approximate height of each character, in inches ^[This is based on a search for the character name plus height, for example, "He-Man height."]. This attribute is different from the rest of the attributes in that it is a numeric quantity for each unit. Numeric quantities usually carry more information about magnitude differences compared to the text attributes described earlier. More explicitly, differences in the height attributes can be quantified and in this case, with the attribute being represented as the height in inches, each unit represents the same distance across the entire scale. That is, a one inch difference across the entire height scale is the same no matter where that inch occurs on the scale. These types of attributes will be used extensively in this text, most commonly these types of attributes will be used as the attribute of most interest in our analyses. For example, from the data above, it could be asked if there are differences in height of the characters based on if they are human or not. For this question, differences in height for those that are human (i.e., human attribute = "Yes") compared to those that are not human (ie., human attribute = "No") would be used as the primary comparison. This text will explore questions like this from a descriptive and inferential framework later.  -->
+<!-- :::exercises -->
+
+<!-- For these data, there are only three rows, but you could imagine adding more rows to these elements for other characters. For example, imagine adding a new row to this data for a rabbit. Take a few minutes to think about what a new row with the rabbit would look like for each column of Table @tbl-tabular-data. Would any of the columns in the table change from a constant to now being a variable? -->
+<!-- ::: -->
+<!-- <br /> -->
+<!-- ### Non-tabular Data -->
+<!-- Data can come in many different formats, this book will not extensively cover data that are not in a tabular format. However, non-tabular data are very common in practical problems. In these situations, these data are often wrangled into a more structured format to conduct a statistical analysis. Some common non-tabular data formats include data coming from text, video, audio, graphics, images, sensors, and even more.  -->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Gould:2013" class="csl-entry" role="doc-biblioentry">
+Gould, R., &amp; Ryan, C. (2013). <em>Introductory statistics: Exploring the world through data</em>. Pearson.
+</div>
+<div id="ref-Pruett:2021" class="csl-entry" role="doc-biblioentry">
+Pruett, J. (2021). <em><span>NYT</span> hardcover fiction bestsellers</em>. Post45 Data Collective, V1. https://doi.org/<a href="https://doi.org/10.18737/CNJV1733p4520220211">https://doi.org/10.18737/CNJV1733p4520220211</a>
+</div>
+<div id="ref-Stevens:1946" class="csl-entry" role="doc-biblioentry">
+Stevens, S. S. (1946). On the theory of scales of measurement. <em>Science</em>, <em>103</em>(2684), 677–680.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Technically the definition of a simple random sample is all potential samples of size <em>n</em> have the same probability of being selected, which implies that each case in the population has an equal probability of being selected into the sample. Conceptually, however, it is easier to think about the probability of each case rather than of the probability of groups of size <em>n</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In this case there are other more complex methods of random sampling that you could use (e.g., stratified random sampling, cluster random sampling.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-exploring-and-describing-data.html" class="pagination-link">
+        <span class="nav-page-text">Summarizing and Visualizing Data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

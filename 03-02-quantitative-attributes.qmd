@@ -1,0 +1,626 @@
+# Summarizing and Visualizing Categorical Attributes   
+
+This chapter will focus on the visualization and numerical summarization of categorical attributes.
+
+<br />
+
+
+## Hypothetical Example: Pet Ownership
+
+Imagine you have surveyed 10 pet owners about the type of pet they own.^[To keep it simple, assume each pet owner only has a single pet.] The data you collected is shown in @fig-pets.
+
+```{r}
+#| label: fig-pets
+#| fig-cap: "Data collected from 10 pet owners about the type of pet the own."
+#| echo: false
+knitr::include_graphics("figs/03-01-pet-sample.png")
+```
+
+Our goal in exploratory analysis is to describe the data. One way of describing the data is to list all of the values. For example here we could say the sample included a turtle, a fish, a cat, a dog, another dog, another fish, another cat, another cat, another cat, and another dog. While this is an accurate description, it isn't very generalizable. (Imagine trying to describe the data from 1000 pet owners or 10,000 pet owners!)
+
+<br />
+
+### Numerically Summarizing Categorical Attributes
+
+A more natural way to describe these data is to summarize them by providing **counts** of each pet type. For example, describing our sample data using counts:
+
+- 1 of the pet owners sampled owned a turtle, 
+- 2 of the pet pet owners sampled owned a fish, 
+- 3 of the pet pet owners sampled owned a dog, and 
+- 4 of the pet pet owners sampled owned a cat.
+
+Summarizing each type of pet owned by reporting counts of them is a much more natural way of describing the data. (This is  also useful when the sample size is much larger.) 
+
+Another summary that could be used to describe this sample is to give the **proportion** of each type of pet owned. To compute the proportion, we take the count of each type of pet owned, and divide it by the total sample size.
+
+$$
+\mathrm{Proportion} = \frac{\mathrm{Count~of~Pet~Type}}{\mathrm{Total~Sample~Size}}
+$$
+
+
+
+For example, to compute the proportion of pet owners in our sample that owned a dog, we use:
+
+$$
+\mathrm{Proportion~of~Dogs} = \frac{3}{10} = 0.30
+$$
+
+:::fyi
+Proportions will always be between 0 and 1. If you add all of the proportions of each category  together you will get 1, so long as values can only belong to one category.
+:::
+
+Describing our sample data using proportions:
+
+- 0.10 of the pet owners sampled owned a turtle, 
+- 0.20 of the pet pet owners sampled owned a fish, 
+- 0.30 of the pet pet owners sampled owned a dog, and 
+- 0.40 of the pet pet owners sampled owned a cat.
+
+The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. @tbl-pets is an example table indicating the counts and proportions of values in our hypothetical pet example.
+
+```{r}
+#| label: tbl-pets
+#| tbl-cap: "Counts and proportions of pet owners who own each type of pet."
+#| echo: false
+#| tbl-colwidths: false
+
+library(gt)
+library(gtExtras)
+dplyr::tibble(
+  Pet = c("figs/dog.png", "figs/cat.png", "figs/fish.png", "figs/turtle.png"),
+    #162, 155, 127, 144
+  Count = c(3, 4, 2, 1),
+  Proportion = c(.3, .4, .2, .1)
+) |>
+  gt() |>
+  gt_img_rows(columns = Pet, height = 50) |>
+  fmt_number(
+    columns = Proportion,
+    decimals = 2
+  ) |>
+  cols_align(
+    align = "center",
+    columns = c(Count, Proportion)
+  ) |>
+  tab_options(
+    table.width = pct(60)
+    ) |>
+  as_raw_html()
+```
+
+<br />
+
+
+### Visualizing Categorical Attributes
+
+To visualize categorical attributes we typically use a **bar chart**. @fig-pet-barchart shows a bar chart of the pet data.
+
+```{r}
+#| label: fig-pet-barchart
+#| fig-cap: Bar chart indicating the counts of each type of pet owned.
+#| echo: false
+
+knitr::include_graphics("figs/03-02-pet-barchart.png")
+```
+
+
+A bar chart (also known as a bar graph) shows a bar for each category of the categorical attribute. In our example, we have four bars, one for each pet type. The height of the bar indicates the count of each category. For example, the bar for cats has a height of four on the *y*-axis. 
+
+Sometimes the axes in the bar chart are transposed; categories are placed on the *y*-axis and counts on the *x* axis. Also, you might see a bar chart indicating proportions rather than counts. @fig-pet-barchart2 shows a transposed bar chart indicating the proportion of each pet type.
+
+```{r}
+#| label: fig-pet-barchart2
+#| fig-cap: Bar chart indicating the counts of each type of pet owned. In this plot the categories are placed on the *y*-axis and the scale on the the *x* axis indicates proportions rather than counts.
+#| echo: false
+
+knitr::include_graphics("figs/03-03-pet-barchart-horz.png")
+```
+
+:::protip
+When proportions are used in a bar chart, it is coventional to extend that axis from 0 to 1 (the range of potential proportions). 
+:::
+
+<br />
+
+#### Bar Chart Variations
+
+There are several variations on the bar chart that you may see in practice. For example, the **segmented bar chart** is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments---one for each category. A segmented bar chart summarizing the pet data is shown in @fig-barchart-seg.
+
+```{r}
+#| label: fig-barchart-seg
+#| fig-cap: Segmented bar chart indicating the proportion of each type of pet owned.
+#| echo: false
+
+knitr::include_graphics("figs/03-04-pet-barchart-hseg.png")
+```
+
+Another variation of the bar chart is the **donut chart**. A donut chart is simply a segmented bar chart that is presented in a circular layout. @fig-donut-chart presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.
+
+```{r}
+#| label: fig-donut-chart
+#| fig-cap: Donut chart indicating the percentage of each type of pet owned. A donut chart is simply a segmented bar chart presented in a circular layout.
+#| echo: false
+#| out-width: "40%"
+
+knitr::include_graphics("figs/03-05-pet-donut-chart.png")
+```
+
+
+<br />
+
+
+#### Pie Charts
+
+One last plot used to visualize summaries of categorical dat is the **pie chart**. @fig-pie-chart shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.
+
+```{r}
+#| label: fig-pie-chart
+#| fig-cap: Pie chart indicating the percentage of each type of pet owned. A pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type.
+#| echo: false
+#| out-width: "40%"
+
+knitr::include_graphics("figs/03-06-pet-pie-chart.png")
+```
+
+:::fyi
+In a pie chart, each section of the pie is determined by proportionally dividing the 360&deg; of the circle based on the data, and then making each section have the computed angle. For example the proportion of pet owners who have a cat is 0.4, and 0.4 of 360&deg; is 144&deg;---so the cats section has an angle of 144&deg;. While these computations and the drawing of the pie chart would be done by the computer, it has implications for interpretations. Namely, research has suggested that humans may not be as adept at making accurate comparisons involving angles and the areas of sections based on those angles. Because of this, the recommendation from the data visualization community is to **use bar charts rather than pie charts** when displaying summaries of categorical data.
+:::
+
+
+<br />
+
+
+## Using R to Summarize and Visualize Categorical Attributes
+
+To illustrate how we can summarize and visualize categorical attributes using R, we will use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading two libraries, `{tidyverse}` and `{ggformula}`. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(ggformula)
+
+# Import data
+colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+
+# View data
+colleges
+```
+
+Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several categorical attributes, including: state, region, type of institution, and control. 
+
+<br />
+
+
+
+### Exploring the Control Attribute
+
+The first attribute we will summarize and visualize is the control variable. Looking at the [data codebook]() we find that this attribute can take on three different values: Public, Private nonprofit, and Private for-profit. Our first task is to get institution counts for each category of control. To do this, we will use the `count()` function. The general syntax to obtain these counts is shown below.
+
+```{r}
+#| eval: false
+# General syntax to counts the categories in a categorical attribute
+data_name |> count(attribute_name)
+```
+
+We first need to identify the name of the data object that includes our categorical attribute. Then we tell R to use the `count()` function which takes the name of the categorical attribute as its argument. We link these two things together using the pipe operator (`|>`). 
+
+:::protip
+It is a good idea to learn how to read R syntax. The pipe operator can be read as "and then". So the general syntax above is read as, "take the `data_name` data *and then* count the categories in the `attribute_name` attribute".
+:::
+
+
+Putting this into practice to count the categories in the `control` attribute which is in our `colleges` data:
+
+```{r}
+# Syntax to count the categories in the control attribute
+colleges |> count(control)
+```
+
+If we were to read this syntax, "take the `colleges` data *and then* count the categories in the `control` attribute".
+
+Based on the counts, we find that most of the institutions of higher learning in our sample are private nonprofit institutions (*n* = 148). There are also several public institutions of higher learning in our sample (*n* = 71). Lastly, there are also a few private for-profit institutions of higher learning in our sample (*n* = 15).
+
+:::fyi
+It is common to use *n* or *N* to denote sample size. Some textbooks and authors will use *N* to indicate the overall sample size (e.g., in the college scorecard data, *N* = 234) and *n* to indicate the sample size of subgroups within the sample (e.g., *n* = 71 for public institutions). Other authours might use *n* to define the overall sample size (e.g., *n* = 234) and then use subscripts on *n* to denote the sample size of different groups (e.g., $n_{\mathrm{Public}}=71$). There is not a single unified agreed upon way to denote these things. 
+:::
+
+We also might want to compute the proportions for each category of control. To do this, we can divide the category counts by the total sample size.
+
+```{r}
+# Proportion of public institutions
+71 / 234
+
+# Proportion of private nonprofit institutions
+148 / 234
+
+# Proportion of private for-profit institutions
+15 / 234
+```
+
+These proportions (which can also be turned into percentages) tell a similar story to what the counts did. Most of the institutions in our sample are private nonprofit  (63.2%) and public (30.3%) institutions. There is a smaller percentage of institutions that are private for-profit (6.4%).^[Note that these percentages do not quite add up to 100%. This is because of the rounding that we did.] As we did with the numerical summaries of the pet data, we can include these values in a table.
+
+```{r}
+#| label: tbl-colleges
+#| tbl-cap: "Counts and proportions of institutions of higher learning by control."
+#| echo: false
+#| tbl-colwidths: false
+dplyr::tibble(
+  Control = c("Public", "Private Nonprofit", "Private For-Profit"),
+  Count = c(71, 148, 15),
+  Proportion = c(.303, .632, .064)
+) |>
+  gt() |>
+  cols_align(
+    align = "center",
+    columns = c(Count, Proportion)
+  ) |>
+  tab_options(
+    table.width = pct(60)
+    ) |>
+  as_raw_html()
+```
+
+<br />
+
+
+#### Creating a Bar Chart using R
+
+To create a bar chart, we will use the `gf_bar()` function. This general syntax for `gf_bar()` is
+
+```{r}
+#| eval: false
+# General syntax to create a bar chart
+gf_bar(~ attribute_name, data = data_name)
+```
+
+In this function we indicate the name of the attribute we want to create a bar chart for with a tilde (`~`) precedeing the attribute name.  We also give the name of the data object in the `data=` argument. For example, the syntax to create a bar chart summarizing the counts of the `control` attribute is:
+
+```{r}
+#| label: fig-barchart-control.
+#| fig-cap: "Bar chart summarizing the counts of the control attribute."
+# Syntax to create a bar chart for the control attribute
+gf_bar(~ control, data = colleges)
+```
+
+
+:::fyi
+The tilde (`~`) is read as "modeling", so the syntax says to create a bar chart by modeling the counts of the `control` attribute in the `colleges` data object.
+:::
+
+
+We can make this plot nicer by changing the axes labels. For example, we might change the *y*-axis label to "Count" and the *x*-axis label to "Type of Institution". To do this we include the `xlab=` and `ylab=` arguments in the `gf_bar()` function. The labels we want depicted are given as text inside of quotation marks. Remember that each argument needs to be separated by a comma!
+
+:::protip
+As you include additional arguments in the function, it can be useful to include each argument on different lines. This will help you troubleshoot syntax that doesn't work.
+:::
+
+
+```{r}
+#| label: fig-barchart-control-axes-labels.
+#| fig-cap: "Bar chart summarizing the counts of institutions of higher learning by type."
+# Syntax to create a bar chart for the control attribute
+gf_bar( 
+  ~ control, data = colleges,
+  xlab = "Type of Institution",
+  ylab = "Count"
+  )
+```
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the syntax to create a bar chart that summarizes the counts of the `region` attribute.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-01" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+gf_bar(~ region, data = colleges)
+```
+
+Add better labels to the *x*- and *y*-axis of the bar chart you just created.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-02');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-02" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+gf_bar(
+  ~ region, data = colleges,
+  xlab = "Region of the United States",
+  ylab = "Count"
+  )
+```
+
+</div>
+:::
+
+
+
+
+```{r}
+gf_props(~control, data = colleges)
+```
+
+
+
+
+
+
+
+<!-- The topic of data visualization can be extremely large and entire textbooks are written about the topic.^[Clause Wilke has a great book on the [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) and Kieran Healy has another great book data visualization called [Data Visualization: A practical introduction](https://socviz.co/). Both of these books are also freely available online with print versions able to be purchased as well.] Given the powerful nature of data visualization, only an introduction of data visualization will be covered in this book, with the goal of using them for interpreting statistical results. As such, only a handful of data visualizations will be explored, described, and used.  -->
+
+<!-- Data visualization can be broken down into many different components and in many different ways. In this book, we aim to differentiate data visualization into two different types. First, in this chapter, the goal will be to explore a single attribute of interest, often referred to as univariate visualization. The term, univariate, can be split into two pieces, one, "uni-", meaning one, and second, "variate", referring to the attribute or variable explored. Often, univariate data visualization is used for the attribute that is deemed the outcome or the attribute of interest, but this does not need be the only attribute explored in such a way. The goals of the univariate data visualization is to understand more about the single attribute of interest, what are key features, are there extreme values, does the attribute spread over a lot of possible values or are the data more homogeneous (i.e., similar).  -->
+
+<!-- The second type of data visualization discussed in this book is that of multivariate data visualization. The phrase "multivariate" can again be broken into two components, "multi-" referring to more than one, and "variate", referring to the attribute of variables. This will be discussed more in Chapter 6 of this book, but multivariate visualization is used primarily to understand how more than one attribute in the data may be related to one another. Multivariate data visualization can also be useful for understanding if there are differences across smaller subgroups in the data.  -->
+
+
+<br />
+
+
+
+
+
+
+<!-- Univariate distributions mean exploring the data for a single variable by itself. This can be useful as an initial exploration of the data to understand information about which values are typical, if there are any extreme values, what the range of the variable has, and other characteristics. Univariate distributions are useful, however in most data situations, these form the initial exploration only and multivariate thinking is needed, which we will explore next. -->
+
+<br />
+
+
+### Histograms
+
+The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the `gf_histogram()` function. (This function is part of the **ggformula** package which needs to be loaded prior to using the `gf_histogram()` function.) This function requires two arguments. The first argument is a formula that identifies the variables to be plotted and the second argument, `data =`, specifies the data object that was assigned on data import. For example, earlier we used the `read_csv()` function to import the college scorecard data and we assigned this to the name, `colleges`. The syntax used to create a histogram of the admission rates is:
+
+```{r}
+#| label: hist-01
+#| eval: false
+gf_histogram(~ adm_rate, data = colleges)
+```
+
+```{r}
+#| label: fig-hist-01
+#| fig-cap: "Histogram of college admission rates."
+#| echo: false
+gf_histogram(~ adm_rate, data = colleges) |> 
+  plotly::ggplotly()
+```
+
+
+The formula we provide in the first argument is based on the following general structure:
+
+`~ attribute name`
+
+where the attribute name identified to the right of the `~` is the exact name of one of the columns in the `colleges` data object. 
+
+<br />
+
+### Interpretting Histograms
+
+Histograms are created by collapsing the data into bins and then counting the number of observations that fall into each bin. To show this more clearly in the figure created previously, we can color the bin lines to highlight the different bins. To do this we include an additional argument, `color =`, in the `gf_histogram()` function. We can also set the color for the bins themselves using the `fill =` argument. Here we color the bin lines black and set the bin color to yellow.^[R knows the names of 657 colors. To see these names type `colors()` at the command prompt.]
+
+```{r}
+#| label: fig-hist-01-color
+#| fig-cap: "Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow')
+```
+
+When looking at a single bar, for example the bar that is at 0.50, shows the number of institutions with admissions rates between about 0.48 and 0.52. In this case, there are about 80 institutions that have admissions rates between 0.48 and 0.52 (i.e., 48% to 52% admission rates). Similar interpretations are found for all of the other bars as well. 
+
+One common assumption made with a histogram is for the width of the bars be the same width on the attribute of interest. For example, the single bar interpreted in the preceding paragraph, the width of the bar was about 4% on the admission rate scale. Therefore, with the assumption that all bars have the same width, this would mean that all of the 30 bars in the histogram would each range by about 4%. 
+
+Rather than focusing on any one bin, we typically want to describe the distribution as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.5 have higher counts than the bins that are below 0.5. There are, however, some institutions that are quite selective, only admitting fewer than 25% of the students who apply.
+
+<br />
+
+
+#### Adjusting Number of Bins
+
+Interpretation of the distribution is sometimes influenced by the width or number of bins. It is often useful to change the number of bins to explore the impact this may have on your interpretation. This can be accomplished by either (1) changing the width of the bins via the`binwidth =` argument in the `gf_histogram()` function, or (2) changing the number of bins using the `bins =` argument.
+
+The binwidth in the histogram refers to the range or width of each bin. A larger binwidth would mean there are fewer bins as it would take fewer bins to span the entire range of the attribute of interest. In contrast, a smaller binwidth would require more bins to span the entire range of the attribute of interest. 
+
+In contrast, the number of bins can be specified directly, for example 10 or 20 bins. The default within the R graphics package used is 30. Within this framework, each bin will have the same width or binwidth. 
+
+The relationship between the number of bins and binwidth could be shown with the following equation:
+
+$$
+binwidth = \frac{attribute\ range}{\#\ of\ bins}
+$$
+
+To be more explicit, suppose that we wanted there to be 25 bins, using algebra we could compute the new binwidth given that we know we want 25 bins and knowing the range of the original attribute. The admission rates attribute have values as small as `r round(min(colleges$adm_rate), 2)` and as large as `r round(max(colleges$adm_rate), 2)`. Therefore, the total range would be 1 (`r round(max(colleges$adm_rate), 2)` - `r round(min(colleges$adm_rate), 2)` = `r round(max(colleges$adm_rate), 2) - round(min(colleges$adm_rate), 2)`). The binwidth could then be computed as:
+
+$$
+bindwidth = \frac{1}{25} = .04
+$$
+
+In contrast, if we wanted to specify the binwidth instead of the number of bins, we could do a little bit of algebra in the equation above to compute the number of bins needed to span the range of the attribute given the specified binwidth. For example, if we wanted the binwidth to be .025, 2.5%, we could compute this as follows:
+
+$$
+\#\ of\ bins = \frac{1}{.025} = 40
+$$
+
+We will take the approach of letting the software compute these, but the equations above shows the general process that is used by the software in selecting the binwidth.  
+
+More bins/smaller binwidth can give a slightly more nuanced interpretation of the attribute of interest, whereas fewer bins/large binwidth will do more summarization. Having too few bins or too many bins can make the figure more difficult to interpret by missing key features of the attribute or including too many unique features of the attribute. For this reason, it is often of interest to adjust the binwidth or number of bins to explore the impact on the interpretation. 
+
+The code below changes the binwidth to specify it as .01 via the `binwidth = .01` argument with the figure shown in @fig-hist-01-binwidth.
+
+```{r binwidth-01, fig.cap = "Histogram modifying the binwidth."}
+#| label: fig-hist-01-binwidth
+#| fig-cap: "Histogram of college admission rates. Here the binwidth has been changed to .01."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', binwidth = .01)
+```
+
+The code below specifies 10 bins via the `bins = 10` argument with the figure shown in @fig-hist-01-numbins.
+
+```{r}
+#| label: fig-hist-01-numbins
+#| fig-cap: "Histogram of college admission rates. Here the number of bins has been changed to 10."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 10)
+```
+
+In general, our interpretation remains the same across all the different binwidth/bins combinations, namely that most institutions admit a high proportion of applicants. When we used a bin width of 0.01, however, we were able to see that several institutions admit 100% of applicants. This was obscured in the other histograms we examined. As a data scientist these institutions might warrant a more nuanced examination.
+
+<br />
+
+## Plot Customization
+
+There are many ways to further customize the plot we produced to make it more appealing. For example, you would likely want to change the label on the *x*-axis from `adm_rate` to something more informative. Or, you may want to add a descriptive title to your plot. These customizations can be specified using the `gf_labs()` function. Specific examples are given below. 
+
+<br />
+
+
+### Axes labels
+
+To change the labels on the *x*- and *y*-axes, we can use the arguments `x =` and `y =` in the `gf_labs()` function. These arguments take the text for the label you want to add to each axis, respectively. Here we change the text on the *x*-axis to "Admission Rate" and the text on the *y*-axis to "Frequency". The `gf_labs()` function is connected to the histogram by linking the `gf_histogram()` and `gf_labs()` functions with the pipe operator (`|>`).^[The pipe operator, `|>`, can be read as "then" and the code can be thought of as logical processes. For example, first the histogram is created, then (`|>`), the labels for the *x-* and *y-* axes are changed.]
+
+```{r}
+#| label: fig-hist-01-labels
+#| fig-cap: "Histogram of college admission rates. Here we add custom x- and y-axis labels."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
+  gf_labs(
+    x = 'Admission Rate',
+    y = 'Frequency'
+    )
+```
+
+<br />
+
+
+### Plot title and subtitle
+
+We can also add a title and subtitle to our plot. Similar to changing the axis labels, these are added using `gf_labs()`, but using the `title =` and `subtitle =` arguments. 
+
+```{r}
+#| label: fig-hist-01-title
+#| fig-cap: "Histogram of college admission rates. Here we add a title and subtitle."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
+  gf_labs(
+    x = 'Admission Rate',
+    y = 'Frequency',
+    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
+    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
+    )
+```
+
+Plot titles and subtitles are helpful to used to provide context to the figure and describe the overall purpose for the figure. For example, the subtitle in Figure \@ref(fig:subtitle) describes the source for the data plotted. 
+
+<br />
+
+
+### Plot theme
+
+By default, the plot has a grey background and white grid lines. This can be modified to using the `gf_theme()` function. For example, in the syntax below we change the plot theme to a white background with no grid lines using `theme_classic()`. Again, the `gf_theme()` is linked to the histogram with the pipe operator.
+
+```{r}
+#| label: fig-hist-01-theme
+#| fig-cap: "Histogram of college admission rates. Here we change the plot theme."
+gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
+  gf_labs(
+    x = 'Admission Rate',
+    y = 'Frequency',
+    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
+    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
+    ) |>
+  gf_theme(theme_classic())
+```
+
+
+<!-- We have created a custom theme to use in the `gf_theme()` function that we will use for most of the plots in the book. The theme, `theme_statthinking()` is included in the **statthink** package, a supplemental package to the text that can be installed and loaded with the following commands: -->
+
+<!-- ```{r} -->
+<!-- #| label: install-book-package -->
+<!-- #| eval: false -->
+<!-- remotes::install_github('lebebr01/statthink') -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| label: load-book-package -->
+<!-- # Load the statthink package -->
+<!-- library(statthink) -->
+<!-- ``` -->
+
+
+<!-- We can then change the theme in a similar manner to how we changed the theme before. -->
+
+<!-- ```{r} -->
+<!-- #| label: fig-hist-01-book-theme -->
+<!-- #| fig-cap: "Histogram of college admission rates. Here we use the custom book theme." -->
+<!-- gf_histogram(~ adm_rate, data = colleges, color = 'black', bins = 25) |> -->
+<!--   gf_labs( -->
+<!--     x = 'Admission Rate', -->
+<!--     y = 'Frequency', -->
+<!--     title = 'Distribution of admission rates for 2,000 institutions of higher education.', -->
+<!--     subtitle = 'Data Source: U.S. Department of Education College Scorecard' -->
+<!--     ) |> -->
+<!--   gf_theme(theme_statthinking()) -->
+<!-- ``` -->
+
+<br />
+
+<!-- #### Setting the default plot theme -->
+
+<!-- Since we will be using this theme for all of our plots, it is useful to make it the default theme (rather than the grey background with white gridlines). To set a different theme as the default, we will use the `theme_set()` function and specify the  `theme_statthinking()` theme as the argument within this function. -->
+
+<!-- ```{r apply-book-theme} -->
+
+<!-- theme_set(theme_statthinking(base_size = 14)) -->
+<!-- ``` -->
+
+<!-- Now when we create a plot, it will automatically use the `statthinking` theme without having to specify this in the `gf_theme()` function. Often, the plot theme would be one of the first lines of code for any analysis so that all the figures created in subsequent areas would all have a similar theme/style.  -->
+
+<!-- In the code chunk above, the size of the text is increased slightly to make it a bit easier to read throughout the book. This was done with the `base_size =` argument, where the font size was specified to be size 14. -->
+
+<!-- Figure \@ref(fig:stat-think-theme) shows that the theme is now applied automatically without needing to use the `gf_theme()` function to specify. In addition, the font size is increased as well compared to previous figures created in this chapter.  -->
+
+<!-- ```{r stat-think-theme, fig.cap = "Histogram showing the distribution of admission rates for institutions of higher education."} -->
+<!-- gf_histogram(~ adm_rate, data = colleges, color = 'black', bins = 25) |> -->
+<!--   gf_labs( -->
+<!--     x = 'Admission Rate', -->
+<!--     y = 'Frequency', -->
+<!--     title = 'Distribution of admission rates for 2,000 institutions of higher education.', -->
+<!--     subtitle = 'Data Source: U.S. Department of Education College Scorecard' -->
+<!--     ) -->
+<!-- ``` -->
+
+
+
+## Density plots
+
+Another plot that is useful for exploring attributes is the density plot. This plot usually highlights similar distributional features as the histogram, but the visualization does not have the same dependency on the specification of bins. Density plots can be created with the `gf_density()` function which takes similar arguments as `gf_histogram()`, namely a formula identifying the attribute to be plotted and the data object.^[The default kernel used in `gf_density()` is the normal kernel. This can be changed if desired, but the default works well in many situations.] If you compare the code specified for the very first histogram, notice that only the function name changed. 
+
+
+```{r}
+#| label: fig-density-01
+#| fig-cap: "Density plot of college admission rates."
+gf_density(~ adm_rate, data = colleges)
+```
+
+<br />
+
+
+### Interpreting Density Plots
+
+Density plots are interpreted similarly to a histogram in that areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve are lower indicate areas where data occur infrequently. The density metric on the y-axis is not the same as the histogram, but the relative magnitude can be interpreted similarly. That is, higher indicates more data in that region of the attribute. 
+
+Just like the histogram, the attribute being depicted in the density curve is on the x-axis. Therefore, important features for the attribute of interest can be found by looking at the y-axis, but then the place where high or low prevalence occurs are depicted by looking back to the x-axis. For example, when looking at the density curve in @fig-density-plot-final, the density curve has a peak on the y-axis density scale of just under 2.0, the peak of this density curve occurs around a 0.75 as shown on the x-axis. 
+
+Our interpretation remains that most institutions admit a high proportion of applicants. In fact, colleges that admit around 75% of their applicants have the highest probability density, indicating this is where most of the institutions are found in the distribution. Additionally, there are just a few institutions that are have an admission rate 25% or less. 
+
+The axis labels, title, subtitle can be customized with `gf_labs()` in the same manner as with the histogram. The `color =` and `fill =` arguments in `gf_density()` will color the density curve and area under the density curve, respectively.
+
+```{r}
+#| label: fig-density-plot-final
+#| fig-cap: "Density plot of college admission rates."
+gf_density(~ adm_rate, data = colleges, color = 'black', fill = 'yellow') |>
+  gf_labs(
+    x = 'Admission Rate',
+    y = 'Probability density',
+    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
+    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
+    )
+```
+
+<br />
+

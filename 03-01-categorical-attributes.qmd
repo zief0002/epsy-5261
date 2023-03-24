@@ -1,0 +1,564 @@
+# Summarizing and Visualizing Categorical Attributes  {#sec-categorical-attributes}
+
+This chapter will focus on the visualization and numerical summarization of categorical attributes.
+
+<br />
+
+
+## Hypothetical Example: Pet Ownership
+
+Imagine you have surveyed 10 pet owners about the type of pet they own.^[To keep it simple, assume each pet owner only has a single pet.] The data you collected is shown in @fig-pets.
+
+```{r}
+#| label: fig-pets
+#| fig-cap: "Data collected from 10 pet owners about the type of pet the own."
+#| echo: false
+knitr::include_graphics("figs/03-01-pet-sample.png")
+```
+
+Our goal in exploratory analysis is to describe the data. One way of describing the data is to list all of the values. For example here we could say the sample included a turtle, a fish, a cat, a dog, another dog, another fish, another cat, another cat, another cat, and another dog. While this is an accurate description, it isn't very generalizable. (Imagine trying to describe the data from 1000 pet owners or 10,000 pet owners!)
+
+<br />
+
+### Numerically Summarizing Categorical Attributes
+
+A more natural way to describe these data is to summarize them by providing **counts** of each pet type. For example, describing our sample data using counts:
+
+- 1 of the pet owners sampled owned a turtle, 
+- 2 of the pet pet owners sampled owned a fish, 
+- 3 of the pet pet owners sampled owned a dog, and 
+- 4 of the pet pet owners sampled owned a cat.
+
+Summarizing each type of pet owned by reporting counts of them is a much more natural way of describing the data. (This is  also useful when the sample size is much larger.) 
+
+Another summary that could be used to describe this sample is to give the **proportion** of each type of pet owned. To compute the proportion, we take the count of each type of pet owned, and divide it by the total sample size.
+
+$$
+\mathrm{Proportion} = \frac{\mathrm{Count~of~Pet~Type}}{\mathrm{Total~Sample~Size}}
+$$
+
+
+
+For example, to compute the proportion of pet owners in our sample that owned a dog, we use:
+
+$$
+\mathrm{Proportion~of~Dogs} = \frac{3}{10} = 0.30
+$$
+
+:::fyi
+Proportions will always be between 0 and 1. If you add all of the proportions of each category  together you will get 1, so long as values can only belong to one category.
+:::
+
+Describing our sample data using proportions:
+
+- 0.10 of the pet owners sampled owned a turtle, 
+- 0.20 of the pet pet owners sampled owned a fish, 
+- 0.30 of the pet pet owners sampled owned a dog, and 
+- 0.40 of the pet pet owners sampled owned a cat.
+
+The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. @tbl-pets is an example table indicating the counts and proportions of values in our hypothetical pet example.
+
+```{r}
+#| label: tbl-pets
+#| tbl-cap: "Counts and proportions of pet owners who own each type of pet."
+#| echo: false
+#| tbl-colwidths: false
+
+library(gt)
+library(gtExtras)
+dplyr::tibble(
+  Pet = c("figs/dog.png", "figs/cat.png", "figs/fish.png", "figs/turtle.png"),
+    #162, 155, 127, 144
+  Count = c(3, 4, 2, 1),
+  Proportion = c(.3, .4, .2, .1)
+) |>
+  gt() |>
+  gt_img_rows(columns = Pet, height = 50) |>
+  fmt_number(
+    columns = Proportion,
+    decimals = 2
+  ) |>
+  cols_align(
+    align = "center",
+    columns = c(Count, Proportion)
+  ) |>
+  tab_options(
+    table.width = pct(60)
+    ) |>
+  as_raw_html()
+```
+
+<br />
+
+
+### Visualizing Categorical Attributes
+
+To visualize categorical attributes we typically use a **bar chart**. @fig-pet-barchart shows a bar chart of the pet data.
+
+```{r}
+#| label: fig-pet-barchart
+#| fig-cap: Bar chart indicating the counts of each type of pet owned.
+#| echo: false
+
+knitr::include_graphics("figs/03-02-pet-barchart.png")
+```
+
+
+A bar chart (also known as a bar graph) shows a bar for each category of the categorical attribute. In our example, we have four bars, one for each pet type. The height of the bar indicates the count of each category. For example, the bar for cats has a height of four on the *y*-axis. 
+
+Sometimes the axes in the bar chart are transposed; categories are placed on the *y*-axis and counts on the *x* axis. Also, you might see a bar chart indicating proportions rather than counts. @fig-pet-barchart2 shows a transposed bar chart indicating the proportion of each pet type.
+
+```{r}
+#| label: fig-pet-barchart2
+#| fig-cap: Bar chart indicating the counts of each type of pet owned. In this plot the categories are placed on the *y*-axis and the scale on the the *x* axis indicates proportions rather than counts.
+#| echo: false
+
+knitr::include_graphics("figs/03-03-pet-barchart-horz.png")
+```
+
+:::protip
+When proportions are used in a bar chart, it is coventional to extend that axis from 0 to 1 (the range of potential proportions). 
+:::
+
+<br />
+
+#### Bar Chart Variations
+
+There are several variations on the bar chart that you may see in practice. For example, the **segmented bar chart** is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments---one for each category. A segmented bar chart summarizing the pet data is shown in @fig-barchart-seg.
+
+```{r}
+#| label: fig-barchart-seg
+#| fig-cap: Segmented bar chart indicating the proportion of each type of pet owned.
+#| echo: false
+
+knitr::include_graphics("figs/03-04-pet-barchart-hseg.png")
+```
+
+Another variation of the bar chart is the **donut chart**. A donut chart is simply a segmented bar chart that is presented in a circular layout. @fig-donut-chart presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.
+
+```{r}
+#| label: fig-donut-chart
+#| fig-cap: Donut chart indicating the percentage of each type of pet owned. A donut chart is simply a segmented bar chart presented in a circular layout.
+#| echo: false
+#| out-width: "40%"
+
+knitr::include_graphics("figs/03-05-pet-donut-chart.png")
+```
+
+
+<br />
+
+
+#### Pie Charts
+
+One last plot used to visualize summaries of categorical dat is the **pie chart**. @fig-pie-chart shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.
+
+```{r}
+#| label: fig-pie-chart
+#| fig-cap: Pie chart indicating the percentage of each type of pet owned. A pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type.
+#| echo: false
+#| out-width: "40%"
+
+knitr::include_graphics("figs/03-06-pet-pie-chart.png")
+```
+
+:::fyi
+In a pie chart, each section of the pie is determined by proportionally dividing the 360&deg; of the circle based on the data, and then making each section have the computed angle. For example the proportion of pet owners who have a cat is 0.4, and 0.4 of 360&deg; is 144&deg;---so the cats section has an angle of 144&deg;. While these computations and the drawing of the pie chart would be done by the computer, it has implications for interpretations. Namely, research has suggested that humans may not be as adept at making accurate comparisons involving angles and the areas of sections based on those angles. Because of this, the recommendation from the data visualization community is to **use bar charts rather than pie charts** when displaying summaries of categorical data.
+:::
+
+
+<br />
+
+
+## Using R to Numerically Summarize Categorical Attributes
+
+To illustrate how we can summarize and visualize categorical attributes using R, we will use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading three libraries: `{tidyverse}`, `{ggformula}`, and {mosaicCore}. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(mosaicCore)
+
+# Import data
+colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+
+# View data
+colleges
+```
+
+Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several categorical attributes, including: state, region, type of institution, and control. 
+
+The first attribute we will summarize and visualize is the control variable. Looking at the [data codebook]() we find that this attribute can take on three different values: Public, Private nonprofit, and Private for-profit. Our first task is to get institution counts for each category of control. To do this, we will use the `df_stats()` function. The general syntax to obtain these counts is shown below.
+
+```{r}
+#| eval: false
+# General syntax to counts the categories in a categorical attribute
+df_stats( ~ attribute_name, data = data_name, counts)
+```
+
+We first need to identify the name of the categorical attribute. To tell `df_stats()` that this is an attribute, we place a tilde (`~`) in front of the attribute name. Then we use the `data=` argument to identify the data object that includes our categorical attribute. Finally, we use `counts` to indicate that we want to compute the category counts.
+
+:::protip
+It is a good idea to learn how to read R syntax. The tilde can be read as "model". So the general syntax above is read as, "model the `attribute_name` found in the `data_name` data by counting the categories in the  attribute".
+:::
+
+
+Putting this into practice to count the categories in the `control` attribute which is in our `colleges` data:
+
+```{r}
+# Syntax to count the categories in the control attribute
+df_stats(~control, data = colleges, counts)
+```
+
+If we were to read this syntax, "model the `control` attribute found in the `colleges` data by counting the categories in the attribute".
+
+Based on the counts, we find that most of the institutions of higher learning in our sample are private nonprofit institutions (*n* = 146). There are also several public institutions of higher learning in our sample (*n* = 71). Lastly, there are also a few private for-profit institutions of higher learning in our sample (*n* = 13).
+
+:::fyi
+It is common to use *n* or *N* to denote sample size. Some textbooks and authors will use *N* to indicate the overall sample size (e.g., in the college scorecard data, *N* = 234) and *n* to indicate the sample size of subgroups within the sample (e.g., *n* = 71 for public institutions). Other authors might use *n* to define the overall sample size (e.g., *n* = 234) and then use subscripts on *n* to denote the sample size of different groups (e.g., $n_{\mathrm{Public}}=71$). There is not a single unified agreed upon way to denote these things. 
+:::
+
+We also might want to compute the proportions for each category of control. To do this, we can again use the function `df_stats()`, but instead of providing `counts` we will provide `props`.
+
+```{r}
+# Syntax to compute the proportion for each category in the control attribute
+df_stats(~control, data = colleges, props)
+```
+
+These proportions (which can also be turned into percentages^[You can also use `df_stats()` to compute percentages by providing `percs`.]) tell a similar story to what the counts did. Most of the institutions in our sample are private nonprofit  (63.5%) and public (30.9%) institutions. There is a smaller percentage of institutions that are private for-profit (5.7%).^[Note that these percentages do not quite add up to 100%. This is because of the rounding that we did.] As we did with the numerical summaries of the pet data, we can include these values in a table.
+
+```{r}
+#| label: tbl-colleges
+#| tbl-cap: "Counts and proportions of institutions of higher learning by control."
+#| echo: false
+#| tbl-colwidths: false
+dplyr::tibble(
+  Control = c("Public", "Private Nonprofit", "Private For-Profit"),
+  Count = c(71, 146, 13),
+  Proportion = c(.309, .635, .057)
+) |>
+  gt() |>
+  cols_align(
+    align = "center",
+    columns = c(Count, Proportion)
+  ) |>
+  tab_options(
+    table.width = pct(60)
+    ) |>
+  as_raw_html()
+```
+
+<br />
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the syntax to compute the counts of the `region` attribute.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-00');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-00" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~ region, data = colleges, counts)
+```
+</div>
+
+Write the syntax to compute the proportions of the `region` attribute.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-00-01');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-00-01" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~ region, data = colleges, counts)
+```
+</div>
+:::
+
+
+
+## Creating a Bar Chart to Summarize Counts using R
+
+To create a bar chart, we will use the `gf_counts()` function. This general syntax for `gf_counts()` is
+
+```{r}
+#| eval: false
+# General syntax to create a bar chart
+gf_counts(~ attribute_name, data = data_name)
+```
+
+In this function we indicate the name of the attribute we want to create a bar chart for with a tilde (`~`) precedeing the attribute name.  We also give the name of the data object in the `data=` argument. For example, the syntax to create a bar chart summarizing the counts of the `control` attribute is:
+
+```{r}
+#| label: fig-barchart-control.
+#| fig-cap: "Bar chart summarizing the counts of the control attribute."
+# Syntax to create a bar chart for the control attribute
+gf_counts(~ control, data = colleges)
+```
+
+
+:::fyi
+Reading the syntax: Create a bar chart by modeling the counts of the `control` attribute in the `colleges` data object.
+:::
+
+
+We can make this plot nicer by changing the axes labels. For example, we might change the *y*-axis label to "Count" and the *x*-axis label to "Type of Institution". To do this we include the `xlab=` and `ylab=` arguments in the `gf_counts()` function. The labels we want depicted are given as text inside of quotation marks. Remember that each argument needs to be separated by a comma!
+
+:::protip
+As you include additional arguments in the function, it can be useful to include each argument on different lines. This will help you troubleshoot syntax that doesn't work.
+:::
+
+
+```{r}
+#| label: fig-barchart-control-axes-labels.
+#| fig-cap: "Bar chart summarizing the counts of institutions of higher learning by type."
+# Syntax to create a bar chart for the control attribute
+gf_counts( 
+  ~ control, data = colleges,
+  xlab = "Type of Institution",
+  ylab = "Count"
+  )
+```
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the syntax to create a bar chart that summarizes the counts of the `region` attribute.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-01" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+gf_counts(~ region, data = colleges)
+```
+</div>
+
+Add better labels to the *x*- and *y*-axis of the bar chart you just created.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-02');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-02" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5
+gf_counts(
+  ~ region, data = colleges,
+  xlab = "Region of the United States",
+  ylab = "Count"
+  )
+```
+
+</div>
+:::
+
+<br />
+
+
+## Creating a Bar Chart to Summarize Proportions using R
+
+To create a bar chart that summarizes the proportion of each category (rather than counts) we can use the `gf_props()` function. The syntax for this function is identical to that of `gf_counts()`. The syntax to create a bar chart summarizing the proportion of the `control` attribute is:
+
+
+```{r}
+#| label: fig-barchart-control-proportions
+#| fig-cap: "Bar chart summarizing the proportions of institutions of higher learning by type."
+# Syntax to create a bar chart for the control attribute
+gf_props(
+  ~control, data = colleges,
+  xlab = "Type of Institution",
+  ylab = "Count"
+  )
+```
+
+You can also create a bar chart that summarizes the percentage of each category using the `gf_percents()` function.
+
+```{r}
+#| label: fig-barchart-control-percents
+#| fig-cap: "Bar chart summarizing the percentage of institutions of higher learning by type."
+# Syntax to create a bar chart for the control attribute
+gf_percents(
+  ~control, data = colleges,
+  xlab = "Type of Institution",
+  ylab = "Percent"
+  )
+```
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the syntax to create a bar chart that summarizes the proportions of the `region` attribute. Also change the axis labels on both the *x*- and *y*-axes.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-03');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-03" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+gf_props(
+  ~ region, data = colleges,
+  xlab = "Region of the United States",
+  ylab = "Proportion"
+  )
+```
+</div>
+:::
+
+<br />
+
+
+<!-- ### Creating a Segmented Bar Chart using R -->
+
+<!-- ```{r} -->
+<!-- #| label: fig-barchart-control-proportions -->
+<!-- #| fig-cap: "Bar chart summarizing the proportions of institutions of higher learning by type." -->
+<!-- # Syntax to create a bar chart for the control attribute -->
+<!-- gf_props( -->
+<!--   ~control, data = colleges, -->
+<!--   fill = ~control -->
+<!--   ) -->
+<!-- ``` -->
+
+## Creating Horizontal Bar Charts Using R
+
+To create horizontal bar charts we can use `gf_countsh()`, `gf_propsh()`, or `gf_percentsh()`. These functions again take the same syntax as their vertical counterparts. For example, to create a horizontal bar chart summarizing the counts of each type of institution we can use the following syntax:
+
+```{r}
+#| label: fig-barchart-control-horz
+#| fig-cap: "Horizontal bar chart summarizing the number of institutions of higher learning by type."
+#| fig-width: 8
+#| fig-height: 5
+# Syntax to create a hirizontal bar chart for the control attribute
+gf_countsh(
+  ~control, data = colleges,
+  xlab = "Count",
+  ylab = "Type of Institution"
+  )
+```
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the syntax to create a horizontal bar chart that summarizes the percent of the `region` attribute. Also change the axis labels on both the *x*- and *y*-axes.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button>
+
+<div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+gf_percentsh(
+  ~ region, data = colleges,
+  xlab = "Percent",
+  ylab = "Region of the United States"
+  )
+```
+</div>
+:::
+
+<br />
+
+
+## Summary
+
+There are several R functions that are useful for summarizing categorical attributes. @tbl-r-functions shows the functions (and their descriptions) you will use to summarize and visualize categorical attributes. Note that they all have very parallel syntax.
+
+```{r}
+#| label: tbl-r-functions
+#| tbl-cap: "The functions and their descriptions to summarize and visualize categorical attributes."
+#| echo: false
+#| tbl-colwidths: false
+dplyr::tibble(
+  Function = c(
+    "`df_stats(~attribute, data = data_object, counts)`", 
+    "`df_stats(~attribute, data = data_object, props)`", 
+    "`df_stats(~attribute, data = data_object, percs)`",
+    "`gf_counts(~attribute, data = data_object)`",
+    "`gf_props(~attribute, data = data_object)`",
+    "`gf_percs(~attribute, data = data_object)`",
+    "`gf_countsh(~attribute, data = data_object)`",
+    "`gf_propsh(~attribute, data = data_object)`",
+    "`gf_percsh(~attribute, data = data_object)`"
+    ),
+  Description = c(
+    "Compute counts of a categorical attribute",
+    "Compute proportions of a categorical attribute",
+    "Compute percentages of a categorical attribute",
+    "Create bar chart of counts",
+    "Create bar chart of proportions",
+    "Create bar chart of percentages",
+    "Create horizontal bar chart of counts",
+    "Create horizontal bar chart of proportions",
+    "Create horizontal bar chart of percentages"
+    )
+) |>
+  gt() |>
+  cols_align(
+    align = "left",
+    columns = c(Function, Description)
+  ) |>
+  fmt_markdown(columns = 1) |>
+  tab_row_group(
+    label = md("**Visualize**"),
+    rows = 4:9
+  ) |>
+  tab_row_group(
+    label = md("**Summarize**"),
+    rows = 1:3
+  ) |>
+  # row_group_order(
+  #   groups = c("num", "viz")
+  #   ) |>
+  tab_options(
+    table.width = pct(100),
+    table.font.size = "14px"
+    ) |>
+  as_raw_html()
+```
+
+
+Lastly, there are several optional arguments you can include in the visualization (`gf_`) functions to improve the aesthetic quality of your plot. Some of these are listed in @tbl-viz-arguments.
+
+
+```{r}
+#| label: tbl-viz-arguments
+#| tbl-cap: "Optional argumnents that can be included in the visualization (`gf_`) functions."
+#| echo: false
+#| tbl-colwidths: false
+dplyr::tibble(
+  Argument = c(
+    '`xlab = "x-axis label"`', 
+    '`ylab = "y-axis label"`', 
+    '`title = "Title for your plot."`',
+    '`subtitle = "Subtitle for your plot."`',
+    '`caption = "Caption for your plot."`',
+    '`fill = "color name for bar color"`',
+    '`color = "color name for bar outlines"`'
+    )
+) |>
+  gt() |>
+  cols_align(
+    align = "left",
+    columns = c(Argument)
+  ) |>
+  fmt_markdown(columns = 1) |>
+  tab_row_group(
+    label = md("**Color**"),
+    rows = 6:7
+  ) |>
+  tab_row_group(
+    label = md("**Labels**"),
+    rows = 1:5
+  ) |>
+  # row_group_order(
+  #   groups = c("num", "viz")
+  #   ) |>
+  tab_options(
+    table.width = pct(70),
+    table.font.size = "14px"
+    ) |>
+  as_raw_html()
+```
+
+Remember to separate each argument with a comma if you include multiple arguments in the function.
+
+
+<br />
+

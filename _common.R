@@ -4,6 +4,7 @@
 library(knitr)
 library(kableExtra)
 library(patchwork)
+library(gt)
 
 
 # Set knitr print options
