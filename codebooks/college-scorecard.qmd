@@ -18,7 +18,7 @@ source("../assets/codebook-setup.R")
 ```
 
 
-The U.S. Department of Education (DOE) collects and publishes data on institutions of higher education in their [College Scorecard](https://collegescorecard.ed.gov/). The data provided in the College Scorecard facilitate transparency and provide information for interested stakeholders (e.g., parents, students, educators). The data in [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) are a randomly sampled subset of 250 institutions drawn from the 2020--21 data.
+The U.S. Department of Education (DOE) collects and publishes data on institutions of higher education in their [College Scorecard](https://collegescorecard.ed.gov/). The data provided in the College Scorecard facilitate transparency and provide information for interested stakeholders (e.g., parents, students, educators). The data in [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) are a randomly sampled subset of 230 institutions drawn from the 2020--21 data.
 
 ---
 
@@ -54,8 +54,7 @@ colleges
 ```{r}
 #| echo: false
 # Import data
-library(tidyverse)
-colleges = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+colleges = readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
 
 # View data
 DT::datatable(colleges)
