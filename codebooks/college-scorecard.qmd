@@ -1,0 +1,68 @@
+---
+title: "college-scorecard.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+The U.S. Department of Education (DOE) collects and publishes data on institutions of higher education in their [College Scorecard](https://collegescorecard.ed.gov/). The data provided in the College Scorecard facilitate transparency and provide information for interested stakeholders (e.g., parents, students, educators). The data in [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) are a randomly sampled subset of 250 institutions drawn from the 2020--21 data.
+
+---
+
+The attributes included inthe data are:
+
+- `name`: Name of institution of higher education
+- `state`: Two-letter U.S. state abbreviation indicating the location of the institution
+- `region`: Region of the U.S. in which the institution is located
+- `inst_type`: Type of institution (Two-year undergraduate, Four-year undergraduate, Exclusively graduate/professional)
+- `control`: Institutional control (Private nonprofit, Private for-profit, or Public)
+- `adm_rate`: Admission rate indicating proportion of students who applied that are admitted to the institution
+- `num_undergrads`: Number of enrolled undergraduate certificate/degree-seeking students at the institution
+- `median_debt`: Median amount of debt (loan principle when entering repayment) for all undergraduate borrowers
+- `median_debt_grads`: Median amount of debt after graduation for undergraduate borrowers who complete their degree
+- `median_earnings`: Median earnings of students working and not enrolled 10 years after entry
+
+
+---
+
+
+### Preview
+
+```{r}
+#| eval: false
+# Import data
+library(tidyverse)
+colleges = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+
+# View data
+colleges
+```
+
+```{r}
+#| echo: false
+# Import data
+library(tidyverse)
+colleges = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+
+# View data
+DT::datatable(colleges)
+```
+
+
+### References
+
+U.S. Department of Education. (2023). [College Scorecard data](https://collegescorecard.ed.gov/). 
+
