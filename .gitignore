@@ -43,5 +43,6 @@ vignettes/*.pdf
 
 # Keynote files
 .key
+figs/00-figs.key
 
 /.quarto/
