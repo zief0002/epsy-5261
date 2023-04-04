@@ -66,9 +66,12 @@ The 1000 sample means can then be plotted, and we can compute a numeric summary 
 
 ```{r}
 #| label: fig-thought-experiment-sampling-dist
-#| fig-cap: "Distribution of 1000 sample means. Each mean is the average number of credits. ."
-#| out-width: "100%"
+#| fig-cap: "Distribution of 1000 sample means. Each observation in the distribution is a mean indicating the average number of credits taken for one sample. The red dots show the means computed from @fig-thought-experiment."
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: "90%"
 #| echo: FALSE
+#| message: false
 library(tidyverse)
 results = rep(NA, 1000)
 
@@ -79,18 +82,55 @@ for(i in 1:1000){
 
 tibble(results) |>
   ggplot(aes(x = results)) +
-  geom_density() +
+  geom_dotplot(binwidth = 0.1, dotsize = 1, fill = "grey", color = "black") +
   xlab("Average number of credits taken") +
   ylab("Density") +
   theme_bw() +
-  geom_hline(yintercept = 0) +
-  geom_point(x = 7.3, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 6.9, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 5.3, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 4.6, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 7.0, y = 0.014, color = "red", size = 5)
+  #geom_hline(yintercept = 0) +
+  geom_point(x = 7.3, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 6.9, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 5.3, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 4.6, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 7.0, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  theme(
+    axis.text.y = element_blank(),  #remove y axis labels
+    axis.ticks.y = element_blank()  #remove y axis ticks
+  )
 ```
 
+In @fig-thought-experiment-sampling-dist each observation plotted in the distribution is one of the means from our thought experiment. For example, the red dots indicate the five sample means reported in @fig-thought-experiment, namely 7.3 (mean of Sample 1), 6.9 (mean of Sample 2), 5.3 (mean of Sample 3), 4.6 (mean of Sample 4), and 7.0 (mean of Sample 1000). When the cases in a distribution are numerical summaries, we call that distribution a **sampling distribution**. The distribution in @fig-thought-experiment-sampling-dist is a **sampling distribution of the mean**, indicating that the numerical summaries being plotted are means.
+
+Remember that our purpose for producing this distribution is to summarize the variation in the mean values, that is, we want to produce a numerical summary of the variation in the sampling distribution of the means shown in @fig-thought-experiment-sampling-dist. This distribution is approximately normal (unimodal and symmetric), so the standard deviation will be a good summary of the variation in this distribution.  
+
+:::protip
+If you have a distribution that is unimodal and symmetric, you can estimate the standard deviation by determining the halfway point of the height of the middle of the distribution. You can then follow that out to either side of the distribution and that width is a good guess for the standard deviation.
+
+
+```{r}
+#| label: fig-est-sd
+#| fig-cap: "Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution."
+#| out-width: "80%"
+#| echo: FALSE
+knitr::include_graphics("figs/04-03-estimate-sd.png")
+```
+:::
+
+
+In the sampling distribution, in @fig-thought-experiment-sampling-dist, we estimate the standard deviation to be approximately 1.5. Because this standard deviation is quantifying the variability in a distribution of summary statistics, we refer to it as a **standard error (SE)**. 
+
+
+
+Recall that each of the samples were randomly sampled from the same population and that the sample mean is a guess for the value of the population mean---the average number of credits taken in the first semester for ALL UMN students. Since the only source of variation in the sampling distribution is sampling error (that is, the only reason the sample means are different is that different students were chosen to be a part of each sample), the SE is a quantification of the uncertainty due to sampling error we expect in our estimate. Based on a typical value in the distribution of about 6.5, and using our SE of 1.5, we can say:
+
+> We think that the mean number of credits taken in the first semester for ALL UMN students is between 5.0 and 8.0. This range of values captures the uncertainty in the estimate that is due to sampling error.
+
+
+<br />
+
+
+## Looking Ahead
+
+In practice, you do not draw 1000 samples; you have one sample of data that you have collected. So one of the things we will need to learn is how to produce a standard error based on only one sample of data. You will also learn about how to use the standard error in hypothesis tests evaluate how well data conforms to particualar quantitative hypotheses we may have about the population. Finally, you will learn about a theoretical result in statistics known as the Empirical Rule, which will help us put probabilistic statements around the quantification of uncertainty to produce confidence intervals. 
 
 
 
@@ -107,27 +147,27 @@ tibble(results) |>
 <br />
 
 
-## Importing the Data
+<!-- ## Importing the Data -->
 
-To illustrate how we can summarize and visualize quantitative attributes using R, we will again use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading three libraries, `{tidyverse}`, `{ggformula}`, and `{mosaicCore}`. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly.
+<!-- To illustrate how we can summarize and visualize quantitative attributes using R, we will again use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading three libraries, `{tidyverse}`, `{ggformula}`, and `{mosaicCore}`. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly. -->
 
-```{r}
-#| label: load-packages
-#| message: false
-library(ggformula)
-library(mosaicCore)
-library(tidyverse)
+<!-- ```{r} -->
+<!-- #| label: load-packages -->
+<!-- #| message: false -->
+<!-- library(ggformula) -->
+<!-- library(mosaicCore) -->
+<!-- library(tidyverse) -->
 
 
-# Import data
-colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
+<!-- # Import data -->
+<!-- colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv") -->
 
-# View data
-colleges
-```
+<!-- # View data -->
+<!-- colleges -->
+<!-- ``` -->
 
-Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several quantitative attributes, including: admission rate, number of undergraduate students, median debt for all students, median debt for graduates, and median earnings. 
+<!-- Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several quantitative attributes, including: admission rate, number of undergraduate students, median debt for all students, median debt for graduates, and median earnings.  -->
 
-<br />
+<!-- <br /> -->
 
 
