@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis and Randomization Methods - 4&nbsp; Summarizing and Visualizing Quantitative Attributes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-understanding-inference.html" rel="next">
+<link href="./03-01-categorical-attributes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Foreword</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-understanding-inference.html" class="sidebar-item-text sidebar-link">Introduction to Statistical Inference</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation: Modeling Uncertainty</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link active" data-scroll-target="#importing-the-data"><span class="toc-section-number">4.1</span>  Importing the Data</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="toc-section-number">4.2</span>  Histograms</a>
+  <ul class="collapse">
+  <li><a href="#interpretting-histograms" id="toc-interpretting-histograms" class="nav-link" data-scroll-target="#interpretting-histograms"><span class="toc-section-number">4.2.1</span>  Interpretting Histograms</a></li>
+  <li><a href="#describing-the-distribution" id="toc-describing-the-distribution" class="nav-link" data-scroll-target="#describing-the-distribution"><span class="toc-section-number">4.2.2</span>  Describing the Distribution</a></li>
+  </ul></li>
+  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots"><span class="toc-section-number">4.3</span>  Density plots</a>
+  <ul class="collapse">
+  <li><a href="#more-about-shape" id="toc-more-about-shape" class="nav-link" data-scroll-target="#more-about-shape"><span class="toc-section-number">4.3.1</span>  More about Shape</a></li>
+  <li><a href="#center-and-variation-two-additional-characteristics-to-describe" id="toc-center-and-variation-two-additional-characteristics-to-describe" class="nav-link" data-scroll-target="#center-and-variation-two-additional-characteristics-to-describe"><span class="toc-section-number">4.3.2</span>  Center and Variation: Two Additional Characteristics to Describe</a></li>
+  </ul></li>
+  <li><a href="#numerically-summaries" id="toc-numerically-summaries" class="nav-link" data-scroll-target="#numerically-summaries"><span class="toc-section-number">4.4</span>  Numerically Summaries</a>
+  <ul class="collapse">
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more"><span class="toc-section-number">4.4.1</span>  Learn More</a></li>
+  <li><a href="#computing-numerical-summaries-in-r" id="toc-computing-numerical-summaries-in-r" class="nav-link" data-scroll-target="#computing-numerical-summaries-in-r"><span class="toc-section-number">4.4.2</span>  Computing Numerical Summaries in R</a></li>
+  <li><a href="#numerically-summarizing-variation" id="toc-numerically-summarizing-variation" class="nav-link" data-scroll-target="#numerically-summarizing-variation"><span class="toc-section-number">4.4.3</span>  Numerically Summarizing Variation</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">4.5</span>  Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-quant-attributes" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter will focus on the visualization and numerical summarization of quantitative attributes.</p>
+<p><br></p>
+<section id="importing-the-data" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="importing-the-data"><span class="header-section-number">4.1</span> Importing the Data</h2>
+<p>To illustrate how we can summarize and visualize quantitative attributes using R, we will again use the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv">college-scorecard.csv</a> data. As a reminder, we will start by loading three libraries, <code>{tidyverse}</code>, <code>{ggformula}</code>, and <code>{mosaicCore}</code>. Then we will import the college scorecard data using the <code>read_csv()</code> function and assign the data into an object called <code>colleges</code>. Finally, we view the data to make sure it read in properly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>colleges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["state"],"name":[2],"type":["chr"],"align":["left"]},{"label":["region"],"name":[3],"type":["chr"],"align":["left"]},{"label":["inst_type"],"name":[4],"type":["chr"],"align":["left"]},{"label":["control"],"name":[5],"type":["chr"],"align":["left"]},{"label":["adm_rate"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["num_undergrads"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["median_debt"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["median_debt_grads"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["median_earnings"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"Abilene Christian University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6340","7":"3480","8":"15040","9":"24000","10":"49294"},{"1":"Abraham Baldwin Agricultural College","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7599","7":"3546","8":"8750","9":"17500","10":"32130"},{"1":"AdventHealth University","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9087","7":"1129","8":"18142","9":"25034","10":"58788"},{"1":"Andrews University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4878","7":"1381","8":"20750","9":"26076","10":"51909"},{"1":"Arizona Christian University","2":"AZ","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7147","7":"883","8":"7132","9":"21500","10":"37531"},{"1":"Art Center College of Design","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7609","7":"1907","8":"27563","9":"31218","10":"66407"},{"1":"Augsburg University","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7312","7":"2487","8":"19329","9":"25000","10":"53472"},{"1":"Ave Maria University","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9179","7":"1048","8":"12000","9":"21500","10":"45789"},{"1":"Ball State University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8705","7":"15171","8":"16750","9":"23250","10":"45934"},{"1":"Baptist Health College Little Rock","2":"AR","3":"Southeast","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.5000","7":"661","8":"9500","9":"10000","10":"54924"},{"1":"Bard College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5695","7":"1932","8":"19000","9":"25910","10":"43441"},{"1":"Bates College","2":"ME","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1410","7":"1876","8":"12610","9":"13978","10":"64706"},{"1":"Baylor University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6847","7":"14329","8":"19500","9":"23550","10":"60512"},{"1":"Beacon College","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4461","7":"426","8":"16313","9":"25718","10":"22833"},{"1":"Belanger School of Nursing","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.4000","7":"143","8":"13250","9":"15250","10":"67700"},{"1":"Belmont University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8323","7":"6618","8":"17765","9":"20709","10":"49950"},{"1":"Binghamton University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4303","7":"14300","8":"15000","9":"18750","10":"72980"},{"1":"Biola University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6438","7":"3683","8":"19500","9":"24273","10":"47704"},{"1":"Bloomfield College","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8465","7":"1530","8":"19500","9":"27000","10":"44790"},{"1":"Bluffton University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6051","7":"675","8":"21500","9":"27000","10":"44911"},{"1":"Brandeis University","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3340","7":"3481","8":"23250","9":"25797","10":"70327"},{"1":"CUNY City College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.5054","7":"11967","8":"9500","9":"12348","10":"55741"},{"1":"CUNY Lehman College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4701","7":"12087","8":"8500","9":"10812","10":"51661"},{"1":"Cabrini University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6167","7":"1463","8":"19500","9":"27000","10":"53142"},{"1":"Cairn University-Langhorne","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8145","7":"885","8":"19000","9":"27000","10":"41013"},{"1":"California State University-Chico","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9017","7":"15689","8":"14964","9":"16931","10":"56270"},{"1":"California State University-Monterey Bay","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.8562","7":"6456","8":"11500","9":"13750","10":"53190"},{"1":"California State University-San Marcos","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.7942","7":"15016","8":"12750","9":"17134","10":"54811"},{"1":"Carroll College","2":"MT","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7302","7":"1093","8":"21000","9":"25602","10":"57154"},{"1":"Carson-Newman University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7932","7":"1635","8":"15000","9":"22438","10":"42546"},{"1":"Catawba College","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5212","7":"1312","8":"14486","9":"25000","10":"43015"},{"1":"Cedar Crest College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5246","7":"1078","8":"21988","9":"27000","10":"52679"},{"1":"Cedarville University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5933","7":"3566","8":"17500","9":"21500","10":"49074"},{"1":"Central Connecticut State University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.6485","7":"8402","8":"16668","9":"22000","10":"52515"},{"1":"Central State University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.5804","7":"4009","8":"10250","9":"31000","10":"31922"},{"1":"Chaminade University of Honolulu","2":"HI","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8897","7":"1623","8":"19000","9":"23235","10":"44647"},{"1":"Chatham University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6619","7":"1119","8":"16750","9":"22250","10":"42808"},{"1":"Clemson University","2":"SC","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.6194","7":"20796","8":"19500","9":"21500","10":"63857"},{"1":"Colby-Sawyer College","2":"NH","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9100","7":"871","8":"19500","9":"27000","10":"44780"},{"1":"Colorado State University-Fort Collins","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.8352","7":"23332","8":"15000","9":"20500","10":"54983"},{"1":"Columbus College of Art and Design","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9169","7":"981","8":"20700","9":"27000","10":"38557"},{"1":"Concorde Career College-Grand Prairie","2":"TX","3":"Southwest","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9611","7":"862","8":"9500","9":"9500","10":"34458"},{"1":"Concorde Career College-San Antonio","2":"TX","3":"Southwest","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9806","7":"519","8":"9500","9":"9500","10":"27995"},{"1":"Concordia College at Moorhead","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5808","7":"1873","8":"20601","9":"26490","10":"51988"},{"1":"Cornell University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1071","7":"14741","8":"13108","9":"14500","10":"91176"},{"1":"Culver-Stockton College","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9833","7":"918","8":"15268","9":"26000","10":"42206"},{"1":"DeSales University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8177","7":"2352","8":"20320","9":"25252","10":"56641"},{"1":"DeVry College of New York","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3980","7":"874","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Arizona","2":"AZ","3":"Southwest","4":"Four-year undergraduate","5":"Private for-profit","6":"0.4000","7":"178","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Colorado","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Private for-profit","6":"0.5000","7":"108","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-New Jersey","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3333","7":"169","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Virginia","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private for-profit","6":"0.6667","7":"118","8":"12809","9":"28308","10":"44484"},{"1":"Design Institute of San Diego","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private for-profit","6":"1.0000","7":"124","8":"31000","9":"45000","10":"45321"},{"1":"Dickinson College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5165","7":"1899","8":"19000","9":"19000","10":"69562"},{"1":"Drew University","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7315","7":"1541","8":"21500","9":"26222","10":"57185"},{"1":"Duquesne University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7719","7":"5373","8":"23250","9":"26988","10":"66207"},{"1":"Dutchess BOCES-Practical Nursing Program","2":"NY","3":"Mid East","4":"NA","5":"Public","6":"0.8000","7":"81","8":"5350","9":"6425","10":"52370"},{"1":"EDP University of Puerto Rico Inc-San Juan","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5580","7":"1233","8":"9500","9":"11400","10":"19513"},{"1":"East Texas Baptist University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9207","7":"1373","8":"14000","9":"23250","10":"45717"},{"1":"Eastern Michigan University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.7518","7":"13148","8":"18750","9":"25000","10":"46112"},{"1":"Eastern Nazarene College","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6438","7":"541","8":"19500","9":"26000","10":"50050"},{"1":"Eastern New Mexico University-Main Campus","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.5060","7":"3129","8":"10500","9":"16000","10":"33395"},{"1":"Elmira College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8313","7":"713","8":"23500","9":"27000","10":"53878"},{"1":"Elon University","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7170","7":"6291","8":"18250","9":"20500","10":"64238"},{"1":"FIDM-Fashion Institute of Design & Merchandising-Los Angeles","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3864","7":"1847","8":"12000","9":"14165","10":"45551"},{"1":"Ferrum College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7583","7":"962","8":"14000","9":"27000","10":"40224"},{"1":"Finlandia University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8300","7":"379","8":"11000","9":"21100","10":"37894"},{"1":"Florida Institute of Technology","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7037","7":"3188","8":"14798","9":"27000","10":"63704"},{"1":"Fort Lewis College","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.9151","7":"3205","8":"9726","9":"18013","10":"38083"},{"1":"Fox College","2":"IL","3":"Great Lakes","4":"Two-year undergraduate","5":"Private for-profit","6":"0.5000","7":"404","8":"13624","9":"16000","10":"36715"},{"1":"Franklin W Olin College of Engineering","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1644","7":"290","8":"12000","9":"15846","10":"132969"},{"1":"Frostburg State University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7361","7":"3749","8":"15500","9":"22250","10":"49230"},{"1":"Gonzaga University","2":"WA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7289","7":"4836","8":"20500","9":"24250","10":"69468"},{"1":"Good Samaritan College of Nursing and Health Science","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3462","7":"353","8":"17000","9":"20843","10":"57071"},{"1":"Gordon College","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6827","7":"1428","8":"22250","9":"26310","10":"46746"},{"1":"Hampden-Sydney College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4701","7":"881","8":"19500","9":"27000","10":"65446"},{"1":"Hannibal-LaGrange University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6463","7":"559","8":"14968","9":"18750","10":"37541"},{"1":"Haverford College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1823","7":"1306","8":"10214","9":"13177","10":"69192"},{"1":"Henderson State University","2":"AR","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7490","7":"2603","8":"11000","9":"18933","10":"39020"},{"1":"Holy Name Medical Center-Sister Claire Tynan School of Nursing","2":"NJ","3":"Mid East","4":"NA","5":"Private nonprofit","6":"0.5000","7":"183","8":"14750","9":"19999","10":"79610"},{"1":"Hope College","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7783","7":"2963","8":"23830","9":"26960","10":"53796"},{"1":"Houghton College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7998","7":"838","8":"20000","9":"25000","10":"43767"},{"1":"Illinois State University","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8131","7":"17955","8":"16000","9":"20000","10":"55457"},{"1":"Indiana State University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.9229","7":"8897","8":"14000","9":"23457","10":"42877"},{"1":"Inter American University of Puerto Rico-Arecibo","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3899","7":"2955","8":"5500","9":"8725","10":"22457"},{"1":"John Carroll University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8784","7":"2737","8":"23000","9":"26987","10":"60293"},{"1":"Johnson & Wales University-Online","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3649","7":"1314","8":"16000","9":"25750","10":"41977"},{"1":"Johnson C Smith University","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4920","7":"1248","8":"19226","9":"31000","10":"37073"},{"1":"Johnson University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5497","7":"708","8":"15250","9":"23250","10":"36422"},{"1":"Judson College","2":"AL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5648","7":"219","8":"15750","9":"27000","10":"29569"},{"1":"Juniata College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6746","7":"1267","8":"25494","9":"27000","10":"57800"},{"1":"Kennesaw State University","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.8311","7":"36284","8":"15631","9":"24000","10":"51792"},{"1":"Keuka College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9091","7":"1300","8":"21255","9":"26000","10":"52489"},{"1":"La Roche University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6891","7":"1079","8":"19500","9":"25000","10":"46784"},{"1":"La Sierra University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5697","7":"1462","8":"17750","9":"27000","10":"55004"},{"1":"Lamar University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8268","7":"8220","8":"13000","9":"21119","10":"44159"},{"1":"Lancaster Bible College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9668","7":"1418","8":"14750","9":"20469","10":"39435"},{"1":"Lee University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8301","7":"3812","8":"18750","9":"25750","10":"40101"},{"1":"Life University","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9681","7":"938","8":"9500","9":"16801","10":"46619"},{"1":"Lindenwood University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9213","7":"4780","8":"21065","9":"26327","10":"47009"},{"1":"Long Island Business Institute","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private for-profit","6":"0.8173","7":"1131","8":"12095","9":"19090","10":"23428"},{"1":"Loyola University New Orleans","2":"LA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7239","7":"3144","8":"16749","9":"25792","10":"48747"},{"1":"Lyon College","2":"AR","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5015","7":"665","8":"9500","9":"27000","10":"43343"},{"1":"Madison Oneida BOCES-Practical Nursing Program","2":"NY","3":"Mid East","4":"NA","5":"Public","6":"0.8750","7":"25","8":"7125","9":"8633","10":"34239"},{"1":"Manhattan School of Music","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4156","7":"497","8":"21500","9":"26672","10":"24000"},{"1":"Manhattanville College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8981","7":"1373","8":"20500","9":"25000","10":"54038"},{"1":"Mansfield University of Pennsylvania","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.9602","7":"1614","8":"19051","9":"25990","10":"42931"},{"1":"Marion Military Institute","2":"AL","3":"Southeast","4":"Two-year undergraduate","5":"Public","6":"0.5750","7":"400","8":"5500","9":"12000","10":"48920"},{"1":"Marquette University","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8249","7":"7828","8":"20500","9":"24000","10":"72489"},{"1":"Massachusetts Institute of Technology","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0726","7":"4360","8":"12000","9":"13418","10":"111222"},{"1":"McNeese State University","2":"LA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.6330","7":"5825","8":"12185","9":"22534","10":"42965"},{"1":"McPherson College","2":"KS","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5216","7":"808","8":"15000","9":"25949","10":"42168"},{"1":"Mercyhurst University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8802","7":"2369","8":"19000","9":"26000","10":"46423"},{"1":"Miami University-Oxford","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.9195","7":"16418","8":"16000","9":"23522","10":"54650"},{"1":"Midwestern Baptist Theological Seminary","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9700","7":"858","8":"11500","9":"16871","10":"41664"},{"1":"Millersville University of Pennsylvania","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.8455","7":"6314","8":"16750","9":"24194","10":"48420"},{"1":"Mills College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9114","7":"603","8":"16750","9":"22500","10":"58594"},{"1":"Mississippi College","2":"MS","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.2876","7":"2515","8":"16595","9":"22500","10":"45183"},{"1":"Mitchell College","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7422","7":"571","8":"13500","9":"25500","10":"36391"},{"1":"Moore College of Art and Design","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5004","7":"365","8":"20000","9":"27000","10":"38677"},{"1":"Mount Aloysius College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9524","7":"1082","8":"18500","9":"25284","10":"43272"},{"1":"Nebraska Wesleyan University","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6953","7":"1767","8":"18063","9":"26966","10":"52697"},{"1":"New Jersey Institute of Technology","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.6603","7":"8311","8":"17500","9":"21500","10":"80043"},{"1":"New Mexico State University-Main Campus","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.6267","7":"11107","8":"10500","9":"18464","10":"36683"},{"1":"North Central College","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5329","7":"2453","8":"19000","9":"24289","10":"54460"},{"1":"Northwestern University","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0931","7":"8401","8":"14000","9":"15000","10":"80033"},{"1":"Notre Dame College","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8743","7":"1217","8":"16775","9":"27000","10":"43634"},{"1":"Notre Dame of Maryland University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6229","7":"751","8":"16199","9":"22500","10":"50974"},{"1":"Nyack College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9732","7":"1171","8":"17500","9":"25999","10":"44409"},{"1":"Oakland City University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6331","7":"548","8":"11372","9":"18750","10":"37286"},{"1":"Oberlin College","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3536","7":"2647","8":"21000","9":"25986","10":"47921"},{"1":"Occidental College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4090","7":"1835","8":"19500","9":"22336","10":"67388"},{"1":"Oklahoma Baptist University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5821","7":"1610","8":"13900","9":"22795","10":"43596"},{"1":"Oral Roberts University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7839","7":"3080","8":"19000","9":"27000","10":"42161"},{"1":"Otis College of Art and Design","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8032","7":"1030","8":"21500","9":"27000","10":"54531"},{"1":"Pace University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8287","7":"7710","8":"18073","9":"24958","10":"65697"},{"1":"Paine College","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7499","7":"179","8":"10980","9":"30747","10":"31714"},{"1":"Penn Commercial Business/Technical School","2":"PA","3":"Mid East","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9065","7":"238","8":"9500","9":"12000","10":"27741"},{"1":"Plaza College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3001","7":"869","8":"11843","9":"18842","10":"29986"},{"1":"Point Park University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6951","7":"2787","8":"19582","9":"27000","10":"43351"},{"1":"Pomona College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0862","7":"1462","8":"10000","9":"12000","10":"69149"},{"1":"Presentation College","2":"SD","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9321","7":"593","8":"18298","9":"26000","10":"39800"},{"1":"Providence College","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5386","7":"4242","8":"26800","9":"27000","10":"69532"},{"1":"Quinnipiac University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8239","7":"6787","8":"21500","9":"26000","10":"75575"},{"1":"Radford University","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7868","7":"7267","8":"16305","9":"23249","10":"50383"},{"1":"Randolph-Macon College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7131","7":"1551","8":"21500","9":"27000","10":"53288"},{"1":"Rhode Island College","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.8127","7":"5892","8":"14000","9":"21002","10":"49249"},{"1":"Rice University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1089","7":"4052","8":"10500","9":"12000","10":"77683"},{"1":"Rider University","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7566","7":"3567","8":"20075","9":"26000","10":"56442"},{"1":"Rollins College","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6081","7":"2536","8":"22048","9":"26000","10":"53363"},{"1":"SUNY College at Geneseo","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.6136","7":"4820","8":"15500","9":"20047","10":"56241"},{"1":"SUNY College at Old Westbury","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.5308","7":"4543","8":"12000","9":"15250","10":"50921"},{"1":"SUNY College of Technology at Alfred","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7172","7":"3651","8":"12000","9":"15000","10":"48256"},{"1":"Sacred Heart University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6553","7":"6356","8":"20000","9":"25561","10":"72191"},{"1":"Saint Ambrose University","2":"IA","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7384","7":"2299","8":"19000","9":"25000","10":"54600"},{"1":"Saint Mary's University of Minnesota","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8410","7":"1315","8":"15250","9":"20832","10":"54950"},{"1":"Sam Houston State University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9250","7":"18811","8":"16694","9":"22020","10":"50125"},{"1":"San Francisco Conservatory of Music","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4562","7":"243","8":"20875","9":"26835","10":"37744"},{"1":"San Francisco State University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.8409","7":"23411","8":"12500","9":"15369","10":"60126"},{"1":"Shepherd University","2":"WV","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.9770","7":"2479","8":"14168","9":"21170","10":"45723"},{"1":"Southeast Missouri State University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.9333","7":"7659","8":"14450","9":"21614","10":"39874"},{"1":"Southeastern Oklahoma State University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.7859","7":"3078","8":"10568","9":"17513","10":"41698"},{"1":"Southern California Institute of Architecture","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6730","7":"249","8":"31250","9":"33750","10":"71946"},{"1":"Southern Connecticut State University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.7968","7":"7239","8":"14250","9":"21500","10":"51551"},{"1":"Southern Illinois University-Edwardsville","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8505","7":"9892","8":"16373","9":"20935","10":"51671"},{"1":"Southern New Hampshire University","2":"NH","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9354","7":"109233","8":"9250","9":"20867","10":"52024"},{"1":"Southwestern Oklahoma State University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9320","7":"3834","8":"11000","9":"16156","10":"43079"},{"1":"Spalding University","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9343","7":"842","8":"19596","9":"25000","10":"47088"},{"1":"St. John's College","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6139","7":"383","8":"19500","9":"27000","10":"48751"},{"1":"St. John's College","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6891","7":"268","8":"15000","9":"27000","10":"43203"},{"1":"St. Joseph's College of Nursing","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.7273","7":"383","8":"12000","9":"12000","10":"68467"},{"1":"Stanford University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0519","7":"6366","8":"11000","9":"12000","10":"97798"},{"1":"Stevens Institute of Technology","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5306","7":"3787","8":"25000","9":"27000","10":"98159"},{"1":"Stevenson University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8918","7":"3008","8":"24000","9":"27000","10":"56567"},{"1":"Stony Brook University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4891","7":"17962","8":"15000","9":"18750","10":"66678"},{"1":"Sweet Briar College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7595","7":"356","8":"14000","9":"27000","10":"48425"},{"1":"Temple University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7142","7":"26969","8":"20000","9":"24499","10":"56800"},{"1":"Tennessee Technological University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7963","7":"8564","8":"11000","9":"16144","10":"43326"},{"1":"Texas A & M University-Kingsville","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8792","7":"5114","8":"15131","9":"23250","10":"47368"},{"1":"Texas County Technical College","2":"MO","3":"Plains","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.6250","7":"52","8":"12000","9":"13875","10":"29463"},{"1":"Texas Tech University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.7003","7":"32412","8":"15750","9":"22000","10":"58435"},{"1":"Texas Wesleyan University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4679","7":"1403","8":"14000","9":"23495","10":"49382"},{"1":"The College of Wooster","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6530","7":"1924","8":"21500","9":"26000","10":"51866"},{"1":"The Evergreen State College","2":"WA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9838","7":"2053","8":"14500","9":"19089","10":"40782"},{"1":"The New England Conservatory of Music","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3627","7":"386","8":"19500","9":"25250","10":"38489"},{"1":"The New School","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6910","7":"6339","8":"15000","9":"23250","10":"53981"},{"1":"The University of Alabama","2":"AL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.8039","7":"30610","8":"17671","9":"23072","10":"52751"},{"1":"The University of Texas at Arlington","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8775","7":"34726","8":"12477","9":"18166","10":"54633"},{"1":"The University of Texas at El Paso","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9997","7":"21070","8":"12500","9":"18460","10":"44770"},{"1":"Tougaloo College","2":"MS","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7120","7":"654","8":"21000","9":"32100","10":"33291"},{"1":"Trine University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7894","7":"2254","8":"16822","9":"23945","10":"52957"},{"1":"Tusculum University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6715","7":"1194","8":"16000","9":"24141","10":"40083"},{"1":"Union College","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5733","7":"927","8":"15000","9":"25291","10":"38076"},{"1":"Union College","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9760","7":"602","8":"19000","9":"27000","10":"45198"},{"1":"Union College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4126","7":"2035","8":"21500","9":"25831","10":"71055"},{"1":"Universidad Central Del Caribe","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8571","7":"123","8":"7500","9":"7500","10":"28509"},{"1":"Universidad del Sagrado Corazon","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4331","7":"4067","8":"12650","9":"16750","10":"26108"},{"1":"University of Alaska Fairbanks","2":"AK","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.6701","7":"4259","8":"11000","9":"19582","10":"43728"},{"1":"University of Alaska Southeast","2":"AK","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.6352","7":"1063","8":"10223","9":"20000","10":"40727"},{"1":"University of Baltimore","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7993","7":"1856","8":"18750","9":"22956","10":"58128"},{"1":"University of Connecticut-Hartford Campus","2":"CT","3":"New England","4":"NA","5":"Public","6":"0.9616","7":"1659","8":"19292","9":"21500","10":"72460"},{"1":"University of Evansville","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6430","7":"1763","8":"19500","9":"25183","10":"50415"},{"1":"University of Florida","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.3113","7":"34237","8":"14986","9":"15580","10":"64463"},{"1":"University of Hartford","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7741","7":"4378","8":"19500","9":"27000","10":"58087"},{"1":"University of Hawaii-West Oahu","2":"HI","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9523","7":"2755","8":"11500","9":"15453","10":"48268"},{"1":"University of Lynchburg","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9727","7":"1801","8":"21855","9":"27000","10":"49490"},{"1":"University of Maine at Farmington","2":"ME","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.9461","7":"1509","8":"16756","9":"24499","10":"35051"},{"1":"University of Mary","2":"ND","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7168","7":"2178","8":"18500","9":"23250","10":"55720"},{"1":"University of Massachusetts-Amherst","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.6532","7":"23884","8":"20500","9":"23149","10":"62048"},{"1":"University of Minnesota-Duluth","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.7855","7":"8351","8":"16034","9":"22514","10":"54750"},{"1":"University of Missouri-Kansas City","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.6301","7":"7077","8":"14750","9":"18751","10":"52279"},{"1":"University of Nebraska-Lincoln","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.7774","7":"20128","8":"15000","9":"21362","10":"52360"},{"1":"University of New Haven","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9110","7":"5078","8":"19500","9":"27000","10":"52610"},{"1":"University of North Carolina at Chapel Hill","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.2500","7":"19261","8":"13000","9":"14500","10":"61915"},{"1":"University of North Florida","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7992","7":"14308","8":"12000","9":"16331","10":"49338"},{"1":"University of Oklahoma-Norman Campus","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8338","7":"21087","8":"15250","9":"20718","10":"57071"},{"1":"University of Wisconsin-River Falls","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.7685","7":"5238","8":"14500","9":"20500","10":"47441"},{"1":"University of Wisconsin-Stevens Point","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8654","7":"7258","8":"15487","9":"22140","10":"45855"},{"1":"Upper Iowa University","2":"IA","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6530","7":"2934","8":"16833","9":"24972","10":"49292"},{"1":"Utah State University","2":"UT","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.9104","7":"21087","8":"9240","9":"14429","10":"50432"},{"1":"Washington University in St Louis","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1602","7":"7366","8":"15046","9":"17000","10":"82732"},{"1":"Webster University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5312","7":"2535","8":"17900","9":"22500","10":"47663"},{"1":"Wells College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6436","7":"356","8":"15750","9":"26500","10":"45188"},{"1":"Western Kentucky University","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.9775","7":"13086","8":"15000","9":"22500","10":"39268"},{"1":"Western Michigan University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8494","7":"15706","8":"20000","9":"26000","10":"49652"},{"1":"Westmont College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7016","7":"1226","8":"19500","9":"23250","10":"60057"},{"1":"Widener University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7458","7":"2866","8":"24219","9":"27000","10":"62030"},{"1":"William Jessup University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6521","7":"1279","8":"16167","9":"22334","10":"51693"},{"1":"Xavier University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8122","7":"5250","8":"19500","9":"24536","10":"62015"},{"1":"Yale University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0653","7":"4701","8":"12000","9":"13142","10":"88655"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several quantitative attributes, including: admission rate, number of undergraduate students, median debt for all students, median debt for graduates, and median earnings.</p>
+<p><br></p>
+</section>
+<section id="histograms" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="histograms"><span class="header-section-number">4.2</span> Histograms</h2>
+<p>The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the <code>gf_histogram()</code> function.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This function takes the same general syntax as the <code>gf_</code> functions you learned about in <a href="03-01-categorical-attributes.html"><span>Chapter&nbsp;3</span></a>:</p>
+<ul>
+<li>The first argument is a formula using the tilde operator (<code>~</code>) that identifies the attribute to be plotted, and</li>
+<li>The second argument, <code>data =</code>, specifies the data object that was assigned on data import.</li>
+</ul>
+<p>The syntax used to create a histogram of the admission rates is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span> adm_rate, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist-01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-hist-01-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: Histogram of admission rates for the institutions of higher learning in the sample.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<section id="interpretting-histograms" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="interpretting-histograms"><span class="header-section-number">4.2.1</span> Interpretting Histograms</h3>
+<p>Histograms are created by collapsing the data into bins and then counting the number of observations that fall into each bin. To show this more clearly in the figure created previously, we can color the bin lines to highlight the different bins. To do this we include an additional argument, <code>color =</code>, in the <code>gf_histogram()</code> function. We can also set the color for the bins themselves using the <code>fill =</code> argument. Here we color the bin lines black and set the bin color to yellow.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> adm_rate, <span class="at">data =</span> colleges, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"yellow"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Admission Rate"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist-01-color" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-hist-01-color-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.2: Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow. Axes labels are also added to the plot.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each bar in a histogram represents indicates the number of cases with a range of values for the plotted variable. For example, the bar that is just to the right of 0.50, shows there are approximately 16 institutions of higher learning with admissions rates between about 0.50 and 0.54. Similar interpretations can be made for all of the other bars as well.</p>
+<p>One common assumption made with a histogram is that the width of each bar covers the same range over the attribute plotted. In this histogram, there are 25 total bars, which means that the range of each is 0.04 on the admission rate scale (i.e., 25 * .04 = 1.00 which is the rtange of the entire attribute).</p>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<p>Interpret the bar that is immediately to the left of 1.00.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-01');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-01" style="display:none; margin: -40px 0 40px 40px;">
+<p>There are approximately 12 institutions of higher learning with admissions rates between about 0.96 and 1.00.</p>
+</div>
+</section>
+</section>
+<section id="describing-the-distribution" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="describing-the-distribution"><span class="header-section-number">4.2.2</span> Describing the Distribution</h3>
+<p>Rather than focusing on any one bin, we typically want to describe the distribution of the attribute plotted as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.50 have higher counts than the bins that are below 0.50. (In fact, the highest bins seem to be above 0.75.) There are a few institutions, however, that are quite selective, admitting fewer than 25% of the students who apply.</p>
+<p>Statistically we would say that the distribution of admission rates is <em>left-skewed</em>. A left skewed distribution has the majority of cases on the right side of the distribution (i.e., at higher values of the attribute). In contrast, a distribution that has the majority of cases on the left side of the distribution (i.e., at lower values of the attribute) is called <em>right-skewed</em>. <a href="#fig-skewed-dists">Figure&nbsp;<span>4.3</span></a> shows examples of both a left-skewed and right-skewed distribution.</p>
+<div id="fig-skewed-dists" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-skewed-dists-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-skewed-dists-1.png" class="img-fluid figure-img" data-ref-parent="fig-skewed-dists" width="672"></p>
+<p></p><figcaption class="figure-caption">(a) Left-Skewed Distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-skewed-dists-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-skewed-dists-2.png" class="img-fluid figure-img" data-ref-parent="fig-skewed-dists" width="672"></p>
+<p></p><figcaption class="figure-caption">(b) Right-Skewed Distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.3: Examples of a left-skewed and right-skewed distribution.</figcaption><p></p>
+</figure>
+</div>
+<p>The skewness of a distribution describes a characteristic that we refer to as the <strong>shape of the distribution</strong>. Some distributions are not skewed, these distributions have a <strong>symmetric</strong> shape. <a href="#fig-symmetric">Figure&nbsp;<span>4.4</span></a> shows an example of a symmetric distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-symmetric" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-symmetric-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.4: Example of a symmetric distribution.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="density-plots" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="density-plots"><span class="header-section-number">4.3</span> Density plots</h2>
+<p>Another plot that is sometimes more useful for determining the shape of the distribution for a quantitative attribute is the <strong>density plot</strong>. This plot is a smoothed out version of a histogram.</p>
+<p>Density plots can be created with the <code>gf_density()</code> function which takes the same arguments as the other <code>gf_</code> functions. Similar to these function, you can include optional arguments to color the plot and add axis labels.</p>
+<p><a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a> shows the density plot for the density plot for the admissions rate attribute plotted earlier in a histogram.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> adm_rate, <span class="at">data =</span> colleges,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"yellow"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Admission Rate"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-density-01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-density-01-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.5: Density plot of college admission rates.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Based on the density plot, we can see that the shape of the distribution of admission rates is left-skewed.</p>
+<div class="fyi">
+<p>The metric on the <em>y</em>-axis in a density plot is no longer counts, it is “probability density”, or just “density”. We don’t interpret those values, but rather focus on the relative height of the curve. That is, areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve is lower indicates areas where data occur infrequently. Density plots are interpreted similarly to a histogram in that</p>
+</div>
+<p>Our interpretation of the distribution of admission rates remains that most institutions of higher learning admit a high proportion of applicants. In fact, colleges that admit around 75% of their applicants have the highest probability density, indicating this is where most of the institutions are found in the distribution. Additionally, there are just a few institutions that are have an admission rate 25% or less.</p>
+<p><br></p>
+<section id="more-about-shape" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="more-about-shape"><span class="header-section-number">4.3.1</span> More about Shape</h3>
+<p>In addition to the overall symmetry or direction of skewness, another aspect of shape that we should describe is the number of modes in the distribution. The distributions we have looked as so far have been <strong>unimodal</strong>, that is, they have a single mode or “hump” in the distribution.</p>
+<p>Other distributions have multiple modes. For example, the distribution in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a> is <strong>bimodal</strong> (it has two modes). If a distribution has more than one mode, it often indicates that there are different groups that have been mixed into the data. For example, in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a> we see one mode around 180 minutes (3 hours) and another taller mode around 300 minutes (5 hours). This might indicate that there are two different groups of runners that competed in the Legacy Marathon—one smaller group that was faster (e.g., elite runners) and one larger group that was slower.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-tc-marathon" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-02-quantitative-attributes_files/figure-html/fig-tc-marathon-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.6: Distribution of times for a random sample of runners who competed in the 2022 Legacy Marathon.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="center-and-variation-two-additional-characteristics-to-describe" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="center-and-variation-two-additional-characteristics-to-describe"><span class="header-section-number">4.3.2</span> Center and Variation: Two Additional Characteristics to Describe</h3>
+<p>In addition to the describing the shape of the distribution, there are two other characteristics of a quantitative distribution that we want to describe: the <strong>center</strong> and the <strong>variation</strong>.</p>
+<p>The “center” of a distribution is misleading in that it doesn’t literally mean the center of the distribution. What it really means is “typical value”. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>, a typical admission rate might be around 0.75. This value is at the mode in the distribution.</p>
+<p>We also need to describe the variation in the distribution. When estimating the variation from a density plot we typically describe the overall range of values, as well as, the range of values within which most of the data falls. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>, there are admission rates between 0 and 1, but most of the institutions of higher learning have an admission rate between 0.65 and 0.85. This could also be given as a range of values around the typical value—<span class="math inline">\(0.75 \pm 0.10\)</span></p>
+<div class="fyi">
+<p>A full description of a quantitative distribution includes shape, center, and variation. Here is how we might descirbe the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>:</p>
+<blockquote class="blockquote">
+<p>The distribution of admission rates is left-skewed. Most institutions admit a high proportion of applicants. A typical institution in the distribution admits around 75% of its applicants (<span class="math inline">\(\pm\)</span> 10%). There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply.</p>
+</blockquote>
+</div>
+<p>In a multi-modal distribution, the identification of center and variation is more difficult, since there are multiple typical values. For example, in the distribution of marathon times presented in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a>, there are two typical values, one around 180 minutes and another around 300 minutes. Similarly, in describing the variation we often describe a range of values around each typical value that depicts where most of the data fall. From <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a>, most of the faster runners finished the Legacy Marathon between 160 and 190 minutes, whereas most of the slower runners finished with a time between 200 and 400 minutes.</p>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
+<p>Create a density plot for the distribution of median earnings for students. Add appropriate labels to the axes.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> median_earnings, <span class="at">data =</span> colleges,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"yellow"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Median Earnings"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="03-02-quantitative-attributes_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p>Describe the shape, center, and variation of this distribution and what it tells you about students’ median earnings 10 years after being enrolled in college.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
+<p>The distribution of median earnings is right skewed. The median amount of money earned 10 years after graduation is around $50k (<span class="math inline">\(\pm \$10k\)</span>). There are some institutions where the median earnings of students is quite high (~100k).</p>
+</div>
+</section>
+</section>
+</section>
+<section id="numerically-summaries" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="numerically-summaries"><span class="header-section-number">4.4</span> Numerically Summaries</h2>
+<p>In the previous examples, we estimated the typical value (center) and variation from a visualization of the distribution. If the distribution is unimodal, we can also obtain more precise values for these characteristics by computing different numerical summaries.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<section id="learn-more" class="level3 learnmore" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="learn-more"><span class="header-section-number">4.4.1</span> Learn More</h3>
+<p>In this class we will focus on the computation of these values using R and their interpretations rather than on the mathematical manipulation and formulas. Here are some links to learn more about the underlying calculations of the measures that we will focus on in this class if you are interested: <a href="https://statisticsbyjim.com/basics/measures-central-tendency-mean-median-mode/">mean, median, and mode</a>, <a href="https://statisticsbyjim.com/?s=Range">range</a> <a href="https://statisticsbyjim.com/basics/interquartile-range/">interquartile range (IQR)</a>, <a href="https://statisticsbyjim.com/basics/standard-deviation/">standard deviation</a>.</p>
+</section>
+<p>In describing the center of the distribution, we estimated the typical value based on the value for the “modal hump” in the density plot. There are two numerical values that are often computed to summarize the center of the distribution: the <strong>mean</strong> and the <strong>median</strong>.</p>
+<p>In a perfectly symmetric distributions, the mean and median are the same value. In practice, they are rarely exactly the same. If the distribution is roughly symmetric, these values should be similar. In skewed distributions, the mean and median will be different. In these distributions, the mean will be further in the tail of the distribution than the median. Comparing the mean and median is another way to verify the symmetry or asymmetry of the distribution.</p>
+<div id="fig-mean-median" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-mean-median-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/04-01-left.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p></p><figcaption class="figure-caption">(a) Left-Skewed Distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-mean-median-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/04-02-symmetric.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p></p><figcaption class="figure-caption">(b) Symmetric Distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-mean-median-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/04-03-right.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p></p><figcaption class="figure-caption">(c) Right-Skewed Distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.7: Mean, median, and modal values in a left-skewed, symmetric, and right-skewed distribution.</figcaption><p></p>
+</figure>
+</div>
+<p>In a symmetric distribution, any of the three center values (mean, median, or mode) are a good summarization of a typical value since they are all roughly the same. In skewed distributions, because the mean is further in the tail, it is often not a good reflection of a typical value in the distribution. Instead, the median or mode is often a better summary in these distributions.</p>
+<p><br></p>
+<section id="computing-numerical-summaries-in-r" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="computing-numerical-summaries-in-r"><span class="header-section-number">4.4.2</span> Computing Numerical Summaries in R</h3>
+<p>To compute numerical summary values, including the mean and median, we use the <code>df_stats()</code> function from the <code>{mosaicCore}</code> package. This function takes the exact same arguments as the <code>gf_</code> functions. The syntax below shows how to compute numerical summaries for the admissions rate attribute.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>adm_rate, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"adm_rate","2":"0.0519","3":"0.5597","4":"0.7171","5":"0.840975","6":"1","7":"0.6837665","8":"0.2167265","9":"230","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The mean, or average, of the 230 institutions’ admission rates is 0.68 and the median admission rate for these institutions is 0.72. The slightly lower mean value is consistent with how the mean and median compare in a left-skew distribution. Because the distribution is skewed the median of 0.68, or modal value of 0.75, is a better indication of a typical admission rate.</p>
+<section id="your-turn-2" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-2">Your Turn</h4>
+<p>Compute the mean and median for the distribution of students’ median earnings 10 years after being enrolled in college</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_earnings, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"median_earnings","2":"19513","3":"43031","4":"49316","5":"56535.75","6":"132969","7":"51133.77","8":"14601.51","9":"230","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The mean earnings is $51,134 and the median earnings is $49,316.</p>
+</div>
+<p>Based on the distribution of students’ median earnings 10 years after being enrolled in college is the mean or median a better summary of a typical value in the distribution? Explain.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<p>Because the distribution of earnings is right-skewed, the median is a better summary of a typical value in the distribution.</p>
+</div>
+</section>
+<p><br></p>
+</section>
+<section id="numerically-summarizing-variation" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="numerically-summarizing-variation"><span class="header-section-number">4.4.3</span> Numerically Summarizing Variation</h3>
+<p>There are several summary measures that statisticians use to summarize the variation in a quantitative distribution. In this class we will focus on three of these measures: the <strong>range</strong>, the <strong>standard deviation</strong>, and the <strong>interquartile range (IQR)</strong>.</p>
+<ul>
+<li>The range is the difference between the maximum and minimum values in the distribution.</li>
+<li>The standard deviation is measure of how far, on average, values in the distribution are from the mean.</li>
+<li>The interquartile ranger (IQR) is the range of the middle 50% of the distribution.</li>
+</ul>
+<p>To illustrate how to compute these values, we will again use <code>df_stats()</code> to compute the summaries for the admission rate attribute.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>adm_rate, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"adm_rate","2":"0.0519","3":"0.5597","4":"0.7171","5":"0.840975","6":"1","7":"0.6837665","8":"0.2167265","9":"230","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The range of the distribution is <span class="math inline">\(1 - 0.0519 = 0.9481\)</span>. Note that the range is a single value. Alternatively, we can say the admission rates <em>range from</em> 0.0519 to 1. This summary indicates the overall variation in the attribute.</p>
+<p>The standard deviation is computed and returned in the <code>sd</code> column of the <code>df_stats()</code> output. The standard deviation of the admission rates is 0.217. Interpreting this, we would say that on average, most admission rates are within .216 of the mean. That is, most admission rates are between 0.47 and 0.90. To compute this range:</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;\mathrm{Mean} \pm \mathrm{SD}\\[2ex]
+&amp;0.683 - 0.217 = 0.47 \\[2ex]
+&amp;0.47 + 0.217 = 0.90
+\end{split}
+\]</span> The last summary measure of variation we will compute is the IQR. The IQR is the difference between the 75th-percentile value (<code>Q3</code>) and the 25th-percentile value (<code>Q1</code>). In the admission rates attribute this is:</p>
+<p><span class="math display">\[
+\begin{split}
+\mathrm{IQR} &amp;= 0.840975 - 0.5597 \\[2ex]
+&amp;= 0.281
+\end{split}
+\]</span></p>
+<p>That is the middle 50% of the admission rates have a range of 0.281—they range from 0.56 to 0.84.</p>
+<section id="your-turn-3" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-3">Your Turn</h4>
+<p>Compute the range, IQR, and standard deviation for the distribution of students’ median earnings 10 years after being enrolled in college.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_earnings, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"median_earnings","2":"19513","3":"43031","4":"49316","5":"56535.75","6":"132969","7":"51133.77","8":"14601.51","9":"230","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Range = 132969 - 19513 = 113456</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># IQR = 56535.75 - 43031 = 13504.75</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># SD = 14.601k</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Based on the distribution of students’ median earnings 10 years after being enrolled in college which summary measure(s) of variation would you report? Explain.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">
+Show/Hide Solution
+</button>
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<p>Because the distribution of earnings is right-skewed, we might report the IQR in addition to the range.</p>
+</div>
+</section>
+<p>Similar to the numerical summaries for the center of a distribution, some measures of variation are better suited toward summarizing symmetric distributions and others for skewed distributions. For all distributions, the range is typically provided to summarize the overall variation. In addition, for symmetric distributions, the standard deviation is also conventionally used to summarize the variation for most cases. In skewed distributions, the IQR is a better numerical summary of the variation than the standard deviation.</p>
+<div class="fyi">
+<p>Adding the numerical summaries to our previous description of the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>:</p>
+<blockquote class="blockquote">
+<p>The distribution of admission rates is left-skewed. There is a great deal of variation in addmission rates, with institutions of higher learning admitting as few as .5% of their applicants, and some as many as 100%. A typical institution in the distribution admits around 72% (median) of its applicants with half admitting between 56% (Q1) and 84% (Q3) of their applicants. This suggests that most institutions admit a high proportion of applicants. There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply.</p>
+</blockquote>
+</div>
+<p>There is no one correct way to summarize and report the characteristics of a quantitative distribution. You will want to describe the shape, center, and variation, but how you do that may be different from how another person chooses to do that. For example, in the description of the distribution of admission rates I chose to report the characteristics using text/prose. Another researcher might have instead chosen to report this information in a table rather than writing about it. As an applied scientist or researcher you need to be able to do both.</p>
+<div class="protip">
+<p>In practice you might try multiple reporting strategies within a paper before you settle on one that is “best” for that paper. Think of it like you do in drafting writing—often your first attempt isn’t the same as the final product, and it may take several iterations to get to that final draft.</p>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="summary" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.5</span> Summary</h2>
+<p>There are several R functions that are useful for summarizing categorical attributes. <a href="#tbl-r-functions">Table&nbsp;<span>4.1</span></a> shows the functions (and their descriptions) you will use to summarize and visualize quantitative attributes. Note that they all have very parallel syntax.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-r-functions" class="anchored">
+
+<div id="bhzrcqggru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="100%" bgcolor="#FFFFFF"><caption>Table&nbsp;4.1:  The functions and their descriptions to summarize and visualize quantitative attributes. </caption>
+  <thead style="border-style: none;">
+    
+    <tr class="gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Function" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Function</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Description" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
+    <tr class="gt_group_heading_row" style="border-style: none;">
+      <th colspan="2" class="gt_group_heading" scope="colgroup" id="<strong>Summarize</strong>" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left;" bgcolor="#FFFFFF" valign="middle" align="left"><strong>Summarize</strong></th>
+    </tr>
+    <tr class="gt_row_group_first" style="border-style: none;"><td headers="**Summarize**  Function" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; border-top-width: 2px;" valign="middle" align="left"><div class="gt_from_md"><p style="margin: 0; padding: 0; margin-top: 0; margin-bottom: 0;"><code>df_stats(~attribute, data = data_object)</code></p>
+</div></td>
+<td headers="**Summarize**  Description" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; border-top-width: 2px;" valign="middle" align="left">Compute common summaries of a quantitative attribute</td></tr>
+    <tr class="gt_group_heading_row" style="border-style: none;">
+      <th colspan="2" class="gt_group_heading" scope="colgroup" id="<strong>Visualize</strong>" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left;" bgcolor="#FFFFFF" valign="middle" align="left"><strong>Visualize</strong></th>
+    </tr>
+    <tr class="gt_row_group_first" style="border-style: none;"><td headers="**Visualize**  Function" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; border-top-width: 2px;" valign="middle" align="left"><div class="gt_from_md"><p style="margin: 0; padding: 0; margin-top: 0; margin-bottom: 0;"><code>gf_histogram(~attribute, data = data_object)</code></p>
+</div></td>
+<td headers="**Visualize**  Description" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; border-top-width: 2px;" valign="middle" align="left">Create histogram</td></tr>
+    <tr style="border-style: none;"><td headers="**Visualize**  Function" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left"><div class="gt_from_md"><p style="margin: 0; padding: 0; margin-top: 0; margin-bottom: 0;"><code>gf_density(~attribute, data = data_object)</code></p>
+</div></td>
+<td headers="**Visualize**  Description" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Create density plot</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>When describing a quantitative distribution, there are three characteristics to attend to: shape, center, and variation. These can be estimated from a plot of the distribution, and the center and variation can also be summarized numerically. Often the shape of the distribution dictates which measures are provided in the description of the attribute. <a href="#tbl-dist-measures">Table&nbsp;<span>4.2</span></a> presents a guide for thinking about what should be reported based on the shape of the distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-dist-measures" class="anchored">
+
+<div id="dzfanptimx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 70%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="70%" bgcolor="#FFFFFF"><caption>Table&nbsp;4.2:  Characteristics (shape, center, and variation) of different quantitative distributions that might get reported to summarize them. </caption>
+  <thead style="border-style: none;">
+    
+    <tr class="gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Example" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Example</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Shape" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Shape</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Center" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Center</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Variation" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Variation</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
+    <tr style="border-style: none;"><td headers="Example" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left"><img src="figs/04-01-left.png" style="height:90px;"></td>
+<td headers="Shape" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Left-skewed</td>
+<td headers="Center" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Median\nMode</td>
+<td headers="Variation" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Range (overall) and IQR (typical)</td></tr>
+    <tr style="border-style: none;"><td headers="Example" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left"><img src="figs/04-02-symmetric.png" style="height:90px;"></td>
+<td headers="Shape" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Symmetric</td>
+<td headers="Center" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Mean, Median, or Mode</td>
+<td headers="Variation" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Range (overall) and SD (typical)</td></tr>
+    <tr style="border-style: none;"><td headers="Example" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left"><img src="figs/04-03-right.png" style="height:90px;"></td>
+<td headers="Shape" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Right-skewed</td>
+<td headers="Center" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Median or Mode</td>
+<td headers="Variation" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Range (overall) and IQR (typical)</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This function is part of the <code>{ggformula}</code> package which needs to be loaded prior to using the <code>gf_histogram()</code> function.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>R knows the names of 657 colors. To see these names type <code>colors()</code> at the command prompt.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>If the distribution is multi-modal many of these summaries cannot be computed, and even if they can be computed they are meaningless as summaries of a typical value or variation.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-01-categorical-attributes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-understanding-inference.html" class="pagination-link">
+        <span class="nav-page-text">Introduction to Statistical Inference</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

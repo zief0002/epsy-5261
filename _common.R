@@ -1,10 +1,8 @@
 # Load libraries
-# library(gt)
-# library(gtExtras)
 library(knitr)
-library(kableExtra)
 library(patchwork)
 library(gt)
+library(gtExtras)
 
 
 # Set knitr print options

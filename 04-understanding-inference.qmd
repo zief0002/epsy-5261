@@ -1,0 +1,5 @@
+# Introduction to Statistical Inference {#sec-infer}
+
+Statistical inference comprises a set of methods that allow researchers to allows us to learn from incomplete or imperfect data [@Gelman:2007]. In many studies, the primary interest is to learn about one or more characteristics about a population. These characteristics must be estimated from sample data. For example in @sec-quant-attributes we computed the mean admission rate for our 230 sample institutions as 0.68. Statistical inference allows us to answer questions such as: What is the mean admission rate for ALL institutions of higher learning in the United States? Or, is the mean admission rate for ALL institutions of higher learning in the United States higher than 0.50?
+
+To answer these inferential questions, you will learn about hypothesis tests and confidence intervals, the two primary methods used in statistical inference. Both of these methods are based on quantifying the amount of uncertainty associated with our sample numerical estimate. Within this section of the textbook, you will gain a understanding of how to quantify uncertainty in an estimate through the use of simulation. 

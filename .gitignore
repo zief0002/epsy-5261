@@ -41,4 +41,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
+# Keynote files
+.key
+
 /.quarto/

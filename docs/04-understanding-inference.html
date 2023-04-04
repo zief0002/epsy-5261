@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis and Randomization Methods - Data</title>
+<title>An Introduction to Data Analysis and Randomization Methods - Introduction to Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,8 +49,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-01-data-structure-and-attributes.html" rel="next">
-<link href="./01-01-r-and-rstudio-installation.html" rel="prev">
+<link href="./04-01-simulation.html" rel="next">
+<link href="./03-02-quantitative-attributes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,7 +101,7 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Data</h1>
+      <h1 class="quarto-secondary-nav-title">Introduction to Statistical Inference</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,7 +146,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data.html" class="sidebar-item-text sidebar-link active">Data</a>
+            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -181,7 +181,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-understanding-inference.html" class="sidebar-item-text sidebar-link">Introduction to Statistical Inference</a>
+            <a href="./04-understanding-inference.html" class="sidebar-item-text sidebar-link active">Introduction to Statistical Inference</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -206,7 +206,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-data" class="quarto-section-identifier d-none d-lg-block">Data</span></h1>
+<h1 class="title"><span id="sec-infer" class="quarto-section-identifier d-none d-lg-block">Introduction to Statistical Inference</span></h1>
 </div>
 
 
@@ -221,13 +221,13 @@ function toggle_visibility(id) {
 
 </header>
 
-<p>The American Statistical Association defines statistics as, “the science of learning from data, and of measuring, controlling and communicating uncertainty” <span class="citation" data-cites="ASA:2023">(<a href="#ref-ASA:2023" role="doc-biblioref">American Statistical Association, 2023</a>)</span>. The methods you learn throughout this textbook, and the EPSY 5261 course, will help you to learn from data and to measure, control, and communicate about uncertainty.</p>
-<p>An important learning goal of statistics is therefore to understand the vocabulary and ideas related to data. To this end, in <a href="02-01-data-structure-and-attributes.html"><span>Chapter&nbsp;2</span></a> you will learn about the structure of data and attribute classification. You will also learn how to judge the quality of data including questions you should ask about the data. <span class="quarto-unresolved-ref">?sec-importing-data</span> will introduce the syntax we use to import data into R. Finally, <span class="quarto-unresolved-ref">?sec-design</span> will introduce how the collection of the data impacts the type of inferences and conclusions we can draw.</p>
+<p>Statistical inference comprises a set of methods that allow researchers to allows us to learn from incomplete or imperfect data <span class="citation" data-cites="Gelman:2007">(<a href="#ref-Gelman:2007" role="doc-biblioref">Gelman &amp; Hill, 2007</a>)</span>. In many studies, the primary interest is to learn about one or more characteristics about a population. These characteristics must be estimated from sample data. For example in <a href="03-02-quantitative-attributes.html"><span>Chapter&nbsp;4</span></a> we computed the mean admission rate for our 230 sample institutions as 0.68. Statistical inference allows us to answer questions such as: What is the mean admission rate for ALL institutions of higher learning in the United States? Or, is the mean admission rate for ALL institutions of higher learning in the United States higher than 0.50?</p>
+<p>To answer these inferential questions, you will learn about hypothesis tests and confidence intervals, the two primary methods used in statistical inference. Both of these methods are based on quantifying the amount of uncertainty associated with our sample numerical estimate. Within this section of the textbook, you will gain a understanding of how to quantify uncertainty in an estimate through the use of simulation.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-ASA:2023" class="csl-entry" role="doc-biblioentry">
-American Statistical Association. (2023). <em>ASA newsroom</em>. Website. <a href="https://www.amstat.org/asa-newsroom">https://www.amstat.org/asa-newsroom</a>
+<div id="ref-Gelman:2007" class="csl-entry" role="doc-biblioentry">
+Gelman, A., &amp; Hill, J. (2007). <em>Data analysis using regression and multilevel/hierarchical models</em>. Cambridge University Press.
 </div>
 </div>
 
@@ -367,13 +367,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-01-r-and-rstudio-installation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span>
+      <a href="./03-02-quantitative-attributes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-01-data-structure-and-attributes.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-01-simulation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation: Modeling Uncertainty</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

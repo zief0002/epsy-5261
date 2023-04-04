@@ -27,8 +27,11 @@ book:
     - part: 03-exploring-and-describing-data.qmd
       chapters:
         - 03-01-categorical-attributes.qmd
-        # - 03-02-quantitative-attributes.qmd
-
+        - 03-02-quantitative-attributes.qmd
+    - part: 04-understanding-inference.qmd
+      chapters:
+        - 04-01-simulation.qmd
+        
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
 include-in-header: 'assets/epsy-5261.js'
@@ -38,7 +41,7 @@ format:
     theme: 
       - cosmo
       - "assets/theme.scss"
-    css: ["assets/notes.css", "assets/table-styles.css"]
+    css: ["assets/sticky-notes.css", "assets/table-styles.css"]
     code-copy: true
     highlight-style: zenburn
     df-print: paged

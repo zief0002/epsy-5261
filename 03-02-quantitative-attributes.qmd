@@ -1,184 +1,22 @@
-# Summarizing and Visualizing Categorical Attributes   
+# Summarizing and Visualizing Quantitative Attributes {#sec-quant-attributes}
 
-This chapter will focus on the visualization and numerical summarization of categorical attributes.
-
-<br />
-
-
-## Hypothetical Example: Pet Ownership
-
-Imagine you have surveyed 10 pet owners about the type of pet they own.^[To keep it simple, assume each pet owner only has a single pet.] The data you collected is shown in @fig-pets.
-
-```{r}
-#| label: fig-pets
-#| fig-cap: "Data collected from 10 pet owners about the type of pet the own."
-#| echo: false
-knitr::include_graphics("figs/03-01-pet-sample.png")
-```
-
-Our goal in exploratory analysis is to describe the data. One way of describing the data is to list all of the values. For example here we could say the sample included a turtle, a fish, a cat, a dog, another dog, another fish, another cat, another cat, another cat, and another dog. While this is an accurate description, it isn't very generalizable. (Imagine trying to describe the data from 1000 pet owners or 10,000 pet owners!)
-
-<br />
-
-### Numerically Summarizing Categorical Attributes
-
-A more natural way to describe these data is to summarize them by providing **counts** of each pet type. For example, describing our sample data using counts:
-
-- 1 of the pet owners sampled owned a turtle, 
-- 2 of the pet pet owners sampled owned a fish, 
-- 3 of the pet pet owners sampled owned a dog, and 
-- 4 of the pet pet owners sampled owned a cat.
-
-Summarizing each type of pet owned by reporting counts of them is a much more natural way of describing the data. (This is  also useful when the sample size is much larger.) 
-
-Another summary that could be used to describe this sample is to give the **proportion** of each type of pet owned. To compute the proportion, we take the count of each type of pet owned, and divide it by the total sample size.
-
-$$
-\mathrm{Proportion} = \frac{\mathrm{Count~of~Pet~Type}}{\mathrm{Total~Sample~Size}}
-$$
-
-
-
-For example, to compute the proportion of pet owners in our sample that owned a dog, we use:
-
-$$
-\mathrm{Proportion~of~Dogs} = \frac{3}{10} = 0.30
-$$
-
-:::fyi
-Proportions will always be between 0 and 1. If you add all of the proportions of each category  together you will get 1, so long as values can only belong to one category.
-:::
-
-Describing our sample data using proportions:
-
-- 0.10 of the pet owners sampled owned a turtle, 
-- 0.20 of the pet pet owners sampled owned a fish, 
-- 0.30 of the pet pet owners sampled owned a dog, and 
-- 0.40 of the pet pet owners sampled owned a cat.
-
-The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. @tbl-pets is an example table indicating the counts and proportions of values in our hypothetical pet example.
-
-```{r}
-#| label: tbl-pets
-#| tbl-cap: "Counts and proportions of pet owners who own each type of pet."
-#| echo: false
-#| tbl-colwidths: false
-
-library(gt)
-library(gtExtras)
-dplyr::tibble(
-  Pet = c("figs/dog.png", "figs/cat.png", "figs/fish.png", "figs/turtle.png"),
-    #162, 155, 127, 144
-  Count = c(3, 4, 2, 1),
-  Proportion = c(.3, .4, .2, .1)
-) |>
-  gt() |>
-  gt_img_rows(columns = Pet, height = 50) |>
-  fmt_number(
-    columns = Proportion,
-    decimals = 2
-  ) |>
-  cols_align(
-    align = "center",
-    columns = c(Count, Proportion)
-  ) |>
-  tab_options(
-    table.width = pct(60)
-    ) |>
-  as_raw_html()
-```
+This chapter will focus on the visualization and numerical summarization of quantitative attributes. 
 
 <br />
 
 
-### Visualizing Categorical Attributes
 
-To visualize categorical attributes we typically use a **bar chart**. @fig-pet-barchart shows a bar chart of the pet data.
+## Importing the Data
 
-```{r}
-#| label: fig-pet-barchart
-#| fig-cap: Bar chart indicating the counts of each type of pet owned.
-#| echo: false
-
-knitr::include_graphics("figs/03-02-pet-barchart.png")
-```
-
-
-A bar chart (also known as a bar graph) shows a bar for each category of the categorical attribute. In our example, we have four bars, one for each pet type. The height of the bar indicates the count of each category. For example, the bar for cats has a height of four on the *y*-axis. 
-
-Sometimes the axes in the bar chart are transposed; categories are placed on the *y*-axis and counts on the *x* axis. Also, you might see a bar chart indicating proportions rather than counts. @fig-pet-barchart2 shows a transposed bar chart indicating the proportion of each pet type.
-
-```{r}
-#| label: fig-pet-barchart2
-#| fig-cap: Bar chart indicating the counts of each type of pet owned. In this plot the categories are placed on the *y*-axis and the scale on the the *x* axis indicates proportions rather than counts.
-#| echo: false
-
-knitr::include_graphics("figs/03-03-pet-barchart-horz.png")
-```
-
-:::protip
-When proportions are used in a bar chart, it is coventional to extend that axis from 0 to 1 (the range of potential proportions). 
-:::
-
-<br />
-
-#### Bar Chart Variations
-
-There are several variations on the bar chart that you may see in practice. For example, the **segmented bar chart** is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments---one for each category. A segmented bar chart summarizing the pet data is shown in @fig-barchart-seg.
-
-```{r}
-#| label: fig-barchart-seg
-#| fig-cap: Segmented bar chart indicating the proportion of each type of pet owned.
-#| echo: false
-
-knitr::include_graphics("figs/03-04-pet-barchart-hseg.png")
-```
-
-Another variation of the bar chart is the **donut chart**. A donut chart is simply a segmented bar chart that is presented in a circular layout. @fig-donut-chart presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.
-
-```{r}
-#| label: fig-donut-chart
-#| fig-cap: Donut chart indicating the percentage of each type of pet owned. A donut chart is simply a segmented bar chart presented in a circular layout.
-#| echo: false
-#| out-width: "40%"
-
-knitr::include_graphics("figs/03-05-pet-donut-chart.png")
-```
-
-
-<br />
-
-
-#### Pie Charts
-
-One last plot used to visualize summaries of categorical dat is the **pie chart**. @fig-pie-chart shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.
-
-```{r}
-#| label: fig-pie-chart
-#| fig-cap: Pie chart indicating the percentage of each type of pet owned. A pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type.
-#| echo: false
-#| out-width: "40%"
-
-knitr::include_graphics("figs/03-06-pet-pie-chart.png")
-```
-
-:::fyi
-In a pie chart, each section of the pie is determined by proportionally dividing the 360&deg; of the circle based on the data, and then making each section have the computed angle. For example the proportion of pet owners who have a cat is 0.4, and 0.4 of 360&deg; is 144&deg;---so the cats section has an angle of 144&deg;. While these computations and the drawing of the pie chart would be done by the computer, it has implications for interpretations. Namely, research has suggested that humans may not be as adept at making accurate comparisons involving angles and the areas of sections based on those angles. Because of this, the recommendation from the data visualization community is to **use bar charts rather than pie charts** when displaying summaries of categorical data.
-:::
-
-
-<br />
-
-
-## Using R to Summarize and Visualize Categorical Attributes
-
-To illustrate how we can summarize and visualize categorical attributes using R, we will use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading two libraries, `{tidyverse}` and `{ggformula}`. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly.
+To illustrate how we can summarize and visualize quantitative attributes using R, we will again use the [college-scorecard.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv) data. As a reminder, we will start by loading three libraries, `{tidyverse}`, `{ggformula}`, and `{mosaicCore}`. Then we will import the college scorecard data using the `read_csv()` function and assign the data into an object called `colleges`. Finally, we view the data to make sure it read in properly.
 
 ```{r}
 #| label: load-packages
 #| message: false
-library(tidyverse)
 library(ggformula)
+library(mosaicCore)
+library(tidyverse)
+
 
 # Import data
 colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
@@ -187,213 +25,28 @@ colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/
 colleges
 ```
 
-Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several categorical attributes, including: state, region, type of institution, and control. 
+Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several quantitative attributes, including: admission rate, number of undergraduate students, median debt for all students, median debt for graduates, and median earnings. 
 
 <br />
 
 
+## Histograms
 
-### Exploring the Control Attribute
+The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the `gf_histogram()` function.^[This function is part of the `{ggformula}` package which needs to be loaded prior to using the `gf_histogram()` function.] This function takes the same general syntax as the `gf_` functions you learned about in @sec-categorical-attributes:
 
-The first attribute we will summarize and visualize is the control variable. Looking at the [data codebook]() we find that this attribute can take on three different values: Public, Private nonprofit, and Private for-profit. Our first task is to get institution counts for each category of control. To do this, we will use the `count()` function. The general syntax to obtain these counts is shown below.
+- The first argument is a formula using the tilde operator (`~`) that identifies the attribute to be plotted, and
+- The second argument, `data =`, specifies the data object that was assigned on data import. 
 
-```{r}
-#| eval: false
-# General syntax to counts the categories in a categorical attribute
-data_name |> count(attribute_name)
-```
-
-We first need to identify the name of the data object that includes our categorical attribute. Then we tell R to use the `count()` function which takes the name of the categorical attribute as its argument. We link these two things together using the pipe operator (`|>`). 
-
-:::protip
-It is a good idea to learn how to read R syntax. The pipe operator can be read as "and then". So the general syntax above is read as, "take the `data_name` data *and then* count the categories in the `attribute_name` attribute".
-:::
-
-
-Putting this into practice to count the categories in the `control` attribute which is in our `colleges` data:
-
-```{r}
-# Syntax to count the categories in the control attribute
-colleges |> count(control)
-```
-
-If we were to read this syntax, "take the `colleges` data *and then* count the categories in the `control` attribute".
-
-Based on the counts, we find that most of the institutions of higher learning in our sample are private nonprofit institutions (*n* = 148). There are also several public institutions of higher learning in our sample (*n* = 71). Lastly, there are also a few private for-profit institutions of higher learning in our sample (*n* = 15).
-
-:::fyi
-It is common to use *n* or *N* to denote sample size. Some textbooks and authors will use *N* to indicate the overall sample size (e.g., in the college scorecard data, *N* = 234) and *n* to indicate the sample size of subgroups within the sample (e.g., *n* = 71 for public institutions). Other authours might use *n* to define the overall sample size (e.g., *n* = 234) and then use subscripts on *n* to denote the sample size of different groups (e.g., $n_{\mathrm{Public}}=71$). There is not a single unified agreed upon way to denote these things. 
-:::
-
-We also might want to compute the proportions for each category of control. To do this, we can divide the category counts by the total sample size.
-
-```{r}
-# Proportion of public institutions
-71 / 234
-
-# Proportion of private nonprofit institutions
-148 / 234
-
-# Proportion of private for-profit institutions
-15 / 234
-```
-
-These proportions (which can also be turned into percentages) tell a similar story to what the counts did. Most of the institutions in our sample are private nonprofit  (63.2%) and public (30.3%) institutions. There is a smaller percentage of institutions that are private for-profit (6.4%).^[Note that these percentages do not quite add up to 100%. This is because of the rounding that we did.] As we did with the numerical summaries of the pet data, we can include these values in a table.
-
-```{r}
-#| label: tbl-colleges
-#| tbl-cap: "Counts and proportions of institutions of higher learning by control."
-#| echo: false
-#| tbl-colwidths: false
-dplyr::tibble(
-  Control = c("Public", "Private Nonprofit", "Private For-Profit"),
-  Count = c(71, 148, 15),
-  Proportion = c(.303, .632, .064)
-) |>
-  gt() |>
-  cols_align(
-    align = "center",
-    columns = c(Count, Proportion)
-  ) |>
-  tab_options(
-    table.width = pct(60)
-    ) |>
-  as_raw_html()
-```
-
-<br />
-
-
-#### Creating a Bar Chart using R
-
-To create a bar chart, we will use the `gf_bar()` function. This general syntax for `gf_bar()` is
-
-```{r}
-#| eval: false
-# General syntax to create a bar chart
-gf_bar(~ attribute_name, data = data_name)
-```
-
-In this function we indicate the name of the attribute we want to create a bar chart for with a tilde (`~`) precedeing the attribute name.  We also give the name of the data object in the `data=` argument. For example, the syntax to create a bar chart summarizing the counts of the `control` attribute is:
-
-```{r}
-#| label: fig-barchart-control.
-#| fig-cap: "Bar chart summarizing the counts of the control attribute."
-# Syntax to create a bar chart for the control attribute
-gf_bar(~ control, data = colleges)
-```
-
-
-:::fyi
-The tilde (`~`) is read as "modeling", so the syntax says to create a bar chart by modeling the counts of the `control` attribute in the `colleges` data object.
-:::
-
-
-We can make this plot nicer by changing the axes labels. For example, we might change the *y*-axis label to "Count" and the *x*-axis label to "Type of Institution". To do this we include the `xlab=` and `ylab=` arguments in the `gf_bar()` function. The labels we want depicted are given as text inside of quotation marks. Remember that each argument needs to be separated by a comma!
-
-:::protip
-As you include additional arguments in the function, it can be useful to include each argument on different lines. This will help you troubleshoot syntax that doesn't work.
-:::
-
-
-```{r}
-#| label: fig-barchart-control-axes-labels.
-#| fig-cap: "Bar chart summarizing the counts of institutions of higher learning by type."
-# Syntax to create a bar chart for the control attribute
-gf_bar( 
-  ~ control, data = colleges,
-  xlab = "Type of Institution",
-  ylab = "Count"
-  )
-```
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Write the syntax to create a bar chart that summarizes the counts of the `region` attribute.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-01');">Show/Hide Solution</button>
-
-<div id="exercise_03-01-01" style="display:none; margin: -40px 0 40px 40px;">
-```{r}
-gf_bar(~ region, data = colleges)
-```
-
-Add better labels to the *x*- and *y*-axis of the bar chart you just created.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-02');">Show/Hide Solution</button>
-
-<div id="exercise_03-01-02" style="display:none; margin: -40px 0 40px 40px;">
-
-```{r}
-gf_bar(
-  ~ region, data = colleges,
-  xlab = "Region of the United States",
-  ylab = "Count"
-  )
-```
-
-</div>
-:::
-
-
-
-
-```{r}
-gf_props(~control, data = colleges)
-```
-
-
-
-
-
-
-
-<!-- The topic of data visualization can be extremely large and entire textbooks are written about the topic.^[Clause Wilke has a great book on the [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) and Kieran Healy has another great book data visualization called [Data Visualization: A practical introduction](https://socviz.co/). Both of these books are also freely available online with print versions able to be purchased as well.] Given the powerful nature of data visualization, only an introduction of data visualization will be covered in this book, with the goal of using them for interpreting statistical results. As such, only a handful of data visualizations will be explored, described, and used.  -->
-
-<!-- Data visualization can be broken down into many different components and in many different ways. In this book, we aim to differentiate data visualization into two different types. First, in this chapter, the goal will be to explore a single attribute of interest, often referred to as univariate visualization. The term, univariate, can be split into two pieces, one, "uni-", meaning one, and second, "variate", referring to the attribute or variable explored. Often, univariate data visualization is used for the attribute that is deemed the outcome or the attribute of interest, but this does not need be the only attribute explored in such a way. The goals of the univariate data visualization is to understand more about the single attribute of interest, what are key features, are there extreme values, does the attribute spread over a lot of possible values or are the data more homogeneous (i.e., similar).  -->
-
-<!-- The second type of data visualization discussed in this book is that of multivariate data visualization. The phrase "multivariate" can again be broken into two components, "multi-" referring to more than one, and "variate", referring to the attribute of variables. This will be discussed more in Chapter 6 of this book, but multivariate visualization is used primarily to understand how more than one attribute in the data may be related to one another. Multivariate data visualization can also be useful for understanding if there are differences across smaller subgroups in the data.  -->
-
-
-<br />
-
-
-
-
-
-
-<!-- Univariate distributions mean exploring the data for a single variable by itself. This can be useful as an initial exploration of the data to understand information about which values are typical, if there are any extreme values, what the range of the variable has, and other characteristics. Univariate distributions are useful, however in most data situations, these form the initial exploration only and multivariate thinking is needed, which we will explore next. -->
-
-<br />
-
-
-### Histograms
-
-The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the `gf_histogram()` function. (This function is part of the **ggformula** package which needs to be loaded prior to using the `gf_histogram()` function.) This function requires two arguments. The first argument is a formula that identifies the variables to be plotted and the second argument, `data =`, specifies the data object that was assigned on data import. For example, earlier we used the `read_csv()` function to import the college scorecard data and we assigned this to the name, `colleges`. The syntax used to create a histogram of the admission rates is:
-
-```{r}
-#| label: hist-01
-#| eval: false
-gf_histogram(~ adm_rate, data = colleges)
-```
+The syntax used to create a histogram of the admission rates is:
 
 ```{r}
 #| label: fig-hist-01
-#| fig-cap: "Histogram of college admission rates."
-#| echo: false
-gf_histogram(~ adm_rate, data = colleges) |> 
-  plotly::ggplotly()
+#| fig-cap: "Histogram of admission rates for the institutions of higher learning in the sample."
+gf_histogram(~ adm_rate, data = colleges)
 ```
 
-
-The formula we provide in the first argument is based on the following general structure:
-
-`~ attribute name`
-
-where the attribute name identified to the right of the `~` is the exact name of one of the columns in the `colleges` data object. 
-
 <br />
+
 
 ### Interpretting Histograms
 
@@ -401,226 +54,499 @@ Histograms are created by collapsing the data into bins and then counting the nu
 
 ```{r}
 #| label: fig-hist-01-color
-#| fig-cap: "Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow')
+#| fig-cap: "Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow. Axes labels are also added to the plot."
+gf_histogram(
+  ~ adm_rate, data = colleges, 
+  color = "black", 
+  fill = "yellow",
+  xlab = "Admission Rate",
+  ylab = "Count"
+  )
 ```
 
-When looking at a single bar, for example the bar that is at 0.50, shows the number of institutions with admissions rates between about 0.48 and 0.52. In this case, there are about 80 institutions that have admissions rates between 0.48 and 0.52 (i.e., 48% to 52% admission rates). Similar interpretations are found for all of the other bars as well. 
+Each bar in a histogram represents indicates the number of cases with a range of values for the plotted variable. For example, the bar that is just to the right of 0.50, shows there are approximately 16 institutions of higher learning with admissions rates between about 0.50 and 0.54. Similar interpretations can be made for all of the other bars as well. 
 
-One common assumption made with a histogram is for the width of the bars be the same width on the attribute of interest. For example, the single bar interpreted in the preceding paragraph, the width of the bar was about 4% on the admission rate scale. Therefore, with the assumption that all bars have the same width, this would mean that all of the 30 bars in the histogram would each range by about 4%. 
+One common assumption made with a histogram is that the width of each bar covers the same range over the attribute plotted. In this histogram, there are 25 total bars, which means that the range of each is 0.04 on the admission rate scale (i.e., 25 * .04 = 1.00 which is the rtange of the entire attribute). 
 
-Rather than focusing on any one bin, we typically want to describe the distribution as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.5 have higher counts than the bins that are below 0.5. There are, however, some institutions that are quite selective, only admitting fewer than 25% of the students who apply.
+:::exercises
+#### Your Turn {.unnumbered}
 
-<br />
+Interpret the bar that is immediately to the left of 1.00.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-01');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-01" style="display:none; margin: -40px 0 40px 40px;">
+There are approximately 12 institutions of higher learning with admissions rates between about 0.96 and 1.00.
+</div>
+:::
 
 
-#### Adjusting Number of Bins
+### Describing the Distribution
 
-Interpretation of the distribution is sometimes influenced by the width or number of bins. It is often useful to change the number of bins to explore the impact this may have on your interpretation. This can be accomplished by either (1) changing the width of the bins via the`binwidth =` argument in the `gf_histogram()` function, or (2) changing the number of bins using the `bins =` argument.
+Rather than focusing on any one bin, we typically want to describe the distribution of the attribute plotted as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.50 have higher counts than the bins that are below 0.50. (In fact, the highest bins seem to be above 0.75.) There are a few institutions, however, that are quite selective, admitting fewer than 25% of the students who apply.
 
-The binwidth in the histogram refers to the range or width of each bin. A larger binwidth would mean there are fewer bins as it would take fewer bins to span the entire range of the attribute of interest. In contrast, a smaller binwidth would require more bins to span the entire range of the attribute of interest. 
-
-In contrast, the number of bins can be specified directly, for example 10 or 20 bins. The default within the R graphics package used is 30. Within this framework, each bin will have the same width or binwidth. 
-
-The relationship between the number of bins and binwidth could be shown with the following equation:
-
-$$
-binwidth = \frac{attribute\ range}{\#\ of\ bins}
-$$
-
-To be more explicit, suppose that we wanted there to be 25 bins, using algebra we could compute the new binwidth given that we know we want 25 bins and knowing the range of the original attribute. The admission rates attribute have values as small as `r round(min(colleges$adm_rate), 2)` and as large as `r round(max(colleges$adm_rate), 2)`. Therefore, the total range would be 1 (`r round(max(colleges$adm_rate), 2)` - `r round(min(colleges$adm_rate), 2)` = `r round(max(colleges$adm_rate), 2) - round(min(colleges$adm_rate), 2)`). The binwidth could then be computed as:
-
-$$
-bindwidth = \frac{1}{25} = .04
-$$
-
-In contrast, if we wanted to specify the binwidth instead of the number of bins, we could do a little bit of algebra in the equation above to compute the number of bins needed to span the range of the attribute given the specified binwidth. For example, if we wanted the binwidth to be .025, 2.5%, we could compute this as follows:
-
-$$
-\#\ of\ bins = \frac{1}{.025} = 40
-$$
-
-We will take the approach of letting the software compute these, but the equations above shows the general process that is used by the software in selecting the binwidth.  
-
-More bins/smaller binwidth can give a slightly more nuanced interpretation of the attribute of interest, whereas fewer bins/large binwidth will do more summarization. Having too few bins or too many bins can make the figure more difficult to interpret by missing key features of the attribute or including too many unique features of the attribute. For this reason, it is often of interest to adjust the binwidth or number of bins to explore the impact on the interpretation. 
-
-The code below changes the binwidth to specify it as .01 via the `binwidth = .01` argument with the figure shown in @fig-hist-01-binwidth.
-
-```{r binwidth-01, fig.cap = "Histogram modifying the binwidth."}
-#| label: fig-hist-01-binwidth
-#| fig-cap: "Histogram of college admission rates. Here the binwidth has been changed to .01."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', binwidth = .01)
-```
-
-The code below specifies 10 bins via the `bins = 10` argument with the figure shown in @fig-hist-01-numbins.
+Statistically we would say that the distribution of admission rates is *left-skewed*. A left skewed distribution has the majority of cases on the right side of the distribution (i.e., at higher values of the attribute). In contrast, a distribution that has the majority of cases on the left side of the distribution (i.e., at lower values of the attribute) is called *right-skewed*. @fig-skewed-dists shows examples of both a left-skewed and right-skewed distribution.
 
 ```{r}
-#| label: fig-hist-01-numbins
-#| fig-cap: "Histogram of college admission rates. Here the number of bins has been changed to 10."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 10)
+#| label: fig-skewed-dists
+#| layout-ncol: 2
+#| fig-cap: Examples of a left-skewed and right-skewed distribution.
+#| fig-subcap:
+#|   - "Left-Skewed Distribution"
+#|   - "Right-Skewed Distribution"
+#| echo: false
+
+
+# Left-skewed
+tibble(
+  x = c(rep(0, 1), rep(1, 1), rep(2, 3), rep(3, 4), rep(4, 1), rep(5, 5), rep(6, 8), rep(7, 7),
+        rep(8, 10), rep(9, 9), rep(10, 7), rep(11, 2), rep(12, 3), rep(13, 1),
+        rep(-1, 2), rep(-2, 1), rep(-3, 1), rep(-4, 1))
+) |>
+  ggplot(aes(x = x)) +
+  geom_histogram(fill = "lavender", color = "black", binwidth = 1) +
+  theme_bw() +
+  xlab("") +
+  ylab("") +
+  theme(
+    axis.text.x = element_blank(),  #remove x-axis labels
+    axis.ticks.x = element_blank(), #remove x-axis ticks
+    axis.text.y = element_blank(),  #remove y-axis labels
+    axis.ticks.y = element_blank()  #remove y-axis ticks
+  )
+
+# Right-skewed
+tibble(
+  x = c(rep(1, 2), rep(2, 5), rep(3, 4), rep(4, 3), rep(5, 9), rep(6, 12), 
+        rep(7, 15), rep(8, 13), rep(9, 14), rep(10, 11), rep(11, 13), 
+        rep(12, 10), rep(13, 12), rep(14, 8), rep(15, 6),  rep(16,5), rep(17, 7), 
+        rep(18, 10), rep(19, 7), rep(20, 4), rep(21, 9), rep(22, 5), rep(23, 3), 
+        rep(24, 2), rep(25, 4), rep(26, 5), rep(27, 4), rep(28, 1), rep(29, 2), 
+        rep(30, 1), rep(31, 3), rep(32, 2), rep(33, 2), 34, 35)
+) |>
+  ggplot(aes(x = x)) +
+  geom_histogram(fill = "lightblue", color = "black", binwidth = 1) +
+  theme_bw() +
+  xlab("") +
+  ylab("") +
+  theme(
+    axis.text.x = element_blank(),  #remove x-axis labels
+    axis.ticks.x = element_blank(), #remove x-axis ticks
+    axis.text.y = element_blank(),  #remove y-axis labels
+    axis.ticks.y = element_blank()  #remove y-axis ticks
+  )
+
+
+
 ```
 
-In general, our interpretation remains the same across all the different binwidth/bins combinations, namely that most institutions admit a high proportion of applicants. When we used a bin width of 0.01, however, we were able to see that several institutions admit 100% of applicants. This was obscured in the other histograms we examined. As a data scientist these institutions might warrant a more nuanced examination.
-
-<br />
-
-## Plot Customization
-
-There are many ways to further customize the plot we produced to make it more appealing. For example, you would likely want to change the label on the *x*-axis from `adm_rate` to something more informative. Or, you may want to add a descriptive title to your plot. These customizations can be specified using the `gf_labs()` function. Specific examples are given below. 
-
-<br />
-
-
-### Axes labels
-
-To change the labels on the *x*- and *y*-axes, we can use the arguments `x =` and `y =` in the `gf_labs()` function. These arguments take the text for the label you want to add to each axis, respectively. Here we change the text on the *x*-axis to "Admission Rate" and the text on the *y*-axis to "Frequency". The `gf_labs()` function is connected to the histogram by linking the `gf_histogram()` and `gf_labs()` functions with the pipe operator (`|>`).^[The pipe operator, `|>`, can be read as "then" and the code can be thought of as logical processes. For example, first the histogram is created, then (`|>`), the labels for the *x-* and *y-* axes are changed.]
+The skewness of a distribution describes a characteristic that we refer to as the **shape of the distribution**. Some distributions are not skewed, these distributions have a **symmetric** shape. @fig-symmetric shows an example of a symmetric distribution.
 
 ```{r}
-#| label: fig-hist-01-labels
-#| fig-cap: "Histogram of college admission rates. Here we add custom x- and y-axis labels."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
-  gf_labs(
-    x = 'Admission Rate',
-    y = 'Frequency'
-    )
+#| label: fig-symmetric
+#| fig-cap: Example of a symmetric distribution.
+#| out-width: "50%"
+#| echo: false
+tibble(
+  x = c(rep(1, 1), rep(2, 3), rep(3, 2), rep(4, 5), rep(5, 6), 
+        rep(6, 7), rep(7, 8), rep(8, 10), rep(9, 9), rep(10, 7), 
+        rep(11, 5), rep(12, 2), rep(13, 4), rep(14, 3), rep(15, 1))
+) |>
+  ggplot(aes(x = x)) +
+  geom_histogram(fill = "orange", color = "black", binwidth = 1) +
+  theme_bw() +
+  xlab("") +
+  ylab("") +
+  theme(
+    axis.text.x = element_blank(),  #remove x-axis labels
+    axis.ticks.x = element_blank(), #remove x-axis ticks
+    axis.text.y = element_blank(),  #remove y-axis labels
+    axis.ticks.y = element_blank()  #remove y-axis ticks
+  )
 ```
 
 <br />
-
-
-### Plot title and subtitle
-
-We can also add a title and subtitle to our plot. Similar to changing the axis labels, these are added using `gf_labs()`, but using the `title =` and `subtitle =` arguments. 
-
-```{r}
-#| label: fig-hist-01-title
-#| fig-cap: "Histogram of college admission rates. Here we add a title and subtitle."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
-  gf_labs(
-    x = 'Admission Rate',
-    y = 'Frequency',
-    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
-    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
-    )
-```
-
-Plot titles and subtitles are helpful to used to provide context to the figure and describe the overall purpose for the figure. For example, the subtitle in Figure \@ref(fig:subtitle) describes the source for the data plotted. 
-
-<br />
-
-
-### Plot theme
-
-By default, the plot has a grey background and white grid lines. This can be modified to using the `gf_theme()` function. For example, in the syntax below we change the plot theme to a white background with no grid lines using `theme_classic()`. Again, the `gf_theme()` is linked to the histogram with the pipe operator.
-
-```{r}
-#| label: fig-hist-01-theme
-#| fig-cap: "Histogram of college admission rates. Here we change the plot theme."
-gf_histogram(~ adm_rate, data = colleges, color = 'black', fill = 'yellow', bins = 25) |>
-  gf_labs(
-    x = 'Admission Rate',
-    y = 'Frequency',
-    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
-    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
-    ) |>
-  gf_theme(theme_classic())
-```
-
-
-<!-- We have created a custom theme to use in the `gf_theme()` function that we will use for most of the plots in the book. The theme, `theme_statthinking()` is included in the **statthink** package, a supplemental package to the text that can be installed and loaded with the following commands: -->
-
-<!-- ```{r} -->
-<!-- #| label: install-book-package -->
-<!-- #| eval: false -->
-<!-- remotes::install_github('lebebr01/statthink') -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| label: load-book-package -->
-<!-- # Load the statthink package -->
-<!-- library(statthink) -->
-<!-- ``` -->
-
-
-<!-- We can then change the theme in a similar manner to how we changed the theme before. -->
-
-<!-- ```{r} -->
-<!-- #| label: fig-hist-01-book-theme -->
-<!-- #| fig-cap: "Histogram of college admission rates. Here we use the custom book theme." -->
-<!-- gf_histogram(~ adm_rate, data = colleges, color = 'black', bins = 25) |> -->
-<!--   gf_labs( -->
-<!--     x = 'Admission Rate', -->
-<!--     y = 'Frequency', -->
-<!--     title = 'Distribution of admission rates for 2,000 institutions of higher education.', -->
-<!--     subtitle = 'Data Source: U.S. Department of Education College Scorecard' -->
-<!--     ) |> -->
-<!--   gf_theme(theme_statthinking()) -->
-<!-- ``` -->
-
-<br />
-
-<!-- #### Setting the default plot theme -->
-
-<!-- Since we will be using this theme for all of our plots, it is useful to make it the default theme (rather than the grey background with white gridlines). To set a different theme as the default, we will use the `theme_set()` function and specify the  `theme_statthinking()` theme as the argument within this function. -->
-
-<!-- ```{r apply-book-theme} -->
-
-<!-- theme_set(theme_statthinking(base_size = 14)) -->
-<!-- ``` -->
-
-<!-- Now when we create a plot, it will automatically use the `statthinking` theme without having to specify this in the `gf_theme()` function. Often, the plot theme would be one of the first lines of code for any analysis so that all the figures created in subsequent areas would all have a similar theme/style.  -->
-
-<!-- In the code chunk above, the size of the text is increased slightly to make it a bit easier to read throughout the book. This was done with the `base_size =` argument, where the font size was specified to be size 14. -->
-
-<!-- Figure \@ref(fig:stat-think-theme) shows that the theme is now applied automatically without needing to use the `gf_theme()` function to specify. In addition, the font size is increased as well compared to previous figures created in this chapter.  -->
-
-<!-- ```{r stat-think-theme, fig.cap = "Histogram showing the distribution of admission rates for institutions of higher education."} -->
-<!-- gf_histogram(~ adm_rate, data = colleges, color = 'black', bins = 25) |> -->
-<!--   gf_labs( -->
-<!--     x = 'Admission Rate', -->
-<!--     y = 'Frequency', -->
-<!--     title = 'Distribution of admission rates for 2,000 institutions of higher education.', -->
-<!--     subtitle = 'Data Source: U.S. Department of Education College Scorecard' -->
-<!--     ) -->
-<!-- ``` -->
-
 
 
 ## Density plots
 
-Another plot that is useful for exploring attributes is the density plot. This plot usually highlights similar distributional features as the histogram, but the visualization does not have the same dependency on the specification of bins. Density plots can be created with the `gf_density()` function which takes similar arguments as `gf_histogram()`, namely a formula identifying the attribute to be plotted and the data object.^[The default kernel used in `gf_density()` is the normal kernel. This can be changed if desired, but the default works well in many situations.] If you compare the code specified for the very first histogram, notice that only the function name changed. 
+Another plot that is sometimes more useful for determining the shape of the distribution for a quantitative attribute is the **density plot**. This plot is a smoothed out version of a histogram. 
 
+Density plots can be created with the `gf_density()` function which takes the same arguments as the other `gf_` functions. Similar to these function, you can include optional arguments to color the plot and add axis labels.
+
+
+@fig-density-01 shows the density plot for the density plot for the admissions rate attribute plotted earlier in a histogram.
 
 ```{r}
 #| label: fig-density-01
 #| fig-cap: "Density plot of college admission rates."
-gf_density(~ adm_rate, data = colleges)
+#| warning: false
+gf_density(
+  ~ adm_rate, data = colleges,
+  color = "black", 
+  fill = "yellow",
+  xlab = "Admission Rate",
+  ylab = "Density"
+  )
 ```
+
+Based on the density plot, we can see that the shape of the distribution of admission rates is left-skewed.
+
+:::fyi
+The metric on the *y*-axis in a density plot is no longer counts, it is "probability density", or just "density". We don't interpret those values, but rather focus on the relative height of the curve. That is, areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve is lower indicates areas where data occur infrequently. Density plots are interpreted similarly to a histogram in that 
+:::
+
+Our interpretation of the distribution of admission rates remains that most institutions of higher learning admit a high proportion of applicants. In fact, colleges that admit around 75% of their applicants have the highest probability density, indicating this is where most of the institutions are found in the distribution. Additionally, there are just a few institutions that are have an admission rate 25% or less. 
+
 
 <br />
 
 
-### Interpreting Density Plots
+### More about Shape
 
-Density plots are interpreted similarly to a histogram in that areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve are lower indicate areas where data occur infrequently. The density metric on the y-axis is not the same as the histogram, but the relative magnitude can be interpreted similarly. That is, higher indicates more data in that region of the attribute. 
+In addition to the overall symmetry or direction of skewness, another aspect of shape that we should describe is the number of modes in the distribution. The distributions we have looked as so far have been **unimodal**, that is, they have a single mode or "hump" in the distribution.
 
-Just like the histogram, the attribute being depicted in the density curve is on the x-axis. Therefore, important features for the attribute of interest can be found by looking at the y-axis, but then the place where high or low prevalence occurs are depicted by looking back to the x-axis. For example, when looking at the density curve in @fig-density-plot-final, the density curve has a peak on the y-axis density scale of just under 2.0, the peak of this density curve occurs around a 0.75 as shown on the x-axis. 
+Other distributions have multiple modes. For example, the distribution in @fig-tc-marathon is **bimodal** (it has two modes). If a distribution has more than one mode, it often indicates that there are different groups that have been mixed into the data. For example, in @fig-tc-marathon we see one mode around 180 minutes (3 hours) and another taller mode around 300 minutes (5 hours). This might indicate that there are two different groups of runners that competed in the Legacy Marathon---one smaller group that was faster (e.g., elite runners) and one larger group that was slower.
 
-Our interpretation remains that most institutions admit a high proportion of applicants. In fact, colleges that admit around 75% of their applicants have the highest probability density, indicating this is where most of the institutions are found in the distribution. Additionally, there are just a few institutions that are have an admission rate 25% or less. 
-
-The axis labels, title, subtitle can be customized with `gf_labs()` in the same manner as with the histogram. The `color =` and `fill =` arguments in `gf_density()` will color the density curve and area under the density curve, respectively.
 
 ```{r}
-#| label: fig-density-plot-final
-#| fig-cap: "Density plot of college admission rates."
-gf_density(~ adm_rate, data = colleges, color = 'black', fill = 'yellow') |>
-  gf_labs(
-    x = 'Admission Rate',
-    y = 'Probability density',
-    title = 'Distribution of admission rates for 2,019 institutions of higher education.',
-    subtitle = 'Data Source: U.S. Department of Education College Scorecard'
-    )
+#| label: fig-tc-marathon
+#| fig-cap: "Distribution of times for a random sample of runners who competed in the 2022 Legacy Marathon."
+#| fig-width: 8
+#| fig-height: 6
+#| echo: false
+
+set.seed(100)
+tibble(
+  x = c(rnorm(100, mean = 180, sd = 40), rnorm(200, mean = 300, sd = 45))
+) |>
+  filter(x > 132) |>
+  ggplot(aes(x = x)) +
+  geom_density(fill = "lightgreen", color = "black") +
+  theme_bw() +
+  xlab("Minutes") +
+  ylab("") +
+  theme(
+    #axis.text.x = element_blank(),  #remove x-axis labels
+    #axis.ticks.x = element_blank(), #remove x-axis ticks
+    axis.text.y = element_blank(),  #remove y-axis labels
+    axis.ticks.y = element_blank()  #remove y-axis ticks
+  )
 ```
 
+
 <br />
+
+
+### Center and Variation: Two Additional Characteristics to Describe
+
+In addition to the describing the shape of the distribution, there are two other characteristics of a quantitative distribution that we want to describe: the **center** and the **variation**. 
+
+The "center" of a distribution is misleading in that it doesn't literally mean the center of the distribution. What it really means is "typical value". In the distribution of admission rates presented in @fig-density-01, a typical admission rate might be around 0.75. This value is at the mode in the distribution. 
+
+We also need to describe the variation in the distribution. When estimating the variation from a density plot we typically describe the overall range of values, as well as, the range of values within which most of the data falls. In the distribution of admission rates presented in  @fig-density-01, there are admission rates between 0 and 1, but most of the institutions of higher learning have an admission rate between 0.65 and 0.85. This could also be given as a range of values around the typical value---$0.75 \pm 0.10$
+
+:::fyi
+A full description of a quantitative distribution includes shape, center, and variation. Here is how we might descirbe the distribution of admission rates presented in @fig-density-01:
+
+> The distribution of admission rates is left-skewed. Most institutions admit a high proportion of applicants. A typical institution in the distribution admits around 75% of its applicants ($\pm$ 10%). There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply. 
+
+:::
+
+
+In a multi-modal distribution, the identification of center and variation is more difficult, since there are multiple typical values. For example, in the distribution of marathon times presented in @fig-tc-marathon, there are two typical values, one around 180 minutes and another around 300 minutes. Similarly, in describing the variation we often describe a range of values around each typical value that depicts where most of the data fall. From @fig-tc-marathon, most of the faster runners finished the Legacy Marathon between 160 and 190 minutes, whereas most of the slower runners finished with a time between 200 and 400 minutes.
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Create a density plot for the distribution of median earnings for students. Add appropriate labels to the axes.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+gf_density(
+  ~ median_earnings, data = colleges,
+  color = "black", 
+  fill = "yellow",
+  xlab = "Median Earnings",
+  ylab = "Density"
+  )
+```
+
+</div>
+
+Describe the shape, center, and variation of this distribution and what it tells you about students' median earnings 10 years after being enrolled in college.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
+The distribution of median earnings is right skewed. The median amount of money earned 10 years after graduation is around \$50k ($\pm \$10k$). There are some institutions where the median earnings of students is quite high (~100k).
+</div>
+:::
+
+
+## Numerically Summaries
+
+In the previous examples, we estimated the typical value (center) and variation from a visualization of the distribution. If the distribution is unimodal, we can also obtain more precise values for these characteristics by computing different numerical summaries.^[If the distribution is multi-modal many of these summaries cannot be computed, and even if they can be computed they are meaningless as summaries of a typical value or variation.]
+
+:::learnmore
+### Learn More
+
+In this class we will focus on the computation of these values using R and their interpretations rather than on the mathematical manipulation and formulas. Here are some links to learn more about the underlying calculations of the measures that we will focus on in this class if you are interested: [mean, median, and mode](https://statisticsbyjim.com/basics/measures-central-tendency-mean-median-mode/), [range](https://statisticsbyjim.com/?s=Range) [interquartile range (IQR)](https://statisticsbyjim.com/basics/interquartile-range/), [standard deviation](https://statisticsbyjim.com/basics/standard-deviation/).
+:::
+
+
+
+In describing the center of the distribution, we estimated the typical value based on the value for the "modal hump" in the density plot. There are two numerical values that are often computed to summarize the center of the distribution: the **mean** and the **median**. 
+
+In a perfectly symmetric distributions, the mean and median are the same value. In practice, they are rarely exactly the same. If the distribution is roughly symmetric, these values should be similar. In skewed distributions, the mean and median will be different. In these distributions, the mean will be further in the tail of the distribution than the median. Comparing the mean and median is another way to verify the symmetry or asymmetry of the distribution. 
+
+```{r}
+#| label: fig-mean-median
+#| layout-ncol: 3
+#| fig-cap: Mean, median, and modal values in a left-skewed, symmetric, and right-skewed distribution.
+#| fig-subcap:
+#|   - "Left-Skewed Distribution"
+#|   - "Symmetric Distribution"
+#|   - "Right-Skewed Distribution"
+#| echo: false
+
+knitr::include_graphics("figs/04-01-left.png")
+knitr::include_graphics("figs/04-02-symmetric.png")
+knitr::include_graphics("figs/04-03-right.png")
+```
+
+In a symmetric distribution, any of the three center values (mean, median, or mode) are a good summarization of a typical value since they are all roughly the same. In skewed distributions, because the mean is further in the tail, it is often not a good reflection of a typical value in the distribution. Instead, the median or mode is often a better summary in these distributions.
+
+<br />
+
+
+### Computing Numerical Summaries in R
+
+To compute numerical summary values, including the mean and median, we use the `df_stats()` function from the `{mosaicCore}` package. This function takes the exact same arguments as the `gf_` functions. The syntax below shows how to compute numerical summaries for the admissions rate attribute.
+
+```{r}
+# Compute numerical summaries
+df_stats(~adm_rate, data = colleges)
+```
+
+The mean, or average, of the 230 institutions' admission rates is 0.68 and the median admission rate for these institutions is 0.72. The slightly lower mean value is consistent with how the mean and median compare in a left-skew distribution. Because the distribution is skewed the median of 0.68, or modal value of 0.75, is a better indication of a typical admission rate.
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Compute the mean and median for the distribution of students' median earnings 10 years after being enrolled in college 
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~median_earnings, data = colleges)
+```
+
+
+The mean earnings is \$51,134 and the median earnings is \$49,316.
+</div>
+
+
+Based on the distribution of students' median earnings 10 years after being enrolled in college is the mean or median a better summary of a typical value in the distribution? Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+Because the distribution of earnings is right-skewed, the median is a better summary of a typical value in the distribution.
+</div>
+:::
+
+<br />
+
+
+### Numerically Summarizing Variation
+
+There are several summary measures that statisticians use to summarize the  variation in a quantitative distribution. In this class we will focus on three of these measures: the **range**, the **standard deviation**, and the **interquartile range (IQR)**.
+
+- The range is the difference between the maximum and minimum values in the distribution.
+- The standard deviation is measure of how far, on average, values in the distribution are from the mean.
+- The interquartile ranger (IQR) is the range of the middle 50\% of the distribution.
+
+To illustrate how to compute these values, we will again use `df_stats()` to compute the summaries for the admission rate attribute.
+
+```{r}
+# Compute numerical summaries
+df_stats(~adm_rate, data = colleges)
+```
+
+The range of the distribution is $1 - 0.0519 = 0.9481$. Note that the range is a single value. Alternatively, we can say the admission rates *range from* 0.0519 to 1. This summary indicates the overall variation in the attribute.
+
+The standard deviation is computed and returned in the `sd` column of the `df_stats()` output. The standard deviation of the admission rates is 0.217. Interpreting this, we would say that on average, most admission rates are within .216 of the mean. That is, most admission rates are between 0.47 and 0.90. To compute this range:
+
+$$
+\begin{split}
+&\mathrm{Mean} \pm \mathrm{SD}\\[2ex]
+&0.683 - 0.217 = 0.47 \\[2ex]
+&0.47 + 0.217 = 0.90
+\end{split}
+$$
+The last summary measure of variation we will compute is the IQR. The IQR is the difference between the 75th-percentile value (`Q3`) and the 25th-percentile value (`Q1`). In the admission rates attribute this is:
+
+$$
+\begin{split}
+\mathrm{IQR} &= 0.840975 - 0.5597 \\[2ex]
+&= 0.281
+\end{split}
+$$
+
+That is the middle 50\% of the admission rates have a range of 0.281---they range from 0.56 to 0.84.
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Compute the range, IQR, and standard deviation for the distribution of students' median earnings 10 years after being enrolled in college.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~median_earnings, data = colleges)
+# Range = 132969 - 19513 = 113456
+# IQR = 56535.75 - 43031 = 13504.75
+# SD = 14.601k
+```
+
+</div>
+
+Based on the distribution of students' median earnings 10 years after being enrolled in college which summary measure(s) of variation would you report? Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+Because the distribution of earnings is right-skewed, we might report the IQR in addition to the range.
+</div>
+:::
+
+Similar to the numerical summaries for the center of a distribution, some measures of variation are better suited toward summarizing symmetric distributions and others for skewed distributions. For all distributions, the range is typically provided to summarize the overall variation. In addition, for symmetric distributions, the standard deviation is also conventionally used to summarize the variation for most cases. In skewed distributions, the IQR is a better numerical summary of the variation than the standard deviation.
+
+:::fyi
+Adding the numerical summaries to our previous description of the distribution of admission rates presented in @fig-density-01:
+
+> The distribution of admission rates is left-skewed. There is a great deal of variation in addmission rates, with institutions of higher learning admitting as few as .5% of their applicants, and some as many as 100%. A typical institution in the distribution admits around 72% (median) of its applicants with half admitting between 56% (Q1) and 84% (Q3) of their applicants. This suggests that most institutions admit a high proportion of applicants. There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply. 
+
+:::
+
+
+There is no one correct way to summarize and report the characteristics of a quantitative distribution. You will want to describe the shape, center, and variation, but how you do that may be different from how another person chooses to do that. For example, in the description of the distribution of admission rates I chose to report the characteristics using text/prose. Another researcher might have instead chosen to report this information in a table rather than writing about it. As an applied scientist or researcher you need to be able to do both.
+
+:::protip
+In practice you might try multiple reporting strategies within a paper before you settle on one that is "best" for that paper. Think of it like you do in drafting writing---often your first attempt isn't the same as the final product, and it may take several iterations to get to that final draft.
+:::
+
+<br />
+
+
+## Summary
+
+There are several R functions that are useful for summarizing categorical attributes. @tbl-r-functions shows the functions (and their descriptions) you will use to summarize and visualize quantitative attributes. Note that they all have very parallel syntax.
+
+```{r}
+#| label: tbl-r-functions
+#| tbl-cap: "The functions and their descriptions to summarize and visualize quantitative attributes."
+#| echo: false
+#| tbl-colwidths: false
+library(gt)
+library(gtExtras)
+
+dplyr::tibble(
+  Function = c(
+    "`df_stats(~attribute, data = data_object)`", 
+    "`gf_histogram(~attribute, data = data_object)`",
+    "`gf_density(~attribute, data = data_object)`"
+    ),
+  Description = c(
+    "Compute common summaries of a quantitative attribute",
+    "Create histogram",
+    "Create density plot"
+    )
+) |>
+  gt() |>
+  cols_align(
+    align = "left",
+    columns = c(Function, Description)
+  ) |>
+  fmt_markdown(columns = 1) |>
+  tab_row_group(
+    label = md("**Visualize**"),
+    rows = 2:3
+  ) |>
+  tab_row_group(
+    label = md("**Summarize**"),
+    rows = 1
+  ) |>
+  # row_group_order(
+  #   groups = c("num", "viz")
+  #   ) |>
+  tab_options(
+    table.width = pct(100),
+    table.font.size = "14px"
+    ) |>
+  as_raw_html()
+```
+
+
+When describing a quantitative distribution, there are three characteristics to attend to: shape, center, and variation. These can be estimated from a plot of the distribution, and the center and variation can also be summarized numerically. Often the shape of the distribution dictates which measures are provided in the description of the attribute. @tbl-dist-measures presents a guide for thinking about what should be reported based on the shape of the distribution.
+
+
+```{r}
+#| label: tbl-dist-measures
+#| tbl-cap: "Characteristics (shape, center, and variation) of different quantitative distributions that might get reported to summarize them."
+#| echo: false
+#| tbl-colwidths: false
+dplyr::tibble(
+  Example = c(
+    "figs/04-01-left.png", 
+    "figs/04-02-symmetric.png", 
+    "figs/04-03-right.png"),
+  Shape = c(
+    "Left-skewed", 
+    "Symmetric",
+    "Right-skewed"
+    ),
+  Center = c(
+    "Median\\nMode",
+    "Mean, Median, or Mode",
+    "Median or Mode"
+    ),
+  Variation = c(
+    "Range (overall) and IQR (typical)",
+    "Range (overall) and SD (typical)",
+    "Range (overall) and IQR (typical)"
+    )
+) |>
+  gt() |>
+  gt_img_rows(columns = Example, height = 90) |>
+  cols_align(
+    align = "left",
+    columns = c(Shape, Center, Variation)
+  ) |>
+  #fmt_markdown(columns = 1) |>
+  # tab_row_group(
+  #   label = md("**Color**"),
+  #   rows = 6:7
+  # ) |>
+  # tab_row_group(
+  #   label = md("**Labels**"),
+  #   rows = 1:5
+  # ) |>
+  # row_group_order(
+  #   groups = c("num", "viz")
+  #   ) |>
+  tab_options(
+    table.width = pct(70),
+    table.font.size = "14px"
+    ) |>
+  as_raw_html()
+```
 

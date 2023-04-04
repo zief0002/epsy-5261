@@ -201,7 +201,7 @@ df_stats( ~ attribute_name, data = data_name, counts)
 We first need to identify the name of the categorical attribute. To tell `df_stats()` that this is an attribute, we place a tilde (`~`) in front of the attribute name. Then we use the `data=` argument to identify the data object that includes our categorical attribute. Finally, we use `counts` to indicate that we want to compute the category counts.
 
 :::protip
-It is a good idea to learn how to read R syntax. The tilde can be read as "model". So the general syntax above is read as, "model the `attribute_name` found in the `data_name` data by counting the categories in the  attribute".
+It is a good idea to learn how to read R syntax. The tilde operator indicates a special kind of expression called a *formula*, and can be read as "model". So the general syntax above is read as, "model the `attribute_name` found in the `data_name` data by counting the categories in the  attribute".
 :::
 
 

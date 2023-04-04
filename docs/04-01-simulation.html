@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis and Randomization Methods - 5&nbsp; Simulation: Modeling Uncertainty</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-understanding-inference.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation: Modeling Uncertainty</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Foreword</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-understanding-inference.html" class="sidebar-item-text sidebar-link">Introduction to Statistical Inference</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-simulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation: Modeling Uncertainty</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#statistical-uncertainty" id="toc-statistical-uncertainty" class="nav-link active" data-scroll-target="#statistical-uncertainty"><span class="toc-section-number">5.1</span>  Statistical Uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#sources-of-uncertainty" id="toc-sources-of-uncertainty" class="nav-link" data-scroll-target="#sources-of-uncertainty"><span class="toc-section-number">5.1.1</span>  Sources of Uncertainty</a></li>
+  <li><a href="#sampling-error" id="toc-sampling-error" class="nav-link" data-scroll-target="#sampling-error"><span class="toc-section-number">5.1.2</span>  Sampling Error</a></li>
+  </ul></li>
+  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data"><span class="toc-section-number">5.2</span>  Importing the Data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation: Modeling Uncertainty</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter will introduce ideas of statistical uncertainty and how we can model that uncertainty using simulation.</p>
+<p><br></p>
+<section id="statistical-uncertainty" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="statistical-uncertainty"><span class="header-section-number">5.1</span> Statistical Uncertainty</h2>
+<p>What if we want to determine whether the average number of credits taken by graduate students at the University of Minnesota (UMN) in their first semester is more than 6 credits (full-time status). In order to answer this question, we collect data on the number of credits taken in the first semester from 10 UMN graduate students. Computing the sample mean, we find that the average number of credits taken for these 10 students was 7.3. Based on this evidence, you might mistakenly think that we can conclude that the average number of credits taken by graduate students at the University of Minnesota in their first year IS more than 6 credits.</p>
+<p>The issue with using the sample mean to drawing a conclusion about the mean number of credits taken by the larger population of UMN graduate students is that the sample is an incomplete picture of the larger population. This means that any estimate we obtain from the sample needs to account for this incompleteness or <em>uncertainty</em>.</p>
+<p>In drawing inferences about the population from sample data one thing we have to do is try and quantify the amount of uncertainty in the sample estimate. This quantification has a direct influence on the answer to our question. For example, if we could say that the uncertainty in the sample mean estimate of 7.3 was within 0.6 of a credit, this would mean that we think the average number of credits taken in the first semester by all UMN graduate students is between 6.7 and 7.9. After accounting for the uncertainty, we can infer that the average number of credits taken in the first semester by all UMN graduate students IS likely more than 6 credits. If however, we found the uncertainty in the estimate was 1.4, then our estimate for the average number of credits taken in the first semester by all UMN graduate students is between 5.9 and 8.7. In this case, we would not be able to say that the average number of credits taken in the first semester by all UMN graduate students is more than 6 credits—it might be less.</p>
+<div class="fyi">
+<p>If you have data for the entire population you want to draw conclusions about, then you have a complete picture and there is no uncertainty in the numerical summary you compute for this population.</p>
+</div>
+<p><br></p>
+<section id="sources-of-uncertainty" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="sources-of-uncertainty"><span class="header-section-number">5.1.1</span> Sources of Uncertainty</h3>
+<p>Why does incomplete data lead to uncertainty? It turns out, there are several sources of uncertainty, the most common of which are:</p>
+<ul>
+<li>Sampling variation (a.k.a, sampling error); and</li>
+<li>Measurement variation (a.k.a., measurement error)</li>
+</ul>
+<p>Sampling variation is the idea that different samples that can be drawn from the same population produce different estimates.</p>
+<p>For example, what if if we had drawn a different sample of 10 UMN graduate students. The number of credits that those students took in their first semester would likely be different than our original 10 students, which means that their average would also be different than the original average of 7.3. That is, the uncertainty in the estimate is a function of the <em>random nature of the sampling</em>.</p>
+<p>Another source of uncertainty in estimates is imperfect measurement, or <a href="https://en.wikipedia.org/wiki/Observational_error">measurement error</a>. This arises most often when the constructs we are measuring can not be directly observed (i.e., they are latent) and we have to use proxies of these construct in our analysis. For example, a researcher may be interested in studying depression in teenagers and uses the Beck Depression Inventory (BDI) to get a measure of “depression” for teens in their sample. Despite having good psychometric properties (e.g., reliability) the measure produced by the BDI are imperfect measures of depression. Further, if we compute a numerical summary, say the mean, from scores that are imperfect measures, then that mean will also be an uncertain estimate not only because of sampling error, but also because of the measurement error inherent in its computation.</p>
+<p>In practice, despite these being very different sources of variation, measurement error and sampling error are often combined and treated as if all of the uncertainty was due to sampling error. This</p>
+<div class="fyi">
+<p>EPsy 5261, we will focus on quantifying uncertainty via estimating the sampling variation/sampling error. You can learn more about how to compute and account for measurement error in courses like <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=002247">EPsy 5221: Priciples of Educational and Psychological Measurment</a>.</p>
+</div>
+<p><br></p>
+</section>
+<section id="sampling-error" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="sampling-error"><span class="header-section-number">5.1.2</span> Sampling Error</h3>
+<p>To give you a better sense of sampling error and the methods we use to quantify sampling error, consider the following scenario. Imagine the population of number of credits taken for every UMN graduate student (past, present, and future) during the first semester. There would be an infinite number of these values (i.e., credits taken), but theoretically, we could plot all of these values, compute numerical summaries such as the mean and standard deviation of these values. (The mean of this distribution is what we are trying to estimate using our sample data.)</p>
+<p>The conceptual idea of estimating sampling variation is that we are going to draw a sample of 10 students and compute the mean of the sample. Then we are going to repeat this process again, and again, each time drawing 10 observations and computing the mean. <a href="#fig-thought-experiment">Figure&nbsp;<span>5.1</span></a> shows a visual depiction of this thought experiment that was carried out 1000 times.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/04-01-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: Thought experiment for drawing random samples of size 10 from the population to obtain different sample means.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The 1000 sample means can then be plotted, and we can compute a numeric summary of the variability in the distribution of sample means.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.1     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-thought-experiment-sampling-dist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-01-simulation_files/figure-html/fig-thought-experiment-sampling-dist-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Distribution of 1000 sample means. Each mean is the average number of credits. .</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- (This distribution is typically unknown in practice, but for now, let's pretend we know what that distribution is.) For our purposes, let's assume the population is normally distributed with a mean of $\mu$ and a standard deviation of $\sigma$. -->
+<!-- Sample $n$ observations from that population. Based on the $n$ sampled observations, find the mean. We will call this $\hat\mu_1$ since it is an estimate for the population mean (the subscript just says it is the first sample). In all likelihood, $\hat\mu_1$ is not the exact same value as $\mu$. It varies from the population mean because of sampling error. -->
+<!-- Now, sample another $n$ observations from the population. Again, find the mean. We will call this estimate $\hat\mu_2$. Again, it probably varies from $\mu$, and may be different than $\hat\mu_1$ as well. Continue to repeat this process: randomly sample $n$ observations from the population; and find the mean. -->
+<p><br></p>
+</section>
+</section>
+<section id="importing-the-data" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="importing-the-data"><span class="header-section-number">5.2</span> Importing the Data</h2>
+<p>To illustrate how we can summarize and visualize quantitative attributes using R, we will again use the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv">college-scorecard.csv</a> data. As a reminder, we will start by loading three libraries, <code>{tidyverse}</code>, <code>{ggformula}</code>, and <code>{mosaicCore}</code>. Then we will import the college scorecard data using the <code>read_csv()</code> function and assign the data into an object called <code>colleges</code>. Finally, we view the data to make sure it read in properly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>colleges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["state"],"name":[2],"type":["chr"],"align":["left"]},{"label":["region"],"name":[3],"type":["chr"],"align":["left"]},{"label":["inst_type"],"name":[4],"type":["chr"],"align":["left"]},{"label":["control"],"name":[5],"type":["chr"],"align":["left"]},{"label":["adm_rate"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["num_undergrads"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["median_debt"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["median_debt_grads"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["median_earnings"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"Abilene Christian University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6340","7":"3480","8":"15040","9":"24000","10":"49294"},{"1":"Abraham Baldwin Agricultural College","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7599","7":"3546","8":"8750","9":"17500","10":"32130"},{"1":"AdventHealth University","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9087","7":"1129","8":"18142","9":"25034","10":"58788"},{"1":"Andrews University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4878","7":"1381","8":"20750","9":"26076","10":"51909"},{"1":"Arizona Christian University","2":"AZ","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7147","7":"883","8":"7132","9":"21500","10":"37531"},{"1":"Art Center College of Design","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7609","7":"1907","8":"27563","9":"31218","10":"66407"},{"1":"Augsburg University","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7312","7":"2487","8":"19329","9":"25000","10":"53472"},{"1":"Ave Maria University","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9179","7":"1048","8":"12000","9":"21500","10":"45789"},{"1":"Ball State University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8705","7":"15171","8":"16750","9":"23250","10":"45934"},{"1":"Baptist Health College Little Rock","2":"AR","3":"Southeast","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.5000","7":"661","8":"9500","9":"10000","10":"54924"},{"1":"Bard College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5695","7":"1932","8":"19000","9":"25910","10":"43441"},{"1":"Bates College","2":"ME","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1410","7":"1876","8":"12610","9":"13978","10":"64706"},{"1":"Baylor University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6847","7":"14329","8":"19500","9":"23550","10":"60512"},{"1":"Beacon College","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4461","7":"426","8":"16313","9":"25718","10":"22833"},{"1":"Belanger School of Nursing","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.4000","7":"143","8":"13250","9":"15250","10":"67700"},{"1":"Belmont University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8323","7":"6618","8":"17765","9":"20709","10":"49950"},{"1":"Binghamton University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4303","7":"14300","8":"15000","9":"18750","10":"72980"},{"1":"Biola University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6438","7":"3683","8":"19500","9":"24273","10":"47704"},{"1":"Bloomfield College","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8465","7":"1530","8":"19500","9":"27000","10":"44790"},{"1":"Bluffton University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6051","7":"675","8":"21500","9":"27000","10":"44911"},{"1":"Brandeis University","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3340","7":"3481","8":"23250","9":"25797","10":"70327"},{"1":"CUNY City College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.5054","7":"11967","8":"9500","9":"12348","10":"55741"},{"1":"CUNY Lehman College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4701","7":"12087","8":"8500","9":"10812","10":"51661"},{"1":"Cabrini University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6167","7":"1463","8":"19500","9":"27000","10":"53142"},{"1":"Cairn University-Langhorne","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8145","7":"885","8":"19000","9":"27000","10":"41013"},{"1":"California State University-Chico","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9017","7":"15689","8":"14964","9":"16931","10":"56270"},{"1":"California State University-Monterey Bay","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.8562","7":"6456","8":"11500","9":"13750","10":"53190"},{"1":"California State University-San Marcos","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.7942","7":"15016","8":"12750","9":"17134","10":"54811"},{"1":"Carroll College","2":"MT","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7302","7":"1093","8":"21000","9":"25602","10":"57154"},{"1":"Carson-Newman University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7932","7":"1635","8":"15000","9":"22438","10":"42546"},{"1":"Catawba College","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5212","7":"1312","8":"14486","9":"25000","10":"43015"},{"1":"Cedar Crest College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5246","7":"1078","8":"21988","9":"27000","10":"52679"},{"1":"Cedarville University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5933","7":"3566","8":"17500","9":"21500","10":"49074"},{"1":"Central Connecticut State University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.6485","7":"8402","8":"16668","9":"22000","10":"52515"},{"1":"Central State University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.5804","7":"4009","8":"10250","9":"31000","10":"31922"},{"1":"Chaminade University of Honolulu","2":"HI","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8897","7":"1623","8":"19000","9":"23235","10":"44647"},{"1":"Chatham University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6619","7":"1119","8":"16750","9":"22250","10":"42808"},{"1":"Clemson University","2":"SC","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.6194","7":"20796","8":"19500","9":"21500","10":"63857"},{"1":"Colby-Sawyer College","2":"NH","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9100","7":"871","8":"19500","9":"27000","10":"44780"},{"1":"Colorado State University-Fort Collins","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.8352","7":"23332","8":"15000","9":"20500","10":"54983"},{"1":"Columbus College of Art and Design","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9169","7":"981","8":"20700","9":"27000","10":"38557"},{"1":"Concorde Career College-Grand Prairie","2":"TX","3":"Southwest","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9611","7":"862","8":"9500","9":"9500","10":"34458"},{"1":"Concorde Career College-San Antonio","2":"TX","3":"Southwest","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9806","7":"519","8":"9500","9":"9500","10":"27995"},{"1":"Concordia College at Moorhead","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5808","7":"1873","8":"20601","9":"26490","10":"51988"},{"1":"Cornell University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1071","7":"14741","8":"13108","9":"14500","10":"91176"},{"1":"Culver-Stockton College","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9833","7":"918","8":"15268","9":"26000","10":"42206"},{"1":"DeSales University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8177","7":"2352","8":"20320","9":"25252","10":"56641"},{"1":"DeVry College of New York","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3980","7":"874","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Arizona","2":"AZ","3":"Southwest","4":"Four-year undergraduate","5":"Private for-profit","6":"0.4000","7":"178","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Colorado","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Private for-profit","6":"0.5000","7":"108","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-New Jersey","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3333","7":"169","8":"12809","9":"28308","10":"44484"},{"1":"DeVry University-Virginia","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private for-profit","6":"0.6667","7":"118","8":"12809","9":"28308","10":"44484"},{"1":"Design Institute of San Diego","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private for-profit","6":"1.0000","7":"124","8":"31000","9":"45000","10":"45321"},{"1":"Dickinson College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5165","7":"1899","8":"19000","9":"19000","10":"69562"},{"1":"Drew University","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7315","7":"1541","8":"21500","9":"26222","10":"57185"},{"1":"Duquesne University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7719","7":"5373","8":"23250","9":"26988","10":"66207"},{"1":"Dutchess BOCES-Practical Nursing Program","2":"NY","3":"Mid East","4":"NA","5":"Public","6":"0.8000","7":"81","8":"5350","9":"6425","10":"52370"},{"1":"EDP University of Puerto Rico Inc-San Juan","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5580","7":"1233","8":"9500","9":"11400","10":"19513"},{"1":"East Texas Baptist University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9207","7":"1373","8":"14000","9":"23250","10":"45717"},{"1":"Eastern Michigan University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.7518","7":"13148","8":"18750","9":"25000","10":"46112"},{"1":"Eastern Nazarene College","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6438","7":"541","8":"19500","9":"26000","10":"50050"},{"1":"Eastern New Mexico University-Main Campus","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.5060","7":"3129","8":"10500","9":"16000","10":"33395"},{"1":"Elmira College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8313","7":"713","8":"23500","9":"27000","10":"53878"},{"1":"Elon University","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7170","7":"6291","8":"18250","9":"20500","10":"64238"},{"1":"FIDM-Fashion Institute of Design & Merchandising-Los Angeles","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3864","7":"1847","8":"12000","9":"14165","10":"45551"},{"1":"Ferrum College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7583","7":"962","8":"14000","9":"27000","10":"40224"},{"1":"Finlandia University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8300","7":"379","8":"11000","9":"21100","10":"37894"},{"1":"Florida Institute of Technology","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7037","7":"3188","8":"14798","9":"27000","10":"63704"},{"1":"Fort Lewis College","2":"CO","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.9151","7":"3205","8":"9726","9":"18013","10":"38083"},{"1":"Fox College","2":"IL","3":"Great Lakes","4":"Two-year undergraduate","5":"Private for-profit","6":"0.5000","7":"404","8":"13624","9":"16000","10":"36715"},{"1":"Franklin W Olin College of Engineering","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1644","7":"290","8":"12000","9":"15846","10":"132969"},{"1":"Frostburg State University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7361","7":"3749","8":"15500","9":"22250","10":"49230"},{"1":"Gonzaga University","2":"WA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7289","7":"4836","8":"20500","9":"24250","10":"69468"},{"1":"Good Samaritan College of Nursing and Health Science","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3462","7":"353","8":"17000","9":"20843","10":"57071"},{"1":"Gordon College","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6827","7":"1428","8":"22250","9":"26310","10":"46746"},{"1":"Hampden-Sydney College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4701","7":"881","8":"19500","9":"27000","10":"65446"},{"1":"Hannibal-LaGrange University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6463","7":"559","8":"14968","9":"18750","10":"37541"},{"1":"Haverford College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1823","7":"1306","8":"10214","9":"13177","10":"69192"},{"1":"Henderson State University","2":"AR","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7490","7":"2603","8":"11000","9":"18933","10":"39020"},{"1":"Holy Name Medical Center-Sister Claire Tynan School of Nursing","2":"NJ","3":"Mid East","4":"NA","5":"Private nonprofit","6":"0.5000","7":"183","8":"14750","9":"19999","10":"79610"},{"1":"Hope College","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7783","7":"2963","8":"23830","9":"26960","10":"53796"},{"1":"Houghton College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7998","7":"838","8":"20000","9":"25000","10":"43767"},{"1":"Illinois State University","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8131","7":"17955","8":"16000","9":"20000","10":"55457"},{"1":"Indiana State University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.9229","7":"8897","8":"14000","9":"23457","10":"42877"},{"1":"Inter American University of Puerto Rico-Arecibo","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3899","7":"2955","8":"5500","9":"8725","10":"22457"},{"1":"John Carroll University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8784","7":"2737","8":"23000","9":"26987","10":"60293"},{"1":"Johnson & Wales University-Online","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3649","7":"1314","8":"16000","9":"25750","10":"41977"},{"1":"Johnson C Smith University","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4920","7":"1248","8":"19226","9":"31000","10":"37073"},{"1":"Johnson University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5497","7":"708","8":"15250","9":"23250","10":"36422"},{"1":"Judson College","2":"AL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5648","7":"219","8":"15750","9":"27000","10":"29569"},{"1":"Juniata College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6746","7":"1267","8":"25494","9":"27000","10":"57800"},{"1":"Kennesaw State University","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.8311","7":"36284","8":"15631","9":"24000","10":"51792"},{"1":"Keuka College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9091","7":"1300","8":"21255","9":"26000","10":"52489"},{"1":"La Roche University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6891","7":"1079","8":"19500","9":"25000","10":"46784"},{"1":"La Sierra University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5697","7":"1462","8":"17750","9":"27000","10":"55004"},{"1":"Lamar University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8268","7":"8220","8":"13000","9":"21119","10":"44159"},{"1":"Lancaster Bible College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9668","7":"1418","8":"14750","9":"20469","10":"39435"},{"1":"Lee University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8301","7":"3812","8":"18750","9":"25750","10":"40101"},{"1":"Life University","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9681","7":"938","8":"9500","9":"16801","10":"46619"},{"1":"Lindenwood University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9213","7":"4780","8":"21065","9":"26327","10":"47009"},{"1":"Long Island Business Institute","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private for-profit","6":"0.8173","7":"1131","8":"12095","9":"19090","10":"23428"},{"1":"Loyola University New Orleans","2":"LA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7239","7":"3144","8":"16749","9":"25792","10":"48747"},{"1":"Lyon College","2":"AR","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5015","7":"665","8":"9500","9":"27000","10":"43343"},{"1":"Madison Oneida BOCES-Practical Nursing Program","2":"NY","3":"Mid East","4":"NA","5":"Public","6":"0.8750","7":"25","8":"7125","9":"8633","10":"34239"},{"1":"Manhattan School of Music","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4156","7":"497","8":"21500","9":"26672","10":"24000"},{"1":"Manhattanville College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8981","7":"1373","8":"20500","9":"25000","10":"54038"},{"1":"Mansfield University of Pennsylvania","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.9602","7":"1614","8":"19051","9":"25990","10":"42931"},{"1":"Marion Military Institute","2":"AL","3":"Southeast","4":"Two-year undergraduate","5":"Public","6":"0.5750","7":"400","8":"5500","9":"12000","10":"48920"},{"1":"Marquette University","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8249","7":"7828","8":"20500","9":"24000","10":"72489"},{"1":"Massachusetts Institute of Technology","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0726","7":"4360","8":"12000","9":"13418","10":"111222"},{"1":"McNeese State University","2":"LA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.6330","7":"5825","8":"12185","9":"22534","10":"42965"},{"1":"McPherson College","2":"KS","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5216","7":"808","8":"15000","9":"25949","10":"42168"},{"1":"Mercyhurst University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8802","7":"2369","8":"19000","9":"26000","10":"46423"},{"1":"Miami University-Oxford","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.9195","7":"16418","8":"16000","9":"23522","10":"54650"},{"1":"Midwestern Baptist Theological Seminary","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9700","7":"858","8":"11500","9":"16871","10":"41664"},{"1":"Millersville University of Pennsylvania","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.8455","7":"6314","8":"16750","9":"24194","10":"48420"},{"1":"Mills College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9114","7":"603","8":"16750","9":"22500","10":"58594"},{"1":"Mississippi College","2":"MS","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.2876","7":"2515","8":"16595","9":"22500","10":"45183"},{"1":"Mitchell College","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7422","7":"571","8":"13500","9":"25500","10":"36391"},{"1":"Moore College of Art and Design","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5004","7":"365","8":"20000","9":"27000","10":"38677"},{"1":"Mount Aloysius College","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9524","7":"1082","8":"18500","9":"25284","10":"43272"},{"1":"Nebraska Wesleyan University","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6953","7":"1767","8":"18063","9":"26966","10":"52697"},{"1":"New Jersey Institute of Technology","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.6603","7":"8311","8":"17500","9":"21500","10":"80043"},{"1":"New Mexico State University-Main Campus","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.6267","7":"11107","8":"10500","9":"18464","10":"36683"},{"1":"North Central College","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5329","7":"2453","8":"19000","9":"24289","10":"54460"},{"1":"Northwestern University","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0931","7":"8401","8":"14000","9":"15000","10":"80033"},{"1":"Notre Dame College","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8743","7":"1217","8":"16775","9":"27000","10":"43634"},{"1":"Notre Dame of Maryland University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6229","7":"751","8":"16199","9":"22500","10":"50974"},{"1":"Nyack College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9732","7":"1171","8":"17500","9":"25999","10":"44409"},{"1":"Oakland City University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6331","7":"548","8":"11372","9":"18750","10":"37286"},{"1":"Oberlin College","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3536","7":"2647","8":"21000","9":"25986","10":"47921"},{"1":"Occidental College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4090","7":"1835","8":"19500","9":"22336","10":"67388"},{"1":"Oklahoma Baptist University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5821","7":"1610","8":"13900","9":"22795","10":"43596"},{"1":"Oral Roberts University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7839","7":"3080","8":"19000","9":"27000","10":"42161"},{"1":"Otis College of Art and Design","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8032","7":"1030","8":"21500","9":"27000","10":"54531"},{"1":"Pace University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8287","7":"7710","8":"18073","9":"24958","10":"65697"},{"1":"Paine College","2":"GA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7499","7":"179","8":"10980","9":"30747","10":"31714"},{"1":"Penn Commercial Business/Technical School","2":"PA","3":"Mid East","4":"Two-year undergraduate","5":"Private for-profit","6":"0.9065","7":"238","8":"9500","9":"12000","10":"27741"},{"1":"Plaza College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private for-profit","6":"0.3001","7":"869","8":"11843","9":"18842","10":"29986"},{"1":"Point Park University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6951","7":"2787","8":"19582","9":"27000","10":"43351"},{"1":"Pomona College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0862","7":"1462","8":"10000","9":"12000","10":"69149"},{"1":"Presentation College","2":"SD","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9321","7":"593","8":"18298","9":"26000","10":"39800"},{"1":"Providence College","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5386","7":"4242","8":"26800","9":"27000","10":"69532"},{"1":"Quinnipiac University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8239","7":"6787","8":"21500","9":"26000","10":"75575"},{"1":"Radford University","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7868","7":"7267","8":"16305","9":"23249","10":"50383"},{"1":"Randolph-Macon College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7131","7":"1551","8":"21500","9":"27000","10":"53288"},{"1":"Rhode Island College","2":"RI","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.8127","7":"5892","8":"14000","9":"21002","10":"49249"},{"1":"Rice University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1089","7":"4052","8":"10500","9":"12000","10":"77683"},{"1":"Rider University","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7566","7":"3567","8":"20075","9":"26000","10":"56442"},{"1":"Rollins College","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6081","7":"2536","8":"22048","9":"26000","10":"53363"},{"1":"SUNY College at Geneseo","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.6136","7":"4820","8":"15500","9":"20047","10":"56241"},{"1":"SUNY College at Old Westbury","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.5308","7":"4543","8":"12000","9":"15250","10":"50921"},{"1":"SUNY College of Technology at Alfred","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7172","7":"3651","8":"12000","9":"15000","10":"48256"},{"1":"Sacred Heart University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6553","7":"6356","8":"20000","9":"25561","10":"72191"},{"1":"Saint Ambrose University","2":"IA","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7384","7":"2299","8":"19000","9":"25000","10":"54600"},{"1":"Saint Mary's University of Minnesota","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8410","7":"1315","8":"15250","9":"20832","10":"54950"},{"1":"Sam Houston State University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9250","7":"18811","8":"16694","9":"22020","10":"50125"},{"1":"San Francisco Conservatory of Music","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4562","7":"243","8":"20875","9":"26835","10":"37744"},{"1":"San Francisco State University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.8409","7":"23411","8":"12500","9":"15369","10":"60126"},{"1":"Shepherd University","2":"WV","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.9770","7":"2479","8":"14168","9":"21170","10":"45723"},{"1":"Southeast Missouri State University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.9333","7":"7659","8":"14450","9":"21614","10":"39874"},{"1":"Southeastern Oklahoma State University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.7859","7":"3078","8":"10568","9":"17513","10":"41698"},{"1":"Southern California Institute of Architecture","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6730","7":"249","8":"31250","9":"33750","10":"71946"},{"1":"Southern Connecticut State University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.7968","7":"7239","8":"14250","9":"21500","10":"51551"},{"1":"Southern Illinois University-Edwardsville","2":"IL","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8505","7":"9892","8":"16373","9":"20935","10":"51671"},{"1":"Southern New Hampshire University","2":"NH","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9354","7":"109233","8":"9250","9":"20867","10":"52024"},{"1":"Southwestern Oklahoma State University","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9320","7":"3834","8":"11000","9":"16156","10":"43079"},{"1":"Spalding University","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9343","7":"842","8":"19596","9":"25000","10":"47088"},{"1":"St. John's College","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6139","7":"383","8":"19500","9":"27000","10":"48751"},{"1":"St. John's College","2":"NM","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6891","7":"268","8":"15000","9":"27000","10":"43203"},{"1":"St. Joseph's College of Nursing","2":"NY","3":"Mid East","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.7273","7":"383","8":"12000","9":"12000","10":"68467"},{"1":"Stanford University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0519","7":"6366","8":"11000","9":"12000","10":"97798"},{"1":"Stevens Institute of Technology","2":"NJ","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5306","7":"3787","8":"25000","9":"27000","10":"98159"},{"1":"Stevenson University","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8918","7":"3008","8":"24000","9":"27000","10":"56567"},{"1":"Stony Brook University","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.4891","7":"17962","8":"15000","9":"18750","10":"66678"},{"1":"Sweet Briar College","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7595","7":"356","8":"14000","9":"27000","10":"48425"},{"1":"Temple University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7142","7":"26969","8":"20000","9":"24499","10":"56800"},{"1":"Tennessee Technological University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7963","7":"8564","8":"11000","9":"16144","10":"43326"},{"1":"Texas A & M University-Kingsville","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8792","7":"5114","8":"15131","9":"23250","10":"47368"},{"1":"Texas County Technical College","2":"MO","3":"Plains","4":"Two-year undergraduate","5":"Private nonprofit","6":"0.6250","7":"52","8":"12000","9":"13875","10":"29463"},{"1":"Texas Tech University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.7003","7":"32412","8":"15750","9":"22000","10":"58435"},{"1":"Texas Wesleyan University","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4679","7":"1403","8":"14000","9":"23495","10":"49382"},{"1":"The College of Wooster","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6530","7":"1924","8":"21500","9":"26000","10":"51866"},{"1":"The Evergreen State College","2":"WA","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9838","7":"2053","8":"14500","9":"19089","10":"40782"},{"1":"The New England Conservatory of Music","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.3627","7":"386","8":"19500","9":"25250","10":"38489"},{"1":"The New School","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6910","7":"6339","8":"15000","9":"23250","10":"53981"},{"1":"The University of Alabama","2":"AL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.8039","7":"30610","8":"17671","9":"23072","10":"52751"},{"1":"The University of Texas at Arlington","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8775","7":"34726","8":"12477","9":"18166","10":"54633"},{"1":"The University of Texas at El Paso","2":"TX","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.9997","7":"21070","8":"12500","9":"18460","10":"44770"},{"1":"Tougaloo College","2":"MS","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7120","7":"654","8":"21000","9":"32100","10":"33291"},{"1":"Trine University","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7894","7":"2254","8":"16822","9":"23945","10":"52957"},{"1":"Tusculum University","2":"TN","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6715","7":"1194","8":"16000","9":"24141","10":"40083"},{"1":"Union College","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5733","7":"927","8":"15000","9":"25291","10":"38076"},{"1":"Union College","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9760","7":"602","8":"19000","9":"27000","10":"45198"},{"1":"Union College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4126","7":"2035","8":"21500","9":"25831","10":"71055"},{"1":"Universidad Central Del Caribe","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8571","7":"123","8":"7500","9":"7500","10":"28509"},{"1":"Universidad del Sagrado Corazon","2":"PR","3":"Outlying Areas","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.4331","7":"4067","8":"12650","9":"16750","10":"26108"},{"1":"University of Alaska Fairbanks","2":"AK","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.6701","7":"4259","8":"11000","9":"19582","10":"43728"},{"1":"University of Alaska Southeast","2":"AK","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.6352","7":"1063","8":"10223","9":"20000","10":"40727"},{"1":"University of Baltimore","2":"MD","3":"Mid East","4":"Four-year undergraduate","5":"Public","6":"0.7993","7":"1856","8":"18750","9":"22956","10":"58128"},{"1":"University of Connecticut-Hartford Campus","2":"CT","3":"New England","4":"NA","5":"Public","6":"0.9616","7":"1659","8":"19292","9":"21500","10":"72460"},{"1":"University of Evansville","2":"IN","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6430","7":"1763","8":"19500","9":"25183","10":"50415"},{"1":"University of Florida","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.3113","7":"34237","8":"14986","9":"15580","10":"64463"},{"1":"University of Hartford","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7741","7":"4378","8":"19500","9":"27000","10":"58087"},{"1":"University of Hawaii-West Oahu","2":"HI","3":"Far West","4":"Four-year undergraduate","5":"Public","6":"0.9523","7":"2755","8":"11500","9":"15453","10":"48268"},{"1":"University of Lynchburg","2":"VA","3":"Southeast","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9727","7":"1801","8":"21855","9":"27000","10":"49490"},{"1":"University of Maine at Farmington","2":"ME","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.9461","7":"1509","8":"16756","9":"24499","10":"35051"},{"1":"University of Mary","2":"ND","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7168","7":"2178","8":"18500","9":"23250","10":"55720"},{"1":"University of Massachusetts-Amherst","2":"MA","3":"New England","4":"Four-year undergraduate","5":"Public","6":"0.6532","7":"23884","8":"20500","9":"23149","10":"62048"},{"1":"University of Minnesota-Duluth","2":"MN","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.7855","7":"8351","8":"16034","9":"22514","10":"54750"},{"1":"University of Missouri-Kansas City","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.6301","7":"7077","8":"14750","9":"18751","10":"52279"},{"1":"University of Nebraska-Lincoln","2":"NE","3":"Plains","4":"Four-year undergraduate","5":"Public","6":"0.7774","7":"20128","8":"15000","9":"21362","10":"52360"},{"1":"University of New Haven","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.9110","7":"5078","8":"19500","9":"27000","10":"52610"},{"1":"University of North Carolina at Chapel Hill","2":"NC","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.2500","7":"19261","8":"13000","9":"14500","10":"61915"},{"1":"University of North Florida","2":"FL","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.7992","7":"14308","8":"12000","9":"16331","10":"49338"},{"1":"University of Oklahoma-Norman Campus","2":"OK","3":"Southwest","4":"Four-year undergraduate","5":"Public","6":"0.8338","7":"21087","8":"15250","9":"20718","10":"57071"},{"1":"University of Wisconsin-River Falls","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.7685","7":"5238","8":"14500","9":"20500","10":"47441"},{"1":"University of Wisconsin-Stevens Point","2":"WI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8654","7":"7258","8":"15487","9":"22140","10":"45855"},{"1":"Upper Iowa University","2":"IA","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6530","7":"2934","8":"16833","9":"24972","10":"49292"},{"1":"Utah State University","2":"UT","3":"Rocky Mountains","4":"Four-year undergraduate","5":"Public","6":"0.9104","7":"21087","8":"9240","9":"14429","10":"50432"},{"1":"Washington University in St Louis","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.1602","7":"7366","8":"15046","9":"17000","10":"82732"},{"1":"Webster University","2":"MO","3":"Plains","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.5312","7":"2535","8":"17900","9":"22500","10":"47663"},{"1":"Wells College","2":"NY","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6436","7":"356","8":"15750","9":"26500","10":"45188"},{"1":"Western Kentucky University","2":"KY","3":"Southeast","4":"Four-year undergraduate","5":"Public","6":"0.9775","7":"13086","8":"15000","9":"22500","10":"39268"},{"1":"Western Michigan University","2":"MI","3":"Great Lakes","4":"Four-year undergraduate","5":"Public","6":"0.8494","7":"15706","8":"20000","9":"26000","10":"49652"},{"1":"Westmont College","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7016","7":"1226","8":"19500","9":"23250","10":"60057"},{"1":"Widener University","2":"PA","3":"Mid East","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.7458","7":"2866","8":"24219","9":"27000","10":"62030"},{"1":"William Jessup University","2":"CA","3":"Far West","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.6521","7":"1279","8":"16167","9":"22334","10":"51693"},{"1":"Xavier University","2":"OH","3":"Great Lakes","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.8122","7":"5250","8":"19500","9":"24536","10":"62015"},{"1":"Yale University","2":"CT","3":"New England","4":"Four-year undergraduate","5":"Private nonprofit","6":"0.0653","7":"4701","8":"12000","9":"13142","10":"88655"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several quantitative attributes, including: admission rate, number of undergraduate students, median debt for all students, median debt for graduates, and median earnings.</p>
+<p><br></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-understanding-inference.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Statistical Inference</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
