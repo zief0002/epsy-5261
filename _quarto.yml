@@ -28,9 +28,10 @@ book:
       chapters:
         - 03-01-categorical-attributes.qmd
         - 03-02-quantitative-attributes.qmd
-    - part: 04-understanding-inference.qmd
+    - part: 04-comparing-to-a-standard.qmd
       chapters:
-        - 04-01-simulation.qmd
+        - 04-01-case-study-teen-sleep.qmd
+        - 04-02-simulation.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

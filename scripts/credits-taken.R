@@ -24,14 +24,14 @@ for(i in 1:1000){
 
 tibble(results) |>
   ggplot(aes(x = results)) +
-  geom_density() +
+  geom_dotplot(binwidth = 0.1, dotsize = 1, fill = "grey", color = "black") +
   xlab("Average number of credits taken") +
   ylab("Density") +
   theme_bw() +
-  geom_hline(yintercept = 0) +
-  geom_point(x = 7.3, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 6.9, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 5.3, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 4.6, y = 0.004, color = "red", size = 5) +
-  geom_point(x = 7.0, y = 0.014, color = "red", size = 5)
+  #geom_hline(yintercept = 0) +
+  geom_point(x = 7.3, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 6.9, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 5.3, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 4.6, y = 0.01, shape = 21, fill = "red", color = "black", size = 3) +
+  geom_point(x = 7.0, y = 0.01, shape = 21, fill = "red", color = "black", size = 3)
 

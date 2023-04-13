@@ -1,0 +1,27 @@
+# The Normal Distribution {#sec-normal}
+
+This chapter will introduce ideas and properties of the normal distribution. 
+
+<br />
+
+Consider the 
+
+
+
+In @sec-quant-attributes 
+
+
+
+
+```{r}
+#| label: fig-est-sd
+#| fig-cap: "Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution."
+#| out-width: "80%"
+#| echo: FALSE
+knitr::include_graphics("figs/04-03-estimate-sd.png")
+```
+:::
+
+
+
+
