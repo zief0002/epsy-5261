@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./03-02-quantitative-attributes.html" rel="next">
-<link href="./03-exploring-and-describing-data.html" rel="prev">
+<link href="./03-00-exploring-and-describing-data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -179,7 +179,7 @@ function toggle_visibility(id) {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,7 +194,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,7 +209,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,7 +229,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">Comparing Data to a Standard</a>
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">Comparing Data to a Standard</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -243,6 +243,11 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a>
   </div>
 </li>
       </ul>
@@ -293,12 +298,12 @@ function toggle_visibility(id) {
 <p><br></p>
 <section id="hypothetical-example-pet-ownership" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="hypothetical-example-pet-ownership"><span class="header-section-number">3.1</span> Hypothetical Example: Pet Ownership</h2>
-<p>Imagine you have surveyed 10 pet owners about the type of pet they own.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The data you collected is shown in <a href="#fig-pets">Figure&nbsp;<span>3.1</span></a>.</p>
+<p>Imagine you have surveyed 10 pet owners about the type of pet they own.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The data you collected is shown in <a href="#fig-pets">Figure&nbsp;<span class="quarto-unresolved-ref">fig-pets</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pets" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/03-01-pet-sample.png" class="img-fluid figure-img"></p>
+<p><img src="figs/03-01-pet-sample.png" class="img-fluid figure-img" width="248"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Data collected from 10 pet owners about the type of pet the own.</figcaption><p></p>
 </figure>
 </div>
@@ -334,12 +339,12 @@ function toggle_visibility(id) {
 <li>0.30 of the pet pet owners sampled owned a dog, and</li>
 <li>0.40 of the pet pet owners sampled owned a cat.</li>
 </ul>
-<p>The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. <a href="#tbl-pets">Table&nbsp;<span>3.1</span></a> is an example table indicating the counts and proportions of values in our hypothetical pet example.</p>
+<p>The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. <a href="#tbl-pets">Table&nbsp;<span class="quarto-unresolved-ref">tbl-pets</span></a> is an example table indicating the counts and proportions of values in our hypothetical pet example.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-pets" class="anchored">
 
-<div id="ohqfdpjrdu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="whoeveimkz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;3.1:  Counts and proportions of pet owners who own each type of pet. </caption>
   <thead style="border-style: none;">
@@ -375,24 +380,24 @@ function toggle_visibility(id) {
 </section>
 <section id="visualizing-categorical-attributes" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="visualizing-categorical-attributes"><span class="header-section-number">3.1.2</span> Visualizing Categorical Attributes</h3>
-<p>To visualize categorical attributes we typically use a <strong>bar chart</strong>. <a href="#fig-pet-barchart">Figure&nbsp;<span>3.2</span></a> shows a bar chart of the pet data.</p>
+<p>To visualize categorical attributes we typically use a <strong>bar chart</strong>. <a href="#fig-pet-barchart">Figure&nbsp;<span class="quarto-unresolved-ref">fig-pet-barchart</span></a> shows a bar chart of the pet data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pet-barchart" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/03-02-pet-barchart.png" class="img-fluid figure-img"></p>
+<p><img src="figs/03-02-pet-barchart.png" class="img-fluid figure-img" width="520"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Bar chart indicating the counts of each type of pet owned.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>A bar chart (also known as a bar graph) shows a bar for each category of the categorical attribute. In our example, we have four bars, one for each pet type. The height of the bar indicates the count of each category. For example, the bar for cats has a height of four on the <em>y</em>-axis.</p>
-<p>Sometimes the axes in the bar chart are transposed; categories are placed on the <em>y</em>-axis and counts on the <em>x</em> axis. Also, you might see a bar chart indicating proportions rather than counts. <a href="#fig-pet-barchart2">Figure&nbsp;<span>3.3</span></a> shows a transposed bar chart indicating the proportion of each pet type.</p>
+<p>Sometimes the axes in the bar chart are transposed; categories are placed on the <em>y</em>-axis and counts on the <em>x</em> axis. Also, you might see a bar chart indicating proportions rather than counts. <a href="#fig-pet-barchart2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-pet-barchart2</span></a> shows a transposed bar chart indicating the proportion of each pet type.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pet-barchart2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/03-03-pet-barchart-horz.png" class="img-fluid figure-img"></p>
+<p><img src="figs/03-03-pet-barchart-horz.png" class="img-fluid figure-img" width="681"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Bar chart indicating the counts of each type of pet owned. In this plot the categories are placed on the <em>y</em>-axis and the scale on the the <em>x</em> axis indicates proportions rather than counts.</figcaption><p></p>
 </figure>
 </div>
@@ -404,18 +409,18 @@ function toggle_visibility(id) {
 <p><br></p>
 <section id="bar-chart-variations" class="level4" data-number="3.1.2.1">
 <h4 data-number="3.1.2.1" class="anchored" data-anchor-id="bar-chart-variations"><span class="header-section-number">3.1.2.1</span> Bar Chart Variations</h4>
-<p>There are several variations on the bar chart that you may see in practice. For example, the <strong>segmented bar chart</strong> is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments—one for each category. A segmented bar chart summarizing the pet data is shown in <a href="#fig-barchart-seg">Figure&nbsp;<span>3.4</span></a>.</p>
+<p>There are several variations on the bar chart that you may see in practice. For example, the <strong>segmented bar chart</strong> is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments—one for each category. A segmented bar chart summarizing the pet data is shown in <a href="#fig-barchart-seg">Figure&nbsp;<span class="quarto-unresolved-ref">fig-barchart-seg</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-barchart-seg" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/03-04-pet-barchart-hseg.png" class="img-fluid figure-img"></p>
+<p><img src="figs/03-04-pet-barchart-hseg.png" class="img-fluid figure-img" width="511"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.4: Segmented bar chart indicating the proportion of each type of pet owned.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Another variation of the bar chart is the <strong>donut chart</strong>. A donut chart is simply a segmented bar chart that is presented in a circular layout. <a href="#fig-donut-chart">Figure&nbsp;<span>3.5</span></a> presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.</p>
+<p>Another variation of the bar chart is the <strong>donut chart</strong>. A donut chart is simply a segmented bar chart that is presented in a circular layout. <a href="#fig-donut-chart">Figure&nbsp;<span class="quarto-unresolved-ref">fig-donut-chart</span></a> presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-donut-chart" class="quarto-figure quarto-figure-center anchored">
@@ -430,7 +435,7 @@ function toggle_visibility(id) {
 </section>
 <section id="pie-charts" class="level4" data-number="3.1.2.2">
 <h4 data-number="3.1.2.2" class="anchored" data-anchor-id="pie-charts"><span class="header-section-number">3.1.2.2</span> Pie Charts</h4>
-<p>One last plot used to visualize summaries of categorical dat is the <strong>pie chart</strong>. <a href="#fig-pie-chart">Figure&nbsp;<span>3.6</span></a> shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.</p>
+<p>One last plot used to visualize summaries of categorical dat is the <strong>pie chart</strong>. <a href="#fig-pie-chart">Figure&nbsp;<span class="quarto-unresolved-ref">fig-pie-chart</span></a> shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pie-chart" class="quarto-figure quarto-figure-center anchored">
@@ -516,7 +521,7 @@ function toggle_visibility(id) {
 <div class="cell-output-display">
 <div id="tbl-colleges" class="anchored">
 
-<div id="bonijzneno" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lqgsutsofw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;3.2:  Counts and proportions of institutions of higher learning by control. </caption>
   <thead style="border-style: none;">
@@ -769,12 +774,12 @@ Show/Hide Solution
 </section>
 <section id="summary" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.6</span> Summary</h2>
-<p>There are several R functions that are useful for summarizing categorical attributes. <a href="03-02-quantitative-attributes.html#tbl-r-functions">Table&nbsp;<span>4.1</span></a> shows the functions (and their descriptions) you will use to summarize and visualize categorical attributes. Note that they all have very parallel syntax.</p>
+<p>There are several R functions that are useful for summarizing categorical attributes. <a href="#tbl-r-functions">Table&nbsp;<span class="quarto-unresolved-ref">tbl-r-functions</span></a> shows the functions (and their descriptions) you will use to summarize and visualize categorical attributes. Note that they all have very parallel syntax.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-r-functions" class="anchored">
 
-<div id="cmgiweoegg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dgdbvtwqnt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="100%" bgcolor="#FFFFFF"><caption>Table&nbsp;3.3:  The functions and their descriptions to summarize and visualize categorical attributes. </caption>
   <thead style="border-style: none;">
@@ -826,12 +831,12 @@ Show/Hide Solution
 </div>
 </div>
 </div>
-<p>Lastly, there are several optional arguments you can include in the visualization (<code>gf_</code>) functions to improve the aesthetic quality of your plot. Some of these are listed in <a href="#tbl-viz-arguments">Table&nbsp;<span>3.4</span></a>.</p>
+<p>Lastly, there are several optional arguments you can include in the visualization (<code>gf_</code>) functions to improve the aesthetic quality of your plot. Some of these are listed in <a href="#tbl-viz-arguments">Table&nbsp;<span class="quarto-unresolved-ref">tbl-viz-arguments</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-viz-arguments" class="anchored">
 
-<div id="frhipoorhz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ynmacjxqle" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 70%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="70%" bgcolor="#FFFFFF"><caption>Table&nbsp;3.4:  Optional argumnents that can be included in the visualization (gf_) functions. </caption>
   <thead style="border-style: none;">
@@ -1019,7 +1024,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-exploring-and-describing-data.html" class="pagination-link">
+      <a href="./03-00-exploring-and-describing-data.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Summarizing and Visualizing Data</span>
       </a>          
   </div>

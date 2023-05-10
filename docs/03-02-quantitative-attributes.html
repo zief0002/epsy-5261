@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-01-case-study-teen-sleep.html" rel="next">
+<link href="./04-00-comparing-to-a-standard.html" rel="next">
 <link href="./03-01-categorical-attributes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -179,7 +179,7 @@ function toggle_visibility(id) {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,7 +194,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data.html" class="sidebar-item-text sidebar-link">Data</a>
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,7 +209,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">Summarizing and Visualizing Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,7 +229,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">04-comparing-to-a-standard</a>
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">Comparing Data to a Standard</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -243,6 +243,11 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a>
   </div>
 </li>
       </ul>
@@ -327,7 +332,7 @@ function toggle_visibility(id) {
 </section>
 <section id="histograms" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="histograms"><span class="header-section-number">4.2</span> Histograms</h2>
-<p>The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the <code>gf_histogram()</code> function.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This function takes the same general syntax as the <code>gf_</code> functions you learned about in <a href="03-01-categorical-attributes.html"><span>Chapter&nbsp;3</span></a>:</p>
+<p>The first visualization we will examine is a histogram. We can create a histogram of the admission rates using the <code>gf_histogram()</code> function.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This function takes the same general syntax as the <code>gf_</code> functions you learned about in <a href="#sec-categorical-attributes"><span class="quarto-unresolved-ref">sec-categorical-attributes</span></a>:</p>
 <ul>
 <li>The first argument is a formula using the tilde operator (<code>~</code>) that identifies the attribute to be plotted, and</li>
 <li>The second argument, <code>data =</code>, specifies the data object that was assigned on data import.</li>
@@ -381,7 +386,7 @@ Show/Hide Solution
 <section id="describing-the-distribution" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="describing-the-distribution"><span class="header-section-number">4.2.2</span> Describing the Distribution</h3>
 <p>Rather than focusing on any one bin, we typically want to describe the distribution of the attribute plotted as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.50 have higher counts than the bins that are below 0.50. (In fact, the highest bins seem to be above 0.75.) There are a few institutions, however, that are quite selective, admitting fewer than 25% of the students who apply.</p>
-<p>Statistically we would say that the distribution of admission rates is <em>left-skewed</em>. A left skewed distribution has the majority of cases on the right side of the distribution (i.e., at higher values of the attribute). In contrast, a distribution that has the majority of cases on the left side of the distribution (i.e., at lower values of the attribute) is called <em>right-skewed</em>. <a href="#fig-skewed-dists">Figure&nbsp;<span>4.3</span></a> shows examples of both a left-skewed and right-skewed distribution.</p>
+<p>Statistically we would say that the distribution of admission rates is <em>left-skewed</em>. A left skewed distribution has the majority of cases on the right side of the distribution (i.e., at higher values of the attribute). In contrast, a distribution that has the majority of cases on the left side of the distribution (i.e., at lower values of the attribute) is called <em>right-skewed</em>. <a href="#fig-skewed-dists">Figure&nbsp;<span class="quarto-unresolved-ref">fig-skewed-dists</span></a> shows examples of both a left-skewed and right-skewed distribution.</p>
 <div id="fig-skewed-dists" class="cell quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -405,7 +410,7 @@ Show/Hide Solution
 <p></p><figcaption class="figure-caption">Figure&nbsp;4.3: Examples of a left-skewed and right-skewed distribution.</figcaption><p></p>
 </figure>
 </div>
-<p>The skewness of a distribution describes a characteristic that we refer to as the <strong>shape of the distribution</strong>. Some distributions are not skewed, these distributions have a <strong>symmetric</strong> shape. <a href="#fig-symmetric">Figure&nbsp;<span>4.4</span></a> shows an example of a symmetric distribution.</p>
+<p>The skewness of a distribution describes a characteristic that we refer to as the <strong>shape of the distribution</strong>. Some distributions are not skewed, these distributions have a <strong>symmetric</strong> shape. <a href="#fig-symmetric">Figure&nbsp;<span class="quarto-unresolved-ref">fig-symmetric</span></a> shows an example of a symmetric distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-symmetric" class="quarto-figure quarto-figure-center anchored">
@@ -423,7 +428,7 @@ Show/Hide Solution
 <h2 data-number="4.3" class="anchored" data-anchor-id="density-plots"><span class="header-section-number">4.3</span> Density plots</h2>
 <p>Another plot that is sometimes more useful for determining the shape of the distribution for a quantitative attribute is the <strong>density plot</strong>. This plot is a smoothed out version of a histogram.</p>
 <p>Density plots can be created with the <code>gf_density()</code> function which takes the same arguments as the other <code>gf_</code> functions. Similar to these function, you can include optional arguments to color the plot and add axis labels.</p>
-<p><a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a> shows the density plot for the density plot for the admissions rate attribute plotted earlier in a histogram.</p>
+<p><a href="#fig-density-01">Figure&nbsp;<span class="quarto-unresolved-ref">fig-density-01</span></a> shows the density plot for the density plot for the admissions rate attribute plotted earlier in a histogram.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> adm_rate, <span class="at">data =</span> colleges,</span>
@@ -450,7 +455,7 @@ Show/Hide Solution
 <section id="more-about-shape" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="more-about-shape"><span class="header-section-number">4.3.1</span> More about Shape</h3>
 <p>In addition to the overall symmetry or direction of skewness, another aspect of shape that we should describe is the number of modes in the distribution. The distributions we have looked as so far have been <strong>unimodal</strong>, that is, they have a single mode or “hump” in the distribution.</p>
-<p>Other distributions have multiple modes. For example, the distribution in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a> is <strong>bimodal</strong> (it has two modes). If a distribution has more than one mode, it often indicates that there are different groups that have been mixed into the data. For example, in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a> we see one mode around 180 minutes (3 hours) and another taller mode around 300 minutes (5 hours). This might indicate that there are two different groups of runners that competed in the Legacy Marathon—one smaller group that was faster (e.g., elite runners) and one larger group that was slower.</p>
+<p>Other distributions have multiple modes. For example, the distribution in <a href="#fig-tc-marathon">Figure&nbsp;<span class="quarto-unresolved-ref">fig-tc-marathon</span></a> is <strong>bimodal</strong> (it has two modes). If a distribution has more than one mode, it often indicates that there are different groups that have been mixed into the data. For example, in <a href="#fig-tc-marathon">Figure&nbsp;<span class="quarto-unresolved-ref">fig-tc-marathon</span></a> we see one mode around 180 minutes (3 hours) and another taller mode around 300 minutes (5 hours). This might indicate that there are two different groups of runners that competed in the Legacy Marathon—one smaller group that was faster (e.g., elite runners) and one larger group that was slower.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-tc-marathon" class="quarto-figure quarto-figure-center anchored">
@@ -466,15 +471,15 @@ Show/Hide Solution
 <section id="center-and-variation-two-additional-characteristics-to-describe" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="center-and-variation-two-additional-characteristics-to-describe"><span class="header-section-number">4.3.2</span> Center and Variation: Two Additional Characteristics to Describe</h3>
 <p>In addition to the describing the shape of the distribution, there are two other characteristics of a quantitative distribution that we want to describe: the <strong>center</strong> and the <strong>variation</strong>.</p>
-<p>The “center” of a distribution is misleading in that it doesn’t literally mean the center of the distribution. What it really means is “typical value”. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>, a typical admission rate might be around 0.75. This value is at the mode in the distribution.</p>
-<p>We also need to describe the variation in the distribution. When estimating the variation from a density plot we typically describe the overall range of values, as well as, the range of values within which most of the data falls. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>, there are admission rates between 0 and 1, but most of the institutions of higher learning have an admission rate between 0.65 and 0.85. This could also be given as a range of values around the typical value—<span class="math inline">\(0.75 \pm 0.10\)</span></p>
+<p>The “center” of a distribution is misleading in that it doesn’t literally mean the center of the distribution. What it really means is “typical value”. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span class="quarto-unresolved-ref">fig-density-01</span></a>, a typical admission rate might be around 0.75. This value is at the mode in the distribution.</p>
+<p>We also need to describe the variation in the distribution. When estimating the variation from a density plot we typically describe the overall range of values, as well as, the range of values within which most of the data falls. In the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span class="quarto-unresolved-ref">fig-density-01</span></a>, there are admission rates between 0 and 1, but most of the institutions of higher learning have an admission rate between 0.65 and 0.85. This could also be given as a range of values around the typical value—<span class="math inline">\(0.75 \pm 0.10\)</span></p>
 <div class="fyi">
-<p>A full description of a quantitative distribution includes shape, center, and variation. Here is how we might descirbe the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>:</p>
+<p>A full description of a quantitative distribution includes shape, center, and variation. Here is how we might descirbe the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span class="quarto-unresolved-ref">fig-density-01</span></a>:</p>
 <blockquote class="blockquote">
 <p>The distribution of admission rates is left-skewed. Most institutions admit a high proportion of applicants. A typical institution in the distribution admits around 75% of its applicants (<span class="math inline">\(\pm\)</span> 10%). There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply.</p>
 </blockquote>
 </div>
-<p>In a multi-modal distribution, the identification of center and variation is more difficult, since there are multiple typical values. For example, in the distribution of marathon times presented in <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a>, there are two typical values, one around 180 minutes and another around 300 minutes. Similarly, in describing the variation we often describe a range of values around each typical value that depicts where most of the data fall. From <a href="#fig-tc-marathon">Figure&nbsp;<span>4.6</span></a>, most of the faster runners finished the Legacy Marathon between 160 and 190 minutes, whereas most of the slower runners finished with a time between 200 and 400 minutes.</p>
+<p>In a multi-modal distribution, the identification of center and variation is more difficult, since there are multiple typical values. For example, in the distribution of marathon times presented in <a href="#fig-tc-marathon">Figure&nbsp;<span class="quarto-unresolved-ref">fig-tc-marathon</span></a>, there are two typical values, one around 180 minutes and another around 300 minutes. Similarly, in describing the variation we often describe a range of values around each typical value that depicts where most of the data fall. From <a href="#fig-tc-marathon">Figure&nbsp;<span class="quarto-unresolved-ref">fig-tc-marathon</span></a>, most of the faster runners finished the Legacy Marathon between 160 and 190 minutes, whereas most of the slower runners finished with a time between 200 and 400 minutes.</p>
 <section id="your-turn-1" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
 <p>Create a density plot for the distribution of median earnings for students. Add appropriate labels to the axes.</p>
@@ -520,7 +525,7 @@ Show/Hide Solution
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-mean-median-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/04-01-left.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p><img src="figs/04-01-left.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median" width="438"></p>
 <p></p><figcaption class="figure-caption">(a) Left-Skewed Distribution</figcaption><p></p>
 </figure>
 </div>
@@ -528,7 +533,7 @@ Show/Hide Solution
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-mean-median-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/04-02-symmetric.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p><img src="figs/04-02-symmetric.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median" width="438"></p>
 <p></p><figcaption class="figure-caption">(b) Symmetric Distribution</figcaption><p></p>
 </figure>
 </div>
@@ -536,7 +541,7 @@ Show/Hide Solution
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-mean-median-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/04-03-right.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median"></p>
+<p><img src="figs/04-03-right.png" class="img-fluid figure-img" data-ref-parent="fig-mean-median" width="438"></p>
 <p></p><figcaption class="figure-caption">(c) Right-Skewed Distribution</figcaption><p></p>
 </figure>
 </div>
@@ -662,7 +667,7 @@ Show/Hide Solution
 </section>
 <p>Similar to the numerical summaries for the center of a distribution, some measures of variation are better suited toward summarizing symmetric distributions and others for skewed distributions. For all distributions, the range is typically provided to summarize the overall variation. In addition, for symmetric distributions, the standard deviation is also conventionally used to summarize the variation for most cases. In skewed distributions, the IQR is a better numerical summary of the variation than the standard deviation.</p>
 <div class="fyi">
-<p>Adding the numerical summaries to our previous description of the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span>4.5</span></a>:</p>
+<p>Adding the numerical summaries to our previous description of the distribution of admission rates presented in <a href="#fig-density-01">Figure&nbsp;<span class="quarto-unresolved-ref">fig-density-01</span></a>:</p>
 <blockquote class="blockquote">
 <p>The distribution of admission rates is left-skewed. There is a great deal of variation in addmission rates, with institutions of higher learning admitting as few as .5% of their applicants, and some as many as 100%. A typical institution in the distribution admits around 72% (median) of its applicants with half admitting between 56% (Q1) and 84% (Q3) of their applicants. This suggests that most institutions admit a high proportion of applicants. There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply.</p>
 </blockquote>
@@ -676,7 +681,7 @@ Show/Hide Solution
 </section>
 <section id="summary" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.5</span> Summary</h2>
-<p>There are several R functions that are useful for summarizing categorical attributes. <a href="#tbl-r-functions">Table&nbsp;<span>4.1</span></a> shows the functions (and their descriptions) you will use to summarize and visualize quantitative attributes. Note that they all have very parallel syntax.</p>
+<p>There are several R functions that are useful for summarizing categorical attributes. <a href="#tbl-r-functions">Table&nbsp;<span class="quarto-unresolved-ref">tbl-r-functions</span></a> shows the functions (and their descriptions) you will use to summarize and visualize quantitative attributes. Note that they all have very parallel syntax.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-r-functions" class="anchored">
@@ -715,7 +720,7 @@ Show/Hide Solution
 </div>
 </div>
 </div>
-<p>When describing a quantitative distribution, there are three characteristics to attend to: shape, center, and variation. These can be estimated from a plot of the distribution, and the center and variation can also be summarized numerically. Often the shape of the distribution dictates which measures are provided in the description of the attribute. <a href="#tbl-dist-measures">Table&nbsp;<span>4.2</span></a> presents a guide for thinking about what should be reported based on the shape of the distribution.</p>
+<p>When describing a quantitative distribution, there are three characteristics to attend to: shape, center, and variation. These can be estimated from a plot of the distribution, and the center and variation can also be summarized numerically. Often the shape of the distribution dictates which measures are provided in the description of the attribute. <a href="#tbl-dist-measures">Table&nbsp;<span class="quarto-unresolved-ref">tbl-dist-measures</span></a> presents a guide for thinking about what should be reported based on the shape of the distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-dist-measures" class="anchored">
@@ -906,8 +911,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-01-case-study-teen-sleep.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-00-comparing-to-a-standard.html" class="pagination-link">
+        <span class="nav-page-text">Comparing Data to a Standard</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

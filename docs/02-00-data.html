@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis and Randomization Methods - 1&nbsp; R and RStudio: Installation and Setup</title>
+<title>An Introduction to Data Analysis and Randomization Methods - Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-00-data.html" rel="next">
-<link href="./01-00-statistical-computation.html" rel="prev">
+<link href="./02-01-data-structure-and-attributes.html" rel="next">
+<link href="./01-01-r-and-rstudio-installation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,9 +90,6 @@ function toggle_visibility(id) {
 }
 </script>
 
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -85,7 +101,7 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></h1>
+      <h1 class="quarto-secondary-nav-title">Data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,14 +139,14 @@ function toggle_visibility(id) {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></a>
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">Data</a>
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link active">Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -193,24 +209,14 @@ function toggle_visibility(id) {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#installing-r" id="toc-installing-r" class="nav-link active" data-scroll-target="#installing-r"><span class="toc-section-number">1.1</span>  Installing R</a></li>
-  <li><a href="#installing-rstudio-desktop" id="toc-installing-rstudio-desktop" class="nav-link" data-scroll-target="#installing-rstudio-desktop"><span class="toc-section-number">1.2</span>  Installing RStudio Desktop</a></li>
-  <li><a href="#checking-that-things-worked" id="toc-checking-that-things-worked" class="nav-link" data-scroll-target="#checking-that-things-worked"><span class="toc-section-number">1.3</span>  Checking that Things Worked</a></li>
-  <li><a href="#customizing-rstudio" id="toc-customizing-rstudio" class="nav-link" data-scroll-target="#customizing-rstudio"><span class="toc-section-number">1.4</span>  Customizing RStudio</a></li>
-  <li><a href="#install-rtoolscommand-line-tools" id="toc-install-rtoolscommand-line-tools" class="nav-link" data-scroll-target="#install-rtoolscommand-line-tools"><span class="toc-section-number">1.5</span>  Install Rtools/Command Line Tools</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></h1>
+<h1 class="title"><span id="sec-data" class="quarto-section-identifier d-none d-lg-block">Data</span></h1>
 </div>
 
 
@@ -225,104 +231,15 @@ function toggle_visibility(id) {
 
 </header>
 
-<p>In this chapter, we will walk you through the process of installing R and the desktop version of RStudio. Although you will need to install both R and RStudio, once they are installed you will only interact with RStudio when you compute.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/01-rstudio-and-r.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<p></p><figcaption class="figure-caption">Workflow for using R: Once both applications are installed on you computer, you will only interact with R through RStudio.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p><br></p>
-<section id="installing-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="installing-r"><span class="header-section-number">1.1</span> Installing R</h2>
-<p>To install R, navigate your web browser to:</p>
-<p style="margin-left:auto; margin-right:auto;">
-<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>
-</p>
-<p>Then,</p>
-<ul>
-<li>Click the <code>CRAN</code> link under <code>Download</code> on the left-hand side of the page.</li>
-<li>Select a mirror site. These should all be the same, but I tend to choose the <code>Iowa State University</code> link under <code>USA</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li>In the <code>Download and Install R</code> box, choose the binary that matches the operating system (OS) for your computer.</li>
-</ul>
-<p>This is where the installation directions diverge depending on your OS.</p>
-<p><strong>Mac Instructions</strong></p>
-<p>So long as you are running MacOS 10.13 or higher just click the first link for the PKG, which will download the installer for the most current version of R (4.1.1 as of August 16, 2021). Once the download completes, open the installer and follow the directions to install R on your computer.</p>
-<p>If you are running an older version of MacOS, you will have to install an older version of R. You can find these links under the <code>Binaries for legacy OS X systems</code> heading further down the install page. Click the appropriate PKG link for R your version of MacOS. Once the download completes, open the installer and follow the directions to install R on your computer.</p>
-<p>If you are unsure which version of the MacOS is running on your computer, select <code>About this Mac</code> from the Apple menu in your toolbar.</p>
-<p><strong>Windows Instructions</strong></p>
-<p>Click the link that says <code>Install R for the first time</code> (or click <code>base</code>; they go to the same place). Then click the <code>Download R 4.1.1 for Windows</code> link, which will download the installer for the most current version of R (4.0.2 as of July 24, 2020). Once the download completes, open the installer and follow the directions to install R on your computer.</p>
-<p><strong>Linux Instructions</strong></p>
-<p>If you are running Linux, you should know how to install things on your computer. 😄</p>
-<p><br></p>
-</section>
-<section id="installing-rstudio-desktop" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="installing-rstudio-desktop"><span class="header-section-number">1.2</span> Installing RStudio Desktop</h2>
-<p>After you have installed R, you next need to install RStudio Desktop. To do this, navigate your web browser to:</p>
-<p style="margin-left:auto; margin-right:auto;">
-<a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a>
-</p>
-<p>Then,</p>
-<ul>
-<li>Select the blue <code>Download</code> button under the free, open-source version of RStudio Desktop.</li>
-<li>Select the installer associated with your computer’s OS.</li>
-<li>Once the download completes, open the installer and follow the directions to install RStudio Desktop on your computer.</li>
-</ul>
-<p><br></p>
-</section>
-<section id="checking-that-things-worked" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="checking-that-things-worked"><span class="header-section-number">1.3</span> Checking that Things Worked</h2>
-<p>From your Applications or Programs folder, open RStudio. If you have successfully downloaded both programs, this should open the application and you should see a message indicating that you are using “R version 4.1.1” (or whichever version of R you installed) in the console pane.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/02-opening-rstudio.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Once you open RStudio, you should see a message indicating that you are using <code>R version 4.1.1</code> (or whichever version of R you installed) in the console pane. Here the console pane is on the left-side, but it may be in a different location for you. Your RStudio may also have a white background rather than the black background seen here.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="customizing-rstudio" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="customizing-rstudio"><span class="header-section-number">1.4</span> Customizing RStudio</h2>
-<p>While the information in this section is not crucial for making things work, it is useful to get RStudio looking good and setting some default settings. Open the <code>Tools &gt; Options</code> menu (Windows) or <code>RStudio &gt; Preferences</code> (Mac).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/06-options.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption class="figure-caption">The RStudio options/preferences menu has many settings to customize RStudio.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>In the <code>General &gt; Basic</code> settings, change the option on <code>Save workspace to .Rdata on exit</code> to be “Never”. Click the “Apply” button.</li>
-<li>In the <code>Appearance</code> settings, customize the look of RStudio to something aesthetically appealing to you. When you are finished, click the “Apply” button.</li>
-<li>There are also options you can set in the <code>Accessibility</code> settings if you use a screen reader. If you change anything, don’t forget to click the “Apply” button.</li>
-</ul>
-<p>When you are finished customizing RStudio, click the “OK” button.</p>
-<p><br></p>
-</section>
-<section id="install-rtoolscommand-line-tools" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="install-rtoolscommand-line-tools"><span class="header-section-number">1.5</span> Install Rtools/Command Line Tools</h2>
-<p>You may need to install some additional functionality to your system in order to get certain packages to install or load properly. On a Windows machine, you might need to install <em>Rtools</em>. Mac users might need to add the <em>Command Line Tools</em>. These tools also allow you to write and compile your own R packages. RStudio has well written instructions for adding these tools at: <a href="https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites" class="uri">https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites</a>.</p>
-<p><br></p>
+<p>The American Statistical Association defines statistics as, “the science of learning from data, and of measuring, controlling and communicating uncertainty” <span class="citation" data-cites="ASA:2023">(<a href="#ref-ASA:2023" role="doc-biblioref">American Statistical Association, 2023</a>)</span>. The methods you learn throughout this textbook, and the EPSY 5261 course, will help you to learn from data and to measure, control, and communicate about uncertainty.</p>
+<p>An important learning goal of statistics is therefore to understand the vocabulary and ideas related to data. To this end, in <a href="#sec-data-structure"><span class="quarto-unresolved-ref">sec-data-structure</span></a> you will learn about the structure of data and attribute classification. You will also learn how to judge the quality of data including questions you should ask about the data. <a href="#sec-importing-data"><span class="quarto-unresolved-ref">sec-importing-data</span></a> will introduce the syntax we use to import data into R. Finally, <a href="#sec-design"><span class="quarto-unresolved-ref">sec-design</span></a> will introduce how the collection of the data impacts the type of inferences and conclusions we can draw.</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>When internet used to be dial-up (i.e., super slow), you wanted to choose a mirror site that was closest in proximity to your location as it sped up the download. This is less of a concern now that internet download speeds are much faster.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ASA:2023" class="csl-entry" role="doc-biblioentry">
+American Statistical Association. (2023). <em>ASA newsroom</em>. Website. <a href="https://www.amstat.org/asa-newsroom">https://www.amstat.org/asa-newsroom</a>
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -460,13 +377,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-00-statistical-computation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Computation</span>
+      <a href="./01-01-r-and-rstudio-installation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-00-data.html" class="pagination-link">
-        <span class="nav-page-text">Data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-01-data-structure-and-attributes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

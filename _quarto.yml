@@ -15,23 +15,24 @@ book:
   # cover-image: "figs/banner.png"
   chapters:
     - index.qmd
-    - part: 01-statistical-computation.qmd
+    - part: 01-00-statistical-computation.qmd
       chapters:
         - 01-01-r-and-rstudio-installation.qmd
         #- 04-data-structures-in-r.qmd
-    - part: 02-data.qmd
+    - part: 02-00-data.qmd
       chapters:
         - 02-01-data-structure-and-attributes.qmd
         # - 02-02-data-import.qmd
         # - 02-03-data-collection.qmd
-    - part: 03-exploring-and-describing-data.qmd
+    - part: 03-00-exploring-and-describing-data.qmd
       chapters:
         - 03-01-categorical-attributes.qmd
         - 03-02-quantitative-attributes.qmd
-    - part: 04-comparing-to-a-standard.qmd
+    - part: 04-00-comparing-to-a-standard.qmd
       chapters:
         - 04-01-case-study-teen-sleep.qmd
         - 04-02-simulation.qmd
+        - 04-03-one-sample-test.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
