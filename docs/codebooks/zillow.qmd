@@ -1,0 +1,52 @@
+---
+title: "zillow.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv) include $n=15$ listing prices obtained from Zillow.com for houses in neighborhoods adjacent to the University of Minnesota campus (e.g., Marcy-Holmes, Cedar-Riverside, Como). The data were collected on May 16, 2023.
+
+
+---
+
+The attributes included in the data are:
+
+- `price`: Listing price of the house, in thousands of dollars
+
+
+---
+
+
+### Preview
+
+```{r}
+# Import data
+library(tidyverse)
+zillow <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
+```
+
+```{r}
+#| echo: false
+# View data
+DT::datatable(zillow)
+```
+
+
+<!-- ### References -->
+
+
+

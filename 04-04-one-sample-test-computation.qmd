@@ -1,4 +1,4 @@
-# Hypothesis Testing: One-Sample t-Test {#sec-one-sample-test}
+# One-Sample t-Test Using R {#sec-one-sample-test-r}
 
 In this chapter you will learn how to carry out a one-sample *t*-test using R to statistically compare a sample of data to a standard by accounting for the sampling uncertainty. 
 
