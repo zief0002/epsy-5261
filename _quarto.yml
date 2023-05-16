@@ -4,6 +4,8 @@ project:
   preview:
     port: 4200
     browser: true
+  resources: 
+    - codebooks/
 
 book:
   title: "An Introduction to Data Analysis and Randomization Methods"
@@ -33,6 +35,7 @@ book:
         - 04-01-case-study-teen-sleep.qmd
         - 04-02-simulation.qmd
         - 04-03-one-sample-test.qmd
+        - 04-04-one-sample-test-computation.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
