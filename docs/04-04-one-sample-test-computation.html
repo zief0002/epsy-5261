@@ -287,7 +287,8 @@ function toggle_visibility(id) {
   <li><a href="#teen-sleep-a-quick-re-cap" id="toc-teen-sleep-a-quick-re-cap" class="nav-link active" data-scroll-target="#teen-sleep-a-quick-re-cap"><span class="toc-section-number">8.1</span>  Teen Sleep: A Quick Re-Cap</a></li>
   <li><a href="#using-the-t_test-function" id="toc-using-the-t_test-function" class="nav-link" data-scroll-target="#using-the-t_test-function"><span class="toc-section-number">8.2</span>  Using the <code>t_test()</code> Function</a></li>
   <li><a href="#case-study-2-continuous-assessment" id="toc-case-study-2-continuous-assessment" class="nav-link" data-scroll-target="#case-study-2-continuous-assessment"><span class="toc-section-number">8.3</span>  Case Study 2: Continuous Assessment</a></li>
-  <li><a href="#looking-forward" id="toc-looking-forward" class="nav-link" data-scroll-target="#looking-forward"><span class="toc-section-number">8.4</span>  Looking Forward</a></li>
+  <li><a href="#case-study-house-prices" id="toc-case-study-house-prices" class="nav-link" data-scroll-target="#case-study-house-prices"><span class="toc-section-number">8.4</span>  Case Study: House Prices</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">8.5</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -477,24 +478,205 @@ p &amp;= 4.328872 \times 10^{-14} \\[2ex]
 </section>
 <section id="case-study-2-continuous-assessment" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="case-study-2-continuous-assessment"><span class="header-section-number">8.3</span> Case Study 2: Continuous Assessment</h2>
-<p>To study the practice of continuous assessment in Ethiopian primary schools, <span class="citation" data-cites="Abejehu:2016">Abejehu (<a href="#ref-Abejehu:2016" role="doc-biblioref">2016</a>)</span> collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate larning, teachers need to understand students’ prior knowledge. One item on the survey asked teachers about this: “I always assess students’ prior knowledge before starting new lesson.” Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the <code>prior_knowledge</code> attribute of the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">continuous-assessment.csv</a> file (see <a href="">codebook</a> for additional detail).</p>
-</section>
-<section id="looking-forward" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="looking-forward"><span class="header-section-number">8.4</span> Looking Forward</h2>
-<p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <span class="quarto-unresolved-ref">?sec-one-sample-examples</span>, you will get you a chance to practice working through the process of carrying out a one-sample <em>t</em>-test.</p>
-<p>As you work through these chapters, you will become more comfortable with the vocabulary and ideas that underlie hypothesis tests. This same set of vocabulary and ideas will come up again when we use hypothesis tests when we compare a sample proportion to a standard and to compare two samples. Because of this it may be useful to put together a summary of the ideas and vocabulary from this chapter that you can refer to (e.g., on a notecard). Here are some of the ideas and vocabulary that are important in hypothesis testing to get you started:</p>
-<ul>
-<li>Statistical inference</li>
-<li>Null hypothesis</li>
-<li>Null model</li>
-<li>Alternative hypothesis</li>
-<li>Standard error</li>
-<li><em>t</em>-value</li>
-<li><em>t</em>-distribution</li>
-<li><em>p</em>-value</li>
-</ul>
+<p>To study the practice of continuous assessment in Ethiopian primary schools, <span class="citation" data-cites="Abejehu:2016">Abejehu (<a href="#ref-Abejehu:2016" role="doc-biblioref">2016</a>)</span> collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate larning, teachers need to understand students’ prior knowledge. One item on the survey asked teachers about this: “I always assess students’ prior knowledge before starting new lesson.” Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the <code>prior_knowledge</code> attribute of the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">continuous-assessment.csv</a> file (see <a href="https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html">codebook</a> for additional detail).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>continuous_assessment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 30 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (3): prior_knowledge, only_achievement, prompt_feedback
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>continuous_assessment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["prior_knowledge"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["only_achievement"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prompt_feedback"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"3","2":"2","3":"3"},{"1":"1","2":"3","3":"3"},{"1":"1","2":"2","3":"4"},{"1":"3","2":"3","3":"3"},{"1":"3","2":"4","3":"2"},{"1":"3","2":"3","3":"3"},{"1":"4","2":"2","3":"3"},{"1":"4","2":"3","3":"2"},{"1":"3","2":"3","3":"3"},{"1":"3","2":"3","3":"3"},{"1":"2","2":"3","3":"3"},{"1":"3","2":"3","3":"2"},{"1":"3","2":"4","3":"4"},{"1":"3","2":"2","3":"3"},{"1":"2","2":"2","3":"2"},{"1":"1","2":"1","3":"3"},{"1":"3","2":"3","3":"4"},{"1":"2","2":"3","3":"3"},{"1":"2","2":"2","3":"4"},{"1":"2","2":"2","3":"2"},{"1":"3","2":"2","3":"2"},{"1":"2","2":"3","3":"3"},{"1":"3","2":"2","3":"3"},{"1":"4","2":"3","3":"2"},{"1":"2","2":"2","3":"3"},{"1":"2","2":"4","3":"3"},{"1":"2","2":"1","3":"2"},{"1":"1","2":"3","3":"3"},{"1":"2","2":"2","3":"3"},{"1":"1","2":"3","3":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>To evaluate whether Ethiopian primary teachers are measuring students’ prior knowledge, we will analyze the data in the <code>prior_knowledge</code> attribute. Because there is not substantive work on whether teachers actually do or do not assess students’ prior knowledge, we don’t have <em>a priori</em> conjectures about whether they will generally agree (3 or 4) or disagree (1 or 2) with the statement in the survey item. Because of that, we will examine the following set of potential hypotheses:</p>
+<p><span class="math display">\[
+\begin{split}
+H_0: \mu = 2.5 \\[1ex]
+H_A: \mu \neq 2.5
+\end{split}
+\]</span> Before we carry out a hypothesis test, we should always explore the data by creating visualizations and numerical summaries of the attribute. Because the data in the attribute is more discrete (can only be 1–4 with no values in between), we will create a histogram rather than a density plot of the responses. We will also set the <code>bins=</code> argument to <code>4</code> since there are only four possible response options.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bins =</span> <span class="dv">4</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Level of Agreement"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-prior-knowledge-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div data-pagedtable="false">
+
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"prior_knowledge","2":"1","3":"2","4":"2.5","5":"3","6":"4","7":"2.433333","8":"0.8976342","9":"30","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.5: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption><p></p>
+</figure>
+</div>
+<div class="cell-output-display">
+<div id="fig-prior-knowledge-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-04-one-sample-test-computation_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.6: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The histogram suggests that the distribution of responses is somewhat symmetric, with roughly an equal number of teachers assessing (3 and 4) and not assessing (1 and 2) students’ prior knowledge. Most teachers did not indicate strong agreement nor strong disagreement. The average response is 2.43, which indicates that a typical teacher does not assess students’ prior knowledge. However, the relatively large <em>SD</em> (0.90) suggests that there is a great deal of individual variation in the responses. Next, we carry out a one-sample <em>t</em>-test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment, <span class="at">mu =</span> <span class="fl">2.5</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+--------------------------------------------------
+One Sample t-test
+--------------------------------------------------
+
+H[0]: mu = 2.5
+H[A]: mu ≠ 2.5
+
+t(29) = -0.4067897
+p = 0.6871492
+
+--------------------------------------------------</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-t-dist3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.7: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated <em>p</em>-value of .687 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu eq2.5\)</span>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Based on the <em>p</em>-value of .0687, we would <em>fail to reject</em> the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5.</p>
+<div class="fyi">
+<p><strong>SUPER IMPORTANT NOTE</strong></p>
+<p>Just because data are consistent with a hypothesis does not mean that hypothesis is true. As an example, consider a patient who goes to the doctor with a set of symptoms (e.g., aches, fever, congestion). The symptoms are the data the doctor will use to help make a diagnosis (hypothesis) which is consistent with the symptoms. However, there are likely several diagnoses that are consistent with the same set of symptoms. This is also true of hypotheses: The data can be consistent with several different hypotheses.</p>
+<p>In our example, the data were consistent with the null hypothesis that the average response for all Ethiopian primary school teachers is 2.5. It turns out, that the data is also consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.6. And 2.7, and 2.5. In fact, there are several different hypotheses that the data are consistent with. This is why we cannot say that the average response for all Ethiopian primary school teachers IS 2.5, but can only say that it IS CONSISTENT with the hypothesis that the average is 2.5.</p>
+</div>
 <p><br></p>
-<!-- ## References -->
+</section>
+<section id="case-study-house-prices" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="case-study-house-prices"><span class="header-section-number">8.4</span> Case Study: House Prices</h2>
+<p>The average price of a single-family house in Minneapolis is $322.46k (as of May 2023). Are houses near the University of Minnesota campus more expensive than that, on average? The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">zillow.csv</a> include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:</p>
+<p><span class="math display">\[
+\begin{split}
+H_0: \mu = 322.46 \\[1ex]
+H_A: \mu &gt; 322.46
+\end{split}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-house-prices</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 15 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (1): price
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["price"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"249.90"},{"1":"499.99"},{"1":"399.90"},{"1":"435.00"},{"1":"525.00"},{"1":"325.00"},{"1":"329.00"},{"1":"343.00"},{"1":"305.00"},{"1":"424.90"},{"1":"249.90"},{"1":"539.00"},{"1":"549.90"},{"1":"500.00"},{"1":"399.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>price, <span class="at">data =</span> zillow,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="dv">75</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"House Price"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-04-one-sample-test-computation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"price","2":"249.9","3":"327","4":"399.9","5":"499.995","6":"549.9","7":"404.966","8":"102.4312","9":"15","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The sample distribution is left-skewed indicating that more of the houses are at the higher and of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (<em>M</em> = $404.97k). There is a lot of variation in house price, with some as low as $250k and others as high as $550k (<em>SD</em> = $102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus costs more than the average house in Minneapolis. Next, we will carry out a one-sample <em>t</em>-test to determine whether this difference is more than we expect because of sampling variation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow, <span class="at">mu =</span> <span class="fl">322.46</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+--------------------------------------------------
+One Sample t-test
+--------------------------------------------------
+
+H[0]: mu = 322.46
+H[A]: mu &gt; 322.46
+
+t(14) = 3.1196
+p = 0.003766644
+
+--------------------------------------------------</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-t-dist4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist4-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.8: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated <em>p</em>-value of .004 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu&gt;\$322.46k\)</span>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The results of the <em>t</em>-test, <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .004\)</span>, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being higher than the average cost of a house in Minneapolis more broadly.</p>
+<p><br></p>
+</section>
+<section id="references" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="references"><span class="header-section-number">8.5</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">

@@ -5,7 +5,7 @@ project:
     port: 4200
     browser: true
   resources: 
-    - codebooks/
+    - codebooks/ #Add codebooks to docs
 
 book:
   title: "An Introduction to Data Analysis and Randomization Methods"
