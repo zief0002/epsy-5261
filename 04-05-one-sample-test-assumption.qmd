@@ -1,0 +1,415 @@
+# One-Sample t-Test: Effect Size and Assumptions {#sec-one-sample-test-assumptions}
+
+Often applied researchers are interested in answering three questions [@Kirk:2001]: 
+
+(a) Is an observed effect real or should it be attributed to chance? 
+(b) If the effect is real, how large is it? and 
+(c) Is the effect large enough to be useful? 
+
+
+Results from hypothesis tests (e.g., *p*-values) provide only the answer to the first question. To answer the second two question, we need to supplement the results of hypothesis tests. Effect sizes, or parameter estimates, are one way to answer these two questions. They also provide a method to compare the results between different studies. In this chapter you will learn about how to compute and report effect sizes. 
+
+<!-- You will also learn about the assumptions for the results of a one-sample *t*-test to be statistically valid.  -->
+
+To introduce the idea of effect sizes, recall that in @sec-one-sample-test-r, we evaluated whether teens were getting the recommended amount of sleep, testing the hypotheses:
+
+
+$$
+\begin{split}
+H_0: \mu = 9 \\[1ex]
+H_A: \mu < 9
+\end{split}
+$$
+
+
+
+```{r}
+#| label: load-packages
+#| message: false
+library(educate)
+library(ggformula)
+library(mosaic)
+library(tidyverse)
+
+
+# Import data
+teen_sleep <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv")
+
+# View data
+teen_sleep
+
+# One-sample t-test
+my_t <- t_test(~hrs_sleep, data = teen_sleep, mu = 9, alternative = "less")
+
+# View t-distribution
+plot_t_dist(my_t)
+```
+
+Based on these results, we rejected the null hypothesis ($p=.0000000000000433$). The data suggested that the average amount of sleep teens are getting is likely less than 9 hours and that this result is not only because of sampling uncertainty. That is, the empirical evidence is pointing us to the conclusion that teens are not getting the recommended amount of sleep. 
+
+This result is useful for answering the first of the three questions applied researchers often ask, namely, is an observed effect real or should it be attributed to chance? In this case, it is not very likely that the observed effect is only attributable to chance. That is what "statistical significance" implies.
+
+This result, however, brings about a follow-up question: How much sleep are teens getting, on average? We suspect it is less than 9 hours, but how much less? To answer this question we need to produce a *statistical estimate* for the population mean ($\mu$). A more general name for a statistical estimate of a parameter is an *effect size*. Based on an effect size, we can answer the other two questions: If the effect is real, how large is it? and Is the effect large enough to be useful?
+
+<br />
+
+
+## Parameter Estimation
+
+One measure of effect is an estimation of a population parameter that is being tested in the hypothesis test. For example, in the teen sleep study, we would be interested in estimating the population mean amount of sleep teens get a night (i.e., what is the value of $\mu$?).^[Remember that a parameter is a summary measure of the population, so parameter estimation refers to estimating a summary value of the population.] 
+
+<br />
+
+
+### Point Estimates
+
+One approach to estimating a parameter of interest is to obtain a single value based on a sample of data that is the best possible empirical approximation of that parameter. For instance, the single best approximation for the population mean ($\mu$) would be the sample mean $\bar{x}$. These best single number approximations are called *point estimates*. 
+
+```{r}
+# Compute numerical summaries to get sample mean
+df_stats(~hrs_sleep, data = teen_sleep)
+```
+
+The point estimate for $\mu$ based on the sample data is 7.39 hours. That is, our best single number approximation for the amount of sleep teenagers get, on average, is 7.39 hours.
+
+<br />
+
+
+### Interval Estimates
+
+While the point estimate, is a good guess for the value of the true population parameter, we also understand that there is uncertainty in the estimate because of sampling error. An interval estimate offers a probabilistic statement about the range of plausible values for the parameter being estimated that accounts for the sampling uncertainty. Interval estimates are also known as *confidence intervals*.
+
+We can compute the *confidence limits* for an interval estimate by using the point estimate for a given parameter and then taking into account the amount of uncertainty due to sampling error:
+
+$$
+\text{Point Estimate} \pm \text{Uncertainty}
+$$
+
+The confidence limits act as lower and upper bounds on what we think the value of the parameter is. 
+
+$$
+\bigg(\text{Point Estimate} − \text{Uncertainty}\bigg) \leq \text{Parameter} \leq \bigg(\text{Point Estimate} + \text{Uncertainty}\bigg)
+$$
+
+The important piece in constructing the confidence limits is computing the amount of uncertainty. There are typically two sources we consider when computing the uncertainty: (1) the uncertainty attributable to random sampling (i.e., the *SE*), and (2) the confidence level. Since the confidence interval is a probabilistic statement about the value of the parameter, we need to identify the level of probability/degree of confidence that we want in the interval estimate. For example, do we want to be 60% confident that the parameter is included in the range we give? Or do we want to be 90% confident that the parameter is included in the range we give? 
+
+:::fyi
+Technically, the level of confidence identifies the fraction of time, under repeated sampling, that the intervals constructed will contain the parameter of interest. This is a mathematical technicality, and in practice, we interpret this as the probability that the parameter falls within the interval.
+:::
+
+
+They way we incorporate the confidence level is to cand the sampling uncertainty is to 
+
+
+
+
+For example, if we were computing the a confidence interval for the mean, the confidence limits would give us the lower and upper bounds for values of $\mu$. In other words, based on the data 
+
+$$
+\bigg(\bar{x} − \text{Uncertainty}\bigg) \leq \mu \leq \bigg(\bar{x} + \text{Uncertainty}\bigg)
+$$
+
+
+
+
+
+
+
+These bounds we believe will provide endpoints or limits on the values that the parameter is likely to take on.
+
+it would certainly be desirable to have some idea of how close the true parameter might be to our point estimate. We can’t expect to know how close our estimate is exactly to the parameter (for that to happen we
+
+
+
+
+This is one reason that we compute numerical summaries of the sample when we 
+
+
+
+a given population there may be any number of parameters in which we may be interested (e.g., μ, σ, etc.). 
+
+
+
+Effect sizes have been fully embraced by the American Psychological Association (APA). Their Publication Manual (2002) states, “For the reader to fully understand the importance of your findings, it
+
+In this case study, researchers collected data on the bedtime, wake-up time, and hours slept for a sample of $n=75$ American teens in Grades 9--12. These data were used to evaluate the following statistical hypotheses For example, here are a set of potential hypotheses about teen sleep:
+
+
+<!-- The analysis started by importing the data and visualizing and numerically describing the amopunt of sleep for the teens in our sample. -->
+
+<!-- ```{r} -->
+<!-- #| label: fig-hrs-sleep -->
+<!-- #| fig-cap: "Density plot of the hours of sleep for 75 teenagers." -->
+<!-- #| warning: false -->
+<!-- # Create density plot -->
+<!-- gf_density( -->
+<!--   ~ hrs_sleep, data = teen_sleep, -->
+<!--   color = "black",  -->
+<!--   fill = "skyblue", -->
+<!--   xlab = "Hours of Sleep", -->
+<!--   ylab = "Density" -->
+<!--   ) -->
+
+<!-- # Compute numerical summaries -->
+<!-- df_stats(~hrs_sleep, data = teen_sleep) -->
+<!-- ``` -->
+
+<!-- These analyses suggest that, on average, the 75 teens in the sample are not getting the recommended 9 hours of sleep a night. They seem to be getting much less sleep on average, with a typical teen in the sample getting around 7.5 hours of sleep a night (*SD* = 1.5). To evaluate whether this lower amount of sleep we are seeing in the sample data is only a function of sampling uncertainty, we will carry out a one-sample *t*-test. To do this, we need to convert our sample mean to a *t*-value and then evaluate it in a *t*-distribution with $n-1$ *df*. -->
+
+<!-- $$ -->
+<!-- t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE} -->
+<!-- $$ -->
+
+<!-- We have the observed mean ($\bar{x}=7.39$), and the hypothesized mean ($\mu=9$) from the data and null hypothesis, respectively. To obtain the *SE* we bootstrapped from the data. -->
+
+<!-- ```{r} -->
+<!-- # Draw a bootstrap sample of 75 observations and compute the mean -->
+<!-- # Do this 1000 times  -->
+<!-- # Assign these into an object called bootstrap_means -->
+<!-- set.seed(42) -->
+<!-- bootstrap_means <- do(1000) * {mean(sample(teen_sleep$hrs_sleep, size = 75, replace = TRUE))} -->
+
+<!-- # Compute numerical summaries to get SE -->
+<!-- df_stats(~result, data = bootstrap_means) -->
+<!-- ``` -->
+
+<!-- Based on the bootstrapping, the *SE* is 0.170. Putting this together, we compute the *t*-value as: -->
+
+<!-- $$ -->
+<!-- \begin{split} -->
+<!-- t &= \frac{7.39 - 9}{.170} \\[2ex] -->
+<!-- &= -9.47 -->
+<!-- \end{split} -->
+<!-- $$ -->
+<!-- We can then sketch the *t*-distribution with 74 *df*, include the *t*-value we just computed, and shade the area under the density plot that corresponds to the alternative hypothesis. -->
+
+```{r}
+#| label: fig-t-dist
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The blue shaded area represents the *t*-values we expect if the null hypothesis is true. The pink dot represents the observed *t*-value of -9.47."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+#| echo: FALSE
+ggplot(data.frame(x = c(-12, 12)), aes(x)) +
+  stat_function(fun = dt,
+                geom = "line",
+                xlim = c(-12, 12),
+                args = list(df = 74)
+                ) +
+  stat_function(fun = dt,
+                geom = "line",
+                color = "#cc79a7",
+                xlim = c(-12, -9.47),
+                args = list(df = 74)
+                ) +
+  stat_function(fun = dt,
+                geom = "area",
+                fill = "#cc79a7",
+                xlim = c(-12, -9.47),
+                args = list(df = 74)
+                ) +
+  xlim(-12, 12) +
+  xlab("t-value") +
+  ylab("Density") +
+  geom_point(x = -9.47, y = 0, size = 3, color = "#cc79a7") +
+  #geom_segment(x = -9.32, xend = -9.32, y = 0, yend = 0.3, color = "#cc79a7", linewidth = 1, linetype = "dashed") +
+  annotate(geom = "text", x = -9.47, y = 0.10, label = "Area \nunder\ncurve\n to the \n left of\n-9.47", color = "#cc79a7") +
+  theme_bw()
+```
+
+The *p*-value (proportion of the pink shaded area to the whole area under the curve) is quite small. Because it is so small, it is difficult to even estimate its size---$p<.001$. This small *p*-value leads us to *reject the null hypothesis*, indicating that the data suggest that the average amount of sleep teens are getting is likely less than 9 hours and that this result is not only because of sampling uncertainty. That is, the empirical evidence is pointing us to the conclusion that teens are not getting the recommended amount of sleep.
+
+<br />
+
+
+## Using the `t_test()` Function
+
+Rather than bootstrapping the *SE*, we will use the `t_test()` function to compute the *SE* directly. This function is part of the `{mosaic}` library, and takes the following arguments:
+
+- A formula using the tilde (`~`), similar to the `gf_` and `df_stats` functions, that specifies the attribute to carry out the one-sample *t*-test on.
+- `data=` specifying the name of the data object,
+- `mu=` indicating the value of the mean in the null hypothesis,
+- `alternative=` indicating one of three potential alternative hypotheses: `"less"`, `"greater"`, or `"two.sided"` (not equal). Note that these need to be enclosed in quotation marks.
+
+To carry out the one-sample *t*-test in the earlier case study, we will use the following syntax. We assign the reuslts of this *t*-test to an object (in this case, I called it `my_t`).
+
+```{r}
+
+```
+
+To see the results of the test, you can just call `my_t`, or whatever you named the object storing the *t*-test results. The output, however, is a bit unorganized. Instead, we are going to use two functions from the `{educate}` package to view the results of the *t*-test: `t_results()` and `plot_t_dist()`. To use these functions, we will need to load the `{educate}` library. Then, we can use each of these functions by supplying it with the name of the object storing our *t*-test results. We begin by using the `t_results()` function.
+
+```{r}
+# Load educate library
+library(educate)
+
+# View t-test results
+t_results(my_t)
+```
+
+This function outputs the null and alternative hypotheses being tested in the one-sample *t*-test. It also provide the observed *t*-value ($-9.15$) and the *df* (74) for the *t*-distribution. Finally, it outputs the *p*-value for the test. When *p*-values are really small, R will output the *p*-value in *scientific notation*. The `e-14` part of the *p*-value means $\times 10^{-14}$, which means, move the decimal point 14 places to the left. Thus the *p*-value is:
+
+$$
+\begin{split}
+p &= 4.328872 \times 10^{-14} \\[2ex]
+&= .0000000000000433
+\end{split}
+$$
+Note that the *t*-value we get from this function was different than the *t*-value we got earlier. This is because the *SE* computed by the `t_test()` function is different than the *SE* we get when we bootstrap. Because of this, it is very important to indicate the method you used to get the *t*-value; was it based on bootstrapping a *SE*? Or did you use the `t_test()` function, which uses a *normal-based* method for computing the *SE*?
+
+We can also use the `plot_t_dist()` to visualize the *t*-distribution with 74 *df*, where our observed *t*-value of $-9.15$, falls in this distribution, and the shaded area under the curve associated with the *p*-value based on the specified alternative hypothesis. The results form the *t*-test will also be printed above the plot.
+
+```{r}
+#| label: fig-t-dist2
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The red vertical line represents the observed *t*-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated *p*-value of $4.33\\times10^{-14} = .0000000000000433$ that corresponds to the alternative hypothesis that $\\mu<9$."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+
+
+# View t-distribution
+plot_t_dist(my_t)
+```
+
+
+<br />
+
+
+## Case Study 2: Continuous Assessment
+
+To study the practice of continuous assessment in Ethiopian primary schools, @Abejehu:2016 collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate larning, teachers need to understand students' prior knowledge. One item on the survey asked teachers about this: "I always assess students’ prior knowledge before starting new lesson." Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the `prior_knowledge` attribute of the [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) file (see [codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html) for additional detail).
+
+
+```{r}
+# Import data
+continuous_assessment <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
+
+# View data
+continuous_assessment
+```
+
+
+
+To evaluate whether Ethiopian primary teachers are measuring students' prior knowledge, we will analyze the data in the `prior_knowledge` attribute. Because there is not substantive work on whether teachers actually do or do not assess students' prior knowledge, we don't have *a priori* conjectures about whether they will generally agree (3 or 4) or disagree (1 or 2) with the statement in the survey item. Because of that, we will examine the following set of potential hypotheses:
+
+$$
+\begin{split}
+H_0: \mu = 2.5 \\[1ex]
+H_A: \mu \neq 2.5
+\end{split}
+$$
+Before we carry out a hypothesis test, we should always explore the data by creating visualizations and numerical summaries of the attribute. Because the data in the attribute is more discrete (can only be 1--4 with no values in between), we will create a histogram rather than a density plot of the responses. We will also set the `bins=` argument to `4` since there are only four possible response options.
+
+```{r}
+#| label: fig-prior-knowledge
+#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
+#| warning: false
+# Create density plot
+gf_histogram(
+  ~prior_knowledge, data = continuous_assessment,
+  bins = 4,
+  color = "black", 
+  fill = "skyblue",
+  xlab = "Level of Agreement",
+  ylab = "Count"
+  )
+
+# Compute numerical summaries
+df_stats(~prior_knowledge, data = continuous_assessment)
+```
+
+The histogram suggests that the distribution of responses is somewhat symmetric, with roughly an equal number of teachers assessing (3 and 4) and not assessing (1 and 2) students' prior knowledge. Most teachers did not indicate strong agreement nor strong disagreement. The average response is 2.43, which indicates that a typical teacher does not assess students' prior knowledge. However, the relatively large *SD* (0.90) suggests that there is a great deal of individual variation in the responses. Next, we carry out a one-sample *t*-test.
+
+```{r}
+#| label: fig-t-dist3
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that $\\mu\neq2.5$."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+
+# One-sample t-test
+my_t <- t_test(~prior_knowledge, data = continuous_assessment, mu = 2.5, alternative = "two.sided")
+
+# View t-test results
+t_results(my_t)
+
+# View t-distribution
+plot_t_dist(my_t)
+```
+
+Based on the *p*-value of .0687, we would *fail to reject* the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5. 
+
+:::fyi
+**SUPER IMPORTANT NOTE**
+
+Just because data are consistent with a hypothesis does not mean that hypothesis is true. As an example, consider a patient who goes to the doctor with a set of symptoms (e.g., aches, fever, congestion). The symptoms are the data the doctor will use to help make a diagnosis (hypothesis) which is consistent with the symptoms. However, there are likely several diagnoses that are consistent with the same set of symptoms. This is also true of hypotheses: The data can be consistent with several different hypotheses. 
+
+In our example, the data were consistent with the null hypothesis that the average response for all Ethiopian primary school teachers is 2.5. It turns out, that the data is also consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.6. And 2.7, and 2.5. In fact, there are several different hypotheses that the data are consistent with. This is why we cannot say that the average response for all Ethiopian primary school teachers IS 2.5, but can only say that it IS CONSISTENT with the hypothesis that the average is 2.5.
+:::
+
+<br />
+
+
+## Case Study: House Prices
+
+The average price of a single-family house in Minneapolis is \$322.46k (as of May 2023). Are houses near the University of Minnesota campus more expensive than that, on average? The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:
+
+$$
+\begin{split}
+H_0: \mu = 322.46 \\[1ex]
+H_A: \mu > 322.46
+\end{split}
+$$
+
+```{r}
+
+#| label: fig-house-prices
+#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
+#| warning: false
+#| 
+# Import data
+zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
+
+# View data
+zillow
+
+# Create density plot
+gf_histogram(
+  ~price, data = zillow,
+  binwidth = 75,
+  color = "black", 
+  fill = "skyblue",
+  xlab = "House Price",
+  ylab = "Count"
+  )
+
+# Compute numerical summaries
+df_stats(~price, data = zillow)
+```
+
+The sample distribution is left-skewed indicating that more of the houses are at the higher and of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (*M* = \$404.97k). There is a lot of variation in house price, with some as low as \$250k and others as high as \$550k (*SD* = \$102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus costs more than the average house in Minneapolis. Next, we will carry out a one-sample *t*-test to determine whether this difference is more than we expect because of sampling variation.
+
+```{r}
+#| label: fig-t-dist4
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is \\$322.46k (*t* value of 0).  The red vertical line represents the observed *t*-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated *p*-value of .004 that corresponds to the alternative hypothesis that $\\mu>\\$322.46k$."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+
+# One-sample t-test
+my_t <- t_test(~price, data = zillow, mu = 322.46, alternative = "greater")
+
+# View t-test results
+t_results(my_t)
+
+# View t-distribution
+plot_t_dist(my_t)
+```
+
+The results of the *t*-test, $t(14)=3.12$, $p = .004$, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being higher than the average cost of a house in Minneapolis more broadly.
+
+<br />
+
+
+## References
+

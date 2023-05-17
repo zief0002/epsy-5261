@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Andrew Zieffler">
-<meta name="author" content="¢hel$ey £ega¢y">
 
-<title>An Introduction to Data Analysis: The End</title>
+<title>An Introduction to Data Analysis and Randomization Methods - Comparing Data to a Standard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -32,7 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-00-statistical-computation.html" rel="next">
+<link href="./04-01-case-study-teen-sleep.html" rel="next">
+<link href="./03-02-quantitative-attributes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,9 +90,6 @@ function toggle_visibility(id) {
 }
 </script>
 
-<link href="site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable/js/pagedtable.js"></script>
-
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -86,7 +101,7 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">An Introduction to Data Analysis: The End</h1>
+      <h1 class="quarto-secondary-nav-title">Comparing Data to a Standard</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -99,7 +114,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,7 +126,7 @@ function toggle_visibility(id) {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Foreword</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Foreword</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -166,7 +181,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">Comparing Data to a Standard</a>
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link active">Comparing Data to a Standard</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -189,7 +204,7 @@ function toggle_visibility(id) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></a>
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a>
   </div>
 </li>
       </ul>
@@ -199,44 +214,21 @@ function toggle_visibility(id) {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#foreword" id="toc-foreword" class="nav-link active" data-scroll-target="#foreword">Foreword</a>
-  <ul class="collapse">
-  <li><a href="#colophon" id="toc-colophon" class="nav-link" data-scroll-target="#colophon">Colophon</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">An Introduction to Data Analysis: The End</h1>
+<h1 class="title"><span id="sec-compare-standard" class="quarto-section-identifier d-none d-lg-block">Comparing Data to a Standard</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Andrew Zieffler </p>
-             <p>¢hel$ey £ega¢y </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
@@ -244,32 +236,16 @@ function toggle_visibility(id) {
 
 </header>
 
-<p><img src="figs/banner.png" class="cover"></p>
-<section id="foreword" class="level1 unnumbered">
-<h1 class="unnumbered">Foreword</h1>
-<p>This work in progress is ultimately going to be the primarily textbook resource for EPSY 5261 students. (Note: If you want to contribute to this, create a Pull Request or <a href="mailto:%20zief0002@umn.edu">send me an email</a>.) Also, feel free to offer criticism, suggestion, and feedback. You can either <a href="https://github.com/zief0002/modeling/issues">open an issue</a> on the book’s github page or <a href="mailto:%20zief0002@umn.edu">send me an email</a> directly.</p>
-<p><br></p>
-<section id="colophon" class="level2">
-<h2 class="anchored" data-anchor-id="colophon">Colophon</h2>
-<p>Artwork by <a href="https://twitter.com/allison_horst">@allison_horst</a></p>
-<p>Icon and note ideas and prototypes by <a href="http://desiree.rbind.io/">Desirée De Leon</a>.</p>
-<p>The book is typeset using <a href="https://fonts.google.com/specimen/Crimson+Text">Crimson Text</a> for the body font, <a href="https://fonts.google.com/specimen/Raleway">Raleway</a> for the headings and <a href="https://fonts.google.com/specimen/Sue+Ellen+Francisco">Sue Ellen Francisco</a> for the title. The color palette was generated using <a href="https://coolors.co/">coolors.co</a>.</p>
-<p><strong>Statistical Computing</strong></p>
-<ul>
-<li>Laptop icon made by <a href="https://www.flaticon.com/authors/tomas-knop">Tomas Knop</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Directory icon made by <a href="https://www.flaticon.com/authors/darius-dan">Darius Dan</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Brain icon made by <a href="https://www.flaticon.com/authors/aranagraphics">Aranagraphics</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Internet icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-</ul>
-<p><br></p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" class="center-image" style="border-width:0"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p>One task that is commonly performed in research is to compare the data you have to a specified standard or value. For example, is the average income for a community higher than the poverty level? Or, is the mean admission rate for institutions of higher learning in the United States higher than 0.50?</p>
+<p>In previous chapters you learned how to compute characteristics of the distribution (e.g., the mean) that would allow us to answer these questions about the sample. For example, in <a href="#sec-quantitative"><span class="quarto-unresolved-ref">sec-quantitative</span></a>, we found that the average admission rate for our 230 sample institutions of higher learning was 0.68. Based on this, we could say that the average admission rate for our sample of 230 schools was higher than 0.50. But, is this true when we grow our sample to ALL institutions of higher learning? Is the mean admission rate for ALL institutions of higher learning in the United States higher than 0.50?</p>
+<p>Drawing conclusions beyond the data we have is called <em>inference</em>, and the associated methods that allow researchers to allows us to learn from incomplete or imperfect data are referred to as <em>statistical inference</em> <span class="citation" data-cites="Gelman:2007">(<a href="#ref-Gelman:2007" role="doc-biblioref">Gelman &amp; Hill, 2007</a>)</span>. In this part of the textbook, you will learn about a set of statistical inferential methods that allow you to compare a sample of data to some standard in order to draw inferences about how the population compares to that standard (e.g., is the average income for a community higher than the poverty level?). To answer this type of inferential question, you will learn about how we quantify the amount of uncertainty associated with our sample numerical estimate when we have incomplete data (i.e., only a sample of data from the population we want to infer to). You will also learn how we then use that quantification in a one-sample hypothesis test to draw an inference about how the population compares to that standard. Finally, you will learn about how sampling bias might distort our inferences, and how to evaluate whether particular sampling methods used to collect the sample data might suffer from sampling bias.</p>
 
 
-</section>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Gelman:2007" class="csl-entry" role="doc-biblioentry">
+Gelman, A., &amp; Hill, J. (2007). <em>Data analysis using regression and multilevel/hierarchical models</em>. Cambridge University Press.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -407,10 +383,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-02-quantitative-attributes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-00-statistical-computation.html" class="pagination-link">
-        <span class="nav-page-text">Statistical Computation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-01-case-study-teen-sleep.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

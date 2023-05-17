@@ -8,8 +8,8 @@ project:
     - codebooks/ #Add codebooks to docs
 
 book:
-  title: "An Introduction to Data Analysis and Randomization Methods"
-  author: ["Andrew Zieffler", "Chelsey Legacy"]
+  title: "An Introduction to Data Analysis: The End"
+  author: ["Andrew Zieffler", "¢hel$ey £ega¢y"]
   date: "`r Sys.Date()`"
   sidebar:
     search: true

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Andrew Zieffler">
-<meta name="author" content="¢hel$ey £ega¢y">
 
-<title>An Introduction to Data Analysis: The End</title>
+<title>An Introduction to Data Analysis and Randomization Methods - Statistical Computation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-00-statistical-computation.html" rel="next">
+<link href="./01-01-r-and-rstudio-installation.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,9 +71,6 @@ function toggle_visibility(id) {
 }
 </script>
 
-<link href="site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable/js/pagedtable.js"></script>
-
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -86,7 +82,7 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">An Introduction to Data Analysis: The End</h1>
+      <h1 class="quarto-secondary-nav-title">Statistical Computation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -99,7 +95,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,12 +107,12 @@ function toggle_visibility(id) {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Foreword</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Foreword</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">Statistical Computation</a>
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link active">Statistical Computation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -189,7 +185,7 @@ function toggle_visibility(id) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></a>
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a>
   </div>
 </li>
       </ul>
@@ -199,44 +195,21 @@ function toggle_visibility(id) {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#foreword" id="toc-foreword" class="nav-link active" data-scroll-target="#foreword">Foreword</a>
-  <ul class="collapse">
-  <li><a href="#colophon" id="toc-colophon" class="nav-link" data-scroll-target="#colophon">Colophon</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">An Introduction to Data Analysis: The End</h1>
+<h1 class="title d-none d-lg-block">Statistical Computation</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Andrew Zieffler </p>
-             <p>¢hel$ey £ega¢y </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
@@ -244,31 +217,22 @@ function toggle_visibility(id) {
 
 </header>
 
-<p><img src="figs/banner.png" class="cover"></p>
-<section id="foreword" class="level1 unnumbered">
-<h1 class="unnumbered">Foreword</h1>
-<p>This work in progress is ultimately going to be the primarily textbook resource for EPSY 5261 students. (Note: If you want to contribute to this, create a Pull Request or <a href="mailto:%20zief0002@umn.edu">send me an email</a>.) Also, feel free to offer criticism, suggestion, and feedback. You can either <a href="https://github.com/zief0002/modeling/issues">open an issue</a> on the book’s github page or <a href="mailto:%20zief0002@umn.edu">send me an email</a> directly.</p>
-<p><br></p>
-<section id="colophon" class="level2">
-<h2 class="anchored" data-anchor-id="colophon">Colophon</h2>
-<p>Artwork by <a href="https://twitter.com/allison_horst">@allison_horst</a></p>
-<p>Icon and note ideas and prototypes by <a href="http://desiree.rbind.io/">Desirée De Leon</a>.</p>
-<p>The book is typeset using <a href="https://fonts.google.com/specimen/Crimson+Text">Crimson Text</a> for the body font, <a href="https://fonts.google.com/specimen/Raleway">Raleway</a> for the headings and <a href="https://fonts.google.com/specimen/Sue+Ellen+Francisco">Sue Ellen Francisco</a> for the title. The color palette was generated using <a href="https://coolors.co/">coolors.co</a>.</p>
-<p><strong>Statistical Computing</strong></p>
+<p>The first set of tools we will discuss will be related to statistical computation. Although there are many computational tools for statistical analysis, the first tools we will add to your computational toolkit is R. R is a free software environment for statistical computing and graphics. It can be installed on a variety of operating systems, including the MacOS, Windows, and UNIX platforms. To really make use of the computational power of R, we are also going to introduce you to RStudio, an open-source front-end<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to R.</p>
+<p>The initial chapters of this document will address:</p>
 <ul>
-<li>Laptop icon made by <a href="https://www.flaticon.com/authors/tomas-knop">Tomas Knop</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Directory icon made by <a href="https://www.flaticon.com/authors/darius-dan">Darius Dan</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Brain icon made by <a href="https://www.flaticon.com/authors/aranagraphics">Aranagraphics</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
-<li>Internet icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a></li>
+<li>Installing R and RStudio;</li>
+<li>Getting started with R’s computational syntax;</li>
+<li>Wrangling data using functions from the <strong>dplyr</strong> package; and</li>
+<li>Visualizing data using functions from the <strong>ggplot2</strong> package.</li>
 </ul>
-<p><br></p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" class="center-image" style="border-width:0"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p><br><br></p>
 
 
-</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Specifically, RStudio is branded as an “integrated development environment (IDE) [that] includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -407,10 +371,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Foreword</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-00-statistical-computation.html" class="pagination-link">
-        <span class="nav-page-text">Statistical Computation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-01-r-and-rstudio-installation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
