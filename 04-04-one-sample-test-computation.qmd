@@ -127,7 +127,7 @@ Rather than bootstrapping the *SE*, we will use the `t_test()` function to compu
 - `mu=` indicating the value of the mean in the null hypothesis,
 - `alternative=` indicating one of three potential alternative hypotheses: `"less"`, `"greater"`, or `"two.sided"` (not equal). Note that these need to be enclosed in quotation marks.
 
-To carry out the one-sample *t*-test in the earlier case study, we will use the following syntax. We assign the reuslts of this *t*-test to an object (in this case, I called it `my_t`).
+To carry out the one-sample *t*-test in the earlier case study, we will use the following syntax. We assign the results of this *t*-test to an object (in this case, I called it `my_t`).
 
 ```{r}
 # One-sample t-test
