@@ -18,7 +18,7 @@ source("../assets/codebook-setup.R")
 ```
 
 
-These data are based on data from @Abejehu:2016 who collected survey data from teachers in order to study the practice of continuous assessment in Ethiopian primary schools. Continuous assessment promotes the use of formative assessment as a method to improve teaching and learning. In the original study, a 24-item survey was administered to 72 primary school teachers. The data in [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include $n=30$ teachers' data from three of the items. The response options for all items was a four-point Likert scale, where:
+These data are based on data from @Abejehu:2016 who collected survey data from teachers in order to study the practice of continuous assessment in Ethiopian primary schools. Continuous assessment promotes the use of formative assessment as a method to improve teaching and learning. In the study, a 24-item survey was administered to primary school teachers who were randomly selected from the total population of 191 primary school teachers using a lottery system. The data in [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include $n=30$ teachers' data from three of the items. The response options for all items was a four-point Likert scale, where:
 
 - 4 = Strongly Agree, 
 - 3 = Agree,

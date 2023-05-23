@@ -174,7 +174,7 @@ plot_t_dist(my_t)
 
 ## Case Study 2: Continuous Assessment
 
-To study the practice of continuous assessment in Ethiopian primary schools, @Abejehu:2016 collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate larning, teachers need to understand students' prior knowledge. One item on the survey asked teachers about this: "I always assess students’ prior knowledge before starting new lesson." Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the `prior_knowledge` attribute of the [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) file (see [codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html) for additional detail).
+To study the practice of continuous assessment in Ethiopian primary schools, @Abejehu:2016 collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate learning, teachers need to understand students' prior knowledge. One item on the survey asked teachers about this: "I always assess students’ prior knowledge before starting new lesson." Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the `prior_knowledge` attribute of the [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) file (see [codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html) for additional detail).
 
 
 ```{r}
@@ -201,7 +201,7 @@ Before we carry out a hypothesis test, we should always explore the data by crea
 #| label: fig-prior-knowledge
 #| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
 #| warning: false
-# Create density plot
+# Create histogram
 gf_histogram(
   ~prior_knowledge, data = continuous_assessment,
   bins = 4,
@@ -261,7 +261,7 @@ $$
 ```{r}
 
 #| label: fig-house-prices
-#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
+#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus. "
 #| warning: false
 #| 
 # Import data
@@ -270,7 +270,7 @@ zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/da
 # View data
 zillow
 
-# Create density plot
+# Create histogram
 gf_histogram(
   ~price, data = zillow,
   binwidth = 75,

@@ -18,7 +18,7 @@ source("../assets/codebook-setup.R")
 ```
 
 
-The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv) include $n=15$ listing prices obtained from Zillow.com for houses in neighborhoods adjacent to the University of Minnesota campus (e.g., Marcy-Holmes, Cedar-Riverside, Como). The data were collected on May 16, 2023.
+The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv) include $n=15$ listing prices obtained from Zillow.com for houses in neighborhoods adjacent to the University of Minnesota campus (e.g., Marcy-Holmes, Cedar-Riverside, Como). The data were collected by selecting all the houses for sale on May 16, 2023 in neighborhoods adjacent to the University of Minnesota.
 
 
 ---

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis and Randomization Methods - 8&nbsp; One-Sample t-Test Using R</title>
+<title>An Introduction to Data Analysis: The End - 8&nbsp; One-Sample t-Test Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,6 +112,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./04-05-one-sample-test-assumptions.html" rel="next">
 <link href="./04-03-one-sample-test.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -180,7 +181,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis and Randomization Methods</a> 
+      <a href="./">An Introduction to Data Analysis: The End</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -271,6 +272,11 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Assumptions and Errors</span></a>
   </div>
 </li>
       </ul>
@@ -478,7 +484,7 @@ p &amp;= 4.328872 \times 10^{-14} \\[2ex]
 </section>
 <section id="case-study-2-continuous-assessment" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="case-study-2-continuous-assessment"><span class="header-section-number">8.3</span> Case Study 2: Continuous Assessment</h2>
-<p>To study the practice of continuous assessment in Ethiopian primary schools, <span class="citation" data-cites="Abejehu:2016">Abejehu (<a href="#ref-Abejehu:2016" role="doc-biblioref">2016</a>)</span> collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate larning, teachers need to understand students’ prior knowledge. One item on the survey asked teachers about this: “I always assess students’ prior knowledge before starting new lesson.” Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the <code>prior_knowledge</code> attribute of the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">continuous-assessment.csv</a> file (see <a href="https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html">codebook</a> for additional detail).</p>
+<p>To study the practice of continuous assessment in Ethiopian primary schools, <span class="citation" data-cites="Abejehu:2016">Abejehu (<a href="#ref-Abejehu:2016" role="doc-biblioref">2016</a>)</span> collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate learning, teachers need to understand students’ prior knowledge. One item on the survey asked teachers about this: “I always assess students’ prior knowledge before starting new lesson.” Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the <code>prior_knowledge</code> attribute of the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">continuous-assessment.csv</a> file (see <a href="https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html">codebook</a> for additional detail).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>continuous_assessment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -510,7 +516,7 @@ H_A: \mu \neq 2.5
 \end{split}
 \]</span> Before we carry out a hypothesis test, we should always explore the data by creating visualizations and numerical summaries of the attribute. Because the data in the attribute is more discrete (can only be 1–4 with no values in between), we will create a histogram rather than a density plot of the responses. We will also set the <code>bins=</code> argument to <code>4</code> since there are only four possible response options.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment,</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bins =</span> <span class="dv">4</span>,</span>
@@ -593,7 +599,7 @@ H_A: \mu &gt; 322.46
 \]</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-house-prices</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus. "</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| </span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -617,7 +623,7 @@ dbl (1): price
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>price, <span class="at">data =</span> zillow,</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="dv">75</span>,</span>
@@ -827,6 +833,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./04-05-one-sample-test-assumptions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Assumptions and Errors</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
