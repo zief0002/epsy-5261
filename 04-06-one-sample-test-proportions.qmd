@@ -1,4 +1,4 @@
-# One-Sample z-Test: Evaluating Proportions Against a Standard {#sec-one-sample-test-assumptions}
+# One-Sample z-Test: Evaluating Proportions Against a Standard {#sec-one-sample-test-proportions}
 
 In this chapter you will learn about how to use a one-sample *z*-test to statistically compare a proportion computed in a sample of data to a standard by accounting for the sampling uncertainty. You will also learn about the assumptions that we need to make in order for the results of a one-sample *z*-test to be statistically valid.  
 
