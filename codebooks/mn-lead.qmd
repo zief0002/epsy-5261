@@ -1,0 +1,51 @@
+---
+title: "mn-lead.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+The data in [mn-lead.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead-reviews.csv) include the blood lead levels for the 91,706 Minnesota children under 6 years of age who were tested in 2018 by the Minnesota Environmental Public Health Tracking (MN EPHT) Program. These data are monitored and made available by the Center for Disease Control. An elevated blood lead level (EBLL) in a child is defined by the Minnesota Department of Health (MDH) as a blood test result greater than or equal to 5 micrograms of lead per deciliter of whole blood (µg/dL) in a child. (The CDC reference level was lowered in 2021 to 3.5 µg/dL, but MDH is still currently using the reference of 5 µg/dL.)
+
+---
+
+The attributes included in the data are:
+
+- `lead_level`: Blood lead level, measured in µg/dL
+- `ebll`: Is the blood lead level higher than 5 µg/dL (the reference used by MDH) indicating an elevated blood lead level? ("Yes" or "No")
+
+---
+
+
+### Preview
+
+```{r}
+# Import data
+library(tidyverse)
+mn_lead <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
+```
+
+```{r}
+#| echo: false
+# View data
+DT::datatable(mn_lead)
+```
+
+
+<!-- ### References -->
+
+
+

@@ -276,7 +276,12 @@ function toggle_visibility(id) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Assumptions and Errors</span></a>
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Errors and Assumptions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></a>
   </div>
 </li>
       </ul>
@@ -433,7 +438,7 @@ t &amp;= \frac{7.39 - 9}{.170} \\[2ex]
 <li><code>mu=</code> indicating the value of the mean in the null hypothesis,</li>
 <li><code>alternative=</code> indicating one of three potential alternative hypotheses: <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> (not equal). Note that these need to be enclosed in quotation marks.</li>
 </ul>
-<p>To carry out the one-sample <em>t</em>-test in the earlier case study, we will use the following syntax. We assign the reuslts of this <em>t</em>-test to an object (in this case, I called it <code>my_t</code>).</p>
+<p>To carry out the one-sample <em>t</em>-test in the earlier case study, we will use the following syntax. We assign the results of this <em>t</em>-test to an object (in this case, I called it <code>my_t</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep, <span class="at">mu =</span> <span class="dv">9</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -834,7 +839,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04-05-one-sample-test-assumptions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Assumptions and Errors</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Errors and Assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

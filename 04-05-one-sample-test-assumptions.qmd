@@ -152,7 +152,7 @@ The sample distribution looks symmetric, but perhaps not exactly normal. This is
 
 
 ```{r}
-#| label: normal-sim
+#| label: fig-normal-sim
 #| message: false
 #| echo: false
 #| warning: false
@@ -184,7 +184,7 @@ ggplot(data = sim_dat, aes(x = x)) +
 ```  
 
 
-The density plots in @normal-sim suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn't have to look perfectly normal for it to have been drawn from a population that is normal.
+The density plots in @fig-normal-sim suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn't have to look perfectly normal for it to have been drawn from a population that is normal.
 
 Looking back at the sample distribution of teen sleep measurements in @fig-hrs-sleep, it seems that this distribution is not so different from the distributions of the five other samples. This suggests that it too might have been drawn from a normally distributed population. In light of this, we would say:
 

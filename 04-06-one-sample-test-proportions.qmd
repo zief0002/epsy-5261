@@ -7,7 +7,7 @@ In this chapter you will learn about how to use a one-sample *z*-test to statist
 
 ## Case Study: Lead Levels in Minnesota Children 
 
-Lead exposure has been shown to have deleterious effects on peoples' health and well-being, especially children. The Center for Disease Control collects blood lead surveillance data from all 50 states in the United States. In 2012, the proportion of children tested under 6 years of age that had lead levels in their blood above the CDC reference level for high blood lead levels (5µg) was .029. The data in [mn-lead.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv) contains the measured lead levels in the blood for all Minnesota children tested under 6 years of age in 2018. There is also an attribute (`above_cdc`) that indicates whether the lead level is above the CDC reference level for high blood lead levels.
+Lead exposure has been shown to have deleterious effects on peoples' health and well-being, especially children. The Center for Disease Control collects blood lead surveillance data from all 50 states in the United States. In 2012, the proportion of children tested under 6 years of age that had lead levels in their blood above the Minnesota Department of Health (MDH) reference level for high blood lead levels (5µg/dL) was .029. The data in [mn-lead.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv) contains the measured lead levels in the blood for all Minnesota children tested under 6 years of age in 2018. There is also an attribute (`ebll`) that indicates whether the lead level indicates an elevated blood lead level according to MDH (i.e., is blood lead level above 5 µg/dL).
 
 ```{r}
 #| label: load-packages
@@ -26,30 +26,30 @@ mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/d
 mn_lead
 ```
 
-One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the CDC reference level in 2018 lower than the proportion in 2012? That is, they might wish to examine the following hypotheses:
+One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 lower than the proportion in 2012? That is, they might wish to examine the following hypotheses:
 
 $$
 \begin{split}
-H_0: \pi = .029 \\[1ex]
-H_A: \pi < .029
+H_0: \pi_{\text{Above MDH}} = .029 \\[1ex]
+H_A: \pi_{\text{Above MDH}} < .029
 \end{split}
 $$
-where $\pi$ (the Greek letter equivalent of "p") is the proportion of all Minnesota children under 6 years of age who are above the CDC reference level. To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the CDC reference level in 2018. We can then carry out a one-sample *z*-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error. 
+where $\pi_{\text{Above MDH}}$ (the Greek letter equivalent of "p") is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of $\pi$.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample *z*-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error. 
 
 <br />
 
 
 ### Summarizing the Sample Data
 
-We will start the analysis by summarizing the `above_cdc` attribute to determine the proportion of Minnesota children in 2018 under 6 years of age (who were tested) who have above blood lead levels above the CDC reference level.
+We will start the analysis by summarizing the `ebll` attribute to determine the proportion of Minnesota children in 2018 under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level.
 
 
 ```{r}
 # Syntax to compute the proportion for each category in the control attribute
-df_stats(~above_cdc, data = mn_lead, props)
+df_stats(~ebll, data = mn_lead, props)
 ```
 
-These summaries indicates that in 2018, the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the CDC reference level was .0139. The notation we use to denote a sample proportion is $\hat{p}$.
+These summaries indicates that in 2018, the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level was .0139. The notation we use to denote a sample proportion is $\hat{p}$.
 
 $$
 \hat{p} = .0139
@@ -123,7 +123,7 @@ To find the *p*-value associated with the alternative hypothesis that $\pi<.029$
 
 ```{r}
 #| label: fig-z-dist2
-#| fig-cap: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the *p*-value associate with the null hypotheis that the population proportion is less than .029."
+#| fig-cap: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the *p*-value associate with the null hypothesis that the population proportion is less than .029."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -144,9 +144,14 @@ In practice, we will use the `prop_test()` function from the `{mosaic}` package 
 To carry out the one-sample *z*-test, we will use the following syntax. Note that in the formula we also indicate that we want to compute the sample proportion for the `"Yes"` values. We assign the results of this *z*-test to an object (in this case, I called it `my_z`). Then we can use the `z_results()` and `plot_z_dist()` functions (both from the `{educate}` package) to show the results of the *z*-test and plot the *z*-distribution along with the observed *z*-value and shaded area associated with the *p*-value.
 
 ```{r}
+#| label: fig-z-dist-r
+#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the *p*-value associate with the null hypothesis that the population proportion is less than .029."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
 # One-sample z-test
 my_z <- prop_test(
-  ~above_cdc == "Yes", 
+  ~ebll == "Yes", 
   data = mn_lead, 
   p = .029, 
   alternative = "less",
@@ -160,7 +165,7 @@ plot_z_dist(my_z)
 z_results(my_z)
 ```
 
-Based on the *p*-value, and using an $\alpha$-value of .05, we would reject the null hypothesis. This suggests *it is likely* that the proportion of all Minnesota children under 6 years of age who are above the CDC reference level in 2018 is lower than the proportion in 2012. In this interpretation we call attention to the words "it is likely" to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the CDC reference level in 2018 is NOT lower than the proportion in 2012.
+Based on the *p*-value, and using an $\alpha$-value of .05, we would reject the null hypothesis. This suggests *it is likely* that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is lower than the proportion in 2012. In this interpretation we call attention to the words "it is likely" to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.
 
 
 <br />
@@ -175,9 +180,9 @@ Whether or not the *p*-value we obtain from the *z*-test is accurate depends on 
 3. The quantities $n(\hat{p})$ and $n(1-\hat{p})$ are both greater than 10, where *n* is the sample size and $\hat{p}$ is the sample proportion value. 
 
 
-To evaluate the first assumption that the distribution of values in the population follow a binomial distribution, we only need to confirm that the population only has two values. In our example, this is true; the only two values a case can have is "Yes" (blood lead level is above the CDC reference) or "No" (blood lead level is not above the CDC reference). 
+To evaluate the first assumption that the distribution of values in the population follow a binomial distribution, we only need to confirm that the population only has two values. In our example, this is true; the only two values a case can have is "Yes" (blood lead level is above the MDH reference) or "No" (blood lead level is not above the MDH reference). 
 
-We will evaluate the independence assumption the same way we did for the one-sample *t*-test, by referring to the study design. In our example, the cases in the data do not constitute a random sample of all Minnesota children. Does knowing that one Minnesota child's blood lead level is above (or below) the CDC reference level give us any information about whether any other Minnesota child's blood lead level is above (or below) the CDC reference level? Without additional data it is difficult to know, so we could argue that the independence assumption seems tenable.^[Just remember other scholars might argue that the population values are not independent.]
+We will evaluate the independence assumption the same way we did for the one-sample *t*-test, by referring to the study design. In our example, the cases in the data do not constitute a random sample of all Minnesota children. Does knowing that one Minnesota child's blood lead level is above (or below) the MDH reference level give us any information about whether any other Minnesota child's blood lead level is above (or below) the MDH reference level? Without additional data it is difficult to know, so we could argue that the independence assumption seems tenable.^[Just remember other scholars might argue that the population values are not independent.]
 
 Lastly we compute the quantities in the third assumption and check that they are both greater than 10.
 
@@ -194,97 +199,149 @@ $$
 <br />
 
 
-### Case Study: Test Responses
+### Case Study: Rotten Tomatoes
 
-The [Rotten Tomatoes](https://www.rottentomatoes.com/) website includes both audiences' and critics' ratings for different movies. The ratings are then classified into one of two categories: "Fresh" (which indicates a positive review) or "Rotten" (which indicates a negative review). The data in [fast-x-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fast-x-reviews.csv) includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the *Fast &amp; the Furious* franchise).
+The [Rotten Tomatoes](https://www.rottentomatoes.com/) website includes both audiences' and critics' ratings for different movies. The ratings are then classified into one of two categories: "Fresh" (which indicates a positive review) or "Rotten" (which indicates a negative review). The data in [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the *Fast &amp; the Furious* franchise). You will use the data in the `fresh_rotten` attribute to evaluate whether the proportion of all critics' "Fresh" reviews is greater than .50. Mathematically the hypotheses you will evaluate are:
 
+
+$$
+\begin{split}
+H_0: \pi_{\text{Fresh}} = .50 \\[1ex]
+H_A: \pi_{\text{Fresh}} > .50
+\end{split}
+$$
   
-
-
-claims that Republican Party will win in the next Senate elections, especially in Florida State. Statistical data reported that 23% voted for Republican Party in the last election. To test the claim a researcher surveyed 80 people and found 22 said they voted for Republican Party in the last election. Is there enough evidence at α=0.05 to support this claim?
-
 
 :::exercises
 #### Your Turn {.unnumbered}
 
-In the continuous assessment case study from @sec-one-sample-test-r, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students' prior knowledge. The histogram of the 30 teachers' responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
+Import the [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) data and compute the sample proportion of "Fresh" reviews.
 
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-01');">Show/Hide Solution</button>
+
+<div id="exercise_04-06-01" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-#| label: fig-prior-knowledge
-#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
 #| warning: false
-#| echo: false
-library(ggformula)
-continuous_assessment <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
+# Import data
+fastx <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv")
 
-# Create density plot
-gf_histogram(
-  ~prior_knowledge, data = continuous_assessment,
-  bins = 4,
-  color = "black", 
-  fill = "skyblue",
-  xlab = "Level of Agreement",
-  ylab = "Count"
-  )
+# Compute sample proportion of Fresh reviews
+df_stats(~fresh_rotten, data = fastx, props)
 ```
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-05');">Show/Hide Solution</button>
+The sample proportion of "Fresh" reviews is 0.538.
+</div>
+
+Which hypothesis the null or alternative, does the sample evidence support? Explain
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-02');">Show/Hide Solution</button>
+
+<div id="exercise_04-06-02" style="display:none; margin: -40px 0 40px 40px;">
+The sample evidence supports the alternative hypothesis since $\hat{p}$ is greater than the hypothesized value of 0.5.
+</div>
+
+Compute the observed *z*-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-03');">Show/Hide Solution</button>
+
+<div id="exercise_04-06-03" style="display:none; margin: -40px 0 40px 40px;">
+
+$$
+\begin{split}
+z &= \frac{.5378151 - .50}{\sqrt{.50(1 - .50)/238}} \\[1ex]
+&= \frac{0.0378151}{0.03241019} \\[1ex]
+&= 1.17
+\end{split}
+$$
+
+The observed *z*-value tells us that the sample proportion is 1.17 standard errors higher than the hypothesized value of 0.50.
+</div>
+
+
+Carry out a one-sample *z*-test to evaluate whether the sample evidence is only due to sampling error. Report the pertinent results from this test, and use those resultsa to draw a conclusion about the hypotheses assuming an $\alpha$-value of 0.05.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-04');">Show/Hide Solution</button>
+
+<div id="exercise_04-06-04" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+# One-sample z-test
+my_z <- prop_test(
+  ~fresh_rotten == "fresh", 
+  data = fastx, 
+  p = .50, 
+  alternative = "greater",
+  correct = FALSE
+  )
+
+# Plot z-distribution, observed z-value and shaded p-value
+#plot_z_dist(my_z)
+
+# Show z-test results
+z_results(my_z)
+```
+
+
+The results of the one-sample *z*-test, $z=-1.17$, $p=.122$, suggest we should failt to reject the null hypothesis. It is likely that the population proportion of "Fresh" reviews is not greater than 0.50.
+</div>
+
+Sketch a picture of the *z*-distribution (try to do this initially without using R). Then add a vertical line at the observed *z*-value. Finally, shade the area under the *z*-distribution that is assciated with the *p*-value. Check your sketch by using the `plot_z_dist()` function.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-05');">Show/Hide Solution</button>
 
 <div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
-Yes, the normality assumption seems tenable. While the distribution of the sample responses is not normally distributed, it is not egregiously skewed. Moreover, since the sample size is 30, the CLT would suggest that we can assume that the *p*-value is not going to be impacted by any deviation in the population distribution from normality.
+Your sketch should look like the distribution plotted in @fig-z-dist-fresh.
+
+```{r}
+#| label: fig-z-dist-fresh
+#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of 1.17 also included. The shaded area to the right of 1.17 constitutes the *p*-value associate with the null hypothesis that the population proportion is greater than .50."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+# Check your work
+plot_z_dist(my_z)
+```
 </div>
 
-Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html), do you believe the independence assumption is tenable?
+Based on your decision, what type of error might you have made? Explain.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-06');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-06');">Show/Hide Solution</button>
 
-<div id="exercise_04-05-06" style="display:none; margin: -40px 0 40px 40px;">
-Yes, the independence assumption is tenable. The use of random chance to select the sample data (random sampling) guarantees independence.
+<div id="exercise_04-06-06" style="display:none; margin: -40px 0 40px 40px;">
+Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of "Fresh" reviews actually is greater than 0.5 and we erroneously concluded it was not.
 </div>
+
+Check and evaluate all of the assumptions for the one-sample *z*-test.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-07');">Show/Hide Solution</button>
+
+<div id="exercise_04-06-07" style="display:none; margin: -40px 0 40px 40px;">
+The assumptions are:
+
+1. The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., "Yes" or "No").
+2. The values in the population are *independent* from each other.
+3. The quantities $n(\hat{p})$ and $n(1-\hat{p})$ are both greater than 10, where *n* is the sample size and $\hat{p}$ is the sample proportion value. 
+
+The first assumption is met---the only two values for a review are "Fresh" or "Rotten". 
+
+The second assumption also seems tenable. Although the sample is not chosen randomly, knowing one reviewer's rating does not likely give us information about another reviewer's rating. (If you said that the independence assumption is not tenable, you would need to provide an explanation as to why one reviewer's rating gives us information about another reviewer's rating. For example, reviewers read each others' reviews so one reviewer's rating often influences another reviewer's rating.)
+
+Lastly we compute the quantities in the third assumption and check that they are both greater than 10. This is the case, so the third assumption is also met.
+
+$$
+\begin{split}
+n(\hat{p}) &= 238(.5378151) \\[1ex]
+&= 128 \\[3ex]
+n(1-\hat{p}) &= 238(1 - .5378151) \\[1ex]
+&= 110
+\end{split}
+$$
+</div>
+
 :::
 
 <br />
-
-
-### Evaluating Assumptions in the House Prices Case Study
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-In the house prices case study from @sec-one-sample-test-r, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than \$322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
-
-```{r}
-#| label: fig-house-prices
-#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus. "
-#| warning: false
-#| echo: false
-zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
-
-# Create histogram
-gf_histogram(
-  ~price, data = zillow,
-  binwidth = 75,
-  color = "black", 
-  fill = "skyblue",
-  xlab = "House Price",
-  ylab = "Count"
-  )
-```
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-05');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
-The normality assumption may not be tenable. The distribution of the sample responses is not normally distributed, and is clearly left-skewed. Moreover, since the sample size is less than 30, we can not rely on the CLT.
-</div>
-
-Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/zillow.html), do you believe the independence assumption is tenable?
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-06');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-06" style="display:none; margin: -40px 0 40px 40px;">
-It is unclear that the independence assumption is tenable. The data collection did not use random chance to select the sample data. Moreover, it is likely that knowing the sale price for one house would give us information about the sale price for other houses since houses in the same neighborhood are often sold for similar prices.
-</div>
-:::
 
 ## References
 

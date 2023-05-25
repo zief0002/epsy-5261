@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./04-06-one-sample-test-proportions.html" rel="next">
 <link href="./04-04-one-sample-test-computation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -196,6 +197,11 @@ function toggle_visibility(id) {
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">One-Sample t-Test: Errors and Assumptions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -350,15 +356,15 @@ Show/Hide Solution
 <p>The sample distribution looks symmetric, but perhaps not exactly normal. This is okay since the assumption is about whether the POPULATION distribution is normal, not whether the sample distribution is normal. We are only asking whether we believe that the population distribution is normal based on what we see in the sample distribution. To answer this question, we need some idea of what sample distributions of size 75 look like if they truly do come from a population that is normally distributed. Below are the distributions for five samples of size 75 that were actually drawn from a normal distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-normal-sim" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="04-05-one-sample-test-assumptions_files/figure-html/normal-sim-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed.</figcaption><p></p>
+<p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-normal-sim-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;9.2: Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The density plots in <span class="citation" data-cites="normal-sim">(<a href="#ref-normal-sim" role="doc-biblioref"><strong>normal-sim?</strong></a>)</span> suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn’t have to look perfectly normal for it to have been drawn from a population that is normal.</p>
+<p>The density plots in <a href="#fig-normal-sim">Figure&nbsp;<span>9.2</span></a> suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn’t have to look perfectly normal for it to have been drawn from a population that is normal.</p>
 <p>Looking back at the sample distribution of teen sleep measurements in <a href="#fig-hrs-sleep">Figure&nbsp;<span>9.1</span></a>, it seems that this distribution is not so different from the distributions of the five other samples. This suggests that it too might have been drawn from a normally distributed population. In light of this, we would say:</p>
 <blockquote class="blockquote">
 <p>The assumption of normality seems tenable given the distribution of the sample data.</p>
@@ -392,7 +398,7 @@ Show/Hide Solution
 <div id="fig-prior-knowledge" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.2: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;9.3: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -423,7 +429,7 @@ Show/Hide Solution
 <div id="fig-house-prices" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-house-prices-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.3: Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;9.4: Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -600,6 +606,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./04-06-one-sample-test-proportions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -1,0 +1,56 @@
+---
+title: "fastx-reviews.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) include reviews for the 2023 movie Fast X, the 10th installment of the *Fast \& the Furious* franchise. The data also includes reviewer information including the name of the reviewer and the publication they work for. These data were scraped from the [Rotten Tomatoes website](https://www.rottentomatoes.com/m/fast_x) on May 24, 2023. 
+
+
+---
+
+The attributes included in the data are:
+
+- `reviewer``: Name of the reviewer
+- `publication`: Publication the reviewer works for
+- `score`: Reviewer score for Fast X based on the scale used in the publication
+- `fresh_rotten`: Rotten Tomatoes rating of "fresh" (positive review) or "rotten" (negative review)
+- `review_text`: Written text of the review
+
+
+---
+
+
+### Preview
+
+```{r}
+# Import data
+library(tidyverse)
+fastx <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv")
+```
+
+```{r}
+#| echo: false
+# View data
+DT::datatable(fastx)
+```
+
+
+<!-- ### References -->
+
+
+
