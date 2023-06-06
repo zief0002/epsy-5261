@@ -4,6 +4,7 @@
 Consider the following data which constitute a random sample of 25 New York Times bestselling harcover books [@Pruett:2021]. Take a minute to look familiarize yourself with these data.
 
 ```{r}
+#| label: nyt-data
 #| echo: false
 #| message: false
 nyt = readr::read_csv("data/nyt-best-sellers.csv")

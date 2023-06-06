@@ -1,0 +1,312 @@
+# Two-Sample t-Test {#sec-two-sample-t-test}
+
+In this chapter you will learn how to carry out a one-sample *t*-test using R to statistically compare a sample of data to a standard by accounting for the sampling uncertainty. 
+
+<br />
+
+
+## Case Study: Cannabis Effects on IQ
+
+In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples' health and well-being [@Volkow:2014], including lng-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on [data collected from the Center for Disease Control in 2019](https://www.cdc.gov/marijuana/health-effects/teens.html), 37\% of U.S. high school students reported using marijuana at least once, and 22\% reported use in the past 30 days. 
+
+To study the long-term effects of cannabis, @Meier:2012 examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset). To determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al. posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults.
+
+We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv) to evaluate this hypothesis.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(educate)
+library(ggformula)
+library(mosaic)
+library(tidyverse)
+
+
+# Import data
+cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
+
+# View data
+cannabis
+```
+
+<br />
+
+
+## Writing the Set of Hypotheses
+
+When comparing two groups, the null hypothesis is that the population mean for the two groups is the same. In our example, the null hypothesis would be that the average decline in IQ scores for all persistent marijuana users that became dependent as adults is the same as the average decline in IQ scores for all persistent marijuana users that became dependent as teens. Mathematically:
+
+$$
+H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}}
+$$
+
+The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since the researchers posited that persistent marijuana users that became dependent as teens would have a bigger decline (more negative values, on average) in IQ than those who became dependent as adults, the alternative hypothesis would be:
+
+$$
+H_A: \mu_{\text{Adult-onset}} > \mu_{\text{Teen-onset}}
+$$
+
+:::protip
+The order of the two groups in the hypotheses does not matter. For example, we could also have written the hypotheses so that the mean for teen-onset was written before the mean for adult-onset:
+
+$$
+\begin{split}
+&H_0: \mu_{\text{Teen-onset}} = \mu_{\text{Adult-onset}} \\
+&H_A: \mu_{\text{Teen-onset}} < \mu_{\text{Adult-onset}}
+\end{split}
+$$
+
+However, when we go to use the `t_test()` function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the `cannabis_dep` attribute, the two values are `Teen` and `Adult`. Since `Adult` comes alphabetically before `Teen`, if we specify `alternative="less"` we would be testing `Adult` $<$ `Teen`. Because of this, it is a good idea to put the means in alphabetical order when writing the hypotheses so that you can correctly specify the alternative hypothesis in `t_test()`.
+:::
+
+We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means equalling zero:
+
+$$
+H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0
+$$
+In a similar fashion the alternative hypothesis could be expressed as:
+
+$$
+H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} > 0
+$$
+:::fyi
+The output from `t_result()` will present the hypotheses as a difference between means.
+:::
+
+<br />
+
+
+## Visualizing and Numerically Describing Sample Differences
+
+As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ chnage scores are all in a single column, we have to change the formula with the tilde we use in the `gf_` and `df_stats()` functions so that it will plot those for each group separately. The formula will now look like:
+
+$$
+\mathtt{\sim y ~|~ group}
+$$
+
+where `y` is the attribute name that you want to plot, and `group` is the name of the attribute that has the groups in it. For example, since we want to plot the IQ change scores for the two groups we would use the formula:
+
+
+$$
+\mathtt{\sim iq\_change ~|~ cannabis\_dep}
+$$
+
+:::protip
+Reading this syntax, we would say: "model the attribute `iq_change` but separate (or condition) this by `cannabis_dep`".
+:::
+
+The syntax for creating density plots and computing numerical summaries is shown below. 
+
+
+```{r}
+#| label: fig-prior-knowledge
+#| fig-cap: "Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults."
+#| warning: false
+# Create histogram
+gf_density(
+  ~ iq_change | cannabis_dep, data = cannabis,
+  fill = "skyblue", 
+  xlab = "Change in IQ Score",
+  ylab = "Density"
+  )
+
+# Compute numerical summaries
+df_stats(~ iq_change | cannabis_dep, data = cannabis)
+```
+
+The density plots suggests that the distribution of change in IQ scores is not symmetric for either group. The distribution for participants who became persistent marijuana users as teens is also potentially bimodal. The average change in IQ score for participants who became persistent marijuana users as adults was $-2.07$ points indicating that the average IQ score decreased by about two points throughout the duration of the study. In contrast, the average change in IQ score for participants who became persistent marijuana users as teens was $-8.26$ points indicating that the average IQ score decreased by about eight points throughout the duration of the study. The was variation in IQ change in both groups, with both groups having a standard deviation near seven.
+
+
+Next, we carry out a two-sample *t*-test. The arguments we include are: 
+
+- A formula of `~y|group` indicating the attribute to compare, and the groups that are being compared;
+- `data=` indicating the data frame the attributes are in;
+- `mu=` to specify the value of the difference in population means specified in the null hypothesis;
+- `alternative=` is one of `two.sided`, `less`, or `greater` that corresponds to the alternative hypothesis; and
+- `var.equal=TRUE` which ensures that you use the correct version of the two-sample *t*-test
+
+We can assign the output of the `t_test()` function into an object, and use the `t_results()` and `plot_t_dist()` functions to examine the output of the two-sample *t*-test and view the *t*-distribution and shaded *p*-value, respectively.
+
+```{r}
+# One-sample t-test
+my_t <- t_test(
+  ~ iq_change | cannabis_dep, 
+  data = cannabis, 
+  mu = 0, 
+  alternative = "greater", 
+  var.equal = TRUE
+  )
+
+# View t-test results
+t_results(my_t)
+```
+
+:::protip
+When you get the results from the *t*-test, be sure it says "Two Sample t-test". If it says "Welch Two Sample t-test" you forgot to set the argument `var.equal=TRUE`.
+:::
+
+
+```{r}
+#| label: fig-t-dist3
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (*t* value of 0). The red vertical line represents the observed *t*-value of 2.47. The shaded area under the curve to the right of 2.47 shows the associated *p*-value of .009 that corresponds to the alternative hypothesis that $\\mu>0$."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+# View t-distribution
+plot_t_dist(my_t)
+```
+
+Based on the *p*-value of .009, we would *reject* the null hypothesis. The evidence suggests that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. This indicates that marijuana may have more of an adverse effect on IQ for people that became persistent marijuana users as teens.
+
+<br />
+
+
+## Computing the Observed t-Value and Degrees-of-Freedom
+
+The observed *t*-value is computed as part of using the `t_test()` function, but examining the mathematical formula may give us insight into what this *t*-statistic is measuring. In a two-sample *t*-test the *t*-value is computed as:
+
+$$
+t = \frac{(\bar{y}_{1} - \bar{y}_{2}) - \mu_{\text{Diff.}}}{SE_{\text{Mean Diff.}}}
+$$
+
+where,
+
+$\bar{y}_1$ is the sample mean for Group 1, $\bar{y}_2$ is the sample mean for Group 2, $\mu_{\text{Diff.}}$ is the mean difference specified in the null hypothesis, and $SE_{\text{Mean Diff.}}$ is the standard error for the sample mean difference, which is computed as:
+
+$$
+SE_{\text{Mean Diff.}} = \sqrt{\frac{SD_1^2}{n_1} + \frac{SD_2^2}{n_2}}
+$$
+
+And $SD_1$ and $SD_1$ are the sample standard deviations for Groups 1 and 2, respectively, and $n_1$ and $n_2$ are the sample sizes for those groups.
+
+Looking at the numerator of the *t*-value, we are measuring how far the sample mean difference is from the hypothesized mean difference. Then, we are dividing by the SE, which changes the scale to standard error units. So our observed *t*-value is measuring the discrepancy between the sample and hypothesized mean difference in standard error units. In our example,
+
+$$
+\begin{split}
+t &= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}} \\[2ex]
+&= \frac{6.19}{2.55} \\[2ex]
+&= 2.47
+\end{split}
+$$
+
+That is our observed mean difference of 6.19 is 2.47 standard errors from the hypothesized mean difference of 0. We then evaluate this *t*-value in a *t*-distribution with $n1 + n_2 -2$ degrees-of-freedom. In our case the *t*-value of 2.47 is evaluated in a *t*-distribution with 35 *df*. This is the same thing we got in the output of `t_results()`.
+
+Since the alternative hypothesis was $\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} > 0$, to find the *p*-value, we would find the area under the *t*-distribution that is greater than or equal to the observed *t*-value of 2.47. This area is shaded in the output of `plot_t_dist()` and corresponds to .009 of the entire area under the curve.
+
+<br />
+
+
+## Case Study 2: Bachelor and Bachelorette Ages
+
+Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, do we see age differences between those people selected to be the bachelor and those selected to be the bachelorette?
+
+We will use the data in [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) to evaluate the following hypotheses.
+
+$$
+\begin{split}
+&H_0: \mu_{\text{Bachelor}} = \mu_{\text{Bachelorette}} \\
+&H_A: \mu_{\text{Bachelor}} > \mu_{\text{Bachelorette}}
+\end{split}
+$$
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Write the hypotheses as a difference in the average ages of the Bachelor and Bachelorette contestants.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_05-01-01" style="display:none; margin: -40px 0 40px 40px;">
+$$
+\begin{split}
+&H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
+&H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} < 0
+\end{split}
+$$
+</div>
+
+
+
+```{r}
+#| label: import-bachelor
+#| message: false
+# Import data
+bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
+
+# View data
+bachelor
+```
+
+Below we create the distribution of ages for the bachelors and bachelorettes. Both distributions are right-skewed and have a range between about 25 and 40. The average age for the bachelor contestants is 30.7 while that for the Bachelorette contestants is slightly younger at 28.2. The SD for these distributions is slightly higher for the Bachelor contestants (3.80) than for the Bachelorette contestants (3.04) indicating a little more variation in the bachelors' ages. 
+
+
+
+```{r}
+#| label: fig-bachelor
+#| fig-cap: "Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants."
+# Create histogram
+gf_histogram(
+  ~age | show, data = bachelor,
+  binwidth = 2,
+  color = "black", 
+  fill = "skyblue",
+  xlab = "Age",
+  ylab = "Count"
+  )
+
+# Compute numerical summaries
+df_stats(~age | show, data = bachelor)
+```
+
+While the sample data suggests that the average age for Bachelor contestants is higher than the average age of Bachelorette contestants, is this difference only due to sampling variation? To answer this, we will carry out a two-sample *t*-test to evaluate the sample differences in light of the expected sampling variation.
+
+```{r}
+# One-sample t-test
+my_t <- t_test(
+  ~age | show, data = bachelor, 
+  mu = 0, 
+  alternative = "greater",
+  var.equal = TRUE
+  )
+
+# View t-test results
+t_results(my_t)
+```
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Use the results of the two-sample *t*-test to sketch the *t*-distribution with 48 *df*, add a vertical line at the observed *t*-value, and shade the area under the curve corresponding to the *p*-value.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">Show/Hide Solution</button>
+
+<div id="exercise_05-01-02" style="display:none; margin: -40px 0 40px 40px;">
+
+Your sketch should look something like the following.
+
+```{r}
+#| label: fig-t-dist2
+#| fig-cap: "Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical line represents the observed *t*-value of 2.57. The shaded area under the curve to the right of 2.57 shows the associated *p*-value of .007 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is greater than the average age of the Bachelorette contestants."
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "80%"
+
+# View t-distribution
+plot_t_dist(my_t)
+```
+</div>
+
+Based on the results of the *t*-test, should we reject or fail to reject the null hypothesis? Explain why and also what this implies given the context of the case study.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-03');">Show/Hide Solution</button>
+
+<div id="exercise_05-01-03" style="display:none; margin: -40px 0 40px 40px;">
+The *p*-value of .007 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is higher than the average age for Bachelorette contestants.  
+</div>
+:::
+
+<br />
+
+
+## References
+

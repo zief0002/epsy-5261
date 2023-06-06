@@ -1,0 +1,5 @@
+# Study Design {#sec-study-design}
+
+You will learn how sampling bias might distort our inferences, and how to evaluate whether particular sampling methods used to collect the sample data might suffer from sampling bias.
+
+
