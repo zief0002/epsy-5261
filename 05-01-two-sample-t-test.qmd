@@ -16,6 +16,7 @@ We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief000
 ```{r}
 #| label: load-packages
 #| message: false
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -198,7 +199,7 @@ Since the alternative hypothesis was $\mu_{\text{Adult-onset}} - \mu_{\text{Teen
 
 ## Case Study 2: Bachelor and Bachelorette Ages
 
-Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, do we see age differences between those people selected to be the bachelor and those selected to be the bachelorette?
+Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, do we see age differences between those people selected to be The Bachelor and those selected to be The Bachelorette?
 
 We will use the data in [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) to evaluate the following hypotheses.
 
