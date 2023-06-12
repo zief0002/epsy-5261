@@ -42,6 +42,7 @@ book:
       chapters:
         - 05-01-two-sample-t-test.qmd
         - 05-02-two-sample-test-assumptions.qmd
+        - 05-03-two-sample-test-proportions.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

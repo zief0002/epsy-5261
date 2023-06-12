@@ -1,6 +1,6 @@
 # Two-Sample t-Test {#sec-two-sample-t-test}
 
-In this chapter you will learn how to carry out a one-sample *t*-test using R to statistically compare a sample of data to a standard by accounting for the sampling uncertainty. 
+In this chapter you will learn how to carry out a two-sample *t*-test using R to statistically compare two samples of data by accounting for the sampling uncertainty. 
 
 <br />
 
