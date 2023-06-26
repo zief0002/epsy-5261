@@ -1,0 +1,55 @@
+---
+title: "teen-sleep.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+These data are based on data collected from @Meltzer:2021 who collected sleep data on students in order to study school start times. Students enrolled in the Cherry Creek School District, a large, diverse district in suburban Denver, Colorado and their parents were invited to participate in the study. The data in [teen-sleep.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv) include the sleep duration for 75 of the students who volunteered to participate in the study. 
+
+Sleep duration is based on students' typical weekday bedtime and wake times. The typical weekday bedtime and wake times were collected using student surveys and verified by data collected in separate parent surveys. In both the student and parent surveys, bedtimes and wake times were selected from drop down menu that included time in 5 minute increments. Sleep duration was computed based on these times by computing the difference between bed and wake times.
+
+---
+
+The attributes included in the data are:
+
+- `bedtime`: Typical bedtime, given in military time
+- `wakeup`: Typical wake time, given in military time
+- `hrs_sleep`: Typical amount of sleep, given in hours, based on the difference between bedtime and wake time
+
+
+---
+
+
+### Preview
+
+```{r}
+# Import data
+library(tidyverse)
+teen_sleep <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv")
+```
+
+```{r}
+#| echo: false
+# View data
+DT::datatable(teen_sleep)
+```
+
+
+### References
+
+
+
