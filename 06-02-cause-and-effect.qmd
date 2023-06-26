@@ -1,0 +1,114 @@
+# Random Assignment and Causal Inferences {#sec-cause}
+
+In this chapter you will learn how the method used to assign sample cases to groups impacts the degree to which we can make causal inferences. 
+
+<br />
+
+
+## Causal Inference
+
+Causal inference (a.k.a., internal validity) refers to the process of drawing cause-and-effect conclusions. For example, suppose you were studying the effects of a new drug that was thought to reduce cholesterol. You might give this drug to some patients with high cholesterol (the treatment group) and not to others (the control group). Then, the average cholesterol for these two groups might be compared using a two-sample *t*-test. Imagine that the results of this analysis indicated that the treatment group had a lower average cholesterol level, with a small *p*-value. Could we attribute the lower cholesterol level, on average, to the effects of the drug? The answer to that question often depends on how the participants in the trial were assigned to the treatment and control groups.
+
+
+<br />
+
+
+## Making a Causal Attribution
+
+To attribute a causal relationship, there are three criteria a researcher needs to establish:
+
+- **Temporal Precedence:** The cause needs to happen BEFORE the effect.
+- **Covariation of the Cause and Effect:** There needs to be a relationship between the cause and effect (i.e., a statistically discernible difference between treatment and control).
+- **No Plausible Alternative Explanations:** ALL other possible explanations for the effect need to be ruled out.
+
+
+In the hypothetical drug study we have *temporal precedence*. The presumed effect (lowering of cholesterol level) happened AFTER the presumed cause (taking the drug). We also have the second criteria since the two-sample *t*-test resulted in a statistically discernible difference in the average cholesterol level between the treatment and control groups. The third criteria, however, is very difficult to establish. For example, maybe the members of the treatment group had a different exercise regime or different dietary habits than the control group and it was those factors, not the drug, that resulted in the lower average cholesterol level.
+
+To rule out ALL other possible explanations for the effect, the control group and the treatment group need to be "identical" with respect to every possible characteristic (aside from the treatment) that could explain differences. This way the only characteristic that will be different is that the treatment group gets the treatment and the control group does not. By design, if there are differences in the outcome, then it must be attributable to the treatment, because the other possible explanations are ruled out.
+
+So, the key is to make the control and treatment groups "identical" when you are forming them. One thing that makes this task (slightly) easier is that they do not have to be exactly identical, only [probabilistically equivalent](https://conjointly.com/kb/probabilistic-equivalence/). This means, for example, that if you were matching groups on age that you don’t need the two groups to have identical age distributions; they would only need to have roughly the same AVERAGE age. Here roughly means "the average ages should be the same within what we expect because of sampling error." While this makes it "easier" to create the groups, it is still an almost impossible challenge since participants still need to be assigned so that the groups, on average, are the same...for EVERY POSSIBLE CHARCTERISTIC that could explain differences in the outcome. Zoinks!^[According to [Wiktionary](https://en.wiktionary.org/wiki/zoinks) the earliest usage of the work "zoinks" was by Norville "Shaggy" Rogers on the show Scooby-Doo.]
+
+It turns out that creating probabilistically equivalent groups is a really difficult problem. One method that works pretty well for doing this is to randomly assign participants to the groups. This works best when you have large sample sizes, but even with small sample sizes random assignment has the advantage of at least removing the systematic bias between the two groups (any differences are due to chance and will probably even out between the groups). As [Wikipedia’s page on random assignment](https://en.wikipedia.org/wiki/Random_assignment) points out,
+
+> Random assignment of participants helps to ensure that any differences between and within the groups are not systematic at the outset of the experiment. Thus, any differences between groups recorded at the end of the experiment can be more confidently attributed to the experimental procedures or treatment. … Random assignment does not guarantee that the groups are matched or equivalent. The groups may still differ on some preexisting attribute due to chance. The use of random assignment cannot eliminate this possibility, but it greatly reduces it.
+
+It is because of this that using random assignment to assign participants to the treatment and control groups is the gold standard when it comes to drawing causal inferences. The random assingment to groups helps meet the third criteria that ALL other possible explanations for the effect, aside from the treatment being tested, can be ruled out since the control and treatment groups are probabilistically equivalent.
+
+<br />
+
+
+## Randomly Assigning Members of a Sample
+
+To assign members of a sample to different groups, we can again use the `sample()` function. We will provide this function a vector of the members of the sample. We will also not include the `size=` argument and use the argument `replace=FALSE`. This will randomly order all of the members in the given vector. Then the first half of the elements can be assigned to treatment and the last half to control. (There are also other ways to do this.)
+
+Below is some syntax that could be used to assign 10 participants to groups. (Again, we will use the `set.seed()` function to make the results from `sample()` repeatable.)
+
+```{r}
+# Create a vector of the participants in the sample
+my_sample <- c("Participant 1", "Participant 2", "Participant 3", "Participant 4", 
+              "Participant 5", "Participant 6", "Participant 7", "Participant 8", 
+              "Participant 9", "Participant 10")
+
+# View sample
+my_sample
+
+# Assign participants in a random order
+# First 5 will be treatment
+# Second 5 will be control
+set.seed(100)
+sample(my_sample, replace = FALSE) 
+```
+
+Based on this ordering, Participants 10, 7, 6, 3, and 1 will be assigned to the treatment group, and Participants 2, 5, 9, 4, and 8 will be assigned to the control group.^[You could also choose other ways of assigning the participants based on the random order. For example every other participant could be assigned to the treatment group. The key is you decide how this will be done before you see the results of the `sample()` function.] 
+
+As with random sampling, in this class, it isn't as important that you know HOW to use R functions to randomly assign participants, but rather that you understand WHY random assignment is the method of assigning subjects that is the gold standard when it comes to making causal inferences. That being said, it is also important to understand that even if random assignment is employed, there can still be problems with ensuring probabilistic equivalence. Things like participant dropout can make causal inference problematic despite initially assigning groups randomly.
+
+<br />
+
+
+## Generalizations and Causal Inference
+
+It is important to differentiate between the drawing of causal inferences and making generalizations. For example, we might be able to attribute the lower cholesterol in our hypothetical study to the taking of the drug, but not be able to generalize the effects to the larger population. That is because the question of generalization boils down to how the sample was selected from the larger population, while the question of cause boils down to how the sample participants are assigned to treatment and control groups. @tbl-scope-inferences shows four possible study designs and the scope of inferences that are feasible given those designs.
+
+
+
+```{r}
+#| label: tbl-scope-inferences
+#| tbl-cap: "Four potential study designs researchers could have and the scope of inferences that they could make based on the study design."
+#| echo: false
+#| tbl-colwidths: false
+library(gt)
+dplyr::tibble(
+  rs = c("&#10004;", "", "&#10004;", ""),
+  ra = c("", "&#10004;", "&#10004;", ""),
+  scope = c("Generalizable to population", "Cause-and-effect, but not generalizable to population",
+            "Cause-and-effect and generalizable to population", 
+            "No cause-and-effect and not generalizable to population")
+) |>
+  gt() |>
+  cols_label(
+    rs = "Random Sample",
+    ra = "Random Assignment",
+    scope = "Scope of Inferences"
+  ) |>
+  cols_align(
+    align = "center",
+    columns = c(rs, ra)
+  ) |>
+  fmt_markdown(columns = c(rs, ra)) |>
+  tab_options(
+    table.width = pct(60)
+    )
+```
+
+As you read research articles and consider the evidence presented in those articles, it is is important to take into account the design of the study. How was the sample selected? If there are groups being compared, how were participants assigned to groups? These aspects of the study are just as if not more) important than statistical significance when it comes to the type of inferences one can make. Because they are so important to the conclusions of a study, most research will describe these aspects of the study's design. If a study does not describe these aspects, it should be assumed that random sampling and assignment were not employed. And while this doesn't necessarily make the study's results unimportant, it should give you pause as a researcher and reduce the weight of evidence the study gives to the broader scientific corpus.
+
+<br />
+
+
+
+
+
+
+<!-- ## References -->
+

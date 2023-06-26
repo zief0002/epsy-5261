@@ -43,6 +43,11 @@ book:
         - 05-01-two-sample-t-test.qmd
         - 05-02-two-sample-test-assumptions.qmd
         - 05-03-two-sample-test-proportions.qmd
+        - 05-04-errors.qmd
+    - part: 06-00-study-design.qmd
+      chapters:
+        - 06-01-generalization.qmd
+        - 06-02-cause-and-effect.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

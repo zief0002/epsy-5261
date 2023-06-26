@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - Comparing Two Groups</title>
+<title>An Introduction to Data Analysis: The End - 15&nbsp; Random Sampling and Generalization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-01-two-sample-t-test.html" rel="next">
-<link href="./04-06-one-sample-test-proportions.html" rel="prev">
+<link href="./06-02-cause-and-effect.html" rel="next">
+<link href="./06-00-study-design.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,6 +106,9 @@ function toggle_visibility(id) {
 }
 </script>
 
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -86,7 +123,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-00-study-design.html">Study Design</a></li><li class="breadcrumb-item"><a href="./06-01-generalization.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -223,7 +260,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link active">
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -267,7 +304,7 @@ function toggle_visibility(id) {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
@@ -285,14 +322,23 @@ function toggle_visibility(id) {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#generalization" id="toc-generalization" class="nav-link active" data-scroll-target="#generalization"><span class="header-section-number">15.1</span> Generalization</a></li>
+  <li><a href="#statistical-bias" id="toc-statistical-bias" class="nav-link" data-scroll-target="#statistical-bias"><span class="header-section-number">15.2</span> Statistical Bias</a></li>
+  <li><a href="#sampling-methods-and-bias" id="toc-sampling-methods-and-bias" class="nav-link" data-scroll-target="#sampling-methods-and-bias"><span class="header-section-number">15.3</span> Sampling Methods and Bias</a></li>
+  <li><a href="#choosing-a-simple-random-sample" id="toc-choosing-a-simple-random-sample" class="nav-link" data-scroll-target="#choosing-a-simple-random-sample"><span class="header-section-number">15.4</span> Choosing a Simple Random Sample</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-compare-two-groups" class="quarto-section-identifier">Comparing Two Groups</span></h1>
+<h1 class="title"><span id="sec-generalization" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></h1>
 </div>
 
 
@@ -307,11 +353,91 @@ function toggle_visibility(id) {
 
 </header>
 
-<p>Another task that is commonly performed in research is to compare the data you have collected from two different groups with the goal of inferring whether a particular population parameter differs between those groups. For example, is the average cost-of-living higher in Minneapolis than it is in St.&nbsp;Paul? Or, is the proportion of students who own an automobile different for students living at home versus those living in the dorms?</p>
-<p>Comparing two groups is one of the most important endeavors in social science and educational research. It is the basis of all experimental work (e.g., does the treatment group perform better, on average, than the control group?). It is also used in non-experimental work and is crucial in calling out societal injustices (e.g., are college-educated women earning less, on average, than college-educated men?).</p>
-<p>There are many parallels between the one-sample methods you learned about in <span class="quarto-unresolved-ref">?sec-compare-standard</span> and the methods used to compare two groups. Similar to the one-sample tests you learned about, the methods you learn in this section will quantify the amount of uncertainty in a sample numerical estimate, but now there is uncertainty that needs to be quantified for estimates from two different samples of data. The assumptions underlying the methods we use to compare groups are also similar, but have to be performed on both groups and also include additional assumptions that the one-sample tests did not have.</p>
+<p>In this chapter you will learn how the sampling method used to select sample cases impacts the generalizability of the inferences we can draw about the larger population.</p>
+<p><br></p>
+<section id="generalization" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="generalization"><span class="header-section-number">15.1</span> Generalization</h2>
+<p>In statistical inference, generalization (a.k.a., external validity) refers to the process of using sample data to draw conclusions about the larger population from which the sample was drawn. The sample data provides statisticians with an estimate of the exact ‘truth’ about the population. For example, data collected from 1,000 Americans about their voting preferences may be used to infer the voting preferences of Americans more generally. Statisticians are typically concerned with making inferences about some population parameter using information obtained from a sample (i.e., from a sample statistic).</p>
+<p>How useful is a sample statistic when it comes to estimating a population parameter? Can we draw reasonable inference about a population from sample data? This question is at the heart of weighing evidence about external validity. External validity is the degree to which generalizations to the larger population are accurate and meaningful.</p>
+<p>There are two statistical aspects we need to consider when we evaluate evidence for generalization: sampling variation and bias. Sampling variation is the idea that statistics from different samples vary. For example, to use the earlier example, different samples of 1,000 Americans would produce different estimates of voting preferences. This variation needs to be accounted for when we test hypotheses about or provide estimates for population parameters. In hypothesis testing, we account for this by quantifying the sampling variation into the standard error and incorporating that into the test statistic (e.g., the <em>z</em>- or <em>t</em>-value).</p>
+<p>The second statistical characteristic we need to attend to is <em>statistical bias</em>. Statistical bias is when sample statistics differ systematically from the population parameter. The key here is the word “systematically”. This implies that there is something in the underlying process (aside from random variation) that is affecting the estimation process.</p>
+<p><br></p>
+</section>
+<section id="statistical-bias" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="statistical-bias"><span class="header-section-number">15.2</span> Statistical Bias</h2>
+<p>To help you understand the idea of statistical bias, imagine a person, Arthur Dent, has lost his keys. The actual location of the keys, the Library, is akin to the population parameter. Arthur believes he lost his keys at the Supermarket and searches several places around the Supermarket. The locations where Arthur searches are like sample statistics.</p>
+<p>The visual in <a href="#fig-keys-bias">Figure&nbsp;<span>15.1</span></a> is a metaphor for the concept of statistical bias. Arthur’s search locations (sample statistics) are systematically in the wrong place. On average, where Arthur searched (the middle of the yellow circle) is not the actual location of the keys.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-keys-bias" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/06-01-bias-keys.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;15.1: This figure is a metaphor for statistical bias.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Compare this with Arthur’s search locations in <a href="#fig-keys-unbiasedness">Figure&nbsp;<span>15.2</span></a>. In this picture, on average, where Arthur searched is the location of the actual keys. The visual in <a href="#fig-keys-unbiasedness">Figure&nbsp;<span>15.2</span></a> is a metaphor for what is referred to as “unbiasedness”.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-keys-unbiasedness" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/06-02-unbiased-keys.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;15.2: This figure is a metaphor for unbiasedness.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>There are a couple of other concepts that this metaphor can help us think about:</p>
+<ol type="1">
+<li><p>Even in <a href="#fig-keys-unbiasedness">Figure&nbsp;<span>15.2</span></a>, none of the actual search locations were right at the keys. Some of the locations were too far to the left of the keys, and others were too far to the right of the keys. However, ON AVERAGE, the search locations “found” the keys. The way we define unbiased is that the AVERAGE of the statistics is equal to the value of the population parameter. Similarly, the way we define bias is that the AVERAGE of the statistics is NOT equal to the value of the population parameter.</p></li>
+<li><p>Secondly, bias (or unbiasedness) is a <strong>property of the sampling method</strong> not of the statistic. The reason the search locations were not in the right place is because the method Arthur used to pick the search locations was biased. He thought he lost his keys in the Supermarket, so that is where he looked.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="sampling-methods-and-bias" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="sampling-methods-and-bias"><span class="header-section-number">15.3</span> Sampling Methods and Bias</h2>
+<p>The key to statistical generalization is that the sample needs to be selected using an unbiased sampling method. There are several different sampling methods that are unbiased, but they all employ <em>random sampling</em>. Random sampling uses chance to select the sampling units (i.e., cases) from the larger population. When random sampling has been employed in a study, the unbiasedness of the sampling method is strong evidence for generalizations made to the larger population.</p>
+<p>There are also several biased methods of selecting a sample. <em>Convenience samples</em>, <em>snowball samples</em>, and <em>volunteer or self-selected samples</em> are all examples of samples that use a biased method of sampling. These samples do not typically represent the population on all characteristics. When there is sampling bias in your study, the generalizability of any findings is limited because characteristic in the sample may be systematically different from the population. Unfortunately the way a biased sample differs from the population is often unclear which makes it difficult to know who any findings can be generalized to.</p>
+<p><br></p>
+</section>
+<section id="choosing-a-simple-random-sample" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="choosing-a-simple-random-sample"><span class="header-section-number">15.4</span> Choosing a Simple Random Sample</h2>
+<p>To draw a simple random sample we need a list of EVERY sampling unit (i.e., case) in the population. This list is called the <em>sampling frame</em>. (Obtaining a sampling frame can be very difficult. Try obtaining a list of everyone who lives in the United States!) Then we employ randomness to draw out sampling units, with the caveat that each unit in the sampling frame has an equal chance of being drawn.</p>
+<p>In R, there are several ways to draw a random sample. One method is to create a vector of the unts in the sampling frame and then use the <code>sample()</code> function to draw the random sample. (We used this function in <a href="04-02-simulation.html"><span>Chapter&nbsp;6</span></a> when we were bootstrapping the SE for use in the one-sample <em>t</em>-test.) As a reminder, the <code>sample()</code> function takes as arguments:</p>
+<ul>
+<li>The vector of units in the sampling frame (i.e., the population).</li>
+<li>The argument <code>size=</code> indicates the number of sampling units to be sampled (i.e., the sample size).</li>
+<li>The argument <code>replace=</code> indicates whether the sampling units should be sampled with replacement (<code>replace=TRUE</code>) or without replacement (<code>replace=FALSE</code>).</li>
+</ul>
+<p>Below is some syntax that could be used to sample 5 random letters from the English alphabet. (Recall that the <code>set.seed()</code> function makes it so that the random selection is repeatable.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector of the sampling frame</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"G"</span>, <span class="st">"H"</span>, <span class="st">"I"</span>, <span class="st">"J"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"K"</span>, <span class="st">"L"</span>, <span class="st">"M"</span>, <span class="st">"N"</span>, <span class="st">"O"</span>, <span class="st">"P"</span>, <span class="st">"Q"</span>, <span class="st">"R"</span>, <span class="st">"S"</span>, <span class="st">"T"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"U"</span>, <span class="st">"V"</span>, <span class="st">"W"</span>, <span class="st">"X"</span>, <span class="st">"Y"</span>, <span class="st">"Z"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View sampling frame</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>alphabet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S"
+[20] "T" "U" "V" "W" "X" "Y" "Z"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw n=5 letters without replacement</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>my_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(alphabet, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View sample</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>my_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Q" "E" "A" "J" "D"</code></pre>
+</div>
+</div>
+<p>There are also several other R functions that draw random samples. For example, <code>rnorm()</code> is used to draw a random sample from a normally distributed population with a particular mean and standard deviation. In this class, it isn’t as important that you know HOW to draw a random sample, but rather that you understand WHY a random sampling is the method of sampling that is the gold standard when it comes to making generalizations from a sample. That being said, it is also important to understand that even if random sampling is employed, there can still be sampling bias. Things like non-response and recall bias can lead to biased findings despite initially choosing the sample randomly.</p>
+<!-- ## References -->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -549,13 +675,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-06-one-sample-test-proportions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span>
+      <a href="./06-00-study-design.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Study Design</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-01-two-sample-t-test.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-02-cause-and-effect.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

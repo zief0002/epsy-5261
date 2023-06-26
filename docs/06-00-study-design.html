@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - Comparing Two Groups</title>
+<title>An Introduction to Data Analysis: The End - Study Design</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-01-two-sample-t-test.html" rel="next">
-<link href="./04-06-one-sample-test-proportions.html" rel="prev">
+<link href="./06-01-generalization.html" rel="next">
+<link href="./05-04-errors.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -86,7 +86,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-00-study-design.html">Study Design</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -223,7 +223,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link active">
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -258,7 +258,7 @@ function toggle_visibility(id) {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
+            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Study Design</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -292,7 +292,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-compare-two-groups" class="quarto-section-identifier">Comparing Two Groups</span></h1>
+<h1 class="title"><span id="sec-study-design" class="quarto-section-identifier">Study Design</span></h1>
 </div>
 
 
@@ -307,9 +307,8 @@ function toggle_visibility(id) {
 
 </header>
 
-<p>Another task that is commonly performed in research is to compare the data you have collected from two different groups with the goal of inferring whether a particular population parameter differs between those groups. For example, is the average cost-of-living higher in Minneapolis than it is in St.&nbsp;Paul? Or, is the proportion of students who own an automobile different for students living at home versus those living in the dorms?</p>
-<p>Comparing two groups is one of the most important endeavors in social science and educational research. It is the basis of all experimental work (e.g., does the treatment group perform better, on average, than the control group?). It is also used in non-experimental work and is crucial in calling out societal injustices (e.g., are college-educated women earning less, on average, than college-educated men?).</p>
-<p>There are many parallels between the one-sample methods you learned about in <span class="quarto-unresolved-ref">?sec-compare-standard</span> and the methods used to compare two groups. Similar to the one-sample tests you learned about, the methods you learn in this section will quantify the amount of uncertainty in a sample numerical estimate, but now there is uncertainty that needs to be quantified for estimates from two different samples of data. The assumptions underlying the methods we use to compare groups are also similar, but have to be performed on both groups and also include additional assumptions that the one-sample tests did not have.</p>
+<p>The design of a study plays a large role in the statistical inferences that we can draw. Two really important aspects of a study’s design relate to how the observations in our sample data were selected from the larger population and how those selected cases are then assigned to groups or conditions. In this unit you will learn about how these aspects of study design impact the validity of the inferences we draw and how statistical bias might distort our inferences.</p>
+<!-- In particular, in @sec-generalization you will learn about how -->
 
 
 
@@ -549,13 +548,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-06-one-sample-test-proportions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span>
+      <a href="./05-04-errors.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-01-two-sample-t-test.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-01-generalization.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

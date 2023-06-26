@@ -168,6 +168,13 @@ We can also use the `plot_t_dist()` to visualize the *t*-distribution with 74 *d
 plot_t_dist(my_t)
 ```
 
+The `t_test()` function uses a different method for computing the standard error than bootstrapping. It computes the standard error using a mathematical formula, namely,
+
+$$
+SE = \frac{SD}{\sqrt{n}}
+$$
+
+where, *SD* is the sample standard deviation, and *n* is the sample size. This method of computing the standard error approximates the true standard error by employing information about the sample. In some cases this approximation is accurate and in other cases it is not. We will study this more in @sec-one-sample-test-assumptions.
 
 <br />
 

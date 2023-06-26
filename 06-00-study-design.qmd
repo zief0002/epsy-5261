@@ -1,5 +1,7 @@
 # Study Design {#sec-study-design}
 
-You will learn how sampling bias might distort our inferences, and how to evaluate whether particular sampling methods used to collect the sample data might suffer from sampling bias.
+The design of a study plays a large role in the statistical inferences that we can draw. Two really important aspects of a study's design relate to how the observations in our sample data were selected from the larger population and how those selected cases are then assigned to groups or conditions. In this unit you will learn about how these aspects of study design impact the validity of the inferences we draw and how statistical bias might distort our inferences. 
+
+<!-- In particular, in @sec-generalization you will learn about how -->
 
 

@@ -1,107 +1,22 @@
-# One-Sample t-Test: Errors and Assumptions {#sec-one-sample-test-assumptions}
+# Assumptions of the One-Sample t-Test {#sec-one-sample-test-assumptions}
 
-In this chapter you will learn about two types of errors that we can potentially make in hypothesis testing when we draw conclusions. You will also learn about the assumptions that we need to make in order for the results of a one-sample *t*-test to be statistically valid. 
-
-<br />
-
-
-## Type I and Type II Errors
-
-The conclusions we draw about hypotheses are based on a *p*-value. Remember the *p* in *p*-value stands for *probability*. That means the conclusions are probabilistic in nature. For example, in our teen sleep case study the *p*-value was .0000000000000433. If we were interpreting this value, we would say:
-
-> If the null hypothesis is true, the probability of seeing a sample mean at least as extreme as 7.5 (the mean we observed in the data), is .0000000000000433.
-
-From this we reasoned that because seeing the sample mean we observed was so unlikely that the null hypothesis was probably not true; we rejected the null hypothesis. In reality, however, this decision to reject might be wrong. It may be that the null hypothesis is true, and we just observed something that was a really, really low probability event. After all, the probability of seeing such an extreme sample mean did not have a zero probability. 
+In this chapter you will learn about the assumptions that we need to make in order for the results of a one-sample *t*-test to be statistically valid. 
 
 <br />
 
-
-### Type I Errors
-
-Anytime we reject the null hypothesis in a hypothesis test, we might make what is called a *Type I error*.^[Conventionally, we use Roman numerals to indicate the different types of errors we can make in hypothesis testing.] A Type I error is rejecting the null hypothesis when it is, in fact, true. In our example this would mean concluding that the average amount of sleep for all teens was less than 9 hours, when in fact it really wasn't.
-
-Unfortunately, when we reject the null hypothesis, we can never know if we made a Type I error or not. In order to determine that, you would actually need to know what the population mean was, in which case you wouldn't have to test what it was. While we can't know if we made a Type I error, we can set the probability of making a Type I error. The probability of making a Type I error is called $\alpha$ (alpha)^[Fun Fact: $\alpha$ is the first letter in the Greek alphabet (equivalent to the Roman letter "a") so that is why it is associated with the first type (i.e., Type I) error.] and is the value we compare our *p*-value to. In the social sciences, this probability is almost always .05. That is why we compare our *p*-value to .05 in order to decide whether to reject the null hypothesis.
-
-<br />
-
-
-### Type II Errors
-
-A *Type II error* is failing to reject the null hypothesis when it is, in fact, false. For example, if we had found a *p*-value in the teen sleep case study that was bigger than .05, we would have failed to reject the null hypothesis. In this case, our conclusion would have been that the average amount of sleep for all teens was NOT less than 9 hours. Once again, once you have drawn a conclusion about the null hypothesis, there is some probability that the conclusion you drew was wrong. 
-
-Similar to our potential for making an error when we reject a null hypothesis, we can never know for sure whether we have made a Type II error or not after we fail to reject a null hypothesis. We can only know the probability of making a Type II error which is conventionally termed $\beta$ (beta)^[Fun Fact: $\beta$ is the second letter in the Greek alphabet (equivalent to the Roman letter "b") so that is why it is associated with the second type (i.e., Type II) error.]. The value of $\beta$ is somewhat complex, but has an inverse relationship with the value of $\alpha$, such that as the value of $\alpha$ gets smaller, the value of $\beta$ gets larger, and vice versa. This means that if you make $\alpha$ smaller (to protect against making a Type I error), you will make the probability of making a Type II error larger!
-
-:::fyi
-The type of error you can make is completely dependent on the conclusion you draw about the null hypothesis. For example, if we reject the null hypothesis, the only type of error you can make is a Type I error. You cannot make a Type II error since that requires failing to reject the null hypothesis. That is, when you reject the null hypothesis, the probability of making a Type II error is 0. Similarly, if you fail to reject the null hypothesis, then you cannot make a Type I error; the probability of making a Type I error after you fail to reject the null hypothesis is 0.
-:::
-
-<br />
-
-
-### Some Practice with Type I and Type II Errors
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-In the continuous assessment case study from @sec-one-sample-test-r, we evaluated the following set of hypotheses about whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students' prior knowledge:
-
-$$
-\begin{split}
-H_0: \mu = 2.5 \\[1ex]
-H_A: \mu \neq 2.5
-\end{split}
-$$
-
-Based on the results of the one-sample *t*-test, $t(29) = -0.41$, $p = 0.687$, which type of error could we have made if we were using an $\alpha$-value of .05? Explain.  
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-01');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-01" style="display:none; margin: -40px 0 40px 40px;">
-Using an $\alpha$-value of .05, we would have failed to reject the null hypothesis since our *p*-value was bigger than .05. Because we failed to reject the null hypothesis, the only type of error we can make is a Type II error.
-</div>
-
-Using the context of the problem (i.e., survey responses of the assessment of prior knowledge) and the hypotheses tested, what does it mean to make this type of error? 
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-02');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-02" style="display:none; margin: -40px 0 40px 40px;">
-A Type II error in this context indicates that we come to the conclusion that Ethiopian primary school teachers neither agree nor disagree with the statement that they assess students' prior knowledge on average, but in reality they actually do agree or disagree with that statement, on average.
-</div>
-
-In the house prices case study from @sec-one-sample-test-r, we evaluated the following set of hypotheses about whether, on average, houses near the University of Minnesota campus more expensive than \$322.46k (the average price of a single-family house in Minneapolis as of May 2023).
-
-$$
-\begin{split}
-H_0: \mu = 322.46 \\[1ex]
-H_A: \mu > 322.46
-\end{split}
-$$
-
-Based on the results of the one-sample *t*-test, $t(14) = 3.12$, $p = 0.004$, which type of error could we have made if we were using an $\alpha$-value of .05? Explain.  
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-03');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-03" style="display:none; margin: -40px 0 40px 40px;">
-Using an $\alpha$-value of .05, we would have rejected the null hypothesis since our *p*-value was smaller than .05. Because we rejected the null hypothesis, the only type of error we can make is a Type I error.
-</div>
-
-Using the context of the problem (i.e., house prices near the UMN campus) and the hypotheses tested, what does it mean to make a this type of error? 
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-04');">Show/Hide Solution</button>
-
-<div id="exercise_04-05-04" style="display:none; margin: -40px 0 40px 40px;">
-A Type I error in this context indicates that we rejected the null hypothesis that the average price of a house near the UMN campus is not more than \$322.46k, but in reality it is not.
-</div>
-
-
-:::
-
-<br />
 
 
 ## Assumptions
 
-Whether or not the *p*-value we obtain from the *t*-test is accurate depends on a set of statistical assumptions about the population. If the assumptions we make about the population are erroneous, then all of our inferences that we draw about the population mean are dubious, since these inferences are based on the *p*-value. This implies that it is critical that we have some sense of whether these statistical assumptions we are making are valid. 
+Whether or not the results we obtain from the *t*-test are accurate depends on a set of statistical assumptions about the population. Remember that the *t*-value we use to compute the *p*-value is computed as:
+
+$$
+t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
+$$
+
+where, $SE = \frac{SD}{\sqrt{n}}$, *SD* is the sample standard deviation, and *n* is the sample size. A critical part of this is that the formula we use to compute the standard error gives us a good estimation of the standard error. This, it turns out, is only true under a particular set of statistical assumptions.
+
+If the assumptions are violated and the formula we used for the *SE* is wrong, that implies the *t*-value will be wrong because we used the wrong value in the denominator. And, if the *t*-value is incorrect, that means the *p*-value is also incorrect since it is based on the *t*-value. This would mean further that all of our inferences that we draw about the population mean are dubious, since these inferences are based on the *p*-value. Because of this, it is critical that we have some sense of whether these statistical assumptions we are making are valid. 
 
 For the one-sample *t*-test there are two statistical assumptions we make about the population:
 
@@ -302,6 +217,10 @@ Based on the data collection process described in the [data codebook](https://zi
 It is unclear that the independence assumption is tenable. The data collection did not use random chance to select the sample data. Moreover, it is likely that knowing the sale price for one house would give us information about the sale price for other houses since houses in the same neighborhood are often sold for similar prices.
 </div>
 :::
+
+
+<br />
+
 
 ## References
 

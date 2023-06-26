@@ -396,7 +396,7 @@ z_results(my_z)
 ```
 
 
-Based on the *p*-value, and using an $\alpha$-value of .05, we would fail to reject the null hypothesis. This suggests *it is likely* that the proportion of Bachelor contestants who are still together with their selected suitor is NOT different than the proportion of Bachelorette contestants who are still together with their selected suitor. In this interpretation we call attention to the words "it is likely" to remind you that it is possible we may have made a Type II error in which case the proportion is actually different, but we didn't detect the difference based on our data.
+Based on the *p*-value, and using an $\alpha$-value of .05, we would fail to reject the null hypothesis. This suggests *it is likely* that the proportion of Bachelor contestants who are still together with their selected suitor is NOT different than the proportion of Bachelorette contestants who are still together with their selected suitor. 
 
 
 <br />
