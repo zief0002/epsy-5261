@@ -1,0 +1,396 @@
+# Confidence Intervals {#sec-confidence-intervals}
+
+In this chapter you will learn about confidence intervals, the most commonly reported effect size. 
+
+<br />
+
+
+
+## House Prices (Revisited)
+
+In the house prices case study from [Chapter @sec-one-sample-test-r], we evaluated whether the average price of a house near the University of Minnesota was different than \$322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:
+
+$$
+\begin{split}
+H_0: \mu = 322.46 \\[1ex]
+H_A: \mu \neq 322.46
+\end{split}
+$$
+The results of the one-sample *t*-test were: $t(14)=3.12$, $p = .008$. This small *p*-value led us to *reject the null hypothesis*, indicating that the empirical evidence was consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.
+
+<br />
+
+
+### Estimating the Average Price for Houses Near the University of Minnesota
+
+While the results of the hypothesis test suggest that the average cost of a house near the UMN campus is different than the average cost of a house in Minneapolis more broadly, the results from a hypothesis tests cannot tell us (1) the direction of that difference, nor (2) how much different the average cost is. Is it more or less than \$322.46k? How much more or less? These questions are natural follow-ups after carrying out a hypothesis test.
+
+Using the sample evidence (e.g., sample mean), we can begin to answer this question. For example, the mean cost of a single-family house near the UMN campus was \$404.97k. The sample evidence suggests that the average price of a house near the UMN campus is \$82.51k higher than the average house in Minneapolis. 
+
+This is informative in answering our follow-up questions, but had we drawn a different sample of houses near the University of Minnesota, our estimate of the average house price would vary because of sampling error. Similar to how we accounted for sampling error in the hypothesis tests we carried out, we also need to account for it in the estimates/effect sizes that we give. To do this, we quantify the uncertainty in the estimate that is due to sampling error, and use that to produce a *margin of error*, which in turn is used to produce a *confidence interval* (CI) for the estimate by:
+
+$$
+\text{CI} = \text{Sample Estimate} \pm \text{Margin of Error}
+$$
+For example, if the margin of error was \$10k, our confidence interval would be computed as:
+
+$$
+\begin{split}
+&404.97 \pm 10 \\[2ex]
+&[394.97,~414.97]
+\end{split}
+$$
+
+That is, the confidence interval would indicate that the average price of a single-family house near the University of Minnesota is between \$394.97k and \$414.97k. Adding and subtracting the margin of error to the sample estimate gives a range of values that are reasonable estimates for the average price of a single-family house near the University of Minnesota. Providing this range, rather than only a single value for the estimate, is an acknowledgement that we have uncertainty in our estimate. 
+
+To obtain the margin of error we quantify the amount of sampling error in the sample estimate (i.e., compute the SE for the estimate) and multiply that by two.^[Sometimes we use a different multiplier than two. We will talk about that in class.] That is:
+
+$$
+\text{CI} = \text{Margin of Error} = 2 \times \text{SE}
+$$
+Substituting this into our formula for confidence intervals, we find that a confidence interval is computed as:
+
+$$
+\text{CI} = \text{Sample Estimate} \pm 2 \times \text{SE}
+$$
+
+All confidence intervals are computed using this method. The only thing that changes is how the SE is computed. Remember from our reading in hypothesis tests, the formula for the SE depended on whether we were computing it for a single mean, the difference between two means, a single proportion, or a difference between two proportions. As a reminder, the formulas for SE are presented in @tbl-se.^[Note the SE for the single proportion is slightly different than how we computed it for the hypothesis test. Here we are using the sample proportion *p* rather than the hypothesized proportion $\pi$ in the formula for SE.]
+
+```{r}
+#| label: tbl-se
+#| tbl-cap: "Formulas to compute the standard error (SE) for the different situations we have studied in EPsy 5261."
+#| echo: false
+#| tbl-colwidths: false
+library(gt)
+dplyr::tibble(
+  Situation = c("Single Mean", "Single Proportion", "Difference in Means", "Difference in Proportions"),
+  SE = c("$$\\frac{\\text{SD}}{\\sqrt{n}}$$", 
+         "$$\\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$$", 
+         "$$\\sqrt{\\frac{\\text{SD}_1^2}{n_1} + \\frac{\\text{SD}_2^2}{n_2}}$$", 
+         "$$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$$")
+) |>
+  gt() |>
+  cols_align(
+    align = "center",
+    columns = c(SE)
+  ) |>
+  tab_options(
+    table.width = pct(60)
+    )
+```
+
+
+In the house prices case study we had a single sample that we want to estimate the mean for (i.e., single mean). Thus we can compute the CI as:
+
+$$
+\begin{split}
+\text{CI} &= \text{Sample Estimate} \pm 2 \times \text{SE} \\[2ex]
+&= \text{Sample Mean} \pm 2 \times \text{SE for single mean} \\[2ex]
+&= \bar{x} \pm 2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
+\end{split}
+$$
+
+So we need to use the sample data to get the sample mean ($\bar{x}$), the sample standard deviation (SD), and the sample size (*n*). Remember we can get these values by using the `df_stats()` function.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(ggformula)
+library(mosaic)
+library(tidyverse)
+
+
+# Import data
+zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
+
+# View data
+zillow
+
+# Compute sample statistics
+df_stats(~price, data = zillow)
+```
+
+These values are: 
+
+- $\bar{x}=404.97$, 
+- $\text{SD} = 102.43$, and 
+- $n=15$
+
+Then we substitute those values into the formula for the CI and get:
+
+$$
+\begin{split}
+\text{CI} &= 404.97 \pm 2 \times \frac{102.43}{\sqrt{15}} \\[2ex]
+&= 404.97 \pm 2 \times 26.45 \\[2ex]
+&= 404.97 \pm 52.9 \\[2ex]
+&= [352.07,~457.87]
+\end{split}
+$$
+
+Our CI tells us that, based on the data, we think the average price of a single-family house near the University of Minnesota is between \$352.07k and \$457.87k. Using this, we can now answer our follow-up questions. Is the average price of a single-family house near the UMN more or less expensive than in Minneapolis more broadly? And by how much? Based on the CI it seems the average price of a single-family house near the University of Minnesota is higher than the average single-family house price in Minneapolis more broadly (\$322.46k). It may be more expensive by as little as \$29.61k and as much as \$135.41k.
+
+Using substantive knowledge, one could then make decisions about whether differences this large is meaningful or not. For example, when it comes to real estate in the Twin Cities, a difference of around \$30k is not so big, but a difference of \$135k is pretty large. On the other hand, for many first time home buyers, even \$30k is meaningful. In order to understand whether effects are meaningful, it is necessary to contextualize them in relation to the area of research.
+
+:::fyi
+To reiterate some of the vocabulary, the standard error (SE) was 26.45. This quantified the amount of uncertainty in the mean estimate that is due to sampling variation. The margin of error ($2\times\text{SE}$) was 52.9 this increases the uncertainty due to sampling error by a factor of two, which makes it more likely that our confidence interval will include the population mean---you will learn more about this in class. Finally, the confidence interval (CI) is $[352.07,~457.87]$. This range includes plausible values for the population parameter, in our case the mean, based on the data and the estimated sampling uncertainty.
+:::
+
+
+<br />
+
+
+## Estimating Lead Levels in MN Children
+
+To estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will compute a CI for a proportion rather than a mean. Below we import the data and compute the proportions. From the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/mn-lead.html) we also know that the sample size is 91,706.
+
+```{r}
+# Import data
+mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
+
+# View data
+mn_lead
+
+# Compute sample proportions
+df_stats(~ebll, data = mn_lead, props)
+```
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Compute the SE for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 using the appropriate formula from @tbl-se.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-01" style="display:none; margin: -40px 0 40px 40px;">
+In this case study we have a single sample that we want to estimate the proportion for (i.e., single proportion). Thus we can compute the SE as:
+
+$$
+\begin{split}
+\text{SE} &= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\[2ex]
+&= \sqrt{\frac{.014(1-.014)}{91706}} \\[2ex]
+&= .0004
+\end{split}
+$$
+
+Since we are interested in the proportion of children above the MDH reference level, we need to use the proportion for "Yes" ($\hat{p}=.014$) in the formula.
+
+</div>
+
+
+Use the SE you computed to compute the margin of error.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-02" style="display:none; margin: -40px 0 40px 40px;">
+We compute the margin of error as:
+
+$$
+\begin{split}
+\text{Margin of Error} &= 2 \times \text{SE} \\[2ex]
+&= 2 \times .0004 \\[2ex]
+&= .0008
+\end{split}
+$$
+</div>
+
+Use the initial sample estimate and the margin of error you just computed to compute the CI for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-03" style="display:none; margin: -40px 0 40px 40px;">
+We compute the CI as:
+
+$$
+\begin{split}
+\text{Sample Estimate} &\pm \text{Margin of Error} \\[2ex]
+\hat{p} &\pm \text{Margin of Error} \\[2ex]
+.014 &\pm .0008 \\[2ex]
+&[.0132,~.0148]
+\end{split}
+$$
+Based on the CI, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .0132 and .0148.
+
+</div>
+
+:::
+
+<br />
+
+
+## Estimating the Difference Between Two Sample Means
+
+In [Chapter -@sec-two-sample-t-test] we carried out a two-sample *t*-test to determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al. posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults. To do that we tested the following hypotheses:
+
+$$
+\begin{split}
+&H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0 \\
+&H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} > 0
+\end{split}
+$$
+The results of the *t*-test---$t(35)=2.47$, $p=.009$--- suggested that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. So now, we want to ask the question: How much greater?
+
+In this case study we have two samples that we want to estimate the difference in means for. Thus we can compute the CI as:
+
+$$
+\begin{split}
+\text{Sample Estimate} &\pm 2 \times \text{SE} \\[2ex]
+\text{Sample Difference in Means} &\pm 2 \times \text{SE for difference in means} \\[2ex]
+(\bar{x}_1 - \bar{x}_2) &\pm 2 \bigg(\sqrt{\frac{\text{SD}_1^2}{n_1} + \frac{\text{SD}_2^2}{n_2}}\bigg)
+\end{split}
+$$
+
+
+We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv) to obtain these sample values.
+
+```{r}
+#| label: cannabis
+#| message: false
+# Import data
+cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
+
+# View data
+cannabis
+
+# Compute numerical summaries
+df_stats(~ iq_change | cannabis_dep, data = cannabis)
+```
+
+Substituting these values into the formula for the CI:
+
+
+$$
+\begin{split}
+(\bar{x}_1 - \bar{x}_2) &\pm 2 \bigg(\sqrt{\frac{\text{SD}_1^2}{n_1} + \frac{\text{SD}_2^2}{n_2}}\bigg) \\[2ex]
+(-2.07 - -8.26) &\pm 2 \bigg(\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{23}}\bigg) \\[2ex]
+6.19 &\pm 2 \bigg(2.56\bigg) \\[2ex]
+6.19 &\pm 5.12 \\[2ex]
+[1.07,&~11.31]
+\end{split}
+$$
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Using the information in the equations above, what is the margin of error?
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-04" style="display:none; margin: -40px 0 40px 40px;">
+The margin of error is 5.12.
+</div>
+
+
+
+Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-05');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-05" style="display:none; margin: -40px 0 40px 40px;">
+Based on the CI, we think the difference in average IQ score change is between 1.07 and 11.31 points higher for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens.
+</div>
+:::
+
+
+<br />
+
+
+## Estimating the Difference Between Two Sample Proportions
+
+In [Chapter -@sec-two-sample-test-proportions] we carried out a two-sample *z*-test to determine whether the Bachelors or Bachelorettes were more successful in their selection of potential suitors by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes. To do that we tested the following hypotheses:
+
+$$
+\begin{split}
+H_0: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} &= 0 \\[1ex]
+H_A: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} &\neq 0
+\end{split}
+$$
+The results of the *z*-test---$z=-.77$, $p=.439$--- suggested that the it is likely that the proportion of Bachelor contestants who are still together with their selected suitor is NOT different than the proportion of Bachelorette contestants who are still together with their selected suitor. Even if we fail to reject the null hypothesis, it can be useful to compute a CI. 
+
+In this case study we have two samples that we want to estimate the difference in proportions for. Thus we can compute the CI as:
+
+$$
+\begin{split}
+\text{Sample Estimate} &\pm 2 \times \text{SE} \\[2ex]
+\text{Sample Difference in Proportions} &\pm 2 \times \text{SE for difference in proportions} \\[2ex]
+(\hat{p}_1 - \hat{p}_2) &\pm 2 \bigg(\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\bigg)
+\end{split}
+$$
+Below are the sample proportions and sample sizes for the two groups.
+
+**Bachelor Contestants**
+
+$$
+\begin{split}
+\hat{p}_{\text{No}} &= 0.89 \\[2ex]
+\hat{p}_{\text{Yes}} &= 0.11 \\[2ex]
+n &= 27
+\end{split}
+$$
+
+**Bachelorette Contestants**
+
+$$
+\begin{split}
+\hat{p}_{\text{No}} &= 0.81 \\[2ex]
+\hat{p}_{\text{Yes}} &= 0.19 \\[2ex]
+n &= 21
+\end{split}
+$$
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Using the sample information provided above, compute the CI for the difference in the proportion of Bachelors and Bachelorettes that are still together with their suitors.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-06');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-06" style="display:none; margin: -40px 0 40px 40px;">
+$$
+\begin{split}
+(\hat{p}_1 - \hat{p}_2) &\pm 2 \bigg(\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\bigg) \\[2ex]
+(.11 - .19) &\pm 2 \bigg(\sqrt{\frac{.11(1-.11)}{27} + \frac{.19(1-.19)}{21}}\bigg) \\[2ex]
+-.08 &\pm 2 \bigg(.10\bigg) \\[2ex]
+-.08 &\pm .20 \\[2ex]
+[-.28,&~.12]
+\end{split}
+$$
+</div>
+
+
+
+Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-07');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-07" style="display:none; margin: -40px 0 40px 40px;">
+Based on the CI, we think the difference in proportion of Bachelors and Bachelorettes that are still together with their suitors is between $-.28$ and .12. 
+
+That is, the proportion of Bachelors that are still together with their suitors might be lower than the proportion of Bachelorettes that are still together with their suitors by .28, or it might be higher than the proportion of Bachelorettes that are still together with their suitors by as much as .12, or anywhere in between.
+</div>
+
+What does it mean that 0 is a value in the CI?
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-08');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-08" style="display:none; margin: -40px 0 40px 40px;">
+If 0 is in the CI, it means it is a plausible value for the difference in the proportion of Bachelors and Bachelorettes that are still together with their suitors. 
+
+That is, the proportion of Bachelors that are still together with their suitors might be **the same as** the proportion of Bachelorettes that are still together with their suitors.
+</div>
+:::
+
+
+
+
+
+
+
+
+
+<!-- ## References -->
+

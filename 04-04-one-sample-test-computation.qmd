@@ -31,7 +31,7 @@ H_0: \mu = 9 \\[1ex]
 H_A: \mu < 9
 \end{split}
 $$
-The analysis started by importing the data and visualizing and numerically describing the amopunt of sleep for the teens in our sample.
+The analysis started by importing the data and visualizing and numerically describing the amount of sleep for the teens in our sample.
 
 ```{r}
 #| label: fig-hrs-sleep
@@ -176,6 +176,11 @@ $$
 
 where, *SD* is the sample standard deviation, and *n* is the sample size. This method of computing the standard error approximates the true standard error by employing information about the sample. In some cases this approximation is accurate and in other cases it is not. We will study this more in @sec-one-sample-test-assumptions.
 
+
+:::fyi
+The only alternative hypothesis that gets tested in practice is the two-sided alternative hypothesis ($\neq$). Moving forward, we will only use the two-sided alternative hypothesis in our hypothesis tests.
+:::
+
 <br />
 
 
@@ -256,12 +261,12 @@ In our example, the data were consistent with the null hypothesis that the avera
 
 ## Case Study: House Prices
 
-The average price of a single-family house in Minneapolis is \$322.46k (as of May 2023). Are houses near the University of Minnesota campus more expensive than that, on average? The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:
+The average price of a single-family house in Minneapolis is \$322.46k (as of May 2023). Is the average price of a house near the University of Minnesota different than that? The data in [zillow.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:
 
 $$
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
-H_A: \mu > 322.46
+H_A: \mu \neq 322.46
 \end{split}
 $$
 
@@ -291,7 +296,7 @@ gf_histogram(
 df_stats(~price, data = zillow)
 ```
 
-The sample distribution is left-skewed indicating that more of the houses are at the higher and of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (*M* = \$404.97k). There is a lot of variation in house price, with some as low as \$250k and others as high as \$550k (*SD* = \$102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus costs more than the average house in Minneapolis. Next, we will carry out a one-sample *t*-test to determine whether this difference is more than we expect because of sampling variation.
+The sample distribution is left-skewed indicating that more of the houses are at the higher end of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (*M* = \$404.97k). There is a lot of variation in house price, with some as low as \$250k and others as high as \$550k (*SD* = \$102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus is different than the average house in Minneapolis. Next, we will carry out a one-sample *t*-test to determine whether this difference is more than we expect because of sampling variation.
 
 ```{r}
 #| label: fig-t-dist4
@@ -301,7 +306,7 @@ The sample distribution is left-skewed indicating that more of the houses are at
 #| out-width: "80%"
 
 # One-sample t-test
-my_t <- t_test(~price, data = zillow, mu = 322.46, alternative = "greater")
+my_t <- t_test(~price, data = zillow, mu = 322.46, alternative = "two.sided")
 
 # View t-test results
 t_results(my_t)
@@ -310,7 +315,7 @@ t_results(my_t)
 plot_t_dist(my_t)
 ```
 
-The results of the *t*-test, $t(14)=3.12$, $p = .004$, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being higher than the average cost of a house in Minneapolis more broadly.
+The results of the *t*-test, $t(14)=3.12$, $p = .008$, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.
 
 <br />
 

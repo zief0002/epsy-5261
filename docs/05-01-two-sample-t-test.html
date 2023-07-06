@@ -337,6 +337,29 @@ function toggle_visibility(id) {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -381,8 +404,8 @@ function toggle_visibility(id) {
 <section id="case-study-cannabis-effects-on-iq" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="case-study-cannabis-effects-on-iq"><span class="header-section-number">11.1</span> Case Study: Cannabis Effects on IQ</h2>
 <p>In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples’ health and well-being <span class="citation" data-cites="Volkow:2014">(<a href="#ref-Volkow:2014" role="doc-biblioref">Volkow et al., 2014</a>)</span>, including long-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on <a href="https://www.cdc.gov/marijuana/health-effects/teens.html">data collected from the Center for Disease Control in 2019</a>, 37% of U.S. high school students reported using marijuana at least once, and 22% reported use in the past 30 days.</p>
-<p>To study the long-term effects of cannabis, <span class="citation" data-cites="Meier:2012">Meier et al. (<a href="#ref-Meier:2012" role="doc-biblioref">2012</a>)</span> examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset). To determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al.&nbsp;posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults.</p>
-<p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv">cannabis.csv</a> to evaluate this hypothesis.</p>
+<p>To study the long-term effects of cannabis, <span class="citation" data-cites="Meier:2012">Meier et al. (<a href="#ref-Meier:2012" role="doc-biblioref">2012</a>)</span> examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset).</p>
+<p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv">cannabis.csv</a> to evaluate whether the effects on IQ were different for users who started using marijuana as a teen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
@@ -413,26 +436,26 @@ function toggle_visibility(id) {
 <p><span class="math display">\[
 H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}}
 \]</span></p>
-<p>The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since the researchers posited that persistent marijuana users that became dependent as teens would have a bigger decline (more negative values, on average) in IQ than those who became dependent as adults, the alternative hypothesis would be:</p>
+<p>The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since we want to determine if persistent marijuana users that became dependent as teens would have a different change in IQ than those who became dependent as adults, the alternative hypothesis would be:</p>
 <p><span class="math display">\[
-H_A: \mu_{\text{Adult-onset}} &gt; \mu_{\text{Teen-onset}}
+H_A: \mu_{\text{Adult-onset}} \neq \mu_{\text{Teen-onset}}
 \]</span></p>
 <div class="protip">
 <p>The order of the two groups in the hypotheses does not matter. For example, we could also have written the hypotheses so that the mean for teen-onset was written before the mean for adult-onset:</p>
 <p><span class="math display">\[
 \begin{split}
 &amp;H_0: \mu_{\text{Teen-onset}} = \mu_{\text{Adult-onset}} \\
-&amp;H_A: \mu_{\text{Teen-onset}} &lt; \mu_{\text{Adult-onset}}
+&amp;H_A: \mu_{\text{Teen-onset}} \neq \mu_{\text{Adult-onset}}
 \end{split}
 \]</span></p>
-<p>However, when we go to use the <code>t_test()</code> function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the <code>cannabis_dep</code> attribute, the two values are <code>Teen</code> and <code>Adult</code>. Since <code>Adult</code> comes alphabetically before <code>Teen</code>, if we specify <code>alternative="less"</code> we would be testing <code>Adult</code> <span class="math inline">\(&lt;\)</span> <code>Teen</code>. Because of this, it is a good idea to put the means in alphabetical order when writing the hypotheses so that you can correctly specify the alternative hypothesis in <code>t_test()</code>.</p>
+<p>However, when we go to use the <code>t_test()</code> function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the <code>cannabis_dep</code> attribute, the two values are <code>Teen</code> and <code>Adult</code>.</p>
 </div>
-<p>We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means equalling zero:</p>
+<p>We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means is equal to zero:</p>
 <p><span class="math display">\[
 H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0
 \]</span> In a similar fashion the alternative hypothesis could be expressed as:</p>
 <p><span class="math display">\[
-H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0
+H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 \]</span> :::fyi The output from <code>t_result()</code> will present the hypotheses as a difference between means. :::</p>
 <p><br></p>
 </section>
@@ -447,7 +470,7 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0
 \mathtt{\sim iq\_change ~|~ cannabis\_dep}
 \]</span></p>
 <div class="protip">
-<p>Reading this syntax, we would say: “model the attribute <code>iq_change</code> but separate (or condition) this by <code>cannabis_dep</code>”.</p>
+<p>Reading this syntax, we would say: “model the attribute <code>iq_change</code> but separate this by <code>cannabis_dep</code>” You can also say: “model the attribute <code>iq_change</code> but condition this on <code>cannabis_dep</code>”. In statistics a <em>conditional distribution</em> is a distribution for a particular group.</p>
 </div>
 <p>The syntax for creating density plots and computing numerical summaries is shown below.</p>
 <div class="cell">
@@ -497,7 +520,7 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> cannabis, </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu =</span> <span class="dv">0</span>, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"greater"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -510,10 +533,10 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0
 --------------------------------------------------
 
 H[0]: mu_[Adult] = mu_[Teen]
-H[A]: mu_[Adult] &gt; mu_[Teen]
+H[A]: mu_[Adult] ≠ mu_[Teen]
 
 t(35) = 2.474706
-p = 0.009162964
+p = 0.01832593
 
 --------------------------------------------------</code></pre>
 </div>
@@ -528,12 +551,12 @@ p = 0.009162964
 <div id="fig-t-dist3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of 2.47. The shaded area under the curve to the right of 2.47 shows the associated <em>p</em>-value of .009 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu&gt;0\)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the <em>p</em>-value of .009, we would <em>reject</em> the null hypothesis. The evidence suggests that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. This indicates that marijuana may have more of an adverse effect on IQ for people that became persistent marijuana users as teens.</p>
+<p>Based on the <em>p</em>-value of .018, we would <em>reject</em> the null hypothesis. The evidence suggests that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens.</p>
 <p><br></p>
 </section>
 <section id="computing-the-observed-t-value-and-degrees-of-freedom" class="level2" data-number="11.4">
@@ -557,17 +580,17 @@ t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}
 \end{split}
 \]</span></p>
 <p>That is our observed mean difference of 6.19 is 2.47 standard errors from the hypothesized mean difference of 0. We then evaluate this <em>t</em>-value in a <em>t</em>-distribution with <span class="math inline">\(n1 + n_2 -2\)</span> degrees-of-freedom. In our case the <em>t</em>-value of 2.47 is evaluated in a <em>t</em>-distribution with 35 <em>df</em>. This is the same thing we got in the output of <code>t_results()</code>.</p>
-<p>Since the alternative hypothesis was <span class="math inline">\(\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0\)</span>, to find the <em>p</em>-value, we would find the area under the <em>t</em>-distribution that is greater than or equal to the observed <em>t</em>-value of 2.47. This area is shaded in the output of <code>plot_t_dist()</code> and corresponds to .009 of the entire area under the curve.</p>
+<p>Since the alternative hypothesis was <span class="math inline">\(\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0\)</span>, to find the <em>p</em>-value, we would find the area under the <em>t</em>-distribution that is greater than or equal to the observed <em>t</em>-value of 2.47 and less than or equal to <span class="math inline">\(-2.47\)</span>. This area is shaded in the output of <code>plot_t_dist()</code> and corresponds to .018 of the entire area under the curve.</p>
 <p><br></p>
 </section>
 <section id="case-study-2-bachelor-and-bachelorette-ages" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">11.5</span> Case Study 2: Bachelor and Bachelorette Ages</h2>
-<p>Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, do we see age differences between those people selected to be The Bachelor and those selected to be The Bachelorette?</p>
-<p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> to evaluate the following hypotheses.</p>
+<p>Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, we might expect that the average age for Bachelor and Bachelorette contestants may differ.</p>
+<p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> to evaluate whether there are age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. In particular we will test the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 &amp;H_0: \mu_{\text{Bachelor}} = \mu_{\text{Bachelorette}} \\
-&amp;H_A: \mu_{\text{Bachelor}} &gt; \mu_{\text{Bachelorette}}
+&amp;H_A: \mu_{\text{Bachelor}} \neq \mu_{\text{Bachelorette}}
 \end{split}
 \]</span></p>
 <p>:::exercises #### Your Turn {.unnumbered}</p>
@@ -579,7 +602,7 @@ Show/Hide Solution
 <p><span class="math display">\[
 \begin{split}
 &amp;H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
-&amp;H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} &lt; 0
+&amp;H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} \neq 0
 \end{split}
 \]</span></p>
 </div>
@@ -638,7 +661,7 @@ Show/Hide Solution
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor, </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu =</span> <span class="dv">0</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -651,17 +674,17 @@ Show/Hide Solution
 --------------------------------------------------
 
 H[0]: mu_[Bachelor] = mu_[Bachelorette]
-H[A]: mu_[Bachelor] &gt; mu_[Bachelorette]
+H[A]: mu_[Bachelor] ≠ mu_[Bachelorette]
 
 t(48) = 2.567151
-p = 0.006712898
+p = 0.0134258
 
 --------------------------------------------------</code></pre>
 </div>
 </div>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
-<p>Use the results of the two-sample <em>t</em>-test to sketch the <em>t</em>-distribution with 48 <em>df</em>, add a vertical line at the observed <em>t</em>-value, and shade the area under the curve corresponding to the <em>p</em>-value.</p>
+<p>Use the results of the two-sample <em>t</em>-test to sketch the <em>t</em>-distribution with 48 <em>df</em>, add vertical lines at the observed <em>t</em>-value (and <span class="math inline">\(-\)</span><em>t</em>-value), and shade the area under the curve corresponding to the <em>p</em>-value.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">
 Show/Hide Solution
 </button>
@@ -674,7 +697,7 @@ Show/Hide Solution
 <div id="fig-t-dist2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist2-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of 2.57. The shaded area under the curve to the right of 2.57 shows the associated <em>p</em>-value of .007 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is greater than the average age of the Bachelorette contestants.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical lines represent the observed <em>t</em>-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated <em>p</em>-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.</figcaption>
 </figure>
 </div>
 </div>
@@ -685,7 +708,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_05-01-03" style="display:none; margin: -40px 0 40px 40px;">
-<p>The <em>p</em>-value of .007 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is higher than the average age for Bachelorette contestants.</p>
+<p>The <em>p</em>-value of .013 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is different than the average age for Bachelorette contestants.</p>
 </div>
 </section>
 <p><br></p>

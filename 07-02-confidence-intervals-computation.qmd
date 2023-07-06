@@ -1,0 +1,221 @@
+# Confidence Intervals Using R {#sec-confidence-intervals-r}
+
+In this chapter you will learn how to use R to compute a confidence interval. 
+
+<br />
+
+
+
+## The confint() Function
+
+To compute a confidence interval (CI), we fit a two-sided *t*-test and then call the `confint()` function on the results. For example, to compute a CI to estimate the average price of a single-family house near the University of Minnesota we can use the following syntax.
+
+```{r}
+#| label: load-packages
+#| message: false
+# Load libraries
+library(ggformula)
+library(mosaic)
+library(tidyverse)
+
+# Import data
+zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
+
+# View data
+zillow
+
+# Carry out two-sided t-test
+my_t <- t_test(~price, data = zillow, mu = 322.46, alternative = "two.sided")
+
+# Compute CI
+confint(my_t)
+```
+
+The `lower` and `upper` values of the output give the lower and upper bounds of the CI, respectively. From this output, our CI is computed as $[348.24,~461.69]$.
+
+<br />
+
+
+### Some Computational Shortcuts for Computing a CI
+
+In the house prices case study, we had initially tested a two-sided hypothesis, so we already had written the syntax for the `t_test()` function. This will be true in most applications. If, however, you haven't carried out a *t*-test, and you want to compute a CI, you can shorten the syntax in the `t_test()` function by omitting the arguments `mu=` and `alternative=`. For example, if we hadn't previously carried out a *t*-test on our Zillow data, we could use the syntax:
+
+```{r}
+# Carry out two-sided t-test
+my_t <- t_test(~price, data = zillow)
+
+# Compute CI
+confint(my_t)
+```
+
+Notice that the CI is the same as we found earlier. This is because the computation of the CI does not use the argument `mu=`. That is only necessary when computing output for a hypothesis test. (If you looked at the results of the *t*-test, the *t*- and *p*-values would be different!) Thus, the value for `mu=` can be whatever you want or can be omitted completely. (If it is omitted, the `t_test()` function defaults to `mu=0`.) The default value for the argument `alternative=` is `alternative=two.sided`, so omitting the `alternative=` argument will automatically fit a two-sided *t*-test.
+
+<br />
+
+
+## Computing a CI for a Proportion
+
+We can also use the `confint()` function to compute the CI for a proportion. In a similar fashion, we would need to carry out a two-sided *z*-test (using `prop_test()`) and then call `confint()` on the results of that *z*-test. For example to compute a CI to estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will use the following syntax:
+
+```{r}
+# Import data
+mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
+
+# View data
+mn_lead
+
+# One-sample z-test
+my_z <- prop_test(
+  ~ebll == "Yes", 
+  data = mn_lead, 
+  p = .029, 
+  alternative = "two.sided",
+  correct = FALSE
+  )
+
+# Compute CI
+confint(my_z)
+```
+
+From this output, our CI is computed as $[.013,~.015]$ which suggests that based on the data, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .013 and .015.
+
+<br />
+
+
+## Computing a CI for the Difference in Means or Proportions
+
+You can also use the `confint()` function on the results of a two-sided *t*- or *z*-test in the same way. For example, to estimate the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose, we would use:
+
+```{r}
+# Import data
+bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
+
+# View data
+bachelor
+
+# Two-sample z-test with counts entered manually
+my_z <- prop_test(
+  x = c(3, 4),
+  n = c(27, 21),
+  alternative = "two.sided",
+  correct = FALSE
+  )
+
+# Compute CI
+confint(my_z)
+```
+
+From this output, our CI is computed as $[-.28,~.13]$ which suggests that based on the data, we think the the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose is between $-.28$ and 0.12. 
+
+How can we have a negative value when we are dealing with proportions you might ask. Remember, that this represents our estimate of a *difference between two proportions*. When you compute the difference between two things you can get a negative value if you are subtracting a bigger value from a smaller value. To interpret this, recall that R subtracts in alphabetical order based on the category names; thus it is computing:
+
+$$
+\pi_{\text{Bachelor}} -\pi_{\text{Bachelorette}}
+$$
+The lower bound of $-.28$ tells us that the proportion of Bacheorette contestants that are still together with the person they chose may be higher than the proportion of Bachelor contestants that are still together with the person they chose by as much as .28. While the positive upper bound of .13 suggests that it may be that the proportion of Bachelor contestants still together with the person they chose is higher than the proportion of Bachelorette contestants still together with the person they chose by as much as .13.
+
+Because of this, we have uncertainty about which group is more likely to stay together with the person they chose. It may be Bachelor contestants, or it may be Bachelorette contestants, we just can't tell based on these data---there is too much uncertainty. Another possibility is that the proportions are the same. If the proportions are the same, the difference between them is 0---which falls in the range of the CI. Remember, any value in the range is a plausible value for the difference in population proportions!
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+In [Section @sec-two-sample-t-test], we carried out a two-sample *t*-test to evaluate whether the effects on IQ were different for users who started using marijuana as a teen. The evidence from this test suggested that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. Compute a CI for the difference in the average amount of change in IQ scores between these groups.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-02-01" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Import data
+cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
+
+# One-sample t-test
+my_t <- t_test(
+  ~ iq_change | cannabis_dep, 
+  data = cannabis, 
+  mu = 0, 
+  alternative = "two.sided", 
+  var.equal = TRUE
+  )
+
+# Compute CI
+confint(my_t)
+```
+
+
+The CI is $[1.11,~11.27]$
+
+</div>
+
+
+Interpret the CI you computed.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-02-02" style="display:none; margin: -40px 0 40px 40px;">
+
+Based on the data, the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 ad 11.26.
+</div>
+
+Based on the CI, is it more detrimental on IQ for people who became persistent marijuana users as adults or those that became persistent marijuana users as teens? Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-02-03" style="display:none; margin: -40px 0 40px 40px;">
+
+The CI is computed alphabetically by category level, which means it is computed as $\pi_{\text{Adult}}-\pi_{\text{Teen}}$. We can compute this difference using the sample means. In the output we see the average IQ change for adults ($-2.07$) is a smaller decrease than it is for teens ($8.26$). The difference in sample means is $-2.07--8.26=+6.19$. So a positive difference between means suggests that the adult group has LESS of a decrease in IQ than the teen group.
+
+Because both the lower and upper bounds of the CI are positive, it means that the data suggest that people who become persistent marijuana users as an adult have, on average, LESS of a decrease in IQ than people who become persistent marijuana users as a teen. And this difference might be as little as 1.11 IQ points or as large as 11.27 IQ points.
+
+:::protip
+Be very careful when the means are negative and you are computing or estimating a difference. Interpretations can be tricky and it may take some thought in how you interpret findings.
+:::
+
+</div>
+
+In [Section @sec-one-sample-test-r], we carried out a one-sample *t*-test to evaluate whether Ethiopian primary teachers are measuring students' prior knowledge. The evidence from this test suggested that the empirical data were consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5 suggesting we were uncertain about whether, on average, they were measuring students' prior knowledge. Compute a CI for the average response score for Ethiopian primary teachers.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-02-04" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Import data
+continuous_assessment <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
+
+# One-sample t-test
+my_t <- t_test(~prior_knowledge, data = continuous_assessment, mu = 2.5, alternative = "two.sided")
+
+# Compute CI
+confint(my_t)
+```
+
+Based on the output, the CI for the average response score is $[2.10,~2.77]$.
+
+</div>
+
+Use the CI to compute the margin of error. Remember a CI is computed as $\text{Sample Estimate} \pm \text{Margin of Error}$.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-05');">Show/Hide Solution</button>
+
+<div id="exercise_07-02-05" style="display:none; margin: -40px 0 40px 40px;">
+
+The sample estimate ($\bar{x}$) is 2.43. Computing the distance from this value to the upper bound (orto the lower bound) will give us the margin of error.
+
+$$
+2.77 - 2.43 = .34
+$$
+
+The margin of error is 0.34.
+
+</div>
+
+:::
+
+<br />
+
+
+<!-- ## References -->
+

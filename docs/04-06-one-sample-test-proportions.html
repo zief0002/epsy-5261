@@ -318,6 +318,29 @@ function toggle_visibility(id) {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -388,13 +411,13 @@ function toggle_visibility(id) {
 </div>
 </div>
 </div>
-<p>One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 lower than the proportion in 2012? That is, they might wish to examine the following hypotheses:</p>
+<p>One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than the proportion in 2012? That is, they might wish to examine the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 H_0: \pi_{\text{Above MDH}} = .029 \\[1ex]
-H_A: \pi_{\text{Above MDH}} &lt; .029
+H_A: \pi_{\text{Above MDH}} \neq .029
 \end{split}
-\]</span> where <span class="math inline">\(\pi_{\text{Above MDH}}\)</span> (the Greek letter equivalent of “p”) is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of <span class="math inline">\(\pi\)</span>.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample <em>z</em>-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error.</p>
+\]</span> where <span class="math inline">\(\pi_{\text{Above MDH}}\)</span> (the Greek letter equivalent of “p”) is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of <span class="math inline">\(\pi\)</span>.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample <em>z</em>-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error.</p>
 <p><br></p>
 <section id="summarizing-the-sample-data" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">10.1.1</span> Summarizing the Sample Data</h3>
@@ -459,24 +482,24 @@ z &amp;= \frac{.01391403 - .029}{\sqrt{.029(1 - .029)/91706}} \\[1ex]
 </div>
 </div>
 </div>
-<p>To find the <em>p</em>-value associated with the alternative hypothesis that <span class="math inline">\(\pi&lt;.029\)</span>, we will include the observed <em>z</em>-value of -27.22 into the <em>z</em>-distribution and shade the area under the curve that is less than the observed <em>z</em>-value. A sketch of this is shown in <a href="#fig-z-dist2">Figure&nbsp;<span>10.2</span></a>.</p>
+<p>To find the <em>p</em>-value associated with the alternative hypothesis that <span class="math inline">\(\pi\neq.029\)</span>, we will include the observed <em>z</em>-values of <span class="math inline">\(-27.22\)</span> and 27.22 into the <em>z</em>-distribution and shade the area under the curve that is more extreme than these values—less than the observed <em>z</em>-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in <a href="#fig-z-dist2">Figure&nbsp;<span>10.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-z-dist2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-08-z-dist-sketch.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.2: Sketch of the density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the <em>p</em>-value associate with the null hypothesis that the population proportion is less than .029.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;10.2: Sketch of the density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The <em>p</em>-value here is going to be quite small since the area under the curve to the left of <span class="math inline">\(-37.75\)</span> is quite small relative to the area under the whole curve.</p>
+<p>The <em>p</em>-value here is going to be quite small since the combined area under the curve to the left of <span class="math inline">\(-27.22\)</span> and right of 27.22 is quite small relative to the area under the whole curve.</p>
 <p>In practice, we will use the <code>prop_test()</code> function from the <code>{mosaic}</code> package to carry out the one-sample <em>z</em>-test and compute the <em>p</em>-value. This function takes:</p>
 <ul>
 <li>A formula using the tilde (<code>~</code>), similar to the <code>gf_</code> and <code>df_stats</code> functions, that specifies the attribute to carry out the one-sample <em>z</em>-test on. We also need to specify the level of the attribute we want to compute the sample proportion for using <code>==</code> and then giving the exact name for that level inside quotation marks.</li>
 <li><code>data=</code> specifying the name of the data object,</li>
 <li><code>p=</code> indicating the value of the proportion in the null hypothesis,</li>
-<li><code>alternative=</code> indicating one of three potential alternative hypotheses: <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> (not equal). Note that these need to be enclosed in quotation marks.</li>
+<li><code>alternative=</code> indicating one of three potential alternative hypotheses: <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> (not equal). Note that these need to be enclosed in quotation marks. Again, in practice, we only use the two-sided alternative hypothesis.</li>
 <li><code>correct=FALSE</code> indicating that we want to do the calculation of the <em>z</em>-value without a correction for continuity which will mimic the formula.</li>
 </ul>
 <p>To carry out the one-sample <em>z</em>-test, we will use the following syntax. Note that in the formula we also indicate that we want to compute the sample proportion for the <code>"Yes"</code> values. We assign the results of this <em>z</em>-test to an object (in this case, I called it <code>my_z</code>). Then we can use the <code>z_results()</code> and <code>plot_z_dist()</code> functions (both from the <code>{educate}</code> package) to show the results of the <em>z</em>-test and plot the <em>z</em>-distribution along with the observed <em>z</em>-value and shaded area associated with the <em>p</em>-value.</p>
@@ -486,7 +509,7 @@ z &amp;= \frac{.01391403 - .029}{\sqrt{.029(1 - .029)/91706}} \\[1ex]
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>ebll <span class="sc">==</span> <span class="st">"Yes"</span>, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> mn_lead, </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> .<span class="dv">029</span>, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="cn">FALSE</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -502,9 +525,9 @@ z &amp;= \frac{.01391403 - .029}{\sqrt{.029(1 - .029)/91706}} \\[1ex]
 --------------------------------------------------
 
 H[0]: pi = 0.029
-H[A]: pi &lt; 0.029
+H[A]: pi ≠ 0.029
 z = -27.22473
-p = 1.655524e-163
+p = 3.311047e-163
 
 --------------------------------------------------</code></pre>
 </div>
@@ -512,12 +535,12 @@ p = 1.655524e-163
 <div id="fig-z-dist-r" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-06-one-sample-test-proportions_files/figure-html/fig-z-dist-r-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.3: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the <em>p</em>-value associate with the null hypothesis that the population proportion is less than .029.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;10.3: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the <em>p</em>-value, and using an <span class="math inline">\(\alpha\)</span>-value of .05, we would reject the null hypothesis. This suggests <em>it is likely</em> that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is lower than the proportion in 2012. In this interpretation we call attention to the words “it is likely” to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.</p>
+<p>Based on the <em>p</em>-value, and using an <span class="math inline">\(\alpha\)</span>-value of .05, we would reject the null hypothesis. This suggests <em>it is likely</em> that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is different than the proportion in 2012. In this interpretation we call attention to the words “it is likely” to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.</p>
 <p><br></p>
 </section>
 </section>
@@ -543,11 +566,11 @@ n(1-\hat{p}) &amp;= 91706(1 - .01391403) \\[1ex]
 <p><br></p>
 <section id="case-study-rotten-tomatoes" class="level3" data-number="10.2.1">
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="case-study-rotten-tomatoes"><span class="header-section-number">10.2.1</span> Case Study: Rotten Tomatoes</h3>
-<p>The <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> website includes both audiences’ and critics’ ratings for different movies. The ratings are then classified into one of two categories: “Fresh” (which indicates a positive review) or “Rotten” (which indicates a negative review). The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv">fastx-reviews.csv</a> includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the <em>Fast &amp; the Furious</em> franchise). You will use the data in the <code>fresh_rotten</code> attribute to evaluate whether the proportion of all critics’ “Fresh” reviews is greater than .50. Mathematically the hypotheses you will evaluate are:</p>
+<p>The <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> website includes both audiences’ and critics’ ratings for different movies. The ratings are then classified into one of two categories: “Fresh” (which indicates a positive review) or “Rotten” (which indicates a negative review). The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv">fastx-reviews.csv</a> includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the <em>Fast &amp; the Furious</em> franchise). You will use the data in the <code>fresh_rotten</code> attribute to evaluate whether the proportion of all critics’ “Fresh” reviews is different than .50. Mathematically the hypotheses you will evaluate are:</p>
 <p><span class="math display">\[
 \begin{split}
 H_0: \pi_{\text{Fresh}} = .50 \\[1ex]
-H_A: \pi_{\text{Fresh}} &gt; .50
+H_A: \pi_{\text{Fresh}} \neq .50
 \end{split}
 \]</span></p>
 <section id="your-turn" class="level4 unnumbered exercises">
@@ -579,7 +602,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_04-06-02" style="display:none; margin: -40px 0 40px 40px;">
-<p>The sample evidence supports the alternative hypothesis since <span class="math inline">\(\hat{p}\)</span> is greater than the hypothesized value of 0.5.</p>
+<p>The sample evidence supports the alternative hypothesis since <span class="math inline">\(\hat{p}=.538\)</span> is different than the hypothesized value of 0.5.</p>
 </div>
 <p>Compute the observed <em>z</em>-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-03');">
@@ -606,7 +629,7 @@ Show/Hide Solution
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>fresh_rotten <span class="sc">==</span> <span class="st">"fresh"</span>, </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> fastx, </span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> .<span class="dv">50</span>, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="cn">FALSE</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -622,16 +645,16 @@ Show/Hide Solution
 --------------------------------------------------
 
 H[0]: pi = 0.5
-H[A]: pi &gt; 0.5
-z = -1.166767
-p = 0.1216523
+H[A]: pi ≠ 0.5
+z = 1.166767
+p = 0.2433046
 
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The results of the one-sample <em>z</em>-test, <span class="math inline">\(z=-1.17\)</span>, <span class="math inline">\(p=.122\)</span>, suggest we should failt to reject the null hypothesis. It is likely that the population proportion of “Fresh” reviews is not greater than 0.50.</p>
+<p>The results of the one-sample <em>z</em>-test, <span class="math inline">\(z=1.17\)</span>, <span class="math inline">\(p=.243\)</span>, suggest we should fail to reject the null hypothesis. It is likely that the population proportion of “Fresh” reviews is not different than 0.50.</p>
 </div>
-<p>Sketch a picture of the <em>z</em>-distribution (try to do this initially without using R). Then add a vertical line at the observed <em>z</em>-value. Finally, shade the area under the <em>z</em>-distribution that is assciated with the <em>p</em>-value. Check your sketch by using the <code>plot_z_dist()</code> function.</p>
+<p>Sketch a picture of the <em>z</em>-distribution (try to do this initially without using R). Then add a vertical line at the observed <em>z</em>-value. Finally, shade the area under the <em>z</em>-distribution that is associated with the <em>p</em>-value. Check your sketch by using the <code>plot_z_dist()</code> function.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-05');">
 Show/Hide Solution
 </button>
@@ -644,7 +667,7 @@ Show/Hide Solution
 <div id="fig-z-dist-fresh" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-06-one-sample-test-proportions_files/figure-html/fig-z-dist-fresh-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.4: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of 1.17 also included. The shaded area to the right of 1.17 constitutes the <em>p</em>-value associate with the null hypothesis that the population proportion is greater than .50.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;10.4: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the <em>p</em>-value associated with the null hypothesis that the population proportion is different than .50.</figcaption>
 </figure>
 </div>
 </div>
@@ -655,7 +678,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_04-06-06" style="display:none; margin: -40px 0 40px 40px;">
-<p>Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of “Fresh” reviews actually is greater than 0.5 and we erroneously concluded it was not.</p>
+<p>Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of “Fresh” reviews actually is different than 0.5 and we erroneously concluded it was not.</p>
 </div>
 <p>Check and evaluate all of the assumptions for the one-sample <em>z</em>-test.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-07');">

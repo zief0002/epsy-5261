@@ -26,15 +26,15 @@ mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/d
 mn_lead
 ```
 
-One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 lower than the proportion in 2012? That is, they might wish to examine the following hypotheses:
+One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than the proportion in 2012? That is, they might wish to examine the following hypotheses:
 
 $$
 \begin{split}
 H_0: \pi_{\text{Above MDH}} = .029 \\[1ex]
-H_A: \pi_{\text{Above MDH}} < .029
+H_A: \pi_{\text{Above MDH}} \neq .029
 \end{split}
 $$
-where $\pi_{\text{Above MDH}}$ (the Greek letter equivalent of "p") is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of $\pi$.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample *z*-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error. 
+where $\pi_{\text{Above MDH}}$ (the Greek letter equivalent of "p") is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of $\pi$.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample *z*-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error. 
 
 <br />
 
@@ -119,11 +119,11 @@ ggplot(data = data.frame(x = c(-3, 3)), aes(x = x)) +
     ylab("Density")
 ```
 
-To find the *p*-value associated with the alternative hypothesis that $\pi<.029$, we will include the observed *z*-value of -27.22 into the *z*-distribution and shade the area under the curve that is less than the observed *z*-value. A sketch of this is shown in @fig-z-dist2.
+To find the *p*-value associated with the alternative hypothesis that $\pi\neq.029$, we will include the observed *z*-values of $-27.22$ and 27.22 into the *z*-distribution and shade the area under the curve that is more extreme than these values---less than the observed *z*-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in @fig-z-dist2.
 
 ```{r}
 #| label: fig-z-dist2
-#| fig-cap: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the *p*-value associate with the null hypothesis that the population proportion is less than .029."
+#| fig-cap: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -131,21 +131,21 @@ To find the *p*-value associated with the alternative hypothesis that $\pi<.029$
 knitr::include_graphics("figs/04-08-z-dist-sketch.jpg")
 ```
 
-The *p*-value here is going to be quite small since the area under the curve to the left of $-37.75$ is quite small relative to the area under the whole curve. 
+The *p*-value here is going to be quite small since the combined area under the curve to the left of $-27.22$ and right of 27.22 is quite small relative to the area under the whole curve. 
 
 In practice, we will use the `prop_test()` function from the `{mosaic}` package to carry out the one-sample *z*-test and compute the *p*-value. This function takes: 
 
 - A formula using the tilde (`~`), similar to the `gf_` and `df_stats` functions, that specifies the attribute to carry out the one-sample *z*-test on. We also need to specify the level of the attribute we want to compute the sample proportion for using `==` and then giving the exact name for that level inside quotation marks.
 - `data=` specifying the name of the data object,
 - `p=` indicating the value of the proportion in the null hypothesis,
-- `alternative=` indicating one of three potential alternative hypotheses: `"less"`, `"greater"`, or `"two.sided"` (not equal). Note that these need to be enclosed in quotation marks.
+- `alternative=` indicating one of three potential alternative hypotheses: `"less"`, `"greater"`, or `"two.sided"` (not equal). Note that these need to be enclosed in quotation marks. Again, in practice, we only use the two-sided alternative hypothesis.
 - `correct=FALSE` indicating that we want to do the calculation of the *z*-value without a correction for continuity which will mimic the formula.
 
 To carry out the one-sample *z*-test, we will use the following syntax. Note that in the formula we also indicate that we want to compute the sample proportion for the `"Yes"` values. We assign the results of this *z*-test to an object (in this case, I called it `my_z`). Then we can use the `z_results()` and `plot_z_dist()` functions (both from the `{educate}` package) to show the results of the *z*-test and plot the *z*-distribution along with the observed *z*-value and shaded area associated with the *p*-value.
 
 ```{r}
 #| label: fig-z-dist-r
-#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of -27.22 also included. The shaded area to the left of -27.22 constitutes the *p*-value associate with the null hypothesis that the population proportion is less than .029."
+#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -154,7 +154,7 @@ my_z <- prop_test(
   ~ebll == "Yes", 
   data = mn_lead, 
   p = .029, 
-  alternative = "less",
+  alternative = "two.sided",
   correct = FALSE
   )
 
@@ -165,7 +165,7 @@ plot_z_dist(my_z)
 z_results(my_z)
 ```
 
-Based on the *p*-value, and using an $\alpha$-value of .05, we would reject the null hypothesis. This suggests *it is likely* that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is lower than the proportion in 2012. In this interpretation we call attention to the words "it is likely" to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.
+Based on the *p*-value, and using an $\alpha$-value of .05, we would reject the null hypothesis. This suggests *it is likely* that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is different than the proportion in 2012. In this interpretation we call attention to the words "it is likely" to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.
 
 
 <br />
@@ -201,13 +201,13 @@ $$
 
 ### Case Study: Rotten Tomatoes
 
-The [Rotten Tomatoes](https://www.rottentomatoes.com/) website includes both audiences' and critics' ratings for different movies. The ratings are then classified into one of two categories: "Fresh" (which indicates a positive review) or "Rotten" (which indicates a negative review). The data in [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the *Fast &amp; the Furious* franchise). You will use the data in the `fresh_rotten` attribute to evaluate whether the proportion of all critics' "Fresh" reviews is greater than .50. Mathematically the hypotheses you will evaluate are:
+The [Rotten Tomatoes](https://www.rottentomatoes.com/) website includes both audiences' and critics' ratings for different movies. The ratings are then classified into one of two categories: "Fresh" (which indicates a positive review) or "Rotten" (which indicates a negative review). The data in [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the *Fast &amp; the Furious* franchise). You will use the data in the `fresh_rotten` attribute to evaluate whether the proportion of all critics' "Fresh" reviews is different than .50. Mathematically the hypotheses you will evaluate are:
 
 
 $$
 \begin{split}
 H_0: \pi_{\text{Fresh}} = .50 \\[1ex]
-H_A: \pi_{\text{Fresh}} > .50
+H_A: \pi_{\text{Fresh}} \neq .50
 \end{split}
 $$
   
@@ -239,7 +239,7 @@ Which hypothesis the null or alternative, does the sample evidence support? Expl
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-02');">Show/Hide Solution</button>
 
 <div id="exercise_04-06-02" style="display:none; margin: -40px 0 40px 40px;">
-The sample evidence supports the alternative hypothesis since $\hat{p}$ is greater than the hypothesized value of 0.5.
+The sample evidence supports the alternative hypothesis since $\hat{p}=.538$ is different than the hypothesized value of 0.5.
 </div>
 
 Compute the observed *z*-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.
@@ -271,7 +271,7 @@ my_z <- prop_test(
   ~fresh_rotten == "fresh", 
   data = fastx, 
   p = .50, 
-  alternative = "greater",
+  alternative = "two.sided",
   correct = FALSE
   )
 
@@ -283,10 +283,10 @@ z_results(my_z)
 ```
 
 
-The results of the one-sample *z*-test, $z=-1.17$, $p=.122$, suggest we should failt to reject the null hypothesis. It is likely that the population proportion of "Fresh" reviews is not greater than 0.50.
+The results of the one-sample *z*-test, $z=1.17$, $p=.243$, suggest we should fail to reject the null hypothesis. It is likely that the population proportion of "Fresh" reviews is not different than 0.50.
 </div>
 
-Sketch a picture of the *z*-distribution (try to do this initially without using R). Then add a vertical line at the observed *z*-value. Finally, shade the area under the *z*-distribution that is assciated with the *p*-value. Check your sketch by using the `plot_z_dist()` function.
+Sketch a picture of the *z*-distribution (try to do this initially without using R). Then add a vertical line at the observed *z*-value. Finally, shade the area under the *z*-distribution that is associated with the *p*-value. Check your sketch by using the `plot_z_dist()` function.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-05');">Show/Hide Solution</button>
 
@@ -295,7 +295,7 @@ Your sketch should look like the distribution plotted in @fig-z-dist-fresh.
 
 ```{r}
 #| label: fig-z-dist-fresh
-#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of 1.17 also included. The shaded area to the right of 1.17 constitutes the *p*-value associate with the null hypothesis that the population proportion is greater than .50."
+#| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the *p*-value associated with the null hypothesis that the population proportion is different than .50."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -309,7 +309,7 @@ Based on your decision, what type of error might you have made? Explain.
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-06');">Show/Hide Solution</button>
 
 <div id="exercise_04-06-06" style="display:none; margin: -40px 0 40px 40px;">
-Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of "Fresh" reviews actually is greater than 0.5 and we erroneously concluded it was not.
+Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of "Fresh" reviews actually is different than 0.5 and we erroneously concluded it was not.
 </div>
 
 Check and evaluate all of the assumptions for the one-sample *z*-test.

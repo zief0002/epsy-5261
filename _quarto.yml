@@ -48,6 +48,10 @@ book:
       chapters:
         - 06-01-generalization.qmd
         - 06-02-cause-and-effect.qmd
+    - part: 07-00-effect-size.qmd
+      chapters:
+        - 07-01-confidence-intervals.qmd
+        - 07-02-confidence-intervals-computation.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

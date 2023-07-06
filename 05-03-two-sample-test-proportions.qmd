@@ -368,7 +368,7 @@ The second option is to enter the information for the two-sampe *z*-test into th
 - `x=` takes a vector of the counts that are still together in the `c()` function
 - `n=` takes a vector of the total Bachelor and Bachelorette counts in the `c()` function
 
-Because we are enterin the counts manually, we do not include a formula or `data=` argument. The syntax to enter the counts manually in the `prop_test()` function is:
+Because we are enter in the counts manually, we do not include a formula or `data=` argument. The syntax to enter the counts manually in the `prop_test()` function is:
 
 ```{r}
 # Two-sample z-test with counts entered manually

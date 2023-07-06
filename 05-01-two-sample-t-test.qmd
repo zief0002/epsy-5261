@@ -9,9 +9,9 @@ In this chapter you will learn how to carry out a two-sample *t*-test using R to
 
 In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples' health and well-being [@Volkow:2014], including long-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on [data collected from the Center for Disease Control in 2019](https://www.cdc.gov/marijuana/health-effects/teens.html), 37\% of U.S. high school students reported using marijuana at least once, and 22\% reported use in the past 30 days. 
 
-To study the long-term effects of cannabis, @Meier:2012 examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset). To determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al. posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults.
+To study the long-term effects of cannabis, @Meier:2012 examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset).
 
-We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv) to evaluate this hypothesis.
+We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv) to evaluate whether the effects on IQ were different for users who started using marijuana as a teen.
 
 ```{r}
 #| label: load-packages
@@ -41,10 +41,10 @@ $$
 H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}}
 $$
 
-The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since the researchers posited that persistent marijuana users that became dependent as teens would have a bigger decline (more negative values, on average) in IQ than those who became dependent as adults, the alternative hypothesis would be:
+The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since we want to determine if persistent marijuana users that became dependent as teens would have a different change in IQ than those who became dependent as adults, the alternative hypothesis would be:
 
 $$
-H_A: \mu_{\text{Adult-onset}} > \mu_{\text{Teen-onset}}
+H_A: \mu_{\text{Adult-onset}} \neq \mu_{\text{Teen-onset}}
 $$
 
 :::protip
@@ -53,14 +53,14 @@ The order of the two groups in the hypotheses does not matter. For example, we c
 $$
 \begin{split}
 &H_0: \mu_{\text{Teen-onset}} = \mu_{\text{Adult-onset}} \\
-&H_A: \mu_{\text{Teen-onset}} < \mu_{\text{Adult-onset}}
+&H_A: \mu_{\text{Teen-onset}} \neq \mu_{\text{Adult-onset}}
 \end{split}
 $$
 
-However, when we go to use the `t_test()` function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the `cannabis_dep` attribute, the two values are `Teen` and `Adult`. Since `Adult` comes alphabetically before `Teen`, if we specify `alternative="less"` we would be testing `Adult` $<$ `Teen`. Because of this, it is a good idea to put the means in alphabetical order when writing the hypotheses so that you can correctly specify the alternative hypothesis in `t_test()`.
+However, when we go to use the `t_test()` function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the `cannabis_dep` attribute, the two values are `Teen` and `Adult`.
 :::
 
-We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means equalling zero:
+We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means is equal to zero:
 
 $$
 H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0
@@ -68,7 +68,7 @@ $$
 In a similar fashion the alternative hypothesis could be expressed as:
 
 $$
-H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} > 0
+H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 $$
 :::fyi
 The output from `t_result()` will present the hypotheses as a difference between means.
@@ -93,7 +93,7 @@ $$
 $$
 
 :::protip
-Reading this syntax, we would say: "model the attribute `iq_change` but separate (or condition) this by `cannabis_dep`".
+Reading this syntax, we would say: "model the attribute `iq_change` but separate this by `cannabis_dep`" You can also say: "model the attribute `iq_change` but condition this on `cannabis_dep`". In statistics a *conditional distribution* is a distribution for a particular group.
 :::
 
 The syntax for creating density plots and computing numerical summaries is shown below. 
@@ -134,7 +134,7 @@ my_t <- t_test(
   ~ iq_change | cannabis_dep, 
   data = cannabis, 
   mu = 0, 
-  alternative = "greater", 
+  alternative = "two.sided", 
   var.equal = TRUE
   )
 
@@ -149,7 +149,7 @@ When you get the results from the *t*-test, be sure it says "Two Sample t-test".
 
 ```{r}
 #| label: fig-t-dist3
-#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (*t* value of 0). The red vertical line represents the observed *t*-value of 2.47. The shaded area under the curve to the right of 2.47 shows the associated *p*-value of .009 that corresponds to the alternative hypothesis that $\\mu>0$."
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (*t* value of 0). The red vertical lines represents the observed *t*-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that $\\mu\\neq0$."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -157,7 +157,7 @@ When you get the results from the *t*-test, be sure it says "Two Sample t-test".
 plot_t_dist(my_t)
 ```
 
-Based on the *p*-value of .009, we would *reject* the null hypothesis. The evidence suggests that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. This indicates that marijuana may have more of an adverse effect on IQ for people that became persistent marijuana users as teens.
+Based on the *p*-value of .018, we would *reject* the null hypothesis. The evidence suggests that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. 
 
 <br />
 
@@ -192,21 +192,21 @@ $$
 
 That is our observed mean difference of 6.19 is 2.47 standard errors from the hypothesized mean difference of 0. We then evaluate this *t*-value in a *t*-distribution with $n1 + n_2 -2$ degrees-of-freedom. In our case the *t*-value of 2.47 is evaluated in a *t*-distribution with 35 *df*. This is the same thing we got in the output of `t_results()`.
 
-Since the alternative hypothesis was $\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} > 0$, to find the *p*-value, we would find the area under the *t*-distribution that is greater than or equal to the observed *t*-value of 2.47. This area is shaded in the output of `plot_t_dist()` and corresponds to .009 of the entire area under the curve.
+Since the alternative hypothesis was $\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0$, to find the *p*-value, we would find the area under the *t*-distribution that is greater than or equal to the observed *t*-value of 2.47 and less than or equal to $-2.47$. This area is shaded in the output of `plot_t_dist()` and corresponds to .018 of the entire area under the curve.
 
 <br />
 
 
 ## Case Study 2: Bachelor and Bachelorette Ages
 
-Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, do we see age differences between those people selected to be The Bachelor and those selected to be The Bachelorette?
+Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, we might expect that the average age for Bachelor and Bachelorette contestants may differ.
 
-We will use the data in [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) to evaluate the following hypotheses.
+We will use the data in [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) to evaluate whether there are age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. In particular we will test the following hypotheses:
 
 $$
 \begin{split}
 &H_0: \mu_{\text{Bachelor}} = \mu_{\text{Bachelorette}} \\
-&H_A: \mu_{\text{Bachelor}} > \mu_{\text{Bachelorette}}
+&H_A: \mu_{\text{Bachelor}} \neq \mu_{\text{Bachelorette}}
 \end{split}
 $$
 
@@ -221,7 +221,7 @@ Write the hypotheses as a difference in the average ages of the Bachelor and Bac
 $$
 \begin{split}
 &H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
-&H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} < 0
+&H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} \neq 0
 \end{split}
 $$
 </div>
@@ -266,7 +266,7 @@ While the sample data suggests that the average age for Bachelor contestants is 
 my_t <- t_test(
   ~age | show, data = bachelor, 
   mu = 0, 
-  alternative = "greater",
+  alternative = "two.sided",
   var.equal = TRUE
   )
 
@@ -277,7 +277,7 @@ t_results(my_t)
 :::exercises
 #### Your Turn {.unnumbered}
 
-Use the results of the two-sample *t*-test to sketch the *t*-distribution with 48 *df*, add a vertical line at the observed *t*-value, and shade the area under the curve corresponding to the *p*-value.
+Use the results of the two-sample *t*-test to sketch the *t*-distribution with 48 *df*, add vertical lines at the observed *t*-value (and $-$*t*-value), and shade the area under the curve corresponding to the *p*-value.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">Show/Hide Solution</button>
 
@@ -287,7 +287,7 @@ Your sketch should look something like the following.
 
 ```{r}
 #| label: fig-t-dist2
-#| fig-cap: "Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical line represents the observed *t*-value of 2.57. The shaded area under the curve to the right of 2.57 shows the associated *p*-value of .007 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is greater than the average age of the Bachelorette contestants."
+#| fig-cap: "Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical lines represent the observed *t*-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated *p*-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -302,7 +302,7 @@ Based on the results of the *t*-test, should we reject or fail to reject the nul
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-03');">Show/Hide Solution</button>
 
 <div id="exercise_05-01-03" style="display:none; margin: -40px 0 40px 40px;">
-The *p*-value of .007 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is higher than the average age for Bachelorette contestants.  
+The *p*-value of .013 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is different than the average age for Bachelorette contestants.  
 </div>
 :::
 

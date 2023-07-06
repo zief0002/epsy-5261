@@ -337,6 +337,29 @@ function toggle_visibility(id) {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -405,7 +428,7 @@ function toggle_visibility(id) {
 H_0: \mu = 9 \\[1ex]
 H_A: \mu &lt; 9
 \end{split}
-\]</span> The analysis started by importing the data and visualizing and numerically describing the amopunt of sleep for the teens in our sample.</p>
+\]</span> The analysis started by importing the data and visualizing and numerically describing the amount of sleep for the teens in our sample.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
@@ -542,6 +565,9 @@ p &amp;= 4.328872 \times 10^{-14} \\[2ex]
 SE = \frac{SD}{\sqrt{n}}
 \]</span></p>
 <p>where, <em>SD</em> is the sample standard deviation, and <em>n</em> is the sample size. This method of computing the standard error approximates the true standard error by employing information about the sample. In some cases this approximation is accurate and in other cases it is not. We will study this more in <a href="04-05-one-sample-test-assumptions.html"><span>Chapter&nbsp;9</span></a>.</p>
+<div class="fyi">
+<p>The only alternative hypothesis that gets tested in practice is the two-sided alternative hypothesis (<span class="math inline">\(\neq\)</span>). Moving forward, we will only use the two-sided alternative hypothesis in our hypothesis tests.</p>
+</div>
 <p><br></p>
 </section>
 <section id="case-study-2-continuous-assessment" class="level2" data-number="8.3">
@@ -652,11 +678,11 @@ p = 0.6871492
 </section>
 <section id="case-study-house-prices" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="case-study-house-prices"><span class="header-section-number">8.4</span> Case Study: House Prices</h2>
-<p>The average price of a single-family house in Minneapolis is $322.46k (as of May 2023). Are houses near the University of Minnesota campus more expensive than that, on average? The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">zillow.csv</a> include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:</p>
+<p>The average price of a single-family house in Minneapolis is $322.46k (as of May 2023). Is the average price of a house near the University of Minnesota different than that? The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">zillow.csv</a> include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
-H_A: \mu &gt; 322.46
+H_A: \mu \neq 322.46
 \end{split}
 \]</span></p>
 <div class="cell">
@@ -708,10 +734,10 @@ dbl (1): price
 </div>
 </div>
 </div>
-<p>The sample distribution is left-skewed indicating that more of the houses are at the higher and of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (<em>M</em> = $404.97k). There is a lot of variation in house price, with some as low as $250k and others as high as $550k (<em>SD</em> = $102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus costs more than the average house in Minneapolis. Next, we will carry out a one-sample <em>t</em>-test to determine whether this difference is more than we expect because of sampling variation.</p>
+<p>The sample distribution is left-skewed indicating that more of the houses are at the higher end of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (<em>M</em> = $404.97k). There is a lot of variation in house price, with some as low as $250k and others as high as $550k (<em>SD</em> = $102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus is different than the average house in Minneapolis. Next, we will carry out a one-sample <em>t</em>-test to determine whether this difference is more than we expect because of sampling variation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow, <span class="at">mu =</span> <span class="fl">322.46</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow, <span class="at">mu =</span> <span class="fl">322.46</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -722,10 +748,10 @@ One Sample t-test
 --------------------------------------------------
 
 H[0]: mu = 322.46
-H[A]: mu &gt; 322.46
+H[A]: mu ≠ 322.46
 
 t(14) = 3.1196
-p = 0.003766644
+p = 0.007533288
 
 --------------------------------------------------</code></pre>
 </div>
@@ -740,7 +766,7 @@ p = 0.003766644
 </div>
 </div>
 </div>
-<p>The results of the <em>t</em>-test, <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .004\)</span>, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being higher than the average cost of a house in Minneapolis more broadly.</p>
+<p>The results of the <em>t</em>-test, <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .008\)</span>, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
 <p><br></p>
 </section>
 <section id="references" class="level2" data-number="8.5">
