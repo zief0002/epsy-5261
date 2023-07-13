@@ -156,7 +156,7 @@ Interpret the CI you computed.
 
 <div id="exercise_07-02-02" style="display:none; margin: -40px 0 40px 40px;">
 
-Based on the data, the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 ad 11.26.
+Based on the data, the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 and 11.26.
 </div>
 
 Based on the CI, is it more detrimental on IQ for people who became persistent marijuana users as adults or those that became persistent marijuana users as teens? Explain.

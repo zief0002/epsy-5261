@@ -358,6 +358,12 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -486,17 +492,17 @@ function toggle_visibility(id) {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  7.500000  6.333333  7.916667  7.833333  8.833333  9.083333  7.583333
- [8]  7.083333  5.916667  7.000000  8.833333  6.333333  7.333333  9.916667
-[15]  7.500000  4.583333  7.500000  7.583333  4.833333  9.750000  8.333333
-[22]  7.916667  7.583333  5.833333  7.916667  4.666667  7.916667  4.666667
-[29]  8.083333  7.583333  4.583333 11.083333  6.083333  7.750000  7.750000
-[36]  8.416667  8.916667  6.333333  9.166667  7.000000  5.416667  7.583333
-[43]  8.583333  8.416667  7.333333  4.666667  7.916667  7.500000  6.083333
-[50] 11.083333  9.166667  7.500000  7.750000  8.333333  8.583333  4.666667
-[57]  5.916667  7.166667  6.416667  7.500000  5.166667  7.916667  7.416667
-[64]  6.666667  4.500000  7.750000  7.333333  6.083333  7.333333  7.416667
-[71]  7.666667  8.833333  7.500000  7.916667  9.750000</code></pre>
+<pre><code> [1]  4.833333  6.333333  8.500000  7.583333  7.333333  6.500000  6.083333
+ [8]  7.583333  8.500000  8.333333  5.166667  8.416667  8.333333  7.750000
+[15]  7.666667  4.833333  4.916667  7.916667  6.666667  7.500000  8.916667
+[22]  7.916667  6.416667  4.833333  6.666667  4.916667  7.750000  4.500000
+[29]  4.666667  5.833333  6.500000 11.083333  4.916667  6.666667  6.083333
+[36]  6.583333  6.083333  8.333333  9.166667  7.583333  7.916667  7.000000
+[43]  8.250000  7.583333  6.083333  8.416667  8.333333  9.166667  7.166667
+[50]  6.916667  7.750000  7.750000  8.750000  7.416667  7.916667  6.500000
+[57]  7.166667  7.833333  6.083333  7.916667 10.333333  6.916667  8.333333
+[64]  9.166667  7.500000  6.583333  7.916667  4.416667  7.500000  4.666667
+[71]  7.750000  8.416667  7.583333  5.916667  6.750000</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
@@ -504,17 +510,17 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8.250000  7.583333  4.416667  7.166667  5.916667  4.916667  7.500000
- [8]  5.416667  7.750000 11.083333  7.750000 10.083333  7.333333  8.416667
-[15]  4.833333  7.916667  6.083333  8.333333  7.333333  9.166667 11.083333
-[22]  6.500000  7.416667  6.500000  7.666667  7.750000  5.916667  7.500000
-[29]  6.333333  5.166667  7.833333  7.750000  9.083333  5.916667  4.666667
-[36]  5.833333  7.750000  5.916667  9.083333  8.750000 10.083333  6.750000
-[43]  7.500000  7.083333 11.083333  7.750000  8.333333  7.666667  6.916667
-[50]  7.416667  6.083333  7.416667  8.833333  7.416667  7.083333  5.916667
-[57]  4.833333  7.416667 10.333333  5.916667  7.750000  8.833333  4.416667
-[64]  5.916667  8.333333  7.333333  7.333333  8.583333  5.916667  7.333333
-[71]  7.166667  8.916667  9.166667  4.500000  8.916667</code></pre>
+<pre><code> [1]  9.750000  6.416667  8.583333  7.083333  7.083333  8.833333  7.000000
+ [8]  7.500000  8.333333  5.416667  7.500000  4.166667  5.833333  8.916667
+[15]  4.583333  4.916667  7.833333  8.916667  4.166667  5.833333  4.666667
+[22] 11.083333  6.083333  4.833333  7.583333  5.833333  6.500000  6.666667
+[29]  6.416667  5.833333  6.916667  7.500000  7.916667  8.750000  6.750000
+[36]  7.333333  6.416667  4.416667  8.750000  7.000000  7.916667  7.916667
+[43]  8.500000  8.083333  8.083333  4.166667  7.583333  6.083333  7.750000
+[50] 10.333333  8.083333  7.000000  6.833333  7.416667  7.916667  4.916667
+[57]  8.916667  7.583333  7.583333  7.666667  7.083333  7.750000  7.416667
+[64]  5.416667  9.166667  5.916667  6.666667  8.250000  7.750000  8.833333
+[71]  6.416667  7.416667  8.500000  6.083333  9.166667</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -545,7 +551,7 @@ function toggle_visibility(id) {
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.310000"},{"1":"7.485556"},{"1":"7.423333"},{"1":"7.472222"},{"1":"7.120000"},{"1":"7.237778"},{"1":"7.396667"},{"1":"6.908889"},{"1":"7.312222"},{"1":"7.394444"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.238889"},{"1":"7.288889"},{"1":"7.317778"},{"1":"7.628889"},{"1":"7.351111"},{"1":"7.484444"},{"1":"7.400000"},{"1":"7.343333"},{"1":"7.803333"},{"1":"7.515556"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>

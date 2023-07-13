@@ -52,6 +52,7 @@ book:
       chapters:
         - 07-01-confidence-intervals.qmd
         - 07-02-confidence-intervals-computation.qmd
+        - 07-03-confidence-intervals-extras.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
