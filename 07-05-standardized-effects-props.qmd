@@ -1,0 +1,375 @@
+# Standardized Effects for Proportions {#sec-std-effects-props}
+
+In this chapter you will learn about using standardized effects for differences in proportions more interpretable. 
+
+<br />
+
+
+## Cohen's h
+
+There are several methods for computing standardizd effect sizes for differences in proportions. For example, Cohen (of Cohen's *d* fame) developed a metric called Cohen's *h*, which measures the distance between two proportions. This is based on an arcsine transformation of the proportions (remember your trigonometry??) and is computed as:
+
+$$
+h = 2 \arcsin(\sqrt{p_1}) – 2 \arcsin(\sqrt{p_2})
+$$
+
+where $p_1$ and $p_2$ are the sample proportions you want to measure the effect between. We can illustrate how to compute this standardized effect using the [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) data to find Cohen's *h* to between the proportion of Bachelor and Bachelorettes that are still together with their chosen suitors. Below we import the data and compute summary values for the two groups.
+
+```{r}
+#| message: false
+library(educate)
+library(ggformula)
+library(mosaic)
+library(mosaicCore)
+library(tidyverse)
+
+
+# Import data
+bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
+
+# View data
+bachelor
+
+# Compute proportions
+df_stats(~still_together | show, data = bachelor, props)
+```
+
+Based on the proportion that are still together, $\hat{p}_{\text{Bachelor}} = .111, ~\hat{p}_{\text{Bachelorette}} = .174$, the difference is .063---this is a raw effect of the difference. To compute Cohen's *h*, the standardized effect, we can employ those proportions in to the formula above. Because arcsine transformations might not be at the tip of your brain, we use R to do this with the function `asin()`. 
+
+```{r}
+# Compute Cohen's h
+2 * asin(sqrt(.174)) - 2 * asin(sqrt(.111))
+```
+
+Cohen's *h* value is .181. While the metric used for Cohen's *h* is standardized, we typically don't interpret the value; we just report it. We can, however, interpret the magnitude of Cohen's *h* using the same guidelines as Cohen's *d*:
+
+$$
+\begin{split}
+h &\approx 0.2 \qquad \text{Small Effect} \\[2ex]
+h &\approx 0.5 \qquad \text{Moderate Effect} \\[2ex]
+h &\approx 0.8 \qquad \text{Large Effect}
+\end{split}
+$$
+In this example the difference between the two proportions indicates that it is a small effect.
+
+Cohen's *h* can also be computed when comparing a single sample proportion to a hypothesized proportion (one-sample situation). For example, in [Chapter @sec-one-sample-test-proportions] we evaluated whether the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 was different than 0.029 (the proportion in 2012).
+
+<br />
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Import the [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) data and compute the proportion of all critics' "Fresh" reviews.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-01" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Import data
+fastx <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv")
+
+# Compute sample proportion of Fresh reviews
+df_stats(~fresh_rotten, data = fastx, props)
+```
+
+</div>
+
+
+Use the `nrow()` function to compute the sample size. Just input the name of the data frame object into this function.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-02" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute sample size
+nrow(fastx)
+```
+
+</div>
+
+Use the formula (and R) to compute Cohen's *h* comparing the sample proportion of "fresh" reviews to the hypothesized value of 0.5. Also indicate the magnitude of the effect based on Cohen's guidelines.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-03" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute Cohen's h
+2 * asin(sqrt(.538)) - 2 * asin(sqrt(.5))
+```
+
+An *h* of .076 is indicative of a very small effect.
+
+
+</div>
+
+:::
+
+<br />
+
+
+### Confidence Interval for Cohen's h
+
+The `ci_cohens_h()` function from the `{educate}` package can be used to find Cohen's *h* and compute a confidence level for the population effect size. This function takes the following arguments:
+
+- `p1`: Proportion for Sample 1
+- `n1`: Sample size for Sample 1
+- `n1`: Proportion for Sample 2
+- `n2`: Sample size for Sample 2
+- `conf.level`: The confidence level for the interval (default is `conf.level = 0.95`)
+
+For example, to compute the 95% confidence interval for Cohen's *h* in the population for our Bachelor/Bachelorette case study, we use the following syntax:
+
+```{r}
+# Compute CI for Cohen's h
+ci_cohens_h(
+  p1 = 0.174, #Proportion for Bachelorette
+  n1 = 25,    #Sample size for Bachelorette
+  p2 = .111,  #Proportion for Bachelor
+  n2 = 27,    #Sample size for Bachelor
+  conf.level = 0.95
+  )
+```
+
+The CI is $[-0.36,~0.73]$, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
+
+- There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.
+- There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,
+- There might be a fairly large effect in the direction that the proportion of Bachelorettes that stay together with their chosen suitor might be higher than the proportion of Bachelors that stay together with their chosen suitor.
+
+:::fyi
+We can also use the `ci_cohens_h()` function to compare a single sample to a hypothesized value (e.g., finding the effect for a one-sample situation). To do this, whichever "sample" you use to input the hypothesized value (say `p2`), the corresponding sample size is inputted as `Inf` (i.e., `n2=Inf`). This ensures that only the actual sample summaries are used to compute the uncertainty in the CI.
+:::
+
+
+<br />
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Use the `ci_cohens_h()` function to compute the 95% confidence interval for the population effect in the Rotten Tomatoes example comparing to the hypothesized value of 0.5. For the sample size corresponding to the hypothesized value in the function, enter the value `Inf`.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-04" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute CI for Cohen's h
+ci_cohens_h(
+  p1 = 0.538, #Proportion for sample data
+  n1 = 238,   #Sample size for sample data
+  p2 = .5,    #Hypothesized proportion
+  n2 = Inf,    #Hypothesized sample size
+  conf.level = 0.95
+  )
+```
+
+</div>
+
+
+Interpret the CI by commenting on the potential direction and magnitude of the effect.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-05');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-05" style="display:none; margin: -40px 0 40px 40px;">
+
+The CI of $[-.05,~0.20]$ indicates that:
+
+- There might be a tiny effect in the direction that the proportion of "Fresh" reviews for Fast X may be less than 0.5.
+- It might be that the proportion of "Fresh" reviews for Fast X is 0.5.
+- There might be a small effect in the direction that the proportion of "Fresh" reviews for Fast X may be more than 0.5.
+
+</div>
+
+:::
+
+<br />
+
+
+
+## Risk Ratio
+
+A more commonly reported effect size is a *risk ratio*, also sometimes referred o as *relative risk*. This effect is most commonly used in medicine and health sciences, but is quite useful. A risk ratio measures the risk of a certain event happening in one group compared to the risk of the same event happening in another group. For example, a health research might compare the risk of COVID in low income communities to that in high income communities. 
+
+"Risk" is simply a proportion of something occurring in a group. In our Bachelor/Bachelorette example, "risk" might be staying together (or alternatively, breaking up). To compute the risk ratio, or relative risk, we are just computing the ratio of two proportions:
+
+$$
+\text{Risk Ratio} = \frac{p_1}{p_2}
+$$
+In our Bachelor/Bachelorette example the risk ratio of staying together is:
+
+$$
+\begin{split}
+\text{Risk Ratio} &= \frac{p_1}{p_2} \\[2ex]
+&= \frac{.174}{.111} \\[2ex]
+&= 1.56
+\end{split}
+$$
+We can interpret this as Bachelorettes (numerator proportion) are 1.56 times as likely to stay together as Bachelors (denominator proportion).
+
+:::fyi
+The choice of which group goes in the numerator is irrelevant. However, interpretationally it is easier if you put the bigger proportion in the numerator. 
+:::
+
+<br />
+
+
+### Risk Ratio with One Sample
+
+We can also compute a risk ration when we only have a single sample. Rather than computing the ratio of two sample proportions, we compute the ratio of the sample proportion and the hypothesized value of $\pi$ tested in a hypothesis test. 
+
+As an example, consider the lead levels case study from [Chapter @sec-one-sample-test-proportions]. We evaluated whether the the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than .029 (the proportion in 2012?), by testing the following hypotheses:
+
+$$
+\begin{split}
+H_0: \pi_{\text{Above MDH}} = .029 \\[1ex]
+H_A: \pi_{\text{Above MDH}} \neq .029
+\end{split}
+$$
+
+To compute a risk ratio, we import the data and compute numerical summaries.
+
+```{r}
+# Import data
+mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
+
+# View data
+mn_lead
+
+# Compute numerical summaries
+df_stats(~ebll, data = mn_lead, props)
+```
+
+To compute the risk ratio:
+
+$$
+\begin{split}
+\text{Risk Ratio} &= \frac{p}{\pi} \\[2ex]
+&= \frac{.014}{.029} \\[2ex]
+&= 0.48
+\end{split}
+$$
+
+We can interpret this as the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is less than half of that is 2012. Although typically we would put the larger number in the numerator, here we want to make the comparison back to the 2012 values, so we put that referent in the denominator. Remember, the choice of which value to put in the denominator is arbitrary---it just changes the interpretation. 
+
+<br />
+
+
+## Confidence Interval for Risk Ratio
+
+We can compute a confidence interval for a risk ratio using the `ci_risk_ratio()` function from the `{educate}` package. This function takes the following arguments:
+
+- `p1`: Proportion for Sample 1
+- `n1`: Sample size for Sample 1
+- `n1`: Proportion for Sample 2
+- `n2`: Sample size for Sample 2
+- `conf.level`: The confidence level for the interval (default is `conf.level = 0.95`)
+
+For example, to compute the 95% confidence interval for the risk ratio in our Bachelor/Bachelorette case study, we use the following syntax:
+
+```{r}
+# Compute CI for risk ratio
+ci_risk_ratio(
+  p1 = 0.174, #Proportion for Bachelorette
+  n1 = 25,    #Sample size for Bachelorette
+  p2 = .111,  #Proportion for Bachelor
+  n2 = 27,    #Sample size for Bachelor
+  conf.level = 0.95
+  )
+```
+
+The CI is $[0.79,~3.09]$, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:
+
+- It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.79 times as likely).
+- It may be that both groups are EQUALLY likely to stay together with their chosen suitor. Or,
+- It may be that Bachelorettes are MORE likely than Bachelors to stay together with their chosen suitor (up to 3.09 times as likely).
+
+<br />
+
+
+### Using `conf_risk_ratio()` With a Single Sample
+
+Use the `nrow()` function to compute the sample size.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute sample size
+nrow(mn_lead)
+```
+
+</div>
+
+
+
+
+We can also use the `ci_risk_ratio()` function to compare a single sample to a hypothesized value (e.g., in our MN lead exposure case study). To do this, whichever "sample" you use to input the hypothesized value (say `p2`), the corresponding sample size is inputted as `Inf` (i.e., `n2=Inf`). This ensures that only the actual sample summaries are used to compute the uncertainty in the CI.
+
+For example, to compute the CI for the risk ratio we computed earlier for the MN lead exposure example, we would input:
+
+```{r}
+# Compute CI for risk ratio
+ci_risk_ratio(
+  p1 = 0.014, #Sample proportion
+  n1 = 91706,  #Sample size
+  p2 = .029, #Hypothesized value
+  n2 = Inf,   #Inf goes with the hypothesized value
+  conf.level = 0.95
+  )
+```
+
+The CI is $[0.470,~.496]$, indicating the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .470 and .496 times that in 2012. The high level of precision in the estimate is attributable to the large sample size, so we can say with some degree of certainty that the 2018 numbers are likely less than half of those in 2012. 
+
+<br />
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Use the `ci_risk_ratio()` function to compute the risk ratio and the 99% CI for the population risk ratio that compares the proportion of "Fresh" reviews to the hypothesized value of 0.5.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-06');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-06" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute CI for risk ratio
+ci_risk_ratio(
+  p1 = 0.537, #Sample proportion
+  n1 = 238,   #Sample size
+  p2 = .5,    #Hypothesized value
+  n2 = Inf,   #Inf goes with the hypothesized value
+  conf.level = 0.99
+  )
+```
+
+</div>
+
+
+Interpret the confidence interval by commenting on the plausible values in the interval. 
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button>
+
+<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
+
+The CI is $[1.01,~1.14]$ indicating that the proportion of "fresh" reviews is between 1.01 and 1.14 times higher than 0.5. While this suggests that Fast X will likely have more than half of its reviews rated as "fresh", it won't be much over half.
+</div>
+
+:::
+
+
+<br />
+
+
+
+
+## References
+

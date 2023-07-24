@@ -1,0 +1,350 @@
+# Standardized Effects for Means {#sec-std-effects-means}
+
+In this chapter you will learn about using standardized effects for making the metric between means more interpretable. 
+
+<br />
+
+
+
+## Raw versus Standardized Effects
+
+Confidence intervals report effect sizes in the metric of the original variable. For example, when we found the CI for the average price of a house near the University of Minnesota, the metric we used to interpret the CI was thousands of dollars, the same metric as the data (i.e., the raw metric). Reporting effect sizes using the raw metric is useful if people consuming our scholarship can make sense of the metric and interpret the magnitude of the effect using that metric. In reporting an effect for the average house, thousands of dollars is a reasonable metric---Americans generally have a sense of what that means and can reasonably determine whether values reported using that metric are big or small. 
+
+Many times, however, the metric being used is less interpretable. For example, in our cannabis example, the metric being reported in the CI is change in IQ points. Is a change of 1.11 IQ points (the lower bound of our CI) a small change? A big change? What about a change of 11.3 IQ points? Without a deep understanding of the IQ scale used, these are difficult questions to answer.
+
+To alleviate the problems in interpretations of magnitude, researchers tend to report *standardized effect sizes* rather than raw effect sizes when the metric is not universally known. These effects use a standardized metric so that all researchers can make reasonable inference about the magnitude of the effect. In practice, there are two common standardized effect sizes that researchers use: 
+
+- Distance measures, and
+- Variance accounted for measures
+
+While both of these standardized measures characterize the extent to which sample results diverge from the expectations specified in the null hypothesis, they do so in a different manner. In this chapter, we will introduce distance measures of effect. In [Chapter X] variance accounted for measures of effect size are discussed.
+
+<br />
+
+
+## Cohen's $\delta$
+
+
+@Cohen:1962 introduced the first commonly recognized standardized effect size to measure the distance between two means. In his landmark book [@Cohen:1965], he named this standardized effect size $\delta$ (the Greek letter "delta"; equivalent to the Roman lowercase "d"). It has henceforth been referred to as Cohen's $\delta$. The calculation of this standardized effect size is:
+
+$$
+\delta = \frac{|\mu_1-\mu_2|}{\sigma}
+$$
+
+where $\mu_1$ and $\mu_2$ are the population means for the two groups, and $\sigma$ is the standard deviation of the population. (Remember one of the assumptions when we compare two means is that the two populations have the same variance, which implies they have the same standard deviation.) An estimate of this effect size is obtained by substituting the sample estimates for the mean and standard deviation into this formula. To identify this as an estimate, it is renamed *Cohen's d*:
+
+$$
+d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
+$$
+
+Cohen pointed out that since the variances, and therefore the standard deviations, for the two populations are assumed to be equivalent, that the standard deviation estimate from either group could be used. However, in practice it is common to use
+the average of the two sample estimates. (If the groups have equal sample sizes, we use the simple average, but if they are different sizes, we use a weighted average.) 
+
+$$
+\begin{split}
+\mathbf{Simple~Average}:&~s = \frac{s_1 + s_2}{2}\\[2ex]
+\mathbf{Weighted~Average}:&~s = \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+\end{split}
+$$
+where $s_1$ and $s_2$ are the standard deviations of the two groups, respectively, and $n_1$ and $n_2$ are the sample sizes.
+
+Examining the formula for Cohen' *d*, we see that the numerator is expressing the estimated difference between the two population means (a distance between the two distributions). Dividing this distance by the standard deviation changes the metric of this distance. As an example, consider two objects that are 36 inches apart. To convert the distance to feet we divide the distance by 12. Note that it was the operation of dividing the distance that changed the metric. The value you divide by sets the new metric. For example if we had divided our 36 inch distance by 36 rather than 12 the metric would be in yards rather than feet. In Cohen's *d*, the value we divide by is the standard deviation, so the new metric is the distance in *standard deviation units*.
+
+<br />
+
+
+### Cannabis Case Study
+
+Let's compute Cohen's *d* for the cannabis case study. We will begin by importing the data and computing numerical summaries for the two groups being compared.
+
+```{r}
+#| message: false
+# Load libraries
+library(educate)
+library(ggformula)
+library(mosaic)
+library(tidyverse)
+
+
+# Import data
+cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
+
+# View data
+cannabis
+
+# Compute numerical summaries
+df_stats(~ iq_change | cannabis_dep, data = cannabis)
+```
+
+We note that the sample sizes for the two groups are not the same (one is 14 and the other 23). This means that we need to compute the weighted average for the standard deviation we will use in the formula for Cohen's *d*. To do this:
+
+$$
+\begin{split}
+s &= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+&= \frac{14(7.77) + 23(7.14)}{14 + 23} \\[2ex]
+&= 7.38
+\end{split}
+$$
+
+We can then compute Cohen's *d* as:
+
+$$
+\begin{split}
+d &= \frac{|\bar{x}_1-\bar{x}_2|}{s} \\[2ex]
+&= \frac{|-2.07 - -8.26|}{7.38} \\[2ex]
+&= \frac{6.19}{7.38} \\[2ex]
+&= .84
+\end{split}
+$$
+This is the distance between the two means in the standard deviation metric. In other words, the difference between average IQ score change between participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens is 0.84 standard deviations. In general, we can use the following guidelines to interpret Cohen's *d* values:
+
+$$
+\begin{split}
+d &\approx 0.2 \qquad \text{Small Effect} \\[2ex]
+d &\approx 0.5 \qquad \text{Moderate Effect} \\[2ex]
+d &\approx 0.8 \qquad \text{Large Effect}
+\end{split}
+$$
+Using these guidelines suggests that there is a large effect of age on IQ change. Had we used the raw metric, we would have computed a difference between these groups of 6.19 IQ points (the numerator of Cohen's *d*). Without a deep understanding of the IQ metric, we might have written this off as a small difference. Standardizing the metric to use standard deviation units helps us better understand effects that are in less interpretable metrics!
+
+<br />
+
+
+### Cohen's *d* with One Sample
+
+We can also compute Cohen's *d* when we only have a single sample. Rather than computing the distance between two sample means in the numerator of Cohen's *d*, we compute the distance between the sample mean and the hypothesized value of $\mu$ tested in a hypothesis test. In the denominator, we just employ the standard deviation for our sample:
+
+$$
+d = \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s}
+$$
+
+As an example, consider the house prices case study from [Chapter @sec-one-sample-test-r]. We evaluated whether the average price of a house near the University of Minnesota was different than \$322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:
+
+$$
+\begin{split}
+H_0: \mu = 322.46 \\[1ex]
+H_A: \mu \neq 322.46
+\end{split}
+$$
+To compute Cohen's *d*, we import the data and compute numerical summaries.
+
+```{r}
+# Import data
+zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
+
+# View data
+zillow
+
+# Compute numerical summaries
+df_stats(~ price, data = zillow)
+```
+
+Then we substitute these values along with the hypothesized mean of 322.46 (from the null hypothesis) into the formula for Cohen's *d*:
+
+$$
+\begin{split}
+d &= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
+&= \frac{|404.97 - 322.46|}{102.43} \\[2ex]
+&= \frac{82.51}{102.43} \\[2ex]
+&= 0.81
+\end{split}
+$$
+
+The difference between average house price in neighborhoods near the UMN campus and the hypothesized price of \$322.46k is 0.81 standard deviations. This is a large difference according to Cohen's guidelines.
+
+:::fyi
+The choice of whether to report the effect in raw or standardized units is up to the researcher. In the house price example, it is probably better to report the raw effect rather than the standardized effect. Consider both the raw metric and the audience---will your audience be able to understand the magnitude of the raw effect? Or would it be more helpful to standardize it so that the magnitude is more interpretable.
+:::
+
+<br />
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+_While differences in average age are probably best repoirted in the raw metric, as practice, compute Cohen's *d* for the difference in the average age of the Bachelors and Bachelorettes._
+
+Import the [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) data and computing numerical summaries. Based on these summaries, compute *s*, the denominator for Cohen's *d*.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-01" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Import data
+bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
+
+# Compute numerical summaries
+df_stats(~age | show, data = bachelor)
+```
+
+Because the sample sizes are not equal (27 vs. 24), we need to compute *s* using a weighted average.
+
+
+$$
+\begin{split}
+s &= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+&= \frac{27(3.80) + 23(3.03)}{27 + 23} \\[2ex]
+&= 3.45
+\end{split}
+$$
+
+</div>
+
+
+Compute Cohen's *d* using the values computed in the previous problem..
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-02" style="display:none; margin: -40px 0 40px 40px;">
+
+$$
+\begin{split}
+d &= \frac{|\bar{x}_1 - \bar{x}_2|}{s} \\[2ex]
+&= \frac{|30.70 - 28.17|}{3.45} \\[2ex]
+&= .733
+\end{split}
+$$
+</div>
+
+Interpret the value of Cohen's *d*. Also comment on its magnitude.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-03" style="display:none; margin: -40px 0 40px 40px;">
+
+The difference between the average age of Bachelors and Bachelorettes is 0.733 standard deviations. This is a fairly large effect.
+
+</div>
+
+:::
+
+<br />
+
+
+## Using R to Compute Cohen's d
+
+The function `smd()` (standardized mean difference) can be used to compute Cohen's *d*. This function is part of the `{MBESS}` package. (You will need to install this package.) To use the `smd()` function, we provide the means, standard deviations, and sample sizes of both groups. For example, the syntax to compute Cohen's *d* for the Bachelor/Bachelorette ages example is shown below:
+
+```{r}
+# Load MBESS package
+library(MBESS)
+
+# Compute Cohen's d
+smd(
+  Mean.1 = 30.70, s.1 = 3.80, n.1 = 27, #Bachelor summaries
+  Mean.2 = 28.17, s.2 = 3.04, n.2 = 23  #Bachelorette summaries
+  )
+```
+
+:::fyi
+It doesn't matter which group you input in as Group 1 or Group 2...just be consistent in the function.
+:::
+
+
+To use the `smd()` function to compute Cohen's *d* to measure the distance between a sample mean and a hypothesized mean (i.e., in the one-sample situation) we use `Mean.1=` and `Mean.2=`, similar to the previous syntax. We also use `s=` to include the sample standard deviation. (We do not need to provide the sample sizes.) The syntax to compute Cohen's *d* for our Zillow example is:
+
+```{r}
+# Compute Cohen's d (one-sample)
+smd(
+  Mean.1 = 404.97, #Sample mean
+  Mean.2 = 322.46, #Hypothesized mean
+  s = 102.43 #Sample SD
+)
+```
+
+
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Use the `smd()` function to compute Cohen's *d* for the cannabis example.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute Cohen's d
+smd(
+  Mean.1 = -2.07, s.1 = 7.77, n.1 = 14, #Adult summaries
+  Mean.2 = -8.26, s.2 = 7.14, n.2 = 23  #Teen summaries
+  )
+```
+
+Don't forget to load the `{MBESS}` package if you haven't already done so!
+
+</div>
+
+:::
+
+<br />
+
+
+## Confidence Intervals for Cohen's d
+
+Cohen's *d* is a *point estimate* (i.e., single number estimate) of the standardized population effect size Cohen's $\delta$. As with raw estimates of the effect, it is important to consider uncertainty in the estimate and report an *interval estimate* (i.e., range of plausible values) for the effect. 
+
+
+To find a CI for Cohen's $\delta$ in the one-sample situation---comparing a sample mean to a hypothesized mean---we can use the function `ci.sm()`, also part of the `{MBESS}` library. This function takes two arguments, `sm=` (Cohen's *d*) and `N=` (the sample size). The syntax to compute a 95% CI for Cohen's *d* in the Zillow example is:
+
+
+```{r}
+# Compute CI for Zillow example (one-sample)
+ci.sm(
+  sm = .8055, #Cohen's d
+  N = 15      #Sample size
+  )
+```
+
+The CI for Cohen's $\delta$ is $[.21,~1.38]$. That is the population effect size is likely between .21 and 1.38 standard deviations. Using Cohen's guidelines, the population effect might be small, or huge, or anywhere in between. We have a lot of uncertainty in the true size of the effect (due to the small sample size).
+
+For the two-sample situation---comparing two samples---we use the `ci.smd()` function (from the `{MBESS}` library) to compute a CI for Cohen's $\delta$. This function takes three arguments: `smd=` (Cohen's *d*), `n.1=`, and `n.2=` (the two sample sizes, respectively). The syntax to compute a 95% CI for Cohen's *d* in the cannabis example is:
+
+```{r}
+ci.smd(
+  smd = .8387, #Cohen's d
+  n.1 = 14,    #Sample size for group 1
+  n.2 = 23    #Sample size for group 2
+)
+```
+
+
+The CI for Cohen's $\delta$ is $[.14,~1.53]$. That is the population effect size is likely between .14 and 1.52 standard deviations. Using Cohen's guidelines, the population effect might be quite small, or huge, or anywhere in between. Again, we have a lot of uncertainty in the true size of the effect (due to the small sample sizes).
+
+:::fyi
+To have reasonable precision in the CIs for a standardized effect, you need very large samples!
+:::
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Use the `ci.smd()` function to compute a 99% CI for Cohen's $\delta$ for the Bachelor/Bachelorette age example. You can change the confidence level using the `conf.level=` argument. The default is `conf.level=.95`, which produces a 95% CI.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute 99% CI for Cohen's d
+ci.smd(
+  smd = .7286,     #Cohen's d
+  n.1 = 27,        #Sample size for group 1
+  n.2 = 23,        #Sample size for group 2
+  conf.level = .99 #99% confidence level
+)
+```
+
+Here the CI for Cohen's $\delta$ extends from $-.03$ to 1.48. The negative value at one end of the interval and a positve value indicates that the direction of the effect is in question...In the population, is the Bachelor's average age older than that of the Bachelorettes? Or are the Bachelorette's older, on average, than the Bachelors? There is too much uncertainty to determine this. Moreover, there is a lot of uncertainty in the size of the effect...it could be small or large. 
+
+</div>
+
+:::
+
+
+
+
+## References
+
