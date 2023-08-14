@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 7&nbsp; Hypothesis Testing: One-Sample t-Test</title>
+<title>An Introduction to Data Analysis - 9&nbsp; Hypothesis Testing: One-Sample t-Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -106,7 +106,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -137,6 +137,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -151,7 +163,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -168,13 +180,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -191,37 +203,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -238,25 +250,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,13 +285,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -296,31 +308,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -335,23 +347,23 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#statistical-inference-and-hypothesis-testing" id="toc-statistical-inference-and-hypothesis-testing" class="nav-link active" data-scroll-target="#statistical-inference-and-hypothesis-testing"><span class="header-section-number">7.1</span> Statistical Inference and Hypothesis Testing</a>
+  <li><a href="#statistical-inference-and-hypothesis-testing" id="toc-statistical-inference-and-hypothesis-testing" class="nav-link active" data-scroll-target="#statistical-inference-and-hypothesis-testing"><span class="header-section-number">9.1</span> Statistical Inference and Hypothesis Testing</a>
   <ul class="collapse">
-  <li><a href="#the-null-model" id="toc-the-null-model" class="nav-link" data-scroll-target="#the-null-model"><span class="header-section-number">7.1.1</span> The Null Model</a></li>
-  <li><a href="#evaluating-the-observed-sample-mean" id="toc-evaluating-the-observed-sample-mean" class="nav-link" data-scroll-target="#evaluating-the-observed-sample-mean"><span class="header-section-number">7.1.2</span> Evaluating the Observed Sample Mean</a></li>
+  <li><a href="#the-null-model" id="toc-the-null-model" class="nav-link" data-scroll-target="#the-null-model"><span class="header-section-number">9.1.1</span> The Null Model</a></li>
+  <li><a href="#evaluating-the-observed-sample-mean" id="toc-evaluating-the-observed-sample-mean" class="nav-link" data-scroll-target="#evaluating-the-observed-sample-mean"><span class="header-section-number">9.1.2</span> Evaluating the Observed Sample Mean</a></li>
   </ul></li>
-  <li><a href="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" id="toc-quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" class="nav-link" data-scroll-target="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value"><span class="header-section-number">7.2</span> Quantifying the Level of Consistency with the Null Hypothesis: The t-Value</a>
+  <li><a href="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" id="toc-quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" class="nav-link" data-scroll-target="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value"><span class="header-section-number">9.2</span> Quantifying the Level of Consistency with the Null Hypothesis: The t-Value</a>
   <ul class="collapse">
-  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">7.2.1</span> The t-Distribution</a></li>
-  <li><a href="#the-t-distribution-for-the-teen-sleep-example" id="toc-the-t-distribution-for-the-teen-sleep-example" class="nav-link" data-scroll-target="#the-t-distribution-for-the-teen-sleep-example"><span class="header-section-number">7.2.2</span> The t-Distribution for the Teen Sleep Example</a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">9.2.1</span> The t-Distribution</a></li>
+  <li><a href="#the-t-distribution-for-the-teen-sleep-example" id="toc-the-t-distribution-for-the-teen-sleep-example" class="nav-link" data-scroll-target="#the-t-distribution-for-the-teen-sleep-example"><span class="header-section-number">9.2.2</span> The t-Distribution for the Teen Sleep Example</a></li>
   </ul></li>
-  <li><a href="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" id="toc-quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" class="nav-link" data-scroll-target="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value"><span class="header-section-number">7.3</span> Quantifying the Level of Consistency with the Null Hypothesis: The p-Value</a>
+  <li><a href="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" id="toc-quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" class="nav-link" data-scroll-target="#quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value"><span class="header-section-number">9.3</span> Quantifying the Level of Consistency with the Null Hypothesis: The p-Value</a>
   <ul class="collapse">
-  <li><a href="#computing-the-p-value-for-other-alternative-hypotheses" id="toc-computing-the-p-value-for-other-alternative-hypotheses" class="nav-link" data-scroll-target="#computing-the-p-value-for-other-alternative-hypotheses"><span class="header-section-number">7.3.1</span> Computing the p-Value for Other Alternative Hypotheses</a></li>
-  <li><a href="#p-values-in-density-plots" id="toc-p-values-in-density-plots" class="nav-link" data-scroll-target="#p-values-in-density-plots"><span class="header-section-number">7.3.2</span> p-Values in Density Plots</a></li>
+  <li><a href="#computing-the-p-value-for-other-alternative-hypotheses" id="toc-computing-the-p-value-for-other-alternative-hypotheses" class="nav-link" data-scroll-target="#computing-the-p-value-for-other-alternative-hypotheses"><span class="header-section-number">9.3.1</span> Computing the p-Value for Other Alternative Hypotheses</a></li>
+  <li><a href="#p-values-in-density-plots" id="toc-p-values-in-density-plots" class="nav-link" data-scroll-target="#p-values-in-density-plots"><span class="header-section-number">9.3.2</span> p-Values in Density Plots</a></li>
   </ul></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">7.4</span> Putting It All Together</a></li>
-  <li><a href="#looking-forward" id="toc-looking-forward" class="nav-link" data-scroll-target="#looking-forward"><span class="header-section-number">7.5</span> Looking Forward</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">9.4</span> Putting It All Together</a></li>
+  <li><a href="#looking-forward" id="toc-looking-forward" class="nav-link" data-scroll-target="#looking-forward"><span class="header-section-number">9.5</span> Looking Forward</a></li>
   </ul>
 </nav>
     </div>
@@ -360,7 +372,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-one-sample-test" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></h1>
+<h1 class="title"><span id="sec-one-sample-test" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></h1>
 </div>
 
 
@@ -377,8 +389,8 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn how to carry out a one-sample <em>t</em>-test to statistically compare a sample of data to a standard by accounting for the sampling uncertainty.</p>
 <p><br></p>
-<section id="statistical-inference-and-hypothesis-testing" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="statistical-inference-and-hypothesis-testing"><span class="header-section-number">7.1</span> Statistical Inference and Hypothesis Testing</h2>
+<section id="statistical-inference-and-hypothesis-testing" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="statistical-inference-and-hypothesis-testing"><span class="header-section-number">9.1</span> Statistical Inference and Hypothesis Testing</h2>
 <p>One common approach to statistical inference—the drawing of conclusions about populations based on sample observations—is to use the sample observations to test <em>a priori</em> hypothesis<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> about the population. Hypotheses are <em>mathematical statements about population parameters</em> which are often formed based on prior knowledge and substantive literature in the area of content.</p>
 <p>In the social sciences, we typically write out two hypotheses about the population parameters: the null hypothesis (<span class="math inline">\(H_0\)</span>), often referred to as a statement of no effect, and the alternative hypothesis (<span class="math inline">\(H_A\)</span>), often termed the research (or alternative) hypothesis. For example, here are a set of potential hypotheses about teen sleep:</p>
 <p><span class="math display">\[
@@ -405,9 +417,9 @@ function toggle_visibility(id) {
 <div class="cell-output-display">
 <div id="tbl-summaries-notation" class="anchored">
 
-<div id="mctgnxtbaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hfbvoavvih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
-  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;7.1:  <p>Some common statistical summaries and the mathematical notation used
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;9.1:  <p>Some common statistical summaries and the mathematical notation used
 to denote them.</p> </caption>
   <thead style="border-style: none;">
     
@@ -437,15 +449,15 @@ to denote them.</p> </caption>
 </div>
 <p>The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>, <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>, and <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>.</p>
 <p><br></p>
-<section id="the-null-model" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="the-null-model"><span class="header-section-number">7.1.1</span> The Null Model</h3>
+<section id="the-null-model" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="the-null-model"><span class="header-section-number">9.1.1</span> The Null Model</h3>
 <p>A hypothesis test is predicated on the assumption that the null hypothesis is true. Thus, we want to produce a sampling distribution of potential sample summaries that we could see if <span class="math inline">\(H_0: \mu_{\textrm{Sleep}}=9\)</span> is actually true. In other words, we are carrying out a thought experiment assuming that the average amount of sleep for all teens is actually 9 hours.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-null-model-thought-experiment" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-05-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.1: Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.1: Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
 </figure>
 </div>
 </div>
@@ -456,7 +468,7 @@ to denote them.</p> </caption>
 <div id="fig-null-model-samp-dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-null-model-samp-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.2: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
 </figure>
 </div>
 </div>
@@ -473,20 +485,20 @@ to denote them.</p> </caption>
 </div>
 <p><br></p>
 </section>
-<section id="evaluating-the-observed-sample-mean" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="evaluating-the-observed-sample-mean"><span class="header-section-number">7.1.2</span> Evaluating the Observed Sample Mean</h3>
-<p>The null distribution gives us an indication of the range of sample mean values that are expected assuming the null hypothesis is true. Using the null distribution as a reference, we can evaluate the mean we obtained from the observed data, which was 7.5 hours (see <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;5</span></a>).</p>
+<section id="evaluating-the-observed-sample-mean" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="evaluating-the-observed-sample-mean"><span class="header-section-number">9.1.2</span> Evaluating the Observed Sample Mean</h3>
+<p>The null distribution gives us an indication of the range of sample mean values that are expected assuming the null hypothesis is true. Using the null distribution as a reference, we can evaluate the mean we obtained from the observed data, which was 7.5 hours (see <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;7</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-null-model-expected" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-null-model-expected-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.3: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.3: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>We can see from <a href="#fig-null-model-expected">Figure&nbsp;<span>7.3</span></a> that the observed mean of 7.5 is not a value we expect if the population mean amount of sleep teenagers get is truly 9 hours. It is, in fact, far less than we expect. In other words,</p>
+<p>We can see from <a href="#fig-null-model-expected">Figure&nbsp;<span>9.3</span></a> that the observed mean of 7.5 is not a value we expect if the population mean amount of sleep teenagers get is truly 9 hours. It is, in fact, far less than we expect. In other words,</p>
 <blockquote class="blockquote">
 <p>The sample mean of 7.5 hours of sleep we observed in the data is <em>not consistent</em> with the hypothesis that the average amount of sleep teenagers get a night is 9 hours.</p>
 </blockquote>
@@ -495,8 +507,8 @@ to denote them.</p> </caption>
 <p><br></p>
 </section>
 </section>
-<section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value"><span class="header-section-number">7.2</span> Quantifying the Level of Consistency with the Null Hypothesis: The t-Value</h2>
+<section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value"><span class="header-section-number">9.2</span> Quantifying the Level of Consistency with the Null Hypothesis: The t-Value</h2>
 <p>The <em>t</em>-value quantifies how far away the observed mean is from the hypothesized mean value in standard error units. To compute the <em>t</em>-value we use the following:</p>
 <p><span class="math display">\[
 t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
@@ -509,7 +521,7 @@ t &amp;= \frac{7.5 - 9}{0.17} \\[2ex]
 \end{split}
 \]</span> The <em>t</em>-value indicates that our observed sample mean of 7.5 is 8.82 standard errors below the hypothesized population mean value of 9. Changing the distance metric to standard error units helps standardize the distance for other scholars so they can better interpret how discrepant the observed mean is from the hypothesized value.</p>
 <p>For example, if we hadn’t divided by the SE, we would have said our observed mean of 7.5 hours of sleep is 1.5 hours less than the hypothesized mean of 9 hours of sleep. Is this a lot less? Or a little less? The answer to that depends on how much we expect sample means to vary from the population mean under random sampling. This is what the SE quantifies. So dividing by the SE accounts for this expected variation and also changes the units from “hours of sleep” to “standard errors”.</p>
-<p>Now that we have a <em>t</em>-value, how do we judge its magnitude? To do this, we can again look back to the null distribution in <a href="#fig-null-model-expected">Figure&nbsp;<span>7.3</span></a>. Based on the null distribution, we said we expected sample means to fall in between 8.6 and 9.4. What are the <em>t</em>-values associated with 8.6 and 9.4?</p>
+<p>Now that we have a <em>t</em>-value, how do we judge its magnitude? To do this, we can again look back to the null distribution in <a href="#fig-null-model-expected">Figure&nbsp;<span>9.3</span></a>. Based on the null distribution, we said we expected sample means to fall in between 8.6 and 9.4. What are the <em>t</em>-values associated with 8.6 and 9.4?</p>
 <p><span class="math display">\[
 \begin{split}
 t &amp;= \frac{8.6 - 9}{0.17} \\[2ex]
@@ -523,15 +535,15 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <p><strong>Rule-of-Thumb:</strong> An observed mean that has a <em>t</em>-value with an absolute value less than 2 is fairly consistent with the null hypothesis being true. An observed mean that has a <em>t</em>-value with an absolute value greater than 2 is less consistent with the null hypothesis being true, and the further away from 2, the more evidence against the null hypothesis.</p>
 </div>
 <p><br></p>
-<section id="the-t-distribution" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">7.2.1</span> The t-Distribution</h3>
+<section id="the-t-distribution" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">9.2.1</span> The t-Distribution</h3>
 <p>Recall that the null distribution is simply a distribution of sample means we expect if the null hypothesis is true. Because each case in this distribution is a sample mean, we could transform each case into a <em>t</em>-value. If we do that, the resulting distribution is a <em>t</em>-distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-t-dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-t-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.4: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The blue shaded area represents the <em>t</em>-values we expect if the null hypothesis is true. The pink dot represents the observed <em>t</em>-value of -8.82.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.4: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The blue shaded area represents the <em>t</em>-values we expect if the null hypothesis is true. The pink dot represents the observed <em>t</em>-value of -8.82.</figcaption>
 </figure>
 </div>
 </div>
@@ -547,7 +559,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 \mathit{df} = n - 1
 \]</span></p>
 <p>where <em>n</em> is the sample size.</p>
-<p>The degrees-of-freedom parameter impacts the shape and SE (variation) in the <em>t</em>-distribution. <a href="#fig-t-examples">Figure&nbsp;<span>7.5</span></a> shows the <em>t</em>-distribution based on a few different degrees-of-freedom values. From this figure we can see:</p>
+<p>The degrees-of-freedom parameter impacts the shape and SE (variation) in the <em>t</em>-distribution. <a href="#fig-t-examples">Figure&nbsp;<span>9.5</span></a> shows the <em>t</em>-distribution based on a few different degrees-of-freedom values. From this figure we can see:</p>
 <ul>
 <li>Every <em>t</em>-distribution is unimodal and symmetric, although <em>t</em>-distributions with smaller degrees-of-freedom parameters are shorter and have thicker tails than <em>t</em>-distributions with higher degrees-of-freedom parameters.</li>
 <li>The mean (center) of every <em>t</em>-distribution is 0.</li>
@@ -558,7 +570,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <div id="fig-t-examples" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-t-examples-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b2;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f00;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #777777;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b2;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f00;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #777777;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.</figcaption>
 </figure>
 </div>
 </div>
@@ -577,8 +589,8 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 </div>
 <p><br></p>
 </section>
-<section id="the-t-distribution-for-the-teen-sleep-example" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="the-t-distribution-for-the-teen-sleep-example"><span class="header-section-number">7.2.2</span> The t-Distribution for the Teen Sleep Example</h3>
+<section id="the-t-distribution-for-the-teen-sleep-example" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="the-t-distribution-for-the-teen-sleep-example"><span class="header-section-number">9.2.2</span> The t-Distribution for the Teen Sleep Example</h3>
 <p>Now that we understand a bit more about the properties of the <em>t</em>-distribution, we can sketch the <em>t</em>-distribution for the teen sleep example. Recall that the sample size for the observed data was <span class="math inline">\(n=75\)</span>. The <em>df</em> for the resulting <em>t</em>-distribution is:</p>
 <p><span class="math display">\[
 \begin{split}
@@ -598,7 +610,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <div id="fig-sketch-t" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-06-t-sketch.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of <em>t</em>-values that would be expected if the null hypothesis is true.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of <em>t</em>-values that would be expected if the null hypothesis is true.</figcaption>
 </figure>
 </div>
 </div>
@@ -607,12 +619,12 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <blockquote class="blockquote">
 <p><span class="math inline">\(t(74)=-8.82\)</span></p>
 </blockquote>
-<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t">Figure&nbsp;<span>7.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <span class="math inline">\(-2.028\)</span> and <span class="math inline">\(+2.2028\)</span>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <span class="math inline">\(-8.82\)</span>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <span class="math inline">\(-8.82\)</span> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
+<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t">Figure&nbsp;<span>9.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <span class="math inline">\(-2.028\)</span> and <span class="math inline">\(+2.2028\)</span>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <span class="math inline">\(-8.82\)</span>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <span class="math inline">\(-8.82\)</span> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
 <p><br></p>
 </section>
 </section>
-<section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value"><span class="header-section-number">7.3</span> Quantifying the Level of Consistency with the Null Hypothesis: The p-Value</h2>
+<section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value"><span class="header-section-number">9.3</span> Quantifying the Level of Consistency with the Null Hypothesis: The p-Value</h2>
 <p>Computing the observed <em>t</em>-value gives us a method for determining how far (in SE units) the sample mean for the observed data are from a mean value specified in the null hypothesis. By placing the observed <em>t</em>-value in the appropriate <em>t</em>-distribution, we can also say whether the observed data are consistent with the claim made in the null hypothesis. Applied researchers also augment this information with one more piece of evidence called the <em>p</em>-value.</p>
 <p>The <em>p</em>-value provides a quantification of <em>the probability of observing data at least as extreme as what we observed if the null hypothesis is true</em>. In other words, with the <em>t</em>-value and <em>t</em>-distribution w can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The <em>p</em>-value will take this one step further and quantify exactly how unlikely that would be.</p>
 <p>The computation of the <em>p</em>-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypotheis was:</p>
@@ -634,13 +646,13 @@ P(\bar{y} \leq 7.5) ~~~ \text{if the null hypothesis is true}
 <p><span class="math display">\[
 P(t \leq -8.82)
 \]</span></p>
-<p>As an example, consider the dotplot in <a href="#fig-p-value">Figure&nbsp;<span>7.7</span></a>.</p>
+<p>As an example, consider the dotplot in <a href="#fig-p-value">Figure&nbsp;<span>9.7</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-p-value" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-p-value-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.7: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.7: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82).</figcaption>
 </figure>
 </div>
 </div>
@@ -658,8 +670,8 @@ P(t \leq -8.82) &amp;= \frac{2}{300} \\[1ex]
 <p>Being consistent with the null hypothesis does not mean that the null hypothesis is necessarily true, but rather that it <em>could</em> be true. Because of this, if <span class="math inline">\(p \geq .05\)</span> we <strong>never</strong> “accept the null hypothesis”, but instead we “fail to reject the null hypothesis”.</p>
 </div>
 <p><br></p>
-<section id="computing-the-p-value-for-other-alternative-hypotheses" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="computing-the-p-value-for-other-alternative-hypotheses"><span class="header-section-number">7.3.1</span> Computing the p-Value for Other Alternative Hypotheses</h3>
+<section id="computing-the-p-value-for-other-alternative-hypotheses" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="computing-the-p-value-for-other-alternative-hypotheses"><span class="header-section-number">9.3.1</span> Computing the p-Value for Other Alternative Hypotheses</h3>
 <p>In the example, we computed the <em>p</em>-value based on the alternative hypothesis, <span class="math inline">\(H_A:\mu&lt;9\)</span>. To do this we counted the cases in the <em>t</em>-distribution that were more extreme than our observed <em>t</em>-value of <span class="math inline">\(-8.82\)</span>, which in this alternative hypothesis corresponded to the <em>t</em>-values that were <em>less than or equal to</em> <span class="math inline">\(-8.82\)</span> and computed a probability (proportion) by dividing by the total number of values in the distribution. To compute this for other null hypotheses, we do the same thing, but we have to re-define <em>extreme</em>.</p>
 <p>For example if we had the alternative hypothesis <span class="math inline">\(H_A:\mu&gt;9\)</span>, values at least as extreme as <span class="math inline">\(-8.82\)</span> correspond to all the values that are <em>greater than or equal to</em> <span class="math inline">\(-8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
@@ -667,7 +679,7 @@ P(t \leq -8.82) &amp;= \frac{2}{300} \\[1ex]
 <div id="fig-p-value2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-p-value2-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.8: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &gt; -8.82).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.8: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &gt; -8.82).</figcaption>
 </figure>
 </div>
 </div>
@@ -686,7 +698,7 @@ p &amp;= \frac{298}{300} \\[1ex]
 <div id="fig-p-value3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-p-value3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.9: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.9: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82).</figcaption>
 </figure>
 </div>
 </div>
@@ -701,37 +713,37 @@ p &amp;= \frac{4}{300} \\[1ex]
 <p>Based on this <em>p</em>-value, which is less than .05, we would reject the null hypothesis in favor of the alternative hypothesis. This implies that the empirical evidence does not support the claim that teenagers get, on average, 9 hours of sleep, but rather that they get a different amount of sleep on average. Based on the results of this test, we cannot tell whether they get, on average, more or less sleep than 9 hours—only that it is likely a different amount.</p>
 <p><br></p>
 </section>
-<section id="p-values-in-density-plots" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="p-values-in-density-plots"><span class="header-section-number">7.3.2</span> p-Values in Density Plots</h3>
+<section id="p-values-in-density-plots" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="p-values-in-density-plots"><span class="header-section-number">9.3.2</span> p-Values in Density Plots</h3>
 <p>In the previous example we have looked at to compute the <em>p</em>-value, the <em>t</em>-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the <em>t</em>-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the <em>p</em>-value hat is not based on counting.</p>
-<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p">Figure&nbsp;<span>7.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
+<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-sketch-area-p" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-07-area-density-p.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.10: Dot plot of an example <em>t</em>-distribution wityh superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution wityh superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in <span class="quarto-unresolved-ref">?sec-using-r-for-t-tests</span>. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (<em>p</em>-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the <em>p</em>-value was .01.</p>
 <div class="protip">
-<p>It is very difficult to get an accurate <em>p</em>-value from estimating it from the density curve, especially when the <em>p</em>-value is small. In practice, we always use software to obtain the <em>p</em>-value. However, understanding that the software is calculating the area under the density curve is useful for “gut-checking” the size of the <em>p</em>-value that the software gives us. For example, based on the shaded area in <a href="#fig-sketch-area-p">Figure&nbsp;<span>7.10</span></a>, we would not expect a <em>p</em>-value of 0.5 since the shaded are is not half of the whole curve.</p>
+<p>It is very difficult to get an accurate <em>p</em>-value from estimating it from the density curve, especially when the <em>p</em>-value is small. In practice, we always use software to obtain the <em>p</em>-value. However, understanding that the software is calculating the area under the density curve is useful for “gut-checking” the size of the <em>p</em>-value that the software gives us. For example, based on the shaded area in <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a>, we would not expect a <em>p</em>-value of 0.5 since the shaded are is not half of the whole curve.</p>
 </div>
 <p><br></p>
 </section>
 </section>
-<section id="putting-it-all-together" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">7.4</span> Putting It All Together</h2>
+<section id="putting-it-all-together" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">9.4</span> Putting It All Together</h2>
 <p>It is important to not lose the forest in the trees when you are conducting a hypothesis test. We set out to answer a substantive question about whether or not teens are getting the recommended amount of sleep. All of the steps we carried out in the hypothesis test were a means to an end of actually answering this question based on the data we collected. So when we report results from the <em>t</em>-test, we need to not only report the pertinent statistical evidence (<em>t</em>-value, <em>df</em>, <em>p</em>-value), but we also need to answer the substantive/research question that drove this test in the first place. Below is an example write-up that an applied researcher might use:</p>
 <blockquote class="blockquote">
 <p>To determine whether or not teens are getting the recommended amount of sleep, a one-sample <em>t</em>-test was used to compare the sample mean amount of sleep for 75 teens to a hypothesized population mean of 9 hours (the amount of sleep recommended by medical experts). The sample mean of 7.40 hours of sleep (SD = 1.52) was found to be inconsistent with the hypothesis that teens are getting 9 (or more) hours of sleep a night, on average; <span class="math inline">\(t(74) = −8.82\)</span>, <span class="math inline">\(p = .007\)</span>. This suggest that teens might not be getting the recommended amount of sleep every night.</p>
 </blockquote>
 <p><br></p>
 </section>
-<section id="looking-forward" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="looking-forward"><span class="header-section-number">7.5</span> Looking Forward</h2>
+<section id="looking-forward" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="looking-forward"><span class="header-section-number">9.5</span> Looking Forward</h2>
 <p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <span class="quarto-unresolved-ref">?sec-one-sample-examples</span>, you will get you a chance to practice working through the process of carrying out a one-sample <em>t</em>-test.</p>
 <p>As you work through these chapters, you will become more comfortable with the vocabulary and ideas that underlie hypothesis tests. This same set of vocabulary and ideas will come up again when we use hypothesis tests when we compare a sample proportion to a standard and to compare two samples. Because of this it may be useful to put together a summary of the ideas and vocabulary from this chapter that you can refer to (e.g., on a notecard). Here are some of the ideas and vocabulary that are important in hypothesis testing to get you started:</p>
 <ul>
@@ -753,7 +765,7 @@ p &amp;= \frac{4}{300} \\[1ex]
 <hr>
 <ol>
 <li id="fn1"><p><em>a priori</em> means the hypothesis is made prior to collecting any data<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Technically, we computed the SE as 0.17 in <a href="04-02-simulation.html"><span>Chapter&nbsp;6</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Technically, we computed the SE as 0.17 in <a href="04-02-simulation.html"><span>Chapter&nbsp;8</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -994,12 +1006,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04-02-simulation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04-04-one-sample-test-computation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

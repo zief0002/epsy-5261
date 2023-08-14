@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 10&nbsp; One-Sample z-Test: Evaluating Proportions Against a Standard</title>
+<title>An Introduction to Data Analysis - 12&nbsp; One-Sample z-Test: Evaluating Proportions Against a Standard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-06-one-sample-test-proportions.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-06-one-sample-test-proportions.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -140,7 +140,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -171,6 +171,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,7 +197,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -202,13 +214,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,37 +237,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,25 +284,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,13 +319,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,31 +342,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,16 +381,16 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#case-study-lead-levels-in-minnesota-children" id="toc-case-study-lead-levels-in-minnesota-children" class="nav-link active" data-scroll-target="#case-study-lead-levels-in-minnesota-children"><span class="header-section-number">10.1</span> Case Study: Lead Levels in Minnesota Children</a>
+  <li><a href="#case-study-lead-levels-in-minnesota-children" id="toc-case-study-lead-levels-in-minnesota-children" class="nav-link active" data-scroll-target="#case-study-lead-levels-in-minnesota-children"><span class="header-section-number">12.1</span> Case Study: Lead Levels in Minnesota Children</a>
   <ul class="collapse">
-  <li><a href="#summarizing-the-sample-data" id="toc-summarizing-the-sample-data" class="nav-link" data-scroll-target="#summarizing-the-sample-data"><span class="header-section-number">10.1.1</span> Summarizing the Sample Data</a></li>
-  <li><a href="#testing-proportions-using-the-one-sample-z-test" id="toc-testing-proportions-using-the-one-sample-z-test" class="nav-link" data-scroll-target="#testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">10.1.2</span> Testing Proportions Using the One-Sample z-Test</a></li>
+  <li><a href="#summarizing-the-sample-data" id="toc-summarizing-the-sample-data" class="nav-link" data-scroll-target="#summarizing-the-sample-data"><span class="header-section-number">12.1.1</span> Summarizing the Sample Data</a></li>
+  <li><a href="#testing-proportions-using-the-one-sample-z-test" id="toc-testing-proportions-using-the-one-sample-z-test" class="nav-link" data-scroll-target="#testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">12.1.2</span> Testing Proportions Using the One-Sample z-Test</a></li>
   </ul></li>
-  <li><a href="#assumptions-for-the-one-sample-z-test" id="toc-assumptions-for-the-one-sample-z-test" class="nav-link" data-scroll-target="#assumptions-for-the-one-sample-z-test"><span class="header-section-number">10.2</span> Assumptions for the One-Sample z-Test</a>
+  <li><a href="#assumptions-for-the-one-sample-z-test" id="toc-assumptions-for-the-one-sample-z-test" class="nav-link" data-scroll-target="#assumptions-for-the-one-sample-z-test"><span class="header-section-number">12.2</span> Assumptions for the One-Sample z-Test</a>
   <ul class="collapse">
-  <li><a href="#case-study-rotten-tomatoes" id="toc-case-study-rotten-tomatoes" class="nav-link" data-scroll-target="#case-study-rotten-tomatoes"><span class="header-section-number">10.2.1</span> Case Study: Rotten Tomatoes</a></li>
+  <li><a href="#case-study-rotten-tomatoes" id="toc-case-study-rotten-tomatoes" class="nav-link" data-scroll-target="#case-study-rotten-tomatoes"><span class="header-section-number">12.2.1</span> Case Study: Rotten Tomatoes</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10.3</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">12.3</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -387,7 +399,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-one-sample-test-proportions" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></h1>
+<h1 class="title"><span id="sec-one-sample-test-proportions" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></h1>
 </div>
 
 
@@ -404,8 +416,8 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn about how to use a one-sample <em>z</em>-test to statistically compare a proportion computed in a sample of data to a standard by accounting for the sampling uncertainty. You will also learn about the assumptions that we need to make in order for the results of a one-sample <em>z</em>-test to be statistically valid.</p>
 <p><br></p>
-<section id="case-study-lead-levels-in-minnesota-children" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="case-study-lead-levels-in-minnesota-children"><span class="header-section-number">10.1</span> Case Study: Lead Levels in Minnesota Children</h2>
+<section id="case-study-lead-levels-in-minnesota-children" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="case-study-lead-levels-in-minnesota-children"><span class="header-section-number">12.1</span> Case Study: Lead Levels in Minnesota Children</h2>
 <p>Lead exposure has been shown to have deleterious effects on peoples’ health and well-being, especially children. The Center for Disease Control collects blood lead surveillance data from all 50 states in the United States. In 2012, the proportion of children tested under 6 years of age that had lead levels in their blood above the Minnesota Department of Health (MDH) reference level for high blood lead levels (5µg/dL) was .029. The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv">mn-lead.csv</a> contains the measured lead levels in the blood for all Minnesota children tested under 6 years of age in 2018. There is also an attribute (<code>ebll</code>) that indicates whether the lead level indicates an elevated blood lead level according to MDH (i.e., is blood lead level above 5 µg/dL).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
@@ -437,8 +449,8 @@ H_A: \pi_{\text{Above MDH}} \neq .029
 \end{split}
 \]</span> where <span class="math inline">\(\pi_{\text{Above MDH}}\)</span> (the Greek letter equivalent of “p”) is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of <span class="math inline">\(\pi\)</span>.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample <em>z</em>-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error.</p>
 <p><br></p>
-<section id="summarizing-the-sample-data" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">10.1.1</span> Summarizing the Sample Data</h3>
+<section id="summarizing-the-sample-data" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">12.1.1</span> Summarizing the Sample Data</h3>
 <p>We will start the analysis by summarizing the <code>ebll</code> attribute to determine the proportion of Minnesota children in 2018 under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to compute the proportion for each category in the control attribute</span></span>
@@ -459,8 +471,8 @@ H_A: \pi_{\text{Above MDH}} \neq .029
 <p>This is a lower proportion than was found in the 2012 data by .0151. The next question we would want to tackle is whether this difference is more than we expect because of sampling error. To determine this, we need to carry out a hypothesis test.</p>
 <p><br></p>
 </section>
-<section id="testing-proportions-using-the-one-sample-z-test" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">10.1.2</span> Testing Proportions Using the One-Sample z-Test</h3>
+<section id="testing-proportions-using-the-one-sample-z-test" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">12.1.2</span> Testing Proportions Using the One-Sample z-Test</h3>
 <p>The hypothesis test we use to compare a sample against a known standard is the <em>one-sample z-test</em>. The process we use is very similar to that for the one-sample <em>t</em>-test, which was:</p>
 <ul>
 <li>Use the sample proportion to compute a <em>t</em>-value;</li>
@@ -489,24 +501,24 @@ z &amp;= \frac{.01391403 - .029}{\sqrt{.029(1 - .029)/91706}} \\[1ex]
 \end{split}
 \]</span></p>
 <p>Similar to a <em>t</em>-value, a <em>z</em>-value indicates how many standard errors the sample mean is from the hypothesized value, In our case, the sample proportion we computed in the data of .0139 is 27.22 standard errors below the hypothesized value of .029. We can evaluate this in the <em>z</em>-distribution.</p>
-<p>Unlike the <em>t</em>-distribution which is different depending on the <em>df</em>, there is only one <em>z</em>-distribution. The <em>z</em>-distribution is a normal distribution that has a mean of 0 and a standard deviation of 1. The <em>z</em>-distribution is shown in <a href="05-03-two-sample-test-proportions.html#fig-z-dist">Figure&nbsp;<span>13.1</span></a>.</p>
+<p>Unlike the <em>t</em>-distribution which is different depending on the <em>df</em>, there is only one <em>z</em>-distribution. The <em>z</em>-distribution is a normal distribution that has a mean of 0 and a standard deviation of 1. The <em>z</em>-distribution is shown in <a href="05-03-two-sample-test-proportions.html#fig-z-dist">Figure&nbsp;<span>15.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-z-dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-06-one-sample-test-proportions_files/figure-html/fig-z-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.1: Density plot of the <em>z</em>-distribution.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;12.1: Density plot of the <em>z</em>-distribution.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>To find the <em>p</em>-value associated with the alternative hypothesis that <span class="math inline">\(\pi\neq.029\)</span>, we will include the observed <em>z</em>-values of <span class="math inline">\(-27.22\)</span> and 27.22 into the <em>z</em>-distribution and shade the area under the curve that is more extreme than these values—less than the observed <em>z</em>-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in <a href="#fig-z-dist2">Figure&nbsp;<span>10.2</span></a>.</p>
+<p>To find the <em>p</em>-value associated with the alternative hypothesis that <span class="math inline">\(\pi\neq.029\)</span>, we will include the observed <em>z</em>-values of <span class="math inline">\(-27.22\)</span> and 27.22 into the <em>z</em>-distribution and shade the area under the curve that is more extreme than these values—less than the observed <em>z</em>-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in <a href="#fig-z-dist2">Figure&nbsp;<span>12.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-z-dist2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-08-z-dist-sketch.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.2: Sketch of the density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;12.2: Sketch of the density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
 </figure>
 </div>
 </div>
@@ -553,7 +565,7 @@ p = 3.311047e-163
 <div id="fig-z-dist-r" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-06-one-sample-test-proportions_files/figure-html/fig-z-dist-r-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.3: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;12.3: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the <em>p</em>-value associate with the null hypothesis that the population proportion is different than .029.</figcaption>
 </figure>
 </div>
 </div>
@@ -562,8 +574,8 @@ p = 3.311047e-163
 <p><br></p>
 </section>
 </section>
-<section id="assumptions-for-the-one-sample-z-test" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="assumptions-for-the-one-sample-z-test"><span class="header-section-number">10.2</span> Assumptions for the One-Sample z-Test</h2>
+<section id="assumptions-for-the-one-sample-z-test" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="assumptions-for-the-one-sample-z-test"><span class="header-section-number">12.2</span> Assumptions for the One-Sample z-Test</h2>
 <p>Whether or not the <em>p</em>-value we obtain from the <em>z</em>-test is accurate depends on the following set of statistical assumptions:</p>
 <ol type="1">
 <li>The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”).</li>
@@ -582,8 +594,8 @@ n(1-\hat{p}) &amp;= 91706(1 - .01391403) \\[1ex]
 \end{split}
 \]</span></p>
 <p><br></p>
-<section id="case-study-rotten-tomatoes" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="case-study-rotten-tomatoes"><span class="header-section-number">10.2.1</span> Case Study: Rotten Tomatoes</h3>
+<section id="case-study-rotten-tomatoes" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="case-study-rotten-tomatoes"><span class="header-section-number">12.2.1</span> Case Study: Rotten Tomatoes</h3>
 <p>The <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> website includes both audiences’ and critics’ ratings for different movies. The ratings are then classified into one of two categories: “Fresh” (which indicates a positive review) or “Rotten” (which indicates a negative review). The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv">fastx-reviews.csv</a> includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the <em>Fast &amp; the Furious</em> franchise). You will use the data in the <code>fresh_rotten</code> attribute to evaluate whether the proportion of all critics’ “Fresh” reviews is different than .50. Mathematically the hypotheses you will evaluate are:</p>
 <p><span class="math display">\[
 \begin{split}
@@ -677,7 +689,7 @@ p = 0.2433046
 Show/Hide Solution
 </button>
 <div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
-<p>Your sketch should look like the distribution plotted in <a href="#fig-z-dist-fresh">Figure&nbsp;<span>10.4</span></a>.</p>
+<p>Your sketch should look like the distribution plotted in <a href="#fig-z-dist-fresh">Figure&nbsp;<span>12.4</span></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your work</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -685,7 +697,7 @@ Show/Hide Solution
 <div id="fig-z-dist-fresh" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-06-one-sample-test-proportions_files/figure-html/fig-z-dist-fresh-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.4: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the <em>p</em>-value associated with the null hypothesis that the population proportion is different than .50.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;12.4: Density plot of the <em>z</em>-distribution with the observed <em>z</em>-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the <em>p</em>-value associated with the null hypothesis that the population proportion is different than .50.</figcaption>
 </figure>
 </div>
 </div>
@@ -725,8 +737,8 @@ n(1-\hat{p}) &amp;= 238(1 - .5378151) \\[1ex]
 <p><br></p>
 </section>
 </section>
-<section id="references" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="references"><span class="header-section-number">10.3</span> References</h2>
+<section id="references" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="references"><span class="header-section-number">12.3</span> References</h2>
 
 
 </section>
@@ -974,7 +986,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04-05-one-sample-test-assumptions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

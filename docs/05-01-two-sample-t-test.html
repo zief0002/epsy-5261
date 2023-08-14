@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 11&nbsp; Two-Sample t-Test</title>
+<title>An Introduction to Data Analysis - 13&nbsp; Two-Sample t-Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-01-two-sample-t-test.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-01-two-sample-t-test.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -190,6 +190,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,7 +216,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,13 +233,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,37 +256,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -291,25 +303,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,13 +338,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -349,31 +361,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -388,12 +400,12 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#case-study-cannabis-effects-on-iq" id="toc-case-study-cannabis-effects-on-iq" class="nav-link active" data-scroll-target="#case-study-cannabis-effects-on-iq"><span class="header-section-number">11.1</span> Case Study: Cannabis Effects on IQ</a></li>
-  <li><a href="#writing-the-set-of-hypotheses" id="toc-writing-the-set-of-hypotheses" class="nav-link" data-scroll-target="#writing-the-set-of-hypotheses"><span class="header-section-number">11.2</span> Writing the Set of Hypotheses</a></li>
-  <li><a href="#visualizing-and-numerically-describing-sample-differences" id="toc-visualizing-and-numerically-describing-sample-differences" class="nav-link" data-scroll-target="#visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">11.3</span> Visualizing and Numerically Describing Sample Differences</a></li>
-  <li><a href="#computing-the-observed-t-value-and-degrees-of-freedom" id="toc-computing-the-observed-t-value-and-degrees-of-freedom" class="nav-link" data-scroll-target="#computing-the-observed-t-value-and-degrees-of-freedom"><span class="header-section-number">11.4</span> Computing the Observed t-Value and Degrees-of-Freedom</a></li>
-  <li><a href="#case-study-2-bachelor-and-bachelorette-ages" id="toc-case-study-2-bachelor-and-bachelorette-ages" class="nav-link" data-scroll-target="#case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">11.5</span> Case Study 2: Bachelor and Bachelorette Ages</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.6</span> References</a></li>
+  <li><a href="#case-study-cannabis-effects-on-iq" id="toc-case-study-cannabis-effects-on-iq" class="nav-link active" data-scroll-target="#case-study-cannabis-effects-on-iq"><span class="header-section-number">13.1</span> Case Study: Cannabis Effects on IQ</a></li>
+  <li><a href="#writing-the-set-of-hypotheses" id="toc-writing-the-set-of-hypotheses" class="nav-link" data-scroll-target="#writing-the-set-of-hypotheses"><span class="header-section-number">13.2</span> Writing the Set of Hypotheses</a></li>
+  <li><a href="#visualizing-and-numerically-describing-sample-differences" id="toc-visualizing-and-numerically-describing-sample-differences" class="nav-link" data-scroll-target="#visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">13.3</span> Visualizing and Numerically Describing Sample Differences</a></li>
+  <li><a href="#computing-the-observed-t-value-and-degrees-of-freedom" id="toc-computing-the-observed-t-value-and-degrees-of-freedom" class="nav-link" data-scroll-target="#computing-the-observed-t-value-and-degrees-of-freedom"><span class="header-section-number">13.4</span> Computing the Observed t-Value and Degrees-of-Freedom</a></li>
+  <li><a href="#case-study-2-bachelor-and-bachelorette-ages" id="toc-case-study-2-bachelor-and-bachelorette-ages" class="nav-link" data-scroll-target="#case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">13.5</span> Case Study 2: Bachelor and Bachelorette Ages</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13.6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -402,7 +414,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-two-sample-t-test" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></h1>
+<h1 class="title"><span id="sec-two-sample-t-test" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></h1>
 </div>
 
 
@@ -419,8 +431,8 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn how to carry out a two-sample <em>t</em>-test using R to statistically compare two samples of data by accounting for the sampling uncertainty.</p>
 <p><br></p>
-<section id="case-study-cannabis-effects-on-iq" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="case-study-cannabis-effects-on-iq"><span class="header-section-number">11.1</span> Case Study: Cannabis Effects on IQ</h2>
+<section id="case-study-cannabis-effects-on-iq" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="case-study-cannabis-effects-on-iq"><span class="header-section-number">13.1</span> Case Study: Cannabis Effects on IQ</h2>
 <p>In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples’ health and well-being <span class="citation" data-cites="Volkow:2014">(<a href="#ref-Volkow:2014" role="doc-biblioref">Volkow et al., 2014</a>)</span>, including long-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on <a href="https://www.cdc.gov/marijuana/health-effects/teens.html">data collected from the Center for Disease Control in 2019</a>, 37% of U.S. high school students reported using marijuana at least once, and 22% reported use in the past 30 days.</p>
 <p>To study the long-term effects of cannabis, <span class="citation" data-cites="Meier:2012">Meier et al. (<a href="#ref-Meier:2012" role="doc-biblioref">2012</a>)</span> examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset).</p>
 <p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv">cannabis.csv</a> to evaluate whether the effects on IQ were different for users who started using marijuana as a teen.</p>
@@ -448,8 +460,8 @@ function toggle_visibility(id) {
 </div>
 <p><br></p>
 </section>
-<section id="writing-the-set-of-hypotheses" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="writing-the-set-of-hypotheses"><span class="header-section-number">11.2</span> Writing the Set of Hypotheses</h2>
+<section id="writing-the-set-of-hypotheses" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="writing-the-set-of-hypotheses"><span class="header-section-number">13.2</span> Writing the Set of Hypotheses</h2>
 <p>When comparing two groups, the null hypothesis is that the population mean for the two groups is the same. In our example, the null hypothesis would be that the average decline in IQ scores for all persistent marijuana users that became dependent as adults is the same as the average decline in IQ scores for all persistent marijuana users that became dependent as teens. Mathematically:</p>
 <p><span class="math display">\[
 H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}}
@@ -477,8 +489,8 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 \]</span> :::fyi The output from <code>t_result()</code> will present the hypotheses as a difference between means. :::</p>
 <p><br></p>
 </section>
-<section id="visualizing-and-numerically-describing-sample-differences" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">11.3</span> Visualizing and Numerically Describing Sample Differences</h2>
+<section id="visualizing-and-numerically-describing-sample-differences" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">13.3</span> Visualizing and Numerically Describing Sample Differences</h2>
 <p>As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ chnage scores are all in a single column, we have to change the formula with the tilde we use in the <code>gf_</code> and <code>df_stats()</code> functions so that it will plot those for each group separately. The formula will now look like:</p>
 <p><span class="math display">\[
 \mathtt{\sim y ~|~ group}
@@ -510,14 +522,14 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"iq_change","2":"Adult","3":"-16","4":"-7","5":"-3","6":"4.0","7":"11","8":"-2.071429","9":"7.770400","10":"14","11":"0"},{"1":"iq_change","2":"Teen","3":"-23","4":"-11","5":"-8","6":"-3.5","7":"5","8":"-8.260870","9":"7.136445","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;11.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
 </figure>
 </div>
 <div class="cell-output-display">
 <div id="fig-prior-knowledge-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.2: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.2: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
 </figure>
 </div>
 </div>
@@ -569,7 +581,7 @@ p = 0.01832593
 <div id="fig-t-dist3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -577,8 +589,8 @@ p = 0.01832593
 <p>Based on the <em>p</em>-value of .018, we would <em>reject</em> the null hypothesis. The evidence suggests that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens.</p>
 <p><br></p>
 </section>
-<section id="computing-the-observed-t-value-and-degrees-of-freedom" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="computing-the-observed-t-value-and-degrees-of-freedom"><span class="header-section-number">11.4</span> Computing the Observed t-Value and Degrees-of-Freedom</h2>
+<section id="computing-the-observed-t-value-and-degrees-of-freedom" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="computing-the-observed-t-value-and-degrees-of-freedom"><span class="header-section-number">13.4</span> Computing the Observed t-Value and Degrees-of-Freedom</h2>
 <p>The observed <em>t</em>-value is computed as part of using the <code>t_test()</code> function, but examining the mathematical formula may give us insight into what this <em>t</em>-statistic is measuring. In a two-sample <em>t</em>-test the <em>t</em>-value is computed as:</p>
 <p><span class="math display">\[
 t = \frac{(\bar{y}_{1} - \bar{y}_{2}) - \mu_{\text{Diff.}}}{SE_{\text{Mean Diff.}}}
@@ -601,8 +613,8 @@ t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}
 <p>Since the alternative hypothesis was <span class="math inline">\(\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0\)</span>, to find the <em>p</em>-value, we would find the area under the <em>t</em>-distribution that is greater than or equal to the observed <em>t</em>-value of 2.47 and less than or equal to <span class="math inline">\(-2.47\)</span>. This area is shaded in the output of <code>plot_t_dist()</code> and corresponds to .018 of the entire area under the curve.</p>
 <p><br></p>
 </section>
-<section id="case-study-2-bachelor-and-bachelorette-ages" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">11.5</span> Case Study 2: Bachelor and Bachelorette Ages</h2>
+<section id="case-study-2-bachelor-and-bachelorette-ages" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">13.5</span> Case Study 2: Bachelor and Bachelorette Ages</h2>
 <p>Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, we might expect that the average age for Bachelor and Bachelorette contestants may differ.</p>
 <p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> to evaluate whether there are age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. In particular we will test the following hypotheses:</p>
 <p><span class="math display">\[
@@ -661,14 +673,14 @@ Show/Hide Solution
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["show"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"age","2":"Bachelor","3":"25","4":"28.0","5":"30","6":"33","7":"40","8":"30.70370","9":"3.800960","10":"27","11":"0"},{"1":"age","2":"Bachelorette","3":"24","4":"26.5","5":"28","6":"29","7":"39","8":"28.17391","9":"3.039919","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;11.4: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.4: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
 </figure>
 </div>
 <div class="cell-output-display">
 <div id="fig-bachelor-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-bachelor-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.5: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.5: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
 </figure>
 </div>
 </div>
@@ -715,7 +727,7 @@ Show/Hide Solution
 <div id="fig-t-dist2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist2-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical lines represent the observed <em>t</em>-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated <em>p</em>-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;13.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical lines represent the observed <em>t</em>-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated <em>p</em>-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.</figcaption>
 </figure>
 </div>
 </div>
@@ -731,8 +743,8 @@ Show/Hide Solution
 </section>
 <p><br></p>
 </section>
-<section id="references" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="references"><span class="header-section-number">11.6</span> References</h2>
+<section id="references" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="references"><span class="header-section-number">13.6</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
@@ -987,7 +999,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05-02-two-sample-test-assumptions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

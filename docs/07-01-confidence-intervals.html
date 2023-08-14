@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 17&nbsp; Confidence Intervals</title>
+<title>An Introduction to Data Analysis - 19&nbsp; Confidence Intervals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-01-confidence-intervals.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-01-confidence-intervals.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -140,7 +140,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -171,6 +171,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,7 +197,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -202,13 +214,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,37 +237,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,25 +284,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,13 +319,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,31 +342,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,13 +381,13 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#house-prices-revisited" id="toc-house-prices-revisited" class="nav-link active" data-scroll-target="#house-prices-revisited"><span class="header-section-number">17.1</span> House Prices (Revisited)</a>
+  <li><a href="#house-prices-revisited" id="toc-house-prices-revisited" class="nav-link active" data-scroll-target="#house-prices-revisited"><span class="header-section-number">19.1</span> House Prices (Revisited)</a>
   <ul class="collapse">
-  <li><a href="#estimating-the-average-price-for-houses-near-the-university-of-minnesota" id="toc-estimating-the-average-price-for-houses-near-the-university-of-minnesota" class="nav-link" data-scroll-target="#estimating-the-average-price-for-houses-near-the-university-of-minnesota"><span class="header-section-number">17.1.1</span> Estimating the Average Price for Houses Near the University of Minnesota</a></li>
+  <li><a href="#estimating-the-average-price-for-houses-near-the-university-of-minnesota" id="toc-estimating-the-average-price-for-houses-near-the-university-of-minnesota" class="nav-link" data-scroll-target="#estimating-the-average-price-for-houses-near-the-university-of-minnesota"><span class="header-section-number">19.1.1</span> Estimating the Average Price for Houses Near the University of Minnesota</a></li>
   </ul></li>
-  <li><a href="#estimating-lead-levels-in-mn-children" id="toc-estimating-lead-levels-in-mn-children" class="nav-link" data-scroll-target="#estimating-lead-levels-in-mn-children"><span class="header-section-number">17.2</span> Estimating Lead Levels in MN Children</a></li>
-  <li><a href="#estimating-the-difference-between-two-sample-means" id="toc-estimating-the-difference-between-two-sample-means" class="nav-link" data-scroll-target="#estimating-the-difference-between-two-sample-means"><span class="header-section-number">17.3</span> Estimating the Difference Between Two Sample Means</a></li>
-  <li><a href="#estimating-the-difference-between-two-sample-proportions" id="toc-estimating-the-difference-between-two-sample-proportions" class="nav-link" data-scroll-target="#estimating-the-difference-between-two-sample-proportions"><span class="header-section-number">17.4</span> Estimating the Difference Between Two Sample Proportions</a></li>
+  <li><a href="#estimating-lead-levels-in-mn-children" id="toc-estimating-lead-levels-in-mn-children" class="nav-link" data-scroll-target="#estimating-lead-levels-in-mn-children"><span class="header-section-number">19.2</span> Estimating Lead Levels in MN Children</a></li>
+  <li><a href="#estimating-the-difference-between-two-sample-means" id="toc-estimating-the-difference-between-two-sample-means" class="nav-link" data-scroll-target="#estimating-the-difference-between-two-sample-means"><span class="header-section-number">19.3</span> Estimating the Difference Between Two Sample Means</a></li>
+  <li><a href="#estimating-the-difference-between-two-sample-proportions" id="toc-estimating-the-difference-between-two-sample-proportions" class="nav-link" data-scroll-target="#estimating-the-difference-between-two-sample-proportions"><span class="header-section-number">19.4</span> Estimating the Difference Between Two Sample Proportions</a></li>
   </ul>
 </nav>
     </div>
@@ -384,7 +396,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-confidence-intervals" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></h1>
+<h1 class="title"><span id="sec-confidence-intervals" class="quarto-section-identifier"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></h1>
 </div>
 
 
@@ -401,9 +413,9 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn about confidence intervals, the most commonly reported effect size.</p>
 <p><br></p>
-<section id="house-prices-revisited" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="house-prices-revisited"><span class="header-section-number">17.1</span> House Prices (Revisited)</h2>
-<p>In the house prices case study from <a href="04-04-one-sample-test-computation.html">Chapter&nbsp;<span>8</span></a>, we evaluated whether the average price of a house near the University of Minnesota was different than $322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:</p>
+<section id="house-prices-revisited" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="house-prices-revisited"><span class="header-section-number">19.1</span> House Prices (Revisited)</h2>
+<p>In the house prices case study from <a href="04-04-one-sample-test-computation.html">Chapter&nbsp;<span>10</span></a>, we evaluated whether the average price of a house near the University of Minnesota was different than $322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
@@ -411,8 +423,8 @@ H_A: \mu \neq 322.46
 \end{split}
 \]</span> The results of the one-sample <em>t</em>-test were: <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .008\)</span>. This small <em>p</em>-value led us to <em>reject the null hypothesis</em>, indicating that the empirical evidence was consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
 <p><br></p>
-<section id="estimating-the-average-price-for-houses-near-the-university-of-minnesota" class="level3" data-number="17.1.1">
-<h3 data-number="17.1.1" class="anchored" data-anchor-id="estimating-the-average-price-for-houses-near-the-university-of-minnesota"><span class="header-section-number">17.1.1</span> Estimating the Average Price for Houses Near the University of Minnesota</h3>
+<section id="estimating-the-average-price-for-houses-near-the-university-of-minnesota" class="level3" data-number="19.1.1">
+<h3 data-number="19.1.1" class="anchored" data-anchor-id="estimating-the-average-price-for-houses-near-the-university-of-minnesota"><span class="header-section-number">19.1.1</span> Estimating the Average Price for Houses Near the University of Minnesota</h3>
 <p>While the results of the hypothesis test suggest that the average cost of a house near the UMN campus is different than the average cost of a house in Minneapolis more broadly, the results from a hypothesis tests cannot tell us (1) the direction of that difference, nor (2) how much different the average cost is. Is it more or less than $322.46k? How much more or less? These questions are natural follow-ups after carrying out a hypothesis test.</p>
 <p>Using the sample evidence (e.g., sample mean), we can begin to answer this question. For example, the mean cost of a single-family house near the UMN campus was $404.97k. The sample evidence suggests that the average price of a house near the UMN campus is $82.51k higher than the average house in Minneapolis.</p>
 <p>This is informative in answering our follow-up questions, but had we drawn a different sample of houses near the University of Minnesota, our estimate of the average house price would vary because of sampling error. Similar to how we accounted for sampling error in the hypothesis tests we carried out, we also need to account for it in the estimates/effect sizes that we give. To do this, we quantify the uncertainty in the estimate that is due to sampling error, and use that to produce a <em>margin of error</em>, which in turn is used to produce a <em>confidence interval</em> (CI) for the estimate by:</p>
@@ -433,28 +445,28 @@ H_A: \mu \neq 322.46
 <p><span class="math display">\[
 \text{CI} = \text{Sample Estimate} \pm 2 \times \text{SE}
 \]</span></p>
-<p>All confidence intervals are computed using this method. The only thing that changes is how the SE is computed. Remember from our reading in hypothesis tests, the formula for the SE depended on whether we were computing it for a single mean, the difference between two means, a single proportion, or a difference between two proportions. As a reminder, the formulas for SE are presented in <a href="#tbl-se">Table&nbsp;<span>17.1</span></a>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>All confidence intervals are computed using this method. The only thing that changes is how the SE is computed. Remember from our reading in hypothesis tests, the formula for the SE depended on whether we were computing it for a single mean, the difference between two means, a single proportion, or a difference between two proportions. As a reminder, the formulas for SE are presented in <a href="#tbl-se">Table&nbsp;<span>19.1</span></a>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-se" class="anchored">
 
-<div id="jtbqgqazpo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jtbqgqazpo table {
+<div id="wnfxfvqrxg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wnfxfvqrxg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jtbqgqazpo thead, #jtbqgqazpo tbody, #jtbqgqazpo tfoot, #jtbqgqazpo tr, #jtbqgqazpo td, #jtbqgqazpo th {
+#wnfxfvqrxg thead, #wnfxfvqrxg tbody, #wnfxfvqrxg tfoot, #wnfxfvqrxg tr, #wnfxfvqrxg td, #wnfxfvqrxg th {
   border-style: none;
 }
 
-#jtbqgqazpo p {
+#wnfxfvqrxg p {
   margin: 0;
   padding: 0;
 }
 
-#jtbqgqazpo .gt_table {
+#wnfxfvqrxg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -480,12 +492,12 @@ H_A: \mu \neq 322.46
   border-left-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_caption {
+#wnfxfvqrxg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jtbqgqazpo .gt_title {
+#wnfxfvqrxg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -497,7 +509,7 @@ H_A: \mu \neq 322.46
   border-bottom-width: 0;
 }
 
-#jtbqgqazpo .gt_subtitle {
+#wnfxfvqrxg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -509,7 +521,7 @@ H_A: \mu \neq 322.46
   border-top-width: 0;
 }
 
-#jtbqgqazpo .gt_heading {
+#wnfxfvqrxg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -521,13 +533,13 @@ H_A: \mu \neq 322.46
   border-right-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_bottom_border {
+#wnfxfvqrxg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_col_headings {
+#wnfxfvqrxg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -542,7 +554,7 @@ H_A: \mu \neq 322.46
   border-right-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_col_heading {
+#wnfxfvqrxg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -562,7 +574,7 @@ H_A: \mu \neq 322.46
   overflow-x: hidden;
 }
 
-#jtbqgqazpo .gt_column_spanner_outer {
+#wnfxfvqrxg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -574,15 +586,15 @@ H_A: \mu \neq 322.46
   padding-right: 4px;
 }
 
-#jtbqgqazpo .gt_column_spanner_outer:first-child {
+#wnfxfvqrxg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jtbqgqazpo .gt_column_spanner_outer:last-child {
+#wnfxfvqrxg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jtbqgqazpo .gt_column_spanner {
+#wnfxfvqrxg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -594,11 +606,11 @@ H_A: \mu \neq 322.46
   width: 100%;
 }
 
-#jtbqgqazpo .gt_spanner_row {
+#wnfxfvqrxg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jtbqgqazpo .gt_group_heading {
+#wnfxfvqrxg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -624,7 +636,7 @@ H_A: \mu \neq 322.46
   text-align: left;
 }
 
-#jtbqgqazpo .gt_empty_group_heading {
+#wnfxfvqrxg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -639,15 +651,15 @@ H_A: \mu \neq 322.46
   vertical-align: middle;
 }
 
-#jtbqgqazpo .gt_from_md > :first-child {
+#wnfxfvqrxg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jtbqgqazpo .gt_from_md > :last-child {
+#wnfxfvqrxg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jtbqgqazpo .gt_row {
+#wnfxfvqrxg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -666,7 +678,7 @@ H_A: \mu \neq 322.46
   overflow-x: hidden;
 }
 
-#jtbqgqazpo .gt_stub {
+#wnfxfvqrxg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -679,7 +691,7 @@ H_A: \mu \neq 322.46
   padding-right: 5px;
 }
 
-#jtbqgqazpo .gt_stub_row_group {
+#wnfxfvqrxg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -693,15 +705,15 @@ H_A: \mu \neq 322.46
   vertical-align: top;
 }
 
-#jtbqgqazpo .gt_row_group_first td {
+#wnfxfvqrxg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jtbqgqazpo .gt_row_group_first th {
+#wnfxfvqrxg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jtbqgqazpo .gt_summary_row {
+#wnfxfvqrxg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -711,16 +723,16 @@ H_A: \mu \neq 322.46
   padding-right: 5px;
 }
 
-#jtbqgqazpo .gt_first_summary_row {
+#wnfxfvqrxg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_first_summary_row.thick {
+#wnfxfvqrxg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jtbqgqazpo .gt_last_summary_row {
+#wnfxfvqrxg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -730,7 +742,7 @@ H_A: \mu \neq 322.46
   border-bottom-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_grand_summary_row {
+#wnfxfvqrxg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -740,7 +752,7 @@ H_A: \mu \neq 322.46
   padding-right: 5px;
 }
 
-#jtbqgqazpo .gt_first_grand_summary_row {
+#wnfxfvqrxg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -750,7 +762,7 @@ H_A: \mu \neq 322.46
   border-top-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_last_grand_summary_row_top {
+#wnfxfvqrxg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -760,11 +772,11 @@ H_A: \mu \neq 322.46
   border-bottom-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_striped {
+#wnfxfvqrxg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jtbqgqazpo .gt_table_body {
+#wnfxfvqrxg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -773,7 +785,7 @@ H_A: \mu \neq 322.46
   border-bottom-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_footnotes {
+#wnfxfvqrxg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -787,7 +799,7 @@ H_A: \mu \neq 322.46
   border-right-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_footnote {
+#wnfxfvqrxg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -796,7 +808,7 @@ H_A: \mu \neq 322.46
   padding-right: 5px;
 }
 
-#jtbqgqazpo .gt_sourcenotes {
+#wnfxfvqrxg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -810,7 +822,7 @@ H_A: \mu \neq 322.46
   border-right-color: #D3D3D3;
 }
 
-#jtbqgqazpo .gt_sourcenote {
+#wnfxfvqrxg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -818,67 +830,67 @@ H_A: \mu \neq 322.46
   padding-right: 5px;
 }
 
-#jtbqgqazpo .gt_left {
+#wnfxfvqrxg .gt_left {
   text-align: left;
 }
 
-#jtbqgqazpo .gt_center {
+#wnfxfvqrxg .gt_center {
   text-align: center;
 }
 
-#jtbqgqazpo .gt_right {
+#wnfxfvqrxg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jtbqgqazpo .gt_font_normal {
+#wnfxfvqrxg .gt_font_normal {
   font-weight: normal;
 }
 
-#jtbqgqazpo .gt_font_bold {
+#wnfxfvqrxg .gt_font_bold {
   font-weight: bold;
 }
 
-#jtbqgqazpo .gt_font_italic {
+#wnfxfvqrxg .gt_font_italic {
   font-style: italic;
 }
 
-#jtbqgqazpo .gt_super {
+#wnfxfvqrxg .gt_super {
   font-size: 65%;
 }
 
-#jtbqgqazpo .gt_footnote_marks {
+#wnfxfvqrxg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jtbqgqazpo .gt_asterisk {
+#wnfxfvqrxg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jtbqgqazpo .gt_indent_1 {
+#wnfxfvqrxg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jtbqgqazpo .gt_indent_2 {
+#wnfxfvqrxg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jtbqgqazpo .gt_indent_3 {
+#wnfxfvqrxg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jtbqgqazpo .gt_indent_4 {
+#wnfxfvqrxg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jtbqgqazpo .gt_indent_5 {
+#wnfxfvqrxg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;17.1:  <p>Formulas to compute the standard error (SE) for the different
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;19.1:  <p>Formulas to compute the standard error (SE) for the different
 situations we have studied in EPsy 5261.</p> </caption>
   <thead>
     
@@ -966,8 +978,8 @@ situations we have studied in EPsy 5261.</p> </caption>
 <p><br></p>
 </section>
 </section>
-<section id="estimating-lead-levels-in-mn-children" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="estimating-lead-levels-in-mn-children"><span class="header-section-number">17.2</span> Estimating Lead Levels in MN Children</h2>
+<section id="estimating-lead-levels-in-mn-children" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="estimating-lead-levels-in-mn-children"><span class="header-section-number">19.2</span> Estimating Lead Levels in MN Children</h2>
 <p>To estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will compute a CI for a proportion rather than a mean. Below we import the data and compute the proportions. From the <a href="https://zief0002.github.io/epsy-5261/codebooks/mn-lead.html">data codebook</a> we also know that the sample size is 91,706.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -1005,7 +1017,7 @@ dbl (1): lead_level
 </div>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
-<p>Compute the SE for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 using the appropriate formula from <a href="#tbl-se">Table&nbsp;<span>17.1</span></a>.</p>
+<p>Compute the SE for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 using the appropriate formula from <a href="#tbl-se">Table&nbsp;<span>19.1</span></a>.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-01');">
 Show/Hide Solution
 </button>
@@ -1052,9 +1064,9 @@ Show/Hide Solution
 </section>
 <p><br></p>
 </section>
-<section id="estimating-the-difference-between-two-sample-means" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-means"><span class="header-section-number">17.3</span> Estimating the Difference Between Two Sample Means</h2>
-<p>In <a href="05-01-two-sample-t-test.html">Chapter&nbsp;<span>11</span></a> we carried out a two-sample <em>t</em>-test to determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al.&nbsp;posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults. To do that we tested the following hypotheses:</p>
+<section id="estimating-the-difference-between-two-sample-means" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-means"><span class="header-section-number">19.3</span> Estimating the Difference Between Two Sample Means</h2>
+<p>In <a href="05-01-two-sample-t-test.html">Chapter&nbsp;<span>13</span></a> we carried out a two-sample <em>t</em>-test to determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al.&nbsp;posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults. To do that we tested the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 &amp;H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0 \\
@@ -1124,9 +1136,9 @@ Show/Hide Solution
 </section>
 <p><br></p>
 </section>
-<section id="estimating-the-difference-between-two-sample-proportions" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-proportions"><span class="header-section-number">17.4</span> Estimating the Difference Between Two Sample Proportions</h2>
-<p>In <a href="05-03-two-sample-test-proportions.html">Chapter&nbsp;<span>13</span></a> we carried out a two-sample <em>z</em>-test to determine whether the Bachelors or Bachelorettes were more successful in their selection of potential suitors by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes. To do that we tested the following hypotheses:</p>
+<section id="estimating-the-difference-between-two-sample-proportions" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-proportions"><span class="header-section-number">19.4</span> Estimating the Difference Between Two Sample Proportions</h2>
+<p>In <a href="05-03-two-sample-test-proportions.html">Chapter&nbsp;<span>15</span></a> we carried out a two-sample <em>z</em>-test to determine whether the Bachelors or Bachelorettes were more successful in their selection of potential suitors by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes. To do that we tested the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
 H_0: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} &amp;= 0 \\[1ex]
@@ -1445,7 +1457,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./07-02-confidence-intervals-computation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 13&nbsp; Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</title>
+<title>An Introduction to Data Analysis - 15&nbsp; Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-03-two-sample-test-proportions.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-03-two-sample-test-proportions.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -140,7 +140,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -171,6 +171,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,7 +197,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -202,13 +214,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,37 +237,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,25 +284,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,13 +319,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,31 +342,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,12 +381,12 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#case-study-still-together" id="toc-case-study-still-together" class="nav-link active" data-scroll-target="#case-study-still-together"><span class="header-section-number">13.1</span> Case Study: Still Together?</a>
+  <li><a href="#case-study-still-together" id="toc-case-study-still-together" class="nav-link active" data-scroll-target="#case-study-still-together"><span class="header-section-number">15.1</span> Case Study: Still Together?</a>
   <ul class="collapse">
-  <li><a href="#summarizing-the-sample-data" id="toc-summarizing-the-sample-data" class="nav-link" data-scroll-target="#summarizing-the-sample-data"><span class="header-section-number">13.1.1</span> Summarizing the Sample Data</a></li>
-  <li><a href="#testing-proportions-using-the-one-sample-z-test" id="toc-testing-proportions-using-the-one-sample-z-test" class="nav-link" data-scroll-target="#testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">13.1.2</span> Testing Proportions Using the One-Sample z-Test</a></li>
+  <li><a href="#summarizing-the-sample-data" id="toc-summarizing-the-sample-data" class="nav-link" data-scroll-target="#summarizing-the-sample-data"><span class="header-section-number">15.1.1</span> Summarizing the Sample Data</a></li>
+  <li><a href="#testing-proportions-using-the-one-sample-z-test" id="toc-testing-proportions-using-the-one-sample-z-test" class="nav-link" data-scroll-target="#testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">15.1.2</span> Testing Proportions Using the One-Sample z-Test</a></li>
   </ul></li>
-  <li><a href="#assumptions-for-the-two-sample-z-test" id="toc-assumptions-for-the-two-sample-z-test" class="nav-link" data-scroll-target="#assumptions-for-the-two-sample-z-test"><span class="header-section-number">13.2</span> Assumptions for the Two-Sample z-Test</a></li>
+  <li><a href="#assumptions-for-the-two-sample-z-test" id="toc-assumptions-for-the-two-sample-z-test" class="nav-link" data-scroll-target="#assumptions-for-the-two-sample-z-test"><span class="header-section-number">15.2</span> Assumptions for the Two-Sample z-Test</a></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +395,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-two-sample-test-proportions" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></h1>
+<h1 class="title"><span id="sec-two-sample-test-proportions" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></h1>
 </div>
 
 
@@ -400,9 +412,9 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn about how to use a two-sample <em>z</em>-test to statistically compare a proportion computed in two samples of data by accounting for the sampling uncertainty. You will also learn about the assumptions that we need to make in order for the results of a two-sample <em>z</em>-test to be statistically valid.</p>
 <p><br></p>
-<section id="case-study-still-together" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="case-study-still-together"><span class="header-section-number">13.1</span> Case Study: Still Together?</h2>
-<p>In <a href="05-01-two-sample-t-test.html"><span>Chapter&nbsp;11</span></a> we examined whether there were differences in the average age of those people selected to be The Bachelor and those selected to be The Bachelorette. Here, we will continue our data analysis of these reality shows by examining whether the Bachelors or Bachelorettes were more successful in their selection of potential mates by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes.</p>
+<section id="case-study-still-together" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="case-study-still-together"><span class="header-section-number">15.1</span> Case Study: Still Together?</h2>
+<p>In <a href="05-01-two-sample-t-test.html"><span>Chapter&nbsp;13</span></a> we examined whether there were differences in the average age of those people selected to be The Bachelor and those selected to be The Bachelorette. Here, we will continue our data analysis of these reality shows by examining whether the Bachelors or Bachelorettes were more successful in their selection of potential mates by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes.</p>
 <p>The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> contains the attribute <code>still_together</code> which is a categorical variable indicating whether the Bachelor or Bachelorette is still together with the person they selected (at least as of June, 2023). We will use this attribute, along with the <code>show</code> attribute to evaluate the following set of hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
@@ -449,8 +461,8 @@ H_A: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} \neq 0
 </div>
 </div>
 <p><br></p>
-<section id="summarizing-the-sample-data" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">13.1.1</span> Summarizing the Sample Data</h3>
+<section id="summarizing-the-sample-data" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">15.1.1</span> Summarizing the Sample Data</h3>
 <p>We will start the analysis by summarizing the <code>still_together</code> attribute to determine the proportion of Bachelor and Bachelorette contestants that are still together with the person they selected on the show. We will use the vertical bar (<code>|</code>) to condition the <code>still_together</code> attribute by <code>show</code> in the <code>tally()</code> function. To get proportions, we also include the extra argument <code>format="proportion"</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to compute the number of contestants that are still together for each category in the show attribute</span></span>
@@ -477,8 +489,8 @@ still_together   Bachelor Bachelorette
 \hat{p}_{\text{Bachelor}} = .11 ~~~~~~~~~~ \hat{p}_{\text{Bachelorette}} = .19
 \]</span></p>
 <p><br></p>
-<section id="missing-data" class="level4" data-number="13.1.1.1">
-<h4 data-number="13.1.1.1" class="anchored" data-anchor-id="missing-data"><span class="header-section-number">13.1.1.1</span> Missing Data</h4>
+<section id="missing-data" class="level4" data-number="15.1.1.1">
+<h4 data-number="15.1.1.1" class="anchored" data-anchor-id="missing-data"><span class="header-section-number">15.1.1.1</span> Missing Data</h4>
 <p>One other thing we see is that there are 2 <code>NA</code> values in the counts and proportions. This is telling us that two cases in our data are missing values on the <code>still_together</code> attribute. Looking back at the CSV file, we find that two of the Bachelorette contestants, Britt Nilsson and Charity Lawson are missing values on the <code>still_together</code> attribute. In any analysis involving the <code>still_together</code> attribute, that will mean that these two cases will be dropped.</p>
 <p>The proportions in the <code>tally()</code> output are based on the complete number of contestants within each show. For example, the proportion of 0.74 indicating the proportion of Bachelorette contestants that are not still together is based on the total number of Bachelorette contestants (<span class="math inline">\(n=23\)</span>). Because our two-sample <em>z</em>-test will only be based on those contestants who have data, it is common to base the sample proportions on only those contestants that have data (e.g., based on the <span class="math inline">\(n=21\)</span> Bachelorettes with data. To compute these proportions, we will include the argument <code>useNA="no"</code> in the <code>tally()</code> function.</p>
 <div class="cell">
@@ -496,9 +508,9 @@ still_together  Bachelor Bachelorette
 <p>While the <code>tally()</code> function includes an argument to only use those cases with data, not all R functions have this utility. Some will drop the cases without telling you, and others will not work at all with missing values. The latter is the case with the <code>prop_test()</code> function we will use later. We will look at solutions to this problem later in this chapter when we introduce the syntax for the two-sample <em>z</em>-test</p>
 <p><br></p>
 </section>
-<section id="reporting-sample-results-contingency-tables" class="level4" data-number="13.1.1.2">
-<h4 data-number="13.1.1.2" class="anchored" data-anchor-id="reporting-sample-results-contingency-tables"><span class="header-section-number">13.1.1.2</span> Reporting Sample Results: Contingency Tables</h4>
-<p>In reporting the sample results, we typically only need to report the sample values for one category of the outcome (e.g., the proportion that are still together). However, many manuscripts will also report the inverse of these values as well (e.g., the proportion who are NOT still together). <a href="#tbl-bachelor">Table&nbsp;<span>13.1</span></a> shows an example of a table summarizing the counts and proportions that might by produced in a manuscript.</p>
+<section id="reporting-sample-results-contingency-tables" class="level4" data-number="15.1.1.2">
+<h4 data-number="15.1.1.2" class="anchored" data-anchor-id="reporting-sample-results-contingency-tables"><span class="header-section-number">15.1.1.2</span> Reporting Sample Results: Contingency Tables</h4>
+<p>In reporting the sample results, we typically only need to report the sample values for one category of the outcome (e.g., the proportion that are still together). However, many manuscripts will also report the inverse of these values as well (e.g., the proportion who are NOT still together). <a href="#tbl-bachelor">Table&nbsp;<span>15.1</span></a> shows an example of a table summarizing the counts and proportions that might by produced in a manuscript.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Since gt v0.3.0, `columns = TRUE` has been deprecated.
@@ -507,9 +519,9 @@ still_together  Bachelor Bachelorette
 <div class="cell-output-display">
 <div id="tbl-bachelor" class="anchored">
 
-<div id="fmqtozgsmr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="unzfagwzbl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
-  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;13.1:  <p>Counts (and proportions) of Bachelor and Bachelorette contestants
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;15.1:  <p>Counts (and proportions) of Bachelor and Bachelorette contestants
 that are still together with the person they selected on the show.
 Proprtions are based on the total number of contestants within each
 show.</p> </caption>
@@ -555,7 +567,7 @@ show.</p> </caption>
 </div>
 </div>
 </div>
-<p>The table in <a href="#tbl-bachelor">Table&nbsp;<span>13.1</span></a> is called a <em>contingency table</em>. Contingency tables typically report counts, proportions, or both. They also often include total counts (the row and column highlighted in yellow). The first two total values in the column labelled “Total” are the total number of contestants on each show—27 total contestants on the Bachelor and 21 total contestants on the Bachelorette—these are called <em>row totals</em> since we are summing across the rows. The first two total counts in the row labelled “Total” indicate the total number of contestants across both shows that are no longer together and the total number across both shows that are still together—41 contestants are no longer together with the suitor they selected, while 7 are still together with their chosen suitor—these totals are referred to as <em>column totals</em> as they constitute the sum in different columns. Finally, the count in the last row and last colum (48) indicated the total number of contestants. Sometimes this value is referred to as the <em>grand total</em> or the <em>total sample size</em>.</p>
+<p>The table in <a href="#tbl-bachelor">Table&nbsp;<span>15.1</span></a> is called a <em>contingency table</em>. Contingency tables typically report counts, proportions, or both. They also often include total counts (the row and column highlighted in yellow). The first two total values in the column labelled “Total” are the total number of contestants on each show—27 total contestants on the Bachelor and 21 total contestants on the Bachelorette—these are called <em>row totals</em> since we are summing across the rows. The first two total counts in the row labelled “Total” indicate the total number of contestants across both shows that are no longer together and the total number across both shows that are still together—41 contestants are no longer together with the suitor they selected, while 7 are still together with their chosen suitor—these totals are referred to as <em>column totals</em> as they constitute the sum in different columns. Finally, the count in the last row and last colum (48) indicated the total number of contestants. Sometimes this value is referred to as the <em>grand total</em> or the <em>total sample size</em>.</p>
 <p>When you are interpreting the information from the contingency table, especially proportions, it is important to note which total was used in the denominator of the proportion. For example, if we were trying to compute a proportion of the Bachelor contestants that are still together with their selected suitor (<span class="math inline">\(n=3\)</span>), we have three ways we could compute a proportion:</p>
 <ul>
 <li><span class="math inline">\(\frac{3}{27} = .11\)</span> This proportion uses the row total in the denominator and is the proportion that is reported which indicates the proportion of all Bachelor contestants that are still together with their selected suitors.</li>
@@ -565,8 +577,8 @@ show.</p> </caption>
 <p>The key is, of course, to report the proportions that help you answer your research question. Since we were interested in differences between shows, we want to compute the proportion of contestants still together within each show. That is why we used the row total in the denominator. Because a proportion can be computed in these multipe ways, it is good practice to report how the proportions are being computed in the table caption or a table note.</p>
 <p><br></p>
 </section>
-<section id="reporting-sample-results-segmented-bar-charts" class="level4" data-number="13.1.1.3">
-<h4 data-number="13.1.1.3" class="anchored" data-anchor-id="reporting-sample-results-segmented-bar-charts"><span class="header-section-number">13.1.1.3</span> Reporting Sample Results: Segmented Bar Charts</h4>
+<section id="reporting-sample-results-segmented-bar-charts" class="level4" data-number="15.1.1.3">
+<h4 data-number="15.1.1.3" class="anchored" data-anchor-id="reporting-sample-results-segmented-bar-charts"><span class="header-section-number">15.1.1.3</span> Reporting Sample Results: Segmented Bar Charts</h4>
 <p>Sometimes the summary results are reported in a visualization. One common visualization used to report counts or proportions for multiple groups is the segmented bar chart. Here we use the <code>gf_props()</code> function to plot the proportions of contestants still together (and not still together) within each show. To do this we give:</p>
 <ul>
 <li>A formula (<code>~</code>) indicating the attribute to compute proportions within. In this case we used <code>~show</code> because we want to compute the proportion within each show. This will create a separate bar for each show.</li>
@@ -635,8 +647,8 @@ show.</p> </caption>
 <p><br></p>
 </section>
 </section>
-<section id="testing-proportions-using-the-one-sample-z-test" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">13.1.2</span> Testing Proportions Using the One-Sample z-Test</h3>
+<section id="testing-proportions-using-the-one-sample-z-test" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="testing-proportions-using-the-one-sample-z-test"><span class="header-section-number">15.1.2</span> Testing Proportions Using the One-Sample z-Test</h3>
 <p>The sample data suggest that there is is a difference between the two shows in the proportion of contestants that are still together with their selected suitor (<span class="math inline">\(0.11 \neq 0.19\)</span>). The next question we would want to tackle is whether this difference is more than we expect because of sampling error. To determine this, we need to carry out a hypothesis test.The hypothesis test we use to compare two samples’ proportions is the <em>two-sample z-test</em>. The process we use is very similar to that for the one-sample <em>z</em>-test, which was:</p>
 <ul>
 <li>Use the difference in sample proportions to compute a <em>z</em>-value;</li>
@@ -660,13 +672,13 @@ z &amp;= \frac{.11 - .19}{\sqrt{\frac{.11(1 - .11)}{27}} + \sqrt{\frac{.19(1 - .
 \end{split}
 \]</span></p>
 <p>The <em>z</em>-value indicates how many standard errors the sample difference is from the hypothesized difference of 0, In our case, the difference in sample proportions we observed in the data was <span class="math inline">\(-.08\)</span>. (The negative value just tells us that the Bachelorette group has a higher proportion still together with their selected suitor.) This difference is 0.762 standard errors below the hypothesized difference of 0. We can evaluate this in the <em>z</em>-distribution. (Remember the <em>z</em>-distribution is a normal distribution that has a mean of 0 and a standard deviation of 1.)</p>
-<p>The <em>z</em>-distribution is shown in <a href="#fig-z-dist">Figure&nbsp;<span>13.1</span></a>. A vertical line is shown at the observed <em>z</em>-value of <span class="math inline">\(-0.762\)</span>. The area under the curve associated with the <em>p</em>value for the alternative hypothesis that the difference is not equal to 0 is also shown.</p>
+<p>The <em>z</em>-distribution is shown in <a href="#fig-z-dist">Figure&nbsp;<span>15.1</span></a>. A vertical line is shown at the observed <em>z</em>-value of <span class="math inline">\(-0.762\)</span>. The area under the curve associated with the <em>p</em>value for the alternative hypothesis that the difference is not equal to 0 is also shown.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-z-dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-03-two-sample-test-proportions_files/figure-html/fig-z-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.1: Density plot of the <em>z</em>-distribution.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;15.1: Density plot of the <em>z</em>-distribution.</figcaption>
 </figure>
 </div>
 </div>
@@ -740,7 +752,7 @@ p = 0.4396054
 <div id="fig-z-bachelorette" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="05-03-two-sample-test-proportions_files/figure-html/fig-z-bachelorette-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.2: Density plot of the <em>z</em>-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed <em>z</em>-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated <em>p</em>-value of .440 that corresponds to the alternative hypothesis that the two population proprtions are equal (there is no difference between them).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;15.2: Density plot of the <em>z</em>-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed <em>z</em>-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated <em>p</em>-value of .440 that corresponds to the alternative hypothesis that the two population proprtions are equal (there is no difference between them).</figcaption>
 </figure>
 </div>
 </div>
@@ -749,8 +761,8 @@ p = 0.4396054
 <p><br></p>
 </section>
 </section>
-<section id="assumptions-for-the-two-sample-z-test" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="assumptions-for-the-two-sample-z-test"><span class="header-section-number">13.2</span> Assumptions for the Two-Sample z-Test</h2>
+<section id="assumptions-for-the-two-sample-z-test" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="assumptions-for-the-two-sample-z-test"><span class="header-section-number">15.2</span> Assumptions for the Two-Sample z-Test</h2>
 <p>Whether or not the <em>p</em>-value we obtain from the <em>z</em>-test is accurate depends on the following set of statistical assumptions:</p>
 <ol type="1">
 <li>The values in the two populations both follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”) for each group being compared.</li>
@@ -1124,12 +1136,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05-02-two-sample-test-assumptions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05-04-errors.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

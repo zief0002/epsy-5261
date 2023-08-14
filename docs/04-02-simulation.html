@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 6&nbsp; Bootstrapping: Using Simulation to Estimate the Uncertainty</title>
+<title>An Introduction to Data Analysis - 8&nbsp; Bootstrapping: Using Simulation to Estimate the Uncertainty</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -190,6 +190,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,7 +216,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,13 +233,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,37 +256,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -291,25 +303,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,13 +338,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -349,31 +361,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -388,16 +400,16 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link active" data-scroll-target="#bootstrapping"><span class="header-section-number">6.1</span> Bootstrapping</a></li>
-  <li><a href="#importing-the-teen-sleep-data" id="toc-importing-the-teen-sleep-data" class="nav-link" data-scroll-target="#importing-the-teen-sleep-data"><span class="header-section-number">6.2</span> Importing the Teen Sleep Data</a></li>
-  <li><a href="#bootstrapping-from-the-teen-sleep-data" id="toc-bootstrapping-from-the-teen-sleep-data" class="nav-link" data-scroll-target="#bootstrapping-from-the-teen-sleep-data"><span class="header-section-number">6.3</span> Bootstrapping from the Teen Sleep Data</a>
+  <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link active" data-scroll-target="#bootstrapping"><span class="header-section-number">8.1</span> Bootstrapping</a></li>
+  <li><a href="#importing-the-teen-sleep-data" id="toc-importing-the-teen-sleep-data" class="nav-link" data-scroll-target="#importing-the-teen-sleep-data"><span class="header-section-number">8.2</span> Importing the Teen Sleep Data</a></li>
+  <li><a href="#bootstrapping-from-the-teen-sleep-data" id="toc-bootstrapping-from-the-teen-sleep-data" class="nav-link" data-scroll-target="#bootstrapping-from-the-teen-sleep-data"><span class="header-section-number">8.3</span> Bootstrapping from the Teen Sleep Data</a>
   <ul class="collapse">
-  <li><a href="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" id="toc-step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" class="nav-link" data-scroll-target="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement"><span class="header-section-number">6.3.1</span> STEP 1: Randomly sample 75 observations from the observed sample of size 75 teen sleep amounts (with replacement)</a></li>
-  <li><a href="#step-2-compute-the-mean-of-the-bootstrap-sample." id="toc-step-2-compute-the-mean-of-the-bootstrap-sample." class="nav-link" data-scroll-target="#step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">6.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</a></li>
-  <li><a href="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." id="toc-step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." class="nav-link" data-scroll-target="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean."><span class="header-section-number">6.3.3</span> STEP 3: Repeat the first two steps in the process many times (say 1000 times), each time recording the mean.</a></li>
-  <li><a href="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." id="toc-step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." class="nav-link" data-scroll-target="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">6.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</a></li>
+  <li><a href="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" id="toc-step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" class="nav-link" data-scroll-target="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement"><span class="header-section-number">8.3.1</span> STEP 1: Randomly sample 75 observations from the observed sample of size 75 teen sleep amounts (with replacement)</a></li>
+  <li><a href="#step-2-compute-the-mean-of-the-bootstrap-sample." id="toc-step-2-compute-the-mean-of-the-bootstrap-sample." class="nav-link" data-scroll-target="#step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">8.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</a></li>
+  <li><a href="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." id="toc-step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." class="nav-link" data-scroll-target="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean."><span class="header-section-number">8.3.3</span> STEP 3: Repeat the first two steps in the process many times (say 1000 times), each time recording the mean.</a></li>
+  <li><a href="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." id="toc-step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." class="nav-link" data-scroll-target="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">8.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.4</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -406,7 +418,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
+<h1 class="title"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
 </div>
 
 
@@ -423,15 +435,15 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn how to estimate the standard error of the mean from a single sample. To do this, you will employ a simulation method called <em>bootstrapping</em>.</p>
 <p><br></p>
-<section id="bootstrapping" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="bootstrapping"><span class="header-section-number">6.1</span> Bootstrapping</h2>
-<p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;5</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
+<section id="bootstrapping" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="bootstrapping"><span class="header-section-number">8.1</span> Bootstrapping</h2>
+<p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;7</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-thought-experiment" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.1: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.</figcaption>
 </figure>
 </div>
 </div>
@@ -444,7 +456,7 @@ function toggle_visibility(id) {
 <div id="fig-thought-experiment-bootstrap" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.2: Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students’ sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students’ sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.</figcaption>
 </figure>
 </div>
 </div>
@@ -452,8 +464,8 @@ function toggle_visibility(id) {
 <p>Because we need to randomly sample 75 observations out of the original sample (which itself only includes 75 observations), we need to sample WITH REPLACEMENT when we draw our re-samples. In this way, we mimic drawing random samples from a larger population without actually needing the larger population.</p>
 <p><br></p>
 </section>
-<section id="importing-the-teen-sleep-data" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="importing-the-teen-sleep-data"><span class="header-section-number">6.2</span> Importing the Teen Sleep Data</h2>
+<section id="importing-the-teen-sleep-data" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="importing-the-teen-sleep-data"><span class="header-section-number">8.2</span> Importing the Teen Sleep Data</h2>
 <p>We will use the data in <em>teen-sleep.csv</em> to bootstrap a standard error of the mean. These data include the bedtime, wake-up time, and hours slept for a sample of <span class="math inline">\(n=75\)</span> American teens in Grades 9–12.</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv">teen-sleep.csv</a></li>
@@ -483,8 +495,8 @@ function toggle_visibility(id) {
 </div>
 <p><br></p>
 </section>
-<section id="bootstrapping-from-the-teen-sleep-data" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="bootstrapping-from-the-teen-sleep-data"><span class="header-section-number">6.3</span> Bootstrapping from the Teen Sleep Data</h2>
+<section id="bootstrapping-from-the-teen-sleep-data" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="bootstrapping-from-the-teen-sleep-data"><span class="header-section-number">8.3</span> Bootstrapping from the Teen Sleep Data</h2>
 <p>The process for computing the standard error via bootstrapping is:</p>
 <ul>
 <li>STEP 1: Randomly sample <em>n</em> observations from the observed sample of size <em>n</em> (with replacement) This is called a <em>bootstrap sample</em> or a <em>re-sample</em>.</li>
@@ -494,8 +506,8 @@ function toggle_visibility(id) {
 </ul>
 <p>The computations we do will parallel each step of this process. As you learn how to do this, it is easy to get lost in the computing and forget why you are doing this. Remember, the end goal is to mimic the thought experiment so we can quantify the variation in the sample means.</p>
 <p><br></p>
-<section id="step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement"><span class="header-section-number">6.3.1</span> STEP 1: Randomly sample 75 observations from the observed sample of size 75 teen sleep amounts (with replacement)</h3>
+<section id="step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement"><span class="header-section-number">8.3.1</span> STEP 1: Randomly sample 75 observations from the observed sample of size 75 teen sleep amounts (with replacement)</h3>
 <p>To randomly sample from a set of values we use the <code>sample()</code> function. We will need to specify the values we are sampling from (i.e., the original sample) as an input to the function. The data we want to randomly sample from is in a column called <code>hrs_sleep</code> inside the data object called <code>teen_sleep</code>. To specify a particular column in a data object we use the following notation: <code>teen_sleep$hrs_sleep</code>. We also need to set the number of observations to randomly sample, and tell this function that we are sampling with replacement.</p>
 <p>Thus to draw a random sample of values from our data we use:</p>
 <div class="cell">
@@ -504,17 +516,17 @@ function toggle_visibility(id) {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  7.583333  6.416667  7.750000  7.500000  4.416667  7.916667  8.833333
- [8] 10.333333  6.083333  8.916667  8.250000  7.166667  6.750000  5.916667
-[15]  6.833333 10.083333  7.583333  5.416667  7.916667  7.750000  4.833333
-[22] 10.083333  9.166667  7.166667  4.666667  5.916667  4.666667  7.750000
-[29]  7.916667  7.750000  9.166667  5.916667  5.916667  8.750000  7.166667
-[36]  6.500000  4.583333  7.083333  7.916667  7.416667  9.166667  7.666667
-[43]  6.916667  8.750000  9.916667  7.166667  4.666667  6.333333  9.166667
-[50]  7.500000  7.750000  7.833333  8.083333  8.833333  8.250000  4.916667
-[57]  6.416667 11.083333  9.916667  7.583333  7.083333  9.166667 10.083333
-[64]  7.333333  7.750000  9.166667  8.083333  7.833333  9.083333  7.333333
-[71]  4.416667  7.833333  7.583333 11.083333 11.083333</code></pre>
+<pre><code> [1] 11.083333  4.583333 11.083333  7.583333  4.166667  7.416667  7.750000
+ [8] 10.333333  8.416667  8.583333  6.416667  7.666667  8.083333  7.916667
+[15] 11.083333  7.750000  7.083333  9.750000  9.916667  7.583333  8.333333
+[22]  8.500000  7.416667  9.916667 11.083333  6.916667  4.166667  5.916667
+[29]  8.333333  9.750000  4.500000  7.583333  8.500000  8.333333  8.333333
+[36]  6.583333  7.583333  7.666667  4.500000  6.583333  7.083333 10.083333
+[43]  7.083333  4.500000  4.583333  4.166667  7.583333  9.083333 10.333333
+[50]  7.916667  6.750000  7.666667  6.916667  8.750000  6.083333  9.916667
+[57]  7.000000  8.916667  6.916667  4.500000  6.416667  6.583333  5.916667
+[64]  6.416667  5.166667  6.416667  8.833333  9.083333  7.916667  7.500000
+[71]  9.166667  7.750000  7.583333  7.583333  6.833333</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
@@ -522,36 +534,36 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8.083333 11.083333  7.833333  6.083333  7.500000  9.916667  7.750000
- [8]  8.500000  8.583333  7.000000  7.916667  6.500000  6.916667  5.916667
-[15]  7.833333  7.083333  9.166667  7.500000 10.333333  7.333333  6.083333
-[22]  8.416667  8.583333  7.500000  7.583333  8.333333  8.416667  6.083333
-[29]  8.750000  7.916667  5.416667  7.666667  4.666667  6.083333  7.166667
-[36]  6.916667 11.083333  7.833333  7.916667  7.500000  7.750000  8.083333
-[43]  6.083333  5.833333  9.083333  4.166667  7.166667  7.750000  5.916667
-[50]  8.583333  4.833333  4.416667  6.416667  7.750000  9.083333  7.750000
-[57]  6.666667  5.916667  6.500000  6.416667  7.583333  6.583333  8.583333
-[64]  7.583333  6.083333  8.750000  7.000000  4.500000  7.916667 11.083333
-[71]  4.583333  4.666667  8.333333  8.833333  7.083333</code></pre>
+<pre><code> [1]  7.583333  7.583333  6.083333  4.916667  7.500000  7.666667  7.166667
+ [8]  4.416667  4.166667  7.000000  5.166667  4.666667  6.083333  7.416667
+[15]  5.416667  7.583333  8.333333  7.166667  9.166667  7.750000 11.083333
+[22]  6.416667  6.916667  6.750000 10.083333  7.083333  6.583333  6.916667
+[29] 11.083333  8.333333  7.916667  8.750000  8.583333  6.083333  6.333333
+[36]  7.583333  7.583333  7.750000  7.666667  6.083333  7.416667  5.916667
+[43]  4.666667  8.583333  7.500000  8.333333  6.083333  7.500000  7.916667
+[50]  7.583333  7.583333  8.333333  8.833333  7.916667  8.750000 11.083333
+[57]  6.583333  8.416667  8.333333  8.333333  7.333333  7.166667  8.583333
+[64]  8.083333  4.666667  6.083333  4.916667  4.916667  7.500000  8.333333
+[71]  8.333333  5.916667  5.166667  8.416667  6.083333</code></pre>
 </div>
 </div>
 <p><br></p>
 </section>
-<section id="step-2-compute-the-mean-of-the-bootstrap-sample." class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">6.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</h3>
+<section id="step-2-compute-the-mean-of-the-bootstrap-sample." class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">8.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</h3>
 <p>To compute the mean of a bootstrap sample, we are just going to embed our <code>sample()</code> syntax inside of the <code>mean()</code> function. For example,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.186667</code></pre>
+<pre><code>[1] 7.606667</code></pre>
 </div>
 </div>
 <p>You could re-run this syntax to draw another bootstrap sample and compute the mean.</p>
 <p><br></p>
 </section>
-<section id="step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean."><span class="header-section-number">6.3.3</span> STEP 3: Repeat the first two steps in the process many times (say 1000 times), each time recording the mean.</h3>
+<section id="step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean."><span class="header-section-number">8.3.3</span> STEP 3: Repeat the first two steps in the process many times (say 1000 times), each time recording the mean.</h3>
 <p>To repeat a set of computations, we are going to use the <code>do()</code> function from the <code>{mosaic}</code> package. As a reminder, you will need the <code>{mosiac}</code> package loaded prior to using this function. The syntax for the <code>do()</code> function takes the following format:</p>
 <pre><code>do(N times) * {Computations to repeat}</code></pre>
 <p>As an example, if we wanted to carry out our computations to draw a bootstrap sample and compute the mean 10 times, the synatx is:</p>
@@ -563,7 +575,7 @@ function toggle_visibility(id) {
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.246667"},{"1":"7.596667"},{"1":"7.461111"},{"1":"7.311111"},{"1":"7.267778"},{"1":"7.408889"},{"1":"7.255556"},{"1":"7.575556"},{"1":"7.286667"},{"1":"7.240000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.395556"},{"1":"7.715556"},{"1":"7.382222"},{"1":"7.415556"},{"1":"7.448889"},{"1":"7.437778"},{"1":"6.951111"},{"1":"7.562222"},{"1":"7.286667"},{"1":"7.134444"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -588,8 +600,8 @@ function toggle_visibility(id) {
 </div>
 <p><br></p>
 </section>
-<section id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." class="level3" data-number="6.3.4">
-<h3 data-number="6.3.4" class="anchored" data-anchor-id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">6.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</h3>
+<section id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">8.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</h3>
 <p>Remember our goal was to compute the standard error, which quantifies the uncertainty in the sample mean estimates that is due to sampling variation. Before we do that, we will visualize the distribution of bootstrapped means.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot of the bootstrapped means</span></span>
@@ -602,7 +614,7 @@ function toggle_visibility(id) {
 <div id="fig-bootstrap-dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.3: Distribution of 1000 bootstrapped means.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.3: Distribution of 1000 bootstrapped means.</figcaption>
 </figure>
 </div>
 </div>
@@ -622,7 +634,7 @@ function toggle_visibility(id) {
 </div>
 <p>Here the standard error (found in the <code>sd</code> column) is 0.17.</p>
 <div class="protip">
-<p>The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in <a href="#fig-bootstrap-dist">Figure&nbsp;<span>6.3</span></a>. This can be a self-check when you create a bootstrap distribution.</p>
+<p>The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in <a href="#fig-bootstrap-dist">Figure&nbsp;<span>8.3</span></a>. This can be a self-check when you create a bootstrap distribution.</p>
 </div>
 <p><br></p>
 <!-- ## Some Mathematical Notation -->
@@ -630,8 +642,8 @@ function toggle_visibility(id) {
 <p><br></p>
 </section>
 </section>
-<section id="references" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="references"><span class="header-section-number">6.4</span> References</h2>
+<section id="references" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="references"><span class="header-section-number">8.4</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
@@ -884,12 +896,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04-01-case-study-teen-sleep.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04-03-one-sample-test.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -8,7 +8,7 @@ project:
     - codebooks/ #Add codebooks to docs
 
 book:
-  title: "An Introduction to Data Analysis: The End"
+  title: "An Introduction to Data Analysis"
   author: ["Andrew Zieffler", "¢hel$ey £ega¢y"]
   date: "`r Sys.Date()`"
   sidebar:
@@ -20,7 +20,8 @@ book:
     - part: 01-00-statistical-computation.qmd
       chapters:
         - 01-01-r-and-rstudio-installation.qmd
-        #- 04-data-structures-in-r.qmd
+        - 01-02-getting-started-with-r.qmd
+        - 01-03-data-structures-in-r.qmd
     - part: 02-00-data.qmd
       chapters:
         - 02-01-data-structure-and-attributes.qmd

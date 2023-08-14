@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 18&nbsp; Confidence Intervals Using R</title>
+<title>An Introduction to Data Analysis - 20&nbsp; Confidence Intervals Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-02-confidence-intervals-computation.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-02-confidence-intervals-computation.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -140,7 +140,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -171,6 +171,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,7 +197,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -202,13 +214,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,37 +237,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,25 +284,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,13 +319,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,31 +342,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,12 +381,12 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-confint-function" id="toc-the-confint-function" class="nav-link active" data-scroll-target="#the-confint-function"><span class="header-section-number">18.1</span> The confint() Function</a>
+  <li><a href="#the-confint-function" id="toc-the-confint-function" class="nav-link active" data-scroll-target="#the-confint-function"><span class="header-section-number">20.1</span> The confint() Function</a>
   <ul class="collapse">
-  <li><a href="#some-computational-shortcuts-for-computing-a-ci" id="toc-some-computational-shortcuts-for-computing-a-ci" class="nav-link" data-scroll-target="#some-computational-shortcuts-for-computing-a-ci"><span class="header-section-number">18.1.1</span> Some Computational Shortcuts for Computing a CI</a></li>
+  <li><a href="#some-computational-shortcuts-for-computing-a-ci" id="toc-some-computational-shortcuts-for-computing-a-ci" class="nav-link" data-scroll-target="#some-computational-shortcuts-for-computing-a-ci"><span class="header-section-number">20.1.1</span> Some Computational Shortcuts for Computing a CI</a></li>
   </ul></li>
-  <li><a href="#computing-a-ci-for-a-proportion" id="toc-computing-a-ci-for-a-proportion" class="nav-link" data-scroll-target="#computing-a-ci-for-a-proportion"><span class="header-section-number">18.2</span> Computing a CI for a Proportion</a></li>
-  <li><a href="#computing-a-ci-for-the-difference-in-means-or-proportions" id="toc-computing-a-ci-for-the-difference-in-means-or-proportions" class="nav-link" data-scroll-target="#computing-a-ci-for-the-difference-in-means-or-proportions"><span class="header-section-number">18.3</span> Computing a CI for the Difference in Means or Proportions</a></li>
+  <li><a href="#computing-a-ci-for-a-proportion" id="toc-computing-a-ci-for-a-proportion" class="nav-link" data-scroll-target="#computing-a-ci-for-a-proportion"><span class="header-section-number">20.2</span> Computing a CI for a Proportion</a></li>
+  <li><a href="#computing-a-ci-for-the-difference-in-means-or-proportions" id="toc-computing-a-ci-for-the-difference-in-means-or-proportions" class="nav-link" data-scroll-target="#computing-a-ci-for-the-difference-in-means-or-proportions"><span class="header-section-number">20.3</span> Computing a CI for the Difference in Means or Proportions</a></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +395,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-confidence-intervals-r" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></h1>
+<h1 class="title"><span id="sec-confidence-intervals-r" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></h1>
 </div>
 
 
@@ -400,8 +412,8 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn how to use R to compute a confidence interval.</p>
 <p><br></p>
-<section id="the-confint-function" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="the-confint-function"><span class="header-section-number">18.1</span> The confint() Function</h2>
+<section id="the-confint-function" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="the-confint-function"><span class="header-section-number">20.1</span> The confint() Function</h2>
 <p>To compute a confidence interval (CI), we fit a two-sided <em>t</em>-test and then call the <code>confint()</code> function on the results. For example, to compute a CI to estimate the average price of a single-family house near the University of Minnesota we can use the following syntax.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
@@ -438,8 +450,8 @@ function toggle_visibility(id) {
 </div>
 <p>The <code>lower</code> and <code>upper</code> values of the output give the lower and upper bounds of the CI, respectively. From this output, our CI is computed as <span class="math inline">\([348.24,~461.69]\)</span>.</p>
 <p><br></p>
-<section id="some-computational-shortcuts-for-computing-a-ci" class="level3" data-number="18.1.1">
-<h3 data-number="18.1.1" class="anchored" data-anchor-id="some-computational-shortcuts-for-computing-a-ci"><span class="header-section-number">18.1.1</span> Some Computational Shortcuts for Computing a CI</h3>
+<section id="some-computational-shortcuts-for-computing-a-ci" class="level3" data-number="20.1.1">
+<h3 data-number="20.1.1" class="anchored" data-anchor-id="some-computational-shortcuts-for-computing-a-ci"><span class="header-section-number">20.1.1</span> Some Computational Shortcuts for Computing a CI</h3>
 <p>In the house prices case study, we had initially tested a two-sided hypothesis, so we already had written the syntax for the <code>t_test()</code> function. This will be true in most applications. If, however, you haven’t carried out a <em>t</em>-test, and you want to compute a CI, you can shorten the syntax in the <code>t_test()</code> function by omitting the arguments <code>mu=</code> and <code>alternative=</code>. For example, if we hadn’t previously carried out a <em>t</em>-test on our Zillow data, we could use the syntax:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out two-sided t-test</span></span>
@@ -460,8 +472,8 @@ function toggle_visibility(id) {
 <p><br></p>
 </section>
 </section>
-<section id="computing-a-ci-for-a-proportion" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="computing-a-ci-for-a-proportion"><span class="header-section-number">18.2</span> Computing a CI for a Proportion</h2>
+<section id="computing-a-ci-for-a-proportion" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="computing-a-ci-for-a-proportion"><span class="header-section-number">20.2</span> Computing a CI for a Proportion</h2>
 <p>We can also use the <code>confint()</code> function to compute the CI for a proportion. In a similar fashion, we would need to carry out a two-sided <em>z</em>-test (using <code>prop_test()</code>) and then call <code>confint()</code> on the results of that <em>z</em>-test. For example to compute a CI to estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will use the following syntax:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -509,8 +521,8 @@ dbl (1): lead_level
 <p>From this output, our CI is computed as <span class="math inline">\([.013,~.015]\)</span> which suggests that based on the data, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .013 and .015.</p>
 <p><br></p>
 </section>
-<section id="computing-a-ci-for-the-difference-in-means-or-proportions" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="computing-a-ci-for-the-difference-in-means-or-proportions"><span class="header-section-number">18.3</span> Computing a CI for the Difference in Means or Proportions</h2>
+<section id="computing-a-ci-for-the-difference-in-means-or-proportions" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="computing-a-ci-for-the-difference-in-means-or-proportions"><span class="header-section-number">20.3</span> Computing a CI for the Difference in Means or Proportions</h2>
 <p>You can also use the <code>confint()</code> function on the results of a two-sided <em>t</em>- or <em>z</em>-test in the same way. For example, to estimate the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose, we would use:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -565,7 +577,7 @@ Chi-squared approximation may be incorrect</code></pre>
 <p>Because of this, we have uncertainty about which group is more likely to stay together with the person they chose. It may be Bachelor contestants, or it may be Bachelorette contestants, we just can’t tell based on these data—there is too much uncertainty. Another possibility is that the proportions are the same. If the proportions are the same, the difference between them is 0—which falls in the range of the CI. Remember, any value in the range is a plausible value for the difference in population proportions!</p>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
-<p>In <a href="05-01-two-sample-t-test.html">Section&nbsp;<span>11</span></a>, we carried out a two-sample <em>t</em>-test to evaluate whether the effects on IQ were different for users who started using marijuana as a teen. The evidence from this test suggested that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. Compute a CI for the difference in the average amount of change in IQ scores between these groups.</p>
+<p>In <a href="05-01-two-sample-t-test.html">Section&nbsp;<span>13</span></a>, we carried out a two-sample <em>t</em>-test to evaluate whether the effects on IQ were different for users who started using marijuana as a teen. The evidence from this test suggested that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. Compute a CI for the difference in the average amount of change in IQ scores between these groups.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-01');">
 Show/Hide Solution
 </button>
@@ -623,7 +635,7 @@ Show/Hide Solution
 <p>Be very careful when the means are negative and you are computing or estimating a difference. Interpretations can be tricky and it may take some thought in how you interpret findings.</p>
 </div>
 </div>
-<p>In <a href="04-04-one-sample-test-computation.html">Section&nbsp;<span>8</span></a>, we carried out a one-sample <em>t</em>-test to evaluate whether Ethiopian primary teachers are measuring students’ prior knowledge. The evidence from this test suggested that the empirical data were consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5 suggesting we were uncertain about whether, on average, they were measuring students’ prior knowledge. Compute a CI for the average response score for Ethiopian primary teachers.</p>
+<p>In <a href="04-04-one-sample-test-computation.html">Section&nbsp;<span>10</span></a>, we carried out a one-sample <em>t</em>-test to evaluate whether Ethiopian primary teachers are measuring students’ prior knowledge. The evidence from this test suggested that the empirical data were consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5 suggesting we were uncertain about whether, on average, they were measuring students’ prior knowledge. Compute a CI for the average response score for Ethiopian primary teachers.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-04');">
 Show/Hide Solution
 </button>
@@ -911,12 +923,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./07-01-confidence-intervals.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./07-03-confidence-intervals-extras.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

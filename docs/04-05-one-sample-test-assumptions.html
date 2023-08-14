@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis: The End - 9&nbsp; Assumptions of the One-Sample t-Test</title>
+<title>An Introduction to Data Analysis - 11&nbsp; Assumptions of the One-Sample t-Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-05-one-sample-test-assumptions.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-05-one-sample-test-assumptions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -106,7 +106,7 @@ function toggle_visibility(id) {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">An Introduction to Data Analysis: The End</a> 
+      <a href="./">An Introduction to Data Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -137,6 +137,18 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -151,7 +163,7 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
   </div>
 </li>
       </ul>
@@ -168,13 +180,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
   </div>
 </li>
       </ul>
@@ -191,37 +203,37 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -238,25 +250,25 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,13 +285,13 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
       </ul>
@@ -296,31 +308,31 @@ function toggle_visibility(id) {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
   </div>
 </li>
       </ul>
@@ -335,14 +347,14 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#assumptions" id="toc-assumptions" class="nav-link active" data-scroll-target="#assumptions"><span class="header-section-number">9.1</span> Assumptions</a>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link active" data-scroll-target="#assumptions"><span class="header-section-number">11.1</span> Assumptions</a>
   <ul class="collapse">
-  <li><a href="#evaluating-the-assumption-of-normality" id="toc-evaluating-the-assumption-of-normality" class="nav-link" data-scroll-target="#evaluating-the-assumption-of-normality"><span class="header-section-number">9.1.1</span> Evaluating the Assumption of Normality</a></li>
-  <li><a href="#evaluating-the-independence-assumption" id="toc-evaluating-the-independence-assumption" class="nav-link" data-scroll-target="#evaluating-the-independence-assumption"><span class="header-section-number">9.1.2</span> Evaluating the Independence Assumption</a></li>
-  <li><a href="#evaluating-assumptions-in-the-continuous-assessment-case-study" id="toc-evaluating-assumptions-in-the-continuous-assessment-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">9.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</a></li>
-  <li><a href="#evaluating-assumptions-in-the-house-prices-case-study" id="toc-evaluating-assumptions-in-the-house-prices-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">9.1.4</span> Evaluating Assumptions in the House Prices Case Study</a></li>
+  <li><a href="#evaluating-the-assumption-of-normality" id="toc-evaluating-the-assumption-of-normality" class="nav-link" data-scroll-target="#evaluating-the-assumption-of-normality"><span class="header-section-number">11.1.1</span> Evaluating the Assumption of Normality</a></li>
+  <li><a href="#evaluating-the-independence-assumption" id="toc-evaluating-the-independence-assumption" class="nav-link" data-scroll-target="#evaluating-the-independence-assumption"><span class="header-section-number">11.1.2</span> Evaluating the Independence Assumption</a></li>
+  <li><a href="#evaluating-assumptions-in-the-continuous-assessment-case-study" id="toc-evaluating-assumptions-in-the-continuous-assessment-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">11.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</a></li>
+  <li><a href="#evaluating-assumptions-in-the-house-prices-case-study" id="toc-evaluating-assumptions-in-the-house-prices-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">11.1.4</span> Evaluating Assumptions in the House Prices Case Study</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.2</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.2</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -351,7 +363,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-one-sample-test-assumptions" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></h1>
+<h1 class="title"><span id="sec-one-sample-test-assumptions" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></h1>
 </div>
 
 
@@ -368,8 +380,8 @@ function toggle_visibility(id) {
 
 <p>In this chapter you will learn about the assumptions that we need to make in order for the results of a one-sample <em>t</em>-test to be statistically valid.</p>
 <p><br></p>
-<section id="assumptions" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">9.1</span> Assumptions</h2>
+<section id="assumptions" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">11.1</span> Assumptions</h2>
 <p>Whether or not the results we obtain from the <em>t</em>-test are accurate depends on a set of statistical assumptions about the population. Remember that the <em>t</em>-value we use to compute the <em>p</em>-value is computed as:</p>
 <p><span class="math display">\[
 t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
@@ -388,15 +400,15 @@ t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
 </ol>
 <p>Unfortunately, we can never know for sure whether these assumptions are met since we do not have data from the entire population. Instead, we have to decide whether these assumptions seem tenable based on the sample of data we have.</p>
 <p><br></p>
-<section id="evaluating-the-assumption-of-normality" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="evaluating-the-assumption-of-normality"><span class="header-section-number">9.1.1</span> Evaluating the Assumption of Normality</h3>
-<p>To evaluate the first assumption that the distribution of values in the population is <em>normally distributed</em>, we plot the sample data and then ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="#fig-hrs-sleep">Figure&nbsp;<span>9.1</span></a>.</p>
+<section id="evaluating-the-assumption-of-normality" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="evaluating-the-assumption-of-normality"><span class="header-section-number">11.1.1</span> Evaluating the Assumption of Normality</h3>
+<p>To evaluate the first assumption that the distribution of values in the population is <em>normally distributed</em>, we plot the sample data and then ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="#fig-hrs-sleep">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-hrs-sleep" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-hrs-sleep-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.1: Density plot of the hours of sleep for 75 teenagers.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.1: Density plot of the hours of sleep for 75 teenagers.</figcaption>
 </figure>
 </div>
 </div>
@@ -407,26 +419,26 @@ t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
 <div id="fig-normal-sim" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-normal-sim-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.2: Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.2: Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The density plots in <a href="#fig-normal-sim">Figure&nbsp;<span>9.2</span></a> suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn’t have to look perfectly normal for it to have been drawn from a population that is normal.</p>
-<p>Looking back at the sample distribution of teen sleep measurements in <a href="#fig-hrs-sleep">Figure&nbsp;<span>9.1</span></a>, it seems that this distribution is not so different from the distributions of the five other samples. This suggests that it too might have been drawn from a normally distributed population. In light of this, we would say:</p>
+<p>The density plots in <a href="#fig-normal-sim">Figure&nbsp;<span>11.2</span></a> suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn’t have to look perfectly normal for it to have been drawn from a population that is normal.</p>
+<p>Looking back at the sample distribution of teen sleep measurements in <a href="#fig-hrs-sleep">Figure&nbsp;<span>11.1</span></a>, it seems that this distribution is not so different from the distributions of the five other samples. This suggests that it too might have been drawn from a normally distributed population. In light of this, we would say:</p>
 <blockquote class="blockquote">
 <p>The assumption of normality seems tenable given the distribution of the sample data.</p>
 </blockquote>
 <p><br></p>
-<section id="sample-size-and-the-assumption-of-normality" class="level4" data-number="9.1.1.1">
-<h4 data-number="9.1.1.1" class="anchored" data-anchor-id="sample-size-and-the-assumption-of-normality"><span class="header-section-number">9.1.1.1</span> Sample Size and the Assumption of Normality</h4>
+<section id="sample-size-and-the-assumption-of-normality" class="level4" data-number="11.1.1.1">
+<h4 data-number="11.1.1.1" class="anchored" data-anchor-id="sample-size-and-the-assumption-of-normality"><span class="header-section-number">11.1.1.1</span> Sample Size and the Assumption of Normality</h4>
 <p>How different would the sample distribution have to look in order for us to conclude that the assumption of normality was not tenable given the distribution of the sample data? This is a difficult question to answer without other statistical tools.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> One tool that we rely on a great deal is something called the <em>Central Limit Theorem (CLT)</em>. This theorem basically says that if the sample size of your data is over 30 that it doesn’t matter if the normality assumption is met, the <em>p</em>-value will not be impacted if the population is not normal.</p>
 <p>In our example the sample size is 75. This means that it doesn’t matter if the population is normal or not—the CLT basically says that we can assume that the <em>p</em>-value is not impacted by any deviation in the population distribution from normality. This is good news as it means we don’t have to guess whether or not our sample distribution of teen sleep measurements actually comes from a populatin that is normally distributed.</p>
 <p><br></p>
 </section>
 </section>
-<section id="evaluating-the-independence-assumption" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="evaluating-the-independence-assumption"><span class="header-section-number">9.1.2</span> Evaluating the Independence Assumption</h3>
+<section id="evaluating-the-independence-assumption" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="evaluating-the-independence-assumption"><span class="header-section-number">11.1.2</span> Evaluating the Independence Assumption</h3>
 <p>The definition of independence relies on formal mathematics. Loosely speaking a set of observations is independent if knowing the value for one observation in the distribution conveys no information about the value for any other observation in the same distribution. If observations are not independent, we say they are <em>dependent</em> or <em>correlated</em>.</p>
 <p>To evaluate the independence assumption we need to know something about the the study design, in particular how the data were collected. Using random chance to select the sample data (random sampling) will guarantee independence of the observations. There are also a few times that we can ascertain that the independence assumption would be violated. These instances are also a function of the data collection process. One such instance common to social science research is when the observations (i.e., cases, subjects) are collected within a physical or spatial proximity to one another. For example, this is typically the case when a researcher gathers a convenience sample based on location, such as sampling students from the same school. Another violation of independence occurs when observations are collected over time (longitudinally), especially when the observations are repeated measures from the same subjects.</p>
 <p>Independence is often difficult to ascertain, and its tenability is made via a logical argument. In the teen sleep case study, for example, the study design did not employ random sampling—the participants volunteered to be a part of the study—so we can not guarantee independence that way. (If a study uses random sampling in the data collection, it will say this directly in the paper.) On the other hand, all the participants did come from the same school district. This may violate the independence assumption since the teens in the study are all from the area (i.e., there was some degree of spatial proximity that influenced the data collection process).</p>
@@ -436,17 +448,17 @@ t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
 </div>
 <p><br></p>
 </section>
-<section id="evaluating-assumptions-in-the-continuous-assessment-case-study" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">9.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</h3>
+<section id="evaluating-assumptions-in-the-continuous-assessment-case-study" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">11.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</h3>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
-<p>In the continuous assessment case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;8</span></a>, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students’ prior knowledge. The histogram of the 30 teachers’ responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
+<p>In the continuous assessment case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students’ prior knowledge. The histogram of the 30 teachers’ responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-prior-knowledge" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.3: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.3: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption>
 </figure>
 </div>
 </div>
@@ -467,17 +479,17 @@ Show/Hide Solution
 </section>
 <p><br></p>
 </section>
-<section id="evaluating-assumptions-in-the-house-prices-case-study" class="level3" data-number="9.1.4">
-<h3 data-number="9.1.4" class="anchored" data-anchor-id="evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">9.1.4</span> Evaluating Assumptions in the House Prices Case Study</h3>
+<section id="evaluating-assumptions-in-the-house-prices-case-study" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">11.1.4</span> Evaluating Assumptions in the House Prices Case Study</h3>
 <section id="your-turn-1" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
-<p>In the house prices case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;8</span></a>, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than $322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
+<p>In the house prices case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than $322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-house-prices" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-house-prices-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.4: Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;11.4: Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus.</figcaption>
 </figure>
 </div>
 </div>
@@ -499,8 +511,8 @@ Show/Hide Solution
 <p><br></p>
 </section>
 </section>
-<section id="references" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="references"><span class="header-section-number">9.2</span> References</h2>
+<section id="references" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="references"><span class="header-section-number">11.2</span> References</h2>
 
 
 </section>
@@ -748,12 +760,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04-04-one-sample-test-computation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04-06-one-sample-test-proportions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
