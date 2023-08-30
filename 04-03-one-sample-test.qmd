@@ -267,7 +267,7 @@ The degrees-of-freedom parameter impacts the shape and SE (variation) in the *t*
 
 ```{r}
 #| label: fig-t-examples
-#| fig-cap: "Density plot of three different *t*-distributions. The *t*-distributions shown have <span style='background-color: #0072b2;'>3 degree-of-freedom (SE = 1.73)</span>, <span style='background-color: #e69f00;'>5 degree-of-freedom (SE = 1.29)</span>, and <span style='background-color: #777777;'>99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution."
+#| fig-cap: "Density plot of three different *t*-distributions. The *t*-distributions shown have <span style='background-color: #0072b233;'>3 degree-of-freedom (SE = 1.73)</span>, <span style='background-color: #e69f0033;'>5 degree-of-freedom (SE = 1.29)</span>, and <span style='background-color: #77777733;'>99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -352,9 +352,9 @@ This small amount of information allows another researcher to re-create the sket
 
 Computing the observed *t*-value gives us a method for determining how far (in SE units) the sample mean for the observed data are from a mean value specified in the null hypothesis. By placing the observed *t*-value in the appropriate *t*-distribution, we can also say whether the observed data are consistent with the claim made in the null hypothesis. Applied researchers also augment this information with one more piece of evidence called the *p*-value.  
 
-The *p*-value provides a quantification of *the probability of observing data at least as extreme as what we observed if the null hypothesis is true*. In other words, with the *t*-value and *t*-distribution w can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The *p*-value will take this one step further and quantify exactly how unlikely that would be.
+The *p*-value provides a quantification of *the probability of observing data at least as extreme as what we observed if the null hypothesis is true*. In other words, with the *t*-value and *t*-distribution we can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The *p*-value will take this one step further and quantify exactly how unlikely that would be.
 
-The computation of the *p*-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypotheis was:
+The computation of the *p*-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypothesis was:
 
 $$
 H_A: \mu < 9
@@ -547,19 +547,19 @@ Based on this *p*-value, which is less than .05, we would reject the null hypoth
 
 ### p-Values in Density Plots
 
-In the previous example we have looked at to compute the *p*-value, the *t*-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the *t*-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the *p*-value hat is not based on counting.
+In the previous example we have looked at to compute the *p*-value, the *t*-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the *t*-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the *p*-value that is not based on counting.
 
 The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. @fig-sketch-area-p shows both the dotplot and superimposed density curve for an example *t*-distribution. If the alternative hypothesis was $H_A:\mu<9$, rather than counting the cases to that are less than the observed value of $-8.82$, we would find the area under the curve that is less than $-8.82$. This area is shaded in the figure.
 
 ```{r}
 #| label: fig-sketch-area-p
-#| fig-cap: "Dot plot of an example *t*-distribution wityh superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82). The area under the density curve that is less than -8.82 is also shaded."
+#| fig-cap: "Dot plot of an example *t*-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82). The area under the density curve that is less than -8.82 is also shaded."
 #| out-width: "80%"
 #| echo: FALSE
 knitr::include_graphics("figs/04-07-area-density-p.jpg")
 ```
 
-Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in @sec-using-r-for-t-tests. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (*p*-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the *p*-value was .01. 
+Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in @sec-one-sample-test-r. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (*p*-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the *p*-value was .01. 
 
 :::protip
 It is very difficult to get an accurate *p*-value from estimating it from the density curve, especially when the *p*-value is small. In practice, we always use software to obtain the *p*-value. However, understanding that the software is calculating the area under the density curve is useful for "gut-checking" the size of the *p*-value that the software gives us. For example, based on the shaded area in @fig-sketch-area-p, we would not expect a *p*-value of 0.5 since the shaded are is not half of the whole curve.
@@ -581,7 +581,7 @@ It is important to not lose the forest in the trees when you are conducting a hy
 
 ## Looking Forward
 
-In the next chapter, we will introduce how to use R to carry out the one-sample *t*-test. Then in chapter @sec-one-sample-examples, you will get you a chance to practice working through the process of carrying out a one-sample *t*-test.
+In the next chapter, we will introduce how to use R to carry out the one-sample *t*-test. Then in chapter @sec-one-sample-test-assumptions, you will learn about the assumptions that we need to make in order for the results of a one-sample t-test to be statistically valid.
 
 As you work through these chapters, you will become more comfortable with the vocabulary and ideas that underlie hypothesis tests. This same set of vocabulary and ideas will come up again when we use hypothesis tests when we compare a sample proportion to a standard and to compare two samples. Because of this it may be useful to put together a summary of the ideas and vocabulary from this chapter that you can refer to (e.g., on a notecard). Here are some of the ideas and vocabulary that are important in hypothesis testing to get you started:
 

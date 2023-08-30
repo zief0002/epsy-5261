@@ -193,7 +193,7 @@ gf_density(
 Based on the density plot, we can see that the shape of the distribution of admission rates is left-skewed.
 
 :::fyi
-The metric on the *y*-axis in a density plot is no longer counts, it is "probability density", or just "density". We don't interpret those values, but rather focus on the relative height of the curve. That is, areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve is lower indicates areas where data occur infrequently. Density plots are interpreted similarly to a histogram in that 
+The metric on the *y*-axis in a density plot is no longer counts, it is "probability density", or just "density". We don't interpret those values, but rather focus on the relative height of the curve. That is, areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve is lower indicates areas where data occur infrequently. 
 :::
 
 Our interpretation of the distribution of admission rates remains that most institutions of higher learning admit a high proportion of applicants. In fact, colleges that admit around 75% of their applicants have the highest probability density, indicating this is where most of the institutions are found in the distribution. Additionally, there are just a few institutions that are have an admission rate 25% or less. 
@@ -301,7 +301,7 @@ In this class we will focus on the computation of these values using R and their
 
 In describing the center of the distribution, we estimated the typical value based on the value for the "modal hump" in the density plot. There are two numerical values that are often computed to summarize the center of the distribution: the **mean** and the **median**. 
 
-In a perfectly symmetric distributions, the mean and median are the same value. In practice, they are rarely exactly the same. If the distribution is roughly symmetric, these values should be similar. In skewed distributions, the mean and median will be different. In these distributions, the mean will be further in the tail of the distribution than the median. Comparing the mean and median is another way to verify the symmetry or asymmetry of the distribution. 
+In a perfectly symmetric distributions, the mean and median are the same value. In practice, they are rarely exactly the same. If the distribution is roughly symmetric, these values should be similar. In skewed distributions, the mean and median will be different. In these distributions, the mean will be further in the tail of the distribution than the median. 
 
 ```{r}
 #| label: fig-mean-median
@@ -407,9 +407,9 @@ That is the middle 50\% of the admission rates have a range of 0.281---they rang
 
 Compute the range, IQR, and standard deviation for the distribution of students' median earnings 10 years after being enrolled in college.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-06');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-02-06" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 df_stats(~median_earnings, data = colleges)
 # Range = 132969 - 19513 = 113456
@@ -421,9 +421,9 @@ df_stats(~median_earnings, data = colleges)
 
 Based on the distribution of students' median earnings 10 years after being enrolled in college which summary measure(s) of variation would you report? Explain.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-07');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-02-07" style="display:none; margin: -40px 0 40px 40px;">
 Because the distribution of earnings is right-skewed, we might report the IQR in addition to the range.
 </div>
 :::
@@ -515,8 +515,8 @@ dplyr::tibble(
     "Right-skewed"
     ),
   Center = c(
-    "Median\\nMode",
-    "Mean, Median, or Mode",
+    "Median, Mode",
+    "Mean",
     "Median or Mode"
     ),
   Variation = c(

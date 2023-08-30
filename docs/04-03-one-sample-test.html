@@ -417,7 +417,7 @@ function toggle_visibility(id) {
 <div class="cell-output-display">
 <div id="tbl-summaries-notation" class="anchored">
 
-<div id="hfbvoavvih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hvwhlnhuuu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;9.1:  <p>Some common statistical summaries and the mathematical notation used
 to denote them.</p> </caption>
@@ -570,7 +570,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <div id="fig-t-examples" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-03-one-sample-test_files/figure-html/fig-t-examples-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b2;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f00;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #777777;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b233;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f0033;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #77777733;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.</figcaption>
 </figure>
 </div>
 </div>
@@ -626,8 +626,8 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-p-value"><span class="header-section-number">9.3</span> Quantifying the Level of Consistency with the Null Hypothesis: The p-Value</h2>
 <p>Computing the observed <em>t</em>-value gives us a method for determining how far (in SE units) the sample mean for the observed data are from a mean value specified in the null hypothesis. By placing the observed <em>t</em>-value in the appropriate <em>t</em>-distribution, we can also say whether the observed data are consistent with the claim made in the null hypothesis. Applied researchers also augment this information with one more piece of evidence called the <em>p</em>-value.</p>
-<p>The <em>p</em>-value provides a quantification of <em>the probability of observing data at least as extreme as what we observed if the null hypothesis is true</em>. In other words, with the <em>t</em>-value and <em>t</em>-distribution w can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The <em>p</em>-value will take this one step further and quantify exactly how unlikely that would be.</p>
-<p>The computation of the <em>p</em>-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypotheis was:</p>
+<p>The <em>p</em>-value provides a quantification of <em>the probability of observing data at least as extreme as what we observed if the null hypothesis is true</em>. In other words, with the <em>t</em>-value and <em>t</em>-distribution we can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The <em>p</em>-value will take this one step further and quantify exactly how unlikely that would be.</p>
+<p>The computation of the <em>p</em>-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypothesis was:</p>
 <p><span class="math display">\[
 H_A: \mu &lt; 9
 \]</span></p>
@@ -715,19 +715,19 @@ p &amp;= \frac{4}{300} \\[1ex]
 </section>
 <section id="p-values-in-density-plots" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="p-values-in-density-plots"><span class="header-section-number">9.3.2</span> p-Values in Density Plots</h3>
-<p>In the previous example we have looked at to compute the <em>p</em>-value, the <em>t</em>-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the <em>t</em>-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the <em>p</em>-value hat is not based on counting.</p>
+<p>In the previous example we have looked at to compute the <em>p</em>-value, the <em>t</em>-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the <em>t</em>-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the <em>p</em>-value that is not based on counting.</p>
 <p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-sketch-area-p" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/04-07-area-density-p.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution wityh superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in <span class="quarto-unresolved-ref">?sec-using-r-for-t-tests</span>. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (<em>p</em>-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the <em>p</em>-value was .01.</p>
+<p>Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (<em>p</em>-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the <em>p</em>-value was .01.</p>
 <div class="protip">
 <p>It is very difficult to get an accurate <em>p</em>-value from estimating it from the density curve, especially when the <em>p</em>-value is small. In practice, we always use software to obtain the <em>p</em>-value. However, understanding that the software is calculating the area under the density curve is useful for “gut-checking” the size of the <em>p</em>-value that the software gives us. For example, based on the shaded area in <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a>, we would not expect a <em>p</em>-value of 0.5 since the shaded are is not half of the whole curve.</p>
 </div>
@@ -744,7 +744,7 @@ p &amp;= \frac{4}{300} \\[1ex]
 </section>
 <section id="looking-forward" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="looking-forward"><span class="header-section-number">9.5</span> Looking Forward</h2>
-<p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <span class="quarto-unresolved-ref">?sec-one-sample-examples</span>, you will get you a chance to practice working through the process of carrying out a one-sample <em>t</em>-test.</p>
+<p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <a href="04-05-one-sample-test-assumptions.html"><span>Chapter&nbsp;11</span></a>, you will learn about the assumptions that we need to make in order for the results of a one-sample t-test to be statistically valid.</p>
 <p>As you work through these chapters, you will become more comfortable with the vocabulary and ideas that underlie hypothesis tests. This same set of vocabulary and ideas will come up again when we use hypothesis tests when we compare a sample proportion to a standard and to compare two samples. Because of this it may be useful to put together a summary of the ideas and vocabulary from this chapter that you can refer to (e.g., on a notecard). Here are some of the ideas and vocabulary that are important in hypothesis testing to get you started:</p>
 <ul>
 <li>Statistical inference</li>

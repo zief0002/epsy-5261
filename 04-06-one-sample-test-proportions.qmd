@@ -290,7 +290,7 @@ Sketch a picture of the *z*-distribution (try to do this initially without using
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-05');">Show/Hide Solution</button>
 
-<div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-06-05" style="display:none; margin: -40px 0 40px 40px;">
 Your sketch should look like the distribution plotted in @fig-z-dist-fresh.
 
 ```{r}

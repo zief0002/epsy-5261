@@ -1,6 +1,6 @@
 # Summarizing and Visualizing Data {#sec-summarize-visualize-data}
 
-The chapters in this section will introduce methods for exploring and describing data. In particular we will focus on the visualization and numerical summarization of **univariate distributions** (i.e., single attribute). In @sec-categorical-attributes you will learn methods for summarizing and visualizing categorical attributes and @sec-quantitative-attributes will introduce methods for quantitative attributes.
+The chapters in this section will introduce methods for exploring and describing data. In particular we will focus on the visualization and numerical summarization of **univariate distributions** (i.e., single attribute). In @sec-categorical-attributes you will learn methods for summarizing and visualizing categorical attributes and @sec-quant-attributes will introduce methods for quantitative attributes.
 
 
 <br />

@@ -203,17 +203,17 @@ gf_histogram(
   )
 ```
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-05');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-07');">Show/Hide Solution</button>
 
-<div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-05-07" style="display:none; margin: -40px 0 40px 40px;">
 The normality assumption may not be tenable. The distribution of the sample responses is not normally distributed, and is clearly left-skewed. Moreover, since the sample size is less than 30, we can not rely on the CLT.
 </div>
 
 Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/zillow.html), do you believe the independence assumption is tenable?
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-06');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-08');">Show/Hide Solution</button>
 
-<div id="exercise_04-05-06" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-05-08" style="display:none; margin: -40px 0 40px 40px;">
 It is unclear that the independence assumption is tenable. The data collection did not use random chance to select the sample data. Moreover, it is likely that knowing the sale price for one house would give us information about the sale price for other houses since houses in the same neighborhood are often sold for similar prices.
 </div>
 :::

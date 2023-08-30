@@ -177,9 +177,9 @@ $$
 where, *SD* is the sample standard deviation, and *n* is the sample size. This method of computing the standard error approximates the true standard error by employing information about the sample. In some cases this approximation is accurate and in other cases it is not. We will study this more in @sec-one-sample-test-assumptions.
 
 
-:::fyi
-The only alternative hypothesis that gets tested in practice is the two-sided alternative hypothesis ($\neq$). Moving forward, we will only use the two-sided alternative hypothesis in our hypothesis tests.
-:::
+<!-- :::fyi -->
+<!-- The only alternative hypothesis that gets tested in practice is the two-sided alternative hypothesis ($\neq$). Moving forward, we will only use the two-sided alternative hypothesis in our hypothesis tests. -->
+<!-- ::: -->
 
 <br />
 
