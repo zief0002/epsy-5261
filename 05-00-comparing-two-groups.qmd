@@ -4,7 +4,7 @@ Another task that is commonly performed in research is to compare the data you h
 
 Comparing two groups is one of the most important endeavors in social science and educational research. It is the basis of all experimental work (e.g., does the treatment group perform better, on average, than the control group?). It is also used in non-experimental work and is crucial in calling out societal injustices (e.g., are college-educated women earning less, on average, than college-educated men?).
 
-There are many parallels between the one-sample methods you learned about in @sec-compare-standard and the methods used to compare two groups. Similar to the one-sample tests you learned about, the methods you learn in this section will quantify the amount of uncertainty in a sample numerical estimate, but now there is uncertainty that needs to be quantified for estimates from two different samples of data. The assumptions underlying the methods we use to compare groups are also similar, but have to be performed on both groups and also include additional assumptions that the one-sample tests did not have.
+There are many parallels between the one-sample methods you have learned about and the methods used to compare two groups. Similar to the one-sample tests you learned about, the methods you learn in this section will quantify the amount of uncertainty in a sample numerical estimate, but now there is uncertainty that needs to be quantified for estimates from two different samples of data. The assumptions underlying the methods we use to compare groups are also similar, but have to be performed on both groups and also include additional assumptions that the one-sample tests did not have.
 
  
 
