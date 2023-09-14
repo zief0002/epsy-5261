@@ -1,0 +1,43 @@
+city,state,house_income_ratio,median_house_price,median_income,house_change,greater_30
+Bellevue,WA,9.9,1257,127,65.4,
+Buffalo,NY,4.8,195,41,87.8,23
+Cambridge,MA,7.9,946,120,30.9,
+Cedar Rapids,IA,2.9,166,57,27.6,18.5
+Centennial,CO,5.6,622,111,48.3,
+Chesapeake,VA,4.3,337,78,30.5,28.1
+Chula Vista,CA,8.4,738,88,59.4,41
+Cleveland,OH,3,97,32,98.5,30.1
+Columbia,MD,4.1,430,104,24.4,
+Dallas,TX,5.1,282,55,60.8,32.1
+Daly City,CA,12,1219,102,43.6,
+Denton,TX,4.8,321,67,55.2,
+Fargo,ND,4.8,256,53,13.9,12.5
+Fremont,CA,9.7,1399,144,52.6,28.5
+Greeley,CO,6.5,401,61,60,26.8
+Greensboro,NC,4.2,207,50,55.1,23.8
+Kansas City,KS,3.4,156,45,87.3,32.7
+Killeen,TX,3.8,186,49,56,25.5
+Knoxville,TN,6.6,274,41,64.4,26.1
+Lincoln,NE,4.1,243,59,45.7,17.8
+Lowell,MA,6.2,387,62,55.3,
+Metairie,LA,5.2,312,60,24.1,27.2
+Minneapolis,MN,4.9,326,66,38.1,23.3
+Murfreesboro,TN,5,341,68,61.5,
+New Orleans,LA,5.8,265,46,25.3,36.8
+Paterson,NJ,8.1,385,47,83.7,
+Pueblo,CO,6.3,270,43,82.6,25
+Richmond,CA,10.1,731,72,58.6,
+Richmond,VA,5.7,292,51,50.4,27.5
+Sacramento,CA,6.8,468,69,66.7,30.3
+Salinas,CA,9.8,677,69,53.3,
+San Jose,CA,11.2,1303,116,52.1,31.9
+Santa Clara,CA,10.3,1523,148,49.5,
+Santa Maria,CA,7.7,537,69,50.5,
+Tempe,AZ,6.5,428,66,75.1,13.8
+Thornton,CO,6.2,503,81,54.9,
+Thousand Oaks,CA,8.2,934,114,36.3,
+Topeka,KS,2.9,146,51,39,18.6
+Torrance,CA,10.6,1065,100,43.9,37.1
+Vista,CA,9.4,742,79,59,
+Washington,DC,7.6,698,92,22.8,25.2
+West Jordan,UT,5.9,512,87,77.9,
