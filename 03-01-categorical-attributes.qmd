@@ -271,7 +271,7 @@ Write the syntax to compute the proportions of the `region` attribute.
 
 <div id="exercise_03-01-00-01" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-df_stats(~ region, data = colleges, counts)
+df_stats(~ region, data = colleges, props)
 ```
 </div>
 :::
