@@ -17,7 +17,9 @@ To alleviate the problems in interpretations of magnitude, researchers tend to r
 - Distance measures, and
 - Variance accounted for measures
 
-While both of these standardized measures characterize the extent to which sample results diverge from the expectations specified in the null hypothesis, they do so in a different manner. In this chapter, we will introduce distance measures of effect. In [Chapter X] variance accounted for measures of effect size are discussed.
+While both of these standardized measures characterize the extent to which sample results diverge from the expectations specified in the null hypothesis, they do so in a different manner. In this chapter, we will introduce distance measures of effect. 
+
+<!-- In [Chapter X] variance accounted for measures of effect size are discussed. -->
 
 <br />
 

@@ -70,6 +70,7 @@ In a similar fashion the alternative hypothesis could be expressed as:
 $$
 H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 $$
+
 :::fyi
 The output from `t_result()` will present the hypotheses as a difference between means.
 :::
@@ -79,7 +80,7 @@ The output from `t_result()` will present the hypotheses as a difference between
 
 ## Visualizing and Numerically Describing Sample Differences
 
-As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ chnage scores are all in a single column, we have to change the formula with the tilde we use in the `gf_` and `df_stats()` functions so that it will plot those for each group separately. The formula will now look like:
+As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ change scores are all in a single column, we have to change the formula with the tilde we use in the `gf_` and `df_stats()` functions so that it will plot those for each group separately. The formula will now look like:
 
 $$
 \mathtt{\sim y ~|~ group}
@@ -225,7 +226,7 @@ $$
 \end{split}
 $$
 </div>
-
+:::
 
 
 ```{r}

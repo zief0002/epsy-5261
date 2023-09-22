@@ -1,0 +1,24 @@
+# Statistical Reationships {#relationships}
+
+In the previous chapters, you were introduced to methods that a researcher can use to examine differences and some effect sizes to quantify the magnitude of those differences. For example, we could use those methods to answer research questions such as:
+
+- Are teens getting a *different* amount of sleep that 9 hours?
+- Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 *different* than the proportion in 2012?
+- Are the effects of marijuana on IQ *different* for users who started using marijuana as a teen compared to users who start using marijuana as adults?
+- Is the proportion of Bachelor contestants that are still together with the suitor they chose *different* from the proportion of Bachelor contestants that are still together with the suitor they chose?
+
+Another type of question that is common in the social and educational sciences is about the *relationship* between two attributes. These types of questions lay the groundwork for looking at predictors of our outcomes of interest. For example,
+
+- What is the relationship between socioeconomic status and happiness?
+- Is education level a predictor of income?
+- How well do SAT scores predict how well first year students' GPAs in college?
+
+In the following chapters, you will learn about some of the visualizations, numeric summaries, and inferential methods that are used to examine "relationship" type research questions. 
+
+<br />
+
+
+<!-- ## References -->
+
+
+

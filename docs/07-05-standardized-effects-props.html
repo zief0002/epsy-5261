@@ -392,7 +392,6 @@ function toggle_visibility(id) {
   <ul class="collapse">
   <li><a href="#using-conf_risk_ratio-with-a-single-sample" id="toc-using-conf_risk_ratio-with-a-single-sample" class="nav-link" data-scroll-target="#using-conf_risk_ratio-with-a-single-sample"><span class="header-section-number">23.3.1</span> Using <code>conf_risk_ratio()</code> With a Single Sample</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">23.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -572,7 +571,7 @@ Upper Limit = 0.7252556
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([-0.36,~0.73]\)</span>, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
+<p>The CI is <span class="math inline">\([-0.36,~0.73]\)</span>]. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
 <ul>
 <li>There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.</li>
 <li>There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,</li>
@@ -631,7 +630,7 @@ Show/Hide Solution
 </section>
 <section id="risk-ratio" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="risk-ratio"><span class="header-section-number">23.2</span> Risk Ratio</h2>
-<p>A more commonly reported effect size is a <em>risk ratio</em>, also sometimes referred o as <em>relative risk</em>. This effect is most commonly used in medicine and health sciences, but is quite useful. A risk ratio measures the risk of a certain event happening in one group compared to the risk of the same event happening in another group. For example, a health research might compare the risk of COVID in low income communities to that in high income communities.</p>
+<p>A more commonly reported effect size is a <em>risk ratio</em>, also sometimes referred to as <em>relative risk</em>. This effect is most commonly used in medicine and health sciences, but is quite useful. A risk ratio measures the risk of a certain event happening in one group compared to the risk of the same event happening in another group. For example, a health research might compare the risk of COVID in low income communities to that in high income communities.</p>
 <p>“Risk” is simply a proportion of something occurring in a group. In our Bachelor/Bachelorette example, “risk” might be staying together (or alternatively, breaking up). To compute the risk ratio, or relative risk, we are just computing the ratio of two proportions:</p>
 <p><span class="math display">\[
 \text{Risk Ratio} = \frac{p_1}{p_2}
@@ -747,30 +746,28 @@ Upper Limit = 3.094399
 <p><br></p>
 <section id="using-conf_risk_ratio-with-a-single-sample" class="level3" data-number="23.3.1">
 <h3 data-number="23.3.1" class="anchored" data-anchor-id="using-conf_risk_ratio-with-a-single-sample"><span class="header-section-number">23.3.1</span> Using <code>conf_risk_ratio()</code> With a Single Sample</h3>
-<p>Use the <code>nrow()</code> function to compute the sample size.</p>
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">
-Show/Hide Solution
-</button>
-<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample size</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(mn_lead)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 91706</code></pre>
-</div>
-</div>
-</div>
+<!-- :::exercises -->
+<!-- #### Your Turn {.unnumbered} -->
+<!-- Use the `nrow()` function to compute the sample size. -->
+<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-06');">Show/Hide Solution</button> -->
+<!-- <div id="exercise_07-05-06" style="display:none; margin: -40px 0 40px 40px;"> -->
+<!-- ```{r} -->
+<!-- # Compute sample size -->
+<!-- nrow(mn_lead) -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- ::: -->
 <p>We can also use the <code>ci_risk_ratio()</code> function to compare a single sample to a hypothesized value (e.g., in our MN lead exposure case study). To do this, whichever “sample” you use to input the hypothesized value (say <code>p2</code>), the corresponding sample size is inputted as <code>Inf</code> (i.e., <code>n2=Inf</code>). This ensures that only the actual sample summaries are used to compute the uncertainty in the CI.</p>
 <p>For example, to compute the CI for the risk ratio we computed earlier for the MN lead exposure example, we would input:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.014</span>, <span class="co">#Sample proportion</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">91706</span>,  <span class="co">#Sample size</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">029</span>, <span class="co">#Hypothesized value</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.014</span>, <span class="co">#Sample proportion</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">91706</span>,  <span class="co">#Sample size</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">029</span>, <span class="co">#Hypothesized value</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -790,19 +787,19 @@ Upper Limit = 0.4959804
 <section id="your-turn-2" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn-2">Your Turn</h4>
 <p>Use the <code>ci_risk_ratio()</code> function to compute the risk ratio and the 99% CI for the population risk ratio that compares the proportion of “Fresh” reviews to the hypothesized value of 0.5.</p>
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-06');">
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">
 Show/Hide Solution
 </button>
-<div id="exercise_07-05-06" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.537</span>, <span class="co">#Sample proportion</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized value</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.99</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.537</span>, <span class="co">#Sample proportion</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized value</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.99</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -819,20 +816,18 @@ Upper Limit = 1.140284
 </div>
 </div>
 <p>Interpret the confidence interval by commenting on the plausible values in the interval.</p>
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-08');">
 Show/Hide Solution
 </button>
-<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_07-05-08" style="display:none; margin: -40px 0 40px 40px;">
 <p>The CI is <span class="math inline">\([1.01,~1.14]\)</span> indicating that the proportion of “fresh” reviews is between 1.01 and 1.14 times higher than 0.5. While this suggests that Fast X will likely have more than half of its reviews rated as “fresh”, it won’t be much over half.</p>
 </div>
 </section>
 <p><br></p>
-</section>
-</section>
-<section id="references" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="references"><span class="header-section-number">23.4</span> References</h2>
+<!-- ## References -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

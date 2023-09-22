@@ -62,7 +62,7 @@ In our example the sample sizes are 14 (adult) and 23 (teen), respectively. Thes
 
 ### Evaluating the Independence Assumption
 
-To evaluate the independence assumption we need to know whether random chance was used in the study design. With two groups, random chance might be employed in a coupe different ways:
+To evaluate the independence assumption we need to know whether random chance was used in the study design. With two groups, random chance might be employed in a couple different ways:
 
 - Random chance might have been used to select the observations in the sample data (random sampling).
 - Random chance might have been used to assign the observations to the two different groups (random assignment).

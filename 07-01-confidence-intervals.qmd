@@ -46,7 +46,7 @@ That is, the confidence interval would indicate that the average price of a sing
 To obtain the margin of error we quantify the amount of sampling error in the sample estimate (i.e., compute the SE for the estimate) and multiply that by two.^[Sometimes we use a different multiplier than two. We will talk about that in class.] That is:
 
 $$
-\text{CI} = \text{Margin of Error} = 2 \times \text{SE}
+\text{Margin of Error} = 2 \times \text{SE}
 $$
 Substituting this into our formula for confidence intervals, we find that a confidence interval is computed as:
 

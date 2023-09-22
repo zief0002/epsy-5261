@@ -486,12 +486,15 @@ H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0
 \]</span> In a similar fashion the alternative hypothesis could be expressed as:</p>
 <p><span class="math display">\[
 H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
-\]</span> :::fyi The output from <code>t_result()</code> will present the hypotheses as a difference between means. :::</p>
+\]</span></p>
+<div class="fyi">
+<p>The output from <code>t_result()</code> will present the hypotheses as a difference between means.</p>
+</div>
 <p><br></p>
 </section>
 <section id="visualizing-and-numerically-describing-sample-differences" class="level2" data-number="13.3">
 <h2 data-number="13.3" class="anchored" data-anchor-id="visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">13.3</span> Visualizing and Numerically Describing Sample Differences</h2>
-<p>As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ chnage scores are all in a single column, we have to change the formula with the tilde we use in the <code>gf_</code> and <code>df_stats()</code> functions so that it will plot those for each group separately. The formula will now look like:</p>
+<p>As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ change scores are all in a single column, we have to change the formula with the tilde we use in the <code>gf_</code> and <code>df_stats()</code> functions so that it will plot those for each group separately. The formula will now look like:</p>
 <p><span class="math display">\[
 \mathtt{\sim y ~|~ group}
 \]</span></p>
@@ -623,7 +626,8 @@ t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}
 &amp;H_A: \mu_{\text{Bachelor}} \neq \mu_{\text{Bachelorette}}
 \end{split}
 \]</span></p>
-<p>:::exercises #### Your Turn {.unnumbered}</p>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
 <p>Write the hypotheses as a difference in the average ages of the Bachelor and Bachelorette contestants.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-01');">
 Show/Hide Solution
@@ -636,6 +640,7 @@ Show/Hide Solution
 \end{split}
 \]</span></p>
 </div>
+</section>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span>
@@ -712,8 +717,8 @@ p = 0.0134258
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<section id="your-turn" class="level4 unnumbered exercises">
-<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
 <p>Use the results of the two-sample <em>t</em>-test to sketch the <em>t</em>-distribution with 48 <em>df</em>, add vertical lines at the observed <em>t</em>-value (and <span class="math inline">\(-\)</span><em>t</em>-value), and shade the area under the curve corresponding to the <em>p</em>-value.</p>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">
 Show/Hide Solution

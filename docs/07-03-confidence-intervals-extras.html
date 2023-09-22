@@ -473,12 +473,12 @@ function toggle_visibility(id) {
 </div>
 </div>
 </div>
-<p>A plot of the 100 CIs is shown in <span class="quarto-unresolved-ref">?fig-unbiased-cis</span>. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of <span class="math inline">\([9.64,~10.80]\)</span>. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it’s CI was <span class="math inline">\([9.34,~10.88]\)</span>, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in <span class="quarto-unresolved-ref">?fig-unbiased-cis</span> are red. Those CIs do not include 10 as a plausible value.</p>
+<p>A plot of the 100 CIs is shown in <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of <span class="math inline">\([9.64,~10.80]\)</span>. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it’s CI was <span class="math inline">\([9.34,~10.88]\)</span>, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a> are red. Those CIs do not include 10 as a plausible value.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-unbiased-cis." class="quarto-figure quarto-figure-center anchored">
+<div id="fig-unbiased-cis" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis.-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;21.3: The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
 </figure>
 </div>
@@ -487,16 +487,16 @@ function toggle_visibility(id) {
 <p>Now let’s carry out a thought experiment in which a biased sampling method is used. In this sampling method, the sample mean is, on average, higher than the population mean of 10. We will use this method to again draw 100 different samples of size 25. And again, we will produce a CI for each of the 100 samples.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-biased-cis." class="quarto-figure quarto-figure-center anchored">
+<div id="fig-biased-cis" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-biased-cis.-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-biased-cis-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;21.4: The 100 CIs for each of the 100 samples drawn using a biased sampling method. The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <span class="quarto-unresolved-ref">?fig-biased-cis</span> the CIs that include the population value of 10 are agin colored grey and those that do not are colored red. Using an biased sampling method, we see that more of the CIs are red—they do not include 10 as a plausible value for the population mean, despite 10 being the actual population mean!</p>
-<p>In both <span class="quarto-unresolved-ref">?fig-unbiased-cis</span> and <span class="quarto-unresolved-ref">?fig-biased-cis</span> we can see that some of the CIs include 10 and some don’t. But, on average, the unbiased sampling method produces many more CIs that include 10 than the biased sampling method does. Because of this, we would say that the unbiased sampling method produces more accurate estimates of the sample mean. Accuracy refers to whether the CI includes the population parameter for most CIs <em>that could be produced</em>. It does not mean that any one CI will be accurate or not. It is just <em>more likely</em> that a CI will include the population parameter if the sample that produced the CI was selected using an unbiased method.</p>
+<p>In <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> the CIs that include the population value of 10 are agin colored grey and those that do not are colored red. Using an biased sampling method, we see that more of the CIs are red—they do not include 10 as a plausible value for the population mean, despite 10 being the actual population mean!</p>
+<p>In both <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a> and <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> we can see that some of the CIs include 10 and some don’t. But, on average, the unbiased sampling method produces many more CIs that include 10 than the biased sampling method does. Because of this, we would say that the unbiased sampling method produces more accurate estimates of the sample mean. Accuracy refers to whether the CI includes the population parameter for most CIs <em>that could be produced</em>. It does not mean that any one CI will be accurate or not. It is just <em>more likely</em> that a CI will include the population parameter if the sample that produced the CI was selected using an unbiased method.</p>
 <div class="fyi">
 <p>In practice we do not draw many samples—we have one sample. This sample is used to create a single CI that we use to estimate the mean. Unlike in the thought experiment, in practice, we do not know what the value of the population parameter actually is. So we don’t know whether our CI includes this value (is a gray CI) or doesn’t (is a red CI). If we used an unbiased sampling method to select our sample, our CI is more likely to be gray than red. )</p>
 </div>
@@ -505,7 +505,7 @@ function toggle_visibility(id) {
 </section>
 <section id="confidence-level-and-accuracy" class="level2" data-number="21.3">
 <h2 data-number="21.3" class="anchored" data-anchor-id="confidence-level-and-accuracy"><span class="header-section-number">21.3</span> Confidence Level and Accuracy</h2>
-<p>In the previous section you saw that even if you use an unbiased sampling method (e.g., random sampling) you still occasionally draw a sample that produces a red CI—it does not include the population parameter as a plausible value. In fact, looking back at <span class="quarto-unresolved-ref">?fig-unbiased-cis</span>, we see that this will happen about 5% of the time (five of the 100 samples produced a red CI). This is because we produced a confidence interval using a method that will include the population parameter for 95% of the intervals it creates, so long as the sampling method used to select those samples is unbased. Another way to say this is the method we used to create the CIs was accurate 95% of the time.</p>
+<p>In the previous section you saw that even if you use an unbiased sampling method (e.g., random sampling) you still occasionally draw a sample that produces a red CI—it does not include the population parameter as a plausible value. In fact, looking back at <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>, we see that this will happen about 5% of the time (five of the 100 samples produced a red CI). This is because we produced a confidence interval using a method that will include the population parameter for 95% of the intervals it creates, so long as the sampling method used to select those samples is unbased. Another way to say this is the method we used to create the CIs was accurate 95% of the time.</p>
 <p>This accuracy rate is referred to as the <em>confidence level</em>. In practice we say that we created a <em>95% Confidence Interval</em>. But be careful, using this language. Here are some caveats as you start to use this terminology:</p>
 <ul>
 <li>The 95% doesn’t refer to the single CI, but rather to the accuracy rate across producing many, many CIs.</li>
@@ -530,12 +530,12 @@ function toggle_visibility(id) {
 <p><span class="math display">\[
 \text{Sample Estimate} \pm 1 \times \text{SE}
 \]</span> The higher the confidence level, the larger the multiplication factor in the margin of error. Think about how this impacts the CI. For example, in our marijuana case study the 95% CI was <span class="math inline">\([1.11,~11.26]\)</span>. A 99% CI for this difference is <span class="math inline">\([-0.62,~13.00]\)</span>. The margin of error is bigger which makes the interval width wider. That is, we have more uncertainty (i.e., less <em>precision</em>) in our estimate.</p>
-<p>To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we can carry out a thought experiement. In this thought experiment (using an unbiased sampling method), we will draw 100 different samples of size 25 and produce a 99% CI for each of the 100 samples. The result is shown in <span class="quarto-unresolved-ref">?fig-unbiased-cis-99</span>.</p>
+<p>To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we can carry out a thought experiement. In this thought experiment (using an unbiased sampling method), we will draw 100 different samples of size 25 and produce a 99% CI for each of the 100 samples. The result is shown in <a href="#fig-unbiased-cis-99">Figure&nbsp;<span>21.5</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-unbiased-cis-99." class="quarto-figure quarto-figure-center anchored">
+<div id="fig-unbiased-cis-99" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis-99.-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis-99-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
 </figure>
 </div>
@@ -594,16 +594,15 @@ function toggle_visibility(id) {
 <section id="improving-precision-of-the-ci" class="level2" data-number="21.4">
 <h2 data-number="21.4" class="anchored" data-anchor-id="improving-precision-of-the-ci"><span class="header-section-number">21.4</span> Improving Precision of the CI</h2>
 <p>Ideally, the confidence interval will be precise enough to be useful to the researcher. For example, say a researcher was interested in estimating the mean starting salary for a teacher in a particular state. If the CI they produced suggested the average starting salary was between $20,000 and $80,000, that would not be very useful. While it gives a set of plausible values, the precision of the interval is too low (too much uncertainty) to be useful in determining the average starting salary. On the other hand, a CI that estimated the average starting salary to be between $49,800 and $50,200 is quite useful. The high amount of precision in the estimate reduces the amount of uncertainty around the actual mean value.</p>
-<p>The amount of precision in the CI is all governed by the margin of error. In our keys metaphor, the margin of error is represented by the size of the area that Arthur is searching.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In <a href="#fig-precision-metaphor">Figure&nbsp;<span>21.6</span></a>, the two scenarios show vastly different search areas for Arthur’s keys. The left-hand figure has a smaller search area reflecting higher precision and less uncertainty about where the keys are. The right-hand figure has a larger search area which reflects lower precision and more uncertainty about where the keys are.</p>
-<div id="fig-precision-metaphor" class="quarto-layout-panel">
-<figure class="figure">
+<p>The amount of precision in the CI is all governed by the margin of error. In our keys metaphor, the margin of error is represented by the size of the area that Arthur is searching.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In <a href="#fig-keys-ci-high-prec">Figure&nbsp;<span>21.6</span></a> and <a href="#fig-keys-ci-low-prec">Figure&nbsp;<span>21.7</span></a>, the two scenarios show vastly different search areas for Arthur’s keys. The left-hand figure has a smaller search area reflecting higher precision and less uncertainty about where the keys are. The right-hand figure has a larger search area which reflects lower precision and more uncertainty about where the keys are.</p>
+<div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-keys-ci-high-prec" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/07-03-03-ci-keys-high-precision.png" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-precision-metaphor"></p>
-<figcaption class="figure-caption">(a) This figure is a metaphor for high precision. Note there is not much uncertainty in the area that needs to be searched.</figcaption>
+<p><img src="figs/07-03-03-ci-keys-high-precision.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.6: This figure is a metaphor for high precision. Note there is not much uncertainty in the area that needs to be searched.</figcaption>
 </figure>
 </div>
 </div>
@@ -612,15 +611,13 @@ function toggle_visibility(id) {
 <div class="cell-output-display">
 <div id="fig-keys-ci-low-prec" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="figs/07-03-03-ci-keys-low-precision.png" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-precision-metaphor"></p>
-<figcaption class="figure-caption">(b) This figure is a metaphor for low precision. Note there is much more uncertainty in the area that needs to be searched.</figcaption>
+<p><img src="figs/07-03-03-ci-keys-low-precision.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.7: This figure is a metaphor for low precision. Note there is much more uncertainty in the area that needs to be searched.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;21.6: <strong>?(caption)</strong></figcaption><p></p>
-</figure>
 </div>
 <p>Numerically, the margin of error is half of the range of the confidence interval and is expressed as the part of the CI that gets added and subtracted from the sample estimate. For example the two CIs presented in the previous paragraph have a margin of error of $30,000 and $200, respectively. Their formulas to produce the CIs would be:</p>
 <p><span class="math display">\[

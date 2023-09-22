@@ -68,7 +68,7 @@ knitr::include_graphics("figs/07-03-02-thought-experiment.png")
 A plot of the 100 CIs is shown in @fig-unbiased-cis. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of $[9.64,~10.80]$. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it's CI was $[9.34,~10.88]$, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in @fig-unbiased-cis are red. Those CIs do not include 10 as a plausible value. 
 
 ```{r}
-#| label: fig-unbiased-cis. 
+#| label: fig-unbiased-cis
 #| fig-cap: "The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
@@ -115,7 +115,7 @@ ggplot(data = d) +
 Now let's carry out a thought experiment in which a biased sampling method is used. In this sampling method, the sample mean is, on average, higher than the population mean of 10. We will use this method to again draw 100 different samples of size 25. And again, we will produce a CI for each of the 100 samples. 
 
 ```{r}
-#| label: fig-biased-cis. 
+#| label: fig-biased-cis
 #| fig-cap: "The 100 CIs for each of the 100 samples drawn using a biased sampling method. The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
@@ -210,7 +210,7 @@ To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we ca
 
 
 ```{r}
-#| label: fig-unbiased-cis-99. 
+#| label: fig-unbiased-cis-99
 #| fig-cap: "The 99% CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
@@ -297,10 +297,10 @@ You can set the `conf.level=` argument to whichever confidence level you would l
 
 Ideally, the confidence interval will be precise enough to be useful to the researcher. For example, say a researcher was interested in estimating the mean starting salary for a teacher in a particular state. If the CI they produced suggested the average starting salary was between \$20,000 and \$80,000, that would not be very useful. While it gives a set of plausible values, the precision of the interval is too low (too much uncertainty) to be useful in determining the average starting salary. On the other hand, a CI that estimated the average starting salary to be between \$49,800 and \$50,200 is quite useful. The high amount of precision in the estimate reduces the amount of uncertainty around the actual mean value.
 
-The amount of precision in the CI is all governed by the margin of error. In our keys metaphor, the margin of error is represented by the size of the area that Arthur is searching.^[Technically it would be the radius of the search area.] In @fig-precision-metaphor, the two scenarios show vastly different search areas for Arthur's keys. The left-hand figure has a smaller search area reflecting higher precision and less uncertainty about where the keys are. The right-hand figure has a larger search area which reflects lower precision and more uncertainty about where the keys are.
+The amount of precision in the CI is all governed by the margin of error. In our keys metaphor, the margin of error is represented by the size of the area that Arthur is searching.^[Technically it would be the radius of the search area.] In @fig-keys-ci-high-prec and @fig-keys-ci-low-prec, the two scenarios show vastly different search areas for Arthur's keys. The left-hand figure has a smaller search area reflecting higher precision and less uncertainty about where the keys are. The right-hand figure has a larger search area which reflects lower precision and more uncertainty about where the keys are.
 
 
-::: {#fig-precision-metaphor layout-ncol=2}
+::: {layout-ncol=2}
 
 ```{r}
 #| label: fig-keys-ci-high-prec

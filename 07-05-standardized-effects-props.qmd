@@ -134,7 +134,7 @@ ci_cohens_h(
   )
 ```
 
-The CI is $[-0.36,~0.73]$, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
+The CI is $[-0.36,~0.73]$]. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
 
 - There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.
 - There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,
@@ -194,7 +194,7 @@ The CI of $[-.05,~0.20]$ indicates that:
 
 ## Risk Ratio
 
-A more commonly reported effect size is a *risk ratio*, also sometimes referred o as *relative risk*. This effect is most commonly used in medicine and health sciences, but is quite useful. A risk ratio measures the risk of a certain event happening in one group compared to the risk of the same event happening in another group. For example, a health research might compare the risk of COVID in low income communities to that in high income communities. 
+A more commonly reported effect size is a *risk ratio*, also sometimes referred to as *relative risk*. This effect is most commonly used in medicine and health sciences, but is quite useful. A risk ratio measures the risk of a certain event happening in one group compared to the risk of the same event happening in another group. For example, a health research might compare the risk of COVID in low income communities to that in high income communities. 
 
 "Risk" is simply a proportion of something occurring in a group. In our Bachelor/Bachelorette example, "risk" might be staying together (or alternatively, breaking up). To compute the risk ratio, or relative risk, we are just computing the ratio of two proportions:
 
@@ -294,19 +294,22 @@ The CI is $[0.79,~3.09]$, indicating tat Bachelorettes (numerator proportion) ar
 
 ### Using `conf_risk_ratio()` With a Single Sample
 
-Use the `nrow()` function to compute the sample size.
+<!-- :::exercises -->
+<!-- #### Your Turn {.unnumbered} -->
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button>
+<!-- Use the `nrow()` function to compute the sample size. -->
 
-<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
+<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-06');">Show/Hide Solution</button> -->
 
-```{r}
-# Compute sample size
-nrow(mn_lead)
-```
+<!-- <div id="exercise_07-05-06" style="display:none; margin: -40px 0 40px 40px;"> -->
 
-</div>
+<!-- ```{r} -->
+<!-- # Compute sample size -->
+<!-- nrow(mn_lead) -->
+<!-- ``` -->
 
+<!-- </div> -->
+<!-- ::: -->
 
 
 
@@ -336,9 +339,9 @@ The CI is $[0.470,~.496]$, indicating the proportion of all Minnesota children u
 Use the `ci_risk_ratio()` function to compute the risk ratio and the 99% CI for the population risk ratio that compares the proportion of "Fresh" reviews to the hypothesized value of 0.5.
 
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-06');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button>
 
-<div id="exercise_07-05-06" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
 
 ```{r}
 # Compute CI for risk ratio
@@ -356,9 +359,9 @@ ci_risk_ratio(
 
 Interpret the confidence interval by commenting on the plausible values in the interval. 
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-08');">Show/Hide Solution</button>
 
-<div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_07-05-08" style="display:none; margin: -40px 0 40px 40px;">
 
 The CI is $[1.01,~1.14]$ indicating that the proportion of "fresh" reviews is between 1.01 and 1.14 times higher than 0.5. While this suggests that Fast X will likely have more than half of its reviews rated as "fresh", it won't be much over half.
 </div>
@@ -371,5 +374,5 @@ The CI is $[1.01,~1.14]$ indicating that the proportion of "fresh" reviews is be
 
 
 
-## References
+<!-- ## References -->
 

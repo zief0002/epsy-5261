@@ -1,0 +1,102 @@
+# Scatterplots and Correlation {#sec-scatter-corr}
+
+In this chapter you will learn about the scatterplot and correlation coefficient, the predominant visualization and numerical summary used to study relationships between attributes. 
+
+<br />
+
+
+## Case Study: Income and House Prices
+
+It is common knowledge that some cities have a higher cost of living than others. Those higher cost-of-living cities, however, also tend to be the more metropolitan areas where jobs (especially higher paying jobs) are more prevalent. One question that we may want to study is whether there is a relationship between people's incomes and house prices (a reasonable proxy for the cost-of-living). To do this, we will use the `median_income` and `median_house_price` attributes from the [housing-and-income.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv) dataset.
+
+```{r}
+#| message: false
+library(educate)
+library(ggformula)
+library(mosaic)
+library(mosaicCore)
+library(tidyverse)
+
+
+# Import data
+house_income <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv")
+
+# View data
+house_income
+```
+
+## Data Exploration
+
+As always, we will begin with an initial exploration of the sample data, in particular the distributions of the `median_income` and `median_house_price` attributes.
+
+```{r}
+# Explore median_income
+gf_density(
+  ~median_income, data = house_income
+  xlab = "Median Income",
+  ylab = "Density"
+  )
+
+df_stats(~median_income, data = house_income)
+```
+
+The median income for the 42 cities in the sample have a right-skewed distribution with a typical city having a median income of close to \$70k (median). There is a great deal of variation in the median income across these cities, however, with the median income ranging from \$32k to \$148k, and the middle 50% of cities having median incomes ranging from \$52 to \$91k.
+
+
+```{r}
+# Explore median_house_price
+gf_density(
+  ~median_house_price, data = house_income,
+  xlab = "Median House Price",
+  ylab = "Density"
+  )
+
+df_stats(~median_house_price, data = house_income)
+```
+
+The median house price for the 42 cities in the sample also have a right-skewed distribution with a typical city having a median house price of \$394k (median). There is a great deal of variation in the median house prices across these cities, however, with the median house price ranging from \$97k to \$1.5m, and the middle 50% of cities having median house prices ranging from \$271 to \$723k.
+
+
+<br />
+
+
+## Relationship Between Variables
+
+Although examining the distributions of each attribute independently is an important first step, those descriptions do not help us directly answer our research question. To better understand any relationship between income and house prices we need to explore how the distribution of house prices co-varies with the distribution income. To do this, we will create a scatterplot of median income versus median house price.
+
+To create a scatterplot, we will use the `gf_point()` function from the `{ggformula}` package. The syntax for this function is similar to the other`gf_` functions:
+
+<center>
+`gf_point(y ~ x, data = data_name)`
+</center>
+
+where `y` is the name of the attribute you want on the *y*-axis, `x` isthe name of the variable you want on the *x*-axis, and `data_name` is the name of your object that you imported your data into. For example, to create a scatterplot in which median house price is on the *y*-axis, median income is on the *x*-axis, we can use the following syntax:
+
+
+
+```{r}
+#| fig-cap: "Scatterplot displaying the relationship between median income and median house price for 42 cities."
+gf_point(
+  median_house_price ~ median_income, data = house_income,
+  xlab = "Median Income",
+  ylab = "Median House Price"
+  )
+```
+
+The plot visually shows the relationship (at least for these cities) between median income and median house price. When describing the relationship we want to touch on four characteristics of the relationship:
+
+- Functional form of the relationship
+- Direction
+- Strength
+- Observations that do not fit the trend (potential outliers)
+
+<br />
+
+
+### Functional Form of the Relationship
+
+A *functional form* refers to the algebraic (mathematical) description of the relationship between the two attributes included in the relationship. 
+
+
+## References
+
