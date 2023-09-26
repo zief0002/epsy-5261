@@ -129,6 +129,15 @@ $$
 
 Our CI tells us that, based on the data, we think the average price of a single-family house near the University of Minnesota is between \$352.07k and \$457.87k. Using this, we can now answer our follow-up questions. Is the average price of a single-family house near the UMN more or less expensive than in Minneapolis more broadly? And by how much? Based on the CI it seems the average price of a single-family house near the University of Minnesota is higher than the average single-family house price in Minneapolis more broadly (\$322.46k). It may be more expensive by as little as \$29.61k and as much as \$135.41k.
 
+:::fyi
+Statistician formally interpret a CI for the mean in a very particular way. The template for this interpretation is "We are *X%* confident that the population mean is between *LL* and *UL*." In this template, we substitute values in for *X* (the confidence level), **LL** (the lower limit of the CI), and *UL* (the upper limit of the CI). In general the value for *X* is 95%, but you will learn more about this in @sec-confidence-intervals-assump. For our example, the formal interpretation would be:
+
+> We are 95% confident that the population mean is between \$29.61k and \$135.41k.
+
+:::
+
+
+
 Using substantive knowledge, one could then make decisions about whether differences this large is meaningful or not. For example, when it comes to real estate in the Twin Cities, a difference of around \$30k is not so big, but a difference of \$135k is pretty large. On the other hand, for many first time home buyers, even \$30k is meaningful. In order to understand whether effects are meaningful, it is necessary to contextualize them in relation to the area of research.
 
 :::fyi

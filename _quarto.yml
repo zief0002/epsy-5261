@@ -56,9 +56,9 @@ book:
         - 07-03-confidence-intervals-extras.qmd
         - 07-04-standardized-effects-means.qmd
         - 07-05-standardized-effects-props.qmd
-    # - part: 08-00-relationships.qmd
-    #   chapters:
-    #     - 08-01-scatterplot-correlation.qmd
+    - part: 08-00-relationships.qmd
+      chapters:
+        - 08-01-scatterplot-correlation.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

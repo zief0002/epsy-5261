@@ -1,4 +1,4 @@
-# Statistical Reationships {#relationships}
+# Statistical Relationships {#relationships}
 
 In the previous chapters, you were introduced to methods that a researcher can use to examine differences and some effect sizes to quantify the magnitude of those differences. For example, we could use those methods to answer research questions such as:
 
