@@ -59,6 +59,7 @@ book:
     - part: 08-00-relationships.qmd
       chapters:
         - 08-01-scatterplot-correlation.qmd
+        - 08-02-linear-regression-description.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
