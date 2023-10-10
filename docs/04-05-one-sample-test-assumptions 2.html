@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis - 18&nbsp; Random Assignment and Causal Inferences</title>
+<title>An Introduction to Data Analysis - 11&nbsp; Assumptions of the One-Sample t-Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-00-effect-size.html" rel="next">
-<link href="./06-01-generalization.html" rel="prev">
+<link href="./04-06-one-sample-test-proportions.html" rel="next">
+<link href="./04-04-one-sample-test-computation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +91,7 @@ function toggle_visibility(id) {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-00-study-design.html">Study Design</a></li><li class="breadcrumb-item"><a href="./06-02-cause-and-effect.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-05-one-sample-test-assumptions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -260,7 +226,7 @@ function toggle_visibility(id) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
   </div>
 </li>
@@ -324,7 +290,7 @@ function toggle_visibility(id) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link active">
+  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
   </div>
 </li>
@@ -410,10 +376,14 @@ function toggle_visibility(id) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#causal-inference" id="toc-causal-inference" class="nav-link active" data-scroll-target="#causal-inference"><span class="header-section-number">18.1</span> Causal Inference</a></li>
-  <li><a href="#making-a-causal-attribution" id="toc-making-a-causal-attribution" class="nav-link" data-scroll-target="#making-a-causal-attribution"><span class="header-section-number">18.2</span> Making a Causal Attribution</a></li>
-  <li><a href="#randomly-assigning-members-of-a-sample" id="toc-randomly-assigning-members-of-a-sample" class="nav-link" data-scroll-target="#randomly-assigning-members-of-a-sample"><span class="header-section-number">18.3</span> Randomly Assigning Members of a Sample</a></li>
-  <li><a href="#generalizations-and-causal-inference" id="toc-generalizations-and-causal-inference" class="nav-link" data-scroll-target="#generalizations-and-causal-inference"><span class="header-section-number">18.4</span> Generalizations and Causal Inference</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link active" data-scroll-target="#assumptions"><span class="header-section-number">11.1</span> Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#evaluating-the-assumption-of-normality" id="toc-evaluating-the-assumption-of-normality" class="nav-link" data-scroll-target="#evaluating-the-assumption-of-normality"><span class="header-section-number">11.1.1</span> Evaluating the Assumption of Normality</a></li>
+  <li><a href="#evaluating-the-independence-assumption" id="toc-evaluating-the-independence-assumption" class="nav-link" data-scroll-target="#evaluating-the-independence-assumption"><span class="header-section-number">11.1.2</span> Evaluating the Independence Assumption</a></li>
+  <li><a href="#evaluating-assumptions-in-the-continuous-assessment-case-study" id="toc-evaluating-assumptions-in-the-continuous-assessment-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">11.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</a></li>
+  <li><a href="#evaluating-assumptions-in-the-house-prices-case-study" id="toc-evaluating-assumptions-in-the-house-prices-case-study" class="nav-link" data-scroll-target="#evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">11.1.4</span> Evaluating Assumptions in the House Prices Case Study</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.2</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -422,7 +392,7 @@ function toggle_visibility(id) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-cause" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></h1>
+<h1 class="title"><span id="sec-one-sample-test-assumptions" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></h1>
 </div>
 
 
@@ -437,556 +407,148 @@ function toggle_visibility(id) {
 
 </header>
 
-<p>In this chapter you will learn how the method used to assign sample cases to groups impacts the degree to which we can make causal inferences.</p>
+<p>In this chapter you will learn about the assumptions that we need to make in order for the results of a one-sample <em>t</em>-test to be statistically valid.</p>
 <p><br></p>
-<section id="causal-inference" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="causal-inference"><span class="header-section-number">18.1</span> Causal Inference</h2>
-<p>Causal inference (a.k.a., internal validity) refers to the process of drawing cause-and-effect conclusions. For example, suppose you were studying the effects of a new drug that was thought to reduce cholesterol. You might give this drug to some patients with high cholesterol (the treatment group) and not to others (the control group). Then, the average cholesterol for these two groups might be compared using a two-sample <em>t</em>-test. Imagine that the results of this analysis indicated that the treatment group had a lower average cholesterol level, with a small <em>p</em>-value. Could we attribute the lower cholesterol level, on average, to the effects of the drug? The answer to that question often depends on how the participants in the trial were assigned to the treatment and control groups.</p>
+<section id="assumptions" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">11.1</span> Assumptions</h2>
+<p>Whether or not the results we obtain from the <em>t</em>-test are accurate depends on a set of statistical assumptions about the population. Remember that the <em>t</em>-value we use to compute the <em>p</em>-value is computed as:</p>
+<p><span class="math display">\[
+t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
+\]</span></p>
+<p>where, <span class="math inline">\(SE = \frac{SD}{\sqrt{n}}\)</span>, <em>SD</em> is the sample standard deviation, and <em>n</em> is the sample size. A critical part of this is that the formula we use to compute the standard error gives us a good estimation of the standard error. This, it turns out, is only true under a particular set of statistical assumptions.</p>
+<p>If the assumptions are violated and the formula we used for the <em>SE</em> is wrong, that implies the <em>t</em>-value will be wrong because we used the wrong value in the denominator. And, if the <em>t</em>-value is incorrect, that means the <em>p</em>-value is also incorrect since it is based on the <em>t</em>-value. This would mean further that all of our inferences that we draw about the population mean are dubious, since these inferences are based on the <em>p</em>-value. Because of this, it is critical that we have some sense of whether these statistical assumptions we are making are valid.</p>
+<p>For the one-sample <em>t</em>-test there are two statistical assumptions we make about the population:</p>
+<ol type="1">
+<li>The distribution of values in the population is <em>normally distributed</em>.</li>
+<li>The values in the population are <em>independent</em> from each other.</li>
+</ol>
+<p>For example, in the teen sleep case study we need to know that:</p>
+<ol type="1">
+<li>If you took the hours of sleep measurements from every teen and plotted them, the distribution would be normally distributed.</li>
+<li>The hours of sleep measurements from every teen is independent from those of every other teen.</li>
+</ol>
+<p>Unfortunately, we can never know for sure whether these assumptions are met since we do not have data from the entire population. Instead, we have to decide whether these assumptions seem tenable based on the sample of data we have.</p>
 <p><br></p>
-</section>
-<section id="making-a-causal-attribution" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="making-a-causal-attribution"><span class="header-section-number">18.2</span> Making a Causal Attribution</h2>
-<p>To attribute a causal relationship, there are three criteria a researcher needs to establish:</p>
-<ul>
-<li><strong>Temporal Precedence:</strong> The cause needs to happen BEFORE the effect.</li>
-<li><strong>Covariation of the Cause and Effect:</strong> There needs to be a relationship between the cause and effect (i.e., a statistically discernible difference between treatment and control).</li>
-<li><strong>No Plausible Alternative Explanations:</strong> ALL other possible explanations for the effect need to be ruled out.</li>
-</ul>
-<p>In the hypothetical drug study we have <em>temporal precedence</em>. The presumed effect (lowering of cholesterol level) happened AFTER the presumed cause (taking the drug). We also have the second criteria since the two-sample <em>t</em>-test resulted in a statistically discernible difference in the average cholesterol level between the treatment and control groups. The third criteria, however, is very difficult to establish. For example, maybe the members of the treatment group had a different exercise regime or different dietary habits than the control group and it was those factors, not the drug, that resulted in the lower average cholesterol level.</p>
-<p>To rule out ALL other possible explanations for the effect, the control group and the treatment group need to be “identical” with respect to every possible characteristic (aside from the treatment) that could explain differences. This way the only characteristic that will be different is that the treatment group gets the treatment and the control group does not. By design, if there are differences in the outcome, then it must be attributable to the treatment, because the other possible explanations are ruled out.</p>
-<p>So, the key is to make the control and treatment groups “identical” when you are forming them. One thing that makes this task (slightly) easier is that they do not have to be exactly identical, only <a href="https://conjointly.com/kb/probabilistic-equivalence/">probabilistically equivalent</a>. This means, for example, that if you were matching groups on age that you don’t need the two groups to have identical age distributions; they would only need to have roughly the same AVERAGE age. Here roughly means “the average ages should be the same within what we expect because of sampling error.” While this makes it “easier” to create the groups, it is still an almost impossible challenge since participants still need to be assigned so that the groups, on average, are the same…for EVERY POSSIBLE CHARCTERISTIC that could explain differences in the outcome. Zoinks!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>It turns out that creating probabilistically equivalent groups is a really difficult problem. One method that works pretty well for doing this is to randomly assign participants to the groups. This works best when you have large sample sizes, but even with small sample sizes random assignment has the advantage of at least removing the systematic bias between the two groups (any differences are due to chance and will probably even out between the groups). As <a href="https://en.wikipedia.org/wiki/Random_assignment">Wikipedia’s page on random assignment</a> points out,</p>
-<blockquote class="blockquote">
-<p>Random assignment of participants helps to ensure that any differences between and within the groups are not systematic at the outset of the experiment. Thus, any differences between groups recorded at the end of the experiment can be more confidently attributed to the experimental procedures or treatment. … Random assignment does not guarantee that the groups are matched or equivalent. The groups may still differ on some preexisting attribute due to chance. The use of random assignment cannot eliminate this possibility, but it greatly reduces it.</p>
-</blockquote>
-<p>It is because of this that using random assignment to assign participants to the treatment and control groups is the gold standard when it comes to drawing causal inferences. The random assingment to groups helps meet the third criteria that ALL other possible explanations for the effect, aside from the treatment being tested, can be ruled out since the control and treatment groups are probabilistically equivalent.</p>
-<p><br></p>
-</section>
-<section id="randomly-assigning-members-of-a-sample" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="randomly-assigning-members-of-a-sample"><span class="header-section-number">18.3</span> Randomly Assigning Members of a Sample</h2>
-<p>To assign members of a sample to different groups, we can again use the <code>sample()</code> function. We will provide this function a vector of the members of the sample. We will also not include the <code>size=</code> argument and use the argument <code>replace=FALSE</code>. This will randomly order all of the members in the given vector. Then the first half of the elements can be assigned to treatment and the last half to control. (There are also other ways to do this.)</p>
-<p>Below is some syntax that could be used to assign 10 participants to groups. (Again, we will use the <code>set.seed()</code> function to make the results from <code>sample()</code> repeatable.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector of the participants in the sample</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_sample <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Participant 1"</span>, <span class="st">"Participant 2"</span>, <span class="st">"Participant 3"</span>, <span class="st">"Participant 4"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Participant 5"</span>, <span class="st">"Participant 6"</span>, <span class="st">"Participant 7"</span>, <span class="st">"Participant 8"</span>, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Participant 9"</span>, <span class="st">"Participant 10"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View sample</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>my_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Participant 1"  "Participant 2"  "Participant 3"  "Participant 4" 
- [5] "Participant 5"  "Participant 6"  "Participant 7"  "Participant 8" 
- [9] "Participant 9"  "Participant 10"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign participants in a random order</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># First 5 will be treatment</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Second 5 will be control</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_sample, <span class="at">replace =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Participant 10" "Participant 7"  "Participant 6"  "Participant 3" 
- [5] "Participant 1"  "Participant 2"  "Participant 5"  "Participant 9" 
- [9] "Participant 4"  "Participant 8" </code></pre>
-</div>
-</div>
-<p>Based on this ordering, Participants 10, 7, 6, 3, and 1 will be assigned to the treatment group, and Participants 2, 5, 9, 4, and 8 will be assigned to the control group.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>As with random sampling, in this class, it isn’t as important that you know HOW to use R functions to randomly assign participants, but rather that you understand WHY random assignment is the method of assigning subjects that is the gold standard when it comes to making causal inferences. That being said, it is also important to understand that even if random assignment is employed, there can still be problems with ensuring probabilistic equivalence. Things like participant dropout can make causal inference problematic despite initially assigning groups randomly.</p>
-<p><br></p>
-</section>
-<section id="generalizations-and-causal-inference" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="generalizations-and-causal-inference"><span class="header-section-number">18.4</span> Generalizations and Causal Inference</h2>
-<p>It is important to differentiate between the drawing of causal inferences and making generalizations. For example, we might be able to attribute the lower cholesterol in our hypothetical study to the taking of the drug, but not be able to generalize the effects to the larger population. That is because the question of generalization boils down to how the sample was selected from the larger population, while the question of cause boils down to how the sample participants are assigned to treatment and control groups. <a href="#tbl-scope-inferences">Table&nbsp;<span>18.1</span></a> shows four possible study designs and the scope of inferences that are feasible given those designs.</p>
+<section id="evaluating-the-assumption-of-normality" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="evaluating-the-assumption-of-normality"><span class="header-section-number">11.1.1</span> Evaluating the Assumption of Normality</h3>
+<p>To evaluate the first assumption that the distribution of values in the population is <em>normally distributed</em>, we plot the sample data and then ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="#fig-hrs-sleep">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-scope-inferences" class="anchored">
-
-<div id="fdwfbggwkx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fdwfbggwkx table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#fdwfbggwkx thead, #fdwfbggwkx tbody, #fdwfbggwkx tfoot, #fdwfbggwkx tr, #fdwfbggwkx td, #fdwfbggwkx th {
-  border-style: none;
-}
-
-#fdwfbggwkx p {
-  margin: 0;
-  padding: 0;
-}
-
-#fdwfbggwkx .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: 60%;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#fdwfbggwkx .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#fdwfbggwkx .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#fdwfbggwkx .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#fdwfbggwkx .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#fdwfbggwkx .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#fdwfbggwkx .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#fdwfbggwkx .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#fdwfbggwkx .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#fdwfbggwkx .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#fdwfbggwkx .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#fdwfbggwkx .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#fdwfbggwkx .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#fdwfbggwkx .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#fdwfbggwkx .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#fdwfbggwkx .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#fdwfbggwkx .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#fdwfbggwkx .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#fdwfbggwkx .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#fdwfbggwkx .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#fdwfbggwkx .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#fdwfbggwkx .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#fdwfbggwkx .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#fdwfbggwkx .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#fdwfbggwkx .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#fdwfbggwkx .gt_left {
-  text-align: left;
-}
-
-#fdwfbggwkx .gt_center {
-  text-align: center;
-}
-
-#fdwfbggwkx .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#fdwfbggwkx .gt_font_normal {
-  font-weight: normal;
-}
-
-#fdwfbggwkx .gt_font_bold {
-  font-weight: bold;
-}
-
-#fdwfbggwkx .gt_font_italic {
-  font-style: italic;
-}
-
-#fdwfbggwkx .gt_super {
-  font-size: 65%;
-}
-
-#fdwfbggwkx .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#fdwfbggwkx .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#fdwfbggwkx .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#fdwfbggwkx .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#fdwfbggwkx .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#fdwfbggwkx .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#fdwfbggwkx .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;18.1:  <p>Four potential study designs researchers could have and the scope of
-inferences that they could make based on the study design.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Random Sample">Random Sample</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Random Assignment">Random Assignment</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Scope of Inferences">Scope of Inferences</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="rs" class="gt_row gt_center"><div class="gt_from_md"><p>✔</p>
-</div></td>
-<td headers="ra" class="gt_row gt_center"><div class="gt_from_md"></div></td>
-<td headers="scope" class="gt_row gt_left">Generalizable to population</td></tr>
-    <tr><td headers="rs" class="gt_row gt_center"><div class="gt_from_md"></div></td>
-<td headers="ra" class="gt_row gt_center"><div class="gt_from_md"><p>✔</p>
-</div></td>
-<td headers="scope" class="gt_row gt_left">Cause-and-effect, but not generalizable to population</td></tr>
-    <tr><td headers="rs" class="gt_row gt_center"><div class="gt_from_md"><p>✔</p>
-</div></td>
-<td headers="ra" class="gt_row gt_center"><div class="gt_from_md"><p>✔</p>
-</div></td>
-<td headers="scope" class="gt_row gt_left">Cause-and-effect and generalizable to population</td></tr>
-    <tr><td headers="rs" class="gt_row gt_center"><div class="gt_from_md"></div></td>
-<td headers="ra" class="gt_row gt_center"><div class="gt_from_md"></div></td>
-<td headers="scope" class="gt_row gt_left">No cause-and-effect and not generalizable to population</td></tr>
-  </tbody>
-  
-  
-</table>
+<div id="fig-hrs-sleep" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-hrs-sleep-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;11.1: Density plot of the hours of sleep for 75 teenagers.</figcaption>
+</figure>
 </div>
 </div>
 </div>
+<p>The sample distribution looks symmetric, but perhaps not exactly normal. This is okay since the assumption is about whether the POPULATION distribution is normal, not whether the sample distribution is normal. We are only asking whether we believe that the population distribution is normal based on what we see in the sample distribution. To answer this question, we need some idea of what sample distributions of size 75 look like if they truly do come from a population that is normally distributed. Below are the distributions for five samples of size 75 that were actually drawn from a normal distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-normal-sim" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-normal-sim-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;11.2: Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed.</figcaption>
+</figure>
 </div>
-<p>As you read research articles and consider the evidence presented in those articles, it is is important to take into account the design of the study. How was the sample selected? If there are groups being compared, how were participants assigned to groups? These aspects of the study are just as if not more) important than statistical significance when it comes to the type of inferences one can make. Because they are so important to the conclusions of a study, most research will describe these aspects of the study’s design. If a study does not describe these aspects, it should be assumed that random sampling and assignment were not employed. And while this doesn’t necessarily make the study’s results unimportant, it should give you pause as a researcher and reduce the weight of evidence the study gives to the broader scientific corpus.</p>
+</div>
+</div>
+<p>The density plots in <a href="#fig-normal-sim">Figure&nbsp;<span>11.2</span></a> suggest that the distribution for a sample that was actually drawn from a normal distribution does not necessarily look exactly normal. For example the plots for Sample 1 and Sample 3 look slightly right-skewed, while the plots for Samples 2, 4, and 5 look more symmetric. Some of the plots look more peaked (Samples 1 and 2) while others look thicker in the middle (Samples 4 and 5). All of this suggests that the sample doesn’t have to look perfectly normal for it to have been drawn from a population that is normal.</p>
+<p>Looking back at the sample distribution of teen sleep measurements in <a href="#fig-hrs-sleep">Figure&nbsp;<span>11.1</span></a>, it seems that this distribution is not so different from the distributions of the five other samples. This suggests that it too might have been drawn from a normally distributed population. In light of this, we would say:</p>
+<blockquote class="blockquote">
+<p>The assumption of normality seems tenable given the distribution of the sample data.</p>
+</blockquote>
 <p><br></p>
-<!-- ## References -->
+<section id="sample-size-and-the-assumption-of-normality" class="level4" data-number="11.1.1.1">
+<h4 data-number="11.1.1.1" class="anchored" data-anchor-id="sample-size-and-the-assumption-of-normality"><span class="header-section-number">11.1.1.1</span> Sample Size and the Assumption of Normality</h4>
+<p>How different would the sample distribution have to look in order for us to conclude that the assumption of normality was not tenable given the distribution of the sample data? This is a difficult question to answer without other statistical tools.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> One tool that we rely on a great deal is something called the <em>Central Limit Theorem (CLT)</em>. This theorem basically says that if the sample size of your data is over 30 that it doesn’t matter if the normality assumption is met, the <em>p</em>-value will not be impacted if the population is not normal.</p>
+<p>In our example the sample size is 75. This means that it doesn’t matter if the population is normal or not—the CLT basically says that we can assume that the <em>p</em>-value is not impacted by any deviation in the population distribution from normality. This is good news as it means we don’t have to guess whether or not our sample distribution of teen sleep measurements actually comes from a population that is normally distributed.</p>
+<p><br></p>
+</section>
+</section>
+<section id="evaluating-the-independence-assumption" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="evaluating-the-independence-assumption"><span class="header-section-number">11.1.2</span> Evaluating the Independence Assumption</h3>
+<p>The definition of independence relies on formal mathematics. Loosely speaking a set of observations is independent if knowing the value for one observation in the distribution conveys no information about the value for any other observation in the same distribution. If observations are not independent, we say they are <em>dependent</em> or <em>correlated</em>.</p>
+<p>To evaluate the independence assumption we need to know something about the the study design, in particular how the data were collected. Using random chance to select the sample data (random sampling) will guarantee independence of the observations. There are also a few times that we can ascertain that the independence assumption would be violated. These instances are also a function of the data collection process. One such instance common to social science research is when the observations (i.e., cases, subjects) are collected within a physical or spatial proximity to one another. For example, this is typically the case when a researcher gathers a convenience sample based on location, such as sampling students from the same school. Another violation of independence occurs when observations are collected over time (longitudinally), especially when the observations are repeated measures from the same subjects.</p>
+<p>Independence is often difficult to ascertain, and its tenability is made via a logical argument. In the teen sleep case study, for example, the study design did not employ random sampling—the participants volunteered to be a part of the study—so we can not guarantee independence that way. (If a study uses random sampling in the data collection, it will say this directly in the paper.) On the other hand, all the participants did come from the same school district. This may violate the independence assumption since the teens in the study are all from the area (i.e., there was some degree of spatial proximity that influenced the data collection process).</p>
+<p>The violation of independence is, however, not clear cut. The big question is does knowing that one teen’s sleep duration convey any information about any other teen’s sleep duration? If for example all the teens came from the same family this would likely be the case since teens in a family are often similar sleep schedules. It is less likely that this is a case for teens in the same school district. Because of this, we could argue that the independence assumption seems tenable.</p>
+<div class="fyi">
+<p>Because the tenability of the independence assumption is made via a logical argument, outside the use of random sampling to collect the data, different scholars might disagree about whether this assumption is tenable. In this class, and in your own work, you need to lay out the argument for why you think the independence assumption is reasonable or not.</p>
+</div>
+<p><br></p>
+</section>
+<section id="evaluating-assumptions-in-the-continuous-assessment-case-study" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="evaluating-assumptions-in-the-continuous-assessment-case-study"><span class="header-section-number">11.1.3</span> Evaluating Assumptions in the Continuous Assessment Case Study</h3>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<p>In the continuous assessment case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students’ prior knowledge. The histogram of the 30 teachers’ responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-prior-knowledge" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;11.3: Histogram of teachers responses to the survey item: I always assess students’ prior knowledge before starting new lesson.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-05');">
+Show/Hide Solution
+</button>
+<div id="exercise_04-05-05" style="display:none; margin: -40px 0 40px 40px;">
+<p>Yes, the normality assumption seems tenable. While the distribution of the sample responses is not normally distributed, it is not egregiously skewed. Moreover, since the sample size is 30, the CLT would suggest that we can assume that the <em>p</em>-value is not going to be impacted by any deviation in the population distribution from normality.</p>
+</div>
+<p>Based on the data collection process described in the <a href="https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html">data codebook</a>, do you believe the independence assumption is tenable?</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-06');">
+Show/Hide Solution
+</button>
+<div id="exercise_04-05-06" style="display:none; margin: -40px 0 40px 40px;">
+<p>Yes, the independence assumption is tenable. The use of random chance to select the sample data (random sampling) guarantees independence.</p>
+</div>
+</section>
+<p><br></p>
+</section>
+<section id="evaluating-assumptions-in-the-house-prices-case-study" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="evaluating-assumptions-in-the-house-prices-case-study"><span class="header-section-number">11.1.4</span> Evaluating Assumptions in the House Prices Case Study</h3>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
+<p>In the house prices case study from <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than $322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-house-prices" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="04-05-one-sample-test-assumptions_files/figure-html/fig-house-prices-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;11.4: Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-07');">
+Show/Hide Solution
+</button>
+<div id="exercise_04-05-07" style="display:none; margin: -40px 0 40px 40px;">
+<p>The normality assumption may not be tenable. The distribution of the sample responses is not normally distributed, and is clearly left-skewed. Moreover, since the sample size is less than 30, we can not rely on the CLT.</p>
+</div>
+<p>Based on the data collection process described in the <a href="https://zief0002.github.io/epsy-5261/codebooks/zillow.html">data codebook</a>, do you believe the independence assumption is tenable?</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-08');">
+Show/Hide Solution
+</button>
+<div id="exercise_04-05-08" style="display:none; margin: -40px 0 40px 40px;">
+<p>It is unclear that the independence assumption is tenable. The data collection did not use random chance to select the sample data. Moreover, it is likely that knowing the sale price for one house would give us information about the sale price for other houses since houses in the same neighborhood are often sold for similar prices.</p>
+</div>
+</section>
+<p><br></p>
+</section>
+</section>
+<section id="references" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="references"><span class="header-section-number">11.2</span> References</h2>
 
 
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>According to <a href="https://en.wiktionary.org/wiki/zoinks">Wiktionary</a> the earliest usage of the work “zoinks” was by Norville “Shaggy” Rogers on the show Scooby-Doo.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You could also choose other ways of assigning the participants based on the random order. For example every other participant could be assigned to the treatment group. The key is you decide how this will be done before you see the results of the <code>sample()</code> function.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>If you go on and take EPsy 8251, you will learn about some of these tools.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1226,13 +788,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06-01-generalization.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span>
+      <a href="./04-04-one-sample-test-computation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-00-effect-size.html" class="pagination-link">
-        <span class="nav-page-text">Effect Size</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-06-one-sample-test-proportions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
