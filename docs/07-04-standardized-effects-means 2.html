@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis - 22&nbsp; Standardized Effects for Means</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-05-standardized-effects-props.html" rel="next">
+<link href="./07-03-confidence-intervals-extras.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-04-standardized-effects-means.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foreword</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Computation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing and Visualizing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Data to a Standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Two Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-01-scatterplot-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-02-linear-regression-description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#raw-versus-standardized-effects" id="toc-raw-versus-standardized-effects" class="nav-link active" data-scroll-target="#raw-versus-standardized-effects"><span class="header-section-number">22.1</span> Raw versus Standardized Effects</a></li>
+  <li><a href="#cohens-delta" id="toc-cohens-delta" class="nav-link" data-scroll-target="#cohens-delta"><span class="header-section-number">22.2</span> Cohen’s <span class="math inline">\(\delta\)</span></a>
+  <ul class="collapse">
+  <li><a href="#cannabis-case-study" id="toc-cannabis-case-study" class="nav-link" data-scroll-target="#cannabis-case-study"><span class="header-section-number">22.2.1</span> Cannabis Case Study</a></li>
+  <li><a href="#cohens-d-with-one-sample" id="toc-cohens-d-with-one-sample" class="nav-link" data-scroll-target="#cohens-d-with-one-sample"><span class="header-section-number">22.2.2</span> Cohen’s <em>d</em> with One Sample</a></li>
+  </ul></li>
+  <li><a href="#using-r-to-compute-cohens-d" id="toc-using-r-to-compute-cohens-d" class="nav-link" data-scroll-target="#using-r-to-compute-cohens-d"><span class="header-section-number">22.3</span> Using R to Compute Cohen’s d</a></li>
+  <li><a href="#confidence-intervals-for-cohens-d" id="toc-confidence-intervals-for-cohens-d" class="nav-link" data-scroll-target="#confidence-intervals-for-cohens-d"><span class="header-section-number">22.4</span> Confidence Intervals for Cohen’s d</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">22.5</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-std-effects-means" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this chapter you will learn about using standardized effects for making the metric between means more interpretable.</p>
+<p><br></p>
+<section id="raw-versus-standardized-effects" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="raw-versus-standardized-effects"><span class="header-section-number">22.1</span> Raw versus Standardized Effects</h2>
+<p>Confidence intervals report effect sizes in the metric of the original variable. For example, when we found the CI for the average price of a house near the University of Minnesota, the metric we used to interpret the CI was thousands of dollars, the same metric as the data (i.e., the raw metric). Reporting effect sizes using the raw metric is useful if people consuming our scholarship can make sense of the metric and interpret the magnitude of the effect using that metric. In reporting an effect for the average house, thousands of dollars is a reasonable metric—Americans generally have a sense of what that means and can reasonably determine whether values reported using that metric are big or small.</p>
+<p>Many times, however, the metric being used is less interpretable. For example, in our cannabis example, the metric being reported in the CI is change in IQ points. Is a change of 1.11 IQ points (the lower bound of our CI) a small change? A big change? What about a change of 11.3 IQ points? Without a deep understanding of the IQ scale used, these are difficult questions to answer.</p>
+<p>To alleviate the problems in interpretations of magnitude, researchers tend to report <em>standardized effect sizes</em> rather than raw effect sizes when the metric is not universally known. These effects use a standardized metric so that all researchers can make reasonable inference about the magnitude of the effect. In practice, there are two common standardized effect sizes that researchers use:</p>
+<ul>
+<li>Distance measures, and</li>
+<li>Variance accounted for measures</li>
+</ul>
+<p>While both of these standardized measures characterize the extent to which sample results diverge from the expectations specified in the null hypothesis, they do so in a different manner. In this chapter, we will introduce distance measures of effect.</p>
+<!-- In [Chapter X] variance accounted for measures of effect size are discussed. -->
+<p><br></p>
+</section>
+<section id="cohens-delta" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="cohens-delta"><span class="header-section-number">22.2</span> Cohen’s <span class="math inline">\(\delta\)</span></h2>
+<p><span class="citation" data-cites="Cohen:1962">Cohen (<a href="#ref-Cohen:1962" role="doc-biblioref">1962</a>)</span> introduced the first commonly recognized standardized effect size to measure the distance between two means. In his landmark book <span class="citation" data-cites="Cohen:1965">(<a href="#ref-Cohen:1965" role="doc-biblioref">Cohen, 1965</a>)</span>, he named this standardized effect size <span class="math inline">\(\delta\)</span> (the Greek letter “delta”; equivalent to the Roman lowercase “d”). It has henceforth been referred to as Cohen’s <span class="math inline">\(\delta\)</span>. The calculation of this standardized effect size is:</p>
+<p><span class="math display">\[
+\delta = \frac{|\mu_1-\mu_2|}{\sigma}
+\]</span></p>
+<p>where <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> are the population means for the two groups, and <span class="math inline">\(\sigma\)</span> is the standard deviation of the population. (Remember one of the assumptions when we compare two means is that the two populations have the same variance, which implies they have the same standard deviation.) An estimate of this effect size is obtained by substituting the sample estimates for the mean and standard deviation into this formula. To identify this as an estimate, it is renamed <em>Cohen’s d</em>:</p>
+<p><span class="math display">\[
+d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
+\]</span></p>
+<p>Cohen pointed out that since the variances, and therefore the standard deviations, for the two populations are assumed to be equivalent, that the standard deviation estimate from either group could be used. However, in practice it is common to use the average of the two sample estimates. (If the groups have equal sample sizes, we use the simple average, but if they are different sizes, we use a weighted average.)</p>
+<p><span class="math display">\[
+\begin{split}
+\mathbf{Simple~Average}:&amp;~s = \frac{s_1 + s_2}{2}\\[2ex]
+\mathbf{Weighted~Average}:&amp;~s = \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+\end{split}
+\]</span> where <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> are the standard deviations of the two groups, respectively, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample sizes.</p>
+<p>Examining the formula for Cohen’ <em>d</em>, we see that the numerator is expressing the estimated difference between the two population means (a distance between the two distributions). Dividing this distance by the standard deviation changes the metric of this distance. As an example, consider two objects that are 36 inches apart. To convert the distance to feet we divide the distance by 12. Note that it was the operation of dividing the distance that changed the metric. The value you divide by sets the new metric. For example if we had divided our 36 inch distance by 36 rather than 12 the metric would be in yards rather than feet. In Cohen’s <em>d</em>, the value we divide by is the standard deviation, so the new metric is the distance in <em>standard deviation units</em>.</p>
+<p><br></p>
+<section id="cannabis-case-study" class="level3" data-number="22.2.1">
+<h3 data-number="22.2.1" class="anchored" data-anchor-id="cannabis-case-study"><span class="header-section-number">22.2.1</span> Cannabis Case Study</h3>
+<p>Let’s compute Cohen’s <em>d</em> for the cannabis case study. We will begin by importing the data and computing numerical summaries for the two groups being compared.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["iq_change"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"4","2":"Adult"},{"1":"-10","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-1","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"5","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"9","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"4","2":"Adult"},{"1":"11","2":"Adult"},{"1":"-16","2":"Adult"},{"1":"-8","2":"Adult"},{"1":"-8","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-23","2":"Teen"},{"1":"-21","2":"Teen"},{"1":"1","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"0","2":"Teen"},{"1":"5","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-11","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-1","2":"Teen"},{"1":"-10","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-11","2":"Teen"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"iq_change","2":"Adult","3":"-16","4":"-7","5":"-3","6":"4.0","7":"11","8":"-2.071429","9":"7.770400","10":"14","11":"0"},{"1":"iq_change","2":"Teen","3":"-23","4":"-11","5":"-8","6":"-3.5","7":"5","8":"-8.260870","9":"7.136445","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>We note that the sample sizes for the two groups are not the same (one is 14 and the other 23). This means that we need to compute the weighted average for the standard deviation we will use in the formula for Cohen’s <em>d</em>. To do this:</p>
+<p><span class="math display">\[
+\begin{split}
+s &amp;= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+&amp;= \frac{14(7.77) + 23(7.14)}{14 + 23} \\[2ex]
+&amp;= 7.38
+\end{split}
+\]</span></p>
+<p>We can then compute Cohen’s <em>d</em> as:</p>
+<p><span class="math display">\[
+\begin{split}
+d &amp;= \frac{|\bar{x}_1-\bar{x}_2|}{s} \\[2ex]
+&amp;= \frac{|-2.07 - -8.26|}{7.38} \\[2ex]
+&amp;= \frac{6.19}{7.38} \\[2ex]
+&amp;= .84
+\end{split}
+\]</span> This is the distance between the two means in the standard deviation metric. In other words, the difference between average IQ score change between participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens is 0.84 standard deviations. In general, we can use the following guidelines to interpret Cohen’s <em>d</em> values:</p>
+<p><span class="math display">\[
+\begin{split}
+d &amp;\approx 0.2 \qquad \text{Small Effect} \\[2ex]
+d &amp;\approx 0.5 \qquad \text{Moderate Effect} \\[2ex]
+d &amp;\approx 0.8 \qquad \text{Large Effect}
+\end{split}
+\]</span> Using these guidelines suggests that there is a large effect of age on IQ change. Had we used the raw metric, we would have computed a difference between these groups of 6.19 IQ points (the numerator of Cohen’s <em>d</em>). Without a deep understanding of the IQ metric, we might have written this off as a small difference. Standardizing the metric to use standard deviation units helps us better understand effects that are in less interpretable metrics!</p>
+<p><br></p>
+</section>
+<section id="cohens-d-with-one-sample" class="level3" data-number="22.2.2">
+<h3 data-number="22.2.2" class="anchored" data-anchor-id="cohens-d-with-one-sample"><span class="header-section-number">22.2.2</span> Cohen’s <em>d</em> with One Sample</h3>
+<p>We can also compute Cohen’s <em>d</em> when we only have a single sample. Rather than computing the distance between two sample means in the numerator of Cohen’s <em>d</em>, we compute the distance between the sample mean and the hypothesized value of <span class="math inline">\(\mu\)</span> tested in a hypothesis test. In the denominator, we just employ the standard deviation for our sample:</p>
+<p><span class="math display">\[
+d = \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s}
+\]</span></p>
+<p>As an example, consider the house prices case study from <a href="04-04-one-sample-test-computation.html">Chapter&nbsp;<span>10</span></a>. We evaluated whether the average price of a house near the University of Minnesota was different than $322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:</p>
+<p><span class="math display">\[
+\begin{split}
+H_0: \mu = 322.46 \\[1ex]
+H_A: \mu \neq 322.46
+\end{split}
+\]</span> To compute Cohen’s <em>d</em>, we import the data and compute numerical summaries.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 15 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (1): price
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["price"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"249.90"},{"1":"499.99"},{"1":"399.90"},{"1":"435.00"},{"1":"525.00"},{"1":"325.00"},{"1":"329.00"},{"1":"343.00"},{"1":"305.00"},{"1":"424.90"},{"1":"249.90"},{"1":"539.00"},{"1":"549.90"},{"1":"500.00"},{"1":"399.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> price, <span class="at">data =</span> zillow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"price","2":"249.9","3":"327","4":"399.9","5":"499.995","6":"549.9","7":"404.966","8":"102.4312","9":"15","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Then we substitute these values along with the hypothesized mean of 322.46 (from the null hypothesis) into the formula for Cohen’s <em>d</em>:</p>
+<p><span class="math display">\[
+\begin{split}
+d &amp;= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
+&amp;= \frac{|404.97 - 322.46|}{102.43} \\[2ex]
+&amp;= \frac{82.51}{102.43} \\[2ex]
+&amp;= 0.81
+\end{split}
+\]</span></p>
+<p>The difference between average house price in neighborhoods near the UMN campus and the hypothesized price of $322.46k is 0.81 standard deviations. This is a large difference according to Cohen’s guidelines.</p>
+<div class="fyi">
+<p>The choice of whether to report the effect in raw or standardized units is up to the researcher. In the house price example, it is probably better to report the raw effect rather than the standardized effect. Consider both the raw metric and the audience—will your audience be able to understand the magnitude of the raw effect? Or would it be more helpful to standardize it so that the magnitude is more interpretable.</p>
+</div>
+<p><br></p>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<p><em>While differences in average age are probably best repoirted in the raw metric, as practice, compute Cohen’s <em>d</em> for the difference in the average age of the Bachelors and Bachelorettes.</em></p>
+<p>Import the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> data and computing numerical summaries. Based on these summaries, compute <em>s</em>, the denominator for Cohen’s <em>d</em>.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-01');">
+Show/Hide Solution
+</button>
+<div id="exercise_07-04-01" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 50 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): show, run_dates, name, winner, runner_up, proposal, still_together,...
+dbl (2): season, age
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["show"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"age","2":"Bachelor","3":"25","4":"28.0","5":"30","6":"33","7":"40","8":"30.70370","9":"3.800960","10":"27","11":"0"},{"1":"age","2":"Bachelorette","3":"24","4":"26.5","5":"28","6":"29","7":"39","8":"28.17391","9":"3.039919","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Because the sample sizes are not equal (27 vs.&nbsp;24), we need to compute <em>s</em> using a weighted average.</p>
+<p><span class="math display">\[
+\begin{split}
+s &amp;= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+&amp;= \frac{27(3.80) + 23(3.03)}{27 + 23} \\[2ex]
+&amp;= 3.45
+\end{split}
+\]</span></p>
+</div>
+<p>Compute Cohen’s <em>d</em> using the values computed in the previous problem..</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-02');">
+Show/Hide Solution
+</button>
+<div id="exercise_07-04-02" style="display:none; margin: -40px 0 40px 40px;">
+<p><span class="math display">\[
+\begin{split}
+d &amp;= \frac{|\bar{x}_1 - \bar{x}_2|}{s} \\[2ex]
+&amp;= \frac{|30.70 - 28.17|}{3.45} \\[2ex]
+&amp;= .733
+\end{split}
+\]</span></p>
+</div>
+<p>Interpret the value of Cohen’s <em>d</em>. Also comment on its magnitude.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-03');">
+Show/Hide Solution
+</button>
+<div id="exercise_07-04-03" style="display:none; margin: -40px 0 40px 40px;">
+<p>The difference between the average age of Bachelors and Bachelorettes is 0.733 standard deviations. This is a fairly large effect.</p>
+</div>
+</section>
+<p><br></p>
+</section>
+</section>
+<section id="using-r-to-compute-cohens-d" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="using-r-to-compute-cohens-d"><span class="header-section-number">22.3</span> Using R to Compute Cohen’s d</h2>
+<p>The function <code>smd()</code> (standardized mean difference) can be used to compute Cohen’s <em>d</em>. This function is part of the <code>{MBESS}</code> package. (You will need to install this package.) To use the <code>smd()</code> function, we provide the means, standard deviations, and sample sizes of both groups. For example, the syntax to compute Cohen’s <em>d</em> for the Bachelor/Bachelorette ages example is shown below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MBESS package</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="fl">30.70</span>, <span class="at">s.1 =</span> <span class="fl">3.80</span>, <span class="at">n.1 =</span> <span class="dv">27</span>, <span class="co">#Bachelor summaries</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="fl">28.17</span>, <span class="at">s.2 =</span> <span class="fl">3.04</span>, <span class="at">n.2 =</span> <span class="dv">23</span>  <span class="co">#Bachelorette summaries</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7286076</code></pre>
+</div>
+</div>
+<div class="fyi">
+<p>It doesn’t matter which group you input in as Group 1 or Group 2…just be consistent in the function.</p>
+</div>
+<p>To use the <code>smd()</code> function to compute Cohen’s <em>d</em> to measure the distance between a sample mean and a hypothesized mean (i.e., in the one-sample situation) we use <code>Mean.1=</code> and <code>Mean.2=</code>, similar to the previous syntax. We also use <code>s=</code> to include the sample standard deviation. (We do not need to provide the sample sizes.) The syntax to compute Cohen’s <em>d</em> for our Zillow example is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d (one-sample)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="fl">404.97</span>, <span class="co">#Sample mean</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="fl">322.46</span>, <span class="co">#Hypothesized mean</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="fl">102.43</span> <span class="co">#Sample SD</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8055257</code></pre>
+</div>
+</div>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
+<p>Use the <code>smd()</code> function to compute Cohen’s <em>d</em> for the cannabis example.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">
+Show/Hide Solution
+</button>
+<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="sc">-</span><span class="fl">2.07</span>, <span class="at">s.1 =</span> <span class="fl">7.77</span>, <span class="at">n.1 =</span> <span class="dv">14</span>, <span class="co">#Adult summaries</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="sc">-</span><span class="fl">8.26</span>, <span class="at">s.2 =</span> <span class="fl">7.14</span>, <span class="at">n.2 =</span> <span class="dv">23</span>  <span class="co">#Teen summaries</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8387215</code></pre>
+</div>
+</div>
+<p>Don’t forget to load the <code>{MBESS}</code> package if you haven’t already done so!</p>
+</div>
+</section>
+<p><br></p>
+</section>
+<section id="confidence-intervals-for-cohens-d" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="confidence-intervals-for-cohens-d"><span class="header-section-number">22.4</span> Confidence Intervals for Cohen’s d</h2>
+<p>Cohen’s <em>d</em> is a <em>point estimate</em> (i.e., single number estimate) of the standardized population effect size Cohen’s <span class="math inline">\(\delta\)</span>. As with raw estimates of the effect, it is important to consider uncertainty in the estimate and report an <em>interval estimate</em> (i.e., range of plausible values) for the effect.</p>
+<p>To find a CI for Cohen’s <span class="math inline">\(\delta\)</span> in the one-sample situation—comparing a sample mean to a hypothesized mean—we can use the function <code>ci.sm()</code>, also part of the <code>{MBESS}</code> library. This function takes two arguments, <code>sm=</code> (Cohen’s <em>d</em>) and <code>N=</code> (the sample size). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the Zillow example is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Zillow example (one-sample)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.sm</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sm =</span> .<span class="dv">8055</span>, <span class="co">#Cohen's d</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="dv">15</span>      <span class="co">#Sample size</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Lower.Conf.Limit.Standardized.Mean
+[1] 0.2088108
+
+$Standardized.Mean
+[1] 0.8055
+
+$Upper.Conf.Limit.Standardized.Mean
+[1] 1.380891</code></pre>
+</div>
+</div>
+<p>The CI for Cohen’s <span class="math inline">\(\delta\)</span> is <span class="math inline">\([.21,~1.38]\)</span>. That is the population effect size is likely between .21 and 1.38 standard deviations. Using Cohen’s guidelines, the population effect might be small, or huge, or anywhere in between. We have a lot of uncertainty in the true size of the effect (due to the small sample size).</p>
+<p>For the two-sample situation—comparing two samples—we use the <code>ci.smd()</code> function (from the <code>{MBESS}</code> library) to compute a CI for Cohen’s <span class="math inline">\(\delta\)</span>. This function takes three arguments: <code>smd=</code> (Cohen’s <em>d</em>), <code>n.1=</code>, and <code>n.2=</code> (the two sample sizes, respectively). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the cannabis example is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.smd</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">smd =</span> .<span class="dv">8387</span>, <span class="co">#Cohen's d</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.1 =</span> <span class="dv">14</span>,    <span class="co">#Sample size for group 1</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.2 =</span> <span class="dv">23</span>    <span class="co">#Sample size for group 2</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Lower.Conf.Limit.smd
+[1] 0.1405644
+
+$smd
+[1] 0.8387
+
+$Upper.Conf.Limit.smd
+[1] 1.525818</code></pre>
+</div>
+</div>
+<p>The CI for Cohen’s <span class="math inline">\(\delta\)</span> is <span class="math inline">\([.14,~1.53]\)</span>. That is the population effect size is likely between .14 and 1.52 standard deviations. Using Cohen’s guidelines, the population effect might be quite small, or huge, or anywhere in between. Again, we have a lot of uncertainty in the true size of the effect (due to the small sample sizes).</p>
+<div class="fyi">
+<p>To have reasonable precision in the CIs for a standardized effect, you need very large samples!</p>
+</div>
+<section id="your-turn-2" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-2">Your Turn</h4>
+<p>Use the <code>ci.smd()</code> function to compute a 99% CI for Cohen’s <span class="math inline">\(\delta\)</span> for the Bachelor/Bachelorette age example. You can change the confidence level using the <code>conf.level=</code> argument. The default is <code>conf.level=.95</code>, which produces a 95% CI.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">
+Show/Hide Solution
+</button>
+<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute 99% CI for Cohen's d</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.smd</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">smd =</span> .<span class="dv">7286</span>,     <span class="co">#Cohen's d</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.1 =</span> <span class="dv">27</span>,        <span class="co">#Sample size for group 1</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.2 =</span> <span class="dv">23</span>,        <span class="co">#Sample size for group 2</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> .<span class="dv">99</span> <span class="co">#99% confidence level</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Lower.Conf.Limit.smd
+[1] -0.03017543
+
+$smd
+[1] 0.7286
+
+$Upper.Conf.Limit.smd
+[1] 1.480727</code></pre>
+</div>
+</div>
+<p>Here the CI for Cohen’s <span class="math inline">\(\delta\)</span> extends from <span class="math inline">\(-.03\)</span> to 1.48. The negative value at one end of the interval and a positve value indicates that the direction of the effect is in question…In the population, is the Bachelor’s average age older than that of the Bachelorettes? Or are the Bachelorette’s older, on average, than the Bachelors? There is too much uncertainty to determine this. Moreover, there is a lot of uncertainty in the size of the effect…it could be small or large.</p>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="references"><span class="header-section-number">22.5</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Cohen:1962" class="csl-entry" role="listitem">
+Cohen, J. (1962). The statistical power of abnormal-social psychological research. <em>Journal of Abnormal and Social Psychology</em>, <em>65</em>(3), 145–153.
+</div>
+<div id="ref-Cohen:1965" class="csl-entry" role="listitem">
+Cohen, J. (1965). <em>Statistical power analysis for the behavioral sciences</em>. Academic Press.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-03-confidence-intervals-extras.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-05-standardized-effects-props.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

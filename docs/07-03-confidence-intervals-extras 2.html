@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis - 21&nbsp; Confidence Intervals: Assumptions, Accuracy, and Precision</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-04-standardized-effects-means.html" rel="next">
+<link href="./07-02-confidence-intervals-computation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-03-confidence-intervals-extras.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foreword</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Computation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing and Visualizing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Data to a Standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Two Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-01-scatterplot-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-02-linear-regression-description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#assumptions-for-the-confidence-interval" id="toc-assumptions-for-the-confidence-interval" class="nav-link active" data-scroll-target="#assumptions-for-the-confidence-interval"><span class="header-section-number">21.1</span> Assumptions for the Confidence Interval</a></li>
+  <li><a href="#unbiased-sampling-and-cis" id="toc-unbiased-sampling-and-cis" class="nav-link" data-scroll-target="#unbiased-sampling-and-cis"><span class="header-section-number">21.2</span> Unbiased Sampling and CIs</a>
+  <ul class="collapse">
+  <li><a href="#deeper-understanding-of-unbiasedness-and-accuracy" id="toc-deeper-understanding-of-unbiasedness-and-accuracy" class="nav-link" data-scroll-target="#deeper-understanding-of-unbiasedness-and-accuracy"><span class="header-section-number">21.2.1</span> Deeper Understanding of Unbiasedness and Accuracy</a></li>
+  </ul></li>
+  <li><a href="#confidence-level-and-accuracy" id="toc-confidence-level-and-accuracy" class="nav-link" data-scroll-target="#confidence-level-and-accuracy"><span class="header-section-number">21.3</span> Confidence Level and Accuracy</a>
+  <ul class="collapse">
+  <li><a href="#changing-the-confidence-level" id="toc-changing-the-confidence-level" class="nav-link" data-scroll-target="#changing-the-confidence-level"><span class="header-section-number">21.3.1</span> Changing the Confidence Level</a></li>
+  <li><a href="#using-r-to-obtain-a-99-ci" id="toc-using-r-to-obtain-a-99-ci" class="nav-link" data-scroll-target="#using-r-to-obtain-a-99-ci"><span class="header-section-number">21.3.2</span> Using R to Obtain a 99% CI</a></li>
+  </ul></li>
+  <li><a href="#improving-precision-of-the-ci" id="toc-improving-precision-of-the-ci" class="nav-link" data-scroll-target="#improving-precision-of-the-ci"><span class="header-section-number">21.4</span> Improving Precision of the CI</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-confidence-intervals-assump" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this chapter you will learn about the assumptions that we need to make in order for the results of a confidence interval to be statistically valid. You will also learn about confidence levels and factors that affect the precision of a confidence interval.</p>
+<p><br></p>
+<section id="assumptions-for-the-confidence-interval" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="assumptions-for-the-confidence-interval"><span class="header-section-number">21.1</span> Assumptions for the Confidence Interval</h2>
+<p>The assumptions underlying the use of a confidence interval are exactly the same as those underlying hypothesis tests. So, for using a CI to estimate a single mean, the assumptions are:</p>
+<ol type="1">
+<li>The distribution of values in the population is <em>normally distributed</em>.</li>
+<li>The values in the population are <em>independent</em> from each other.</li>
+</ol>
+<p>Whereas the assumptions underlying the use of a CI to estimate a single proportion are:</p>
+<ol type="1">
+<li>The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”).</li>
+<li>The values in the population are <em>independent</em> from each other.</li>
+<li>The quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+</ol>
+<p>The assumptions for a CI to estimate the differences in means between two groups are:</p>
+<ol type="1">
+<li>The distribution of values in both populations is <em>normally distributed</em>.</li>
+<li>The values in both population are <em>independent</em> from each other.</li>
+<li>Both populations have the same variance.</li>
+</ol>
+<p>And, those for a CI to estimate the differences in proportions between two groups are:</p>
+<ol type="1">
+<li>The values in the two populations both follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”) for each group being compared.</li>
+<li>The values in the population are <em>independent</em> from each other.</li>
+<li>For both groups, the quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size used in the group and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+</ol>
+<p><br></p>
+</section>
+<section id="unbiased-sampling-and-cis" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="unbiased-sampling-and-cis"><span class="header-section-number">21.2</span> Unbiased Sampling and CIs</h2>
+<p>The key to generalization and accuracy in the CI is that the sample was chosen using an unbiased sampling method—namely random sampling. Without this, the resulting interval is biased and the interval given is far less likely to be accurate in estimating the population parameter. In the metaphor introduced in <a href="06-01-generalization.html">Chapter&nbsp;<span>17</span></a>, a biased method would mean that Arthur’s search locations for their keys was systematically in the wrong place. If we extend this idea to confidence intervals, the search location (sample statistic) would produce a confidence interval (search area) that is also systematically in the wrong place. <a href="#fig-keys-ci-bias">Figure&nbsp;<span>21.1</span></a> shows this idea visually.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-keys-ci-bias" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/07-03-01-ci-keys.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.1: This figure is a metaphor for statistical bias.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In this picture the search area, which represents the estimate of where Arthur thought they lost their keys, is inaccurate—the actual keys (population parameter) are not inside the bounds of the search area (inside the CI). This is because the search location (sample statistic) was initially produced by a biased method.</p>
+<p>For example, in <a href="07-02-confidence-intervals-computation.html">Chapter&nbsp;<span>20</span></a> we computed a CI for the difference in the average amount of change in IQ scores between users who started using marijuana as adults and those who started using marijuana as teens. The CI, <span class="math inline">\([1.11,~11.27]\)</span>, indicated the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 and 11.26. Unfortunately the sample of users was not chosen randomly—they were all volunteers. Because our sample was not chosen using an unbiased sampling method, it is highly likely that the CI produced is inaccurate. That is, the true population difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is PROBABLY NOT between 1.11 and 11.26.</p>
+<p><br></p>
+<section id="deeper-understanding-of-unbiasedness-and-accuracy" class="level3" data-number="21.2.1">
+<h3 data-number="21.2.1" class="anchored" data-anchor-id="deeper-understanding-of-unbiasedness-and-accuracy"><span class="header-section-number">21.2.1</span> Deeper Understanding of Unbiasedness and Accuracy</h3>
+<p>To more deeply understand how an unbiased method affects accuracy of the CI, let’s consider another thought experiment. Imagine a population that is normally distributed with a mean of 10 and a standard deviation of 2. Now imagine that we are randomly sampling 25 observations from that population and using those 25 sampled observations to produce a CI that would be used to estimate the value of the population mean. We will repeat this process, say 100 times. A visual of this thought experiment is shown in <a href="#fig-ci-thought-experiment">Figure&nbsp;<span>21.2</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ci-thought-experiment" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/07-03-02-thought-experiment.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.2: A thought experiment in which we randomly sample n=25 observations from a N(10, 2) population. We do this many times (say 100 times). For each sample we compute the CI.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A plot of the 100 CIs is shown in <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of <span class="math inline">\([9.64,~10.80]\)</span>. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it’s CI was <span class="math inline">\([9.34,~10.88]\)</span>, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a> are red. Those CIs do not include 10 as a plausible value.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-unbiased-cis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.3: The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now let’s carry out a thought experiment in which a biased sampling method is used. In this sampling method, the sample mean is, on average, higher than the population mean of 10. We will use this method to again draw 100 different samples of size 25. And again, we will produce a CI for each of the 100 samples.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-biased-cis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-biased-cis-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.4: The 100 CIs for each of the 100 samples drawn using a biased sampling method. The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> the CIs that include the population value of 10 are agin colored grey and those that do not are colored red. Using an biased sampling method, we see that more of the CIs are red—they do not include 10 as a plausible value for the population mean, despite 10 being the actual population mean!</p>
+<p>In both <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a> and <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> we can see that some of the CIs include 10 and some don’t. But, on average, the unbiased sampling method produces many more CIs that include 10 than the biased sampling method does. Because of this, we would say that the unbiased sampling method produces more accurate estimates of the sample mean. Accuracy refers to whether the CI includes the population parameter for most CIs <em>that could be produced</em>. It does not mean that any one CI will be accurate or not. It is just <em>more likely</em> that a CI will include the population parameter if the sample that produced the CI was selected using an unbiased method.</p>
+<div class="fyi">
+<p>In practice we do not draw many samples—we have one sample. This sample is used to create a single CI that we use to estimate the mean. Unlike in the thought experiment, in practice, we do not know what the value of the population parameter actually is. So we don’t know whether our CI includes this value (is a gray CI) or doesn’t (is a red CI). If we used an unbiased sampling method to select our sample, our CI is more likely to be gray than red. )</p>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="confidence-level-and-accuracy" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="confidence-level-and-accuracy"><span class="header-section-number">21.3</span> Confidence Level and Accuracy</h2>
+<p>In the previous section you saw that even if you use an unbiased sampling method (e.g., random sampling) you still occasionally draw a sample that produces a red CI—it does not include the population parameter as a plausible value. In fact, looking back at <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>, we see that this will happen about 5% of the time (five of the 100 samples produced a red CI). This is because we produced a confidence interval using a method that will include the population parameter for 95% of the intervals it creates, so long as the sampling method used to select those samples is unbased. Another way to say this is the method we used to create the CIs was accurate 95% of the time.</p>
+<p>This accuracy rate is referred to as the <em>confidence level</em>. In practice we say that we created a <em>95% Confidence Interval</em>. But be careful, using this language. Here are some caveats as you start to use this terminology:</p>
+<ul>
+<li>The 95% doesn’t refer to the single CI, but rather to the accuracy rate across producing many, many CIs.</li>
+</ul>
+<p>Across many different samples, we expect 95% of the CIs that are created to be grey and 5% to be red. In practice we never draw more than a single sample so there is ever only a single interval. This interval is either grey (it included the parameter in the interval) or red (it did not). Because of this, for a single sample we CANNOT SAY:</p>
+<ul>
+<li>There is a 95% chance that the population parameter is in the interval. (WRONG! 😢)</li>
+</ul>
+<p>It either is in the interval (100%) or it’s not (0%). In practice, we hope that our interval is grey and includes the true population parameter inside the interval, but there is not way to know if it does. If we used an unbiased sampling method to select the sample, then we know that 95% of all possible samples we could draw would produce a grey interval, and we are hoping that our interval is from a sample that produces a grey interval. (Again, this is far more likely if the sample is chosen using an unbiased sampling method.)</p>
+<p><br></p>
+<section id="changing-the-confidence-level" class="level3" data-number="21.3.1">
+<h3 data-number="21.3.1" class="anchored" data-anchor-id="changing-the-confidence-level"><span class="header-section-number">21.3.1</span> Changing the Confidence Level</h3>
+<p>We can change the method we use to produce the CI to raise or lower the accuracy level. For example, rather than creating a 95% CI, we could use a method that is 99% accurate (99% of the samples will produce a grey CI). In order to do this, we change the multiplication factor in the formula for the CI. For example, the following was the formula we introduced to compute a CI, which produces a 95% CI:</p>
+<p><span class="math display">\[
+\text{Sample Estimate} \pm 2 \times \text{SE}
+\]</span></p>
+<p>To create a 99% CI we use:</p>
+<p><span class="math display">\[
+\text{Sample Estimate} \pm 3 \times \text{SE}
+\]</span></p>
+<p>And to produce a 68% CI we use:</p>
+<p><span class="math display">\[
+\text{Sample Estimate} \pm 1 \times \text{SE}
+\]</span> The higher the confidence level, the larger the multiplication factor in the margin of error. Think about how this impacts the CI. For example, in our marijuana case study the 95% CI was <span class="math inline">\([1.11,~11.26]\)</span>. A 99% CI for this difference is <span class="math inline">\([-0.62,~13.00]\)</span>. The margin of error is bigger which makes the interval width wider. That is, we have more uncertainty (i.e., less <em>precision</em>) in our estimate.</p>
+<p>To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we can carry out a thought experiement. In this thought experiment (using an unbiased sampling method), we will draw 100 different samples of size 25 and produce a 99% CI for each of the 100 samples. The result is shown in <a href="#fig-unbiased-cis-99">Figure&nbsp;<span>21.5</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-unbiased-cis-99" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="07-03-confidence-intervals-extras_files/figure-html/fig-unbiased-cis-99-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>When we use a 99% CI only one of the 100 samples produced a CI that did not include the population mean of 10. Across the 100 sampes 99 of them (99%) included the population mean of 10. That implies that using a 99% CI is more accurate than using a 95% CI. Again note, that each individual interval either included the mean of 10 (was gray) or did not (was red)—the accuracy rate refers to how well the method does across many random samples.</p>
+<p>The drawback to changing the accuracy level from 95% to 99% is that the intervals are wider. This, again, means that we have more uncertainty in the value of the population parameter because there are more plausible values in the interval. <strong>There is always a tradeoff between accuracy and precision; increasing one decreases the other.</strong> In practice, social science researchers tend to use and report 95% CIs.</p>
+<p><br></p>
+</section>
+<section id="using-r-to-obtain-a-99-ci" class="level3" data-number="21.3.2">
+<h3 data-number="21.3.2" class="anchored" data-anchor-id="using-r-to-obtain-a-99-ci"><span class="header-section-number">21.3.2</span> Using R to Obtain a 99% CI</h3>
+<p>To change the confidence level for our CI, we need to include the argument <code>conf.level=</code> in the <code>t_test()</code> function. For example, to obtain a 99% CI for the difference in the average amount of change in IQ scores between users who started using marijuana as adults and those who started using marijuana as teens, we use the following syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["iq_change"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"4","2":"Adult"},{"1":"-10","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-1","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"5","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"9","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"4","2":"Adult"},{"1":"11","2":"Adult"},{"1":"-16","2":"Adult"},{"1":"-8","2":"Adult"},{"1":"-8","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-23","2":"Teen"},{"1":"-21","2":"Teen"},{"1":"1","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"0","2":"Teen"},{"1":"5","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-11","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-1","2":"Teen"},{"1":"-10","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-11","2":"Teen"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Include conf.level=</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  iq_change <span class="sc">~</span>  cannabis_dep, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> cannabis, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> .<span class="dv">99</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["mean in group Adult"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["mean in group Teen"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["lower"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["upper"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["level"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"-2.071429","2":"-8.26087","3":"-0.6230182","4":"13.0019","5":"0.99"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>You can set the <code>conf.level=</code> argument to whichever confidence level you would like. The default is <code>conf.level=.95</code>, so not including the <code>conf.level=</code> argument will produce a 95% CI.</p>
+<p><br></p>
+</section>
+</section>
+<section id="improving-precision-of-the-ci" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="improving-precision-of-the-ci"><span class="header-section-number">21.4</span> Improving Precision of the CI</h2>
+<p>Ideally, the confidence interval will be precise enough to be useful to the researcher. For example, say a researcher was interested in estimating the mean starting salary for a teacher in a particular state. If the CI they produced suggested the average starting salary was between $20,000 and $80,000, that would not be very useful. While it gives a set of plausible values, the precision of the interval is too low (too much uncertainty) to be useful in determining the average starting salary. On the other hand, a CI that estimated the average starting salary to be between $49,800 and $50,200 is quite useful. The high amount of precision in the estimate reduces the amount of uncertainty around the actual mean value.</p>
+<p>The amount of precision in the CI is all governed by the margin of error. In our keys metaphor, the margin of error is represented by the size of the area that Arthur is searching.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In <a href="#fig-keys-ci-high-prec">Figure&nbsp;<span>21.6</span></a> and <a href="#fig-keys-ci-low-prec">Figure&nbsp;<span>21.7</span></a>, the two scenarios show vastly different search areas for Arthur’s keys. The left-hand figure has a smaller search area reflecting higher precision and less uncertainty about where the keys are. The right-hand figure has a larger search area which reflects lower precision and more uncertainty about where the keys are.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div id="fig-keys-ci-high-prec" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/07-03-03-ci-keys-high-precision.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.6: This figure is a metaphor for high precision. Note there is not much uncertainty in the area that needs to be searched.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div id="fig-keys-ci-low-prec" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/07-03-03-ci-keys-low-precision.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;21.7: This figure is a metaphor for low precision. Note there is much more uncertainty in the area that needs to be searched.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Numerically, the margin of error is half of the range of the confidence interval and is expressed as the part of the CI that gets added and subtracted from the sample estimate. For example the two CIs presented in the previous paragraph have a margin of error of $30,000 and $200, respectively. Their formulas to produce the CIs would be:</p>
+<p><span class="math display">\[
+\begin{split}
+50000 &amp;\pm 30000 = [20000,~80000]\\[2ex]
+50000 &amp;\pm 200 = [49800,~50200]
+\end{split}
+\]</span></p>
+<p>Recall that the way we obtain the margin of error (when we are estimating the 95% CI for a single mean) is:</p>
+<p><span class="math display">\[
+\begin{split}
+\text{Margin of Error} &amp;= 2 \times \text{SE} \\[2ex]
+&amp;=2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
+\end{split}
+\]</span></p>
+<p>where the value 2 was a multiplication factor related to the confidence level, SD is the sample standard deviation, and <em>n</em> is the sample size. To improve precision, we need to make the margin of error smaller (less uncertainty). How can we do this?</p>
+<ul>
+<li>Use a smaller multiplication factor than 2 (i.e., make the confidence level smaller)</li>
+<li>Have a smaller SD</li>
+<li>Have a larger sample size</li>
+</ul>
+<p>In the social sciences, since we always use a 95% CI, the multiplication factor will be 2, so we can’t really manipulate this without sacrificing accuracy. The SD is a function of the data, so there is really no way to manipulate this either (at least not easily). The only factor we as researchers can change is the sample size, and sometimes we don’t have control over that either.</p>
+<div class="fyi">
+<p>Larger sample sizes result in more precision (less uncertainty) in our estimates.</p>
+</div>
+<p>Thinking about this relationship between sample size and precision of the estimate prior to collecting any data can help you plan a more meaningful study. For example, say you wanted to be able to estimate the starting salary of teachers so that the margin of error was no more than $1,000 (a range of $2,000 in the CI). How big a sample size might you need? You could substitute the desired margin of error into our formula and solve for <em>n</em>.</p>
+<p><span class="math display">\[
+\begin{split}
+\text{Margin of Error} &amp;= 2 \times \text{SE} \\[2ex]
+1000 &amp;=2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
+\end{split}
+\]</span></p>
+<p>To solve for <em>n</em>, we also need an estimate for the SD we might expect in the data we collect. Often good guesses for this can be found in previos studies or the substantive literature. In our example, based on previous data, we expect that a reasonable guess for the SD might be about $10,000. Includng this in our formula and solving for sampe size:</p>
+<p><span class="math display">\[
+\begin{split}
+1000 &amp;=2 \times \frac{10000}{\sqrt{n}} \\[2ex]
+500 &amp;= \frac{10000}{\sqrt{n}} \\[2ex]
+500(\sqrt{n}) &amp;= 10000 \\[2ex]
+\sqrt{n} &amp;= \frac{10000}{500} \\[2ex]
+\sqrt{n} &amp;= 20 \\[2ex]
+n &amp;= 20^2 \\[2ex]
+n &amp;= 400
+\end{split}
+\]</span></p>
+<p>To obtain a 95% CI with a margin of error of $1,000, we need a sample of salaries from 400 starting teachers (assuming that the SD in the data is $10,000).</p>
+<div class="fyi">
+<p>Obtaining a high degree of precision is often quite costly in terms of the sample size. You generally need a very large sample size to ensure high precision in a CI, which is not always possible in practice. This often means that estimates in the social sciences typically have a lot of uncertainty.</p>
+</div>
+<p><br></p>
+<!-- ## References -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Technically it would be the radius of the search area.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-02-confidence-intervals-computation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-04-standardized-effects-means.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
