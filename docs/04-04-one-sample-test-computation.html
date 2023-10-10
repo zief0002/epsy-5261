@@ -411,6 +411,12 @@ function toggle_visibility(id) {
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -716,12 +722,12 @@ p = 0.6871492
 <div id="fig-t-dist3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10.7: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated <em>p</em>-value of .687 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu eq2.5\)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;10.7: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated <em>p</em>-value of .687 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq2.5\)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the <em>p</em>-value of .0687, we would <em>fail to reject</em> the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5.</p>
+<p>Based on the <em>p</em>-value of .687, we would <em>fail to reject</em> the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5.</p>
 <div class="fyi">
 <p><strong>SUPER IMPORTANT NOTE</strong></p>
 <p>Just because data are consistent with a hypothesis does not mean that hypothesis is true. As an example, consider a patient who goes to the doctor with a set of symptoms (e.g., aches, fever, congestion). The symptoms are the data the doctor will use to help make a diagnosis (hypothesis) which is consistent with the symptoms. However, there are likely several diagnoses that are consistent with the same set of symptoms. This is also true of hypotheses: The data can be consistent with several different hypotheses.</p>

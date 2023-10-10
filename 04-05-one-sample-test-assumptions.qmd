@@ -112,7 +112,7 @@ Looking back at the sample distribution of teen sleep measurements in @fig-hrs-s
 
 How different would the sample distribution have to look in order for us to conclude that the assumption of normality was not tenable given the distribution of the sample data? This is a difficult question to answer without other statistical tools.^[If you go on and take EPsy 8251, you will learn about some of these tools.] One tool that we rely on a great deal is something called the *Central Limit Theorem (CLT)*. This theorem basically says that if the sample size of your data is over 30 that it doesn't matter if the normality assumption is met, the *p*-value will not be impacted if the population is not normal.
 
-In our example the sample size is 75. This means that it doesn't matter if the population is normal or not---the CLT basically says that we can assume that the *p*-value is not impacted by any deviation in the population distribution from normality. This is good news as it means we don't have to guess whether or not our sample distribution of teen sleep measurements actually comes from a populatin that is normally distributed.
+In our example the sample size is 75. This means that it doesn't matter if the population is normal or not---the CLT basically says that we can assume that the *p*-value is not impacted by any deviation in the population distribution from normality. This is good news as it means we don't have to guess whether or not our sample distribution of teen sleep measurements actually comes from a population that is normally distributed.
 
 <br />
 

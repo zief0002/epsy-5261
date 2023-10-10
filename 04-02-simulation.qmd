@@ -19,10 +19,7 @@ The key question addressed by using any statistical method of inference is "how 
 knitr::include_graphics("figs/04-04-thought-experiment.png")
 ```
 
-Bradley Efron introduced the methodology of bootstrapping in the late 1970s as an alternative method to compute the standard error. 
-
-
-computer-based simulation framework to replace the inaccurate and complicated approximations that theoretical methods provide.^[The nomenclature of bootstrapping comes from the idea that the use of the observed data to generate more data is akin to a method used by Baron Munchausen, a literary character, after falling "in a hole nine fathoms under the grass,...observed that I had on a pair of boots with exceptionally sturdy straps. Grasping them firmly, I pulled with all my might. Soon I had hoist myself to the top and stepped out on terra firma without further ado" [@Raspe:1948, p. 22]] 
+Bradley Efron introduced the methodology of bootstrapping in the late 1970s as an alternative method to compute the standard error.^[The nomenclature of bootstrapping comes from the idea that the use of the observed data to generate more data is akin to a method used by Baron Munchausen, a literary character, after falling "in a hole nine fathoms under the grass,...observed that I had on a pair of boots with exceptionally sturdy straps. Grasping them firmly, I pulled with all my might. Soon I had hoist myself to the top and stepped out on terra firma without further ado" [@Raspe:1948, p. 22]] 
 
 Efron’s big discovery was that in the thought experiment, we could replace the population with a sample, and then randomly sample from that initial sample. He proved that using this methodology, you can obtain a good estimate of the sampling variation. 
 

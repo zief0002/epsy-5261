@@ -60,6 +60,7 @@ book:
       chapters:
         - 08-01-scatterplot-correlation.qmd
         - 08-02-linear-regression-description.qmd
+        - 08-03-r-squared.qmd
         
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'

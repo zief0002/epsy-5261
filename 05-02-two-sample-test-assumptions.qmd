@@ -53,9 +53,39 @@ gf_density(
   )
 ```
   
-The density plots suggests that the SAMPLE distributions of change in IQ scores is not symmetric for either group. The question is whether the POPULATION distributions are normal, not whether the sample distributions are normal. We are only asking whether we believe that the population distributions are normal based on what we see in the sample distributions. To answer this question, we need some idea of what sample distributions of size 75 look like if they truly do come from a population that is normally distributed. Below are the distributions for five samples of size 75 that were actually drawn from a normal distribution. As in the one-sample situation, even if the samples look non-normal, we can fall back on the *Central Limit Theorem (CLT)* if our sample size is large enough in both groups (i.e., $n\geq 30$). 
+The density plots suggests that the SAMPLE distributions of change in IQ scores is not symmetric for either group. The question is whether the POPULATION distributions are normal, not whether the sample distributions are normal. We are only asking whether we believe that the population distributions are normal based on what we see in the sample distributions. To answer this question, we need some idea of what sample distributions of size 14 and 23 look like if they truly do come from a population that is normally distributed. Below are the distributions for five samples of size 14 and 23 that were actually drawn from a normal distribution. 
 
-In our example the sample sizes are 14 (adult) and 23 (teen), respectively. These sample sizes are both less than 30. Given that the sample distributions deviate from normality and the small sample sizes, it may be that the normality assumption is not tenable.
+```{r}
+#| label: fig-five-normal
+#| fig-cap: "Five simple random samples of size 14 and 23 drawn from a normal population."
+#| echo: false
+#| fig-width: 10
+#| fig-height: 4
+#| out-width: "100%"
+set.seed(2500)
+d = data.frame(
+  y = c(rnorm(n = 70, mean = -2.071429, sd = 7.770400), rnorm(n = 115, mean = -8.260870, sd = 7.136445)),
+  sample = c(rep(c("SRS 1", "SRS 2", "SRS 3", "SRS 4", "SRS 5"), rep(14, 5)), rep(c("SRS 1", "SRS 2", "SRS 3", "SRS 4", "SRS 5"), rep(23, 5))),
+  n = c(rep("n = 14", 70), rep("n = 23", 115))
+)
+
+ggplot(data = d, aes(x = y)) +
+  geom_dotplot() +
+  geom_density() +
+  facet_grid(n ~ sample) +
+  ylim(0, 0.08) +
+  ylab("Density") +
+  xlab("Change in IQ Score") +
+  theme_bw()
+```
+
+We see that many of these sample distributions have multiple modes or indicate some skew. However, all of these were drawn from a normally distributed population, that is: the assumption of normality would be met. One take away from this is that with small sample sizes it is difficult to tell whether the assumption of normality is met since even sample distributions drawn from a normal population don't necessarily look normal. 
+
+In our example, the sample distributions do not appear normal. Is this because the population they come from is not normal? Or is it that the population is normal, but the small sample size resulted in a non-normal sample? We don't know! 
+
+As in the one-sample situation, even if the samples look non-normal, we can fall back on the *Central Limit Theorem (CLT)* if our sample size is large enough in both groups (i.e., $n\geq 30$). In our example the sample sizes are 14 (adult) and 23 (teen), respectively. These sample sizes are both less than 30. So we cannot rely on the CLT.
+
+Given that the sample distributions deviate from normality and the small sample sizes, it may be that the normality assumption is not tenable or it may be tenable...we just can't tell. In this situation, it is safest to point out that the normality assumption may not be tenable.
 
 <br />
 

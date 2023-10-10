@@ -359,6 +359,7 @@ The positive residual suggests that Marquette University has a completion rate t
 
 ```{r}
 #| echo: false
+#| message: false
 #| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
 ggplot(data = colleges, aes(x = act, y = completion_rate)) +
   geom_point(alpha = 0.3) +

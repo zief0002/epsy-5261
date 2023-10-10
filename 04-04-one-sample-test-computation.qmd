@@ -231,7 +231,7 @@ The histogram suggests that the distribution of responses is somewhat symmetric,
 
 ```{r}
 #| label: fig-t-dist3
-#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that $\\mu\neq2.5$."
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that $\\mu\\neq2.5$."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -246,7 +246,7 @@ t_results(my_t)
 plot_t_dist(my_t)
 ```
 
-Based on the *p*-value of .0687, we would *fail to reject* the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5. 
+Based on the *p*-value of .687, we would *fail to reject* the null hypothesis. We do not have evidence that the average response for all Ethiopian primary school teachers differs from 2.5; that is the empirical data is consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5. 
 
 :::fyi
 **SUPER IMPORTANT NOTE**
