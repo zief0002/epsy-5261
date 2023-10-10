@@ -177,7 +177,7 @@ df_stats(~age | show, data = bachelor)
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-02-03');">Show/Hide Solution</button>
 
 <div id="exercise_05-02-03" style="display:none; margin: -40px 0 40px 40px;">
-The variance for the Bachelor ages is $30.70^2=942.71$, and that for the Bachelorette ages is $28.17^2=793.77$. Since 942.71 is less than four times 793.77, the assumption of equal population variances seems tenable.
+The variance for the Bachelor ages is $3.80^2=14.45$, and that for the Bachelorette ages is $3.04^2=9.24$. Since 14.45 is less than four times 9.24, the assumption of equal population variances seems tenable.
 </div>
 :::
 
