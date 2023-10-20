@@ -274,7 +274,7 @@ $$
 
 Again, because $\hat{Y}$ is a conditional mean, the slope represents the difference in predicted mean completion rates for each one-point difference in 75th percentile ACT score. Interpreting the slope coefficient in our example,
 
-> Each one-year difference in education level is associated with a model predicted difference of \$2,651 in mean income.
+> Each one-point difference in 75th percentile ACT score is associated with a model predicted difference of 4 percentage points in mean completion rate.
 
 
 To better understand this, consider colleges with different 75th percentile ACT scores. The first set of colleges have a 75th percentile ACT score of 20. The second set has a 75th percentile ACT score of 21, and the third set has aa 75th percentile ACT score of 22. Now let's compute the predicted mean completion rate for each of these institutions using our fitted equation.
