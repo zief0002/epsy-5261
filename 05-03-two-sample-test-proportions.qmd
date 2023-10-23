@@ -74,10 +74,10 @@ tally(~still_together | show, data = bachelor)
 tally(~still_together | show, data = bachelor, format = "proportion")
 ```
 
-These summaries indicates that in 2018, the proportion of Bachelor contestants that are still together with their selected suitor is 0.11, while the proportion of Bachelorette contestants that are still together with their selected suitor is 0.19. We would again use the notation $\hat{p}$ along with a subscript to denote the sample proportions:
+These summaries indicates that in 2018, the proportion of Bachelor contestants that are still together with their selected suitor is 0.11, while the proportion of Bachelorette contestants that are still together with their selected suitor is 0.17. We would again use the notation $\hat{p}$ along with a subscript to denote the sample proportions:
 
 $$
-\hat{p}_{\text{Bachelor}} = .11 ~~~~~~~~~~ \hat{p}_{\text{Bachelorette}} = .19
+\hat{p}_{\text{Bachelor}} = .11 ~~~~~~~~~~ \hat{p}_{\text{Bachelorette}} = .17
 $$
 
 <br />
