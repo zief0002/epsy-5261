@@ -43,7 +43,7 @@ $$
 The results of the regression analysis suggested that each 1-point difference in 75th percentile ACT scores of education is associated with a 0.037-unit difference in completion rates, on average. 
 
 :::fyi
-The slope coefficient is often referred to as the effect of the predictor. In our example, the sample effect of 75th percentile ACT scores on completion rates is 0.037. 
+The slope coefficient is often referred to as the effect of the predictor. In our example, the sample effect of 75th percentile ACT scores on completion rates is 0.037. Note that although it is referred to as an "effect", that this nomenclature has nothing to do with cause-and-effect (i.e., it is not causal).
 :::
 
 
@@ -244,7 +244,7 @@ Using the criterion of $\alpha = .05$, we would reject the null hypothesis that 
 
 Based on the results of the hypothesis test, we believe there is an effect of 75th percentile ACT scores on completion rates for colleges in the population---that is, the slope is likely not 0. A natural question is, in the population, what is the value of the slope? What is the size of the effect?
 
-Based on the sample regression results, we have a point-estimate (single number guess) for the population effect, namely .0374. But, as we have learned, we also have to account for sampling uncertainty in our estimate. To do that, we computae a confidence interval for $\beta_1$ using:
+Based on the sample regression results, we have a point-estimate (single number guess) for the population effect, namely .0374. But, as we have learned, we also have to account for sampling uncertainty in our estimate. To do that, we compute a confidence interval for $\beta_1$ using:
 
 $$
 \mathrm{CI~for~}\beta_1 = b_1 \pm 2(\mathrm{SE}_{b_1})
