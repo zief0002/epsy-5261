@@ -530,17 +530,17 @@ function toggle_visibility(id) {
 </div>
 </div>
 </div>
-<p>In <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> the CIs that include the population value of 10 are agin colored grey and those that do not are colored red. Using an biased sampling method, we see that more of the CIs are red—they do not include 10 as a plausible value for the population mean, despite 10 being the actual population mean!</p>
+<p>In <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> the CIs that include the population value of 10 are again colored grey and those that do not are colored red. Using an biased sampling method, we see that more of the CIs are red—they do not include 10 as a plausible value for the population mean, despite 10 being the actual population mean!</p>
 <p>In both <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a> and <a href="#fig-biased-cis">Figure&nbsp;<span>21.4</span></a> we can see that some of the CIs include 10 and some don’t. But, on average, the unbiased sampling method produces many more CIs that include 10 than the biased sampling method does. Because of this, we would say that the unbiased sampling method produces more accurate estimates of the sample mean. Accuracy refers to whether the CI includes the population parameter for most CIs <em>that could be produced</em>. It does not mean that any one CI will be accurate or not. It is just <em>more likely</em> that a CI will include the population parameter if the sample that produced the CI was selected using an unbiased method.</p>
 <div class="fyi">
-<p>In practice we do not draw many samples—we have one sample. This sample is used to create a single CI that we use to estimate the mean. Unlike in the thought experiment, in practice, we do not know what the value of the population parameter actually is. So we don’t know whether our CI includes this value (is a gray CI) or doesn’t (is a red CI). If we used an unbiased sampling method to select our sample, our CI is more likely to be gray than red. )</p>
+<p>In practice we do not draw many samples—we have one sample. This sample is used to create a single CI that we use to estimate the mean. Unlike in the thought experiment, in practice, we do not know what the value of the population parameter actually is. So we don’t know whether our CI includes this value (is a gray CI) or doesn’t (is a red CI). If we used an unbiased sampling method to select our sample, our CI is more likely to be gray than red.</p>
 </div>
 <p><br></p>
 </section>
 </section>
 <section id="confidence-level-and-accuracy" class="level2" data-number="21.3">
 <h2 data-number="21.3" class="anchored" data-anchor-id="confidence-level-and-accuracy"><span class="header-section-number">21.3</span> Confidence Level and Accuracy</h2>
-<p>In the previous section you saw that even if you use an unbiased sampling method (e.g., random sampling) you still occasionally draw a sample that produces a red CI—it does not include the population parameter as a plausible value. In fact, looking back at <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>, we see that this will happen about 5% of the time (five of the 100 samples produced a red CI). This is because we produced a confidence interval using a method that will include the population parameter for 95% of the intervals it creates, so long as the sampling method used to select those samples is unbased. Another way to say this is the method we used to create the CIs was accurate 95% of the time.</p>
+<p>In the previous section you saw that even if you use an unbiased sampling method (e.g., random sampling) you still occasionally draw a sample that produces a red CI—it does not include the population parameter as a plausible value. In fact, looking back at <a href="#fig-unbiased-cis">Figure&nbsp;<span>21.3</span></a>, we see that this will happen about 5% of the time (five of the 100 samples produced a red CI). This is because we produced a confidence interval using a method that will include the population parameter for 95% of the intervals it creates, so long as the sampling method used to select those samples is unbiased. Another way to say this is the method we used to create the CIs was accurate 95% of the time.</p>
 <p>This accuracy rate is referred to as the <em>confidence level</em>. In practice we say that we created a <em>95% Confidence Interval</em>. But be careful, using this language. Here are some caveats as you start to use this terminology:</p>
 <ul>
 <li>The 95% doesn’t refer to the single CI, but rather to the accuracy rate across producing many, many CIs.</li>
@@ -685,7 +685,7 @@ function toggle_visibility(id) {
 1000 &amp;=2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
 \end{split}
 \]</span></p>
-<p>To solve for <em>n</em>, we also need an estimate for the SD we might expect in the data we collect. Often good guesses for this can be found in previos studies or the substantive literature. In our example, based on previous data, we expect that a reasonable guess for the SD might be about $10,000. Includng this in our formula and solving for sampe size:</p>
+<p>To solve for <em>n</em>, we also need an estimate for the SD we might expect in the data we collect. Often good guesses for this can be found in previous studies or the substantive literature. In our example, based on previous data, we expect that a reasonable guess for the SD might be about $10,000. Including this in our formula and solving for sample size:</p>
 <p><span class="math display">\[
 \begin{split}
 1000 &amp;=2 \times \frac{10000}{\sqrt{n}} \\[2ex]

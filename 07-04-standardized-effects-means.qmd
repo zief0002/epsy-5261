@@ -325,9 +325,9 @@ To have reasonable precision in the CIs for a standardized effect, you need very
 
 Use the `ci.smd()` function to compute a 99% CI for Cohen's $\delta$ for the Bachelor/Bachelorette age example. You can change the confidence level using the `conf.level=` argument. The default is `conf.level=.95`, which produces a 95% CI.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-05');">Show/Hide Solution</button>
 
-<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_07-04-05" style="display:none; margin: -40px 0 40px 40px;">
 
 ```{r}
 # Compute 99% CI for Cohen's d

@@ -511,7 +511,15 @@ h &amp;\approx 0.5 \qquad \text{Moderate Effect} \\[2ex]
 h &amp;\approx 0.8 \qquad \text{Large Effect}
 \end{split}
 \]</span> In this example the difference between the two proportions indicates that it is a small effect.</p>
-<p>Cohen’s <em>h</em> can also be computed when comparing a single sample proportion to a hypothesized proportion (one-sample situation). For example, in <a href="04-06-one-sample-test-proportions.html">Chapter&nbsp;<span>12</span></a> we evaluated whether the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 was different than 0.029 (the proportion in 2012).</p>
+<p>Cohen’s <em>h</em> can also be computed when comparing a single sample proportion to a hypothesized proportion (one-sample situation). For example, in <a href="04-06-one-sample-test-proportions.html">Chapter&nbsp;<span>12</span></a> we evaluated whether the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 was different than 0.029 (the proportion in 2012). Here the two inputs to Cohen’s <em>h</em> are the sample proportion (<span class="math inline">\(\hat{p}=.0139\)</span>) and the value being tested in the null hypothesis (0.029)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's h</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">0139</span>)) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">029</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.1059095</code></pre>
+</div>
+</div>
+<p>Cohen’s <em>h</em> value is <span class="math inline">\(-0.11\)</span>, which correspods to a small effect. (Note that the sign is irrelevant when considering the size of the effect.)</p>
 <p><br></p>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
@@ -521,8 +529,8 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-05-01" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fastx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fastx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 238 Columns: 5
 ── Column specification ────────────────────────────────────────────────────────
@@ -532,8 +540,8 @@ chr (5): reviewer, publication, score, fresh_rotten, review_text
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample proportion of Fresh reviews</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>fresh_rotten, <span class="at">data =</span> fastx, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample proportion of Fresh reviews</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>fresh_rotten, <span class="at">data =</span> fastx, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -550,8 +558,8 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-05-02" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample size</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fastx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample size</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fastx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 238</code></pre>
 </div>
@@ -563,8 +571,8 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-05-03" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's h</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">538</span>)) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's h</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">538</span>)) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07607335</code></pre>
 </div>
@@ -585,14 +593,14 @@ Show/Hide Solution
 </ul>
 <p>For example, to compute the 95% confidence interval for Cohen’s <em>h</em> in the population for our Bachelor/Bachelorette case study, we use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Cohen's h</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_cohens_h</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Cohen's h</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_cohens_h</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -607,7 +615,7 @@ Upper Limit = 0.7252556
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([-0.36,~0.73]\)</span>]. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
+<p>The CI is <span class="math inline">\([-0.36,~0.73]\)</span>. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
 <ul>
 <li>There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.</li>
 <li>There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,</li>
@@ -625,14 +633,14 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-05-04" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Cohen's h</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_cohens_h</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.538</span>, <span class="co">#Proportion for sample data</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size for sample data</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized proportion</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,    <span class="co">#Hypothesized sample size</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Cohen's h</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_cohens_h</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.538</span>, <span class="co">#Proportion for sample data</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size for sample data</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized proportion</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,    <span class="co">#Hypothesized sample size</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -684,7 +692,7 @@ Show/Hide Solution
 <p><br></p>
 <section id="risk-ratio-with-one-sample" class="level3" data-number="23.2.1">
 <h3 data-number="23.2.1" class="anchored" data-anchor-id="risk-ratio-with-one-sample"><span class="header-section-number">23.2.1</span> Risk Ratio with One Sample</h3>
-<p>We can also compute a risk ration when we only have a single sample. Rather than computing the ratio of two sample proportions, we compute the ratio of the sample proportion and the hypothesized value of <span class="math inline">\(\pi\)</span> tested in a hypothesis test.</p>
+<p>We can also compute a risk ratio when we only have a single sample. Rather than computing the ratio of two sample proportions, we compute the ratio of the sample proportion and the hypothesized value of <span class="math inline">\(\pi\)</span> tested in a hypothesis test.</p>
 <p>As an example, consider the lead levels case study from <a href="04-06-one-sample-test-proportions.html">Chapter&nbsp;<span>12</span></a>. We evaluated whether the the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than .029 (the proportion in 2012?), by testing the following hypotheses:</p>
 <p><span class="math display">\[
 \begin{split}
@@ -694,8 +702,8 @@ H_A: \pi_{\text{Above MDH}} \neq .029
 \]</span></p>
 <p>To compute a risk ratio, we import the data and compute numerical summaries.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mn_lead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mn_lead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 91706 Columns: 2
 ── Column specification ────────────────────────────────────────────────────────
@@ -706,8 +714,8 @@ dbl (1): lead_level
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -716,8 +724,8 @@ dbl (1): lead_level
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -751,14 +759,14 @@ dbl (1): lead_level
 </ul>
 <p>For example, to compute the 95% confidence interval for the risk ratio in our Bachelor/Bachelorette case study, we use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -773,7 +781,7 @@ Upper Limit = 3.094399
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([0.79,~3.09]\)</span>, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:</p>
+<p>The CI is <span class="math inline">\([0.79,~3.09]\)</span>, indicating that Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:</p>
 <ul>
 <li>It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.79 times as likely).</li>
 <li>It may be that both groups are EQUALLY likely to stay together with their chosen suitor. Or,</li>
@@ -796,14 +804,14 @@ Upper Limit = 3.094399
 <p>We can also use the <code>ci_risk_ratio()</code> function to compare a single sample to a hypothesized value (e.g., in our MN lead exposure case study). To do this, whichever “sample” you use to input the hypothesized value (say <code>p2</code>), the corresponding sample size is inputted as <code>Inf</code> (i.e., <code>n2=Inf</code>). This ensures that only the actual sample summaries are used to compute the uncertainty in the CI.</p>
 <p>For example, to compute the CI for the risk ratio we computed earlier for the MN lead exposure example, we would input:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.014</span>, <span class="co">#Sample proportion</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">91706</span>,  <span class="co">#Sample size</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">029</span>, <span class="co">#Hypothesized value</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.014</span>, <span class="co">#Sample proportion</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">91706</span>,  <span class="co">#Sample size</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">029</span>, <span class="co">#Hypothesized value</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -828,14 +836,14 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.537</span>, <span class="co">#Sample proportion</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized value</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.99</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.537</span>, <span class="co">#Sample proportion</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">238</span>,   <span class="co">#Sample size</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">5</span>,    <span class="co">#Hypothesized value</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="cn">Inf</span>,   <span class="co">#Inf goes with the hypothesized value</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.99</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------

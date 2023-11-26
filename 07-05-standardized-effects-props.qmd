@@ -52,7 +52,15 @@ h &\approx 0.8 \qquad \text{Large Effect}
 $$
 In this example the difference between the two proportions indicates that it is a small effect.
 
-Cohen's *h* can also be computed when comparing a single sample proportion to a hypothesized proportion (one-sample situation). For example, in [Chapter @sec-one-sample-test-proportions] we evaluated whether the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 was different than 0.029 (the proportion in 2012).
+Cohen's *h* can also be computed when comparing a single sample proportion to a hypothesized proportion (one-sample situation). For example, in [Chapter @sec-one-sample-test-proportions] we evaluated whether the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 was different than 0.029 (the proportion in 2012). Here the two inputs to Cohen's *h* are the sample proportion ($\hat{p}=.0139$) and the value being tested in the null hypothesis (0.029)
+
+```{r}
+# Compute Cohen's h
+2 * asin(sqrt(.0139)) - 2 * asin(sqrt(.029))
+```
+
+Cohen's *h* value is $-0.11$, which correspods to a small effect. (Note that the sign is irrelevant when considering the size of the effect.)
+
 
 <br />
 
@@ -134,7 +142,7 @@ ci_cohens_h(
   )
 ```
 
-The CI is $[-0.36,~0.73]$]. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
+The CI is $[-0.36,~0.73]$. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
 
 - There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.
 - There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,
@@ -221,7 +229,7 @@ The choice of which group goes in the numerator is irrelevant. However, interpre
 
 ### Risk Ratio with One Sample
 
-We can also compute a risk ration when we only have a single sample. Rather than computing the ratio of two sample proportions, we compute the ratio of the sample proportion and the hypothesized value of $\pi$ tested in a hypothesis test. 
+We can also compute a risk ratio when we only have a single sample. Rather than computing the ratio of two sample proportions, we compute the ratio of the sample proportion and the hypothesized value of $\pi$ tested in a hypothesis test. 
 
 As an example, consider the lead levels case study from [Chapter @sec-one-sample-test-proportions]. We evaluated whether the the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than .029 (the proportion in 2012?), by testing the following hypotheses:
 
@@ -283,7 +291,7 @@ ci_risk_ratio(
   )
 ```
 
-The CI is $[0.79,~3.09]$, indicating tat Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:
+The CI is $[0.79,~3.09]$, indicating that Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:
 
 - It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.79 times as likely).
 - It may be that both groups are EQUALLY likely to stay together with their chosen suitor. Or,
