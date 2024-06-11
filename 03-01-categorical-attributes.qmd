@@ -190,7 +190,7 @@ colleges
 
 Recall that in these data each case in these data is an institution of higher education and there are 234 institutions in our sample. This dataset has several categorical attributes, including: state, region, type of institution, and control. 
 
-The first attribute we will summarize and visualize is the control variable. Looking at the [data codebook]() we find that this attribute can take on three different values: Public, Private nonprofit, and Private for-profit. Our first task is to get institution counts for each category of control. To do this, we will use the `df_stats()` function. The general syntax to obtain these counts is shown below.
+The first attribute we will summarize and visualize is the control variable. Looking at the [data codebook](http://zief0002.github.io/epsy-5261/codebooks/college-scorecard.html) we find that this attribute can take on three different values: Public, Private nonprofit, and Private for-profit. Our first task is to get institution counts for each category of control. To do this, we will use the `df_stats()` function. The general syntax to obtain these counts is shown below.
 
 ```{r}
 #| eval: false
@@ -420,7 +420,7 @@ gf_props(
 
 ## Creating Horizontal Bar Charts Using R
 
-To create horizontal bar charts we can use `gf_countsh()`, `gf_propsh()`, or `gf_percentsh()`. These functions again take the same syntax as their vertical counterparts. For example, to create a horizontal bar chart summarizing the counts of each type of institution we can use the following syntax:
+To create horizontal bar charts we can use add on (literally) the function `coord_flip()` , to `gf_counts()`, `gf_props()` or `gf_percents()`. For example, to create a horizontal bar chart summarizing the counts of each type of institution we can use the following syntax:
 
 ```{r}
 #| label: fig-barchart-control-horz
@@ -428,11 +428,12 @@ To create horizontal bar charts we can use `gf_countsh()`, `gf_propsh()`, or `gf
 #| fig-width: 8
 #| fig-height: 5
 # Syntax to create a hirizontal bar chart for the control attribute
-gf_countsh(
+gf_counts(
   ~control, data = colleges,
   xlab = "Count",
   ylab = "Type of Institution"
-  )
+  ) +
+  coord_flip()
 ```
 
 :::exercises
@@ -444,11 +445,12 @@ Write the syntax to create a horizontal bar chart that summarizes the percent of
 
 <div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-gf_percentsh(
+gf_percents(
   ~ region, data = colleges,
   xlab = "Percent",
   ylab = "Region of the United States"
-  )
+  ) +
+  coord_flip()
 ```
 </div>
 :::
@@ -472,10 +474,10 @@ dplyr::tibble(
     "`df_stats(~attribute, data = data_object, percs)`",
     "`gf_counts(~attribute, data = data_object)`",
     "`gf_props(~attribute, data = data_object)`",
-    "`gf_percs(~attribute, data = data_object)`",
-    "`gf_countsh(~attribute, data = data_object)`",
-    "`gf_propsh(~attribute, data = data_object)`",
-    "`gf_percsh(~attribute, data = data_object)`"
+    "`gf_percents(~attribute, data = data_object)`",
+    "`gf_counts(~attribute, data = data_object) + coord_flip()`",
+    "`gf_props(~attribute, data = data_object) + coord_flip()`",
+    "`gf_percent(~attribute, data = data_object) + coord_flip()`"
     ),
   Description = c(
     "Compute counts of a categorical attribute",
