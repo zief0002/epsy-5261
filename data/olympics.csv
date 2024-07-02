@@ -1,0 +1,301 @@
+﻿participant_id,name,sex,age,height,weight,team,noc,games,year,season,city,sport,event,medal,rand
+10390,Lindsey Napela Berg,F,28,173,77,United States,USA,2008 Summer,2008,Summer,Beijing,Volleyball,Volleyball Women's Volleyball,Silver,0.001109456
+32384,Brady Lee Ellison,M,27,181,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Archery,Archery Men's Individual,Bronze,0.001368863
+32384,Brady Lee Ellison,M,27,181,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Archery,Archery Men's Team,Silver,0.002054056
+29828,Marilou Dozios-Prvost,F,22,160,48,Canada,CAN,2008 Summer,2008,Summer,Beijing,Weightlifting,Weightlifting Women's Flyweight,no,0.003428206
+15947,Ashley Brzozowicz,F,25,176,75,Canada,CAN,2008 Summer,2008,Summer,Beijing,Rowing,Rowing Women's Coxed Eights,no,0.003431779
+29751,Robert Jeffrey Dover,M,44,178,68,United States,USA,2000 Summer,2000,Summer,Sydney,Equestrianism,"Equestrianism Mixed Dressage, Individual",no,0.003497064
+14139,Franois Bourque,M,21,182,88,Canada,CAN,2006 Winter,2006,Winter,Torino,Alpine Skiing,Alpine Skiing Men's Giant Slalom,no,0.003573925
+22901,Reid Coolsaet,M,37,173,62,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's Marathon,no,0.00406875
+28701,Valrie Dionne,F,24,173,72,Canada,CAN,2004 Summer,2004,Summer,Athina,Water Polo,Water Polo Women's Water Polo,no,0.004163748
+30272,Tanya Dubnicoff,F,30,170,68,Canada,CAN,2000 Summer,2000,Summer,Sydney,Cycling,Cycling Women's 500 metres Time Trial,no,0.005055771
+9058,Ronald Layne Beaubien,M,32,198,100,United States,USA,2008 Summer,2008,Summer,Beijing,Water Polo,Water Polo Men's Water Polo,Silver,0.005203429
+7972,Tracy Barnes,F,23,157,48,United States,USA,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Women's 7.5 kilometres Sprint,no,0.005533107
+8847,Allison Baver,F,29,160,57,United States,USA,2010 Winter,2010,Winter,Vancouver,Short Track Speed Skating,"Short Track Speed Skating Women's 3,000 metres Relay",Bronze,0.005655306
+22675,"Kimberley Frances ""Kim"" Conley",F,26,161,49,United States,USA,2012 Summer,2012,Summer,London,Athletics,"Athletics Women's 5,000 metres",no,0.006117522
+22690,Kyle Connelly,M,21,180,89,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Luge,Luge Men's Singles,no,0.007610577
+29408,Sandra Donnelly,F,38,160,75,Canada,CAN,2008 Summer,2008,Summer,Beijing,Equestrianism,"Equestrianism Mixed Three-Day Event, Team",no,0.008452095
+20599,Phillip Hung Chew,M,22,173,91,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Badminton,Badminton Mixed Doubles,no,0.008587138
+14862,Elaine Breeden (-Penrose),F,19,180,73,United States,USA,2008 Summer,2008,Summer,Beijing,Swimming,Swimming Women's 100 metres Butterfly,no,0.008854353
+25774,Dominique Margaux Dawes (-Thompson),F,23,158,54,United States,USA,2000 Summer,2000,Summer,Sydney,Gymnastics,Gymnastics Women's Floor Exercise,no,0.00937881
+17515,Caroline Calv,F,35,177,73,Canada,CAN,2014 Winter,2014,Winter,Sochi,Snowboarding,Snowboarding Women's Parallel Slalom,no,0.009459967
+14347,Mackenzie Boyd-Clowes,M,18,183,69,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Ski Jumping,"Ski Jumping Men's Large Hill, Team",no,0.010314638
+11635,"Joshua ""Josh"" Binstock",M,31,196,99,Canada,CAN,2012 Summer,2012,Summer,London,Beach Volleyball,Beach Volleyball Men's Beach Volleyball,no,0.011182895
+23721,Rosanna Lee Crawford,F,25,180,67,Canada,CAN,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 4 x 6 kilometres Relay,no,0.011281944
+395,Jennifer Abel,F,24,160,62,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Diving,Diving Women's Synchronized Springboard,no,0.011528765
+17097,"Patricia ""Tricia"" Byrnes",F,27,170,68,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Snowboarding,Snowboarding Women's Halfpipe,no,0.011568387
+32389,Steven Elm,M,30,185,82,Canada,CAN,2006 Winter,2006,Winter,Torino,Speed Skating,"Speed Skating Men's 1,000 metres",no,0.011585149
+28745,Andre Dirrell,M,21,185,74,United States,USA,2004 Summer,2004,Summer,Athina,Boxing,Boxing Men's Middleweight,Bronze,0.011626921
+6899,Lowell Conrad Bailey,M,28,185,77,United States,USA,2010 Winter,2010,Winter,Vancouver,Biathlon,Biathlon Men's 10 kilometres Sprint,no,0.012308036
+19833,"Oscar Chaplin, III",M,24,167,81,United States,USA,2004 Summer,2004,Summer,Athina,Weightlifting,Weightlifting Men's Light-Heavyweight,no,0.012510745
+6899,Lowell Conrad Bailey,M,24,185,77,United States,USA,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Men's 10 kilometres Sprint,no,0.012760471
+21954,"William Bundu ""Will"" Claye",M,21,181,72,United States,USA,2012 Summer,2012,Summer,London,Athletics,Athletics Men's Long Jump,Bronze,0.01301445
+1030,Martha Adusei,F,24,165,64,Canada,CAN,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's 100 metres,no,0.013168295
+27263,Angelica Delgado,F,25,160,52,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Judo,Judo Women's Half-Lightweight,no,0.013172116
+35488,Liam Firus,M,21,170,68,Canada,CAN,2014 Winter,2014,Winter,Sochi,Figure Skating,Figure Skating Men's Singles,no,0.013551011
+23732,Jill Craybas,F,34,160,56,United States,USA,2008 Summer,2008,Summer,Beijing,Tennis,Tennis Women's Singles,no,0.014625522
+23723,Shawn Crawford,M,26,181,86,United States,USA,2004 Summer,2004,Summer,Athina,Athletics,Athletics Men's 200 metres,Gold,0.015319009
+21181,Amy Yuen-Yee Chow (-Ho),F,22,155,44,United States,USA,2000 Summer,2000,Summer,Sydney,Gymnastics,Gymnastics Women's Floor Exercise,no,0.016649921
+35523,Makenzie Fischer,F,19,186,74,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Water Polo,Water Polo Women's Water Polo,Gold,0.01686134
+30644,Evan Dunfee,M,25,182,70,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's 50 kilometres Walk,no,0.01687782
+4742,Gillian Mary Apps,F,22,180,80,Canada,CAN,2006 Winter,2006,Winter,Torino,Ice Hockey,Ice Hockey Women's Ice Hockey,Gold,0.017687298
+15005,Eric Charles Brewer,M,22,191,100,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Men's Ice Hockey,Gold,0.017719308
+25723,Shani Earl Davis,M,31,188,86,United States,USA,2014 Winter,2014,Winter,Sochi,Speed Skating,Speed Skating Men's Team Pursuit (8 laps),no,0.01896637
+15227,Allison M. Brock,F,36,168,59,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Equestrianism,"Equestrianism Mixed Dressage, Individual",no,0.020391884
+31172,"Kimberley-Anne ""Kim"" Eagles",F,23,160,59,Canada,CAN,2000 Summer,2000,Summer,Sydney,Shooting,"Shooting Women's Air Pistol, 10 metres",no,0.02080399
+21312,"Jeffrey ""Jeff"" Christie",M,27,184,86,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Luge,Luge Men's Singles,no,0.021253459
+29292,Sam Dommer,M,24,188,92,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Rowing,Rowing Men's Coxed Eights,no,0.02262794
+28370,Jason Royce Dickson,M,31,182,88,Canada,CAN,2004 Summer,2004,Summer,Athina,Baseball,Baseball Men's Baseball,no,0.022887099
+12196,Michael Benjamin Blatchford,M,22,178,82,United States,USA,2008 Summer,2008,Summer,Beijing,Cycling,Cycling Men's Sprint,no,0.025707955
+30018,"Pamela Kristine ""Pam"" Dreyer (-Sunkinen)",F,24,165,70,United States,USA,2006 Winter,2006,Winter,Torino,Ice Hockey,Ice Hockey Women's Ice Hockey,Bronze,0.025990634
+27097,Christopher Del Bosco,M,31,185,96,Canada,CAN,2014 Winter,2014,Winter,Sochi,Freestyle Skiing,Freestyle Skiing Men's Ski Cross,no,0.025992395
+18456,Kip Carpenter,M,26,178,73,United States,USA,2006 Winter,2006,Winter,Torino,Speed Skating,Speed Skating Men's 500 metres,no,0.026081085
+14653,Terry Michael Brands,M,32,162,58,United States,USA,2000 Summer,2000,Summer,Sydney,Wrestling,"Wrestling Men's Featherweight, Freestyle",Bronze,0.026785287
+5971,Seimone Delicia Augustus,F,32,183,74,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Basketball,Basketball Women's Basketball,Gold,0.027444768
+153,Monica Cecilia Abbott,F,23,191,88,United States,USA,2008 Summer,2008,Summer,Beijing,Softball,Softball Women's Softball,Silver,0.027454472
+8869,Lauren Bay-Regula,F,26,173,64,Canada,CAN,2008 Summer,2008,Summer,Beijing,Softball,Softball Women's Softball,no,0.027644279
+17388,"David ""Dave"" Calder",M,34,195,90,Canada,CAN,2012 Summer,2012,Summer,London,Rowing,Rowing Men's Coxless Pairs,no,0.028700754
+30352,Alexandra Duckworth,F,26,158,50,Canada,CAN,2014 Winter,2014,Winter,Sochi,Snowboarding,Snowboarding Women's Halfpipe,no,0.02994937
+15460,Aaron Brown,M,24,198,79,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's 100 metres,no,0.030510981
+10337,"Richard ""Ricky"" Berens",M,24,188,93,United States,USA,2012 Summer,2012,Summer,London,Swimming,Swimming Men's 4 x 100 metres Freestyle Relay,Silver,0.032250141
+12890,Franois Boivin,M,23,170,70,Canada,CAN,2006 Winter,2006,Winter,Torino,Snowboarding,Snowboarding Men's Boardercross,no,0.033585645
+30765,Lori Dupuis,F,29,173,75,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Women's Ice Hockey,Gold,0.034103218
+34035,Bianca Farella,F,24,173,73,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Rugby Sevens,Rugby Sevens Women's Rugby Sevens,Bronze,0.034120646
+22182,Jesse Cockney,M,24,180,76,Canada,CAN,2014 Winter,2014,Winter,Sochi,Cross Country Skiing,Cross Country Skiing Men's Sprint,no,0.034133289
+23410,Sharon Renee Couch-Jewell,F,31,170,63,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's 100 metres Hurdles,no,0.034371663
+9579,"Michael ""Mike"" Belenkie",M,25,201,95,Canada,CAN,2000 Summer,2000,Summer,Sydney,Rowing,Rowing Men's Coxed Eights,no,0.034569345
+23680,Lauren Crandall,F,23,161,58,United States,USA,2008 Summer,2008,Summer,Beijing,Hockey,Hockey Women's Hockey,no,0.034596484
+33298,Ellen Marie Estes (-Lee),F,21,182,77,United States,USA,2000 Summer,2000,Summer,Sydney,Water Polo,Water Polo Women's Water Polo,Silver,0.035300418
+6317,"Anthony Lawrence ""Tony"" Azevedo",M,34,186,90,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Water Polo,Water Polo Men's Water Polo,no,0.036132323
+30123,"Jonathan A. ""Jon"" Drummond",M,32,175,75,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Men's 4 x 100 metres Relay,Gold,0.036204878
+15392,Tia Ra'shone Brooks,F,21,183,109,United States,USA,2012 Summer,2012,Summer,London,Athletics,Athletics Women's Shot Put,no,0.036654458
+8847,Allison Baver,F,25,160,57,United States,USA,2006 Winter,2006,Winter,Torino,Short Track Speed Skating,"Short Track Speed Skating Women's 3,000 metres Relay",no,0.036713563
+4742,Gillian Mary Apps,F,26,180,80,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Women's Ice Hockey,Gold,0.03687185
+8050,"Thomas Patrick ""Tom"" Barrasso",M,36,190,95,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Men's Ice Hockey,Silver,0.036873163
+10048,Meaghan Benfeito,F,27,155,48,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Diving,Diving Women's Platform,Bronze,0.037973094
+23657,"Kameryn Louise ""Kami"" Craig",F,21,181,88,United States,USA,2008 Summer,2008,Summer,Beijing,Water Polo,Water Polo Women's Water Polo,Silver,0.038833339
+23881,Mark Duane Croghan,M,32,175,60,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,"Athletics Men's 3,000 metres Steeplechase",no,0.039446994
+26214,Rachelle De Jong-Viinberg,F,33,183,74,Canada,CAN,2012 Summer,2012,Summer,London,Rowing,Rowing Women's Coxed Eights,Silver,0.039671902
+27650,Taylor Phillip Dent,M,23,187,88,United States,USA,2004 Summer,2004,Summer,Athina,Tennis,Tennis Men's Singles,no,0.039829221
+21108,Lauren Myrtie Cholewinski,F,21,173,68,United States,USA,2010 Winter,2010,Winter,Vancouver,Speed Skating,Speed Skating Women's 500 metres,no,0.042092901
+22969,Haley Cope (-Clark),F,25,177,63,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Women's 4 x 100 metres Medley Relay,Silver,0.042405343
+22848,Emily Cook,F,30,160,52,United States,USA,2010 Winter,2010,Winter,Vancouver,Freestyle Skiing,Freestyle Skiing Women's Aerials,no,0.042437229
+11207,Stephen Raj Bhavsar,M,27,169,54,United States,USA,2008 Summer,2008,Summer,Beijing,Gymnastics,Gymnastics Men's Team All-Around,Bronze,0.042475167
+2361,Alan Jacob Alborn,M,21,178,61,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Ski Jumping,"Ski Jumping Men's Normal Hill, Individual",no,0.042516444
+27943,"Philip Alexandre ""Phil"" Devey",M,27,184,80,Canada,CAN,2004 Summer,2004,Summer,Athina,Baseball,Baseball Men's Baseball,no,0.043185548
+5302,Morgan Arritola,F,23,162,52,United States,USA,2010 Winter,2010,Winter,Vancouver,Cross Country Skiing,Cross Country Skiing Women's 10 kilometres,no,0.043308215
+13422,"Patrick Lance ""Pat"" Borders",M,37,185,91,United States,USA,2000 Summer,2000,Summer,Sydney,Baseball,Baseball Men's Baseball,Gold,0.043465722
+31205,Ashton James Eaton,M,24,186,81,United States,USA,2012 Summer,2012,Summer,London,Athletics,Athletics Men's Decathlon,Gold,0.04463225
+30660,Susan Krista Dunklee,F,27,170,64,United States,USA,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 4 x 6 kilometres Relay,no,0.045350872
+19032,Jason A. Caswell,M,26,178,78,Canada,CAN,2000 Summer,2000,Summer,Sydney,Shooting,Shooting Men's Skeet,no,0.045452311
+24453,Ryan Cuthbert,M,28,195,90,Canada,CAN,2008 Summer,2008,Summer,Beijing,Canoeing,"Canoeing Men's Kayak Doubles, 1,000 metres",no,0.045472451
+11495,Simone Arianne Biles,F,19,143,47,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Gymnastics,Gymnastics Women's Individual All-Around,Gold,0.045621392
+12083,"Robert Bowlby ""Rob"" Blake",M,36,193,102,Canada,CAN,2006 Winter,2006,Winter,Torino,Ice Hockey,Ice Hockey Men's Ice Hockey,no,0.046274637
+16970,"Jennifer ""Jen"" Button",F,22,163,55,Canada,CAN,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Women's 4 x 100 metres Medley Relay,no,0.04639336
+15609,"Daniel ""Dan"" Browne",M,29,178,66,United States,USA,2004 Summer,2004,Summer,Athina,Athletics,"Athletics Men's 10,000 metres",no,0.047694864
+25784,Travis Sentell Dawkins,M,21,182,81,United States,USA,2000 Summer,2000,Summer,Sydney,Baseball,Baseball Men's Baseball,Gold,0.04804068
+32316,"Walton Glenn Eller, III",M,22,188,82,United States,USA,2004 Summer,2004,Summer,Athina,Shooting,Shooting Men's Double Trap,no,0.048067322
+21814,Kelly Clark,F,26,163,61,United States,USA,2010 Winter,2010,Winter,Vancouver,Snowboarding,Snowboarding Women's Halfpipe,Bronze,0.048495754
+34094,Donald Farley,M,31,178,74,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Cross Country Skiing,Cross Country Skiing Men's 30 kilometres,no,0.048632408
+17637,Brett Camerota,M,21,167,59,United States,USA,2006 Winter,2006,Winter,Torino,Nordic Combined,Nordic Combined Men's Individual,no,0.049014484
+30248,Danielle Dube,F,25,170,68,Canada,CAN,2012 Summer,2012,Summer,London,Sailing,Sailing Women's One Person Dinghy,no,0.04970033
+21270,Micah Makanamaikalani Christenson,M,23,198,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Volleyball,Volleyball Men's Volleyball,Bronze,0.05098565
+25709,Lucy Davis,F,23,165,55,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Equestrianism,"Equestrianism Mixed Jumping, Team",Silver,0.051376311
+1453,Nicole Ahsinger,F,18,163,58,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Trampolining,Trampolining Women's Individual,no,0.05167848
+23585,J'den Michael Tbory Cox,M,21,180,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Wrestling,"Wrestling Men's Light-Heavyweight, Freestyle",Bronze,0.051911856
+10758,Eric A. Bernotas,M,38,180,82,United States,USA,2010 Winter,2010,Winter,Vancouver,Skeleton,Skeleton Men's Skeleton,no,0.052060141
+13976,Marie-Pierre Boudreau-Gagnon,F,29,165,55,Canada,CAN,2012 Summer,2012,Summer,London,Synchronized Swimming,Synchronized Swimming Women's Team,no,0.053060391
+8311,"Joseph ""Joe"" Bartoch",M,25,190,98,Canada,CAN,2008 Summer,2008,Summer,Beijing,Swimming,Swimming Men's 100 metres Butterfly,no,0.053726449
+29989,Caeleb Remel Dressel,M,19,191,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Swimming,Swimming Men's 4 x 100 metres Medley Relay,Gold,0.054303889
+20599,Phillip Hung Chew,M,22,173,91,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Badminton,Badminton Men's Doubles,no,0.05443809
+34257,Justin Faulk,M,21,183,98,United States,USA,2014 Winter,2014,Winter,Sochi,Ice Hockey,Ice Hockey Men's Ice Hockey,no,0.055284581
+15905,Emily Brydon,F,29,181,90,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Alpine Skiing,Alpine Skiing Women's Downhill,no,0.056012281
+21843,Hazel Mae Clark-Riley,F,22,178,55,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's 800 metres,no,0.056975912
+19044,Tamika Devonne Catchings,F,29,185,77,United States,USA,2008 Summer,2008,Summer,Beijing,Basketball,Basketball Women's Basketball,Gold,0.056990556
+30123,"Jonathan A. ""Jon"" Drummond",M,32,175,75,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Men's 100 metres,no,0.05900361
+27380,"Cynthia ""Janay"" DeLoach (-Soukup)",F,30,166,58,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Women's Long Jump,no,0.059124584
+23416,Tiana Michelle Coudray,F,23,163,57,United States,USA,2012 Summer,2012,Summer,London,Equestrianism,"Equestrianism Mixed Three-Day Event, Individual",no,0.059280188
+14261,Sharon Ruth Bowes,F,33,170,75,Canada,CAN,2000 Summer,2000,Summer,Sydney,Shooting,"Shooting Women's Air Rifle, 10 metres",no,0.059998565
+22829,Charles Albert Shone Conwell,M,18,175,75,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Boxing,Boxing Men's Middleweight,no,0.060211246
+27955,Jennifer Devine,F,35,170,69,United States,USA,2004 Summer,2004,Summer,Athina,Rowing,Rowing Women's Single Sculls,no,0.060305347
+11495,Simone Arianne Biles,F,19,143,47,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Gymnastics,Gymnastics Women's Horse Vault,Gold,0.060785057
+33941,Anthony N. Famiglietti,M,25,173,57,United States,USA,2004 Summer,2004,Summer,Athina,Athletics,"Athletics Men's 3,000 metres Steeplechase",no,0.061170091
+30408,Crispin Nataniel Duenas,M,26,172,81,Canada,CAN,2012 Summer,2012,Summer,London,Archery,Archery Men's Individual,no,0.061283728
+23426,Natalie Anne Coughlin (-Hall),F,21,173,63,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Women's 4 x 100 metres Medley Relay,Silver,0.061375976
+30475,Meghan Duggan,F,22,178,73,United States,USA,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Women's Ice Hockey,Silver,0.062622703
+8008,McQuin Baron,M,20,206,104,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Water Polo,Water Polo Men's Water Polo,no,0.062947311
+7978,Bryan Barnett,M,21,183,92,Canada,CAN,2008 Summer,2008,Summer,Beijing,Athletics,Athletics Men's 200 metres,no,0.063736021
+9065,Gabriel Beauchesne-Svigny,M,23,182,84,Canada,CAN,2008 Summer,2008,Summer,Beijing,Canoeing,"Canoeing Men's Canadian Doubles, 1,000 metres",no,0.063917309
+25419,Natalie Rose Darwitz,F,26,160,65,United States,USA,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Women's Ice Hockey,Silver,0.064068304
+17388,"David ""Dave"" Calder",M,26,195,90,Canada,CAN,2004 Summer,2004,Summer,Athina,Rowing,Rowing Men's Coxless Pairs,no,0.064648381
+22242,Corey Cogdell-Unrein,F,29,173,70,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Shooting,Shooting Women's Trap,Bronze,0.065015151
+23721,Rosanna Lee Crawford,F,25,180,67,Canada,CAN,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 15 kilometres,no,0.065151057
+7972,Tracy Barnes,F,23,157,48,United States,USA,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Women's 4 x 6 kilometres Relay,no,0.065644359
+13926,Landre Bouchard,M,23,193,81,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Cycling,"Cycling Men's Mountainbike, Cross-Country",no,0.065840348
+34551,Allyson Michelle Felix,F,22,168,56,United States,USA,2008 Summer,2008,Summer,Beijing,Athletics,Athletics Women's 4 x 400 metres Relay,Gold,0.066120084
+16720,Dawn C. Burrell,F,26,176,58,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's Long Jump,no,0.067065214
+17415,Hilary Caldwell,F,25,173,61,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Swimming,Swimming Women's 200 metres Backstroke,Bronze,0.067561125
+16134,"Tamas Buday, Jr.",M,24,175,72,Canada,CAN,2000 Summer,2000,Summer,Sydney,Canoeing,"Canoeing Men's Canadian Doubles, 500 metres",no,0.069486942
+19695,Patrick Lewis Chan,M,23,168,67,Canada,CAN,2014 Winter,2014,Winter,Sochi,Figure Skating,Figure Skating Men's Singles,Silver,0.069802279
+23936,Emily Ruth Cross,F,21,165,57,United States,USA,2008 Summer,2008,Summer,Beijing,Fencing,"Fencing Women's Foil, Team",Silver,0.069830325
+395,Jennifer Abel,F,20,160,62,Canada,CAN,2012 Summer,2012,Summer,London,Diving,Diving Women's Springboard,no,0.070445998
+30483,Martine Dugrenier,F,33,166,63,Canada,CAN,2012 Summer,2012,Summer,London,Wrestling,"Wrestling Women's Middleweight, Freestyle",no,0.070465373
+15765,Caroline Brunet,F,35,175,70,Canada,CAN,2004 Summer,2004,Summer,Athina,Canoeing,"Canoeing Women's Kayak Doubles, 500 metres",no,0.070567
+22175,Karen Cockburn (-Turgeon),F,19,161,55,Canada,CAN,2000 Summer,2000,Summer,Sydney,Trampolining,Trampolining Women's Individual,Bronze,0.071038659
+6587,David Anthony Backes,M,25,190,100,United States,USA,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Men's Ice Hockey,Silver,0.071224818
+10202,Tessa Benoit,F,24,167,54,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Cross Country Skiing,Cross Country Skiing Women's Sprint,no,0.072083208
+13322,Brent Bookwalter,M,32,181,68,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Cycling,Cycling Men's Individual Time Trial,no,0.07241898
+9021,Brian Beaman,M,24,178,86,United States,USA,2008 Summer,2008,Summer,Beijing,Shooting,"Shooting Men's Air Pistol, 10 metres",no,0.072559875
+20136,"Christos Kostas ""Chris"" Chelios (Tselios-)",M,40,185,86,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Men's Ice Hockey,Silver,0.072707228
+5167,Kristin Ann Armstrong (-Savola),F,38,173,58,United States,USA,2012 Summer,2012,Summer,London,Cycling,"Cycling Women's Road Race, Individual",no,0.073112977
+16285,Mandy Marie Brigitte Bujold,F,29,160,51,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Boxing,Boxing Women's Flyweight,no,0.073375631
+264,Justin Abdou,M,29,175,85,Canada,CAN,2000 Summer,2000,Summer,Sydney,Wrestling,"Wrestling Men's Light-Heavyweight, Freestyle",no,0.074524874
+16131,Attila Buday,M,26,180,78,Canada,CAN,2000 Summer,2000,Summer,Sydney,Canoeing,"Canoeing Men's Canadian Doubles, 1,000 metres",no,0.074776235
+23080,Daniel Ryan Cormier,M,25,180,96,United States,USA,2004 Summer,2004,Summer,Athina,Wrestling,"Wrestling Men's Heavyweight, Freestyle",no,0.074870254
+35127,Jakub Paul Fiala,M,26,183,93,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Alpine Skiing,Alpine Skiing Men's Downhill,no,0.075269853
+22303,LaTasha Lavon Colander-Richardson (-Clark),F,24,168,52,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's 400 metres,no,0.075827406
+23616,"Amelia ""Amy"" Cozad",F,25,160,51,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Diving,Diving Women's Synchronized Platform,no,0.076239013
+17038,Karyn L. Bye (-Dietz),F,30,173,75,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Women's Ice Hockey,Silver,0.076274179
+15606,Stephanie Karenmonica Brown-Trafton,F,32,193,100,United States,USA,2012 Summer,2012,Summer,London,Athletics,Athletics Women's Discus Throw,no,0.076435883
+2332,Martine Albert,F,32,155,47,Canada,CAN,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Women's 7.5 kilometres Sprint,no,0.076758113
+23940,Jesseca H. Cross,F,25,178,88,United States,USA,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Women's Hammer Throw,no,0.077991137
+24420,John Curtis,M,37,173,68,Canada,CAN,2004 Summer,2004,Summer,Athina,Sailing,Sailing Mixed Multihull,no,0.080545132
+31164,Cindy Eadie,F,21,183,80,Canada,CAN,2004 Summer,2004,Summer,Athina,Softball,Softball Women's Softball,no,0.080998977
+26135,Andre De Grasse,M,21,176,70,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's 4 x 100 metres Relay,Bronze,0.081002883
+5363,"Alexander Vladimirovich ""Sasha"" Artemev",M,22,168,,United States,USA,2008 Summer,2008,Summer,Beijing,Gymnastics,Gymnastics Men's Horizontal Bar,no,0.081573039
+34094,Donald Farley,M,31,178,74,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Cross Country Skiing,Cross Country Skiing Men's 50 kilometres,no,0.081629443
+14299,Shannon Leigh Boxx,F,27,172,67,United States,USA,2004 Summer,2004,Summer,Athina,Football,Football Women's Football,Gold,0.08163205
+22641,Santo Condorelli,M,21,188,88,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Swimming,Swimming Men's 100 metres Butterfly,no,0.081713569
+3532,Omar Amr,M,29,180,92,United States,USA,2004 Summer,2004,Summer,Athina,Water Polo,Water Polo Men's Water Polo,no,0.082217481
+33478,Tracy Evans,F,34,160,55,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Freestyle Skiing,Freestyle Skiing Women's Aerials,no,0.083021132
+15618,Pierre Browne,M,20,175,71,Canada,CAN,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Men's 4 x 100 metres Relay,no,0.083386694
+16685,Kevin Lobdell Burnham,M,47,185,70,United States,USA,2004 Summer,2004,Summer,Athina,Sailing,Sailing Men's Two Person Dinghy,Gold,0.083522167
+30070,Marie-ve Drolet,F,32,167,60,Canada,CAN,2014 Winter,2014,Winter,Sochi,Short Track Speed Skating,"Short Track Speed Skating Women's 1,500 metres",no,0.085425386
+2578,"Nicholas ""Nick"" Alexander",M,25,180,64,United States,USA,2014 Winter,2014,Winter,Sochi,Ski Jumping,"Ski Jumping Men's Large Hill, Team",no,0.085673885
+25311,"Thomas Curtis ""T. C."" Dantzler",M,37,180,74,United States,USA,2008 Summer,2008,Summer,Beijing,Wrestling,"Wrestling Men's Middleweight, Greco-Roman",no,0.086089138
+,,,,,,,,,,,,,,,0.086654704
+9100,Keith Beavers,M,25,185,75,Canada,CAN,2008 Summer,2008,Summer,Beijing,Swimming,Swimming Men's 200 metres Individual Medley,no,0.086984564
+25799,Rachel Dawson,F,26,178,68,United States,USA,2012 Summer,2012,Summer,London,Hockey,Hockey Women's Hockey,no,0.087233166
+30547,Justin William Bek Dumais,M,25,167,65,United States,USA,2004 Summer,2004,Summer,Athina,Diving,Diving Men's Synchronized Springboard,no,0.08754261
+11207,Stephen Raj Bhavsar,M,27,169,54,United States,USA,2008 Summer,2008,Summer,Beijing,Gymnastics,Gymnastics Men's Individual All-Around,no,0.088459589
+15606,Stephanie Karenmonica Brown-Trafton,F,24,193,100,United States,USA,2004 Summer,2004,Summer,Athina,Athletics,Athletics Women's Discus Throw,no,0.088587589
+2732,Caroll-Ann Alie (-Rosenberg),F,40,173,60,Canada,CAN,2000 Summer,2000,Summer,Sydney,Sailing,Sailing Women's Windsurfer,no,0.088996513
+23707,Chandra Crawford,F,22,175,68,Canada,CAN,2006 Winter,2006,Winter,Torino,Cross Country Skiing,Cross Country Skiing Women's Sprint,Gold,0.089528671
+24403,Russell Currier,M,26,173,66,United States,USA,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Men's 4 x 7.5 kilometres Relay,no,0.08958675
+23868,Ian Lowell Crocker,M,21,193,86,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Men's 4 x 100 metres Freestyle Relay,Bronze,0.090245117
+33079,Anthony Lee Ervin,M,19,191,80,United States,USA,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Men's 4 x 100 metres Freestyle Relay,Silver,0.091850771
+3824,Jasey-Jay Anderson,M,34,178,80,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Snowboarding,Snowboarding Men's Parallel Giant Slalom,Gold,0.092286092
+960,Amanda Jo Adkins (-Schneider),F,23,173,61,United States,USA,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Women's 200 metres Backstroke,no,0.092351056
+30318,Jessika Dubuc,F,25,168,57,Canada,CAN,2008 Summer,2008,Summer,Beijing,Synchronized Swimming,Synchronized Swimming Women's Team,no,0.093255788
+8193,Peter Barry,M,56,180,78,Canada,CAN,2012 Summer,2012,Summer,London,Equestrianism,"Equestrianism Mixed Three-Day Event, Team",no,0.093305928
+14180,KC Boutiette,M,31,180,70,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Speed Skating,"Speed Skating Men's 5,000 metres",no,0.093570068
+9040,"Jonathan ""Jon"" Beare",M,26,185,75,Canada,CAN,2000 Summer,2000,Summer,Sydney,Rowing,Rowing Men's Lightweight Coxless Fours,no,0.093574831
+11671,"Suzanne Brigit ""Sue"" Bird",F,23,175,66,United States,USA,2004 Summer,2004,Summer,Athina,Basketball,Basketball Women's Basketball,Gold,0.095035714
+22837,Annelies Cook,F,29,168,56,United States,USA,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 4 x 6 kilometres Relay,no,0.09505224
+32382,Taylor Ellis-Watson,F,23,183,65,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Women's 4 x 400 metres Relay,Gold,0.095439517
+8235,"Corinne ""Cori"" Bartel (-Morris)",F,38,165,58,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Curling,Curling Women's Curling,Silver,0.095956771
+22379,"Kathryn A. ""Kathy"" Colin",F,26,172,68,United States,USA,2000 Summer,2000,Summer,Sydney,Canoeing,"Canoeing Women's Kayak Singles, 500 metres",no,0.096047483
+22474,"Atwood Peter ""Porter"" Collins",M,25,196,87,United States,USA,2000 Summer,2000,Summer,Sydney,Rowing,Rowing Men's Coxed Eights,no,0.096215283
+23964,Will Crothers,M,25,195,95,Canada,CAN,2012 Summer,2012,Summer,London,Rowing,Rowing Men's Coxed Eights,Silver,0.098014098
+34326,Joy Lynn Fawcett (Biefeld-),F,32,165,59,United States,USA,2000 Summer,2000,Summer,Sydney,Football,Football Women's Football,Silver,0.098106335
+30712,Brian William Dunseth,M,23,180,77,United States,USA,2000 Summer,2000,Summer,Sydney,Football,Football Men's Football,no,0.098399334
+19644,Miles Cleveland Chamley-Watson,M,22,193,80,United States,USA,2012 Summer,2012,Summer,London,Fencing,"Fencing Men's Foil, Individual",no,0.098593367
+21976,Robin Clegg,M,28,175,70,Canada,CAN,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Men's 12.5 kilometres Pursuit,no,0.099497655
+17515,Caroline Calv,F,35,177,73,Canada,CAN,2014 Winter,2014,Winter,Sochi,Snowboarding,Snowboarding Women's Parallel Giant Slalom,no,0.100799018
+13804,Mark Boswell,M,22,189,66,Canada,CAN,2000 Summer,2000,Summer,Sydney,Athletics,Athletics Men's High Jump,no,0.101905508
+11930,Sadie Bjornsen,F,24,175,66,United States,USA,2014 Winter,2014,Winter,Sochi,Cross Country Skiing,Cross Country Skiing Women's 15 km Skiathlon,no,0.102502228
+23723,Shawn Crawford,M,26,181,86,United States,USA,2004 Summer,2004,Summer,Athina,Athletics,Athletics Men's 4 x 100 metres Relay,Silver,0.103013368
+9659,"Zachary Michael ""Zach"" Bell",M,29,175,75,Canada,CAN,2012 Summer,2012,Summer,London,Cycling,Cycling Men's Omnium,no,0.105602373
+30882,"Nathaniel James ""Nate"" Dusing",M,25,185,83,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Men's 4 x 100 metres Freestyle Relay,Bronze,0.106146683
+13921,"Carolin Ruth ""Cal"" Bouchard",F,22,173,64,Canada,CAN,2000 Summer,2000,Summer,Sydney,Basketball,Basketball Women's Basketball,no,0.106275839
+23426,Natalie Anne Coughlin (-Hall),F,21,173,63,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Women's 4 x 200 metres Freestyle Relay,Gold,0.107352273
+11926,Tyler Bjorn,M,42,189,104,Canada,CAN,2012 Summer,2012,Summer,London,Sailing,Sailing Men's Two Person Keelboat,no,0.107645044
+29686,"Gabrielle Christina Victoria ""Gabby"" Douglas",F,20,157,50,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Gymnastics,Gymnastics Women's Floor Exercise,no,0.108524056
+3845,"Matthew John ""Matt"" Anderson",M,25,202,100,United States,USA,2012 Summer,2012,Summer,London,Volleyball,Volleyball Men's Volleyball,no,0.108889712
+27556,Patrick Deneen,M,26,170,82,United States,USA,2014 Winter,2014,Winter,Sochi,Freestyle Skiing,Freestyle Skiing Men's Moguls,no,0.109081049
+23180,Heather Corrie,F,37,173,59,United States,USA,2008 Summer,2008,Summer,Beijing,Canoeing,"Canoeing Women's Kayak Singles, Slalom",no,0.109155535
+9034,Amanda Ray Beard (-Brown),F,22,173,59,United States,USA,2004 Summer,2004,Summer,Athina,Swimming,Swimming Women's 4 x 100 metres Medley Relay,Silver,0.109996188
+11769,"Andrew Thomas ""Andy"" Bisek",M,29,178,82,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Wrestling,"Wrestling Men's Middleweight, Greco-Roman",no,0.110019962
+30129,"Christopher Ellis ""Chris"" Drury",M,29,178,86,United States,USA,2006 Winter,2006,Winter,Torino,Ice Hockey,Ice Hockey Men's Ice Hockey,no,0.110500411
+34433,Stefanie Fee,F,26,168,63,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Hockey,Hockey Women's Hockey,no,0.111604005
+15947,Ashley Brzozowicz,F,29,176,75,Canada,CAN,2012 Summer,2012,Summer,London,Rowing,Rowing Women's Coxed Eights,Silver,0.111680058
+15477,Bobby Brown,M,22,188,82,United States,USA,2014 Winter,2014,Winter,Sochi,Freestyle Skiing,Freestyle Skiing Men's Slopestyle,no,0.112465963
+9034,Amanda Ray Beard (-Brown),F,18,173,59,United States,USA,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Women's 200 metres Breaststroke,Bronze,0.114322051
+7518,"Thu Ai ""Tawny Banh",F,29,160,53,United States,USA,2004 Summer,2004,Summer,Athina,Table Tennis,Table Tennis Women's Singles,no,0.11519955
+24387,Taylor Curran,M,24,183,80,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Hockey,Hockey Men's Hockey,no,0.116543773
+7545,David Banks,M,28,188,87,United States,USA,2012 Summer,2012,Summer,London,Rowing,Rowing Men's Coxed Eights,no,0.116587229
+30807,Kevin Wayne Durant,M,23,206,105,United States,USA,2012 Summer,2012,Summer,London,Basketball,Basketball Men's Basketball,Gold,0.117425824
+30622,"David ""Dave"" Duncan",M,31,183,93,Canada,CAN,2014 Winter,2014,Winter,Sochi,Freestyle Skiing,Freestyle Skiing Men's Ski Cross,no,0.117478603
+2412,Kyle Scott Alcorn,M,27,185,82,United States,USA,2012 Summer,2012,Summer,London,Athletics,"Athletics Men's 3,000 metres Steeplechase",no,0.118687164
+13963,Sarah Boudens (-Baillie),F,25,163,67,Canada,CAN,2008 Summer,2008,Summer,Beijing,Canoeing,"Canoeing Women's Kayak Singles, Slalom",no,0.118931925
+10390,Lindsey Napela Berg,F,32,173,77,United States,USA,2012 Summer,2012,Summer,London,Volleyball,Volleyball Women's Volleyball,Silver,0.118968449
+29703,Michael Douglas,M,38,172,78,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Skeleton,Skeleton Men's Skeleton,no,0.119154125
+9239,Janine Elizabeth Beckie,F,21,173,63,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Football,Football Women's Football,Bronze,0.119347584
+16615,"Timothy John ""Tim"" Burke",M,28,180,73,United States,USA,2010 Winter,2010,Winter,Vancouver,Biathlon,Biathlon Men's 12.5 kilometres Pursuit,no,0.119852068
+22900,"Samantha ""Sammy"" Cools",F,22,160,60,Canada,CAN,2008 Summer,2008,Summer,Beijing,Cycling,Cycling Women's BMX,no,0.120381308
+16671,"John David ""J. D."" Burnes",M,20,178,78,Canada,CAN,2008 Summer,2008,Summer,Beijing,Archery,Archery Men's Team,no,0.121259764
+15511,Dustin James Brown,M,29,183,94,United States,USA,2014 Winter,2014,Winter,Sochi,Ice Hockey,Ice Hockey Men's Ice Hockey,no,0.121569088
+5152,"Elizabeth ""Betsey"" Armstrong",F,25,188,77,United States,USA,2008 Summer,2008,Summer,Beijing,Water Polo,Water Polo Women's Water Polo,Silver,0.121741426
+17462,Ryan Callahan,M,24,180,86,United States,USA,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Men's Ice Hockey,Silver,0.12198703
+15538,Jeremiah Brown,M,26,198,106,Canada,CAN,2012 Summer,2012,Summer,London,Rowing,Rowing Men's Coxed Eights,Silver,0.12253062
+31228,Jan Ebeling,M,53,180,70,United States,USA,2012 Summer,2012,Summer,London,Equestrianism,"Equestrianism Mixed Dressage, Individual",no,0.122754416
+17515,Caroline Calv,F,31,177,73,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Snowboarding,Snowboarding Women's Parallel Giant Slalom,no,0.122830964
+21333,Tyler Christopher,M,24,188,84,Canada,CAN,2008 Summer,2008,Summer,Beijing,Athletics,Athletics Men's 400 metres,no,0.123289285
+27168,Graham DeLaet,M,34,180,,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Golf,Golf Men's Individual,no,0.123457052
+20551,Lisa Chesson,F,23,169,66,United States,USA,2010 Winter,2010,Winter,Vancouver,Ice Hockey,Ice Hockey Women's Ice Hockey,Silver,0.123912515
+23464,Charle Cournoyer,M,22,173,68,Canada,CAN,2014 Winter,2014,Winter,Sochi,Short Track Speed Skating,Short Track Speed Skating Men's 500 metres,Bronze,0.124030863
+12354,Ivanie Lise Blondin,F,23,165,56,Canada,CAN,2014 Winter,2014,Winter,Sochi,Speed Skating,"Speed Skating Women's 5,000 metres",no,0.12528064
+30781,Andrea Duran,F,24,168,60,United States,USA,2008 Summer,2008,Summer,Beijing,Softball,Softball Women's Softball,Silver,0.125406293
+12890,Franois Boivin,M,27,170,70,Canada,CAN,2010 Winter,2010,Winter,Vancouver,Snowboarding,Snowboarding Men's Boardercross,no,0.125425267
+17696,"Daniel Alan ""Dan"" Campbell",M,23,170,70,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Biathlon,Biathlon Men's 20 kilometres,no,0.125677345
+22166,Ryan Andrew Cochrane,M,23,192,80,Canada,CAN,2012 Summer,2012,Summer,London,Swimming,Swimming Men's 400 metres Freestyle,no,0.125864682
+25713,Meryl Elizabeth Davis,F,27,160,49,United States,USA,2014 Winter,2014,Winter,Sochi,Figure Skating,Figure Skating Mixed Team,Bronze,0.126135008
+20106,"William Joseph N. ""Joey"" Cheek",M,26,185,79,United States,USA,2006 Winter,2006,Winter,Torino,Speed Skating,"Speed Skating Men's 1,000 metres",Silver,0.127595
+29145,"Thomas Fitzgerald ""Tom"" Dolan",M,24,201,86,United States,USA,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Men's 200 metres Individual Medley,Silver,0.12763379
+16970,"Jennifer ""Jen"" Button",F,22,163,55,Canada,CAN,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Women's 4 x 200 metres Freestyle Relay,no,0.128895702
+23721,Rosanna Lee Crawford,F,25,180,67,Canada,CAN,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 10 kilometres Pursuit,no,0.129117169
+15464,Alicia Brown,F,26,165,57,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Women's 4 x 400 metres Relay,no,0.129785553
+25380,Hannah Darling,F,20,174,72,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Rugby Sevens,Rugby Sevens Women's Rugby Sevens,Bronze,0.129878869
+27745,Kimberly Derrick,F,24,165,56,United States,USA,2010 Winter,2010,Winter,Vancouver,Short Track Speed Skating,"Short Track Speed Skating Women's 1,000 metres",no,0.130492923
+24309,Erin Cumpstone,F,23,173,68,Canada,CAN,2004 Summer,2004,Summer,Athina,Softball,Softball Women's Softball,no,0.131237777
+28504,Devon Diggle,M,20,183,83,Canada,CAN,2008 Summer,2008,Summer,Beijing,Water Polo,Water Polo Men's Water Polo,no,0.131794668
+14687,"Nathan ""Nate"" Brannen",M,25,174,58,Canada,CAN,2008 Summer,2008,Summer,Beijing,Athletics,"Athletics Men's 1,500 metres",no,0.132898445
+10337,"Richard ""Ricky"" Berens",M,20,188,93,United States,USA,2008 Summer,2008,Summer,Beijing,Swimming,Swimming Men's 4 x 200 metres Freestyle Relay,Gold,0.133140147
+8645,Emily Batty,F,24,161,48,Canada,CAN,2012 Summer,2012,Summer,London,Cycling,"Cycling Women's Mountainbike, Cross-Country",no,0.133688823
+6948,"John ""Johnny"" Bairos",M,22,167,74,United States,USA,2000 Summer,2000,Summer,Sydney,Cycling,Cycling Men's Team Sprint,no,0.134229923
+3473,Amanda Ammar,F,20,157,54,Canada,CAN,2006 Winter,2006,Winter,Torino,Cross Country Skiing,Cross Country Skiing Women's 4 x 5 kilometres Relay,no,0.134650023
+17438,"Patrick Maloney ""Pat"" Calhoun",M,19,183,84,United States,USA,2000 Summer,2000,Summer,Sydney,Swimming,Swimming Men's 100 metres Breaststroke,no,0.137554014
+10257,"Joseph ""Gunnar"" Bentz",M,20,196,84,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Swimming,Swimming Men's 4 x 200 metres Freestyle Relay,Gold,0.138154498
+35194,Connor Evan Fields,M,19,183,88,United States,USA,2012 Summer,2012,Summer,London,Cycling,Cycling Men's BMX,no,0.138438287
+6245,Miranda Joy Ayim,F,24,190,72,Canada,CAN,2012 Summer,2012,Summer,London,Basketball,Basketball Women's Basketball,no,0.139855678
+35395,Thomas Finchum,M,18,185,68,United States,USA,2008 Summer,2008,Summer,Beijing,Diving,Diving Men's Platform,no,0.140046496
+21181,Amy Yuen-Yee Chow (-Ho),F,22,155,44,United States,USA,2000 Summer,2000,Summer,Sydney,Gymnastics,Gymnastics Women's Uneven Bars,no,0.140079383
+35653,Casey J. FitzRandolph,M,31,180,79,United States,USA,2006 Winter,2006,Winter,Torino,Speed Skating,"Speed Skating Men's 1,000 metres",no,0.140471221
+30918,Phillip Peter Dutton,M,48,168,68,United States,USA,2012 Summer,2012,Summer,London,Equestrianism,"Equestrianism Mixed Three-Day Event, Team",no,0.140893635
+22837,Annelies Cook,F,29,168,56,United States,USA,2014 Winter,2014,Winter,Sochi,Biathlon,Biathlon Women's 10 kilometres Pursuit,no,0.140950384
+23652,Charlotte Rose Craig,F,17,168,49,United States,USA,2008 Summer,2008,Summer,Beijing,Taekwondo,Taekwondo Women's Flyweight,no,0.14125969
+27868,"Richard Dessureault-Dober, Jr.",M,23,185,85,Canada,CAN,2004 Summer,2004,Summer,Athina,Canoeing,"Canoeing Men's Kayak Fours, 1,000 metres",no,0.141825894
+145,Jeremy Abbott,M,28,175,70,United States,USA,2014 Winter,2014,Winter,Sochi,Figure Skating,Figure Skating Men's Singles,no,0.141966241
+811,Natalie Cammile Adams (-Brannan),F,20,173,65,United States,USA,2012 Summer,2012,Summer,London,Swimming,Swimming Women's 200 metres Butterfly,no,0.142046486
+21900,Scott Tyler Clary,M,23,185,84,United States,USA,2012 Summer,2012,Summer,London,Swimming,Swimming Men's 200 metres Butterfly,no,0.142675357
+25799,Rachel Dawson,F,23,178,68,United States,USA,2008 Summer,2008,Summer,Beijing,Hockey,Hockey Women's Hockey,no,0.142887222
+15563,"Matthew Benjamin ""Matt"" Brown",M,25,182,93,United States,USA,2008 Summer,2008,Summer,Beijing,Baseball,Baseball Men's Baseball,Bronze,0.142898789
+30888,Rebecca Ann Dussault (Quinn-),F,25,165,55,United States,USA,2006 Winter,2006,Winter,Torino,Cross Country Skiing,Cross Country Skiing Women's 15 km Skiathlon,no,0.143371311
+683,Natalie Chioma Achonwa,F,19,190,86,Canada,CAN,2012 Summer,2012,Summer,London,Basketball,Basketball Women's Basketball,no,0.143506941
+8750,Ashton Baumann,M,23,191,74,Canada,CAN,2016 Summer,2016,Summer,Rio de Janeiro,Swimming,Swimming Men's 200 metres Breaststroke,no,0.143753102
+25827,"Matthew F. ""Matt"" Dayton",M,24,178,68,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Nordic Combined,Nordic Combined Men's Sprint,no,0.144398584
+18456,Kip Carpenter,M,22,178,73,United States,USA,2002 Winter,2002,Winter,Salt Lake City,Speed Skating,"Speed Skating Men's 1,000 metres",no,0.14449665
+6038,"Thomas ""Tom"" Auth",M,32,185,74,United States,USA,2000 Summer,2000,Summer,Sydney,Rowing,Rowing Men's Lightweight Coxless Fours,no,0.145638512
+13870,Jennifer Lori Botterill,F,22,175,71,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Women's Ice Hockey,Gold,0.146168109
+27430,"William ""Bill"" Demarest",M,35,175,72,United States,USA,2000 Summer,2000,Summer,Sydney,Shooting,"Shooting Men's Air Pistol, 10 metres",no,0.146465679
+35426,Mason Finley,M,25,203,158,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's Discus Throw,no,0.146930905
+21181,Amy Yuen-Yee Chow (-Ho),F,22,155,44,United States,USA,2000 Summer,2000,Summer,Sydney,Gymnastics,Gymnastics Women's Horse Vault,no,0.14749521
+35387,"Andrew Joseph ""Andy"" Finch",M,24,170,75,United States,USA,2006 Winter,2006,Winter,Torino,Snowboarding,Snowboarding Men's Halfpipe,no,0.148651987
+15163,Thrse Anne Brisson,F,35,170,68,Canada,CAN,2002 Winter,2002,Winter,Salt Lake City,Ice Hockey,Ice Hockey Women's Ice Hockey,Gold,0.149050786
+35302,Jonelle Filigno,F,17,169,58,Canada,CAN,2008 Summer,2008,Summer,Beijing,Football,Football Women's Football,no,0.149656918
+32384,Brady Lee Ellison,M,19,181,86,United States,USA,2008 Summer,2008,Summer,Beijing,Archery,Archery Men's Team,no,0.150122073
+24000,"Margaret Yates ""Maggie"" Crowley",F,19,162,61,United States,USA,2006 Winter,2006,Winter,Torino,Speed Skating,"Speed Skating Women's 3,000 metres",no,0.150144852
+15325,Trayvon Jaquez Bromell,M,21,175,70,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Athletics,Athletics Men's 4 x 100 metres Relay,no,0.150560615
+27745,Kimberly Derrick,F,20,165,56,United States,USA,2006 Winter,2006,Winter,Torino,Short Track Speed Skating,"Short Track Speed Skating Women's 3,000 metres Relay",no,0.150772731
+15618,Pierre Browne,M,24,175,71,Canada,CAN,2004 Summer,2004,Summer,Athina,Athletics,Athletics Men's 100 metres,no,0.151399976
+21976,Robin Clegg,M,28,175,70,Canada,CAN,2006 Winter,2006,Winter,Torino,Biathlon,Biathlon Men's 10 kilometres Sprint,no,0.152068094
