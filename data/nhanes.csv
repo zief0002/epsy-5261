@@ -1,0 +1,501 @@
+sleep_weeknight,sleep_weekend,trouble_sleeping,exercise_hour,vigorous_exercise,pulse,recent_depression,age,martital_status,us_citizen
+9,9,NO,NA,NA,58,NO,60,Married,YES
+9,7,NO,YES,120,80,NO,36,Divorced,NO
+8,8,YES,YES,120,84,NO,55,Never Married,YES
+9,8.5,YES,NO,15,68,YES,45,Live with Partner,YES
+8.5,8,NO,YES,75,78,YES,27,Never Married,YES
+7.5,8,YES,YES,240,90,YES,67,Married,YES
+7,9,NO,NO,60,74,NO,39,Married,YES
+8,9,YES,YES,120,82,NO,30,Live with Partner,YES
+7.5,7.5,NO,NO,20,60,NO,33,Separated,YES
+9,9,NO,YES,180,70,NO,57,Divorced,YES
+4,5,YES,NO,60,72,NO,64,Married,YES
+7.5,9,NO,NA,NA,74,NO,61,Married,YES
+8,8,NO,NO,40,60,NO,79,Married,YES
+6,6,NO,NO,30,86,NO,61,Married,YES
+7.5,10.5,NO,NO,60,76,YES,20,Never Married,YES
+6,9.5,NO,NA,NA,74,NO,55,Married,NO
+7,7,NO,NA,NA,78,YES,61,Divorced,NO
+9.5,9.5,NO,NA,NA,62,YES,49,Live with Partner,YES
+6,9,NO,NA,NA,58,YES,64,Married,NO
+6.5,6.5,NO,NA,NA,74,NO,72,Married,YES
+8,7,YES,NO,30,68,YES,23,Never Married,YES
+7,7,YES,NA,NA,76,YES,43,Married,NO
+9,10,NO,NO,30,78,NO,22,Live with Partner,YES
+9,10,NO,NA,NA,88,NO,63,Married,YES
+4,9,YES,NA,NA,90,YES,43,Married,YES
+8,7,NO,NA,NA,62,NO,68,Married,YES
+2,3.5,YES,YES,120,50,NO,24,Married,YES
+7,7,NO,NA,NA,88,YES,71,Widowed,YES
+5.5,NA,NO,NA,NA,76,YES,39,Never Married,YES
+8,8,NO,NA,NA,68,NO,72,Married,YES
+8,8,NO,NA,NA,68,NO,37,Live with Partner,NO
+7.5,10.5,NO,NA,NA,88,YES,60,Separated,NO
+7.5,7.5,NO,NA,NA,84,NO,71,Widowed,YES
+8,7,NO,NA,NA,68,YES,26,Married,NO
+7,9,NO,NA,NA,72,NO,53,Married,YES
+7,10,NO,NO,60,92,NO,55,Married,YES
+7,7.5,NO,NA,NA,68,NO,65,Married,YES
+8,8,NO,NA,NA,60,NO,79,Married,YES
+7.5,7,NO,NA,NA,84,NO,24,Married,YES
+6,6,NO,NA,NA,64,NO,61,Married,YES
+8,8.5,YES,YES,70,74,NO,23,Never Married,YES
+6.5,7,NO,NO,60,66,YES,43,Married,NO
+6,10,NO,NA,NA,66,YES,43,Married,NO
+8,8,YES,NA,NA,72,YES,74,Divorced,YES
+6,3,NO,NO,60,72,NO,55,Divorced,YES
+5.5,7.5,NO,NA,NA,90,NO,42,Married,YES
+9,10,YES,NA,NA,70,NO,71,Married,YES
+6.5,9.5,NO,NA,NA,68,NO,59,Never Married,YES
+7.5,8,NO,NO,20,58,NO,48,Married,YES
+9,8,NO,NA,NA,86,NO,40,Divorced,YES
+7.5,9,NO,NA,NA,86,NO,48,Divorced,YES
+10,8,NO,NO,30,80,NO,46,Married,YES
+7,7,YES,NO,10,72,NO,71,Separated,YES
+7,8,NO,NO,30,62,NO,66,Married,YES
+6.5,7,NO,YES,120,66,NO,34,Never Married,YES
+9,7,NO,NA,NA,90,NO,60,Live with Partner,YES
+7,7,NO,YES,80,78,NO,58,Never Married,YES
+4,13,NO,NA,NA,60,NO,26,Married,NO
+7,7,YES,NO,22,66,YES,43,Separated,YES
+10,10,YES,NO,45,94,NO,26,Married,YES
+5,5,YES,YES,240,98,NO,52,Divorced,YES
+4.5,4.5,YES,NA,NA,80,YES,36,Married,YES
+3.5,5,NO,NO,20,90,NO,26,Live with Partner,YES
+7,8,NO,NA,NA,60,YES,70,Divorced,YES
+7,8,NO,NA,NA,70,NO,60,Married,YES
+8,10,NO,NO,30,68,YES,51,Divorced,NO
+9,9,NO,NA,NA,62,NO,71,Never Married,NO
+9.5,9.5,NO,NA,NA,90,YES,34,Live with Partner,YES
+8,7,NO,NA,NA,68,NO,52,Divorced,YES
+14,9,NO,NA,NA,86,YES,21,Never Married,NO
+8.5,8.5,YES,YES,80,44,YES,29,Never Married,YES
+6,8,YES,NA,NA,76,NO,38,Married,YES
+8,8,NO,NA,NA,52,NO,45,Married,YES
+6.5,6.5,NO,YES,90,74,NO,64,Married,YES
+6,6,YES,NA,NA,60,NO,70,Divorced,YES
+8.5,8,YES,YES,240,78,YES,44,Married,NO
+9,9,NO,YES,160,60,NO,62,Divorced,YES
+10,9,NO,NO,50,76,NO,44,Never Married,NO
+7.5,9.5,NO,NA,NA,66,NO,38,Live with Partner,YES
+8,11,NO,NO,20,66,NO,63,Married,YES
+7,6,NO,NA,NA,60,NO,56,Married,NO
+6,6,NO,NA,NA,56,NO,36,Live with Partner,YES
+8,8,NO,YES,300,74,NO,36,Married,YES
+5.5,8,NO,NO,60,62,NO,35,Married,YES
+9,7,NO,NO,10,66,NO,68,Married,YES
+7,7,NO,YES,90,74,NO,26,Never Married,YES
+9,9.5,YES,NO,45,126,NO,29,Married,YES
+8,9,NO,NO,30,68,NO,63,Divorced,YES
+7.5,10,NO,NA,NA,74,NO,21,Live with Partner,YES
+7,8,YES,NO,15,88,NO,31,Married,YES
+9,9,NO,NA,NA,80,NO,22,Married,YES
+4,7,NO,NO,60,88,NO,52,Never Married,YES
+7,2,YES,YES,120,78,YES,60,Married,YES
+7.5,9,NO,NO,60,50,NO,51,Separated,YES
+5,5,NO,NA,NA,78,NO,75,Widowed,YES
+8,8,NO,NA,NA,58,YES,51,Never Married,NO
+2,2,YES,NA,NA,82,NO,60,Married,YES
+7,6,YES,NA,NA,80,YES,64,Never Married,NO
+8,8,YES,NA,NA,88,NO,48,Married,YES
+10,8.5,NO,NO,20,66,NO,63,Married,YES
+9.5,9.5,NO,NO,30,98,NO,68,Divorced,YES
+8,8,YES,NA,NA,74,NO,59,Separated,NO
+8,8,NO,NO,20,60,NO,63,Separated,YES
+8,7,NO,NA,NA,60,YES,55,Divorced,YES
+8.5,7,NO,NA,NA,74,YES,44,Married,YES
+7,9,NO,NA,NA,86,NO,27,Married,YES
+7,7,NO,YES,240,56,NO,32,Married,NO
+8,8,YES,YES,120,72,YES,34,Never Married,YES
+12,12,YES,NA,NA,74,NO,20,Never Married,YES
+9,9,NO,NA,NA,66,NO,69,Divorced,YES
+9,9,NO,NA,NA,72,NO,47,Married,YES
+6,9,YES,NA,NA,68,NO,74,Married,YES
+9,9,YES,NA,NA,56,YES,70,Divorced,YES
+6,9,NO,NA,NA,66,YES,45,Divorced,YES
+7.5,8,YES,NO,30,78,NO,49,Never Married,YES
+11,14,NO,NA,NA,62,NO,62,Married,YES
+7,9,NO,NA,NA,56,NO,25,Married,YES
+10,10,NO,YES,360,58,NO,22,Never Married,YES
+5.5,5.5,NO,NA,NA,78,YES,73,Widowed,YES
+8.5,10.5,NO,YES,105,58,NO,35,Married,YES
+6,6,NO,NA,NA,80,NO,61,Live with Partner,YES
+8.5,7,NO,NA,NA,66,NO,73,Married,YES
+3.5,3.5,YES,NA,NA,72,YES,48,Separated,YES
+NA,NA,YES,NO,15,62,NO,26,Never Married,YES
+8.5,8,NO,YES,90,58,NO,58,Live with Partner,YES
+7,5,YES,NA,NA,100,NO,50,Married,YES
+5.5,4,NO,YES,300,64,NO,31,Live with Partner,YES
+5,8,NO,YES,80,66,NO,40,Married,YES
+7.5,7.5,NO,NA,NA,60,NO,69,Married,YES
+3,3,NO,NA,NA,68,YES,66,Divorced,YES
+8,8,YES,NA,NA,74,NO,54,Live with Partner,YES
+8,8,YES,NA,NA,72,NO,70,Never Married,YES
+9,9,NO,YES,240,70,NO,20,Never Married,YES
+7,7,NO,NA,NA,50,NO,69,Married,YES
+6.5,6.5,NO,NA,NA,90,NO,47,Divorced,YES
+10.5,10.5,NO,NA,NA,72,NO,62,Divorced,YES
+7,8.5,NO,NO,45,58,NO,21,Never Married,YES
+9,9,NO,NO,30,90,NO,36,Married,YES
+8,9.5,NO,YES,120,70,NO,23,Never Married,YES
+7.5,11,YES,YES,120,86,NO,56,Married,YES
+14,NA,NO,NA,NA,76,NO,62,Married,NO
+6,4,NO,NA,NA,94,NO,60,Live with Partner,YES
+8,8,NO,NA,NA,76,YES,34,Married,NO
+11,11,NO,NA,NA,64,NO,79,Married,YES
+9,9,NO,NA,NA,76,NO,23,Married,YES
+4.5,10,NO,NA,NA,74,NO,32,Never Married,YES
+9,12,NO,NA,NA,54,NO,59,Married,NO
+9,11,NO,NA,NA,88,NO,39,Live with Partner,YES
+7,8,YES,NA,NA,78,NO,40,Married,YES
+8,8,YES,NA,NA,60,YES,76,Widowed,YES
+7,8,NO,NO,30,68,NO,23,Married,YES
+9.5,9.5,NO,NA,NA,56,NO,67,Divorced,YES
+7,8,YES,NA,NA,78,YES,22,Never Married,YES
+7,6,YES,NO,60,78,YES,64,Married,YES
+7,8,NO,NO,60,94,YES,47,Never Married,YES
+3.5,8.5,NO,NA,NA,70,NO,77,Divorced,YES
+9,10,NO,YES,180,86,NO,67,Married,YES
+7,7,NO,NA,NA,96,NO,74,Divorced,YES
+8,10,NO,YES,140,72,NO,22,Married,YES
+9,9,NO,YES,120,82,NO,60,Divorced,YES
+11,11,NO,YES,120,80,NO,20,Never Married,YES
+6,9.5,NO,YES,240,62,NO,56,Divorced,YES
+9,7,NO,YES,180,52,NO,21,Never Married,YES
+9.5,9.5,NO,YES,120,76,YES,25,Never Married,YES
+9,9,YES,NA,NA,80,NO,57,Married,YES
+8,8,YES,NA,NA,78,YES,59,Married,YES
+10,10,YES,NA,NA,106,YES,55,Widowed,YES
+4.5,7,NO,NA,NA,70,YES,32,Live with Partner,YES
+9,10,YES,NA,NA,54,YES,70,Married,YES
+6,10,YES,NA,NA,58,NO,77,Divorced,YES
+9,8,NO,YES,360,76,NO,24,Married,YES
+8,6,NO,NA,NA,70,NO,49,Divorced,YES
+7,8,YES,NO,15,58,NO,28,Married,YES
+7.5,8,NO,NO,30,90,NO,52,Married,YES
+5,4,NO,NA,NA,68,NO,30,Never Married,YES
+7,9,NO,YES,120,58,NO,27,Married,YES
+4.5,6.5,NO,NA,NA,64,NO,36,Married,YES
+6,6,NO,NO,30,84,NO,76,Married,YES
+9,7.5,YES,NA,NA,62,NO,61,Married,YES
+9,7,NO,YES,140,62,NO,20,Never Married,YES
+8,10,NO,YES,75,60,NO,24,Live with Partner,YES
+7.5,6.5,NO,NO,30,76,NO,31,Married,YES
+7,6.5,YES,YES,120,76,NO,43,Married,NO
+8.5,8.5,YES,NA,NA,78,NO,65,Married,YES
+9,9,NO,YES,75,78,NO,23,Live with Partner,YES
+8.5,8.5,NO,NO,60,52,NO,72,Married,YES
+8,9,YES,NO,60,76,NO,30,Divorced,YES
+7,10,NO,NA,NA,78,NO,52,Live with Partner,YES
+7,3,NO,NA,NA,76,NO,73,Widowed,YES
+4.5,5.5,YES,YES,110,58,NO,20,Never Married,YES
+11,11,YES,NO,60,88,NO,57,Live with Partner,YES
+10,8,NO,NA,NA,88,NO,67,Widowed,NO
+7,7,NO,NA,NA,70,NO,64,Married,YES
+8,8,NO,NO,30,58,NO,48,Married,NO
+11,9,NO,NA,NA,76,NO,71,Divorced,YES
+NA,NA,NO,NA,NA,72,NO,71,Divorced,YES
+5,10,NO,NA,NA,74,NO,47,Married,NO
+6,8,NO,NA,NA,94,NO,77,Married,YES
+7,10,NO,NA,NA,72,NO,57,Married,NO
+8,8,YES,NO,60,68,NO,47,Married,YES
+7,7,NO,YES,120,66,NO,44,Married,YES
+11,9,YES,NA,NA,126,NO,39,Live with Partner,YES
+7.5,7.5,NO,NO,60,54,NO,56,Married,YES
+7,7,YES,NA,NA,86,NO,56,Never Married,YES
+7,10,NO,NA,NA,66,NO,41,Married,NO
+6,9,NO,YES,150,70,YES,29,Never Married,YES
+9,9,YES,NA,NA,60,YES,56,Divorced,YES
+8.5,7,NO,YES,90,76,YES,33,Married,YES
+8,8.5,NO,NO,60,72,NO,32,Never Married,YES
+8,11,YES,NA,NA,66,YES,62,Live with Partner,YES
+9,10,NO,NO,60,110,NO,27,Never Married,YES
+11,11,NO,NA,NA,86,YES,41,Divorced,YES
+7,7.5,NO,NA,NA,62,NO,47,Married,YES
+6,6,NO,YES,90,74,NO,56,Never Married,YES
+9.5,9.5,NO,NO,30,60,NO,60,Never Married,YES
+9,12,NO,NA,NA,82,YES,29,Never Married,YES
+7,9,NO,YES,90,62,NO,35,Married,YES
+7,10,YES,NA,NA,66,YES,69,Widowed,YES
+5.5,10,YES,NA,NA,86,NO,53,Never Married,YES
+10,10,NO,NO,60,70,NO,36,Never Married,YES
+8,8,NO,NO,45,78,NO,71,Married,YES
+8,8,YES,NA,NA,86,YES,67,Divorced,YES
+10,11,NO,NO,60,86,NO,26,Live with Partner,YES
+8.5,8.5,NO,NA,NA,58,NO,73,Married,YES
+8,8,YES,NA,NA,90,YES,47,Married,YES
+9,8.5,NO,NO,60,68,NO,71,Married,YES
+5.5,5,YES,NA,NA,58,YES,67,Divorced,YES
+10,11,YES,NA,NA,72,YES,43,Live with Partner,YES
+8.5,10,NO,NO,60,64,NO,28,Married,YES
+7.5,9,YES,NO,60,70,NO,30,Married,YES
+5,7,NO,NA,NA,62,NO,61,Married,YES
+6.5,9,YES,NO,60,90,NO,61,Married,YES
+9,9,NO,NA,NA,80,NO,27,Married,NO
+6,9,NO,NO,30,90,YES,31,Never Married,YES
+7,6,NO,NO,60,52,NO,61,Live with Partner,YES
+7,8,NO,YES,210,72,YES,40,Married,NO
+9,10,YES,NO,30,68,NO,30,Never Married,YES
+6.5,6.5,NO,NA,NA,78,YES,56,Married,YES
+10.5,10.5,NO,NO,60,60,NO,55,Married,YES
+9,9,YES,NA,NA,88,YES,48,Married,YES
+8,8,NO,NA,NA,58,NO,58,Married,YES
+7.5,8,YES,NA,NA,64,YES,51,Divorced,YES
+9,9,NO,YES,120,74,NO,47,Married,YES
+7.5,10,NO,NA,NA,78,NO,33,Married,YES
+5,8,NO,YES,120,78,NO,52,Never Married,YES
+7,3,NO,NA,NA,112,NO,44,Never Married,YES
+7,7,NO,YES,150,68,YES,25,Never Married,YES
+8.5,8.5,YES,YES,120,112,NO,52,Never Married,YES
+7.5,6,NO,NO,30,66,YES,52,Married,YES
+8,8,YES,YES,100,58,YES,28,Live with Partner,YES
+8.5,8.5,YES,NO,25,72,NO,79,Divorced,YES
+10.5,10,NO,NO,60,80,YES,40,Divorced,YES
+5,8,NO,NA,NA,70,NO,36,Married,YES
+5,8,YES,YES,120,66,NO,36,Married,NO
+8,8,NO,NO,30,60,NO,69,Married,YES
+5.5,13,NO,NO,60,100,NO,20,Never Married,YES
+9.5,10.5,YES,NO,10,78,NO,63,Widowed,YES
+8,8,NO,YES,120,74,NO,27,Never Married,YES
+6.5,7,NO,NO,45,60,YES,67,Separated,YES
+9,9,NO,NO,30,64,NO,79,Married,YES
+7,7,NO,NO,60,70,NO,24,Live with Partner,YES
+4,5,YES,NA,NA,82,YES,27,Separated,NO
+7.5,8.5,NO,YES,65,74,NO,65,Divorced,NO
+6,6,NO,NA,NA,70,NO,72,Divorced,YES
+7,11,YES,NA,NA,68,NO,65,Widowed,YES
+8.5,7.5,NO,NO,45,76,NO,69,Married,YES
+7.5,10,NO,NA,NA,92,YES,43,Never Married,YES
+7,7,NO,NO,60,72,NO,36,Married,YES
+8,8,NO,NO,60,62,NO,42,Married,YES
+9,9,NO,NA,NA,72,NO,45,Live with Partner,YES
+4.5,8,NO,NO,60,60,NO,20,Never Married,YES
+11.5,10.5,NO,NA,NA,86,NO,31,Married,NO
+7.5,7.5,NO,NA,NA,64,NO,63,Married,YES
+8,7.5,NO,NO,30,72,NO,32,Married,NO
+8,8.5,NO,YES,120,72,YES,42,Separated,YES
+9,9,NO,NA,NA,118,YES,65,Married,YES
+7,7,NO,NO,60,56,NO,48,,NA
+5,9.5,YES,YES,480,78,NO,33,Married,YES
+9.5,9.5,YES,NO,60,66,NO,75,Married,YES
+9,9,NO,NA,NA,78,YES,67,Widowed,NO
+8,7,NO,NO,60,60,YES,28,Never Married,YES
+8,8,NO,NA,NA,50,NO,54,Married,YES
+11,9,NO,NA,NA,90,NO,25,Live with Partner,YES
+6,6,NO,NO,45,82,NO,73,Married,YES
+7.5,7.5,YES,NO,60,66,NO,71,Widowed,YES
+6,7,YES,NA,NA,98,YES,60,Married,YES
+9,8,YES,NO,30,52,NO,76,Divorced,YES
+8,7.5,NO,YES,75,72,NO,25,Never Married,YES
+4,4,NO,NA,NA,58,NO,75,Separated,YES
+8,7,NO,NA,NA,78,NO,59,Never Married,YES
+2,2,YES,NA,NA,108,YES,56,Married,YES
+8,8,YES,YES,180,62,YES,31,Never Married,YES
+7.5,7,NO,NA,NA,58,NO,65,Married,NO
+3,9,NO,NA,NA,64,NO,33,Never Married,YES
+8,7,NO,NA,NA,66,YES,52,Divorced,NO
+9,11,NO,NA,NA,84,NO,20,Never Married,YES
+7,7,NO,NO,30,82,NO,77,Divorced,YES
+8,8,NO,NA,NA,58,YES,47,Married,NO
+8,9,YES,NA,NA,74,YES,35,Never Married,YES
+9,9,NO,NO,15,58,NO,60,Married,YES
+7.5,8,NO,NA,NA,72,YES,46,Married,YES
+7.5,7.5,YES,NA,NA,60,NO,52,Married,YES
+5.5,9,NO,NA,NA,82,NO,30,Live with Partner,YES
+3.5,4.5,NO,NA,NA,62,YES,52,Married,YES
+8,9,NO,YES,180,72,NO,20,Never Married,YES
+11,9,NO,NA,NA,70,YES,22,Live with Partner,YES
+11,11,NO,NO,30,102,NO,34,Married,YES
+6.5,9,YES,NA,NA,82,NO,41,Married,YES
+11,11,YES,NA,NA,82,YES,20,Never Married,YES
+8,9,NO,YES,120,64,NO,30,Married,NO
+7,7,NO,NA,NA,84,NO,43,Married,YES
+6,6,NO,YES,75,72,NO,72,Divorced,YES
+5,7,NO,NA,NA,60,YES,43,Divorced,YES
+7.5,7.5,NO,NA,NA,52,NO,66,Married,YES
+7.5,8,NO,YES,300,66,NO,25,Never Married,YES
+6.5,6.5,NO,NA,NA,58,NO,64,Married,YES
+10,8,NO,NA,NA,74,NO,38,Never Married,YES
+8,7,NO,NA,NA,60,YES,65,Married,YES
+5,5.5,NO,NA,NA,78,YES,40,Married,YES
+7.5,10,YES,NO,60,94,NO,37,Live with Partner,YES
+5,9,NO,NA,NA,84,YES,58,Divorced,NO
+7.5,9,YES,NA,NA,48,YES,78,Widowed,YES
+9,10,NO,YES,180,62,NO,50,Married,NO
+7.5,6.5,NO,NA,NA,64,YES,44,Never Married,YES
+7,7,NO,NA,NA,68,NO,55,Married,YES
+8,10,NO,NO,60,78,NO,28,Never Married,NO
+8,8,NO,NO,30,68,NO,70,Married,YES
+9,9,YES,NO,60,60,YES,58,Married,YES
+8.5,7.5,NO,NA,NA,60,YES,24,Married,YES
+7,7,YES,NO,30,68,YES,51,Married,YES
+9.5,9.5,YES,NA,NA,74,NO,63,Divorced,YES
+7,8,YES,NA,NA,78,YES,41,Widowed,YES
+8.5,7,NO,NO,30,88,NO,33,Live with Partner,YES
+9,9,NO,NA,NA,82,YES,63,Married,YES
+11,11,NO,YES,300,90,NO,20,Never Married,YES
+8,7.5,YES,NO,30,80,NO,26,Never Married,YES
+7.5,9,NO,NA,NA,70,YES,42,Live with Partner,NO
+7.5,8.5,NO,NA,NA,84,NO,35,Never Married,YES
+8,9,NO,NA,NA,86,NO,46,Married,NO
+8,9,NO,NA,NA,86,NO,31,Married,NO
+6.5,10,NO,NA,NA,90,NO,25,Live with Partner,YES
+8,8,YES,NA,NA,106,NO,39,Separated,YES
+8,8,NO,YES,120,84,YES,36,Married,NO
+8,8,NO,YES,180,64,NO,27,Never Married,YES
+7,7,NO,NA,NA,60,NO,77,Never Married,YES
+9,9,NO,NA,NA,58,NO,71,Separated,NO
+6,6,NO,NO,60,90,YES,28,Never Married,YES
+4.5,4.5,YES,NA,NA,60,NO,71,Married,YES
+5.5,8,NO,YES,120,70,NO,22,Never Married,YES
+7,9,NO,YES,180,66,YES,32,Live with Partner,YES
+9,7,NO,NA,NA,60,NO,50,Married,YES
+8,10,NO,YES,180,76,NO,26,Married,YES
+12,12,NO,YES,300,60,YES,79,Married,YES
+8.5,9,YES,NO,10,86,NO,47,Married,YES
+8.5,7.5,NO,NA,NA,68,NO,57,Divorced,YES
+7,9,YES,YES,120,72,NO,20,Never Married,YES
+7,7,YES,NA,NA,54,NO,43,Widowed,YES
+8.5,8.5,NO,YES,120,50,NO,72,Married,YES
+9,9,YES,NA,NA,62,NO,61,Never Married,YES
+8.5,8.5,NO,NA,NA,72,NO,51,Live with Partner,NO
+9,9,YES,NO,20,70,NO,32,Married,YES
+3,4,NO,YES,360,60,NO,43,Married,YES
+10.5,10.5,NO,NA,NA,78,YES,62,Separated,YES
+7,11,NO,NA,NA,70,NO,41,Married,NO
+9,9.5,NO,NA,NA,84,NO,30,Married,YES
+6,6,YES,NA,NA,64,YES,61,Widowed,YES
+10,10,NO,YES,120,62,YES,40,Never Married,YES
+5,3.5,NO,NA,NA,78,NO,21,Never Married,YES
+7.5,7.5,NO,NA,NA,82,NO,27,Never Married,NO
+8,10,NO,NA,NA,60,NO,73,Married,YES
+10,8.5,NO,NO,30,50,NO,74,Divorced,YES
+10,13,NO,NA,NA,86,YES,37,Never Married,YES
+6,7.5,NO,NA,NA,74,NO,37,Married,NO
+7.5,8.5,YES,NO,20,80,NO,47,Never Married,YES
+8,8,NO,NA,NA,66,NO,70,Married,YES
+7.5,8,NO,NA,NA,76,NO,69,Married,YES
+9,9,NO,NA,NA,60,YES,27,Never Married,YES
+7.5,9,YES,NO,60,82,YES,54,Live with Partner,YES
+9,9,NO,NA,NA,68,NO,41,Married,NO
+8.5,9.5,YES,YES,150,72,YES,28,Separated,YES
+NA,NA,NO,NA,NA,82,NO,38,Married,YES
+8,8,NO,YES,180,102,YES,25,Never Married,YES
+9.5,9.5,NO,NA,NA,54,NO,21,Never Married,YES
+8.5,8.5,NO,NA,NA,76,NO,79,Divorced,YES
+9,9,YES,NA,NA,66,YES,55,Married,YES
+7.5,9,NO,NO,30,68,NO,60,Married,YES
+9,9,YES,NA,NA,60,NO,45,Never Married,YES
+11.5,12,NO,NA,NA,66,YES,71,Widowed,YES
+5.5,8,NO,YES,180,74,NO,55,Married,YES
+9.5,8,YES,NO,60,80,YES,23,Never Married,YES
+7,8,YES,NA,NA,76,YES,62,Never Married,YES
+4,5,NO,NA,NA,60,NO,64,Married,YES
+12,13,YES,NO,20,84,YES,22,Never Married,YES
+7.5,8,NO,NA,NA,82,YES,42,Married,YES
+8,8,NO,NA,NA,60,YES,29,Never Married,YES
+9,9,NO,NO,20,62,YES,46,Married,YES
+5.5,12,YES,NO,30,82,NO,41,Married,YES
+2,2,YES,NA,NA,74,NO,61,Never Married,YES
+5,8,NO,NO,10,78,NO,51,Divorced,YES
+9,8.5,NO,NA,NA,74,YES,56,Widowed,NO
+9,9,NO,NA,NA,66,YES,39,Married,NO
+7,11,NO,NA,NA,78,NO,44,Married,NO
+4,9,NO,NO,30,66,NO,36,Separated,NO
+8,8.5,NO,NO,60,74,NO,26,Never Married,YES
+5,4.5,YES,NO,60,58,NO,58,Married,YES
+7,7,NO,NA,NA,78,YES,57,Widowed,YES
+3,6,NO,YES,180,70,NO,26,Live with Partner,YES
+5,5,YES,NA,NA,102,YES,54,Married,YES
+9,7,YES,NA,NA,62,YES,52,Never Married,YES
+9.5,11,YES,NA,NA,82,NO,60,Divorced,YES
+8.5,8,NO,NA,NA,84,NO,25,Divorced,YES
+7.5,7.5,NO,NA,NA,52,YES,63,Married,YES
+7.5,9.5,YES,NA,NA,54,YES,55,Never Married,YES
+9,10,NO,NA,NA,60,NO,75,Married,YES
+9,9,NO,NA,NA,72,NO,39,Married,YES
+7,7.5,NO,YES,180,64,NO,42,Married,YES
+5,8.5,NO,NA,NA,70,NO,38,Married,YES
+7,6,YES,YES,240,70,YES,39,Divorced,YES
+6.5,8,NO,NA,NA,102,YES,29,Live with Partner,YES
+8,NA,NO,NA,NA,86,NO,73,Separated,YES
+9,7,NO,YES,120,58,NO,64,Widowed,YES
+7.5,8,NO,YES,150,70,NO,33,Married,YES
+9,9,NO,NA,NA,68,NO,42,Divorced,YES
+6.5,10,NO,NA,NA,70,NO,37,Married,NO
+8.5,7.5,NO,NA,NA,84,YES,21,Never Married,YES
+9,8,NO,YES,65,60,NO,62,Divorced,YES
+5.5,10,NO,NA,NA,70,NO,25,Never Married,YES
+6.5,6.5,NO,YES,120,100,NO,28,Married,YES
+9,9,NO,NA,NA,54,NO,79,Widowed,YES
+6.5,6.5,YES,NA,NA,64,NO,73,Married,YES
+7.5,8,NO,NA,NA,76,YES,61,Married,YES
+9,8,NO,NA,NA,74,NO,26,Married,YES
+6.5,8,NO,NO,60,84,YES,59,Married,YES
+8,11,NO,NA,NA,80,NO,21,Never Married,YES
+6,9,YES,NA,NA,86,YES,38,Married,YES
+8,10,NO,YES,120,84,NO,30,Live with Partner,NO
+9,9,NO,NA,NA,64,NO,72,Widowed,YES
+10,8.5,NO,NO,60,58,NO,43,Married,YES
+11,11,NO,NA,NA,70,NO,78,Divorced,NO
+6,5.5,NO,NA,NA,90,NO,44,Widowed,YES
+7.5,7,NO,NA,NA,74,NO,44,Married,NO
+9,9,NO,NA,NA,76,YES,37,Married,NO
+8.5,10,NO,NA,NA,70,NO,38,Married,NO
+8,7,NO,NA,NA,58,NO,69,Married,YES
+7,8,NO,NA,NA,70,YES,61,Widowed,YES
+8,8,YES,NO,15,60,NO,78,Widowed,YES
+10,10,YES,NA,NA,68,NO,35,Live with Partner,YES
+8.5,4.5,NO,NA,NA,62,NO,55,Divorced,YES
+9,9,YES,NA,NA,62,NO,69,Married,YES
+9,8,NO,NA,NA,74,NO,77,Married,YES
+8,7,NO,NO,60,48,NO,68,Married,YES
+8,10,YES,NO,60,60,YES,37,Married,YES
+7,7,NO,YES,180,58,NO,27,Never Married,YES
+7,8,NO,NA,NA,72,NO,57,Married,NO
+12,12,YES,NA,NA,74,NO,22,Never Married,YES
+3,3,YES,NA,NA,74,YES,60,Never Married,YES
+9,8,YES,NA,NA,76,NO,62,Widowed,YES
+6.5,8.5,NO,NA,NA,100,NO,78,Divorced,YES
+8,6,YES,YES,120,70,YES,71,Married,YES
+10,10,YES,NA,NA,66,YES,59,Never Married,YES
+7.5,9.5,NO,NA,NA,80,NO,72,Live with Partner,NO
+8,11,NO,NA,NA,72,NO,27,Live with Partner,YES
+5.5,12,NO,YES,150,70,YES,31,Divorced,YES
+6.5,9.5,NO,YES,90,80,NO,42,Married,YES
+9,8.5,NO,YES,120,58,NO,20,Never Married,YES
+5.5,6,NO,YES,120,80,NO,42,Live with Partner,YES
+5,8,NO,NA,NA,78,YES,54,Married,YES
+8,8.5,YES,NA,NA,90,NO,62,Widowed,YES
+5,7,YES,NA,NA,82,YES,41,Separated,YES
+8,8.5,NO,NA,NA,84,NO,33,Married,YES
+7,7,YES,NA,NA,60,NO,79,Widowed,YES
+9,9,NO,NA,NA,78,NO,79,Married,YES
+7.5,7.5,NO,NA,NA,68,NO,33,Married,YES
+9,10,NO,NO,60,60,NO,56,Married,YES
+9,8,NO,NA,NA,74,YES,26,Never Married,YES
+7.5,8,NO,NO,60,58,YES,28,Married,YES
+9,8,YES,NA,NA,74,YES,58,Never Married,YES
+7.5,7.5,NO,NA,NA,60,NO,50,Live with Partner,YES
+9,9,NO,NA,NA,86,NO,68,Married,YES
+9.5,9.5,NO,NO,60,56,NO,63,Married,YES
+10,10,NO,NA,NA,64,NO,66,Divorced,YES
+6,5,NO,NA,NA,72,YES,39,Live with Partner,YES
+5,5,NO,NO,20,86,YES,51,Divorced,YES
+7.5,7.5,NO,NO,20,48,NO,75,Married,YES
+6,6,NO,YES,240,80,NO,27,Married,YES
+9,11,YES,NA,NA,54,YES,34,Never Married,YES
+7.5,8.5,NO,NO,10,78,NO,60,Married,YES
+8,8,NO,NA,NA,70,NO,67,Live with Partner,YES
+5,5,NO,NA,NA,68,NO,60,Never Married,YES
+7,7,YES,NA,NA,62,NO,79,Married,YES
+8,8,NO,NA,NA,74,NO,51,Widowed,NO
+7,6,NO,NA,NA,66,NO,57,Never Married,YES
+7.5,8,NO,NA,NA,80,YES,41,Divorced,YES
+8.5,8,NO,NO,30,78,NO,41,Divorced,YES
+5,10,NO,NA,NA,76,NO,37,Married,YES
+9,9,NO,YES,180,84,NO,20,Never Married,YES
+7,7,YES,NA,NA,68,YES,55,Married,YES
+8.5,9.5,YES,YES,90,50,YES,66,Married,YES
+9,9.5,NO,NA,NA,60,NO,33,Married,YES
+7,8,NO,NO,45,60,NO,75,Divorced,YES
