@@ -1,4 +1,4 @@
-﻿participant_id,name,sex,age,height,weight,team,noc,games,year,season,city,sport,event,medal,rand
+﻿id,name,sex,age,height,weight,team,noc,games,year,season,city,sport,event,medal,rand
 10390,Lindsey Napela Berg,F,28,173,77,United States,USA,2008 Summer,2008,Summer,Beijing,Volleyball,Volleyball Women's Volleyball,Silver,0.001109456
 32384,Brady Lee Ellison,M,27,181,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Archery,Archery Men's Individual,Bronze,0.001368863
 32384,Brady Lee Ellison,M,27,181,86,United States,USA,2016 Summer,2016,Summer,Rio de Janeiro,Archery,Archery Men's Team,Silver,0.002054056
