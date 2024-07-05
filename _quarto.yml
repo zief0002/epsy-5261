@@ -6,6 +6,7 @@ project:
     browser: true
   resources: 
     - codebooks/ #Add codebooks to docs
+    - codebooks/body-temp.html #Add codebooks to docs
 
 book:
   title: "An Introduction to Data Analysis"

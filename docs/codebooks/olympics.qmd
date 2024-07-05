@@ -1,0 +1,69 @@
+---
+title: "olympics.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+The Olympic Games are an international multi-sport event held every four years in which thousands of athletes from around the world participate in various sports competitions. The Olympics are one of the most significant and prestigious sporting events globally, promoting unity, friendship, and fair play among nations.
+
+The data in [olympics.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/olympics.csv) includes information about $N=300$ randomly sampled Olympians from the United States and Canada.
+
+---
+
+The attributes included in the data are:
+
+- `name`: Olympian's name
+- `sex`: Olympian's sex (F = Female, M = Male)
+- `age`: Olympian's age (in years)
+- `height`: Olympian's height (in cm)
+- `weight`: Olympian's weight (in kg)
+- `team`: Team the Olympian competed for (United States or Canada)
+- `year`: Year in which the Olympian competed
+- `games`: Games in which the Olympian competed (Summer or Winter)
+- `city`: City in which the Olympic Games took place
+- `sport`: Broad category of sport in which the Olympian competed
+- `event`: More specific event in which the Olympian competed
+- `medal`: Medal won by the Olympian (No, Bronze, Silver, Gold)
+
+
+---
+
+
+### Preview
+
+```{r}
+#| eval: false
+# Import data
+library(tidyverse)
+olympics = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/olympics.csv")
+
+# View data
+olympics
+```
+
+```{r}
+#| echo: false
+olympics = readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/olympics.csv")
+# View data
+DT::datatable(olympics)
+```
+
+
+### References
+
+The original data were made availabel by Bhanupratap Biswas on [Kaggle](https://www.kaggle.com/datasets/bhanupratapbiswas/olympic-data?resource=download).
+
+

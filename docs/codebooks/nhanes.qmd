@@ -1,0 +1,65 @@
+---
+title: "nhanes.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+The [National Health and Nutrition Examination Survey (NHANES)](https://www.cdc.gov/nchs/nhanes) is a program of studies carried out by the Centers for Disease Control and Prevention (CDC) and is designed to assess the health and nutritional status of adults and children in the United States. These studies are conducted in two-year cycles and the data collected is representative of the non-institutionalized U.S. population. The data comes from interviews and physical examinations of the sampled participants.
+
+The data in [nhanes.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/nhanes.csv) were collected by the CDC in 2017 and includes measures collected from 500 randomly sampled participants. 
+
+---
+
+The attributes included in the data are:
+
+- `sleep_weeknight`: Number of hours participant usually sleep on weekdays or workdays (to nearest half hour).
+- `sleep_weekend`: Number of hours participant usually sleep on weekends or non-workdays (to nearest half hour).
+- `trouble_sleeping`: Participant's response to the question: "Have you ever told a doctor or other health professional that you have trouble sleeping?" (`YES`, `NO`)
+- `exercise_hour`: Participant's response to the question: "Do you get more than 60 minutes of moderate to vigorous exercise per day?" (`YES`, `NO`)
+- `vigorous_exercise`: Amount of time the participant spends doing moderate- or vigorous-intensity sports, fitness or recreational activities on a typical day. Moderate-intensity sports, fitness or recreational activities were defined as causing small increases in breathing or heart rate and is done for at least 10 minutes continuously. Vigorous-intensity sports, fitness or recreational activities were defined as causeing large increases in breathing or heart rate and is done for at least 10 minutes continuously.
+- `pulse`: Participant's 60 second pulse rate
+- `recent_depression`: Participant's response to the question: "Over the last 2 weeks, have you felt down, depressed, or hopeless?" (`YES`, `NO`)
+- `age`: Participant's age (in years)
+- `martital_status`: Participant's marital status (`Married`, `Divorced`, `Separated`, `Never Married`, `Live with Partner`, or `Widowed`)
+- `us_citizen`:  Participant's response to the question: "Are you a citizen of the United States? [Information about citizenship is being collected by the U.S. Public Health Service to perform health related research. Providing this information is voluntary and is collected under the authority of the Public Health Service Act. There will be no effect on pending immigration or citizenship petitions.]" (`YES`, `NO`)
+
+---
+
+
+### Preview
+
+```{r}
+#| eval: false
+# Import data
+library(tidyverse)
+nhanes = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/nhanes.csv")
+
+# View data
+nhanes
+```
+
+```{r}
+#| echo: false
+nhanes = readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/nhanes.csv")
+# View data
+DT::datatable(nhanes)
+```
+
+
+### References
+
+
+

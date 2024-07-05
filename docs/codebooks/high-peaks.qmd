@@ -1,0 +1,60 @@
+---
+title: "high-peaks.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+Hiking the 46 Adirondack High Peaks is recognized as one of the greatest challenges in the Adirondack Park. The data in [high-peaks.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/high-peaks.csv) includes information about the $N=46$ mountains in the Adirondack Park. It was made available by @Adirondack.net:2024.
+
+---
+
+The attributes included in the data are:
+
+- `peak`: Name of the mountain
+- `elevation`: Elevation of the mountain (in feet)
+- `difficulty`: Rated difficulty level of the hike from 1 (easiest) to 7 (most difficiult)
+- `ascent`: Ascent of the climb (in feet) 
+- `length`: Length of the hike, round trip (in miles)
+- `time`: Typical hike time (in hours)
+
+---
+
+
+### Preview
+
+```{r}
+#| eval: false
+# Import data
+library(tidyverse)
+high_peaks = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/high-peaks.csv")
+
+# View data
+high_peaks
+```
+
+```{r}
+#| echo: false
+high_peaks = readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/high-peaks.csv")
+# View data
+DT::datatable(high_peaks)
+```
+
+
+### References
+
+
+
+
