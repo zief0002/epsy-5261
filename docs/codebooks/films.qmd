@@ -1,0 +1,62 @@
+---
+title: "films.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+The data in [films.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/films.csv) includes measures collected from $n=3029$ films released between 1937 and 2016. The data was scraped from various websites (e.g., IMdB).
+
+---
+
+The attributes included in the data are:
+
+- `movie`: Name of the film
+- `year`: Year the film was released in theaters
+- `genre`: Primary genre of the film (e.g., Adventure, Horror, Comedy)
+- `color`: Was the film released in color or black-and-white? 
+- `language`: The original language the film was originally released in.
+- `country`: The first country the movie was originally released to
+- `rating`: MPAA rating of the film (e.g., G, PG, R)
+- `duration`: Duration (running time) of the film, in minutes
+- `budget`: The film's budget (in U.S. dollars)
+
+---
+
+
+### Preview
+
+```{r}
+#| eval: false
+# Import data
+library(tidyverse)
+films = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/films.csv")
+
+# View data
+films
+```
+
+```{r}
+#| echo: false
+films = readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/films.csv")
+# View data
+DT::datatable(films)
+```
+
+
+<!-- ### References -->
+
+
+

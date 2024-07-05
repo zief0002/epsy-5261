@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,12 +112,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -122,12 +155,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-02-two-sample-test-assumptions.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-02-two-sample-test-assumptions.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -137,7 +170,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -409,7 +442,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -429,7 +462,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-02-two-sample-test-assumptions.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-two-sample-test-assumptions" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></h1>
 </div>
@@ -444,7 +477,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn about the assumptions that we need to make in order for the results of a two-sample <em>t</em>-test to be statistically valid.</p>
 <p><br></p>
@@ -466,7 +501,7 @@ function toggle_visibility(id) {
 <p><br></p>
 <section id="evaluating-the-assumption-of-normality" class="level3" data-number="14.1.1">
 <h3 data-number="14.1.1" class="anchored" data-anchor-id="evaluating-the-assumption-of-normality"><span class="header-section-number">14.1.1</span> Evaluating the Assumption of Normality</h3>
-<p>To evaluate the first assumption that the distributions of values in both populations are <em>normally distributed</em>, we plot the sample data for both groups and ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="04-05-one-sample-test-assumptions.html#fig-hrs-sleep">Figure&nbsp;<span>11.1</span></a>.</p>
+<p>To evaluate the first assumption that the distributions of values in both populations are <em>normally distributed</em>, we plot the sample data for both groups and ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="04-05-one-sample-test-assumptions.html#fig-hrs-sleep" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
@@ -486,10 +521,14 @@ function toggle_visibility(id) {
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-cannabis" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-02-two-sample-test-assumptions_files/figure-html/fig-cannabis-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
+<div id="fig-cannabis" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cannabis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-02-two-sample-test-assumptions_files/figure-html/fig-cannabis-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cannabis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -501,10 +540,14 @@ function toggle_visibility(id) {
 `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-five-normal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-02-two-sample-test-assumptions_files/figure-html/fig-five-normal-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.2: Five simple random samples of size 14 and 23 drawn from a normal population.</figcaption>
+<div id="fig-five-normal" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-02-two-sample-test-assumptions_files/figure-html/fig-five-normal-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Five simple random samples of size 14 and 23 drawn from a normal population.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -533,7 +576,6 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"iq_change","2":"Adult","3":"-16","4":"-7","5":"-3","6":"4.0","7":"11","8":"-2.071429","9":"7.770400","10":"14","11":"0"},{"1":"iq_change","2":"Teen","3":"-23","4":"-11","5":"-8","6":"-3.5","7":"5","8":"-8.260870","9":"7.136445","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -557,13 +599,17 @@ function toggle_visibility(id) {
 <h2 data-number="14.2" class="anchored" data-anchor-id="evaluating-assumptions-in-the-bachelor-and-bachelorette-ages-case-study"><span class="header-section-number">14.2</span> Evaluating Assumptions in the Bachelor and Bachelorette Ages Case Study</h2>
 <section id="your-turn" class="level4 unnumbered exercises">
 <h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
-<p>In the Bachelor and Bachelorette ages case study from <a href="05-01-two-sample-t-test.html"><span>Chapter&nbsp;13</span></a>, we evaluated whether, on average, there were age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. The histograms for the sample distributions of ages is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
+<p>In the Bachelor and Bachelorette ages case study from <a href="05-01-two-sample-t-test.html" class="quarto-xref"><span>Chapter 13</span></a>, we evaluated whether, on average, there were age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. The histograms for the sample distributions of ages is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-bachelor-age" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-02-two-sample-test-assumptions_files/figure-html/fig-bachelor-age-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.3: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
+<div id="fig-bachelor-age" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bachelor-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-02-two-sample-test-assumptions_files/figure-html/fig-bachelor-age-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bachelor-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -584,7 +630,6 @@ Show/Hide Solution
 <p>Based on the summary statistics provided below, do you believe the equal variances assumption is tenable?</p>
 <div class="cell">
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["show"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"age","2":"Bachelor","3":"25","4":"28.0","5":"30","6":"33","7":"40","8":"30.70370","9":"3.800960","10":"27","11":"0"},{"1":"age","2":"Bachelorette","3":"24","4":"26.5","5":"28","6":"29","7":"39","8":"28.17391","9":"3.039919","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -691,10 +736,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -704,8 +748,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -718,6 +771,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -761,6 +933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -786,6 +959,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -847,17 +1046,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05-01-two-sample-t-test.html" class="pagination-link">
+      <a href="./05-01-two-sample-t-test.html" class="pagination-link" aria-label="Two-Sample t-Test">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-03-two-sample-test-proportions.html" class="pagination-link">
+      <a href="./05-03-two-sample-test-proportions.html" class="pagination-link" aria-label="Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples">
         <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

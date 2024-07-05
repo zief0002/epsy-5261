@@ -22,18 +22,18 @@ The U.S. Department of Education (DOE) collects and publishes data on institutio
 
 ---
 
-The attributes included inthe data are:
+The attributes included in the data are:
 
 - `name`: Name of institution of higher education
 - `state`: Two-letter U.S. state abbreviation indicating the location of the institution
 - `region`: Region of the U.S. in which the institution is located
 - `inst_type`: Type of institution (Two-year undergraduate, Four-year undergraduate, Exclusively graduate/professional)
-- `control`: Institutional control (Private nonprofit, Private for-profit, or Public)
+- `control`: Institutional control (Private, Public)
+- `for_profit`: Is the institution a for-profit institution? (No, Yes)
 - `adm_rate`: Admission rate indicating proportion of students who applied that are admitted to the institution
-- `num_undergrads`: Number of enrolled undergraduate certificate/degree-seeking students at the institution
-- `median_debt`: Median amount of debt (loan principle when entering repayment) for all undergraduate borrowers
-- `median_debt_grads`: Median amount of debt after graduation for undergraduate borrowers who complete their degree
-- `median_earnings`: Median earnings of students working and not enrolled 10 years after entry
+- `undergrads`: Number of enrolled undergraduate certificate/degree-seeking students at the institution
+- `mdn_debt`: Median amount of debt after graduation for undergraduate borrowers who complete their degree
+- `mdn_earn`: Median earnings of students working and not enrolled 10 years after entry
 
 
 ---

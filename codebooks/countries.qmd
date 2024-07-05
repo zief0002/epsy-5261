@@ -1,0 +1,60 @@
+---
+title: "countries.csv"
+output: 
+  html:
+    css: '../assets/codebooks.css'
+    df_print: paged
+    code_folding: show
+theme: "yeti"
+highlight-style: "atom-one"
+bibliography: '../assets/epsy-5261.bib'
+csl: '../assets/apa-single-spaced.csl'
+---
+
+
+```{r}
+#| include: false
+source("../assets/codebook-setup.R")
+```
+
+
+The [countries.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/countries.csv) data include information from the year 2019 on $N=196$ countries.
+
+---
+
+The attributes included in the data are:
+
+- `country`: Country name
+- `region``: World region for the country (East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean, Middle East & North Africa, North America, South Asia, Sub-Saharan Africa)
+- `population`: Population of the country
+- `area`: Area of the country (in km sq.)
+- `gdp`: The per person gross domestic product (GDP) adjusted for differences in purchasing power (in U.S. dollars)
+- `life_expect`: Life expectancy for all sexes (in years). This is the number of years a newborn infant would be expected to live if the current mortality rates at different ages were to stay the same.
+- `birth_rate`: Number of live births expressed per 1,000 people in the population
+- `fertility`: Number of live births per 1,000 females of childbearing age (between the ages of 15 and 44 years)
+- `death_rate`: Number of deaths divided by the person-years lived by the population over that period expressed per 1,000 people in the population
+- `infant_mortality`: Infant mortality rate for all sexes per 1,000 live births
+
+
+---
+
+
+### Preview
+
+```{r}
+# Import data
+library(tidyverse)
+countries <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/countries.csv")
+```
+
+```{r}
+#| echo: false
+# View data
+DT::datatable(countries)
+```
+
+
+### References
+
+
+

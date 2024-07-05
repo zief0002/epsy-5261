@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -71,12 +78,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -88,12 +121,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -103,7 +136,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -375,7 +408,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -405,7 +438,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-one-sample-test" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></h1>
 </div>
@@ -420,7 +453,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn how to carry out a one-sample <em>t</em>-test to statistically compare a sample of data to a standard by accounting for the sampling uncertainty.</p>
 <p><br></p>
@@ -448,51 +483,70 @@ function toggle_visibility(id) {
 \end{split}
 \]</span></p>
 <p>The Greek letter mu (<span class="math inline">\(\mu\)</span>) denotes a population mean. In general Greek letters represent population parameters while Roman letters represent sample statistics. Here are a list of common statistical summaries and the mathematical notation used to denote them.</p>
-<div class="cell">
+<div class="cell" data-tbl-colwidths="false">
+<div id="tbl-summaries-notation" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summaries-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: Some common statistical summaries and the mathematical notation used to denote them.
+</figcaption>
+<div aria-describedby="tbl-summaries-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-summaries-notation" class="anchored">
-
-<div id="rnnrvbjrwb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-  
-  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 14px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 60%; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="60%" bgcolor="#FFFFFF"><caption>Table&nbsp;9.1:  <p>Some common statistical summaries and the mathematical notation used
-to denote them.</p> </caption>
-  <thead style="border-style: none;">
-    
-    <tr class="gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Summary" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Summary</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Sample" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Sample</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Population" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Population</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
-    <tr style="border-style: none;"><td headers="Summary" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Mean</td>
-<td headers="Sample" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$\bar{x},~\textit{M}$$</td>
-<td headers="Population" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$\mu$$</td></tr>
-    <tr style="border-style: none;"><td headers="Summary" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Standard Deviation</td>
-<td headers="Sample" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$\textit{s},~\textit{SD}$$</td>
-<td headers="Population" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$\sigma$$</td></tr>
-    <tr style="border-style: none;"><td headers="Summary" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Variance</td>
-<td headers="Sample" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$s^2,~\textit{Var}$$</td>
-<td headers="Population" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">$$\sigma^2$$</td></tr>
-  </tbody>
+<div>
+<div id="jxdwdeqbzd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<thead style="border-style: none;">
+<tr class="header gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
+<th id="Summary" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Summary</th>
+<th id="Sample" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Sample</th>
+<th id="Population" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Population</th>
+</tr>
+</thead>
+<tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
+<tr class="odd" style="border-style: none;">
+<td class="gt_row gt_left" headers="Summary" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">Mean</td>
+<td class="gt_row gt_left" headers="Sample" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$\bar{x},~\textit{M}$$</td>
+<td class="gt_row gt_left" headers="Population" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$\mu$$</td>
+</tr>
+<tr class="even" style="border-style: none;">
+<td class="gt_row gt_left" headers="Summary" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">Standard Deviation</td>
+<td class="gt_row gt_left" headers="Sample" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$\textit{s},~\textit{SD}$$</td>
+<td class="gt_row gt_left" headers="Population" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$\sigma$$</td>
+</tr>
+<tr class="odd" style="border-style: none;">
+<td class="gt_row gt_left" headers="Summary" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">Variance</td>
+<td class="gt_row gt_left" headers="Sample" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$s^2,~\textit{Var}$$</td>
+<td class="gt_row gt_left" headers="Population" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">$$\sigma^2$$</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>, <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>, and <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>.</p>
+<div class="fyi">
+<p>In the parlance of statisticians, hypothesis tests that use an alternative hypothesis of not equal (<span class="math inline">\(\neq\)</span>) are referred to as <em>two-sided</em> or <em>two-tailed</em> tests. If the alternative hypothesis is less than (&lt;) or greater than (&gt;), it is referred to as a <em>one-sided</em> or <em>one-tailed</em> test.</p>
+</div>
 <p><br></p>
 <section id="the-null-model" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="the-null-model"><span class="header-section-number">9.1.1</span> The Null Model</h3>
 <p>A hypothesis test is predicated on the assumption that the null hypothesis is true. Thus, we want to produce a sampling distribution of potential sample summaries that we could see if <span class="math inline">\(H_0: \mu_{\textrm{Sleep}}=9\)</span> is actually true. In other words, we are carrying out a thought experiment assuming that the average amount of sleep for all teens is actually 9 hours.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-thought-experiment" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-05-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.1: Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
+<div id="fig-null-model-thought-experiment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-null-model-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-05-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-null-model-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -500,10 +554,14 @@ to denote them.</p> </caption>
 <p>If we were able to carry out this thought experiment, here is what the sampling distribution of the sample means would look like:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-samp-dist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-null-model-samp-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.2: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.</figcaption>
+<div id="fig-null-model-samp-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-null-model-samp-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-null-model-samp-dist-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-null-model-samp-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -522,18 +580,22 @@ to denote them.</p> </caption>
 </section>
 <section id="evaluating-the-observed-sample-mean" class="level3" data-number="9.1.2">
 <h3 data-number="9.1.2" class="anchored" data-anchor-id="evaluating-the-observed-sample-mean"><span class="header-section-number">9.1.2</span> Evaluating the Observed Sample Mean</h3>
-<p>The null distribution gives us an indication of the range of sample mean values that are expected assuming the null hypothesis is true. Using the null distribution as a reference, we can evaluate the mean we obtained from the observed data, which was 7.5 hours (see <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;7</span></a>).</p>
+<p>The null distribution gives us an indication of the range of sample mean values that are expected assuming the null hypothesis is true. Using the null distribution as a reference, we can evaluate the mean we obtained from the observed data, which was 7.5 hours (see <a href="04-01-case-study-teen-sleep.html" class="quarto-xref"><span>Chapter 7</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-expected" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-null-model-expected-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.3: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data.</figcaption>
+<div id="fig-null-model-expected" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-null-model-expected-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-null-model-expected-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-null-model-expected-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>We can see from <a href="#fig-null-model-expected">Figure&nbsp;<span>9.3</span></a> that the observed mean of 7.5 is not a value we expect if the population mean amount of sleep teenagers get is truly 9 hours. It is, in fact, far less than we expect. In other words,</p>
+<p>We can see from <a href="#fig-null-model-expected" class="quarto-xref">Figure&nbsp;<span>9.3</span></a> that the observed mean of 7.5 is not a value we expect if the population mean amount of sleep teenagers get is truly 9 hours. It is, in fact, far less than we expect. In other words,</p>
 <blockquote class="blockquote">
 <p>The sample mean of 7.5 hours of sleep we observed in the data is <em>not consistent</em> with the hypothesis that the average amount of sleep teenagers get a night is 9 hours.</p>
 </blockquote>
@@ -556,7 +618,7 @@ t &amp;= \frac{7.5 - 9}{0.17} \\[2ex]
 \end{split}
 \]</span> The <em>t</em>-value indicates that our observed sample mean of 7.5 is 8.82 standard errors below the hypothesized population mean value of 9. Changing the distance metric to standard error units helps standardize the distance for other scholars so they can better interpret how discrepant the observed mean is from the hypothesized value.</p>
 <p>For example, if we hadn’t divided by the SE, we would have said our observed mean of 7.5 hours of sleep is 1.5 hours less than the hypothesized mean of 9 hours of sleep. Is this a lot less? Or a little less? The answer to that depends on how much we expect sample means to vary from the population mean under random sampling. This is what the SE quantifies. So dividing by the SE accounts for this expected variation and also changes the units from “hours of sleep” to “standard errors”.</p>
-<p>Now that we have a <em>t</em>-value, how do we judge its magnitude? To do this, we can again look back to the null distribution in <a href="#fig-null-model-expected">Figure&nbsp;<span>9.3</span></a>. Based on the null distribution, we said we expected sample means to fall in between 8.6 and 9.4. What are the <em>t</em>-values associated with 8.6 and 9.4?</p>
+<p>Now that we have a <em>t</em>-value, how do we judge its magnitude? To do this, we can again look back to the null distribution in <a href="#fig-null-model-expected" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>. Based on the null distribution, we said we expected sample means to fall in between 8.6 and 9.4. What are the <em>t</em>-values associated with 8.6 and 9.4?</p>
 <p><span class="math display">\[
 \begin{split}
 t &amp;= \frac{8.6 - 9}{0.17} \\[2ex]
@@ -575,10 +637,14 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <p>Recall that the null distribution is simply a distribution of sample means we expect if the null hypothesis is true. Because each case in this distribution is a sample mean, we could transform each case into a <em>t</em>-value. If we do that, the resulting distribution is a <em>t</em>-distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-t-dist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-t-dist-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.4: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The blue shaded area represents the <em>t</em>-values we expect if the null hypothesis is true. The pink dot represents the observed <em>t</em>-value of -8.82.</figcaption>
+<div id="fig-t-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-t-dist-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.4: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The blue shaded area represents the <em>t</em>-values we expect if the null hypothesis is true. The pink dot represents the observed <em>t</em>-value of -8.82.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -594,7 +660,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 \mathit{df} = n - 1
 \]</span></p>
 <p>where <em>n</em> is the sample size.</p>
-<p>The degrees-of-freedom parameter impacts the shape and SE (variation) in the <em>t</em>-distribution. <a href="#fig-t-examples">Figure&nbsp;<span>9.5</span></a> shows the <em>t</em>-distribution based on a few different degrees-of-freedom values. From this figure we can see:</p>
+<p>The degrees-of-freedom parameter impacts the shape and SE (variation) in the <em>t</em>-distribution. <a href="#fig-t-examples" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> shows the <em>t</em>-distribution based on a few different degrees-of-freedom values. From this figure we can see:</p>
 <ul>
 <li>Every <em>t</em>-distribution is unimodal and symmetric, although <em>t</em>-distributions with smaller degrees-of-freedom parameters are shorter and have thicker tails than <em>t</em>-distributions with higher degrees-of-freedom parameters.</li>
 <li>The mean (center) of every <em>t</em>-distribution is 0.</li>
@@ -602,10 +668,14 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-t-examples" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-t-examples-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b233;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f0033;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #77777733;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.</figcaption>
+<div id="fig-t-examples" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-t-examples-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <em>t</em>-distributions shown have <span style="background-color: #0072b233;">3 degree-of-freedom (SE = 1.73)</span>, <span style="background-color: #e69f0033;">5 degree-of-freedom (SE = 1.29)</span>, and <span style="background-color: #77777733;">99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -642,10 +712,14 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <p>Using these properties, we can sketch this <em>t</em>-distribution. We can also add the observed <em>t</em>-value of <span class="math inline">\(-8.82\)</span> into the distribution. (Note: We will have to go out about 9 SEs from the center value of 0 to place the observed <em>t</em>-value onto the distribution!)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-sketch-t" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-06-t-sketch.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of <em>t</em>-values that would be expected if the null hypothesis is true.</figcaption>
+<div id="fig-sketch-t" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sketch-t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-06-t-sketch.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sketch-t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of <em>t</em>-values that would be expected if the null hypothesis is true.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -654,7 +728,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <blockquote class="blockquote">
 <p><span class="math inline">\(t(74)=-8.82\)</span></p>
 </blockquote>
-<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t">Figure&nbsp;<span>9.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <span class="math inline">\(-2.028\)</span> and <span class="math inline">\(+2.2028\)</span>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <span class="math inline">\(-8.82\)</span>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <span class="math inline">\(-8.82\)</span> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
+<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <span class="math inline">\(-2.028\)</span> and <span class="math inline">\(+2.2028\)</span>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <span class="math inline">\(-8.82\)</span>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <span class="math inline">\(-8.82\)</span> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
 <p><br></p>
 </section>
 </section>
@@ -681,13 +755,17 @@ P(\bar{y} \leq 7.5) ~~~ \text{if the null hypothesis is true}
 <p><span class="math display">\[
 P(t \leq -8.82)
 \]</span></p>
-<p>As an example, consider the dotplot in <a href="#fig-p-value">Figure&nbsp;<span>9.7</span></a>.</p>
+<p>As an example, consider the dotplot in <a href="#fig-p-value" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-p-value-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.7: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82).</figcaption>
+<div id="fig-p-value" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-p-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-p-value-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-p-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.7: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -711,10 +789,14 @@ P(t \leq -8.82) &amp;= \frac{2}{300} \\[1ex]
 <p>For example if we had the alternative hypothesis <span class="math inline">\(H_A:\mu&gt;9\)</span>, values at least as extreme as <span class="math inline">\(-8.82\)</span> correspond to all the values that are <em>greater than or equal to</em> <span class="math inline">\(-8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-p-value2-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.8: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &gt; -8.82).</figcaption>
+<div id="fig-p-value2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-p-value2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-p-value2-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-p-value2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.8: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &gt; -8.82).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -730,10 +812,14 @@ p &amp;= \frac{298}{300} \\[1ex]
 <p>Another potential alternative hypothesis that a researcher might have is <span class="math inline">\(H_A:\mu\neq9\)</span>. In this research hypothesis the researcher is not positing a direction—they are just saying we think it differs from 9 hours; it might be higher, it might be lower. What this means for identifying cases in the <em>t</em>-distribution that are at least as extreme as <span class="math inline">\(-8.82\)</span> is that we have to identify all values <em>less than or equal to</em> <span class="math inline">\(-8.82\)</span> AND all values <em>greater than or equal to</em> <span class="math inline">\(+8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-03-one-sample-test_files/figure-html/fig-p-value3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.9: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82).</figcaption>
+<div id="fig-p-value3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-p-value3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-03-one-sample-test_files/figure-html/fig-p-value3-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-p-value3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.9: Dot plot of an example <em>t</em>-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -751,20 +837,24 @@ p &amp;= \frac{4}{300} \\[1ex]
 <section id="p-values-in-density-plots" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="p-values-in-density-plots"><span class="header-section-number">9.3.2</span> p-Values in Density Plots</h3>
 <p>In the previous example we have looked at to compute the <em>p</em>-value, the <em>t</em>-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the <em>t</em>-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the <em>p</em>-value that is not based on counting.</p>
-<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
+<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p" class="quarto-xref">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-sketch-area-p" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-07-area-density-p.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.</figcaption>
+<div id="fig-sketch-area-p" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sketch-area-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-07-area-density-p.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sketch-area-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the <em>t</em>-values that are at least as extreme as -8.82 based the alternative hypothesis (mu &lt; -8.82). The area under the density curve that is less than -8.82 is also shaded.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in <a href="04-04-one-sample-test-computation.html"><span>Chapter&nbsp;10</span></a>. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (<em>p</em>-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the <em>p</em>-value was .01.</p>
+<p>Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in <a href="04-04-one-sample-test-computation.html" class="quarto-xref"><span>Chapter 10</span></a>. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (<em>p</em>-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the <em>p</em>-value was .01.</p>
 <div class="protip">
-<p>It is very difficult to get an accurate <em>p</em>-value from estimating it from the density curve, especially when the <em>p</em>-value is small. In practice, we always use software to obtain the <em>p</em>-value. However, understanding that the software is calculating the area under the density curve is useful for “gut-checking” the size of the <em>p</em>-value that the software gives us. For example, based on the shaded area in <a href="#fig-sketch-area-p">Figure&nbsp;<span>9.10</span></a>, we would not expect a <em>p</em>-value of 0.5 since the shaded are is not half of the whole curve.</p>
+<p>It is very difficult to get an accurate <em>p</em>-value from estimating it from the density curve, especially when the <em>p</em>-value is small. In practice, we always use software to obtain the <em>p</em>-value. However, understanding that the software is calculating the area under the density curve is useful for “gut-checking” the size of the <em>p</em>-value that the software gives us. For example, based on the shaded area in <a href="#fig-sketch-area-p" class="quarto-xref">Figure&nbsp;<span>9.10</span></a>, we would not expect a <em>p</em>-value of 0.5 since the shaded are is not half of the whole curve.</p>
 </div>
 <p><br></p>
 </section>
@@ -779,7 +869,7 @@ p &amp;= \frac{4}{300} \\[1ex]
 </section>
 <section id="looking-forward" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="looking-forward"><span class="header-section-number">9.5</span> Looking Forward</h2>
-<p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <a href="04-05-one-sample-test-assumptions.html"><span>Chapter&nbsp;11</span></a>, you will learn about the assumptions that we need to make in order for the results of a one-sample t-test to be statistically valid.</p>
+<p>In the next chapter, we will introduce how to use R to carry out the one-sample <em>t</em>-test. Then in chapter <a href="04-05-one-sample-test-assumptions.html" class="quarto-xref"><span>Chapter 11</span></a>, you will learn about the assumptions that we need to make in order for the results of a one-sample t-test to be statistically valid.</p>
 <p>As you work through these chapters, you will become more comfortable with the vocabulary and ideas that underlie hypothesis tests. This same set of vocabulary and ideas will come up again when we use hypothesis tests when we compare a sample proportion to a standard and to compare two samples. Because of this it may be useful to put together a summary of the ideas and vocabulary from this chapter that you can refer to (e.g., on a notecard). Here are some of the ideas and vocabulary that are important in hypothesis testing to get you started:</p>
 <ul>
 <li>Statistical inference</li>
@@ -800,7 +890,7 @@ p &amp;= \frac{4}{300} \\[1ex]
 <hr>
 <ol>
 <li id="fn1"><p><em>a priori</em> means the hypothesis is made prior to collecting any data<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Technically, we computed the SE as 0.17 in <a href="04-02-simulation.html"><span>Chapter&nbsp;8</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Technically, we computed the SE as 0.17 in <a href="04-02-simulation.html" class="quarto-xref"><span>Chapter 8</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -884,10 +974,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -897,8 +986,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -911,6 +1009,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -954,6 +1171,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -979,6 +1197,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1040,17 +1284,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-02-simulation.html" class="pagination-link">
+      <a href="./04-02-simulation.html" class="pagination-link" aria-label="Bootstrapping: Using Simulation to Estimate the Uncertainty">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-04-one-sample-test-computation.html" class="pagination-link">
+      <a href="./04-04-one-sample-test-computation.html" class="pagination-link" aria-label="One-Sample t-Test Using R">
         <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

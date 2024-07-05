@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,12 +112,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -122,12 +155,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-01-scatterplot-correlation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-01-scatterplot-correlation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -137,7 +170,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -409,7 +442,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -438,7 +471,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-01-scatterplot-correlation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-scatter-corr" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></span></h1>
 </div>
@@ -453,7 +486,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn about the scatterplot and correlation coefficient, the predominant visualization and numerical summary used to study relationships between attributes.</p>
 <p><br></p>
@@ -474,7 +509,6 @@ function toggle_visibility(id) {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>house_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["city"],"name":[1],"type":["chr"],"align":["left"]},{"label":["state"],"name":[2],"type":["chr"],"align":["left"]},{"label":["house_income_ratio"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median_house_price"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median_income"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["house_change"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["greater_30"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"Bellevue","2":"WA","3":"9.9","4":"1257","5":"127","6":"65.4","7":"NA"},{"1":"Buffalo","2":"NY","3":"4.8","4":"195","5":"41","6":"87.8","7":"23.0"},{"1":"Cambridge","2":"MA","3":"7.9","4":"946","5":"120","6":"30.9","7":"NA"},{"1":"Cedar Rapids","2":"IA","3":"2.9","4":"166","5":"57","6":"27.6","7":"18.5"},{"1":"Centennial","2":"CO","3":"5.6","4":"622","5":"111","6":"48.3","7":"NA"},{"1":"Chesapeake","2":"VA","3":"4.3","4":"337","5":"78","6":"30.5","7":"28.1"},{"1":"Chula Vista","2":"CA","3":"8.4","4":"738","5":"88","6":"59.4","7":"41.0"},{"1":"Cleveland","2":"OH","3":"3.0","4":"97","5":"32","6":"98.5","7":"30.1"},{"1":"Columbia","2":"MD","3":"4.1","4":"430","5":"104","6":"24.4","7":"NA"},{"1":"Dallas","2":"TX","3":"5.1","4":"282","5":"55","6":"60.8","7":"32.1"},{"1":"Daly City","2":"CA","3":"12.0","4":"1219","5":"102","6":"43.6","7":"NA"},{"1":"Denton","2":"TX","3":"4.8","4":"321","5":"67","6":"55.2","7":"NA"},{"1":"Fargo","2":"ND","3":"4.8","4":"256","5":"53","6":"13.9","7":"12.5"},{"1":"Fremont","2":"CA","3":"9.7","4":"1399","5":"144","6":"52.6","7":"28.5"},{"1":"Greeley","2":"CO","3":"6.5","4":"401","5":"61","6":"60.0","7":"26.8"},{"1":"Greensboro","2":"NC","3":"4.2","4":"207","5":"50","6":"55.1","7":"23.8"},{"1":"Kansas City","2":"KS","3":"3.4","4":"156","5":"45","6":"87.3","7":"32.7"},{"1":"Killeen","2":"TX","3":"3.8","4":"186","5":"49","6":"56.0","7":"25.5"},{"1":"Knoxville","2":"TN","3":"6.6","4":"274","5":"41","6":"64.4","7":"26.1"},{"1":"Lincoln","2":"NE","3":"4.1","4":"243","5":"59","6":"45.7","7":"17.8"},{"1":"Lowell","2":"MA","3":"6.2","4":"387","5":"62","6":"55.3","7":"NA"},{"1":"Metairie","2":"LA","3":"5.2","4":"312","5":"60","6":"24.1","7":"27.2"},{"1":"Minneapolis","2":"MN","3":"4.9","4":"326","5":"66","6":"38.1","7":"23.3"},{"1":"Murfreesboro","2":"TN","3":"5.0","4":"341","5":"68","6":"61.5","7":"NA"},{"1":"New Orleans","2":"LA","3":"5.8","4":"265","5":"46","6":"25.3","7":"36.8"},{"1":"Paterson","2":"NJ","3":"8.1","4":"385","5":"47","6":"83.7","7":"NA"},{"1":"Pueblo","2":"CO","3":"6.3","4":"270","5":"43","6":"82.6","7":"25.0"},{"1":"Richmond","2":"CA","3":"10.1","4":"731","5":"72","6":"58.6","7":"NA"},{"1":"Richmond","2":"VA","3":"5.7","4":"292","5":"51","6":"50.4","7":"27.5"},{"1":"Sacramento","2":"CA","3":"6.8","4":"468","5":"69","6":"66.7","7":"30.3"},{"1":"Salinas","2":"CA","3":"9.8","4":"677","5":"69","6":"53.3","7":"NA"},{"1":"San Jose","2":"CA","3":"11.2","4":"1303","5":"116","6":"52.1","7":"31.9"},{"1":"Santa Clara","2":"CA","3":"10.3","4":"1523","5":"148","6":"49.5","7":"NA"},{"1":"Santa Maria","2":"CA","3":"7.7","4":"537","5":"69","6":"50.5","7":"NA"},{"1":"Tempe","2":"AZ","3":"6.5","4":"428","5":"66","6":"75.1","7":"13.8"},{"1":"Thornton","2":"CO","3":"6.2","4":"503","5":"81","6":"54.9","7":"NA"},{"1":"Thousand Oaks","2":"CA","3":"8.2","4":"934","5":"114","6":"36.3","7":"NA"},{"1":"Topeka","2":"KS","3":"2.9","4":"146","5":"51","6":"39.0","7":"18.6"},{"1":"Torrance","2":"CA","3":"10.6","4":"1065","5":"100","6":"43.9","7":"37.1"},{"1":"Vista","2":"CA","3":"9.4","4":"742","5":"79","6":"59.0","7":"NA"},{"1":"Washington","2":"DC","3":"7.6","4":"698","5":"92","6":"22.8","7":"25.2"},{"1":"West Jordan","2":"UT","3":"5.9","4":"512","5":"87","6":"77.9","7":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -494,11 +528,14 @@ function toggle_visibility(id) {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_income, <span class="at">data =</span> house_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"median_income","2":"32","3":"51.5","4":"67.5","5":"91","6":"148","7":"74.7619","8":"29.12614","9":"42","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -515,11 +552,14 @@ function toggle_visibility(id) {
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_house_price, <span class="at">data =</span> house_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"median_house_price","2":"97","3":"271","4":"394","5":"722.75","6":"1523","7":"537.5476","8":"378.0378","9":"42","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -548,7 +588,7 @@ function toggle_visibility(id) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Scatterplot displaying the relationship between median income and median house price for 42 cities.</figcaption>
+<figcaption>Scatterplot displaying the relationship between median income and median house price for 42 cities.</figcaption>
 </figure>
 </div>
 </div>
@@ -563,13 +603,17 @@ function toggle_visibility(id) {
 <p><br></p>
 <section id="functional-form-of-the-relationship" class="level3" data-number="24.3.1">
 <h3 data-number="24.3.1" class="anchored" data-anchor-id="functional-form-of-the-relationship"><span class="header-section-number">24.3.1</span> Functional Form of the Relationship</h3>
-<p>A <em>functional form</em> refers to the algebraic (mathematical) description of the relationship between the two attributes included in the relationship. Common functional forms used in the social and educational sciences are linear, quadratic, exponential, and cyclical (e.g., sinusoidal). <a href="#fig-functional-forms">Figure&nbsp;<span>24.1</span></a> shows examples of these four functional forms.</p>
+<p>A <em>functional form</em> refers to the algebraic (mathematical) description of the relationship between the two attributes included in the relationship. Common functional forms used in the social and educational sciences are linear, quadratic, exponential, and cyclical (e.g., sinusoidal). <a href="#fig-functional-forms" class="quarto-xref">Figure&nbsp;<span>24.1</span></a> shows examples of these four functional forms.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-functional-forms" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-functional-forms-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.1: Four functional forms commonly used to describe relationships in the educational and social sciences.</figcaption>
+<div id="fig-functional-forms" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-functional-forms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-functional-forms-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-functional-forms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.1: Four functional forms commonly used to describe relationships in the educational and social sciences.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -579,13 +623,17 @@ function toggle_visibility(id) {
 </section>
 <section id="directiontrend" class="level3" data-number="24.3.2">
 <h3 data-number="24.3.2" class="anchored" data-anchor-id="directiontrend"><span class="header-section-number">24.3.2</span> Direction/Trend</h3>
-<p>Once we pick the functional form, the next thing we want to do is identify the <em>direction/trend</em> of the relationship. The direction/trend describes the overall “slope” of the data and can be positive, negative, or flat. <a href="#fig-direction">Figure&nbsp;<span>24.2</span></a> shows examples of a positive, negative, and flat linear relationship.</p>
+<p>Once we pick the functional form, the next thing we want to do is identify the <em>direction/trend</em> of the relationship. The direction/trend describes the overall “slope” of the data and can be positive, negative, or flat. <a href="#fig-direction" class="quarto-xref">Figure&nbsp;<span>24.2</span></a> shows examples of a positive, negative, and flat linear relationship.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-direction" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-direction-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.2: A positive, negative, and flat linear relationship.</figcaption>
+<div id="fig-direction" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-direction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-direction-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-direction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.2: A positive, negative, and flat linear relationship.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -603,13 +651,17 @@ function toggle_visibility(id) {
 <section id="magnitude" class="level3" data-number="24.3.3">
 <h3 data-number="24.3.3" class="anchored" data-anchor-id="magnitude"><span class="header-section-number">24.3.3</span> Magnitude</h3>
 <p>The magnitude of the relationship constitutes a description of the magnitude of change in the <em>y</em>-values for a given change in the <em>x</em>-values. Is an increase in <em>x</em> associated with a small change in the <em>y</em>-values? A big change in the <em>y</em>-values?</p>
-<p>To better understand this, consider the three linear relationships in <a href="#fig-magnitude">Figure&nbsp;<span>24.3</span></a>. All three relationships depicted have a positive relationship; higher values of <em>x</em> are associated with higher values of <em>y</em>. However, the magnitude of change in the <em>y</em>-values is quite different as we increase <em>x</em> in these plots.</p>
+<p>To better understand this, consider the three linear relationships in <a href="#fig-magnitude" class="quarto-xref">Figure&nbsp;<span>24.3</span></a>. All three relationships depicted have a positive relationship; higher values of <em>x</em> are associated with higher values of <em>y</em>. However, the magnitude of change in the <em>y</em>-values is quite different as we increase <em>x</em> in these plots.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-magnitude" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-magnitude-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.3: A steep, moderately steep, and shallow, positive linear relationship.</figcaption>
+<div id="fig-magnitude" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-magnitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-magnitude-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-magnitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.3: A steep, moderately steep, and shallow, positive linear relationship.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -620,13 +672,17 @@ function toggle_visibility(id) {
 </section>
 <section id="strength" class="level3" data-number="24.3.4">
 <h3 data-number="24.3.4" class="anchored" data-anchor-id="strength"><span class="header-section-number">24.3.4</span> Strength</h3>
-<p>The strength of the relationship describes how well the data adhere to the functional form. For example a strong linear relationship would be one in which the observations lie close to the line. <a href="#fig-strength">Figure&nbsp;<span>24.4</span></a> shows three positive linear relationships, one that has weak, one that is moderate, and one that is strong.</p>
+<p>The strength of the relationship describes how well the data adhere to the functional form. For example a strong linear relationship would be one in which the observations lie close to the line. <a href="#fig-strength" class="quarto-xref">Figure&nbsp;<span>24.4</span></a> shows three positive linear relationships, one that has weak, one that is moderate, and one that is strong.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-strength" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-strength-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.4: A weak, moderate, and strong positive linear relationship.</figcaption>
+<div id="fig-strength" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-strength-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-strength-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-strength-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.4: A weak, moderate, and strong positive linear relationship.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -681,7 +737,7 @@ function toggle_visibility(id) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="08-01-scatterplot-correlation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Scatterplot displaying the relationship between median income and median house price for 42 cities.</figcaption>
+<figcaption>Scatterplot displaying the relationship between median income and median house price for 42 cities.</figcaption>
 </figure>
 </div>
 </div>
@@ -692,18 +748,22 @@ function toggle_visibility(id) {
 </section>
 <section id="plot-scale-and-human-perception" class="level2" data-number="24.4">
 <h2 data-number="24.4" class="anchored" data-anchor-id="plot-scale-and-human-perception"><span class="header-section-number">24.4</span> Plot Scale and Human Perception</h2>
-<p>One issue that arises when we describe the magnitude and strength of the relationship is that our guesstimate for both the magnitude of the effect and the strength of the relationship can be influenced by the <em>x</em>- and <em>y</em>-scale on our scatterplot. To illustrate this, <a href="#fig-scale">Figure&nbsp;<span>24.5</span></a> shows the median income and house price data with two different scales on the axes.</p>
+<p>One issue that arises when we describe the magnitude and strength of the relationship is that our guesstimate for both the magnitude of the effect and the strength of the relationship can be influenced by the <em>x</em>- and <em>y</em>-scale on our scatterplot. To illustrate this, <a href="#fig-scale" class="quarto-xref">Figure&nbsp;<span>24.5</span></a> shows the median income and house price data with two different scales on the axes.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-scale" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-scale-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.5: The two plots show the exact same data plotted using different scales on the x- and y-axis. This difference in scales can influence how we perceive both the magnitude and the strength of the relationship.</figcaption>
+<div id="fig-scale" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-scale-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.5: The two plots show the exact same data plotted using different scales on the x- and y-axis. This difference in scales can influence how we perceive both the magnitude and the strength of the relationship.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the right-hand graph of <a href="#fig-scale">Figure&nbsp;<span>24.5</span></a>, we may perceive a stronger relationship than in the left-hand graph. We would also perceive that the magnitude of the effect (i.e., the slope of the linear function) is larger, that is the line looks steeper. This is problematic as the strength of the relationship is exactly the same in both graphs as it is the same data that is plotted.</p>
+<p>In the right-hand graph of <a href="#fig-scale" class="quarto-xref">Figure&nbsp;<span>24.5</span></a>, we may perceive a stronger relationship than in the left-hand graph. We would also perceive that the magnitude of the effect (i.e., the slope of the linear function) is larger, that is the line looks steeper. This is problematic as the strength of the relationship is exactly the same in both graphs as it is the same data that is plotted.</p>
 <p>Because of this, we often compute and report a numerical summary measures to quantify both the strength and the magnitude of the relationship. These measures are useful as they are not impacted by the scale we use to plot the data.</p>
 <p><br></p>
 </section>
@@ -747,34 +807,54 @@ r_{\text{Mdn House Price, Mdn Income}} = 0.908
 <p>It is important to keep in mind that the correlation coefficient is only useful as a measure of the strength of the relationship when the relationship between variables is linear. Here is an example where the correlation coefficient would be misleading about the strength of the relationship.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-daylight" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-daylight-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.6: Hours of daylight versus day of the year for <span class="math inline">\(n=75\)</span> days in Minneapolis.</figcaption>
+<div id="fig-daylight" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-daylight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-daylight-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-daylight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.6: Hours of daylight versus day of the year for <span class="math inline">\(n=75\)</span> days in Minneapolis.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Here there is a perfect relationship between day of the year and hours of daylight. If you fitted a nonlinear model here, your “line” would match the data exactly (no residual error!). But the correlation coefficient does not reflect that. The correlation coefficient would suggest that the relationship between day of the year and hours of daylight is weak (<span class="math inline">\(r=-0.34\)</span>).</p>
 <p>Another situation in which correlation can mislead is when you have subpopulations in your data. Here is an example of that.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output-display">
-<div id="fig-salary-neuroticism-01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-01-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.7: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company.</figcaption>
+<div id="fig-salary-neuroticism-01" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-salary-neuroticism-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-01-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-salary-neuroticism-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.7: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="fig-salary-neuroticism" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;24.8: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company. The data are colored by education level.</figcaption>
+<div id="fig-salary-neuroticism" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-salary-neuroticism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-salary-neuroticism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24.8: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company. The data are colored by education level.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -897,10 +977,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -910,8 +989,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -924,6 +1012,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -967,6 +1174,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -992,6 +1200,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1053,17 +1287,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08-00-relationships.html" class="pagination-link">
+      <a href="./08-00-relationships.html" class="pagination-link" aria-label="Statistical Relationships">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Relationships</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./08-02-linear-regression-description.html" class="pagination-link">
+      <a href="./08-02-linear-regression-description.html" class="pagination-link" aria-label="Linear Regression---Description">
         <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

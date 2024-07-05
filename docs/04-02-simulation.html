@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -124,12 +132,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -141,12 +175,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -156,7 +190,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -428,7 +462,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -451,7 +485,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
 </div>
@@ -466,19 +500,25 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn how to estimate the standard error of the mean from a single sample. To do this, you will employ a simulation method called <em>bootstrapping</em>.</p>
 <p><br></p>
 <section id="bootstrapping" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="bootstrapping"><span class="header-section-number">8.1</span> Bootstrapping</h2>
-<p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html"><span>Chapter&nbsp;7</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
+<p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html" class="quarto-xref"><span>Chapter 7</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.</figcaption>
+<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -487,10 +527,14 @@ function toggle_visibility(id) {
 <p>Efron’s big discovery was that in the thought experiment, we could replace the population with a sample, and then randomly sample from that initial sample. He proved that using this methodology, you can obtain a good estimate of the sampling variation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment-bootstrap" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students’ sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.</figcaption>
+<div id="fig-thought-experiment-bootstrap" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students’ sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -519,7 +563,6 @@ function toggle_visibility(id) {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["bedtime"],"name":[1],"type":["chr"],"align":["left"]},{"label":["wakeup"],"name":[2],"type":["chr"],"align":["left"]},{"label":["hrs_sleep"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"22:15:00","2":"5:25:00","3":"7.166667"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:15:00","2":"5:45:00","3":"7.500000"},{"1":"20:0:00","2":"6:20:00","3":"10.333333"},{"1":"23:45:00","2":"5:50:00","3":"6.083333"},{"1":"22:5:00","2":"6:0:00","3":"7.916667"},{"1":"0:25:00","2":"5:20:00","3":"4.916667"},{"1":"21:10:00","2":"6:15:00","3":"9.083333"},{"1":"21:20:00","2":"5:15:00","3":"7.916667"},{"1":"21:10:00","2":"5:30:00","3":"8.333333"},{"1":"22:50:00","2":"5:50:00","3":"7.000000"},{"1":"22:30:00","2":"5:50:00","3":"7.333333"},{"1":"23:35:00","2":"5:40:00","3":"6.083333"},{"1":"20:30:00","2":"6:15:00","3":"9.750000"},{"1":"20:40:00","2":"5:50:00","3":"9.166667"},{"1":"21:20:00","2":"5:45:00","3":"8.416667"},{"1":"23:35:00","2":"5:30:00","3":"5.916667"},{"1":"21:35:00","2":"6:5:00","3":"8.500000"},{"1":"22:5:00","2":"5:10:00","3":"7.083333"},{"1":"23:25:00","2":"7:20:00","3":"7.916667"},{"1":"23:25:00","2":"5:30:00","3":"6.083333"},{"1":"22:40:00","2":"6:15:00","3":"7.583333"},{"1":"0:30:00","2":"5:55:00","3":"5.416667"},{"1":"22:20:00","2":"6:15:00","3":"7.916667"},{"1":"22:55:00","2":"5:15:00","3":"6.333333"},{"1":"22:50:00","2":"5:30:00","3":"6.666667"},{"1":"22:20:00","2":"5:15:00","3":"6.916667"},{"1":"23:25:00","2":"5:55:00","3":"6.500000"},{"1":"22:35:00","2":"5:0:00","3":"6.416667"},{"1":"20:0:00","2":"5:55:00","3":"9.916667"},{"1":"21:5:00","2":"5:40:00","3":"8.583333"},{"1":"22:50:00","2":"6:55:00","3":"8.083333"},{"1":"20:30:00","2":"5:40:00","3":"9.166667"},{"1":"23:5:00","2":"5:40:00","3":"6.583333"},{"1":"21:50:00","2":"5:20:00","3":"7.500000"},{"1":"22:10:00","2":"5:35:00","3":"7.416667"},{"1":"1:5:00","2":"5:55:00","3":"4.833333"},{"1":"22:45:00","2":"6:5:00","3":"7.333333"},{"1":"22:50:00","2":"6:30:00","3":"7.666667"},{"1":"0:35:00","2":"6:25:00","3":"5.833333"},{"1":"1:30:00","2":"5:40:00","3":"4.166667"},{"1":"19:40:00","2":"6:45:00","3":"11.083333"},{"1":"0:0:00","2":"4:35:00","3":"4.583333"},{"1":"22:35:00","2":"6:10:00","3":"7.583333"},{"1":"21:40:00","2":"5:25:00","3":"7.750000"},{"1":"23:20:00","2":"6:40:00","3":"7.333333"},{"1":"1:0:00","2":"5:30:00","3":"4.500000"},{"1":"21:55:00","2":"6:40:00","3":"8.750000"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:35:00","2":"4:30:00","3":"5.916667"},{"1":"0:50:00","2":"5:30:00","3":"4.666667"},{"1":"20:30:00","2":"4:35:00","3":"8.083333"},{"1":"22:50:00","2":"5:55:00","3":"7.083333"},{"1":"22:45:00","2":"7:5:00","3":"8.333333"},{"1":"23:50:00","2":"4:15:00","3":"4.416667"},{"1":"22:55:00","2":"6:25:00","3":"7.500000"},{"1":"22:5:00","2":"4:50:00","3":"6.750000"},{"1":"23:10:00","2":"7:0:00","3":"7.833333"},{"1":"22:55:00","2":"6:40:00","3":"7.750000"},{"1":"20:55:00","2":"5:10:00","3":"8.250000"},{"1":"21:0:00","2":"5:35:00","3":"8.583333"},{"1":"22:5:00","2":"5:45:00","3":"7.666667"},{"1":"18:25:00","2":"5:30:00","3":"11.083333"},{"1":"0:0:00","2":"7:30:00","3":"7.500000"},{"1":"20:55:00","2":"5:50:00","3":"8.916667"},{"1":"22:25:00","2":"5:15:00","3":"6.833333"},{"1":"21:50:00","2":"6:10:00","3":"8.333333"},{"1":"22:20:00","2":"5:55:00","3":"7.583333"},{"1":"22:50:00","2":"5:45:00","3":"6.916667"},{"1":"22:5:00","2":"5:40:00","3":"7.583333"},{"1":"21:15:00","2":"6:5:00","3":"8.833333"},{"1":"21:30:00","2":"5:5:00","3":"7.583333"},{"1":"0:20:00","2":"5:0:00","3":"4.666667"},{"1":"20:50:00","2":"6:55:00","3":"10.083333"},{"1":"23:15:00","2":"4:25:00","3":"5.166667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -550,17 +593,17 @@ function toggle_visibility(id) {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  6.916667 11.083333  7.083333  9.083333  7.916667 11.083333  7.916667
- [8]  8.583333  7.916667  6.083333  7.583333  6.916667  7.083333  6.583333
-[15]  4.500000  8.083333  7.000000  6.916667  7.750000  6.916667  7.916667
-[22]  7.500000  8.750000  7.500000  8.333333  7.583333  6.916667  4.666667
-[29]  6.583333  5.416667  4.416667  6.083333 11.083333  6.833333  4.833333
-[36]  7.583333  7.500000  7.833333  7.166667  8.583333  4.666667  7.750000
-[43]  4.166667  7.333333  7.416667  8.833333  9.916667  6.583333  7.083333
-[50] 11.083333  8.416667  8.333333  4.166667  7.500000  6.666667  6.083333
-[57]  8.916667  7.500000  7.583333  4.583333  4.166667  7.750000  7.083333
-[64]  7.916667  7.500000  5.166667  7.750000  7.083333  8.583333  7.750000
-[71]  4.416667 11.083333  4.416667  7.583333  7.583333</code></pre>
+<pre><code> [1]  8.583333  7.083333  7.583333  6.916667  7.500000  4.583333  4.583333
+ [8] 10.083333  8.333333  7.750000  7.083333  5.416667  6.916667  6.916667
+[15]  6.500000  7.583333  6.083333  4.666667  6.500000 11.083333  6.333333
+[22]  7.333333  7.666667  5.416667  8.583333  4.500000 11.083333  7.583333
+[29]  6.666667  7.750000  7.666667  7.083333  7.583333  8.583333  6.583333
+[36]  4.666667  6.833333  7.333333  8.916667  8.583333  6.333333  8.333333
+[43]  7.750000  5.166667  7.750000  7.750000  5.916667  6.833333  6.083333
+[50]  7.333333  4.916667  7.583333  7.666667  9.083333  6.333333  7.583333
+[57]  7.583333  8.500000  8.333333 10.333333  8.916667  4.416667  5.916667
+[64]  6.916667  7.166667  8.583333  8.500000  4.833333  6.416667  7.333333
+[71]  9.166667  8.500000  7.166667  8.583333  7.916667</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
@@ -568,17 +611,17 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  7.083333  9.166667  5.916667  8.583333  8.083333  7.333333  8.916667
- [8]  7.583333  7.500000  7.666667  8.083333  7.666667  4.916667  4.666667
-[15]  4.916667  7.916667  4.166667  7.750000  4.916667  9.083333  7.333333
-[22] 10.333333  8.916667  8.833333  7.916667  6.083333  6.833333  7.333333
-[29]  9.166667  4.916667  9.916667  8.583333  6.666667 10.083333  8.333333
-[36]  7.583333  4.416667  7.916667  9.916667 10.333333  8.833333  7.750000
-[43]  8.250000  6.500000  7.166667  7.583333  6.083333  7.916667  8.333333
-[50]  8.500000  7.166667  6.083333  9.083333  8.750000  4.583333  8.500000
-[57]  7.083333  4.416667  6.916667  6.833333  7.500000  8.583333  6.500000
-[64]  7.750000  7.916667  7.333333  6.083333  7.500000  7.083333  9.750000
-[71]  4.500000  4.916667  7.333333  8.083333  8.333333</code></pre>
+<pre><code> [1]  7.750000  8.250000  7.500000  8.333333  7.750000  9.083333  7.166667
+ [8]  7.500000  7.416667  6.083333  6.916667 10.083333  7.583333  9.916667
+[15]  7.916667  6.500000  4.166667  7.750000  8.750000  6.500000  6.833333
+[22]  6.916667  7.666667  7.916667  7.583333  7.416667  7.916667  7.916667
+[29]  7.916667  6.916667  7.750000  4.666667  6.083333  7.916667  7.916667
+[36]  7.750000  8.333333  7.750000  5.833333  4.500000  6.083333  6.916667
+[43]  6.083333  7.416667  8.916667  6.500000  8.416667  8.333333  7.000000
+[50]  9.083333  4.666667  8.250000  8.416667  6.666667  7.500000  6.833333
+[57] 10.083333  7.500000  9.750000  8.583333  4.583333  6.083333  7.500000
+[64]  6.666667  7.583333  8.416667  7.583333  6.333333  7.750000  7.500000
+[71]  9.750000  8.583333  4.500000 11.083333  6.333333</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -590,7 +633,7 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.555556</code></pre>
+<pre><code>[1] 7.477778</code></pre>
 </div>
 </div>
 <p>You could re-run this syntax to draw another bootstrap sample and compute the mean.</p>
@@ -606,10 +649,9 @@ function toggle_visibility(id) {
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 10 times </span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.631111"},{"1":"7.498889"},{"1":"7.217778"},{"1":"7.375556"},{"1":"7.241111"},{"1":"7.434444"},{"1":"7.636667"},{"1":"7.403333"},{"1":"7.317778"},{"1":"7.105556"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.580000"},{"1":"7.228889"},{"1":"7.335556"},{"1":"7.428889"},{"1":"7.325556"},{"1":"7.550000"},{"1":"7.352222"},{"1":"7.302222"},{"1":"7.406667"},{"1":"7.377778"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -624,7 +666,6 @@ function toggle_visibility(id) {
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>bootstrap_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.557778"},{"1":"7.594444"},{"1":"7.327778"},{"1":"7.336667"},{"1":"7.498889"},{"1":"7.485556"},{"1":"7.294444"},{"1":"7.408889"},{"1":"7.262222"},{"1":"7.303333"},{"1":"7.273333"},{"1":"7.295556"},{"1":"7.112222"},{"1":"7.757778"},{"1":"7.655556"},{"1":"7.754444"},{"1":"7.266667"},{"1":"7.151111"},{"1":"7.428889"},{"1":"7.274444"},{"1":"7.415556"},{"1":"7.566667"},{"1":"7.460000"},{"1":"7.461111"},{"1":"7.370000"},{"1":"7.593333"},{"1":"7.343333"},{"1":"7.674444"},{"1":"7.378889"},{"1":"7.393333"},{"1":"7.608889"},{"1":"7.441111"},{"1":"7.232222"},{"1":"7.252222"},{"1":"7.375556"},{"1":"7.524444"},{"1":"7.591111"},{"1":"7.418889"},{"1":"7.242222"},{"1":"7.348889"},{"1":"7.672222"},{"1":"7.215556"},{"1":"7.632222"},{"1":"7.420000"},{"1":"7.224444"},{"1":"7.163333"},{"1":"7.435556"},{"1":"7.476667"},{"1":"7.465556"},{"1":"7.401111"},{"1":"7.216667"},{"1":"7.470000"},{"1":"7.467778"},{"1":"7.312222"},{"1":"7.460000"},{"1":"7.196667"},{"1":"7.685556"},{"1":"7.363333"},{"1":"7.583333"},{"1":"7.425556"},{"1":"7.228889"},{"1":"7.455556"},{"1":"7.466667"},{"1":"7.336667"},{"1":"7.432222"},{"1":"7.563333"},{"1":"7.260000"},{"1":"7.264444"},{"1":"7.575556"},{"1":"7.207778"},{"1":"7.532222"},{"1":"7.431111"},{"1":"7.607778"},{"1":"7.373333"},{"1":"7.381111"},{"1":"7.386667"},{"1":"7.313333"},{"1":"7.276667"},{"1":"7.771111"},{"1":"7.297778"},{"1":"7.398889"},{"1":"7.513333"},{"1":"7.552222"},{"1":"7.432222"},{"1":"7.335556"},{"1":"7.678889"},{"1":"7.557778"},{"1":"7.321111"},{"1":"7.496667"},{"1":"7.446667"},{"1":"7.452222"},{"1":"7.458889"},{"1":"7.227778"},{"1":"7.372222"},{"1":"7.227778"},{"1":"7.466667"},{"1":"7.177778"},{"1":"7.346667"},{"1":"7.617778"},{"1":"7.250000"},{"1":"7.390000"},{"1":"7.335556"},{"1":"7.373333"},{"1":"7.476667"},{"1":"7.490000"},{"1":"7.484444"},{"1":"7.566667"},{"1":"7.310000"},{"1":"6.946667"},{"1":"7.581111"},{"1":"7.666667"},{"1":"7.295556"},{"1":"7.593333"},{"1":"7.362222"},{"1":"7.285556"},{"1":"7.553333"},{"1":"7.295556"},{"1":"7.446667"},{"1":"7.313333"},{"1":"7.168889"},{"1":"7.397778"},{"1":"7.526667"},{"1":"7.332222"},{"1":"7.283333"},{"1":"7.281111"},{"1":"7.281111"},{"1":"7.388889"},{"1":"7.348889"},{"1":"7.264444"},{"1":"7.274444"},{"1":"7.486667"},{"1":"7.217778"},{"1":"7.146667"},{"1":"7.620000"},{"1":"7.302222"},{"1":"7.246667"},{"1":"7.487778"},{"1":"7.273333"},{"1":"7.411111"},{"1":"7.316667"},{"1":"7.537778"},{"1":"7.052222"},{"1":"7.584444"},{"1":"7.424444"},{"1":"7.317778"},{"1":"7.502222"},{"1":"7.381111"},{"1":"7.102222"},{"1":"7.110000"},{"1":"7.561111"},{"1":"7.312222"},{"1":"7.334444"},{"1":"7.404444"},{"1":"7.301111"},{"1":"7.391111"},{"1":"7.313333"},{"1":"7.292222"},{"1":"7.295556"},{"1":"7.415556"},{"1":"7.454444"},{"1":"7.228889"},{"1":"7.166667"},{"1":"7.258889"},{"1":"7.566667"},{"1":"7.472222"},{"1":"7.240000"},{"1":"7.412222"},{"1":"7.113333"},{"1":"7.277778"},{"1":"7.323333"},{"1":"6.924444"},{"1":"7.207778"},{"1":"7.352222"},{"1":"7.217778"},{"1":"7.330000"},{"1":"7.270000"},{"1":"7.354444"},{"1":"7.501111"},{"1":"7.398889"},{"1":"7.497778"},{"1":"7.036667"},{"1":"7.183333"},{"1":"8.023333"},{"1":"7.281111"},{"1":"7.515556"},{"1":"7.666667"},{"1":"7.401111"},{"1":"7.688889"},{"1":"7.468889"},{"1":"7.400000"},{"1":"7.597778"},{"1":"7.256667"},{"1":"7.433333"},{"1":"7.517778"},{"1":"7.336667"},{"1":"7.532222"},{"1":"7.262222"},{"1":"7.450000"},{"1":"7.212222"},{"1":"7.363333"},{"1":"7.398889"},{"1":"7.287778"},{"1":"7.430000"},{"1":"7.420000"},{"1":"7.578889"},{"1":"7.496667"},{"1":"7.178889"},{"1":"7.514444"},{"1":"7.697778"},{"1":"7.028889"},{"1":"7.508889"},{"1":"7.657778"},{"1":"7.368889"},{"1":"7.403333"},{"1":"7.612222"},{"1":"6.944444"},{"1":"7.308889"},{"1":"7.104444"},{"1":"7.300000"},{"1":"7.201111"},{"1":"7.342222"},{"1":"7.578889"},{"1":"7.627778"},{"1":"7.110000"},{"1":"7.480000"},{"1":"7.185556"},{"1":"7.512222"},{"1":"7.710000"},{"1":"7.714444"},{"1":"7.692222"},{"1":"7.280000"},{"1":"7.678889"},{"1":"7.494444"},{"1":"7.507778"},{"1":"7.340000"},{"1":"7.147778"},{"1":"6.988889"},{"1":"7.293333"},{"1":"7.526667"},{"1":"7.433333"},{"1":"7.355556"},{"1":"7.816667"},{"1":"7.197778"},{"1":"7.511111"},{"1":"7.506667"},{"1":"7.197778"},{"1":"7.577778"},{"1":"7.504444"},{"1":"7.355556"},{"1":"7.553333"},{"1":"7.363333"},{"1":"7.580000"},{"1":"7.383333"},{"1":"7.561111"},{"1":"7.425556"},{"1":"7.660000"},{"1":"7.393333"},{"1":"7.461111"},{"1":"7.320000"},{"1":"7.381111"},{"1":"7.451111"},{"1":"7.215556"},{"1":"7.010000"},{"1":"7.604444"},{"1":"7.647778"},{"1":"7.350000"},{"1":"7.566667"},{"1":"7.535556"},{"1":"7.701111"},{"1":"7.337778"},{"1":"7.200000"},{"1":"7.640000"},{"1":"7.117778"},{"1":"7.292222"},{"1":"7.513333"},{"1":"7.144444"},{"1":"7.410000"},{"1":"7.361111"},{"1":"7.311111"},{"1":"7.291111"},{"1":"7.414444"},{"1":"7.457778"},{"1":"7.401111"},{"1":"7.674444"},{"1":"7.495556"},{"1":"7.223333"},{"1":"7.250000"},{"1":"7.311111"},{"1":"7.472222"},{"1":"7.337778"},{"1":"7.462222"},{"1":"7.333333"},{"1":"7.547778"},{"1":"7.423333"},{"1":"7.595556"},{"1":"7.347778"},{"1":"7.662222"},{"1":"7.213333"},{"1":"7.434444"},{"1":"7.593333"},{"1":"7.580000"},{"1":"7.471111"},{"1":"7.120000"},{"1":"7.387778"},{"1":"7.446667"},{"1":"7.351111"},{"1":"7.392222"},{"1":"7.290000"},{"1":"7.536667"},{"1":"7.408889"},{"1":"7.542222"},{"1":"7.518889"},{"1":"7.356667"},{"1":"7.487778"},{"1":"7.598889"},{"1":"7.463333"},{"1":"7.464444"},{"1":"7.428889"},{"1":"7.294444"},{"1":"7.656667"},{"1":"7.630000"},{"1":"7.426667"},{"1":"7.335556"},{"1":"7.557778"},{"1":"7.464444"},{"1":"7.636667"},{"1":"7.477778"},{"1":"7.557778"},{"1":"7.584444"},{"1":"7.451111"},{"1":"7.205556"},{"1":"7.593333"},{"1":"7.357778"},{"1":"7.073333"},{"1":"7.475556"},{"1":"7.498889"},{"1":"7.291111"},{"1":"7.277778"},{"1":"7.315556"},{"1":"7.423333"},{"1":"7.406667"},{"1":"7.265556"},{"1":"7.330000"},{"1":"7.562222"},{"1":"7.273333"},{"1":"7.290000"},{"1":"7.306667"},{"1":"7.353333"},{"1":"7.261111"},{"1":"7.350000"},{"1":"7.303333"},{"1":"7.556667"},{"1":"7.218889"},{"1":"7.350000"},{"1":"7.280000"},{"1":"7.513333"},{"1":"7.622222"},{"1":"7.291111"},{"1":"7.478889"},{"1":"7.156667"},{"1":"7.515556"},{"1":"7.397778"},{"1":"7.290000"},{"1":"7.273333"},{"1":"7.032222"},{"1":"7.443333"},{"1":"7.528889"},{"1":"7.658889"},{"1":"7.473333"},{"1":"7.444444"},{"1":"7.677778"},{"1":"7.253333"},{"1":"7.420000"},{"1":"7.597778"},{"1":"7.102222"},{"1":"7.363333"},{"1":"7.534444"},{"1":"7.644444"},{"1":"7.716667"},{"1":"7.264444"},{"1":"6.886667"},{"1":"7.401111"},{"1":"7.446667"},{"1":"7.385556"},{"1":"7.451111"},{"1":"7.351111"},{"1":"7.578889"},{"1":"7.252222"},{"1":"7.131111"},{"1":"7.040000"},{"1":"7.605556"},{"1":"7.455556"},{"1":"7.296667"},{"1":"7.822222"},{"1":"7.277778"},{"1":"7.280000"},{"1":"7.087778"},{"1":"7.254444"},{"1":"7.273333"},{"1":"7.167778"},{"1":"7.263333"},{"1":"7.600000"},{"1":"7.401111"},{"1":"7.604444"},{"1":"7.403333"},{"1":"7.198889"},{"1":"7.275556"},{"1":"7.460000"},{"1":"7.347778"},{"1":"7.310000"},{"1":"7.383333"},{"1":"7.162222"},{"1":"7.441111"},{"1":"7.400000"},{"1":"7.532222"},{"1":"7.138889"},{"1":"7.158889"},{"1":"7.342222"},{"1":"7.313333"},{"1":"7.380000"},{"1":"7.187778"},{"1":"7.455556"},{"1":"7.381111"},{"1":"7.443333"},{"1":"7.320000"},{"1":"7.756667"},{"1":"7.255556"},{"1":"7.334444"},{"1":"7.666667"},{"1":"7.390000"},{"1":"7.582222"},{"1":"7.048889"},{"1":"7.247778"},{"1":"7.805556"},{"1":"7.072222"},{"1":"7.097778"},{"1":"7.605556"},{"1":"7.335556"},{"1":"7.345556"},{"1":"7.213333"},{"1":"7.507778"},{"1":"7.652222"},{"1":"7.372222"},{"1":"7.351111"},{"1":"7.258889"},{"1":"7.340000"},{"1":"7.500000"},{"1":"7.574444"},{"1":"7.254444"},{"1":"7.134444"},{"1":"7.410000"},{"1":"7.047778"},{"1":"7.438889"},{"1":"7.201111"},{"1":"7.505556"},{"1":"7.291111"},{"1":"7.661111"},{"1":"7.596667"},{"1":"7.331111"},{"1":"7.200000"},{"1":"7.303333"},{"1":"7.656667"},{"1":"7.416667"},{"1":"7.553333"},{"1":"7.346667"},{"1":"7.466667"},{"1":"7.402222"},{"1":"7.602222"},{"1":"7.688889"},{"1":"7.668889"},{"1":"7.467778"},{"1":"7.350000"},{"1":"7.421111"},{"1":"7.444444"},{"1":"7.406667"},{"1":"7.517778"},{"1":"7.372222"},{"1":"7.691111"},{"1":"7.397778"},{"1":"7.458889"},{"1":"7.723333"},{"1":"7.265556"},{"1":"7.116667"},{"1":"7.402222"},{"1":"7.396667"},{"1":"7.304444"},{"1":"7.384444"},{"1":"7.386667"},{"1":"7.404444"},{"1":"7.234444"},{"1":"7.514444"},{"1":"7.664444"},{"1":"7.231111"},{"1":"7.660000"},{"1":"7.490000"},{"1":"7.242222"},{"1":"7.576667"},{"1":"7.440000"},{"1":"7.200000"},{"1":"7.426667"},{"1":"7.566667"},{"1":"7.112222"},{"1":"7.588889"},{"1":"7.450000"},{"1":"7.571111"},{"1":"7.123333"},{"1":"7.111111"},{"1":"7.755556"},{"1":"7.398889"},{"1":"7.402222"},{"1":"7.286667"},{"1":"7.182222"},{"1":"7.092222"},{"1":"7.294444"},{"1":"7.354444"},{"1":"7.260000"},{"1":"6.977778"},{"1":"7.362222"},{"1":"7.267778"},{"1":"7.465556"},{"1":"7.380000"},{"1":"7.355556"},{"1":"7.562222"},{"1":"7.294444"},{"1":"7.194444"},{"1":"7.536667"},{"1":"7.355556"},{"1":"7.318889"},{"1":"7.418889"},{"1":"7.454444"},{"1":"7.701111"},{"1":"7.544444"},{"1":"7.663333"},{"1":"7.316667"},{"1":"7.307778"},{"1":"7.510000"},{"1":"7.360000"},{"1":"7.315556"},{"1":"7.415556"},{"1":"7.287778"},{"1":"7.207778"},{"1":"7.441111"},{"1":"7.833333"},{"1":"7.657778"},{"1":"7.292222"},{"1":"7.418889"},{"1":"7.328889"},{"1":"7.656667"},{"1":"7.605556"},{"1":"7.307778"},{"1":"7.673333"},{"1":"7.793333"},{"1":"7.421111"},{"1":"7.298889"},{"1":"7.564444"},{"1":"7.424444"},{"1":"7.328889"},{"1":"7.495556"},{"1":"7.331111"},{"1":"7.373333"},{"1":"7.657778"},{"1":"7.254444"},{"1":"7.580000"},{"1":"7.540000"},{"1":"7.510000"},{"1":"7.317778"},{"1":"7.526667"},{"1":"7.477778"},{"1":"7.535556"},{"1":"7.067778"},{"1":"7.555556"},{"1":"7.290000"},{"1":"7.432222"},{"1":"7.482222"},{"1":"7.205556"},{"1":"7.221111"},{"1":"7.080000"},{"1":"7.447778"},{"1":"7.397778"},{"1":"7.321111"},{"1":"7.215556"},{"1":"7.162222"},{"1":"7.547778"},{"1":"7.641111"},{"1":"7.531111"},{"1":"7.433333"},{"1":"7.446667"},{"1":"7.330000"},{"1":"7.451111"},{"1":"7.546667"},{"1":"7.571111"},{"1":"7.684444"},{"1":"7.228889"},{"1":"7.410000"},{"1":"7.728889"},{"1":"7.661111"},{"1":"7.603333"},{"1":"7.018889"},{"1":"7.144444"},{"1":"7.263333"},{"1":"7.376667"},{"1":"7.367778"},{"1":"7.333333"},{"1":"7.120000"},{"1":"7.416667"},{"1":"7.524444"},{"1":"7.432222"},{"1":"7.436667"},{"1":"7.218889"},{"1":"7.242222"},{"1":"7.251111"},{"1":"7.685556"},{"1":"7.410000"},{"1":"7.417778"},{"1":"7.886667"},{"1":"7.990000"},{"1":"7.532222"},{"1":"7.431111"},{"1":"7.368889"},{"1":"7.246667"},{"1":"7.548889"},{"1":"7.482222"},{"1":"7.496667"},{"1":"7.303333"},{"1":"7.480000"},{"1":"7.192222"},{"1":"7.297778"},{"1":"7.195556"},{"1":"7.693333"},{"1":"7.496667"},{"1":"7.363333"},{"1":"7.211111"},{"1":"7.603333"},{"1":"7.546667"},{"1":"7.247778"},{"1":"7.607778"},{"1":"7.175556"},{"1":"7.615556"},{"1":"7.265556"},{"1":"7.307778"},{"1":"7.484444"},{"1":"7.240000"},{"1":"7.335556"},{"1":"7.091111"},{"1":"7.388889"},{"1":"7.426667"},{"1":"7.664444"},{"1":"7.485556"},{"1":"7.578889"},{"1":"7.204444"},{"1":"7.300000"},{"1":"7.272222"},{"1":"7.242222"},{"1":"7.687778"},{"1":"7.400000"},{"1":"7.392222"},{"1":"7.452222"},{"1":"7.266667"},{"1":"6.938889"},{"1":"7.338889"},{"1":"7.763333"},{"1":"7.441111"},{"1":"7.456667"},{"1":"7.351111"},{"1":"7.487778"},{"1":"7.292222"},{"1":"7.038889"},{"1":"7.590000"},{"1":"7.720000"},{"1":"7.225556"},{"1":"7.324444"},{"1":"7.358889"},{"1":"7.414444"},{"1":"7.206667"},{"1":"7.263333"},{"1":"7.538889"},{"1":"7.496667"},{"1":"7.443333"},{"1":"7.296667"},{"1":"7.361111"},{"1":"7.594444"},{"1":"7.460000"},{"1":"7.153333"},{"1":"7.295556"},{"1":"7.104444"},{"1":"7.604444"},{"1":"7.697778"},{"1":"7.204444"},{"1":"7.276667"},{"1":"7.371111"},{"1":"7.163333"},{"1":"7.351111"},{"1":"7.262222"},{"1":"7.402222"},{"1":"7.444444"},{"1":"7.004444"},{"1":"7.331111"},{"1":"7.481111"},{"1":"7.060000"},{"1":"7.501111"},{"1":"7.285556"},{"1":"7.272222"},{"1":"7.348889"},{"1":"7.251111"},{"1":"6.981111"},{"1":"7.137778"},{"1":"7.484444"},{"1":"7.156667"},{"1":"7.286667"},{"1":"7.341111"},{"1":"7.412222"},{"1":"7.457778"},{"1":"7.396667"},{"1":"7.473333"},{"1":"7.431111"},{"1":"7.497778"},{"1":"7.271111"},{"1":"7.387778"},{"1":"7.515556"},{"1":"7.398889"},{"1":"7.403333"},{"1":"7.353333"},{"1":"7.420000"},{"1":"7.414444"},{"1":"7.520000"},{"1":"7.278889"},{"1":"7.280000"},{"1":"7.444444"},{"1":"7.472222"},{"1":"7.350000"},{"1":"7.597778"},{"1":"7.200000"},{"1":"7.597778"},{"1":"7.303333"},{"1":"7.667778"},{"1":"7.180000"},{"1":"7.342222"},{"1":"7.304444"},{"1":"7.386667"},{"1":"7.182222"},{"1":"7.241111"},{"1":"7.161111"},{"1":"7.753333"},{"1":"7.450000"},{"1":"7.406667"},{"1":"7.347778"},{"1":"7.210000"},{"1":"7.522222"},{"1":"7.332222"},{"1":"7.377778"},{"1":"7.333333"},{"1":"7.274444"},{"1":"7.388889"},{"1":"7.475556"},{"1":"7.352222"},{"1":"7.497778"},{"1":"7.405556"},{"1":"7.615556"},{"1":"7.272222"},{"1":"7.225556"},{"1":"7.418889"},{"1":"7.392222"},{"1":"7.328889"},{"1":"7.252222"},{"1":"7.597778"},{"1":"7.288889"},{"1":"7.444444"},{"1":"7.462222"},{"1":"7.272222"},{"1":"7.325556"},{"1":"7.691111"},{"1":"7.347778"},{"1":"7.364444"},{"1":"7.433333"},{"1":"7.394444"},{"1":"7.774444"},{"1":"7.598889"},{"1":"7.390000"},{"1":"7.354444"},{"1":"7.276667"},{"1":"7.370000"},{"1":"7.271111"},{"1":"7.458889"},{"1":"7.583333"},{"1":"7.124444"},{"1":"7.532222"},{"1":"7.453333"},{"1":"7.163333"},{"1":"7.728889"},{"1":"7.552222"},{"1":"7.108889"},{"1":"7.575556"},{"1":"7.311111"},{"1":"7.497778"},{"1":"7.252222"},{"1":"7.437778"},{"1":"7.373333"},{"1":"7.533333"},{"1":"7.418889"},{"1":"7.647778"},{"1":"7.257778"},{"1":"7.131111"},{"1":"7.617778"},{"1":"7.045556"},{"1":"7.183333"},{"1":"7.556667"},{"1":"7.707778"},{"1":"7.628889"},{"1":"7.171111"},{"1":"7.512222"},{"1":"7.180000"},{"1":"7.433333"},{"1":"7.360000"},{"1":"7.268889"},{"1":"7.344444"},{"1":"7.317778"},{"1":"7.673333"},{"1":"7.412222"},{"1":"7.451111"},{"1":"7.570000"},{"1":"7.261111"},{"1":"7.286667"},{"1":"7.500000"},{"1":"7.358889"},{"1":"7.357778"},{"1":"7.335556"},{"1":"7.224444"},{"1":"7.151111"},{"1":"7.095556"},{"1":"7.440000"},{"1":"7.470000"},{"1":"7.546667"},{"1":"7.523333"},{"1":"7.256667"},{"1":"7.655556"},{"1":"7.556667"},{"1":"7.477778"},{"1":"7.422222"},{"1":"7.187778"},{"1":"7.344444"},{"1":"7.098889"},{"1":"7.370000"},{"1":"7.367778"},{"1":"7.515556"},{"1":"7.370000"},{"1":"7.560000"},{"1":"7.315556"},{"1":"7.256667"},{"1":"7.654444"},{"1":"7.134444"},{"1":"7.150000"},{"1":"7.311111"},{"1":"7.311111"},{"1":"7.233333"},{"1":"7.605556"},{"1":"7.602222"},{"1":"7.384444"},{"1":"7.200000"},{"1":"7.643333"},{"1":"7.521111"},{"1":"7.530000"},{"1":"7.252222"},{"1":"7.488889"},{"1":"7.624444"},{"1":"7.322222"},{"1":"7.613333"},{"1":"7.522222"},{"1":"7.346667"},{"1":"7.145556"},{"1":"7.572222"},{"1":"7.247778"},{"1":"7.575556"},{"1":"7.505556"},{"1":"7.347778"},{"1":"7.604444"},{"1":"7.622222"},{"1":"7.310000"},{"1":"7.080000"},{"1":"7.611111"},{"1":"7.368889"},{"1":"7.674444"},{"1":"7.113333"},{"1":"7.610000"},{"1":"7.715556"},{"1":"7.633333"},{"1":"7.188889"},{"1":"7.302222"},{"1":"7.266667"},{"1":"7.267778"},{"1":"7.343333"},{"1":"7.328889"},{"1":"7.466667"},{"1":"7.425556"},{"1":"7.503333"},{"1":"7.203333"},{"1":"7.405556"},{"1":"7.072222"},{"1":"7.302222"},{"1":"7.143333"},{"1":"7.533333"},{"1":"7.346667"},{"1":"7.437778"},{"1":"7.162222"},{"1":"7.074444"},{"1":"7.160000"},{"1":"7.206667"},{"1":"7.472222"},{"1":"7.352222"},{"1":"7.594444"},{"1":"7.254444"},{"1":"7.685556"},{"1":"7.223333"},{"1":"7.455556"},{"1":"7.778889"},{"1":"7.364444"},{"1":"7.414444"},{"1":"7.322222"},{"1":"7.386667"},{"1":"7.417778"},{"1":"6.903333"},{"1":"7.535556"},{"1":"7.568889"},{"1":"7.138889"},{"1":"7.312222"},{"1":"7.382222"},{"1":"7.326667"},{"1":"7.422222"},{"1":"7.732222"},{"1":"7.272222"},{"1":"7.380000"},{"1":"7.348889"},{"1":"7.841111"},{"1":"7.337778"},{"1":"7.434444"},{"1":"7.670000"},{"1":"7.234444"},{"1":"7.226667"},{"1":"7.338889"},{"1":"7.616667"},{"1":"7.231111"},{"1":"7.424444"},{"1":"6.837778"},{"1":"7.417778"},{"1":"7.266667"},{"1":"7.256667"},{"1":"7.403333"},{"1":"7.606667"},{"1":"7.505556"},{"1":"7.403333"},{"1":"7.787778"},{"1":"7.278889"},{"1":"7.213333"},{"1":"7.407778"},{"1":"7.418889"},{"1":"7.597778"},{"1":"7.195556"},{"1":"7.160000"},{"1":"7.572222"},{"1":"7.480000"},{"1":"7.146667"},{"1":"7.443333"},{"1":"7.275556"},{"1":"7.451111"},{"1":"7.188889"},{"1":"7.493333"},{"1":"7.455556"},{"1":"7.203333"},{"1":"7.667778"},{"1":"7.377778"},{"1":"7.264444"},{"1":"7.613333"},{"1":"7.438889"},{"1":"7.516667"},{"1":"7.187778"},{"1":"7.395556"},{"1":"7.341111"},{"1":"7.241111"},{"1":"7.352222"},{"1":"7.401111"},{"1":"7.770000"},{"1":"7.281111"},{"1":"7.271111"},{"1":"7.332222"},{"1":"7.351111"},{"1":"7.291111"},{"1":"7.414444"},{"1":"7.327778"},{"1":"7.508889"},{"1":"7.311111"},{"1":"7.366667"},{"1":"7.414444"},{"1":"7.534444"},{"1":"7.180000"},{"1":"7.427778"},{"1":"7.237778"},{"1":"7.474444"},{"1":"7.262222"},{"1":"7.382222"},{"1":"7.441111"},{"1":"7.624444"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -645,10 +686,14 @@ function toggle_visibility(id) {
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-bootstrap-dist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.3: Distribution of 1000 bootstrapped means.</figcaption>
+<div id="fig-bootstrap-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: Distribution of 1000 bootstrapped means.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -658,7 +703,6 @@ function toggle_visibility(id) {
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SE</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"result","2":"6.837778","3":"7.278889","4":"7.391667","5":"7.509167","6":"8.023333","7":"7.395381","8":"0.1699168","9":"1000","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -668,7 +712,7 @@ function toggle_visibility(id) {
 </div>
 <p>Here the standard error (found in the <code>sd</code> column) is 0.17.</p>
 <div class="protip">
-<p>The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in <a href="#fig-bootstrap-dist">Figure&nbsp;<span>8.3</span></a>. This can be a self-check when you create a bootstrap distribution.</p>
+<p>The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in <a href="#fig-bootstrap-dist" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>. This can be a self-check when you create a bootstrap distribution.</p>
 </div>
 <p><br></p>
 <!-- ## Some Mathematical Notation -->
@@ -680,7 +724,7 @@ function toggle_visibility(id) {
 <h2 data-number="8.4" class="anchored" data-anchor-id="references"><span class="header-section-number">8.4</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Raspe:1948" class="csl-entry" role="listitem">
 Raspe, R. E. (1948). <em>Singular travels, campaigns and adventures of <span>B</span>aron <span>M</span>unchausen</em> (J. Carswell, Ed.). Cresset Press.
 </div>
@@ -773,10 +817,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -786,8 +829,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -800,6 +852,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -843,6 +1014,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -868,6 +1040,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -929,17 +1127,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-01-case-study-teen-sleep.html" class="pagination-link">
+      <a href="./04-01-case-study-teen-sleep.html" class="pagination-link" aria-label="Case Study: Teen Sleep">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-03-one-sample-test.html" class="pagination-link">
+      <a href="./04-03-one-sample-test.html" class="pagination-link" aria-label="Hypothesis Testing: One-Sample t-Test">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

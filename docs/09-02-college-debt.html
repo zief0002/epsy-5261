@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis - 29&nbsp; college-debt.csv</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09-08-phone-incentives.html" rel="next">
+<link href="./09-01-body-temp.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+<link href="site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-00-data-codebooks.html">Data Codebooks</a></li><li class="breadcrumb-item"><a href="./09-02-college-debt.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foreword</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Computation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing and Visualizing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Data to a Standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Two Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-01-scatterplot-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-02-linear-regression-description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-04-regression-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./09-00-data-codebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Codebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-01-body-temp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">body-temp.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-02-college-debt.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-08-phone-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preview" id="toc-preview" class="nav-link active" data-scroll-target="#preview"><span class="header-section-number">29.1</span> Preview</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-00-data-codebooks.html">Data Codebooks</a></li><li class="breadcrumb-item"><a href="./09-02-college-debt.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="college-debt" class="quarto-section-identifier"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-debt.csv">college-debt.csv</a> contains information for a random sample of <span class="math inline">\(n=250\)</span> institutions of higher education in the United States. The attributes are:</p>
+<ul>
+<li><code>institution</code>: Name of the institution</li>
+<li><code>city</code>: City where the institution is located</li>
+<li><code>state</code>: State where the institution is located</li>
+<li><code>type</code>: Type of institution (<code>Private</code>; <code>Public</code>)</li>
+<li><code>debt</code>: Median amount of debt for a graduate of the institution</li>
+</ul>
+<p><br></p>
+<section id="preview" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="preview"><span class="header-section-number">29.1</span> Preview</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>college_debt <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-debt.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>college_debt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["institution"],"name":[1],"type":["chr"],"align":["left"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["state"],"name":[3],"type":["chr"],"align":["left"]},{"label":["type"],"name":[4],"type":["chr"],"align":["left"]},{"label":["debt"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"California College of the Arts","2":"San Francisco","3":"CA","4":"Private","5":"35503"},{"1":"Methodist University","2":"Fayetteville","3":"NC","4":"Private","5":"33211"},{"1":"Olivet College","2":"Olivet","3":"MI","4":"Private","5":"26872"},{"1":"Daytona State College","2":"Daytona Beach","3":"FL","4":"Public","5":"2483"},{"1":"Martin Luther College","2":"New Ulm","3":"MN","4":"Private","5":"26791"},{"1":"Earlham College","2":"Richmond","3":"IN","4":"Private","5":"26103"},{"1":"University of Montevallo","2":"Montevallo","3":"AL","4":"Public","5":"29968"},{"1":"Texas A & M University-Corpus Christi","2":"Corpus Christi","3":"TX","4":"Public","5":"17748"},{"1":"Western Michigan University","2":"Kalamazoo","3":"MI","4":"Public","5":"35204"},{"1":"Susquehanna University","2":"Selinsgrove","3":"PA","4":"Private","5":"40455"},{"1":"Graceland University-Lamoni","2":"Lamoni","3":"IA","4":"Private","5":"44984"},{"1":"Anderson University","2":"Anderson","3":"SC","4":"Private","5":"32609"},{"1":"Towson University","2":"Towson","3":"MD","4":"Public","5":"27610"},{"1":"Piedmont College","2":"Demorest","3":"GA","4":"Private","5":"30559"},{"1":"Colby-Sawyer College","2":"New London","3":"NH","4":"Private","5":"40767"},{"1":"Framingham State University","2":"Framingham","3":"MA","4":"Public","5":"31465"},{"1":"Utica College","2":"Utica","3":"NY","4":"Private","5":"30402"},{"1":"Concordia University-Irvine","2":"Irvine","3":"CA","4":"Private","5":"32809"},{"1":"Saint Edward's University","2":"Austin","3":"TX","4":"Private","5":"37559"},{"1":"Reinhardt University","2":"Waleska","3":"GA","4":"Private","5":"32384"},{"1":"Florida Institute of Technology","2":"Melbourne","3":"FL","4":"Private","5":"38943"},{"1":"Amherst College","2":"Amherst","3":"MA","4":"Private","5":"22629"},{"1":"Union College","2":"Schenectady","3":"NY","4":"Private","5":"36921"},{"1":"University of South Carolina-Aiken","2":"Aiken","3":"SC","4":"Public","5":"28176"},{"1":"Rhode Island College","2":"Providence","3":"RI","4":"Public","5":"25936"},{"1":"Chatham University","2":"Pittsburgh","3":"PA","4":"Private","5":"35199"},{"1":"University of Missouri-St Louis","2":"Saint Louis","3":"MO","4":"Public","5":"25110"},{"1":"University of Tulsa","2":"Tulsa","3":"OK","4":"Private","5":"36176"},{"1":"Xavier University","2":"Cincinnati","3":"OH","4":"Private","5":"10348"},{"1":"University of Northern Colorado","2":"Greeley","3":"CO","4":"Public","5":"23967"},{"1":"University of Kentucky","2":"Lexington","3":"KY","4":"Public","5":"33927"},{"1":"University of Providence","2":"Great Falls","3":"MT","4":"Private","5":"26200"},{"1":"The University of Texas at Tyler","2":"Tyler","3":"TX","4":"Public","5":"19691"},{"1":"Texas A & M University-Kingsville","2":"Kingsville","3":"TX","4":"Public","5":"30726"},{"1":"Bridgewater State University","2":"Bridgewater","3":"MA","4":"Public","5":"33367"},{"1":"Hamilton College","2":"Clinton","3":"NY","4":"Private","5":"20582"},{"1":"Stony Brook University","2":"Stony Brook","3":"NY","4":"Public","5":"25678"},{"1":"University of Mary Hardin-Baylor","2":"Belton","3":"TX","4":"Private","5":"34104"},{"1":"Southern Vermont College","2":"Bennington","3":"VT","4":"Private","5":"35728"},{"1":"Hampden-Sydney College","2":"Hampden-Sydney","3":"VA","4":"Private","5":"41316"},{"1":"Northwestern State University of Louisiana","2":"Natchitoches","3":"LA","4":"Public","5":"29793"},{"1":"University of North Florida","2":"Jacksonville","3":"FL","4":"Public","5":"19338"},{"1":"Sul Ross State University","2":"Alpine","3":"TX","4":"Public","5":"13073"},{"1":"Southern Illinois University-Edwardsville","2":"Edwardsville","3":"IL","4":"Public","5":"22610"},{"1":"Morgan State University","2":"Baltimore","3":"MD","4":"Public","5":"46194"},{"1":"Beacon College","2":"Leesburg","3":"FL","4":"Private","5":"27000"},{"1":"Pepperdine University","2":"Malibu","3":"CA","4":"Private","5":"34711"},{"1":"Bethany College","2":"Bethany","3":"WV","4":"Private","5":"27057"},{"1":"San Diego State University","2":"San Diego","3":"CA","4":"Public","5":"21172"},{"1":"Emporia State University","2":"Emporia","3":"KS","4":"Public","5":"22692"},{"1":"University of Maine at Farmington","2":"Farmington","3":"ME","4":"Public","5":"30315"},{"1":"Missouri University of Science and Technology","2":"Rolla","3":"MO","4":"Public","5":"30168"},{"1":"The University of the South","2":"Sewanee","3":"TN","4":"Private","5":"31737"},{"1":"University of Colorado Boulder","2":"Boulder","3":"CO","4":"Public","5":"27568"},{"1":"University of New Haven","2":"West Haven","3":"CT","4":"Private","5":"47457"},{"1":"York College of Pennsylvania","2":"York","3":"PA","4":"Private","5":"44077"},{"1":"Lackawanna College","2":"Scranton","3":"PA","4":"Private","5":"9496"},{"1":"Misericordia University","2":"Dallas","3":"PA","4":"Private","5":"46756"},{"1":"Miami University-Oxford","2":"Oxford","3":"OH","4":"Public","5":"29652"},{"1":"Maryville University of Saint Louis","2":"Saint Louis","3":"MO","4":"Private","5":"30657"},{"1":"University of Southern Indiana","2":"Evansville","3":"IN","4":"Public","5":"24427"},{"1":"Stetson University","2":"DeLand","3":"FL","4":"Private","5":"32601"},{"1":"Berklee College of Music","2":"Boston","3":"MA","4":"Private","5":"43826"},{"1":"Rocky Mountain College","2":"Billings","3":"MT","4":"Private","5":"26935"},{"1":"Lincoln College","2":"Lincoln","3":"IL","4":"Private","5":"7385"},{"1":"Maryville College","2":"Maryville","3":"TN","4":"Private","5":"29844"},{"1":"Saint Louis University","2":"Saint Louis","3":"MO","4":"Private","5":"34188"},{"1":"Wentworth Institute of Technology","2":"Boston","3":"MA","4":"Private","5":"58867"},{"1":"Clarkson University","2":"Potsdam","3":"NY","4":"Private","5":"29000"},{"1":"Glenville State College","2":"Glenville","3":"WV","4":"Public","5":"7917"},{"1":"University of Maryland-College Park","2":"College Park","3":"MD","4":"Public","5":"29133"},{"1":"University of Arkansas at Little Rock","2":"Little Rock","3":"AR","4":"Public","5":"24567"},{"1":"University of Illinois at Springfield","2":"Springfield","3":"IL","4":"Public","5":"24073"},{"1":"SUNY College at Plattsburgh","2":"Plattsburgh","3":"NY","4":"Public","5":"30919"},{"1":"Duquesne University","2":"Pittsburgh","3":"PA","4":"Private","5":"44243"},{"1":"William Jessup University","2":"Rocklin","3":"CA","4":"Private","5":"26856"},{"1":"Pennsylvania State University-Penn State Mont Alto","2":"Mont Alto","3":"PA","4":"Public","5":"42611"},{"1":"George Fox University","2":"Newberg","3":"OR","4":"Private","5":"31299"},{"1":"William Jewell College","2":"Liberty","3":"MO","4":"Private","5":"37322"},{"1":"Columbus State University","2":"Columbus","3":"GA","4":"Public","5":"32587"},{"1":"Hanover College","2":"Hanover","3":"IN","4":"Private","5":"29190"},{"1":"California Baptist University","2":"Riverside","3":"CA","4":"Private","5":"36383"},{"1":"Lafayette College","2":"Easton","3":"PA","4":"Private","5":"30181"},{"1":"Rutgers University-Camden","2":"Camden","3":"NJ","4":"Public","5":"30737"},{"1":"Nazarene Bible College","2":"Colorado Springs","3":"CO","4":"Private","5":"36370"},{"1":"Hamline University","2":"Saint Paul","3":"MN","4":"Private","5":"36676"},{"1":"Wells College","2":"Aurora","3":"NY","4":"Private","5":"36804"},{"1":"Fort Lewis College","2":"Durango","3":"CO","4":"Public","5":"19429"},{"1":"St. John's College","2":"Annapolis","3":"MD","4":"Private","5":"20067"},{"1":"Messenger College","2":"Bedford","3":"TX","4":"Private","5":"32313"},{"1":"California University of Pennsylvania","2":"California","3":"PA","4":"Public","5":"42029"},{"1":"Syracuse University","2":"Syracuse","3":"NY","4":"Private","5":"37563"},{"1":"Brigham Young University-Provo","2":"Provo","3":"UT","4":"Private","5":"14672"},{"1":"Messiah College","2":"Mechanicsburg","3":"PA","4":"Private","5":"41859"},{"1":"New Mexico State University-Main Campus","2":"Las Cruces","3":"NM","4":"Public","5":"21429"},{"1":"Loyola University Chicago","2":"Chicago","3":"IL","4":"Private","5":"35030"},{"1":"Indiana Institute of Technology","2":"Fort Wayne","3":"IN","4":"Private","5":"20689"},{"1":"Rose-Hulman Institute of Technology","2":"Terre Haute","3":"IN","4":"Private","5":"47953"},{"1":"Shippensburg University of Pennsylvania","2":"Shippensburg","3":"PA","4":"Public","5":"37130"},{"1":"Stephen F Austin State University","2":"Nacogdoches","3":"TX","4":"Public","5":"26477"},{"1":"Cardinal Stritch University","2":"Milwaukee","3":"WI","4":"Private","5":"33553"},{"1":"McKendree University","2":"Lebanon","3":"IL","4":"Private","5":"28754"},{"1":"Lawrence University","2":"Appleton","3":"WI","4":"Private","5":"28828"},{"1":"La Roche University","2":"Pittsburgh","3":"PA","4":"Private","5":"33433"},{"1":"The Baptist College of Florida","2":"Graceville","3":"FL","4":"Private","5":"18945"},{"1":"Rogers State University","2":"Claremore","3":"OK","4":"Public","5":"13052"},{"1":"St. Mary's College of Maryland","2":"St. Mary's City","3":"MD","4":"Public","5":"25579"},{"1":"Texas A & M International University","2":"Laredo","3":"TX","4":"Public","5":"3477"},{"1":"University of Iowa","2":"Iowa City","3":"IA","4":"Public","5":"28328"},{"1":"King University","2":"Bristol","3":"TN","4":"Private","5":"29417"},{"1":"Lindenwood University","2":"Saint Charles","3":"MO","4":"Private","5":"33365"},{"1":"University of Indianapolis","2":"Indianapolis","3":"IN","4":"Private","5":"33953"},{"1":"University of Denver","2":"Denver","3":"CO","4":"Private","5":"27938"},{"1":"Indiana Wesleyan University-Marion","2":"Marion","3":"IN","4":"Private","5":"30355"},{"1":"Boston Baptist College","2":"Boston","3":"MA","4":"Private","5":"6384"},{"1":"National University","2":"La Jolla","3":"CA","4":"Private","5":"48851"},{"1":"New Mexico Institute of Mining and Technology","2":"Socorro","3":"NM","4":"Public","5":"20771"},{"1":"Manchester University","2":"North Manchester","3":"IN","4":"Private","5":"33838"},{"1":"University of Colorado Colorado Springs","2":"Colorado Springs","3":"CO","4":"Public","5":"23805"},{"1":"Truman State University","2":"Kirksville","3":"MO","4":"Public","5":"25660"},{"1":"The Sage Colleges","2":"Troy","3":"NY","4":"Private","5":"33740"},{"1":"Northern Illinois University","2":"Dekalb","3":"IL","4":"Public","5":"33915"},{"1":"Slippery Rock University of Pennsylvania","2":"Slippery Rock","3":"PA","4":"Public","5":"37450"},{"1":"Goddard College","2":"Plainfield","3":"VT","4":"Private","5":"29135"},{"1":"Southeastern Oklahoma State University","2":"Durant","3":"OK","4":"Public","5":"16832"},{"1":"Florida Gulf Coast University","2":"Fort Myers","3":"FL","4":"Public","5":"28581"},{"1":"University of Houston-Victoria","2":"Victoria","3":"TX","4":"Public","5":"6382"},{"1":"Angelo State University","2":"San Angelo","3":"TX","4":"Public","5":"24496"},{"1":"Eastern Michigan University","2":"Ypsilanti","3":"MI","4":"Public","5":"27475"},{"1":"Point Loma Nazarene University","2":"San Diego","3":"CA","4":"Private","5":"35374"},{"1":"Boise State University","2":"Boise","3":"ID","4":"Public","5":"27052"},{"1":"Campbell University","2":"Buies Creek","3":"NC","4":"Private","5":"32590"},{"1":"Emory & Henry College","2":"Emory","3":"VA","4":"Private","5":"30360"},{"1":"Elmira College","2":"Elmira","3":"NY","4":"Private","5":"27679"},{"1":"University of Akron Main Campus","2":"Akron","3":"OH","4":"Public","5":"28643"},{"1":"University of Notre Dame","2":"Notre Dame","3":"IN","4":"Private","5":"27460"},{"1":"Bethel College-North Newton","2":"North Newton","3":"KS","4":"Private","5":"5633"},{"1":"Virginia Military Institute","2":"Lexington","3":"VA","4":"Public","5":"35353"},{"1":"Western Oregon University","2":"Monmouth","3":"OR","4":"Public","5":"6815"},{"1":"California Institute of Technology","2":"Pasadena","3":"CA","4":"Private","5":"20192"},{"1":"Weber State University","2":"Ogden","3":"UT","4":"Public","5":"21690"},{"1":"Biola University","2":"La Mirada","3":"CA","4":"Private","5":"36330"},{"1":"Pennsylvania State University-Penn State Wilkes-Barre","2":"Lehman","3":"PA","4":"Public","5":"34928"},{"1":"Aquinas College","2":"Grand Rapids","3":"MI","4":"Private","5":"30158"},{"1":"Louisiana State University and Agricultural & Mechanical College","2":"Baton Rouge","3":"LA","4":"Public","5":"24851"},{"1":"Kentucky Mountain Bible College","2":"Jackson","3":"KY","4":"Private","5":"7370"},{"1":"Alabama State University","2":"Montgomery","3":"AL","4":"Public","5":"3486"},{"1":"Albertus Magnus College","2":"New Haven","3":"CT","4":"Private","5":"34935"},{"1":"Christian Brothers University","2":"Memphis","3":"TN","4":"Private","5":"33649"},{"1":"Ithaca College","2":"Ithaca","3":"NY","4":"Private","5":"42000"},{"1":"CUNY Hunter College","2":"New York","3":"NY","4":"Public","5":"15096"},{"1":"Delaware Valley University","2":"Doylestown","3":"PA","4":"Private","5":"48278"},{"1":"Davidson College","2":"Davidson","3":"NC","4":"Private","5":"23535"},{"1":"Kansas City Art Institute","2":"Kansas City","3":"MO","4":"Private","5":"32607"},{"1":"Waynesburg University","2":"Waynesburg","3":"PA","4":"Private","5":"23316"},{"1":"Nazareth College","2":"Rochester","3":"NY","4":"Private","5":"49827"},{"1":"Davis College","2":"Johnson City","3":"NY","4":"Private","5":"9381"},{"1":"Mount Carmel College of Nursing","2":"Columbus","3":"OH","4":"Private","5":"35781"},{"1":"St. John's College","2":"Santa Fe","3":"NM","4":"Private","5":"26744"},{"1":"Marymount California University","2":"Rancho Palos Verdes","3":"CA","4":"Private","5":"24143"},{"1":"Hope International University","2":"Fullerton","3":"CA","4":"Private","5":"35427"},{"1":"Muhlenberg College","2":"Allentown","3":"PA","4":"Private","5":"32963"},{"1":"Culinary Institute of America","2":"Hyde Park","3":"NY","4":"Private","5":"51200"},{"1":"Dickinson State University","2":"Dickinson","3":"ND","4":"Public","5":"22971"},{"1":"Lake Forest College","2":"Lake Forest","3":"IL","4":"Private","5":"34587"},{"1":"Washington & Jefferson College","2":"Washington","3":"PA","4":"Private","5":"48582"},{"1":"Gardner-Webb University","2":"Boiling Springs","3":"NC","4":"Private","5":"31680"},{"1":"East Stroudsburg University of Pennsylvania","2":"East Stroudsburg","3":"PA","4":"Public","5":"12070"},{"1":"Boise Bible College","2":"Boise","3":"ID","4":"Private","5":"13828"},{"1":"University of Mississippi","2":"University","3":"MS","4":"Public","5":"33411"},{"1":"George Mason University","2":"Fairfax","3":"VA","4":"Public","5":"33362"},{"1":"Illinois Wesleyan University","2":"Bloomington","3":"IL","4":"Private","5":"34268"},{"1":"University of Wisconsin-Parkside","2":"Kenosha","3":"WI","4":"Public","5":"29551"},{"1":"St. Mary's University","2":"San Antonio","3":"TX","4":"Private","5":"34187"},{"1":"California State University-Fresno","2":"Fresno","3":"CA","4":"Public","5":"15181"},{"1":"Curry College","2":"Milton","3":"MA","4":"Private","5":"45947"},{"1":"Franciscan University of Steubenville","2":"Steubenville","3":"OH","4":"Private","5":"26579"},{"1":"College of William and Mary","2":"Williamsburg","3":"VA","4":"Public","5":"28895"},{"1":"University of Colorado Denver/Anschutz Medical Campus","2":"Denver","3":"CO","4":"Public","5":"20859"},{"1":"University of Scranton","2":"Scranton","3":"PA","4":"Private","5":"41570"},{"1":"College of Coastal Georgia","2":"Brunswick","3":"GA","4":"Public","5":"23426"},{"1":"Saginaw Valley State University","2":"University Center","3":"MI","4":"Public","5":"31353"},{"1":"Providence College","2":"Providence","3":"RI","4":"Private","5":"44529"},{"1":"Lawrence Technological University","2":"Southfield","3":"MI","4":"Private","5":"32735"},{"1":"Whittier College","2":"Whittier","3":"CA","4":"Private","5":"35328"},{"1":"Midwestern State University","2":"Wichita Falls","3":"TX","4":"Public","5":"49146"},{"1":"Lake Superior State University","2":"Sault Ste Marie","3":"MI","4":"Public","5":"28259"},{"1":"Bryn Mawr College","2":"Bryn Mawr","3":"PA","4":"Private","5":"28772"},{"1":"Mount Saint Mary's University","2":"Los Angeles","3":"CA","4":"Private","5":"29482"},{"1":"Gallaudet University","2":"Washington","3":"DC","4":"Private","5":"10383"},{"1":"University of Washington-Tacoma Campus","2":"Tacoma","3":"WA","4":"Public","5":"16716"},{"1":"Indiana University of Pennsylvania-Main Campus","2":"Indiana","3":"PA","4":"Public","5":"41222"},{"1":"University of Houston-Downtown","2":"Houston","3":"TX","4":"Public","5":"4902"},{"1":"Saint John Fisher College","2":"Rochester","3":"NY","4":"Private","5":"37064"},{"1":"Augustana University","2":"Sioux Falls","3":"SD","4":"Private","5":"37647"},{"1":"Pennsylvania State University-Penn State Fayette- Eberly","2":"Lemont Furnace","3":"PA","4":"Public","5":"36499"},{"1":"Lincoln Memorial University","2":"Harrogate","3":"TN","4":"Private","5":"22290"},{"1":"St Bonaventure University","2":"Saint Bonaventure","3":"NY","4":"Private","5":"34877"},{"1":"Oklahoma Baptist University","2":"Shawnee","3":"OK","4":"Private","5":"25673"},{"1":"Wright State University-Main Campus","2":"Dayton","3":"OH","4":"Public","5":"28607"},{"1":"Marian University","2":"Indianapolis","3":"IN","4":"Private","5":"36167"},{"1":"Seattle Pacific University","2":"Seattle","3":"WA","4":"Private","5":"29782"},{"1":"Wheaton College","2":"Norton","3":"MA","4":"Private","5":"34530"},{"1":"Drury University","2":"Springfield","3":"MO","4":"Private","5":"37144"},{"1":"William Peace University","2":"Raleigh","3":"NC","4":"Private","5":"26929"},{"1":"Albion College","2":"Albion","3":"MI","4":"Private","5":"35529"},{"1":"Westminster College","2":"Salt Lake City","3":"UT","4":"Private","5":"25219"},{"1":"Samford University","2":"Birmingham","3":"AL","4":"Private","5":"29676"},{"1":"University of Arkansas","2":"Fayetteville","3":"AR","4":"Public","5":"27123"},{"1":"The College of New Jersey","2":"Ewing","3":"NJ","4":"Public","5":"38166"},{"1":"Pennsylvania State University-Penn State Scranton","2":"Dunmore","3":"PA","4":"Public","5":"39015"},{"1":"Iona College","2":"New Rochelle","3":"NY","4":"Private","5":"32948"},{"1":"College of the Holy Cross","2":"Worcester","3":"MA","4":"Private","5":"26258"},{"1":"Coastal Carolina University","2":"Conway","3":"SC","4":"Public","5":"37717"},{"1":"Nyack College","2":"Nyack","3":"NY","4":"Private","5":"28926"},{"1":"Bard College","2":"Annandale-On-Hudson","3":"NY","4":"Private","5":"28036"},{"1":"Avila University","2":"Kansas City","3":"MO","4":"Private","5":"22053"},{"1":"The Evergreen State College","2":"Olympia","3":"WA","4":"Public","5":"20488"},{"1":"Limestone College","2":"Gaffney","3":"SC","4":"Private","5":"33427"},{"1":"Monmouth University","2":"West Long Branch","3":"NJ","4":"Private","5":"26012"},{"1":"Gordon College","2":"Wenham","3":"MA","4":"Private","5":"35210"},{"1":"Catholic University of America","2":"Washington","3":"DC","4":"Private","5":"46702"},{"1":"Azusa Pacific University","2":"Azusa","3":"CA","4":"Private","5":"24867"},{"1":"SUNY at Albany","2":"Albany","3":"NY","4":"Public","5":"27555"},{"1":"Columbus College of Art and Design","2":"Columbus","3":"OH","4":"Private","5":"32258"},{"1":"Barry University","2":"Miami","3":"FL","4":"Private","5":"37228"},{"1":"University of Massachusetts-Amherst","2":"Amherst","3":"MA","4":"Public","5":"31755"},{"1":"Bethel University","2":"Saint Paul","3":"MN","4":"Private","5":"38286"},{"1":"University of Nevada-Las Vegas","2":"Las Vegas","3":"NV","4":"Public","5":"19605"},{"1":"Landmark College","2":"Putney","3":"VT","4":"Private","5":"6100"},{"1":"Gonzaga University","2":"Spokane","3":"WA","4":"Private","5":"29685"},{"1":"Auburn University","2":"Auburn","3":"AL","4":"Public","5":"29331"},{"1":"San Francisco State University","2":"San Francisco","3":"CA","4":"Public","5":"5928"},{"1":"Linfield College-McMinnville Campus","2":"McMinnville","3":"OR","4":"Private","5":"36082"},{"1":"SUNY College of Environmental Science and Forestry","2":"Syracuse","3":"NY","4":"Public","5":"21885"},{"1":"Centenary College of Louisiana","2":"Shreveport","3":"LA","4":"Private","5":"25363"},{"1":"Northeastern State University","2":"Tahlequah","3":"OK","4":"Public","5":"20707"},{"1":"University of Pittsburgh-Pittsburgh Campus","2":"Pittsburgh","3":"PA","4":"Public","5":"39417"},{"1":"Lewis & Clark College","2":"Portland","3":"OR","4":"Private","5":"30460"},{"1":"University of Wisconsin-Green Bay","2":"Green Bay","3":"WI","4":"Public","5":"24668"},{"1":"Skidmore College","2":"Saratoga Springs","3":"NY","4":"Private","5":"31381"},{"1":"State University of New York at New Paltz","2":"New Paltz","3":"NY","4":"Public","5":"26771"},{"1":"Sam Houston State University","2":"Huntsville","3":"TX","4":"Public","5":"27207"},{"1":"Austin Peay State University","2":"Clarksville","3":"TN","4":"Public","5":"25938"},{"1":"University of St Thomas","2":"Saint Paul","3":"MN","4":"Private","5":"41500"},{"1":"Savannah College of Art and Design","2":"Savannah","3":"GA","4":"Private","5":"39328"},{"1":"Cazenovia College","2":"Cazenovia","3":"NY","4":"Private","5":"35863"},{"1":"University of Wisconsin-Whitewater","2":"Whitewater","3":"WI","4":"Public","5":"28008"},{"1":"Colorado School of Mines","2":"Golden","3":"CO","4":"Public","5":"32482"},{"1":"University of Central Missouri","2":"Warrensburg","3":"MO","4":"Public","5":"27385"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<!-- ## References -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./09-01-body-temp.html" class="pagination-link" aria-label="body-temp.csv">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">body-temp.csv</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09-08-phone-incentives.html" class="pagination-link" aria-label="phone-incentives.csv">
+        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

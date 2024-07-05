@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,12 +112,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -122,12 +155,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-00-statistical-computation.html">Statistical Computation</a></li><li class="breadcrumb-item"><a href="./01-02-getting-started-with-r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-00-statistical-computation.html">Statistical Computation</a></li><li class="breadcrumb-item"><a href="./01-02-getting-started-with-r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -137,7 +170,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -409,7 +442,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -417,22 +450,26 @@ function toggle_visibility(id) {
    
   <ul>
   <li><a href="#computing-in-the-console" id="toc-computing-in-the-console" class="nav-link active" data-scroll-target="#computing-in-the-console"><span class="header-section-number">2.1</span> Computing in the Console</a></li>
-  <li><a href="#functions-the-workhorse-of-r" id="toc-functions-the-workhorse-of-r" class="nav-link" data-scroll-target="#functions-the-workhorse-of-r"><span class="header-section-number">2.2</span> Functions: The Workhorse of R</a></li>
-  <li><a href="#connecting-computations" id="toc-connecting-computations" class="nav-link" data-scroll-target="#connecting-computations"><span class="header-section-number">2.3</span> Connecting Computations</a>
+  <li><a href="#script-files-recording-your-syntax" id="toc-script-files-recording-your-syntax" class="nav-link" data-scroll-target="#script-files-recording-your-syntax"><span class="header-section-number">2.2</span> Script Files: Recording Your Syntax</a>
   <ul class="collapse">
-  <li><a href="#chaining" id="toc-chaining" class="nav-link" data-scroll-target="#chaining"><span class="header-section-number">2.3.1</span> Chaining</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment"><span class="header-section-number">2.3.2</span> Assignment</a></li>
-  <li><a href="#objects-in-the-r-working-environment" id="toc-objects-in-the-r-working-environment" class="nav-link" data-scroll-target="#objects-in-the-r-working-environment"><span class="header-section-number">2.3.3</span> Objects in the R Working Environment</a></li>
+  <li><a href="#executing-syntax-from-a-script-file" id="toc-executing-syntax-from-a-script-file" class="nav-link" data-scroll-target="#executing-syntax-from-a-script-file"><span class="header-section-number">2.2.1</span> Executing Syntax from a Script File</a></li>
   </ul></li>
-  <li><a href="#script-files-recording-your-syntax" id="toc-script-files-recording-your-syntax" class="nav-link" data-scroll-target="#script-files-recording-your-syntax"><span class="header-section-number">2.4</span> Script Files: Recording Your Syntax</a>
+  <li><a href="#functions-the-workhorse-of-r" id="toc-functions-the-workhorse-of-r" class="nav-link" data-scroll-target="#functions-the-workhorse-of-r"><span class="header-section-number">2.3</span> Functions: The Workhorse of R</a></li>
+  <li><a href="#connecting-computations" id="toc-connecting-computations" class="nav-link" data-scroll-target="#connecting-computations"><span class="header-section-number">2.4</span> Connecting Computations</a>
   <ul class="collapse">
-  <li><a href="#executing-syntax-from-a-script-file" id="toc-executing-syntax-from-a-script-file" class="nav-link" data-scroll-target="#executing-syntax-from-a-script-file"><span class="header-section-number">2.4.1</span> Executing Syntax from a Script File</a></li>
+  <li><a href="#chaining" id="toc-chaining" class="nav-link" data-scroll-target="#chaining"><span class="header-section-number">2.4.1</span> Chaining</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment"><span class="header-section-number">2.4.2</span> Assignment</a></li>
+  <li><a href="#objects-in-the-r-working-environment" id="toc-objects-in-the-r-working-environment" class="nav-link" data-scroll-target="#objects-in-the-r-working-environment"><span class="header-section-number">2.4.3</span> Objects in the R Working Environment</a></li>
   </ul></li>
-  <li><a href="#installing-and-loading-r-packages" id="toc-installing-and-loading-r-packages" class="nav-link" data-scroll-target="#installing-and-loading-r-packages"><span class="header-section-number">2.5</span> Installing and Loading R Packages</a>
+  <li><a href="#script-files-recording-your-syntax-1" id="toc-script-files-recording-your-syntax-1" class="nav-link" data-scroll-target="#script-files-recording-your-syntax-1"><span class="header-section-number">2.5</span> Script Files: Recording Your Syntax</a>
   <ul class="collapse">
-  <li><a href="#loading-packages-into-memory" id="toc-loading-packages-into-memory" class="nav-link" data-scroll-target="#loading-packages-into-memory"><span class="header-section-number">2.5.1</span> Loading Packages into Memory</a></li>
-  <li><a href="#adding-functionality-installing-packages" id="toc-adding-functionality-installing-packages" class="nav-link" data-scroll-target="#adding-functionality-installing-packages"><span class="header-section-number">2.5.2</span> Adding Functionality: Installing Packages</a></li>
-  <li><a href="#install-rtoolscommand-line-tools" id="toc-install-rtoolscommand-line-tools" class="nav-link" data-scroll-target="#install-rtoolscommand-line-tools"><span class="header-section-number">2.5.3</span> Install Rtools/Command Line Tools</a></li>
+  <li><a href="#executing-syntax-from-a-script-file-1" id="toc-executing-syntax-from-a-script-file-1" class="nav-link" data-scroll-target="#executing-syntax-from-a-script-file-1"><span class="header-section-number">2.5.1</span> Executing Syntax from a Script File</a></li>
+  </ul></li>
+  <li><a href="#installing-and-loading-r-packages" id="toc-installing-and-loading-r-packages" class="nav-link" data-scroll-target="#installing-and-loading-r-packages"><span class="header-section-number">2.6</span> Installing and Loading R Packages</a>
+  <ul class="collapse">
+  <li><a href="#loading-packages-into-memory" id="toc-loading-packages-into-memory" class="nav-link" data-scroll-target="#loading-packages-into-memory"><span class="header-section-number">2.6.1</span> Loading Packages into Memory</a></li>
+  <li><a href="#adding-functionality-installing-packages" id="toc-adding-functionality-installing-packages" class="nav-link" data-scroll-target="#adding-functionality-installing-packages"><span class="header-section-number">2.6.2</span> Adding Functionality: Installing Packages</a></li>
+  <li><a href="#install-rtoolscommand-line-tools" id="toc-install-rtoolscommand-line-tools" class="nav-link" data-scroll-target="#install-rtoolscommand-line-tools"><span class="header-section-number">2.6.3</span> Install Rtools/Command Line Tools</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -440,7 +477,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-00-statistical-computation.html">Statistical Computation</a></li><li class="breadcrumb-item"><a href="./01-02-getting-started-with-r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></h1>
 </div>
@@ -455,7 +492,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter, you will be get started writing and working with R syntax. The ideas introduced will be useful as you interact with statistical computation, whether it be to carry out data analysis, or to write your own R program or package. To begin,</p>
 <ul>
@@ -471,7 +510,7 @@ function toggle_visibility(id) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-console.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">The console pane in RStudio is one way to compute with R. Syntax is entered at the R prompt and executed by hitting the <return> or <enter> key.</enter></return></figcaption>
+<figcaption>The console pane in RStudio is one way to compute with R. Syntax is entered at the R prompt and executed by hitting the <return> or <enter> key.</enter></return></figcaption>
 </figure>
 </div>
 </div>
@@ -507,15 +546,63 @@ function toggle_visibility(id) {
 <p>That being said, well-written code includes space! Space in code makes it easier to read and debug, in the same way that including space in written prose helps us read and parse words, sentences, and paragraphs.</p>
 <p><br></p>
 </section>
-<section id="functions-the-workhorse-of-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="functions-the-workhorse-of-r"><span class="header-section-number">2.2</span> Functions: The Workhorse of R</h2>
+<section id="script-files-recording-your-syntax" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="script-files-recording-your-syntax"><span class="header-section-number">2.2</span> Script Files: Recording Your Syntax</h2>
+<p>It is important to be able to record the syntax you use. This acts as a way of “saving” your work, and it also acts as a record of the analysis for your collaborators in the spirit of reproducible work. One way to record the R syntax you use is to employ a <em>script file</em>. You can create a new script file by selecting <code>File &gt; New File &gt; R Script</code> from the RStudio menu bar. You can also obtain a new R script by clicking the <code>New File</code> icon (document with the plus-sign) on the tool bar and selecting <code>R Script</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/01-02-new-script-file.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>LEFT: Create a new script file using RStudio’s <code>File</code> menu. RIGHT: Create a new script file by clicking on the <code>New File</code> icon in the toolbar.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Script files should only include your R syntax and comments. Script files should NOT include:</p>
+<ul>
+<li>prompts (<code>&gt;</code>)</li>
+<li>output</li>
+</ul>
+<p>Comments, which are human-readable annotations or explanations of the syntax, are written using the hashtag (<code>#</code>). These can be placed on their own line in the script file, or can be placed at the end of a line with syntax. The comment continues until you hit the <enter> key. Comments help other people understand your syntax and also act as a reminder for the future you of what your code actually does. Get is the habit of including comments in your syntax. Not only is it good coding practice, but it also will help you become familiar with and learn the R syntax as you describe the purpose of the syntax you are writing.</enter></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/01-02-script-file.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Example script file with comments.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R sesssion. Just open your saved script file, highlight the parts you want to re-run, and click the <code>Run</code> button!</p>
+<p><br></p>
+<section id="executing-syntax-from-a-script-file" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="executing-syntax-from-a-script-file"><span class="header-section-number">2.2.1</span> Executing Syntax from a Script File</h3>
+<p>Not only does the script file record your syntax, but it can also act as the vehicle from which you run your R syntax. Syntax in the script file can be executed by highlighting it and pressing the <code>Run</code> button in the toolbar. You can run one line at a time, or highlight multiple lines and execute all of them sequentially.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/01-02-run-script.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>To execute syntax from the script file, highlight the syntax you want to run and then click the <code>Run</code> button in the toolbar.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Writing syntax directly in the script file and running it is a groovy workflow for using R. Writing syntax directly in the script file also saves you from having to copy-and-paste syntax you want to save from the console. In my own work, I use this workflow almost daily.</p>
+<p><br></p>
+</section>
+</section>
+<section id="functions-the-workhorse-of-r" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="functions-the-workhorse-of-r"><span class="header-section-number">2.3</span> Functions: The Workhorse of R</h2>
 <p>Almost all commands in R are built around the use of a function. Functions carry out operations on their inputs (called <em>arguments</em>) and produce an output (called a <em>returned value</em>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-function-machine.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">LEFT: Arguments are inputted into a function which returns an output. RIGHT: The value 25 is inputted into the square root function which returns the value of 5.</figcaption>
+<figcaption>LEFT: Arguments are inputted into a function which returns an output. RIGHT: The value 25 is inputted into the square root function which returns the value of 5.</figcaption>
 </figure>
 </div>
 </div>
@@ -576,8 +663,8 @@ function toggle_visibility(id) {
 <p>It is a good habit to use named arguments when you are writing your syntax. It makes the code more readable and easier to adapt if you come back to it later. Sometimes when the initial argument of a function is well-established, that first argument is left unnamed, but all other arguments used are named. A good example of this is the use of the <code>lm()</code> function in which the initial <code>formula=</code> argument is typically unnamed, but other arguments (e.g., <code>data=</code>) are named.</p>
 <p><br></p>
 </section>
-<section id="connecting-computations" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="connecting-computations"><span class="header-section-number">2.3</span> Connecting Computations</h2>
+<section id="connecting-computations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="connecting-computations"><span class="header-section-number">2.4</span> Connecting Computations</h2>
 <p>One powerful aspect of computing is that the output from a function can be used as input into another function. This is akin to calculations you may have encountered in mathematics course like algebra. For example,</p>
 <p><span class="math display">\[
 \sqrt{\log(100)}
@@ -588,8 +675,8 @@ g(~f(x)~)
 \]</span></p>
 <p>where <span class="math inline">\(f(x)\)</span> is the logarithm function and <span class="math inline">\(g(x)\)</span> is the square root function. Regardless of how we express this,the idea is that the output of the logarithm function is used as input to the square root function. Using R, there are two primary ways to connect computations in this manner: chaining and assignment.</p>
 <p><br></p>
-<section id="chaining" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="chaining"><span class="header-section-number">2.3.1</span> Chaining</h3>
+<section id="chaining" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="chaining"><span class="header-section-number">2.4.1</span> Chaining</h3>
 <p>Chaining is a direct reflection of the functional notation <span class="math inline">\(g(~f(x)~)\)</span> in that you embed one computation directly in another. For example, to find the absolute value of all the integers between <span class="math inline">\(-5\)</span> and <span class="math inline">\(-1\)</span>, we can chain the <code>abs()</code> function and the <code>seq()</code> functions:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>( <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">to =</span> <span class="sc">-</span><span class="dv">1</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -614,8 +701,8 @@ g(~f(x)~)
 </div>
 <p><br></p>
 </section>
-<section id="assignment" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="assignment"><span class="header-section-number">2.3.2</span> Assignment</h3>
+<section id="assignment" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="assignment"><span class="header-section-number">2.4.2</span> Assignment</h3>
 <p>We can also connect computations through <em>assignment</em>. With assignment, we store the output of a computation by assigning it to a named object using the assignment operator <code>&lt;-</code>. We can then use that named object in another computation. For example, here we first store the integers between <span class="math inline">\(-5\)</span> and <span class="math inline">\(-1\)</span> in an object called <code>chili</code>. Then we find the absolute value of each value by using <code>chili</code> as the argument in the <code>abs()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the sequence to the object chili</span></span>
@@ -646,8 +733,8 @@ g(~f(x)~)
 </ul>
 <p><br></p>
 </section>
-<section id="objects-in-the-r-working-environment" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="objects-in-the-r-working-environment"><span class="header-section-number">2.3.3</span> Objects in the R Working Environment</h3>
+<section id="objects-in-the-r-working-environment" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="objects-in-the-r-working-environment"><span class="header-section-number">2.4.3</span> Objects in the R Working Environment</h3>
 <p>We can continue to use the objects you created (e.g., <code>chili</code> and <code>sadie</code>) in our computations, so long as the objects remain in our R working environment.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the pairwise elements of the two objects</span></span>
@@ -672,7 +759,7 @@ g(~f(x)~)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-environment.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption class="figure-caption">The enivironment pane shows the objects in the R working environment. It also displays the object’s class and gives a preview of the the contents.</figcaption>
+<figcaption>The enivironment pane shows the objects in the R working environment. It also displays the object’s class and gives a preview of the the contents.</figcaption>
 </figure>
 </div>
 </div>
@@ -683,7 +770,7 @@ g(~f(x)~)
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List the objects in working environment</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "chili"           "has_annotations" "sadie"          </code></pre>
+<pre><code>[1] "chili" "sadie"</code></pre>
 </div>
 </div>
 <p>When an object name is re-used, the previous value of the object is lost.</p>
@@ -697,7 +784,7 @@ g(~f(x)~)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-environment-chili.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption class="figure-caption">The object <code>chili</code> although still an integer vector, now includes 10 elements.</figcaption>
+<figcaption>The object <code>chili</code> although still an integer vector, now includes 10 elements.</figcaption>
 </figure>
 </div>
 </div>
@@ -714,15 +801,15 @@ g(~f(x)~)
 <p><br></p>
 </section>
 </section>
-<section id="script-files-recording-your-syntax" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="script-files-recording-your-syntax"><span class="header-section-number">2.4</span> Script Files: Recording Your Syntax</h2>
+<section id="script-files-recording-your-syntax-1" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="script-files-recording-your-syntax-1"><span class="header-section-number">2.5</span> Script Files: Recording Your Syntax</h2>
 <p>It is important to be able to record the syntax you use. This acts as a way of “saving” your work, and it also acts as a record of the analysis for your collaborators in the spirit of reproducible work. One way to record the R syntax you use is to employ a <em>script file</em>. You can create a new script file by selecting <code>File &gt; New File &gt; R Script</code> from the RStudio menu bar. You can also obtain a new R script by clicking the <code>New File</code> icon (document with the plus-sign) on the tool bar and selecting <code>R Script</code>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-new-script-file.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">LEFT: Create a new script file using RStudio’s <code>File</code> menu. RIGHT: Create a new script file by clicking on the <code>New File</code> icon in the toolbar.</figcaption>
+<figcaption>LEFT: Create a new script file using RStudio’s <code>File</code> menu. RIGHT: Create a new script file by clicking on the <code>New File</code> icon in the toolbar.</figcaption>
 </figure>
 </div>
 </div>
@@ -738,39 +825,69 @@ g(~f(x)~)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-script-file.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Example script file with comments.</figcaption>
+<figcaption>Example script file with comments.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R session. Just open your saved script file, highlight the parts you want to re-run, and click the <code>Run</code> button!</p>
+<section id="your-turn" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn">Your Turn</h4>
+<p>Open a new script file and add the some syntax to sum two numbers. Also add a comment to describe this computation. Save your script file to your computer.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_script');">
+Show/Hide Solution
+</button>
+<div id="exercise_script" style="display:none; margin: -40px 0 40px 40px;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figs/exercise-script.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <p><br></p>
-<section id="executing-syntax-from-a-script-file" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="executing-syntax-from-a-script-file"><span class="header-section-number">2.4.1</span> Executing Syntax from a Script File</h3>
+<section id="executing-syntax-from-a-script-file-1" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="executing-syntax-from-a-script-file-1"><span class="header-section-number">2.5.1</span> Executing Syntax from a Script File</h3>
 <p>Not only does the script file record your syntax, but it can also act as the vehicle from which you run your R syntax. Syntax in the script file can be executed by highlighting it and pressing the <code>Run</code> button in the toolbar. You can run one line at a time, or highlight multiple lines and execute all of them sequentially.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-run-script.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">To execute syntax from the script file, highlight the syntax you want to run and then click the <code>Run</code> button in the toolbar.</figcaption>
+<figcaption>To execute syntax from the script file, highlight the syntax you want to run and then click the <code>Run</code> button in the toolbar.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Writing syntax directly in the script file and running it is a groovy workflow for using R. Writing syntax directly in the script file also saves you from having to copy-and-paste syntax you want to save from the console. In my own work, I use this workflow almost daily.</p>
+<div class="fyi">
+<p>Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R session. Just open your saved script file, highlight the parts you want to re-run, and click the <code>Run</code> button!</p>
+</div>
+<section id="your-turn-1" class="level4 unnumbered exercises">
+<h4 class="unnumbered anchored" data-anchor-id="your-turn-1">Your Turn</h4>
+<p>Run the syntax to sum two numbers from your script file.</p>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_script-run');">
+Show/Hide Solution
+</button>
+<div id="exercise_script-run" style="display:none; margin: -40px 0 40px 40px;">
+<p>If this worked, you should see the result of your computation in the console pane. Note that when you run your script nothing changes in the script file itself; the output is printed in the console pane. Remember, we do not include output in the script file.</p>
+</div>
+</section>
 <p><br></p>
 </section>
 </section>
-<section id="installing-and-loading-r-packages" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="installing-and-loading-r-packages"><span class="header-section-number">2.5</span> Installing and Loading R Packages</h2>
+<section id="installing-and-loading-r-packages" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="installing-and-loading-r-packages"><span class="header-section-number">2.6</span> Installing and Loading R Packages</h2>
 <p>Every R function is housed in a package. To use the functions in a particular package, the package needs to be (1) installed, and (2) loaded into memory.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-install-vs-load.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Packages need to be installed and loaded.</figcaption>
+<figcaption>Packages need to be installed and loaded.</figcaption>
 </figure>
 </div>
 </div>
@@ -781,7 +898,7 @@ g(~f(x)~)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-package-tab.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption class="figure-caption">The packages tab shows which packages are installed. The list of packages you have installed will likely be different. Checked packages are loaded into memory. In the packages seen here, only the base package is loaded into memory.</figcaption>
+<figcaption>The packages tab shows which packages are installed. The list of packages you have installed will likely be different. Checked packages are loaded into memory. In the packages seen here, only the base package is loaded into memory.</figcaption>
 </figure>
 </div>
 </div>
@@ -792,14 +909,14 @@ g(~f(x)~)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-default-packages.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">The 29 packages installed as part of R. The base, datasets, graphics, grDevices, methods, stats, and utils packages are loaded into memory when you start an R session. The other 22 packages are installed but not loaded into memory.</figcaption>
+<figcaption>The 29 packages installed as part of R. The base, datasets, graphics, grDevices, methods, stats, and utils packages are loaded into memory when you start an R session. The other 22 packages are installed but not loaded into memory.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p><br></p>
-<section id="loading-packages-into-memory" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="loading-packages-into-memory"><span class="header-section-number">2.5.1</span> Loading Packages into Memory</h3>
+<section id="loading-packages-into-memory" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="loading-packages-into-memory"><span class="header-section-number">2.6.1</span> Loading Packages into Memory</h3>
 <p>To load a package that is installed, you use the <code>library()</code> function and include the name of the package you want to load in as the sole argument. For example, to load the <code>{splines}</code> package, use the following syntax:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load splines package</span></span>
@@ -813,11 +930,11 @@ g(~f(x)~)
 </div>
 </div>
 <div class="protip">
-<p>Once the package is loaded, all of the functions, data sets, etc. in that package are available to you. Packages will need to be loaded every time you launch a new R session.</p>
+<p>Once the package is loaded, all of the functions, data sets, etc. in that package are available to you. <strong>Packages will need to be loaded every time you launch a new R session.</strong> Because of this it is good practice to load all of your packages at the top of your script file!</p>
 </div>
 <p><br></p>
-<section id="masked-objects" class="level4" data-number="2.5.1.1">
-<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="masked-objects"><span class="header-section-number">2.5.1.1</span> Masked Objects</h4>
+<section id="masked-objects" class="level4" data-number="2.6.1.1">
+<h4 data-number="2.6.1.1" class="anchored" data-anchor-id="masked-objects"><span class="header-section-number">2.6.1.1</span> Masked Objects</h4>
 <p>Sometimes you will get a message about objects being <em>masked</em>. This is not a problem. It is just informative and means that the package you just loaded has a function that has the <em>exact same name</em> as a previously loaded package. If you use that particular function, the most recently loaded package’s version of the function will be used. For example, after loading the <code>{dplyr}</code> library the following message is printed:</p>
 <pre><code>Attaching package: ‘dplyr’
 
@@ -831,8 +948,8 @@ The following objects are masked from ‘package:base’:
 <p>This tells me that the <code>{dplyr}</code> package includes six functions that have the same name as functions included in other packages that have already been loaded into memory (two from the <code>{stats}</code> package and four from the <code>{base}</code> package.) Since <code>{dplyr}</code> was the most recently loaded package, if you were to use the <code>filter()</code> function, R would use <code>{dplyr}</code>’s <code>filter()</code> function rather than that from the <code>{stats}</code> package<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p><br></p>
 </section>
-<section id="error-loading-a-package" class="level4" data-number="2.5.1.2">
-<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="error-loading-a-package"><span class="header-section-number">2.5.1.2</span> Error Loading a Package</h4>
+<section id="error-loading-a-package" class="level4" data-number="2.6.1.2">
+<h4 data-number="2.6.1.2" class="anchored" data-anchor-id="error-loading-a-package"><span class="header-section-number">2.6.1.2</span> Error Loading a Package</h4>
 <p>Once in a while, when loading a package, you may get an error. Don’t panic. There are two errors that are common. The first error you may get indicates that the package did not get installed. For example, if the <code>{ggplot2}</code> package was not installed, trying to use the <code>library()</code> function to load that package would result in an error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -849,8 +966,8 @@ there is no package called ‘Rcpp’</code></pre>
 <p><br></p>
 </section>
 </section>
-<section id="adding-functionality-installing-packages" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="adding-functionality-installing-packages"><span class="header-section-number">2.5.2</span> Adding Functionality: Installing Packages</h3>
+<section id="adding-functionality-installing-packages" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="adding-functionality-installing-packages"><span class="header-section-number">2.6.2</span> Adding Functionality: Installing Packages</h3>
 <p>You can also install other packages onto your R system. R, in fact, has a repository called CRAN<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, that includes 16,000 different packages (as of July 2020). The easiest way to install a package from CRAN onto your computer is to use the <code>Install</code> button in the `Packages tab of RStudio.</p>
 <p>This will open a pop-up window where you can type the CRAN package you want to install in a text box. Ensure that the “Install dependencies” box is checked (this will also install any package dependencies), and then click “Install”.</p>
 <div class="cell">
@@ -858,7 +975,7 @@ there is no package called ‘Rcpp’</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/01-02-install-package.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Pop-up window to install packages. Here we are installing the dplyr package. Note that the ‘Install dependencies’ box is checked.</figcaption>
+<figcaption>Pop-up window to install packages. Here we are installing the dplyr package. Note that the ‘Install dependencies’ box is checked.</figcaption>
 </figure>
 </div>
 </div>
@@ -881,8 +998,8 @@ The downloaded binary packages are in
 </div>
 <p>Note that the name of the package is included in quotation marks (it is a character string). The argument <code>dependencies=TRUE</code> installs all package dependencies, similar to checking the “Install dependencies” box in the pop-up menu.</p>
 <p><br></p>
-<section id="installing-packages-from-github" class="level4" data-number="2.5.2.1">
-<h4 data-number="2.5.2.1" class="anchored" data-anchor-id="installing-packages-from-github"><span class="header-section-number">2.5.2.1</span> Installing Packages from GitHub</h4>
+<section id="installing-packages-from-github" class="level4" data-number="2.6.2.1">
+<h4 data-number="2.6.2.1" class="anchored" data-anchor-id="installing-packages-from-github"><span class="header-section-number">2.6.2.1</span> Installing Packages from GitHub</h4>
 <p>CRAN is not the only place to get R packages. Many developers add packages to a website called <a href="https://github.com/">GitHub</a>. Packages hosted on GitHub can be installed using the <code>install_github()</code> function from the <code>{remotes}</code> package.</p>
 <p>First, you will need to install the <code>{remotes}</code> package from CRAN and then load it using the <code>library()</code> function. Then, you can use the <code>install_github()</code> function to actually install the package. This function is provided a character string that specifies the user name and GitHub repository for the package, separated by a slash. You can find this in the part of the URL that follows “https://github.com/” in your web browser. For example, the URL for the <code>{educate}</code> package is: “https://github.com/zief0002/educate”, so to install this we would use:</p>
 <div class="cell">
@@ -913,8 +1030,8 @@ The downloaded binary packages are in
 <p><br></p>
 </section>
 </section>
-<section id="install-rtoolscommand-line-tools" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="install-rtoolscommand-line-tools"><span class="header-section-number">2.5.3</span> Install Rtools/Command Line Tools</h3>
+<section id="install-rtoolscommand-line-tools" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="install-rtoolscommand-line-tools"><span class="header-section-number">2.6.3</span> Install Rtools/Command Line Tools</h3>
 <p>You may need to install some additional functionality to your system in order to get certain packages to install or load properly. On a Windows machine, you might need to install <em>Rtools</em>. Mac users might need to add the <em>Command Line Tools</em>. These tools also allow you to write and compile your own R packages. RStudio has well written instructions for adding these tools at: <a href="https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites" class="uri">https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites</a>.</p>
 <p><br></p>
 
@@ -1010,10 +1127,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1023,8 +1139,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1037,6 +1162,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1080,6 +1324,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1105,6 +1350,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1166,17 +1437,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-01-r-and-rstudio-installation.html" class="pagination-link">
+      <a href="./01-01-r-and-rstudio-installation.html" class="pagination-link" aria-label="R and RStudio: Installation and Setup">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-03-data-structures-in-r.html" class="pagination-link">
+      <a href="./01-03-data-structures-in-r.html" class="pagination-link" aria-label="Data Structures in R">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

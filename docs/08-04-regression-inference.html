@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./09-00-data-codebooks.html" rel="next">
 <link href="./08-03-r-squared.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,12 +112,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -121,12 +155,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-04-regression-inference.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-04-regression-inference.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -136,7 +170,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -405,10 +439,39 @@ function toggle_visibility(id) {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./09-00-data-codebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Codebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-01-body-temp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">body-temp.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-02-college-debt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-08-phone-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -438,7 +501,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-00-relationships.html">Statistical Relationships</a></li><li class="breadcrumb-item"><a href="./08-04-regression-inference.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-reg-inf" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></span></h1>
 </div>
@@ -453,13 +516,15 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn about using statistical inference to test whether the effect of the predictor in a simple linear regression is only due to sampling error.</p>
 <p><br></p>
 <section id="recap-college-completion-rates-and-act-scores" class="level2" data-number="27.1">
 <h2 data-number="27.1" class="anchored" data-anchor-id="recap-college-completion-rates-and-act-scores"><span class="header-section-number">27.1</span> Recap: College Completion Rates and ACT Scores</h2>
-<p>In <a href="08-02-linear-regression-description.html"><span>Chapter&nbsp;25</span></a>, we fitted a linear regression model to answer the research question of whether ACT scores are predictive of better institutional outcomes.</p>
+<p>In <a href="08-02-linear-regression-description.html" class="quarto-xref"><span>Chapter 25</span></a>, we fitted a linear regression model to answer the research question of whether ACT scores are predictive of better institutional outcomes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
@@ -474,7 +539,6 @@ function toggle_visibility(id) {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>colleges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["institution"],"name":[1],"type":["chr"],"align":["left"]},{"label":["control"],"name":[2],"type":["chr"],"align":["left"]},{"label":["state"],"name":[3],"type":["chr"],"align":["left"]},{"label":["admission_rate"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["act"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["debt_all"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["debt_graduates"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["earnings"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["completion_rate"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"Buena Vista University","2":"Private (Non-Profit)","3":"IA","4":"0.6598","5":"25","6":"17500","7":"25000","8":"47076","9":"0.6278"},{"1":"Central College","2":"Private (Non-Profit)","3":"IA","4":"0.7452","5":"25","6":"20815","7":"26984","8":"53417","9":"0.6614"},{"1":"Clarke University","2":"Private (Non-Profit)","3":"IA","4":"0.8878","5":"23","6":"19500","7":"26717","8":"50541","9":"0.5449"},{"1":"Cornell College","2":"Private (Non-Profit)","3":"IA","4":"0.8110","5":"30","6":"21500","7":"27000","8":"51898","9":"0.6377"},{"1":"Dordt University","2":"Private (Non-Profit)","3":"IA","4":"0.7323","5":"28","6":"17500","7":"21500","8":"52342","9":"0.7410"},{"1":"Drake University","2":"Private (Non-Profit)","3":"IA","4":"0.6907","5":"31","6":"19500","7":"23000","8":"73451","9":"0.7815"},{"1":"Emmaus Bible College","2":"Private (Non-Profit)","3":"IA","4":"0.9906","5":"26","6":"9350","7":"15750","8":"39334","9":"0.7458"},{"1":"Faith Baptist Bible College and Theological Seminary","2":"Private (Non-Profit)","3":"IA","4":"0.5614","5":"27","6":"8750","7":"12971","8":"42315","9":"0.5600"},{"1":"Graceland University-Lamoni","2":"Private (Non-Profit)","3":"IA","4":"0.6662","5":"24","6":"14209","7":"21212","8":"45600","9":"0.4740"},{"1":"Grand View University","2":"Private (Non-Profit)","3":"IA","4":"0.9955","5":"22","6":"15097","7":"22500","8":"53256","9":"0.5075"},{"1":"Grinnell College","2":"Private (Non-Profit)","3":"IA","4":"0.1054","5":"34","6":"14151","7":"17500","8":"62529","9":"0.8688"},{"1":"Iowa State University","2":"Public","3":"IA","4":"0.9112","5":"28","6":"18750","7":"22869","8":"60973","9":"0.7605"},{"1":"Iowa Wesleyan University","2":"Private (Non-Profit)","3":"IA","4":"0.8190","5":"20","6":"12000","7":"23347","8":"46798","9":"0.2250"},{"1":"University of Iowa","2":"Public","3":"IA","4":"0.8621","5":"29","6":"18207","7":"22500","8":"62670","9":"0.7372"},{"1":"Luther College","2":"Private (Non-Profit)","3":"IA","4":"0.7607","5":"29","6":"22200","7":"27000","8":"55451","9":"0.7255"},{"1":"Mercy College of Health Sciences","2":"Private (Non-Profit)","3":"IA","4":"0.9697","5":"22","6":"12500","7":"14745","8":"56267","9":"0.5789"},{"1":"University of Northern Iowa","2":"Public","3":"IA","4":"0.8579","5":"26","6":"16486","7":"19691","8":"51651","9":"0.6891"},{"1":"Northwestern College","2":"Private (Non-Profit)","3":"IA","4":"0.8302","5":"27","6":"16791","7":"23249","8":"49445","9":"0.7077"},{"1":"Saint Ambrose University","2":"Private (Non-Profit)","3":"IA","4":"0.7241","5":"27","6":"19500","7":"25000","8":"57818","9":"0.6443"},{"1":"Simpson College","2":"Private (Non-Profit)","3":"IA","4":"0.9083","5":"27","6":"20262","7":"26000","8":"52638","9":"0.6894"},{"1":"Upper Iowa University","2":"Private (Non-Profit)","3":"IA","4":"0.6492","5":"24","6":"18000","7":"25000","8":"51790","9":"0.3855"},{"1":"Wartburg College","2":"Private (Non-Profit)","3":"IA","4":"0.8275","5":"26","6":"19500","7":"27000","8":"55659","9":"0.6989"},{"1":"William Penn University","2":"Private (Non-Profit)","3":"IA","4":"0.5768","5":"21","6":"12000","7":"22415","8":"45073","9":"0.3214"},{"1":"Augsburg University","2":"Private (Non-Profit)","3":"MN","4":"0.7637","5":"24","6":"19500","7":"25347","8":"56814","9":"0.5807"},{"1":"Bemidji State University","2":"Public","3":"MN","4":"0.7495","5":"25","6":"13809","7":"19750","8":"50297","9":"0.4759"},{"1":"Bethel University","2":"Private (Non-Profit)","3":"MN","4":"0.8868","5":"28","6":"18272","7":"21500","8":"58664","9":"0.7431"},{"1":"Carleton College","2":"Private (Non-Profit)","3":"MN","4":"0.1755","5":"35","6":"15960","7":"16750","8":"70334","9":"0.9145"},{"1":"Concordia College at Moorhead","2":"Private (Non-Profit)","3":"MN","4":"0.7200","5":"26","6":"20895","7":"26847","8":"55054","9":"0.7423"},{"1":"Martin Luther College","2":"Private (Non-Profit)","3":"MN","4":"0.9137","5":"27","6":"16606","7":"20177","8":"45759","9":"0.7485"},{"1":"Gustavus Adolphus College","2":"Private (Non-Profit)","3":"MN","4":"0.7257","5":"31","6":"23250","7":"26774","8":"63218","9":"0.7840"},{"1":"Hamline University","2":"Private (Non-Profit)","3":"MN","4":"0.7643","5":"26","6":"15750","7":"23770","8":"57170","9":"0.6490"},{"1":"Macalester College","2":"Private (Non-Profit)","3":"MN","4":"0.3126","5":"33","6":"19500","7":"23000","8":"62762","9":"0.8969"},{"1":"Minnesota State University-Mankato","2":"Public","3":"MN","4":"0.6948","5":"25","6":"14000","7":"21106","8":"55008","9":"0.5183"},{"1":"University of Minnesota-Twin Cities","2":"Public","3":"MN","4":"0.7323","5":"32","6":"16727","7":"19500","8":"65087","9":"0.8421"},{"1":"University of Minnesota-Duluth","2":"Public","3":"MN","4":"0.7954","5":"28","6":"16000","7":"22024","8":"59144","9":"0.6467"},{"1":"Minnesota State University Moorhead","2":"Public","3":"MN","4":"0.7171","5":"25","6":"15000","7":"20000","8":"49476","9":"0.5692"},{"1":"College of Saint Benedict","2":"Private (Non-Profit)","3":"MN","4":"0.9179","5":"27","6":"23250","7":"26944","8":"61071","9":"0.7668"},{"1":"Saint Cloud State University","2":"Public","3":"MN","4":"0.9432","5":"24","6":"14362","7":"21058","8":"53448","9":"0.4719"},{"1":"Saint Johns University","2":"Private (Non-Profit)","3":"MN","4":"0.8865","5":"28","6":"23250","7":"27000","8":"75423","9":"0.7871"},{"1":"St Olaf College","2":"Private (Non-Profit)","3":"MN","4":"0.4743","5":"33","6":"23250","7":"26000","8":"66260","9":"0.8502"},{"1":"The College of Saint Scholastica","2":"Private (Non-Profit)","3":"MN","4":"0.7369","5":"27","6":"17125","7":"20000","8":"61672","9":"0.6516"},{"1":"University of St Thomas","2":"Private (Non-Profit)","3":"MN","4":"0.7553","5":"28","6":"19500","7":"23250","8":"72582","9":"0.7810"},{"1":"St Catherine University","2":"Private (Non-Profit)","3":"MN","4":"0.7489","5":"26","6":"19716","7":"24181","8":"54838","9":"0.5941"},{"1":"Winona State University","2":"Public","3":"MN","4":"0.7691","5":"25","6":"15000","7":"21500","8":"55391","9":"0.6300"},{"1":"Dickinson State University","2":"Public","3":"ND","4":"0.9935","5":"22","6":"11960","7":"18442","8":"49125","9":"0.3636"},{"1":"University of Jamestown","2":"Private (Non-Profit)","3":"ND","4":"0.7579","5":"24","6":"15897","7":"27000","8":"53878","9":"0.5565"},{"1":"Mayville State University","2":"Public","3":"ND","4":"0.6099","5":"24","6":"12268","7":"18585","8":"45406","9":"0.3185"},{"1":"Minot State University","2":"Public","3":"ND","4":"0.8838","5":"23","6":"11980","7":"19609","8":"47001","9":"0.4650"},{"1":"University of North Dakota","2":"Public","3":"ND","4":"0.8903","5":"26","6":"15238","7":"22057","8":"61403","9":"0.6178"},{"1":"North Dakota State University-Main Campus","2":"Public","3":"ND","4":"0.9546","5":"26","6":"16750","7":"23199","8":"58936","9":"0.6487"},{"1":"Valley City State University","2":"Public","3":"ND","4":"0.8145","5":"23","6":"11761","7":"20369","8":"48672","9":"0.5318"},{"1":"Augustana University","2":"Private (Non-Profit)","3":"SD","4":"0.7182","5":"28","6":"21250","7":"25000","8":"53641","9":"0.7057"},{"1":"Black Hills State University","2":"Public","3":"SD","4":"0.9725","5":"23","6":"15000","7":"26000","8":"42217","9":"0.4248"},{"1":"Dakota State University","2":"Public","3":"SD","4":"0.8561","5":"26","6":"14250","7":"23500","8":"45973","9":"0.4675"},{"1":"Dakota Wesleyan University","2":"Private (Non-Profit)","3":"SD","4":"0.7574","5":"25","6":"19500","7":"27000","8":"49821","9":"0.5486"},{"1":"Mount Marty University","2":"Private (Non-Profit)","3":"SD","4":"0.6737","5":"24","6":"14750","7":"26396","8":"44448","9":"0.6100"},{"1":"Northern State University","2":"Public","3":"SD","4":"0.7982","5":"24","6":"15750","7":"22320","8":"44493","9":"0.4757"},{"1":"Presentation College","2":"Private (Non-Profit)","3":"SD","4":"0.9373","5":"22","6":"16952","7":"25000","8":"45925","9":"0.3465"},{"1":"South Dakota School of Mines and Technology","2":"Public","3":"SD","4":"0.8048","5":"29","6":"17306","7":"27000","8":"71277","9":"0.5231"},{"1":"South Dakota State University","2":"Public","3":"SD","4":"0.8743","5":"25","6":"16246","7":"23250","8":"52198","9":"0.5955"},{"1":"University of South Dakota","2":"Public","3":"SD","4":"0.8701","5":"25","6":"17500","7":"23592","8":"49034","9":"0.6010"},{"1":"Bellin College","2":"Private (Non-Profit)","3":"WI","4":"0.8529","5":"24","6":"15000","7":"18000","8":"68292","9":"0.5862"},{"1":"Beloit College","2":"Private (Non-Profit)","3":"WI","4":"0.6728","5":"28","6":"22773","7":"25738","8":"53720","9":"0.7347"},{"1":"Cardinal Stritch University","2":"Private (Non-Profit)","3":"WI","4":"0.8891","5":"21","6":"22500","7":"30571","8":"56811","9":"0.5375"},{"1":"Carroll University","2":"Private (Non-Profit)","3":"WI","4":"0.7050","5":"27","6":"22000","7":"27000","8":"52782","9":"0.6742"},{"1":"Carthage College","2":"Private (Non-Profit)","3":"WI","4":"0.7569","5":"27","6":"19500","7":"26000","8":"56427","9":"0.6804"},{"1":"Concordia University-Wisconsin","2":"Private (Non-Profit)","3":"WI","4":"0.6859","5":"26","6":"19500","7":"25750","8":"51567","9":"0.5920"},{"1":"Lawrence University","2":"Private (Non-Profit)","3":"WI","4":"0.7496","5":"32","6":"19500","7":"26000","8":"50848","9":"0.8046"},{"1":"Maranatha Baptist University","2":"Private (Non-Profit)","3":"WI","4":"0.8030","5":"27","6":"12375","7":"14143","8":"45876","9":"0.5682"},{"1":"Marian University","2":"Private (Non-Profit)","3":"WI","4":"0.7627","5":"23","6":"17340","7":"25000","8":"53441","9":"0.5584"},{"1":"Marquette University","2":"Private (Non-Profit)","3":"WI","4":"0.8626","5":"30","6":"20500","7":"23940","8":"76417","9":"0.8136"},{"1":"Milwaukee School of Engineering","2":"Private (Non-Profit)","3":"WI","4":"0.6672","5":"30","6":"24500","7":"27000","8":"84860","9":"0.6599"},{"1":"Mount Mary University","2":"Private (Non-Profit)","3":"WI","4":"0.6236","5":"21","6":"19000","7":"25288","8":"47959","9":"0.5068"},{"1":"Northland College","2":"Private (Non-Profit)","3":"WI","4":"0.5766","5":"27","6":"15500","7":"25450","8":"42687","9":"0.5827"},{"1":"Ripon College","2":"Private (Non-Profit)","3":"WI","4":"0.7977","5":"27","6":"19500","7":"27000","8":"51436","9":"0.6204"},{"1":"Saint Norbert College","2":"Private (Non-Profit)","3":"WI","4":"0.8515","5":"29","6":"21500","7":"26731","8":"54223","9":"0.7804"},{"1":"Viterbo University","2":"Private (Non-Profit)","3":"WI","4":"0.7746","5":"26","6":"19500","7":"25000","8":"52502","9":"0.6464"},{"1":"University of Wisconsin-Whitewater","2":"Public","3":"WI","4":"0.8297","5":"24","6":"16241","7":"23188","8":"52316","9":"0.6347"},{"1":"University of Wisconsin-Eau Claire","2":"Public","3":"WI","4":"0.7746","5":"26","6":"13000","7":"20909","8":"55619","9":"0.6805"},{"1":"University of Wisconsin-Green Bay","2":"Public","3":"WI","4":"0.9143","5":"25","6":"11250","7":"18500","8":"49099","9":"0.5461"},{"1":"University of Wisconsin-La Crosse","2":"Public","3":"WI","4":"0.7385","5":"26","6":"18000","7":"22500","8":"57125","9":"0.7302"},{"1":"Wisconsin Lutheran College","2":"Private (Non-Profit)","3":"WI","4":"0.9802","5":"28","6":"19500","7":"26000","8":"51291","9":"0.6105"},{"1":"University of Wisconsin-Oshkosh","2":"Public","3":"WI","4":"0.8989","5":"23","6":"12500","7":"21500","8":"51418","9":"0.5518"},{"1":"University of Wisconsin-Parkside","2":"Public","3":"WI","4":"0.7497","5":"24","6":"14000","7":"20492","8":"45774","9":"0.4151"},{"1":"University of Wisconsin-Stout","2":"Public","3":"WI","4":"0.9139","5":"26","6":"16000","7":"23000","8":"56554","9":"0.5611"},{"1":"University of Wisconsin-Superior","2":"Public","3":"WI","4":"0.7623","5":"24","6":"14055","7":"22500","8":"45677","9":"0.4298"},{"1":"University of Wisconsin-Madison","2":"Public","3":"WI","4":"0.6035","5":"32","6":"18058","7":"20484","8":"70586","9":"0.8920"},{"1":"University of Wisconsin-Milwaukee","2":"Public","3":"WI","4":"0.8896","5":"25","6":"15250","7":"23000","8":"53169","9":"0.4735"},{"1":"University of Wisconsin-Platteville","2":"Public","3":"WI","4":"0.8757","5":"26","6":"15000","7":"21977","8":"55720","9":"0.5896"},{"1":"University of Wisconsin-River Falls","2":"Public","3":"WI","4":"0.8624","5":"25","6":"14865","7":"20500","8":"50940","9":"0.5664"},{"1":"University of Wisconsin-Stevens Point","2":"Public","3":"WI","4":"0.9016","5":"25","6":"14674","7":"21503","8":"48872","9":"0.5545"},{"1":"University of Minnesota-Rochester","2":"Public","3":"MN","4":"0.8023","5":"29","6":"16727","7":"19500","8":"65087","9":"0.4659"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -535,24 +599,32 @@ H_A: \beta_1 &amp;\neq 0
 <p><br></p>
 <section id="distribution-of-the-slope-under-the-null-hypothesis" class="level3" data-number="27.2.1">
 <h3 data-number="27.2.1" class="anchored" data-anchor-id="distribution-of-the-slope-under-the-null-hypothesis"><span class="header-section-number">27.2.1</span> Distribution of the Slope Under the Null Hypothesis</h3>
-<p>The thought experiment for this test is shown in <a href="#fig-thought-reg">Figure&nbsp;<span>27.1</span></a>.</p>
+<p>The thought experiment for this test is shown in <a href="#fig-thought-reg" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-reg" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/08-04-01-thought-experiment-regression.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.1: Thought experiment underlying the hypothesis test for the slope.</figcaption>
+<div id="fig-thought-reg" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-thought-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/08-04-01-thought-experiment-regression.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Thought experiment underlying the hypothesis test for the slope.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Plotting the slopes from these samples gives us the sampling distribution for the slope (see <a href="#fig-samp-dist-slope">Figure&nbsp;<span>27.2</span></a>). This distribution is symmetric with a mean of 0 (the value assumed in the null hypothesis). The standard error for this distribution is estimated based on the sample data and quantifies the uncertainty (i.e., the variation that is due to random sampling). In our example, the SE is 0.00287.</p>
+<p>Plotting the slopes from these samples gives us the sampling distribution for the slope (see <a href="#fig-samp-dist-slope" class="quarto-xref">Figure&nbsp;<span>27.2</span></a>). This distribution is symmetric with a mean of 0 (the value assumed in the null hypothesis). The standard error for this distribution is estimated based on the sample data and quantifies the uncertainty (i.e., the variation that is due to random sampling). In our example, the SE is 0.00287.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samp-dist-slope" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-04-regression-inference_files/figure-html/fig-samp-dist-slope-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.2: Sampling distribution of the slope under the null hypothesis. The mean of this distribution is 0 and the SE is 0.00287, which was estimated from the sample data.</figcaption>
+<div id="fig-samp-dist-slope" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-samp-dist-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-04-regression-inference_files/figure-html/fig-samp-dist-slope-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-samp-dist-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.2: Sampling distribution of the slope under the null hypothesis. The mean of this distribution is 0 and the SE is 0.00287, which was estimated from the sample data.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -573,13 +645,17 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 &amp;= 13
 \end{split}
 \]</span></p>
-<p>This value indicates that our observed slope of 0.0374, is 13 standard errors higher than the mean of 0. After converting all of the sample slopes in the sampling distribution to <em>t</em>-values, we get a <em>t</em>-distribution. The <em>t</em>-distribution is shown in <a href="#fig-t-reg">Figure&nbsp;<span>27.3</span></a>.</p>
+<p>This value indicates that our observed slope of 0.0374, is 13 standard errors higher than the mean of 0. After converting all of the sample slopes in the sampling distribution to <em>t</em>-values, we get a <em>t</em>-distribution. The <em>t</em>-distribution is shown in <a href="#fig-t-reg" class="quarto-xref">Figure&nbsp;<span>27.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-t-reg" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-04-regression-inference_files/figure-html/fig-t-reg-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.3: T-distribution under the null hypothesis. This distribution is based on 90 degrees-of-freedom.</figcaption>
+<div id="fig-t-reg" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-04-regression-inference_files/figure-html/fig-t-reg-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.3: T-distribution under the null hypothesis. This distribution is based on 90 degrees-of-freedom.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -600,13 +676,17 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 </section>
 <section id="obtain-a-p-value." class="level3" data-number="27.2.3">
 <h3 data-number="27.2.3" class="anchored" data-anchor-id="obtain-a-p-value."><span class="header-section-number">27.2.3</span> Obtain a <em>p</em>-value.</h3>
-<p>To evaluate whether the observed slope of 0.037 is consistent with the null hypothesis, we compute the probability of seeing a slope <em>t</em>-value as extreme or more extreme than 13 if the null hypothesis is true (the <em>p</em>-value). This is depicted in <a href="#fig-samp-dist-p">Figure&nbsp;<span>27.4</span></a>.</p>
+<p>To evaluate whether the observed slope of 0.037 is consistent with the null hypothesis, we compute the probability of seeing a slope <em>t</em>-value as extreme or more extreme than 13 if the null hypothesis is true (the <em>p</em>-value). This is depicted in <a href="#fig-samp-dist-p" class="quarto-xref">Figure&nbsp;<span>27.4</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-samp-dist-p" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-04-regression-inference_files/figure-html/fig-samp-dist-p-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.4: Sampling distribution of the slope under the null hypothesis. The observed slope of 0.037 is shown as a vertical line in this distribution. Since the test was two-tailed, the slope of -0.037 is also demarcated. The p-value is shown as the shaded area under the curve that is at least as extreme os those slopes.</figcaption>
+<div id="fig-samp-dist-p" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-samp-dist-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-04-regression-inference_files/figure-html/fig-samp-dist-p-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-samp-dist-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.4: Sampling distribution of the slope under the null hypothesis. The observed slope of 0.037 is shown as a vertical line in this distribution. Since the test was two-tailed, the slope of -0.037 is also demarcated. The p-value is shown as the shaded area under the curve that is at least as extreme os those slopes.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -619,7 +699,6 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get coefficient information</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-0.36420832","3":"0.07585201","4":"-4.801565","5":"6.236214e-06"},{"1":"act","2":"0.03738132","3":"0.00286979","4":"13.025803","5":"2.020070e-22"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -672,7 +751,6 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get confidence limits</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-0.36420832","3":"0.07585201","4":"-4.801565","5":"6.236214e-06","6":"-0.51490158","7":"-0.21351506"},{"1":"act","2":"0.03738132","3":"0.00286979","4":"13.025803","5":"2.020070e-22","6":"0.03167998","7":"0.04308266"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -692,13 +770,17 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <li>Normality</li>
 <li>Equal variances</li>
 </ul>
-<p>Note you can use the acronym LINE to help remember these assumptions. Remember the visual depiction of the regression model we introduced in <a href="08-02-linear-regression-description.html"><span>Chapter&nbsp;25</span></a>.</p>
+<p>Note you can use the acronym LINE to help remember these assumptions. Remember the visual depiction of the regression model we introduced in <a href="08-02-linear-regression-description.html" class="quarto-xref"><span>Chapter 25</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-visual-model" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/conditional-means.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.5: Plot displaying conditional distribution of <em>Y</em> at several <em>X</em> values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of <em>Y</em> for each conditional distribution.</figcaption>
+<div id="fig-visual-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/conditional-means.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.5: Plot displaying conditional distribution of <em>Y</em> at several <em>X</em> values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of <em>Y</em> for each conditional distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -709,7 +791,7 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <p><br></p>
 <section id="linearity" class="level3" data-number="27.4.1">
 <h3 data-number="27.4.1" class="anchored" data-anchor-id="linearity"><span class="header-section-number">27.4.1</span> Linearity</h3>
-<p>The linearity assumption is that the functional form for the model in the population is linear. Referring back to <a href="#fig-visual-model">Figure&nbsp;<span>27.5</span></a>, this assumption basically says that in the population, the conditional means can be connected using a line.If this is not the case, then we have mis-specified the model, fitting a linear model to the sample.</p>
+<p>The linearity assumption is that the functional form for the model in the population is linear. Referring back to <a href="#fig-visual-model" class="quarto-xref">Figure&nbsp;<span>27.5</span></a>, this assumption basically says that in the population, the conditional means can be connected using a line.If this is not the case, then we have mis-specified the model, fitting a linear model to the sample.</p>
 <p>To evaluate the linearity assumption, we typically look at a scatterplot of the data and make a judgment about whether the relationship between the predictor and outcome is linear.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine linearity</span></span>
@@ -719,7 +801,11 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Completion rate"</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Based on this plot, it seems that the relationship for the 92 colleges is reasonably linear. While we don’t know about the population, the linearity in the sample relationship is consistent with the population relationship also being linear.</p>
@@ -733,7 +819,7 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 </section>
 <section id="normality" class="level3" data-number="27.4.3">
 <h3 data-number="27.4.3" class="anchored" data-anchor-id="normality"><span class="header-section-number">27.4.3</span> Normality</h3>
-<p>A third assumption is that the outcome is normally distributed at each value of the predictor. Referring back to <a href="#fig-visual-model">Figure&nbsp;<span>27.5</span></a>, we see this assumption in the fact that each conditional distribution of <em>Y</em> is normally distributed.</p>
+<p>A third assumption is that the outcome is normally distributed at each value of the predictor. Referring back to <a href="#fig-visual-model" class="quarto-xref">Figure&nbsp;<span>27.5</span></a>, we see this assumption in the fact that each conditional distribution of <em>Y</em> is normally distributed.</p>
 <p>To evaluate this, we would hypothetically take all the outcome values for a particular predictor value—e.g., all the completion rates for colleges with a 75th percentile ACT score of 20—and make a judgment about whether that distribution was normally distributed. Then we would do the same for all the completion rates for colleges with a 75th percentile ACT score of 21. And all the completion rates for colleges with a 75th percentile ACT score of 22. We would need to do this for every value of the predictor in the population.</p>
 <p>In practice, we have to work on the sample data and then make a judgment about the population. Carrying out this process, even on the sample is all but impossible. Because of this, researchers often evaluate the normality assumption by examining the shape of the distribution of the sample outcome values without separating them by different predictor values. If the sample distribution of the outcome seems approximately normal, we would say that this would be consistent with the population outcome distribution also being normal.</p>
 <div class="cell">
@@ -746,7 +832,11 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The sample distribution of completion rates looks symmetric and unimodal. This is probably reasonable evidence to say that the normality assumption is tenable.</p>
@@ -754,16 +844,20 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 </section>
 <section id="equal-variances" class="level3" data-number="27.4.4">
 <h3 data-number="27.4.4" class="anchored" data-anchor-id="equal-variances"><span class="header-section-number">27.4.4</span> Equal Variances</h3>
-<p>The equal variances assumption is that the variance of the outcome at each value of the predictor is the same. Referring back to <a href="#fig-visual-model">Figure&nbsp;<span>27.5</span></a>, we see this assumption in the fact that each conditional distribution of <em>Y</em> has the same width (i.e., the same variance and standard deviation).</p>
+<p>The equal variances assumption is that the variance of the outcome at each value of the predictor is the same. Referring back to <a href="#fig-visual-model" class="quarto-xref">Figure&nbsp;<span>27.5</span></a>, we see this assumption in the fact that each conditional distribution of <em>Y</em> has the same width (i.e., the same variance and standard deviation).</p>
 <p>To evaluate this, we would hypothetically take all the outcome values for a particular predictor value—e.g., all the completion rates for colleges with a 75th percentile ACT score of 20, and compute the variance of the completion rates. We would do this for completion rates at every predictor value in the population and then check to see that those values are equal.</p>
 <p>In practice, we again make this judgment based on the sample data. However, the sample size at some levels of the predictor are quite small, so computing a variance of the completion rates is problematic. For example, we only have one college with a 75th percentile ACT value of 20, so we can’t compute a variance. Moreover, many times there are just too many predictor values to make this a reasonable approach.</p>
-<p>Instead, we look at whether the ranges of the completion rates for a smaller set of conditional distributions are all approximately equal. To get a sense for this, split the 75th percentile ACT scores into bins and look at the range of the completion scores for the schools in each bin. An example of this is given in <a href="#fig-equal-var">Figure&nbsp;<span>27.6</span></a>.</p>
-<div class="cell" data-caption="Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin.">
+<p>Instead, we look at whether the ranges of the completion rates for a smaller set of conditional distributions are all approximately equal. To get a sense for this, split the 75th percentile ACT scores into bins and look at the range of the completion scores for the schools in each bin. An example of this is given in <a href="#fig-equal-var" class="quarto-xref">Figure&nbsp;<span>27.6</span></a>.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div id="fig-equal-var" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-04-regression-inference_files/figure-html/fig-equal-var-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.6: <strong>?(caption)</strong></figcaption>
+<div id="fig-equal-var" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-equal-var-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-04-regression-inference_files/figure-html/fig-equal-var-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-equal-var-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.6: Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -772,7 +866,16 @@ t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 <p>One thing that psychologists have found is that comparing things that are not level is more difficult for humans. In this plot, the boxes are not all level—the boxes to the right are higher than the boxes on the left.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="figs/p1.gif" class="img-fluid"></p>
+<div id="fig-equal-var-level" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-equal-var-level-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/p1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-equal-var-level-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.7: Leveling the boxes makes it easier for people to judge whether the range of the completion rates for those schools in each bin (i.e., vertical length of each box) is roughly the same.
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <p>One way to make the boxes level, we need to subtract the conditional mean completion rate (the mean completion rate in the box) from the actual completion rate for each school. But remember, the conditional mean value is the predicted value (<span class="math inline">\(\hat{Y}\)</span>). That is we are essentially computing:</p>
@@ -787,7 +890,6 @@ Y - \hat{Y}
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View augmented data</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["completion_rate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["act"],"name":[2],"type":["dbl"],"align":["right"]},{"label":[".fitted"],"name":[3],"type":["dbl"],"align":["right"]},{"label":[".resid"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[".hat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":[".sigma"],"name":[6],"type":["dbl"],"align":["right"]},{"label":[".cooksd"],"name":[7],"type":["dbl"],"align":["right"]},{"label":[".std.resid"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.6278","2":"25","3":"0.5703246","4":"0.0574753580","5":"0.01279486","6":"0.08270035","7":"3.188681e-03","8":"0.701465719"},{"1":"0.6614","2":"25","3":"0.5703246","4":"0.0910753580","5":"0.01279486","6":"0.08235617","7":"8.006625e-03","8":"1.111541427"},{"1":"0.5449","2":"23","3":"0.4955620","4":"0.0493379949","5":"0.02374684","6":"0.08275826","7":"4.459343e-03","8":"0.605520345"},{"1":"0.6377","2":"30","3":"0.7572312","4":"-0.1195312342","5":"0.02780118","6":"0.08192569","7":"3.089888e-02","8":"-1.470050753"},{"1":"0.7410","2":"28","3":"0.6824686","4":"0.0585314027","5":"0.01453243","6":"0.08269150","7":"3.769281e-03","8":"0.714983854"},{"1":"0.7815","2":"31","3":"0.7946126","4":"-0.0131125527","5":"0.03806866","6":"0.08291524","7":"5.200928e-04","8":"-0.162122644"},{"1":"0.7458","2":"26","3":"0.6077060","4":"0.1380940396","5":"0.01095198","6":"0.08161068","7":"1.569765e-02","8":"1.683816322"},{"1":"0.5600","2":"27","3":"0.6450873","4":"-0.0850872789","5":"0.01153117","6":"0.08242966","7":"6.282083e-03","8":"-1.037795099"},{"1":"0.4740","2":"24","3":"0.5329433","4":"-0.0589433235","5":"0.01705981","6":"0.08268755","7":"4.510413e-03","8":"-0.720940701"},{"1":"0.5075","2":"22","3":"0.4581807","4":"0.0493193134","5":"0.03285594","6":"0.08275679","7":"6.281922e-03","8":"0.608134871"},{"1":"0.8688","2":"34","3":"0.9067565","4":"-0.0379565080","5":"0.08340354","6":"0.08282080","7":"1.051544e-02","8":"-0.480757018"},{"1":"0.7605","2":"28","3":"0.6824686","4":"0.0780314027","5":"0.01453243","6":"0.08250771","7":"6.699147e-03","8":"0.953183940"},{"1":"0.2250","2":"20","3":"0.3834180","4":"-0.1584180497","5":"0.05834035","6":"0.08110175","7":"1.213996e-01","8":"-1.979639690"},{"1":"0.7372","2":"29","3":"0.7198499","4":"0.0173500842","5":"0.01995577","6":"0.08290654","7":"4.598406e-04","8":"0.212523627"},{"1":"0.7255","2":"29","3":"0.7198499","4":"0.0056500842","5":"0.01995577","6":"0.08292514","7":"4.876564e-05","8":"0.069208678"},{"1":"0.5789","2":"22","3":"0.4581807","4":"0.1207193134","5":"0.03285594","6":"0.08190018","7":"3.763674e-02","8":"1.488537027"},{"1":"0.6891","2":"26","3":"0.6077060","4":"0.0813940396","5":"0.01095198","6":"0.08247232","7":"5.453434e-03","8":"0.992458565"},{"1":"0.7077","2":"27","3":"0.6450873","4":"0.0626127211","5":"0.01153117","6":"0.08265823","7":"3.401728e-03","8":"0.763676733"},{"1":"0.6443","2":"27","3":"0.6450873","4":"-0.0007872789","5":"0.01153117","6":"0.08292731","7":"5.378133e-07","8":"-0.009602307"},{"1":"0.6894","2":"27","3":"0.6450873","4":"0.0443127211","5":"0.01153117","6":"0.08279266","7":"1.703850e-03","8":"0.540474739"},{"1":"0.3855","2":"24","3":"0.5329433","4":"-0.1474433235","5":"0.01705981","6":"0.08141524","7":"2.822262e-02","8":"-1.803391575"},{"1":"0.6989","2":"26","3":"0.6077060","4":"0.0911940396","5":"0.01095198","6":"0.08235574","7":"6.845698e-03","8":"1.111952498"},{"1":"0.3214","2":"21","3":"0.4207994","4":"-0.0993993682","5":"0.04438711","6":"0.08222393","7":"3.530913e-02","8":"-1.233022763"},{"1":"0.5807","2":"24","3":"0.5329433","4":"0.0477566765","5":"0.01705981","6":"0.08277001","7":"2.960842e-03","8":"0.584115889"},{"1":"0.4759","2":"25","3":"0.5703246","4":"-0.0944246420","5":"0.01279486","6":"0.08231322","7":"8.606338e-03","8":"-1.152418212"},{"1":"0.7431","2":"28","3":"0.6824686","4":"0.0606314027","5":"0.01453243","6":"0.08267425","7":"4.044603e-03","8":"0.740636171"},{"1":"0.9145","2":"35","3":"0.9441378","4":"-0.0296378265","5":"0.10335931","6":"0.08286095","7":"8.302949e-03","8":"-0.379547031"},{"1":"0.7423","2":"26","3":"0.6077060","4":"0.1345940396","5":"0.01095198","6":"0.08167708","7":"1.491202e-02","8":"1.641139917"},{"1":"0.7485","2":"27","3":"0.6450873","4":"0.1034127211","5":"0.01153117","6":"0.08219114","7":"9.279452e-03","8":"1.261307409"},{"1":"0.7840","2":"31","3":"0.7946126","4":"-0.0106125527","5":"0.03806866","6":"0.08291942","7":"3.406796e-04","8":"-0.131212827"},{"1":"0.6490","2":"26","3":"0.6077060","4":"0.0412940396","5":"0.01095198","6":"0.08281047","7":"1.403652e-03","8":"0.503508899"},{"1":"0.8969","2":"33","3":"0.8693752","4":"0.0275248104","5":"0.06586984","6":"0.08287239","7":"4.204820e-03","8":"0.345341769"},{"1":"0.5183","2":"25","3":"0.5703246","4":"-0.0520246420","5":"0.01279486","6":"0.08274141","7":"2.612558e-03","8":"-0.634941723"},{"1":"0.8421","2":"32","3":"0.8319939","4":"0.0101061289","5":"0.05075821","6":"0.08292006","7":"4.230086e-04","8":"0.125783849"},{"1":"0.6467","2":"28","3":"0.6824686","4":"-0.0357685973","5":"0.01453243","6":"0.08283935","7":"1.407617e-03","8":"-0.436927331"},{"1":"0.5692","2":"25","3":"0.5703246","4":"-0.0011246420","5":"0.01279486","6":"0.08292726","7":"1.220889e-06","8":"-0.013725844"},{"1":"0.7668","2":"27","3":"0.6450873","4":"0.1217127211","5":"0.01153117","6":"0.08190576","7":"1.285424e-02","8":"1.484509403"},{"1":"0.4719","2":"24","3":"0.5329433","4":"-0.0610433235","5":"0.01705981","6":"0.08267013","7":"4.837527e-03","8":"-0.746625976"},{"1":"0.7871","2":"28","3":"0.6824686","4":"0.1046314027","5":"0.01453243","6":"0.08217130","7":"1.204494e-02","8":"1.278113288"},{"1":"0.8502","2":"33","3":"0.8693752","4":"-0.0191751896","5":"0.06586984","6":"0.08290068","7":"2.040695e-03","8":"-0.240582724"},{"1":"0.6516","2":"27","3":"0.6450873","4":"0.0065127211","5":"0.01153117","6":"0.08292444","7":"3.680437e-05","8":"0.079434554"},{"1":"0.7810","2":"28","3":"0.6824686","4":"0.0985314027","5":"0.01453243","6":"0.08225724","7":"1.068144e-02","8":"1.203599415"},{"1":"0.5941","2":"26","3":"0.6077060","4":"-0.0136059604","5":"0.01095198","6":"0.08291467","7":"1.523854e-04","8":"-0.165900992"},{"1":"0.6300","2":"25","3":"0.5703246","4":"0.0596753580","5":"0.01279486","6":"0.08268261","7":"3.437461e-03","8":"0.728315914"},{"1":"0.3636","2":"22","3":"0.4581807","4":"-0.0945806866","5":"0.03285594","6":"0.08229836","7":"2.310274e-02","8":"-1.166233058"},{"1":"0.5565","2":"24","3":"0.5329433","4":"0.0235566765","5":"0.01705981","6":"0.08288909","7":"7.204023e-04","8":"0.288123673"},{"1":"0.3185","2":"24","3":"0.5329433","4":"-0.2144433235","5":"0.01705981","6":"0.07969493","7":"5.969970e-02","8":"-2.622874157"},{"1":"0.4650","2":"23","3":"0.4955620","4":"-0.0305620051","5":"0.02374684","6":"0.08286251","7":"1.711085e-03","8":"-0.375084474"},{"1":"0.6178","2":"26","3":"0.6077060","4":"0.0100940396","5":"0.01095198","6":"0.08292037","7":"8.387158e-05","8":"0.123079234"},{"1":"0.6487","2":"26","3":"0.6077060","4":"0.0409940396","5":"0.01095198","6":"0.08281216","7":"1.383331e-03","8":"0.499850922"},{"1":"0.5318","2":"23","3":"0.4955620","4":"0.0362379949","5":"0.02374684","6":"0.08283617","7":"2.405671e-03","8":"0.444745338"},{"1":"0.7057","2":"28","3":"0.6824686","4":"0.0232314027","5":"0.01453243","6":"0.08289024","7":"5.937881e-04","8":"0.283780622"},{"1":"0.4248","2":"23","3":"0.4955620","4":"-0.0707620051","5":"0.02374684","6":"0.08257915","7":"9.172931e-03","8":"-0.868455108"},{"1":"0.4675","2":"26","3":"0.6077060","4":"-0.1402059604","5":"0.01095198","6":"0.08156976","7":"1.618146e-02","8":"-1.709567518"},{"1":"0.5486","2":"25","3":"0.5703246","4":"-0.0217246420","5":"0.01279486","6":"0.08289495","7":"4.555677e-04","8":"-0.265141308"},{"1":"0.6100","2":"24","3":"0.5329433","4":"0.0770566765","5":"0.01705981","6":"0.08251710","7":"7.708460e-03","8":"0.942486631"},{"1":"0.4757","2":"24","3":"0.5329433","4":"-0.0572433235","5":"0.01705981","6":"0.08270120","7":"4.253993e-03","8":"-0.700147859"},{"1":"0.3465","2":"22","3":"0.4581807","4":"-0.1116806866","5":"0.03285594","6":"0.08204903","7":"3.221177e-02","8":"-1.377085675"},{"1":"0.5231","2":"29","3":"0.7198499","4":"-0.1967499158","5":"0.01995577","6":"0.08020685","7":"5.913345e-02","8":"-2.410017450"},{"1":"0.5955","2":"25","3":"0.5703246","4":"0.0251753580","5":"0.01279486","6":"0.08288384","7":"6.117853e-04","8":"0.307256035"},{"1":"0.6010","2":"25","3":"0.5703246","4":"0.0306753580","5":"0.01279486","6":"0.08286275","7":"9.082951e-04","8":"0.374381523"},{"1":"0.5862","2":"24","3":"0.5329433","4":"0.0532566765","5":"0.01705981","6":"0.08273164","7":"3.682097e-03","8":"0.651386848"},{"1":"0.7347","2":"28","3":"0.6824686","4":"0.0522314027","5":"0.01453243","6":"0.08273959","7":"3.001539e-03","8":"0.638026903"},{"1":"0.5375","2":"21","3":"0.4207994","4":"0.1167006318","5":"0.04438711","6":"0.08195617","7":"4.867055e-02","8":"1.447640344"},{"1":"0.6742","2":"27","3":"0.6450873","4":"0.0291127211","5":"0.01153117","6":"0.08286924","7":"7.354277e-04","8":"0.355082919"},{"1":"0.6804","2":"27","3":"0.6450873","4":"0.0353127211","5":"0.01153117","6":"0.08284184","7":"1.082024e-03","8":"0.430703267"},{"1":"0.5920","2":"26","3":"0.6077060","4":"-0.0157059604","5":"0.01095198","6":"0.08291045","7":"2.030551e-04","8":"-0.191506835"},{"1":"0.8046","2":"32","3":"0.8319939","4":"-0.0273938711","5":"0.05075821","6":"0.08287378","7":"3.108039e-03","8":"-0.340952166"},{"1":"0.5682","2":"27","3":"0.6450873","4":"-0.0768872789","5":"0.01153117","6":"0.08252119","7":"5.129599e-03","8":"-0.937781091"},{"1":"0.5584","2":"23","3":"0.4955620","4":"0.0628379949","5":"0.02374684","6":"0.08265289","7":"7.233567e-03","8":"0.771204514"},{"1":"0.8136","2":"30","3":"0.7572312","4":"0.0563687658","5":"0.02780118","6":"0.08270564","7":"6.871587e-03","8":"0.693249318"},{"1":"0.6599","2":"30","3":"0.7572312","4":"-0.0973312342","5":"0.02780118","6":"0.08226457","7":"2.048729e-02","8":"-1.197024820"},{"1":"0.5068","2":"21","3":"0.4207994","4":"0.0860006318","5":"0.04438711","6":"0.08240135","7":"2.643158e-02","8":"1.066814998"},{"1":"0.5827","2":"27","3":"0.6450873","4":"-0.0623872789","5":"0.01153117","6":"0.08266016","7":"3.377275e-03","8":"-0.760927052"},{"1":"0.6204","2":"27","3":"0.6450873","4":"-0.0246872789","5":"0.01153117","6":"0.08288557","7":"5.288358e-04","8":"-0.301106550"},{"1":"0.7804","2":"29","3":"0.7198499","4":"0.0605500842","5":"0.01995577","6":"0.08267353","7":"5.600588e-03","8":"0.741686517"},{"1":"0.6464","2":"26","3":"0.6077060","4":"0.0386940396","5":"0.01095198","6":"0.08282473","7":"1.232460e-03","8":"0.471806427"},{"1":"0.6347","2":"24","3":"0.5329433","4":"0.1017566765","5":"0.01705981","6":"0.08221061","7":"1.344228e-02","8":"1.244594389"},{"1":"0.6805","2":"26","3":"0.6077060","4":"0.0727940396","5":"0.01095198","6":"0.08256359","7":"4.361908e-03","8":"0.887596542"},{"1":"0.5461","2":"25","3":"0.5703246","4":"-0.0242246420","5":"0.01279486","6":"0.08288707","7":"5.664511e-04","8":"-0.295652893"},{"1":"0.7302","2":"26","3":"0.6077060","4":"0.1224940396","5":"0.01095198","6":"0.08189313","7":"1.235136e-02","8":"1.493601489"},{"1":"0.6105","2":"28","3":"0.6824686","4":"-0.0719685973","5":"0.01453243","6":"0.08257052","7":"5.698581e-03","8":"-0.879124414"},{"1":"0.5518","2":"23","3":"0.4955620","4":"0.0562379949","5":"0.02374684","6":"0.08270759","7":"5.793854e-03","8":"0.690203365"},{"1":"0.4151","2":"24","3":"0.5329433","4":"-0.1178433235","5":"0.01705981","6":"0.08196464","7":"1.802839e-02","8":"-1.441351509"},{"1":"0.5611","2":"26","3":"0.6077060","4":"-0.0466059604","5":"0.01095198","6":"0.08277843","7":"1.788001e-03","8":"-0.568278523"},{"1":"0.4298","2":"24","3":"0.5329433","4":"-0.1031433235","5":"0.01705981","6":"0.08219085","7":"1.381113e-02","8":"-1.261554584"},{"1":"0.8920","2":"32","3":"0.8319939","4":"0.0600061289","5":"0.05075821","6":"0.08266997","7":"1.491320e-02","8":"0.746853906"},{"1":"0.4735","2":"25","3":"0.5703246","4":"-0.0968246420","5":"0.01279486","6":"0.08228148","7":"9.049394e-03","8":"-1.181709334"},{"1":"0.5896","2":"26","3":"0.6077060","4":"-0.0181059604","5":"0.01095198","6":"0.08290489","7":"2.698534e-04","8":"-0.220770656"},{"1":"0.5664","2":"25","3":"0.5703246","4":"-0.0039246420","5":"0.01279486","6":"0.08292629","7":"1.486784e-05","8":"-0.047898819"},{"1":"0.5545","2":"25","3":"0.5703246","4":"-0.0158246420","5":"0.01279486","6":"0.08291016","7":"2.417216e-04","8":"-0.193133966"},{"1":"0.4659","2":"29","3":"0.7198499","4":"-0.2539499158","5":"0.01995577","6":"0.07834269","7":"9.851452e-02","8":"-3.110668313"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -804,7 +906,11 @@ Y - \hat{Y}
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Residuals"</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="08-04-regression-inference_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Again, imagine the boxes on this plot and ask whether the vertical edge of each box is roughly the same length. If the answer is “yes” we say the equal variances assumption is tenable, and if the answer is “no” then we say the assumption isn’t tenable (it may be violated).</p>
@@ -919,10 +1025,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -932,8 +1037,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -946,6 +1060,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -989,6 +1222,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1014,6 +1248,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1075,14 +1335,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08-03-r-squared.html" class="pagination-link">
+      <a href="./08-03-r-squared.html" class="pagination-link" aria-label="$R^2$: Quantifying the Strength of the Linear Relationship">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./09-00-data-codebooks.html" class="pagination-link" aria-label="Data Codebooks">
+        <span class="nav-page-text">Data Codebooks</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

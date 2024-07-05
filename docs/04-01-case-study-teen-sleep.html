@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -124,12 +132,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -141,12 +175,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-01-case-study-teen-sleep.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-01-case-study-teen-sleep.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -156,7 +190,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -428,7 +462,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -449,7 +483,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-01-case-study-teen-sleep.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-teen-sleep" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></h1>
 </div>
@@ -464,7 +498,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>According to the <span class="citation" data-cites="National-Institutes-of-Health:2021">National Institutes of Health (<a href="#ref-National-Institutes-of-Health:2021" role="doc-biblioref">2021</a>)</span>, quality sleep is a key factor in health and well-being. Sleep has been linked to risk of several diseases such as heart disease, stroke, and dementia. It is also been linked to cognition and mental well-being. For teenagers, sleep is even more important as they are experiencing “second developmental stage of cognitive maturation” <span class="citation" data-cites="Johns-Hopkins-University:2023">(<a href="#ref-Johns-Hopkins-University:2023" role="doc-biblioref">Johns Hopkins University, 2023</a>)</span>. The research, which suggests teens need, on average, between 9 and 9 1/2 hours of sleep a night, indicates that not only is this amount of sleep necessary for teen’s cognitive development, but also helps reduce the risk of depression and drug use.</p>
 <p>In this case study we will use the data in <em>teen-sleep.csv</em> to determine whether teens are getting the recommended 9 hours of sleep a night. These data include the bedtime, wake-up time, and hours slept for a sample of <span class="math inline">\(n=75\)</span> American teens in Grades 9–12.</p>
@@ -485,7 +521,6 @@ function toggle_visibility(id) {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["bedtime"],"name":[1],"type":["chr"],"align":["left"]},{"label":["wakeup"],"name":[2],"type":["chr"],"align":["left"]},{"label":["hrs_sleep"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"22:15:00","2":"5:25:00","3":"7.166667"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:15:00","2":"5:45:00","3":"7.500000"},{"1":"20:0:00","2":"6:20:00","3":"10.333333"},{"1":"23:45:00","2":"5:50:00","3":"6.083333"},{"1":"22:5:00","2":"6:0:00","3":"7.916667"},{"1":"0:25:00","2":"5:20:00","3":"4.916667"},{"1":"21:10:00","2":"6:15:00","3":"9.083333"},{"1":"21:20:00","2":"5:15:00","3":"7.916667"},{"1":"21:10:00","2":"5:30:00","3":"8.333333"},{"1":"22:50:00","2":"5:50:00","3":"7.000000"},{"1":"22:30:00","2":"5:50:00","3":"7.333333"},{"1":"23:35:00","2":"5:40:00","3":"6.083333"},{"1":"20:30:00","2":"6:15:00","3":"9.750000"},{"1":"20:40:00","2":"5:50:00","3":"9.166667"},{"1":"21:20:00","2":"5:45:00","3":"8.416667"},{"1":"23:35:00","2":"5:30:00","3":"5.916667"},{"1":"21:35:00","2":"6:5:00","3":"8.500000"},{"1":"22:5:00","2":"5:10:00","3":"7.083333"},{"1":"23:25:00","2":"7:20:00","3":"7.916667"},{"1":"23:25:00","2":"5:30:00","3":"6.083333"},{"1":"22:40:00","2":"6:15:00","3":"7.583333"},{"1":"0:30:00","2":"5:55:00","3":"5.416667"},{"1":"22:20:00","2":"6:15:00","3":"7.916667"},{"1":"22:55:00","2":"5:15:00","3":"6.333333"},{"1":"22:50:00","2":"5:30:00","3":"6.666667"},{"1":"22:20:00","2":"5:15:00","3":"6.916667"},{"1":"23:25:00","2":"5:55:00","3":"6.500000"},{"1":"22:35:00","2":"5:0:00","3":"6.416667"},{"1":"20:0:00","2":"5:55:00","3":"9.916667"},{"1":"21:5:00","2":"5:40:00","3":"8.583333"},{"1":"22:50:00","2":"6:55:00","3":"8.083333"},{"1":"20:30:00","2":"5:40:00","3":"9.166667"},{"1":"23:5:00","2":"5:40:00","3":"6.583333"},{"1":"21:50:00","2":"5:20:00","3":"7.500000"},{"1":"22:10:00","2":"5:35:00","3":"7.416667"},{"1":"1:5:00","2":"5:55:00","3":"4.833333"},{"1":"22:45:00","2":"6:5:00","3":"7.333333"},{"1":"22:50:00","2":"6:30:00","3":"7.666667"},{"1":"0:35:00","2":"6:25:00","3":"5.833333"},{"1":"1:30:00","2":"5:40:00","3":"4.166667"},{"1":"19:40:00","2":"6:45:00","3":"11.083333"},{"1":"0:0:00","2":"4:35:00","3":"4.583333"},{"1":"22:35:00","2":"6:10:00","3":"7.583333"},{"1":"21:40:00","2":"5:25:00","3":"7.750000"},{"1":"23:20:00","2":"6:40:00","3":"7.333333"},{"1":"1:0:00","2":"5:30:00","3":"4.500000"},{"1":"21:55:00","2":"6:40:00","3":"8.750000"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:35:00","2":"4:30:00","3":"5.916667"},{"1":"0:50:00","2":"5:30:00","3":"4.666667"},{"1":"20:30:00","2":"4:35:00","3":"8.083333"},{"1":"22:50:00","2":"5:55:00","3":"7.083333"},{"1":"22:45:00","2":"7:5:00","3":"8.333333"},{"1":"23:50:00","2":"4:15:00","3":"4.416667"},{"1":"22:55:00","2":"6:25:00","3":"7.500000"},{"1":"22:5:00","2":"4:50:00","3":"6.750000"},{"1":"23:10:00","2":"7:0:00","3":"7.833333"},{"1":"22:55:00","2":"6:40:00","3":"7.750000"},{"1":"20:55:00","2":"5:10:00","3":"8.250000"},{"1":"21:0:00","2":"5:35:00","3":"8.583333"},{"1":"22:5:00","2":"5:45:00","3":"7.666667"},{"1":"18:25:00","2":"5:30:00","3":"11.083333"},{"1":"0:0:00","2":"7:30:00","3":"7.500000"},{"1":"20:55:00","2":"5:50:00","3":"8.916667"},{"1":"22:25:00","2":"5:15:00","3":"6.833333"},{"1":"21:50:00","2":"6:10:00","3":"8.333333"},{"1":"22:20:00","2":"5:55:00","3":"7.583333"},{"1":"22:50:00","2":"5:45:00","3":"6.916667"},{"1":"22:5:00","2":"5:40:00","3":"7.583333"},{"1":"21:15:00","2":"6:5:00","3":"8.833333"},{"1":"21:30:00","2":"5:5:00","3":"7.583333"},{"1":"0:20:00","2":"5:0:00","3":"4.666667"},{"1":"20:50:00","2":"6:55:00","3":"10.083333"},{"1":"23:15:00","2":"4:25:00","3":"5.166667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -509,22 +544,29 @@ function toggle_visibility(id) {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-hrs-sleep-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-hrs-sleep-1" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hrs-sleep-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div data-pagedtable="false">
-
 <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"hrs_sleep","2":"4.166667","3":"6.541667","4":"7.583333","5":"8.291667","6":"11.08333","7":"7.391111","8":"1.522724","9":"75","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;7.1: Density plot of the hours of sleep for 75 teenagers.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hrs-sleep-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Density plot of the hours of sleep for 75 teenagers.
+</figcaption>
 </figure>
 </div>
 <div class="cell-output-display">
-<div id="fig-hrs-sleep-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-01-case-study-teen-sleep_files/figure-html/fig-hrs-sleep-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Density plot of the hours of sleep for 75 teenagers.</figcaption>
+<div id="fig-hrs-sleep-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hrs-sleep-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-01-case-study-teen-sleep_files/figure-html/fig-hrs-sleep-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hrs-sleep-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Density plot of the hours of sleep for 75 teenagers.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -539,31 +581,43 @@ function toggle_visibility(id) {
 </section>
 <section id="statistical-inference-using-sample-data-to-draw-conclusions-about-the-population" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="statistical-inference-using-sample-data-to-draw-conclusions-about-the-population"><span class="header-section-number">7.2</span> Statistical Inference: Using Sample Data to Draw Conclusions about the Population</h2>
-<p>In many studies, the primary interest is to learn about one or more characteristics about a population. Although these characteristics must be estimated from sample data, the sample (and thus the estimate computed from the sample) form an incomplete picture of the population. As an example, consider the pictures of Goldy <a href="#fig-goldy">Figure&nbsp;<span>7.3</span></a>. In the left-hand panel every pixel of the picture is shown. In the right-hand panel, we have only shown a random sample of the pixels. While the picture on the right is incomplete, we can still infer what the original picture looks like. This idea is similar to how we can make inferences about a population from a subset of cases (i.e., a sample).</p>
-<div id="fig-goldy" class="cell quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-goldy-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-02-goldy-hockey.jpg" class="img-fluid figure-img" data-ref-parent="fig-goldy"></p>
-<figcaption class="figure-caption">(a) Population</figcaption>
+<p>In many studies, the primary interest is to learn about one or more characteristics about a population. Although these characteristics must be estimated from sample data, the sample (and thus the estimate computed from the sample) form an incomplete picture of the population. As an example, consider the pictures of Goldy <a href="#fig-goldy" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>. In the left-hand panel every pixel of the picture is shown. In the right-hand panel, we have only shown a random sample of the pixels. While the picture on the right is incomplete, we can still infer what the original picture looks like. This idea is similar to how we can make inferences about a population from a subset of cases (i.e., a sample).</p>
+<div id="fig-goldy" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-goldy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-goldy" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-goldy-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-goldy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-02-goldy-hockey.jpg" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-goldy">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-goldy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Population
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-goldy-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-03-goldy-hockey-sampled.jpg" class="img-fluid figure-img" data-ref-parent="fig-goldy"></p>
-<figcaption class="figure-caption">(b) Sample</figcaption>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-goldy" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-goldy-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-goldy-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-03-goldy-hockey-sampled.jpg" class="img-fluid figure-img" style="width:100.0%" data-ref-parent="fig-goldy">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-goldy-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Sample
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.3: Goldy.</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-goldy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Goldy.
+</figcaption>
 </figure>
 </div>
-<p>The issue with using the sample data to draw a conclusion about the larger population is that the sample is an incomplete picture of the larger population. This means that any estimate we obtain from the sample needs to account for this incompleteness or <em>uncertainty</em>. For example, in the right-hand panel of <a href="#fig-goldy">Figure&nbsp;<span>7.3</span></a> the incomplete data leads to uncertainty about the actual picture. The information there allows us to make some inferences (e.g., it is a photo of Goldy), but there is still uncertainty because some of the pixels are not shown.</p>
+<p>The issue with using the sample data to draw a conclusion about the larger population is that the sample is an incomplete picture of the larger population. This means that any estimate we obtain from the sample needs to account for this incompleteness or <em>uncertainty</em>. For example, in the right-hand panel of <a href="#fig-goldy" class="quarto-xref">Figure&nbsp;<span>7.3</span></a> the incomplete data leads to uncertainty about the actual picture. The information there allows us to make some inferences (e.g., it is a photo of Goldy), but there is still uncertainty because some of the pixels are not shown.</p>
 <p>In our example of determining whether teenagers are sleeping 9 or more hours, we used sample data to obtain an estimate of the average amount of sleep teens are getting in a night, namely 7.4 hours of sleep a night. Because we based this estimate on incomplete data (i.e., from a sample) there is uncertainty associated with this estimate—7.4 hours is probably not the average number of hours ALL teens sleep a night. Quantifying the uncertainty gives us a better estimate. For example, this quantification might suggest that teens sleep, on average, between 6.0 and 8.8 hours a night.</p>
 <p><br></p>
 <section id="sources-of-uncertainty" class="level3" data-number="7.2.1">
@@ -585,13 +639,17 @@ function toggle_visibility(id) {
 </section>
 <section id="uncertainty-due-to-sampling-error" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="uncertainty-due-to-sampling-error"><span class="header-section-number">7.3</span> Uncertainty Due to Sampling Error</h2>
-<p>To give you a better sense of the uncertainty in an estimate that is due to sampling error and the methods we use to quantify sampling error, consider the following thought experiment: Imagine the population of amount of sleep per night taken for every teenager (past, present, and future). There would be an infinite number of these values, but theoretically, we could plot all of these values, and compute numerical summaries such as the mean and standard deviation of these values. (The mean of this distribution is what we are trying to estimate using our sample data.) The conceptual idea of estimating sampling variation is that we are going to draw a sample of 75 students and compute the mean amount of sleep for that sample. Then we are going to repeat this process again, and again, each time drawing 75 observations and computing the mean amount of sleep. <a href="04-02-simulation.html#fig-thought-experiment">Figure&nbsp;<span>8.1</span></a> shows a visual depiction of this thought experiment that was carried out 1000 times.</p>
+<p>To give you a better sense of the uncertainty in an estimate that is due to sampling error and the methods we use to quantify sampling error, consider the following thought experiment: Imagine the population of amount of sleep per night taken for every teenager (past, present, and future). There would be an infinite number of these values, but theoretically, we could plot all of these values, and compute numerical summaries such as the mean and standard deviation of these values. (The mean of this distribution is what we are trying to estimate using our sample data.) The conceptual idea of estimating sampling variation is that we are going to draw a sample of 75 students and compute the mean amount of sleep for that sample. Then we are going to repeat this process again, and again, each time drawing 75 observations and computing the mean amount of sleep. <a href="04-02-simulation.html#fig-thought-experiment" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> shows a visual depiction of this thought experiment that was carried out 1000 times.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.4: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.</figcaption>
+<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -599,30 +657,38 @@ function toggle_visibility(id) {
 <p>The 1000 sample means can then be plotted, and we can compute a numeric summary of the variability in the distribution of sample means.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment-sampling-dist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-01-case-study-teen-sleep_files/figure-html/fig-thought-experiment-sampling-dist-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.5: Distribution of 1000 sample means. Each observation in the distribution is a mean indicating the average amount of sleep per night for one sample. The red dots show the means computed from <a href="04-02-simulation.html#fig-thought-experiment">Figure&nbsp;<span>8.1</span></a>.</figcaption>
+<div id="fig-thought-experiment-sampling-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-thought-experiment-sampling-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-01-case-study-teen-sleep_files/figure-html/fig-thought-experiment-sampling-dist-1.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-sampling-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: Distribution of 1000 sample means. Each observation in the distribution is a mean indicating the average amount of sleep per night for one sample. The red dots show the means computed from <a href="04-02-simulation.html#fig-thought-experiment" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-thought-experiment-sampling-dist">Figure&nbsp;<span>7.5</span></a> each observation plotted in the distribution is one of the means from a sample drawn in our thought experiment. For example, the red dots indicate the five sample means reported in <a href="04-02-simulation.html#fig-thought-experiment">Figure&nbsp;<span>8.1</span></a>, namely 7.48 (mean of Sample 1), 6.90 (mean of Sample 2), 7.78 (mean of Sample 3), 7.32 (mean of Sample 4), and 7.24 (mean of Sample 1000). When the cases in a distribution are numerical summaries, we call that distribution a <strong>sampling distribution</strong>. The distribution in <a href="#fig-thought-experiment-sampling-dist">Figure&nbsp;<span>7.5</span></a> is a <strong>sampling distribution of the mean</strong>, indicating that the numerical summaries being plotted are means.</p>
-<p>Remember that our purpose for producing this distribution is to summarize the variation in the mean values, that is, we want to produce a numerical summary of the variation in the sampling distribution of the means shown in <a href="#fig-thought-experiment-sampling-dist">Figure&nbsp;<span>7.5</span></a>. This distribution is approximately normal (unimodal and symmetric), so the standard deviation will be a good summary of the variation in this distribution.</p>
+<p>In <a href="#fig-thought-experiment-sampling-dist" class="quarto-xref">Figure&nbsp;<span>7.5</span></a> each observation plotted in the distribution is one of the means from a sample drawn in our thought experiment. For example, the red dots indicate the five sample means reported in <a href="04-02-simulation.html#fig-thought-experiment" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, namely 7.48 (mean of Sample 1), 6.90 (mean of Sample 2), 7.78 (mean of Sample 3), 7.32 (mean of Sample 4), and 7.24 (mean of Sample 1000). When the cases in a distribution are numerical summaries, we call that distribution a <strong>sampling distribution</strong>. The distribution in <a href="#fig-thought-experiment-sampling-dist" class="quarto-xref">Figure&nbsp;<span>7.5</span></a> is a <strong>sampling distribution of the mean</strong>, indicating that the numerical summaries being plotted are means.</p>
+<p>Remember that our purpose for producing this distribution is to summarize the variation in the mean values, that is, we want to produce a numerical summary of the variation in the sampling distribution of the means shown in <a href="#fig-thought-experiment-sampling-dist" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>. This distribution is approximately normal (unimodal and symmetric), so the standard deviation will be a good summary of the variation in this distribution.</p>
 <div class="protip">
 <p>If you have a distribution that is unimodal and symmetric, you can estimate the standard deviation by determining the halfway point of the height of the middle of the distribution. You can then follow that out to either side of the distribution and that width is a good guess for the standard deviation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-est-sd" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-03-estimate-sd.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.6: Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution.</figcaption>
+<div id="fig-est-sd" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-est-sd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-03-estimate-sd.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-est-sd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>In the sampling distribution, in <a href="#fig-thought-experiment-sampling-dist">Figure&nbsp;<span>7.5</span></a>, we estimate the standard deviation to be approximately 0.2. Because this standard deviation is quantifying the variability in a distribution of summary statistics, we refer to it as a <strong>standard error (SE)</strong>.</p>
+<p>In the sampling distribution, in <a href="#fig-thought-experiment-sampling-dist" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>, we estimate the standard deviation to be approximately 0.2. Because this standard deviation is quantifying the variability in a distribution of summary statistics, we refer to it as a <strong>standard error (SE)</strong>.</p>
 <p>Recall that each of the samples were randomly sampled from the same population and that the sample mean is a guess for the value of the population mean—the average amount of nightly sleep for ALL teens. Since the only source of variation in the sampling distribution is sampling error (that is, the only reason the sample means are different is that different teens were chosen to be a part of each sample), the SE is a quantification of the uncertainty due to sampling error we expect in our estimate. Based on a typical value in the distribution of about 7.4, and using our SE of 0.20, we can say:</p>
 <blockquote class="blockquote">
 <p>We think that the mean amount of sleep each night for ALL teens is between 7.2 and 7.6. This range of values captures the uncertainty in the estimate (the sample mean) that is due to sampling error.</p>
@@ -638,7 +704,7 @@ function toggle_visibility(id) {
 <h2 data-number="7.5" class="anchored" data-anchor-id="references"><span class="header-section-number">7.5</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Johns-Hopkins-University:2023" class="csl-entry" role="listitem">
 Johns Hopkins University. (2023). <em>Teenagers and sleep: How much sleep is enough?</em> <a href="https://www.hopkinsmedicine.org/health/wellness-and-prevention/teenagers-and-sleep-how-much-sleep-is-enough">https://www.hopkinsmedicine.org/health/wellness-and-prevention/teenagers-and-sleep-how-much-sleep-is-enough</a>
 </div>
@@ -728,10 +794,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -741,8 +806,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -755,6 +829,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -798,6 +991,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -823,6 +1017,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -884,17 +1104,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-00-comparing-to-a-standard.html" class="pagination-link">
+      <a href="./04-00-comparing-to-a-standard.html" class="pagination-link" aria-label="Comparing Data to a Standard">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Data to a Standard</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-02-simulation.html" class="pagination-link">
+      <a href="./04-02-simulation.html" class="pagination-link" aria-label="Bootstrapping: Using Simulation to Estimate the Uncertainty">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

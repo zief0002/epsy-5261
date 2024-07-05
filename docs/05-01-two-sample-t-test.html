@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -124,12 +132,38 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -141,12 +175,12 @@ function toggle_visibility(id) {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-01-two-sample-t-test.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-01-two-sample-t-test.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -156,7 +190,7 @@ function toggle_visibility(id) {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
@@ -428,7 +462,7 @@ function toggle_visibility(id) {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -447,7 +481,7 @@ function toggle_visibility(id) {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-00-comparing-two-groups.html">Comparing Two Groups</a></li><li class="breadcrumb-item"><a href="./05-01-two-sample-t-test.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-two-sample-t-test" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></h1>
 </div>
@@ -462,7 +496,9 @@ function toggle_visibility(id) {
   </div>
   
 
+
 </header>
+
 
 <p>In this chapter you will learn how to carry out a two-sample <em>t</em>-test using R to statistically compare two samples of data by accounting for the sampling uncertainty.</p>
 <p><br></p>
@@ -485,7 +521,6 @@ function toggle_visibility(id) {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["iq_change"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"4","2":"Adult"},{"1":"-10","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-1","2":"Adult"},{"1":"-3","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"5","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"9","2":"Adult"},{"1":"-7","2":"Adult"},{"1":"4","2":"Adult"},{"1":"11","2":"Adult"},{"1":"-16","2":"Adult"},{"1":"-8","2":"Adult"},{"1":"-8","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-23","2":"Teen"},{"1":"-21","2":"Teen"},{"1":"1","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"0","2":"Teen"},{"1":"5","2":"Teen"},{"1":"-9","2":"Teen"},{"1":"-8","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-11","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-3","2":"Teen"},{"1":"-1","2":"Teen"},{"1":"-10","2":"Teen"},{"1":"-4","2":"Teen"},{"1":"-17","2":"Teen"},{"1":"-11","2":"Teen"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -552,22 +587,29 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-prior-knowledge-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-prior-knowledge-1" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prior-knowledge-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div data-pagedtable="false">
-
 <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cannabis_dep"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"iq_change","2":"Adult","3":"-16","4":"-7","5":"-3","6":"4.0","7":"11","8":"-2.071429","9":"7.770400","10":"14","11":"0"},{"1":"iq_change","2":"Teen","3":"-23","4":"-11","5":"-8","6":"-3.5","7":"5","8":"-8.260870","9":"7.136445","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;13.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prior-knowledge-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.
+</figcaption>
 </figure>
 </div>
 <div class="cell-output-display">
-<div id="fig-prior-knowledge-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-01-two-sample-t-test_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.2: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.</figcaption>
+<div id="fig-prior-knowledge-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prior-knowledge-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-01-two-sample-t-test_files/figure-html/fig-prior-knowledge-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prior-knowledge-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -583,7 +625,7 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 </ul>
 <p>We can assign the output of the <code>t_test()</code> function into an object, and use the <code>t_results()</code> and <code>plot_t_dist()</code> functions to examine the output of the two-sample <em>t</em>-test and view the <em>t</em>-distribution and shaded <em>p</em>-value, respectively.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> cannabis, </span>
@@ -616,10 +658,14 @@ p = 0.01832593
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-t-dist3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.</figcaption>
+<div id="fig-t-dist3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em> value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -683,7 +729,6 @@ Show/Hide Solution
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>bachelor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["show"],"name":[1],"type":["chr"],"align":["left"]},{"label":["season"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["run_dates"],"name":[3],"type":["chr"],"align":["left"]},{"label":["name"],"name":[4],"type":["chr"],"align":["left"]},{"label":["age"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["winner"],"name":[6],"type":["chr"],"align":["left"]},{"label":["runner_up"],"name":[7],"type":["chr"],"align":["left"]},{"label":["proposal"],"name":[8],"type":["chr"],"align":["left"]},{"label":["still_together"],"name":[9],"type":["chr"],"align":["left"]},{"label":["relationship_status"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"Bachelor","2":"1","3":"March 25 – April 25, 2002","4":"Alex Michel","5":"31","6":"Amanda Marsh","7":"Trista Rehn","8":"No","9":"No","10":"Michel did not propose to Marsh, but instead they entered into a relationship. They broke up several months later."},{"1":"Bachelor","2":"2","3":"September 25 – November 20, 2002","4":"Aaron Buerge","5":"28","6":"Helene Eksterowicz","7":"Brooke Smith","8":"Yes","9":"No","10":"Buerge and Eksterowicz broke up in January 2003."},{"1":"Bachelor","2":"3","3":"March 24 – May 21, 2003","4":"Andrew Firestone","5":"27","6":"Jen Schefft","7":"Kirsten Buschbacher","8":"Yes","9":"No","10":"Firestone and Schefft broke up in December 2003."},{"1":"Bachelor","2":"4","3":"September 24 – November 20, 2003","4":"Bob Guiney","5":"32","6":"Estella Gardinier","7":"Kelly Jo Kuharski","8":"No","9":"No","10":"Guiney did not propose to Gardinier, but she accepted a promise ring indicating that they would still date. They broke up in December 2003."},{"1":"Bachelor","2":"5","3":"April 7 – May 26, 2004","4":"Jesse Palmer","5":"25","6":"Jessica Bowlin","7":"Tara Huckeby","8":"No","9":"No","10":"Palmer did not propose to Bowlin. They continued to date, but broke up in June 2004."},{"1":"Bachelor","2":"6","3":"September 22 – November 24, 2004","4":"Byron Velvick","5":"40","6":"Mary Delgado","7":"Tanya Michel","8":"Yes","9":"No","10":"Velvick and Delgado split in December 2009, after five years together."},{"1":"Bachelor","2":"7","3":"March 28 – May 16, 2005","4":"Charlie O'Connell","5":"29","6":"Sarah Brice","7":"Krisily Kennedy","8":"No","9":"No","10":"O’Connell did not propose to Brice, but instead they entered into a relationship. They broke up in September 2007, but got back together in November 2008. However, they broke up for good in April 2010."},{"1":"Bachelor","2":"8","3":"January 9 – February 27, 2006","4":"Travis Lane Stork","5":"33","6":"Sarah Stone","7":"Moana Dixon","8":"No","9":"No","10":"Stork did not propose to Stone, but instead they entered into a relationship. They broke up in March 2006."},{"1":"Bachelor","2":"9","3":"October 2 – November 27, 2006","4":"Lorenzo Borghese","5":"34","6":"Jennifer Wilson","7":"Sadie Murray","8":"No","9":"No","10":"Borghese did not propose to Wilson, but instead they entered into a relationship. They broke up in January 2007. He briefly dated runner-up Murray, but they broke up in March 2007."},{"1":"Bachelor","2":"10","3":"April 2 – May 22, 2007","4":"Andy Baldwin","5":"30","6":"Tessa Horst","7":"Bevin Powers","8":"Yes","9":"No","10":"Baldwin and Horst called off their engagement in June 2007, but continued to date. They ended their relationship in September 2007."},{"1":"Bachelor","2":"11","3":"September 24 – November 20, 2007","4":"Brad Womack","5":"34","6":"NA","7":"DeAnna Pappas / Jenni Croft","8":"No","9":"No","10":"Womack chose Pappas and Croft as the two finalists, but they were both rejected in the season's finale."},{"1":"Bachelor","2":"12","3":"March 17 – May 12, 2008","4":"Matt Grant","5":"27","6":"Shayne Lamas","7":"Chelsea Wanstrath","8":"Yes","9":"No","10":"Grant and Lamas broke up in July 2008."},{"1":"Bachelor","2":"13","3":"January 5 – March 3, 2009","4":"Jason Mesnick","5":"32","6":"Melissa Rycroft","7":"Molly Malaney","8":"Yes","9":"No","10":"In the season finale, it was revealed that Mesnick had called off the engagement with Rycroft and resumed a relationship with runner-up Malaney. Mesnick later proposed to Malaney in New Zealand, and they were married on February 27, 2010, in California. Jason and Molly's wedding aired on ABC on March 8, 2010. The couple have a daughter, Riley Anne (born March 14, 2013). The couple also shares custody of Jason's son, Tyler, from his previous marriage (born January 25, 2005)."},{"1":"Bachelor","2":"14","3":"January 4 – March 1, 2010","4":"Jake Pavelka","5":"31","6":"Vienna Girardi","7":"Tenley Molzahn","8":"Yes","9":"No","10":"Pavelka and Girardi ended their engagement in June 2010."},{"1":"Bachelor","2":"15","3":"January 3 – March 14, 2011","4":"Brad Womack","5":"38","6":"Emily Maynard","7":"Chantal O'Brien","8":"Yes","9":"No","10":"Womack and Maynard broke up while their season was airing, but reconciled in time for the finale. However, they broke up for good in June 2011."},{"1":"Bachelor","2":"16","3":"January 2 – March 12, 2012","4":"Ben Flajnik","5":"29","6":"Courtney Robertson","7":"Lindzi Cox","8":"Yes","9":"No","10":"Flajnik and Robertson broke up while their season was airing, but reconciled in time for the finale. However, they broke up for good in October 2012."},{"1":"Bachelor","2":"17","3":"January 7 – March 11, 2013","4":"Sean Lowe","5":"29","6":"Catherine Giudici","7":"Lindsay Yenter","8":"Yes","9":"Yes","10":"Lowe and Giudici married on January 26, 2014. They have three children together; two sons, Samuel Thomas (born July 2, 2016) and Isaiah Hendrix (born May 18, 2018), and a daughter, Mia Mejia (born December 23, 2019)."},{"1":"Bachelor","2":"18","3":"January 6 – March 10, 2014","4":"Juan Pablo Galavis","5":"32","6":"Nikki Ferrell","7":"Clare Crawley","8":"No","9":"No","10":"Galavis did not propose to Ferrell but instead they decided to continue their relationship. They later appeared on Couples Therapy. They broke up in October 2014."},{"1":"Bachelor","2":"19","3":"January 5 – March 9, 2015","4":"Chris Soules","5":"33","6":"Whitney Bischoff","7":"Becca Tilley","8":"Yes","9":"No","10":"Soules and Bischoff announced their break-up on May 28, 2015."},{"1":"Bachelor","2":"20","3":"January 4 – March 14, 2016","4":"Ben Higgins","5":"27","6":"Lauren Bushnell","7":"Joelle \"JoJo\" Fletcher","8":"Yes","9":"No","10":"Higgins and Bushnell had their own reality show Ben and Lauren: Happily Ever After?. They announced their breakup on May 15, 2017."},{"1":"Bachelor","2":"21","3":"January 2 – March 13, 2017","4":"Nick Viall","5":"36","6":"Vanessa Grimaldi","7":"Raven Gates","8":"Yes","9":"No","10":"Viall and Grimaldi announced their breakup on August 25, 2017."},{"1":"Bachelor","2":"22","3":"January 1 – March 6, 2018","4":"Arie Luyendyk Jr.","5":"35","6":"Becca Kufrin","7":"Lauren Burnham","8":"Yes","9":"No","10":"During the live season finale, it was revealed that a few weeks after filming wrapped, Luyendyk had quickly called off his engagement to Kufrin and started dating runner-up Burnham. Luyendyk and Burnham got engaged during the After the Final Rose special and were married on January 12, 2019. They have three children together - daughter, Alessi Ren (born May 29, 2019), and twins Lux Jacob and Senna James (born June 11, 2021)."},{"1":"Bachelor","2":"23","3":"January 7 – March 12, 2019","4":"Colton Underwood","5":"26","6":"Cassie Randolph","7":"Hannah Godwin / Tayshia Adams","8":"No","9":"No","10":"Randolph initially broke up with Underwood at the final three. Underwood then broke up with the remaining two women and asked Randolph to give him a second chance, and she agreed. They announced their breakup on May 29, 2020. In September 2020, Randolph filed a restraining order against Underwood, alleging that he stalked her and put a tracking device on her car. The restraining order was later dropped after the two reached a private agreement. Underwood came out as gay on April 14, 2021."},{"1":"Bachelor","2":"24","3":"January 6 – March 10, 2020","4":"Peter Weber","5":"28","6":"Hannah Ann Sluss","7":"Madison Prewett","8":"Yes","9":"No","10":"During the live After the Final Rose special, it was revealed that Weber and Sluss had ended their engagement in January 2020. Although Weber and runner-up Prewett admitted to still having feelings for each other, they ultimately decided not to pursue a relationship. On May 2, 2020, Weber revealed that he was dating Kelley Flanagan, who finished in fifth place on his season. Weber and Flanagan announced their breakup on December 31, 2020. They got back together in August 2022, but broke up again in April 2023."},{"1":"Bachelor","2":"25","3":"January 4 – March 15, 2021","4":"Matt James","5":"29","6":"Rachael Kirkconnell","7":"Michelle Young","8":"No","9":"Yes","10":"James did not propose to Kirkconnell. Instead they began a relationship, but on the After the Final Rose special, it was confirmed that James had ended the relationship after Kirkconnell's racially insensitive past came to light. On April 28, 2021, James confirmed that he and Kirkconnell were back together. They are still together as of May 2023."},{"1":"Bachelor","2":"26","3":"January 3 – March 15, 2022","4":"Clayton Echard","5":"28","6":"Susie Evans","7":"Gabby Windey / Rachel Recchia","8":"No","9":"No","10":"Although the season ended with Evans rejecting Echard, it was revealed on the live After the Final Rose special that they had since gotten back together. They announced their breakup on September 23, 2022."},{"1":"Bachelor","2":"27","3":"January 23 – March 27, 2023","4":"Zach Shallcross","5":"26","6":"Kaity Biggar","7":"Gabi Elnicki","8":"Yes","9":"Yes","10":"Shallcross and Biggar are still engaged as of May 2023."},{"1":"Bachelorette","2":"1","3":"January 8 – February 19, 2003","4":"Trista Rehn","5":"29","6":"Ryan Sutter","7":"Charlie Maher","8":"Yes","9":"Yes","10":"Rehn and Sutter were married on December 6, 2003, on national television. They have two children together, Maxwell Alston (born July 26, 2007) and Blakesley Grace (born April 3, 2009)."},{"1":"Bachelorette","2":"2","3":"January 14 – February 26, 2004","4":"Meredith Phillips","5":"28","6":"Ian Mckee","7":"Matthew Hickl","8":"Yes","9":"No","10":"Phillips and Mckee got engaged at the end of the show, but broke up in February 2005."},{"1":"Bachelorette","2":"3","3":"January 10 – February 28, 2005","4":"Jen Schefft","5":"28","6":"Jerry Ferris","7":"John Paul Merritt","8":"No","9":"No","10":"During the first live final rose ceremony, Schefft chose Ferris over Merritt. Ferris proposed to Schefft, but she rejected his proposal."},{"1":"Bachelorette","2":"4","3":"May 19 – July 7, 2008","4":"DeAnna Pappas","5":"26","6":"Jesse Csincsak","7":"Jason Mesnick","8":"Yes","9":"No","10":"Pappas and Csincsak got engaged in the finale, and their wedding was set for May 9, 2009, but they broke up in November 2008."},{"1":"Bachelorette","2":"5","3":"May 18 – July 28, 2009","4":"Jillian Harris","5":"29","6":"Ed Swiderski","7":"Kiptyn Locke","8":"Yes","9":"No","10":"Harris and Swiderski got engaged in the finale, but they broke up in July 2010."},{"1":"Bachelorette","2":"6","3":"May 24 – August 2, 2010","4":"Ali Fedotowsky","5":"25","6":"Roberto Martinez","7":"Chris Lambton","8":"Yes","9":"No","10":"Fedotowsky and Martinez got engaged in the finale, but they broke up in November 2011."},{"1":"Bachelorette","2":"7","3":"May 23 – August 1, 2011","4":"Ashley Hebert","5":"27","6":"JP Rosenbaum","7":"Ben Flajnik","8":"Yes","9":"No","10":"Hebert and Rosenbaum married on December 1, 2012, and their wedding aired as a TV special on December 16 of that year. They have two children together, Fordham Rhys (September 30, 2014) and Essex Reese (born November 4, 2016). On October 14, 2020, they announced that they had decided to permanently separate. Their divorce was finalized on October 7, 2021."},{"1":"Bachelorette","2":"8","3":"May 14 – July 23, 2012","4":"Emily Maynard","5":"26","6":"Jef Holm","7":"Arie Luyendyk Jr.","8":"Yes","9":"No","10":"Maynard and Holm got engaged in the finale, but they broke up in October 2012."},{"1":"Bachelorette","2":"9","3":"May 27 – August 5, 2013","4":"Desiree Hartsock","5":"27","6":"Chris Siegfried","7":"Drew Kenney","8":"Yes","9":"Yes","10":"Hartsock and Siegfried married on January 18, 2015, and currently live in Portland, Oregon. They have two sons together, Asher Wrigley (born October 19, 2016) and Zander Cruz (born January 12, 2019)."},{"1":"Bachelorette","2":"10","3":"May 19 – July 28, 2014","4":"Andi Dorfman","5":"27","6":"Josh Murray","7":"Nick Viall","8":"Yes","9":"No","10":"Murray proposed to Dorfman in the season finale, but they announced their breakup on January 8, 2015."},{"1":"Bachelorette","2":"11","3":"May 18 – July 27, 2015","4":"Kaitlyn Bristowe","5":"29","6":"Shawn Booth","7":"Nick Viall","8":"Yes","9":"No","10":"Booth proposed to Bristowe in the season finale, but they announced their breakup on November 2, 2018. On May 12, 2021, Bristowe announced her engagement to Jason Tartick, who finished in third place on season 14."},{"1":"Bachelorette","2":"11","3":"May 18 – July 27, 2015","4":"Britt Nilsson","5":"28","6":"NA","7":"NA","8":"NA","9":"NA","10":"Season 11 featured two Bachelorettes at the start. Kaitlyn Bristowe and Britt Nilsson were initially selected as candidates. In the second episode, the men voted Bristowe as the Bachelorette for the majority of the season."},{"1":"Bachelorette","2":"12","3":"May 23 – August 1, 2016","4":"Joelle \"JoJo\" Fletcher","5":"25","6":"Jordan Rodgers","7":"Robby Hayes","8":"Yes","9":"Yes","10":"Fletcher and Rodgers married on May 14, 2022, in Santa Ynez, California, and currently live in Dallas, Texas."},{"1":"Bachelorette","2":"13","3":"May 22 – August 7, 2017","4":"Rachel Lindsay","5":"32","6":"Bryan Abasolo","7":"Peter Kraus","8":"Yes","9":"Yes","10":"Lindsay and Abasolo married on August 24, 2019. They currently live in Los Angeles, California."},{"1":"Bachelorette","2":"14","3":"May 28 – August 6, 2018","4":"Becca Kufrin","5":"28","6":"Garrett Yrigoyen","7":"Blake Horstmann","8":"Yes","9":"No","10":"Yrigoyen proposed to Kufrin in the season finale, but they broke up in August 2020. On May 29, 2022, Kufrin announced her engagement to season 17 contestant Thomas Jacobs, whom she met on season 7 of Bachelor in Paradise."},{"1":"Bachelorette","2":"15","3":"May 13 – July 30, 2019","4":"Hannah Brown","5":"24","6":"Jed Wyatt","7":"Tyler Cameron","8":"Yes","9":"No","10":"In the live season finale, it was revealed that Brown and Wyatt broke up in June 2019 after Brown discovered that Wyatt had a girlfriend at the time of filming. Wyatt also admitted that he went on the show to promote his music career. During the After the Final Rose special, Brown asked runner-up Cameron on a date, but they ultimately decided not to pursue a relationship."},{"1":"Bachelorette","2":"16","3":"October 13 – December 22, 2020","4":"Clare Crawley","5":"39","6":"Dale Moss","7":"NA","8":"Yes","9":"No","10":"Moss proposed to Crawley in the fourth episode. They announced their breakup on January 19, 2021. On May 28, 2021, Moss confirmed they were back together. They broke up again in September 2021."},{"1":"Bachelorette","2":"16","3":"October 13 – December 22, 2020","4":"Tayshia Adams","5":"29","6":"Zac Clark","7":"Ben Smith","8":"Yes","9":"No","10":"Clark proposed to Adams in the season finale, but they announced their breakup on November 22, 2021."},{"1":"Bachelorette","2":"17","3":"June 7 – August 9, 2021","4":"Katie Thurston","5":"30","6":"Blake Moynes","7":"Justin Glaze","8":"Yes","9":"No","10":"Moynes proposed to Thurston in the season finale, but they announced their breakup on October 25, 2021. On November 23, 2021, Thurston announced that she was dating John Hersey, whom she had previously eliminated during week two of her season. She confirmed their breakup on June 20, 2022."},{"1":"Bachelorette","2":"18","3":"October 19 – December 21, 2021","4":"Michelle Young","5":"28","6":"Nayte Olukoya","7":"Brandon Jones","8":"Yes","9":"No","10":"Olukoya proposed to Young in the season finale, but they announced their breakup on June 17, 2022."},{"1":"Bachelorette","2":"19","3":"July 11 – September 20, 2022","4":"Gabby Windey","5":"31","6":"Erich Schwer","7":"NA","8":"Yes","9":"No","10":"Schwer proposed to Windey in the season finale. They announced their breakup on November 4, 2022."},{"1":"Bachelorette","2":"19","3":"July 11 – September 20, 2022","4":"Rachel Recchia","5":"26","6":"Tino Franco","7":"Aven Jones","8":"Yes","9":"No","10":"Although the season ended with Franco proposing to Recchia, it was revealed during the live finale that Recchia had ended their engagement in August 2022 after Franco admitted to cheating on her. Later in the live finale, runner-up Jones asked Recchia on a date, and she said yes. However, they ultimately decided not to pursue a relationship."},{"1":"Bachelorette","2":"20","3":"July 26 – ??, 2023","4":"Charity Lawson","5":"27","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -705,29 +750,36 @@ Show/Hide Solution
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-bachelor-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-bachelor-1" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bachelor-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div data-pagedtable="false">
-
 <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["show"],"name":[2],"type":["chr"],"align":["left"]},{"label":["min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[10],"type":["int"],"align":["right"]},{"label":["missing"],"name":[11],"type":["int"],"align":["right"]}],"data":[{"1":"age","2":"Bachelor","3":"25","4":"28.0","5":"30","6":"33","7":"40","8":"30.70370","9":"3.800960","10":"27","11":"0"},{"1":"age","2":"Bachelorette","3":"24","4":"26.5","5":"28","6":"29","7":"39","8":"28.17391","9":"3.039919","10":"23","11":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;13.4: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bachelor-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.4: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.
+</figcaption>
 </figure>
 </div>
 <div class="cell-output-display">
-<div id="fig-bachelor-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-01-two-sample-t-test_files/figure-html/fig-bachelor-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.5: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.</figcaption>
+<div id="fig-bachelor-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bachelor-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-01-two-sample-t-test_files/figure-html/fig-bachelor-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bachelor-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.5: Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>While the sample data suggests that the average age for Bachelor contestants is higher than the average age of Bachelorette contestants, is this difference only due to sampling variation? To answer this, we will carry out a two-sample <em>t</em>-test to evaluate the sample differences in light of the expected sampling variation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor, </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu =</span> <span class="dv">0</span>, </span>
@@ -764,10 +816,14 @@ Show/Hide Solution
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-t-dist2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist2-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical lines represent the observed <em>t</em>-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated <em>p</em>-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.</figcaption>
+<div id="fig-t-dist2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-dist2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist2-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-dist2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.6: Density plot of the <em>t</em>-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (<em>t</em> value of 0). The red vertical lines represent the observed <em>t</em>-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated <em>p</em>-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -787,7 +843,7 @@ Show/Hide Solution
 <h2 data-number="13.6" class="anchored" data-anchor-id="references"><span class="header-section-number">13.6</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Meier:2012" class="csl-entry" role="listitem">
 Meier, M. H., Caspi, A., Ambler, A., Harrington, H., Houts, R., Keefe, R. S. E., McDonald, K., Ward, A., Poulton, R., &amp; Moffitt, T. E. (2012). Persistent cannabis users show neuropsychological decline from childhood to midlife. <em>Proc Natl Acad Sci U S A</em>, <em>109</em>(40), E2657–64. <a href="https://doi.org/10.1073/pnas.1206820109">https://doi.org/10.1073/pnas.1206820109</a>
 </div>
@@ -877,10 +933,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -890,8 +945,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -904,6 +968,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -947,6 +1130,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -972,6 +1156,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1033,17 +1243,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05-00-comparing-two-groups.html" class="pagination-link">
+      <a href="./05-00-comparing-two-groups.html" class="pagination-link" aria-label="Comparing Two Groups">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Two Groups</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-02-two-sample-test-assumptions.html" class="pagination-link">
+      <a href="./05-02-two-sample-test-assumptions.html" class="pagination-link" aria-label="Two-Sample t-Test: Assumptions">
         <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

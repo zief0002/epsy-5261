@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>An Introduction to Data Analysis - 30&nbsp; phone-incentives.csv</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09-02-college-debt.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+// Function to toggle the visibility of solutions in exercises
+function toggle_visibility(id) {
+   var e = document.getElementById(id);
+   if(e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+</script>
+<link href="site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/sticky-notes.css">
+<link rel="stylesheet" href="assets/table-styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-00-data-codebooks.html">Data Codebooks</a></li><li class="breadcrumb-item"><a href="./09-08-phone-incentives.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">An Introduction to Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foreword</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Computation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-01-r-and-rstudio-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RStudio: Installation and Setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-02-getting-started-with-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-03-data-structures-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Structures in R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-01-data-structure-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Structure and Attribute Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing and Visualizing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-01-categorical-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-02-quantitative-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Quantitative Attributes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Data to a Standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-01-case-study-teen-sleep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-02-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-one-sample-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-04-one-sample-test-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">One-Sample t-Test Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-05-one-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions of the One-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-06-one-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">One-Sample z-Test: Evaluating Proportions Against a Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Two Groups</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-01-two-sample-t-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Two-Sample t-Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-02-two-sample-test-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Two-Sample t-Test: Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-03-two-sample-test-proportions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-Sample z-Test: Evaluating Differences in Proportions From Two Samples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-04-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Errors in Hypothesis Testing</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-01-generalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Sampling and Generalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-02-cause-and-effect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Assignment and Causal Inferences</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effect Size</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-01-confidence-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-02-confidence-intervals-computation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Confidence Intervals Using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-03-confidence-intervals-extras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Confidence Intervals: Assumptions, Accuracy, and Precision</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-04-standardized-effects-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Standardized Effects for Means</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-05-standardized-effects-props.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Standardized Effects for Proportions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-01-scatterplot-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Scatterplots and Correlation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-02-linear-regression-description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Linear Regression—Description</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-04-regression-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inference for Linear Relationship</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./09-00-data-codebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Codebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-01-body-temp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">body-temp.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-02-college-debt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-08-phone-incentives.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preview" id="toc-preview" class="nav-link active" data-scroll-target="#preview"><span class="header-section-number">30.1</span> Preview</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-00-data-codebooks.html">Data Codebooks</a></li><li class="breadcrumb-item"><a href="./09-08-phone-incentives.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="phone-incentives" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">phone-incentives.csv</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv">phone-incentives.csv</a> contains information for a sample of <span class="math inline">\(n=395\)</span> participants enrolled in a incentive study. Participants were randomly assigned to an experimental group where they received a incentive or a control group.</p>
+<p>The attributes are:</p>
+<ul>
+<li><code>group</code>: Whether the participant was a member of the experimental (<code>Incentive</code>) or control (<code>Control</code>) group</li>
+<li><code>cooperate</code>: Whether the participant cooperated (<code>Yes</code>) or not (<code>No</code>)</li>
+</ul>
+<p><br></p>
+<section id="preview" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="preview"><span class="header-section-number">30.1</span> Preview</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>phone_incentives <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>phone_incentives</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["participant_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["group"],"name":[2],"type":["chr"],"align":["left"]},{"label":["cooperate"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Control","3":"Yes"},{"1":"2","2":"Control","3":"Yes"},{"1":"3","2":"Control","3":"Yes"},{"1":"4","2":"Control","3":"Yes"},{"1":"5","2":"Control","3":"Yes"},{"1":"6","2":"Control","3":"Yes"},{"1":"7","2":"Control","3":"Yes"},{"1":"8","2":"Control","3":"Yes"},{"1":"9","2":"Control","3":"Yes"},{"1":"10","2":"Control","3":"Yes"},{"1":"11","2":"Control","3":"Yes"},{"1":"12","2":"Control","3":"Yes"},{"1":"13","2":"Control","3":"Yes"},{"1":"14","2":"Control","3":"Yes"},{"1":"15","2":"Control","3":"Yes"},{"1":"16","2":"Control","3":"Yes"},{"1":"17","2":"Control","3":"Yes"},{"1":"18","2":"Control","3":"Yes"},{"1":"19","2":"Control","3":"Yes"},{"1":"20","2":"Control","3":"Yes"},{"1":"21","2":"Control","3":"Yes"},{"1":"22","2":"Control","3":"Yes"},{"1":"23","2":"Control","3":"Yes"},{"1":"24","2":"Control","3":"Yes"},{"1":"25","2":"Control","3":"Yes"},{"1":"26","2":"Control","3":"Yes"},{"1":"27","2":"Control","3":"Yes"},{"1":"28","2":"Control","3":"Yes"},{"1":"29","2":"Control","3":"Yes"},{"1":"30","2":"Control","3":"Yes"},{"1":"31","2":"Control","3":"Yes"},{"1":"32","2":"Control","3":"Yes"},{"1":"33","2":"Control","3":"Yes"},{"1":"34","2":"Control","3":"Yes"},{"1":"35","2":"Control","3":"Yes"},{"1":"36","2":"Control","3":"Yes"},{"1":"37","2":"Control","3":"Yes"},{"1":"38","2":"Control","3":"Yes"},{"1":"39","2":"Control","3":"Yes"},{"1":"40","2":"Control","3":"Yes"},{"1":"41","2":"Control","3":"Yes"},{"1":"42","2":"Control","3":"Yes"},{"1":"43","2":"Control","3":"Yes"},{"1":"44","2":"Control","3":"Yes"},{"1":"45","2":"Control","3":"Yes"},{"1":"46","2":"Control","3":"Yes"},{"1":"47","2":"Control","3":"Yes"},{"1":"48","2":"Control","3":"Yes"},{"1":"49","2":"Control","3":"Yes"},{"1":"50","2":"Control","3":"Yes"},{"1":"51","2":"Control","3":"Yes"},{"1":"52","2":"Control","3":"Yes"},{"1":"53","2":"Control","3":"Yes"},{"1":"54","2":"Control","3":"Yes"},{"1":"55","2":"Control","3":"Yes"},{"1":"56","2":"Control","3":"Yes"},{"1":"57","2":"Control","3":"Yes"},{"1":"58","2":"Control","3":"Yes"},{"1":"59","2":"Control","3":"Yes"},{"1":"60","2":"Control","3":"Yes"},{"1":"61","2":"Control","3":"Yes"},{"1":"62","2":"Control","3":"Yes"},{"1":"63","2":"Control","3":"Yes"},{"1":"64","2":"Control","3":"Yes"},{"1":"65","2":"Control","3":"Yes"},{"1":"66","2":"Control","3":"Yes"},{"1":"67","2":"Control","3":"Yes"},{"1":"68","2":"Control","3":"Yes"},{"1":"69","2":"Control","3":"Yes"},{"1":"70","2":"Control","3":"Yes"},{"1":"71","2":"Control","3":"Yes"},{"1":"72","2":"Control","3":"Yes"},{"1":"73","2":"Control","3":"Yes"},{"1":"74","2":"Control","3":"Yes"},{"1":"75","2":"Control","3":"Yes"},{"1":"76","2":"Control","3":"Yes"},{"1":"77","2":"Control","3":"Yes"},{"1":"78","2":"Control","3":"Yes"},{"1":"79","2":"Control","3":"Yes"},{"1":"80","2":"Control","3":"Yes"},{"1":"81","2":"Control","3":"Yes"},{"1":"82","2":"Control","3":"Yes"},{"1":"83","2":"Control","3":"Yes"},{"1":"84","2":"Control","3":"Yes"},{"1":"85","2":"Control","3":"Yes"},{"1":"86","2":"Control","3":"Yes"},{"1":"87","2":"Control","3":"Yes"},{"1":"88","2":"Control","3":"Yes"},{"1":"89","2":"Control","3":"Yes"},{"1":"90","2":"Control","3":"Yes"},{"1":"91","2":"Control","3":"Yes"},{"1":"92","2":"Control","3":"Yes"},{"1":"93","2":"Control","3":"Yes"},{"1":"94","2":"Control","3":"Yes"},{"1":"95","2":"Control","3":"Yes"},{"1":"96","2":"Control","3":"Yes"},{"1":"97","2":"Control","3":"Yes"},{"1":"98","2":"Control","3":"Yes"},{"1":"99","2":"Control","3":"Yes"},{"1":"100","2":"Control","3":"Yes"},{"1":"101","2":"Control","3":"Yes"},{"1":"102","2":"Control","3":"Yes"},{"1":"103","2":"Control","3":"Yes"},{"1":"104","2":"Control","3":"Yes"},{"1":"105","2":"Control","3":"Yes"},{"1":"106","2":"Control","3":"Yes"},{"1":"107","2":"Control","3":"Yes"},{"1":"108","2":"Control","3":"Yes"},{"1":"109","2":"Control","3":"Yes"},{"1":"110","2":"Control","3":"Yes"},{"1":"111","2":"Control","3":"Yes"},{"1":"112","2":"Control","3":"Yes"},{"1":"113","2":"Control","3":"Yes"},{"1":"114","2":"Control","3":"Yes"},{"1":"115","2":"Control","3":"Yes"},{"1":"116","2":"Control","3":"Yes"},{"1":"117","2":"Control","3":"Yes"},{"1":"118","2":"Control","3":"Yes"},{"1":"119","2":"Control","3":"Yes"},{"1":"120","2":"Control","3":"Yes"},{"1":"121","2":"Control","3":"Yes"},{"1":"122","2":"Control","3":"Yes"},{"1":"123","2":"Control","3":"Yes"},{"1":"124","2":"Control","3":"Yes"},{"1":"125","2":"Control","3":"Yes"},{"1":"126","2":"Control","3":"Yes"},{"1":"127","2":"Control","3":"Yes"},{"1":"128","2":"Control","3":"Yes"},{"1":"129","2":"Control","3":"Yes"},{"1":"130","2":"Control","3":"Yes"},{"1":"131","2":"Control","3":"Yes"},{"1":"132","2":"Control","3":"Yes"},{"1":"133","2":"Control","3":"Yes"},{"1":"134","2":"Control","3":"Yes"},{"1":"135","2":"Control","3":"Yes"},{"1":"136","2":"Control","3":"Yes"},{"1":"137","2":"Control","3":"Yes"},{"1":"138","2":"Control","3":"Yes"},{"1":"139","2":"Control","3":"Yes"},{"1":"140","2":"Control","3":"Yes"},{"1":"141","2":"Control","3":"Yes"},{"1":"142","2":"Control","3":"Yes"},{"1":"143","2":"Control","3":"Yes"},{"1":"144","2":"Control","3":"Yes"},{"1":"145","2":"Control","3":"Yes"},{"1":"146","2":"Control","3":"Yes"},{"1":"147","2":"Control","3":"Yes"},{"1":"148","2":"Control","3":"Yes"},{"1":"149","2":"Control","3":"Yes"},{"1":"150","2":"Control","3":"No"},{"1":"151","2":"Control","3":"No"},{"1":"152","2":"Control","3":"No"},{"1":"153","2":"Control","3":"No"},{"1":"154","2":"Control","3":"No"},{"1":"155","2":"Control","3":"No"},{"1":"156","2":"Control","3":"No"},{"1":"157","2":"Control","3":"No"},{"1":"158","2":"Control","3":"No"},{"1":"159","2":"Control","3":"No"},{"1":"160","2":"Control","3":"No"},{"1":"161","2":"Control","3":"No"},{"1":"162","2":"Control","3":"No"},{"1":"163","2":"Control","3":"No"},{"1":"164","2":"Control","3":"No"},{"1":"165","2":"Control","3":"No"},{"1":"166","2":"Control","3":"No"},{"1":"167","2":"Control","3":"No"},{"1":"168","2":"Control","3":"No"},{"1":"169","2":"Control","3":"No"},{"1":"170","2":"Control","3":"No"},{"1":"171","2":"Control","3":"No"},{"1":"172","2":"Control","3":"No"},{"1":"173","2":"Control","3":"No"},{"1":"174","2":"Control","3":"No"},{"1":"175","2":"Control","3":"No"},{"1":"176","2":"Control","3":"No"},{"1":"177","2":"Control","3":"No"},{"1":"178","2":"Control","3":"No"},{"1":"179","2":"Control","3":"No"},{"1":"180","2":"Control","3":"No"},{"1":"181","2":"Control","3":"No"},{"1":"182","2":"Control","3":"No"},{"1":"183","2":"Control","3":"No"},{"1":"184","2":"Control","3":"No"},{"1":"185","2":"Control","3":"No"},{"1":"186","2":"Control","3":"No"},{"1":"187","2":"Control","3":"No"},{"1":"188","2":"Control","3":"No"},{"1":"189","2":"Control","3":"No"},{"1":"190","2":"Control","3":"No"},{"1":"191","2":"Control","3":"No"},{"1":"192","2":"Control","3":"No"},{"1":"193","2":"Control","3":"No"},{"1":"194","2":"Control","3":"No"},{"1":"195","2":"Control","3":"No"},{"1":"196","2":"Control","3":"No"},{"1":"197","2":"Control","3":"No"},{"1":"198","2":"Control","3":"No"},{"1":"199","2":"Control","3":"No"},{"1":"200","2":"Control","3":"No"},{"1":"201","2":"Control","3":"No"},{"1":"202","2":"Control","3":"No"},{"1":"203","2":"Control","3":"No"},{"1":"204","2":"Control","3":"No"},{"1":"205","2":"Incentive","3":"Yes"},{"1":"206","2":"Incentive","3":"Yes"},{"1":"207","2":"Incentive","3":"Yes"},{"1":"208","2":"Incentive","3":"Yes"},{"1":"209","2":"Incentive","3":"Yes"},{"1":"210","2":"Incentive","3":"Yes"},{"1":"211","2":"Incentive","3":"Yes"},{"1":"212","2":"Incentive","3":"Yes"},{"1":"213","2":"Incentive","3":"Yes"},{"1":"214","2":"Incentive","3":"Yes"},{"1":"215","2":"Incentive","3":"Yes"},{"1":"216","2":"Incentive","3":"Yes"},{"1":"217","2":"Incentive","3":"Yes"},{"1":"218","2":"Incentive","3":"Yes"},{"1":"219","2":"Incentive","3":"Yes"},{"1":"220","2":"Incentive","3":"Yes"},{"1":"221","2":"Incentive","3":"Yes"},{"1":"222","2":"Incentive","3":"Yes"},{"1":"223","2":"Incentive","3":"Yes"},{"1":"224","2":"Incentive","3":"Yes"},{"1":"225","2":"Incentive","3":"Yes"},{"1":"226","2":"Incentive","3":"Yes"},{"1":"227","2":"Incentive","3":"Yes"},{"1":"228","2":"Incentive","3":"Yes"},{"1":"229","2":"Incentive","3":"Yes"},{"1":"230","2":"Incentive","3":"Yes"},{"1":"231","2":"Incentive","3":"Yes"},{"1":"232","2":"Incentive","3":"Yes"},{"1":"233","2":"Incentive","3":"Yes"},{"1":"234","2":"Incentive","3":"Yes"},{"1":"235","2":"Incentive","3":"Yes"},{"1":"236","2":"Incentive","3":"Yes"},{"1":"237","2":"Incentive","3":"Yes"},{"1":"238","2":"Incentive","3":"Yes"},{"1":"239","2":"Incentive","3":"Yes"},{"1":"240","2":"Incentive","3":"Yes"},{"1":"241","2":"Incentive","3":"Yes"},{"1":"242","2":"Incentive","3":"Yes"},{"1":"243","2":"Incentive","3":"Yes"},{"1":"244","2":"Incentive","3":"Yes"},{"1":"245","2":"Incentive","3":"Yes"},{"1":"246","2":"Incentive","3":"Yes"},{"1":"247","2":"Incentive","3":"Yes"},{"1":"248","2":"Incentive","3":"Yes"},{"1":"249","2":"Incentive","3":"Yes"},{"1":"250","2":"Incentive","3":"Yes"},{"1":"251","2":"Incentive","3":"Yes"},{"1":"252","2":"Incentive","3":"Yes"},{"1":"253","2":"Incentive","3":"Yes"},{"1":"254","2":"Incentive","3":"Yes"},{"1":"255","2":"Incentive","3":"Yes"},{"1":"256","2":"Incentive","3":"Yes"},{"1":"257","2":"Incentive","3":"Yes"},{"1":"258","2":"Incentive","3":"Yes"},{"1":"259","2":"Incentive","3":"Yes"},{"1":"260","2":"Incentive","3":"Yes"},{"1":"261","2":"Incentive","3":"Yes"},{"1":"262","2":"Incentive","3":"Yes"},{"1":"263","2":"Incentive","3":"Yes"},{"1":"264","2":"Incentive","3":"Yes"},{"1":"265","2":"Incentive","3":"Yes"},{"1":"266","2":"Incentive","3":"Yes"},{"1":"267","2":"Incentive","3":"Yes"},{"1":"268","2":"Incentive","3":"Yes"},{"1":"269","2":"Incentive","3":"Yes"},{"1":"270","2":"Incentive","3":"Yes"},{"1":"271","2":"Incentive","3":"Yes"},{"1":"272","2":"Incentive","3":"Yes"},{"1":"273","2":"Incentive","3":"Yes"},{"1":"274","2":"Incentive","3":"Yes"},{"1":"275","2":"Incentive","3":"Yes"},{"1":"276","2":"Incentive","3":"Yes"},{"1":"277","2":"Incentive","3":"Yes"},{"1":"278","2":"Incentive","3":"Yes"},{"1":"279","2":"Incentive","3":"Yes"},{"1":"280","2":"Incentive","3":"Yes"},{"1":"281","2":"Incentive","3":"Yes"},{"1":"282","2":"Incentive","3":"Yes"},{"1":"283","2":"Incentive","3":"Yes"},{"1":"284","2":"Incentive","3":"Yes"},{"1":"285","2":"Incentive","3":"Yes"},{"1":"286","2":"Incentive","3":"Yes"},{"1":"287","2":"Incentive","3":"Yes"},{"1":"288","2":"Incentive","3":"Yes"},{"1":"289","2":"Incentive","3":"Yes"},{"1":"290","2":"Incentive","3":"Yes"},{"1":"291","2":"Incentive","3":"Yes"},{"1":"292","2":"Incentive","3":"Yes"},{"1":"293","2":"Incentive","3":"Yes"},{"1":"294","2":"Incentive","3":"Yes"},{"1":"295","2":"Incentive","3":"Yes"},{"1":"296","2":"Incentive","3":"Yes"},{"1":"297","2":"Incentive","3":"Yes"},{"1":"298","2":"Incentive","3":"Yes"},{"1":"299","2":"Incentive","3":"Yes"},{"1":"300","2":"Incentive","3":"Yes"},{"1":"301","2":"Incentive","3":"Yes"},{"1":"302","2":"Incentive","3":"Yes"},{"1":"303","2":"Incentive","3":"Yes"},{"1":"304","2":"Incentive","3":"Yes"},{"1":"305","2":"Incentive","3":"Yes"},{"1":"306","2":"Incentive","3":"Yes"},{"1":"307","2":"Incentive","3":"Yes"},{"1":"308","2":"Incentive","3":"Yes"},{"1":"309","2":"Incentive","3":"Yes"},{"1":"310","2":"Incentive","3":"Yes"},{"1":"311","2":"Incentive","3":"Yes"},{"1":"312","2":"Incentive","3":"Yes"},{"1":"313","2":"Incentive","3":"Yes"},{"1":"314","2":"Incentive","3":"Yes"},{"1":"315","2":"Incentive","3":"Yes"},{"1":"316","2":"Incentive","3":"Yes"},{"1":"317","2":"Incentive","3":"Yes"},{"1":"318","2":"Incentive","3":"Yes"},{"1":"319","2":"Incentive","3":"Yes"},{"1":"320","2":"Incentive","3":"Yes"},{"1":"321","2":"Incentive","3":"Yes"},{"1":"322","2":"Incentive","3":"Yes"},{"1":"323","2":"Incentive","3":"Yes"},{"1":"324","2":"Incentive","3":"Yes"},{"1":"325","2":"Incentive","3":"Yes"},{"1":"326","2":"Incentive","3":"Yes"},{"1":"327","2":"Incentive","3":"Yes"},{"1":"328","2":"Incentive","3":"Yes"},{"1":"329","2":"Incentive","3":"Yes"},{"1":"330","2":"Incentive","3":"Yes"},{"1":"331","2":"Incentive","3":"Yes"},{"1":"332","2":"Incentive","3":"Yes"},{"1":"333","2":"Incentive","3":"Yes"},{"1":"334","2":"Incentive","3":"Yes"},{"1":"335","2":"Incentive","3":"Yes"},{"1":"336","2":"Incentive","3":"Yes"},{"1":"337","2":"Incentive","3":"Yes"},{"1":"338","2":"Incentive","3":"Yes"},{"1":"339","2":"Incentive","3":"Yes"},{"1":"340","2":"Incentive","3":"Yes"},{"1":"341","2":"Incentive","3":"Yes"},{"1":"342","2":"Incentive","3":"Yes"},{"1":"343","2":"Incentive","3":"Yes"},{"1":"344","2":"Incentive","3":"Yes"},{"1":"345","2":"Incentive","3":"Yes"},{"1":"346","2":"Incentive","3":"Yes"},{"1":"347","2":"Incentive","3":"Yes"},{"1":"348","2":"Incentive","3":"No"},{"1":"349","2":"Incentive","3":"No"},{"1":"350","2":"Incentive","3":"No"},{"1":"351","2":"Incentive","3":"No"},{"1":"352","2":"Incentive","3":"No"},{"1":"353","2":"Incentive","3":"No"},{"1":"354","2":"Incentive","3":"No"},{"1":"355","2":"Incentive","3":"No"},{"1":"356","2":"Incentive","3":"No"},{"1":"357","2":"Incentive","3":"No"},{"1":"358","2":"Incentive","3":"No"},{"1":"359","2":"Incentive","3":"No"},{"1":"360","2":"Incentive","3":"No"},{"1":"361","2":"Incentive","3":"No"},{"1":"362","2":"Incentive","3":"No"},{"1":"363","2":"Incentive","3":"No"},{"1":"364","2":"Incentive","3":"No"},{"1":"365","2":"Incentive","3":"No"},{"1":"366","2":"Incentive","3":"No"},{"1":"367","2":"Incentive","3":"No"},{"1":"368","2":"Incentive","3":"No"},{"1":"369","2":"Incentive","3":"No"},{"1":"370","2":"Incentive","3":"No"},{"1":"371","2":"Incentive","3":"No"},{"1":"372","2":"Incentive","3":"No"},{"1":"373","2":"Incentive","3":"No"},{"1":"374","2":"Incentive","3":"No"},{"1":"375","2":"Incentive","3":"No"},{"1":"376","2":"Incentive","3":"No"},{"1":"377","2":"Incentive","3":"No"},{"1":"378","2":"Incentive","3":"No"},{"1":"379","2":"Incentive","3":"No"},{"1":"380","2":"Incentive","3":"No"},{"1":"381","2":"Incentive","3":"No"},{"1":"382","2":"Incentive","3":"No"},{"1":"383","2":"Incentive","3":"No"},{"1":"384","2":"Incentive","3":"No"},{"1":"385","2":"Incentive","3":"No"},{"1":"386","2":"Incentive","3":"No"},{"1":"387","2":"Incentive","3":"No"},{"1":"388","2":"Incentive","3":"No"},{"1":"389","2":"Incentive","3":"No"},{"1":"390","2":"Incentive","3":"No"},{"1":"391","2":"Incentive","3":"No"},{"1":"392","2":"Incentive","3":"No"},{"1":"393","2":"Incentive","3":"No"},{"1":"394","2":"Incentive","3":"No"},{"1":"395","2":"Incentive","3":"No"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<!-- ### References -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./09-02-college-debt.html" class="pagination-link" aria-label="college-debt.csv">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">college-debt.csv</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
