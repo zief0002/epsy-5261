@@ -1,4 +1,4 @@
-# Data and Codebooks
+# Data and Codebooks {-}
 
 In this section you can find the raw data and the data codebook associated with each of the datasets used in the book, as well as in the EPSY 5261 course.
 

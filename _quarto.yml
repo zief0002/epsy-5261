@@ -62,7 +62,7 @@ book:
         - 08-02-linear-regression-description.qmd
         - 08-03-r-squared.qmd
         - 08-04-regression-inference.qmd
-    - part: 09-00-data-codebooks.qmd
+    - 09-00-data-codebooks.qmd
       # chapters:
       #   - 09-01-body-temp.qmd
       #   - 09-02-college-debt.qmd
