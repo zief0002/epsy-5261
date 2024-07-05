@@ -1,0 +1,160 @@
+name,state,region,inst_type,control,for_profit,adm_rate,undergrads,mdn_debt,mdn_earn
+Abilene Christian University,TX,Southwest,Four-year undergraduate,Private,No,0.634,3480,24000,49294
+AdventHealth University,FL,Southeast,Four-year undergraduate,Private,No,0.9087,1129,25034,58788
+Andrews University,MI,Great Lakes,Four-year undergraduate,Private,No,0.4878,1381,26076,51909
+Arizona Christian University,AZ,Southwest,Four-year undergraduate,Private,No,0.7147,883,21500,37531
+Art Center College of Design,CA,Far West,Four-year undergraduate,Private,No,0.7609,1907,31218,66407
+Augsburg University,MN,Plains,Four-year undergraduate,Private,No,0.7312,2487,25000,53472
+Ave Maria University,FL,Southeast,Four-year undergraduate,Private,No,0.9179,1048,21500,45789
+Baptist Health College Little Rock,AR,Southeast,Two-year undergraduate,Private,No,0.5,661,10000,54924
+Bard College,NY,Mid East,Four-year undergraduate,Private,No,0.5695,1932,25910,43441
+Bates College,ME,New England,Four-year undergraduate,Private,No,0.141,1876,13978,64706
+Baylor University,TX,Southwest,Four-year undergraduate,Private,No,0.6847,14329,23550,60512
+Beacon College,FL,Southeast,Four-year undergraduate,Private,No,0.4461,426,25718,22833
+Belanger School of Nursing,NY,Mid East,Two-year undergraduate,Private,No,0.4,143,15250,67700
+Belmont University,TN,Southeast,Four-year undergraduate,Private,No,0.8323,6618,20709,49950
+Biola University,CA,Far West,Four-year undergraduate,Private,No,0.6438,3683,24273,47704
+Bloomfield College,NJ,Mid East,Four-year undergraduate,Private,No,0.8465,1530,27000,44790
+Bluffton University,OH,Great Lakes,Four-year undergraduate,Private,No,0.6051,675,27000,44911
+Brandeis University,MA,New England,Four-year undergraduate,Private,No,0.334,3481,25797,70327
+Cabrini University,PA,Mid East,Four-year undergraduate,Private,No,0.6167,1463,27000,53142
+Cairn University-Langhorne,PA,Mid East,Four-year undergraduate,Private,No,0.8145,885,27000,41013
+Carroll College,MT,Rocky Mountains,Four-year undergraduate,Private,No,0.7302,1093,25602,57154
+Carson-Newman University,TN,Southeast,Four-year undergraduate,Private,No,0.7932,1635,22438,42546
+Catawba College,NC,Southeast,Four-year undergraduate,Private,No,0.5212,1312,25000,43015
+Cedar Crest College,PA,Mid East,Four-year undergraduate,Private,No,0.5246,1078,27000,52679
+Cedarville University,OH,Great Lakes,Four-year undergraduate,Private,No,0.5933,3566,21500,49074
+Chaminade University of Honolulu,HI,Far West,Four-year undergraduate,Private,No,0.8897,1623,23235,44647
+Chatham University,PA,Mid East,Four-year undergraduate,Private,No,0.6619,1119,22250,42808
+Colby-Sawyer College,NH,New England,Four-year undergraduate,Private,No,0.91,871,27000,44780
+Columbus College of Art and Design,OH,Great Lakes,Four-year undergraduate,Private,No,0.9169,981,27000,38557
+Concorde Career College-Grand Prairie,TX,Southwest,Two-year undergraduate,Private,Yes,0.9611,862,9500,34458
+Concorde Career College-San Antonio,TX,Southwest,Two-year undergraduate,Private,Yes,0.9806,519,9500,27995
+Concordia College at Moorhead,MN,Plains,Four-year undergraduate,Private,No,0.5808,1873,26490,51988
+Cornell University,NY,Mid East,Four-year undergraduate,Private,No,0.1071,14741,14500,91176
+Culver-Stockton College,MO,Plains,Four-year undergraduate,Private,No,0.9833,918,26000,42206
+DeSales University,PA,Mid East,Four-year undergraduate,Private,No,0.8177,2352,25252,56641
+Design Institute of San Diego,CA,Far West,Four-year undergraduate,Private,Yes,1,124,45000,45321
+DeVry College of New York,NY,Mid East,Four-year undergraduate,Private,Yes,0.398,874,28308,44484
+DeVry University-Arizona,AZ,Southwest,Four-year undergraduate,Private,Yes,0.4,178,28308,44484
+DeVry University-Colorado,CO,Rocky Mountains,Four-year undergraduate,Private,Yes,0.5,108,28308,44484
+DeVry University-New Jersey,NJ,Mid East,Four-year undergraduate,Private,Yes,0.3333,169,28308,44484
+DeVry University-Virginia,VA,Southeast,Four-year undergraduate,Private,Yes,0.6667,118,28308,44484
+Dickinson College,PA,Mid East,Four-year undergraduate,Private,No,0.5165,1899,19000,69562
+Drew University,NJ,Mid East,Four-year undergraduate,Private,No,0.7315,1541,26222,57185
+Duquesne University,PA,Mid East,Four-year undergraduate,Private,No,0.7719,5373,26988,66207
+East Texas Baptist University,TX,Southwest,Four-year undergraduate,Private,No,0.9207,1373,23250,45717
+Eastern Nazarene College,MA,New England,Four-year undergraduate,Private,No,0.6438,541,26000,50050
+EDP University of Puerto Rico Inc-San Juan,PR,Outlying Areas,Four-year undergraduate,Private,No,0.558,1233,11400,19513
+Elmira College,NY,Mid East,Four-year undergraduate,Private,No,0.8313,713,27000,53878
+Elon University,NC,Southeast,Four-year undergraduate,Private,No,0.717,6291,20500,64238
+Ferrum College,VA,Southeast,Four-year undergraduate,Private,No,0.7583,962,27000,40224
+FIDM-Fashion Institute of Design & Merchandising-Los Angeles,CA,Far West,Four-year undergraduate,Private,Yes,0.3864,1847,14165,45551
+Finlandia University,MI,Great Lakes,Four-year undergraduate,Private,No,0.83,379,21100,37894
+Florida Institute of Technology,FL,Southeast,Four-year undergraduate,Private,No,0.7037,3188,27000,63704
+Fox College,IL,Great Lakes,Two-year undergraduate,Private,Yes,0.5,404,16000,36715
+Franklin W Olin College of Engineering,MA,New England,Four-year undergraduate,Private,No,0.1644,290,15846,132969
+Gonzaga University,WA,Far West,Four-year undergraduate,Private,No,0.7289,4836,24250,69468
+Good Samaritan College of Nursing and Health Science,OH,Great Lakes,Four-year undergraduate,Private,No,0.3462,353,20843,57071
+Gordon College,MA,New England,Four-year undergraduate,Private,No,0.6827,1428,26310,46746
+Hampden-Sydney College,VA,Southeast,Four-year undergraduate,Private,No,0.4701,881,27000,65446
+Hannibal-LaGrange University,MO,Plains,Four-year undergraduate,Private,No,0.6463,559,18750,37541
+Haverford College,PA,Mid East,Four-year undergraduate,Private,No,0.1823,1306,13177,69192
+Holy Name Medical Center-Sister Claire Tynan School of Nursing,NJ,Mid East,NA,Private,No,0.5,183,19999,79610
+Hope College,MI,Great Lakes,Four-year undergraduate,Private,No,0.7783,2963,26960,53796
+Houghton College,NY,Mid East,Four-year undergraduate,Private,No,0.7998,838,25000,43767
+Inter American University of Puerto Rico-Arecibo,PR,Outlying Areas,Four-year undergraduate,Private,No,0.3899,2955,8725,22457
+John Carroll University,OH,Great Lakes,Four-year undergraduate,Private,No,0.8784,2737,26987,60293
+Johnson & Wales University-Online,RI,New England,Four-year undergraduate,Private,No,0.3649,1314,25750,41977
+Johnson C Smith University,NC,Southeast,Four-year undergraduate,Private,No,0.492,1248,31000,37073
+Johnson University,TN,Southeast,Four-year undergraduate,Private,No,0.5497,708,23250,36422
+Judson College,AL,Southeast,Four-year undergraduate,Private,No,0.5648,219,27000,29569
+Juniata College,PA,Mid East,Four-year undergraduate,Private,No,0.6746,1267,27000,57800
+Keuka College,NY,Mid East,Four-year undergraduate,Private,No,0.9091,1300,26000,52489
+La Roche University,PA,Mid East,Four-year undergraduate,Private,No,0.6891,1079,25000,46784
+La Sierra University,CA,Far West,Four-year undergraduate,Private,No,0.5697,1462,27000,55004
+Lancaster Bible College,PA,Mid East,Four-year undergraduate,Private,No,0.9668,1418,20469,39435
+Lee University,TN,Southeast,Four-year undergraduate,Private,No,0.8301,3812,25750,40101
+Life University,GA,Southeast,Four-year undergraduate,Private,No,0.9681,938,16801,46619
+Lindenwood University,MO,Plains,Four-year undergraduate,Private,No,0.9213,4780,26327,47009
+Long Island Business Institute,NY,Mid East,Two-year undergraduate,Private,Yes,0.8173,1131,19090,23428
+Loyola University New Orleans,LA,Southeast,Four-year undergraduate,Private,No,0.7239,3144,25792,48747
+Lyon College,AR,Southeast,Four-year undergraduate,Private,No,0.5015,665,27000,43343
+Manhattan School of Music,NY,Mid East,Four-year undergraduate,Private,No,0.4156,497,26672,24000
+Manhattanville College,NY,Mid East,Four-year undergraduate,Private,No,0.8981,1373,25000,54038
+Marquette University,WI,Great Lakes,Four-year undergraduate,Private,No,0.8249,7828,24000,72489
+Massachusetts Institute of Technology,MA,New England,Four-year undergraduate,Private,No,0.0726,4360,13418,111222
+McPherson College,KS,Plains,Four-year undergraduate,Private,No,0.5216,808,25949,42168
+Mercyhurst University,PA,Mid East,Four-year undergraduate,Private,No,0.8802,2369,26000,46423
+Midwestern Baptist Theological Seminary,MO,Plains,Four-year undergraduate,Private,No,0.97,858,16871,41664
+Mills College,CA,Far West,Four-year undergraduate,Private,No,0.9114,603,22500,58594
+Mississippi College,MS,Southeast,Four-year undergraduate,Private,No,0.2876,2515,22500,45183
+Mitchell College,CT,New England,Four-year undergraduate,Private,No,0.7422,571,25500,36391
+Moore College of Art and Design,PA,Mid East,Four-year undergraduate,Private,No,0.5004,365,27000,38677
+Mount Aloysius College,PA,Mid East,Four-year undergraduate,Private,No,0.9524,1082,25284,43272
+Nebraska Wesleyan University,NE,Plains,Four-year undergraduate,Private,No,0.6953,1767,26966,52697
+North Central College,IL,Great Lakes,Four-year undergraduate,Private,No,0.5329,2453,24289,54460
+Northwestern University,IL,Great Lakes,Four-year undergraduate,Private,No,0.0931,8401,15000,80033
+Notre Dame College,OH,Great Lakes,Four-year undergraduate,Private,No,0.8743,1217,27000,43634
+Notre Dame of Maryland University,MD,Mid East,Four-year undergraduate,Private,No,0.6229,751,22500,50974
+Nyack College,NY,Mid East,Four-year undergraduate,Private,No,0.9732,1171,25999,44409
+Oakland City University,IN,Great Lakes,Four-year undergraduate,Private,No,0.6331,548,18750,37286
+Oberlin College,OH,Great Lakes,Four-year undergraduate,Private,No,0.3536,2647,25986,47921
+Occidental College,CA,Far West,Four-year undergraduate,Private,No,0.409,1835,22336,67388
+Oklahoma Baptist University,OK,Southwest,Four-year undergraduate,Private,No,0.5821,1610,22795,43596
+Oral Roberts University,OK,Southwest,Four-year undergraduate,Private,No,0.7839,3080,27000,42161
+Otis College of Art and Design,CA,Far West,Four-year undergraduate,Private,No,0.8032,1030,27000,54531
+Pace University,NY,Mid East,Four-year undergraduate,Private,No,0.8287,7710,24958,65697
+Paine College,GA,Southeast,Four-year undergraduate,Private,No,0.7499,179,30747,31714
+Penn Commercial Business/Technical School,PA,Mid East,Two-year undergraduate,Private,Yes,0.9065,238,12000,27741
+Plaza College,NY,Mid East,Four-year undergraduate,Private,Yes,0.3001,869,18842,29986
+Point Park University,PA,Mid East,Four-year undergraduate,Private,No,0.6951,2787,27000,43351
+Pomona College,CA,Far West,Four-year undergraduate,Private,No,0.0862,1462,12000,69149
+Presentation College,SD,Plains,Four-year undergraduate,Private,No,0.9321,593,26000,39800
+Providence College,RI,New England,Four-year undergraduate,Private,No,0.5386,4242,27000,69532
+Quinnipiac University,CT,New England,Four-year undergraduate,Private,No,0.8239,6787,26000,75575
+Randolph-Macon College,VA,Southeast,Four-year undergraduate,Private,No,0.7131,1551,27000,53288
+Rice University,TX,Southwest,Four-year undergraduate,Private,No,0.1089,4052,12000,77683
+Rider University,NJ,Mid East,Four-year undergraduate,Private,No,0.7566,3567,26000,56442
+Rollins College,FL,Southeast,Four-year undergraduate,Private,No,0.6081,2536,26000,53363
+Sacred Heart University,CT,New England,Four-year undergraduate,Private,No,0.6553,6356,25561,72191
+Saint Ambrose University,IA,Plains,Four-year undergraduate,Private,No,0.7384,2299,25000,54600
+Saint Mary's University of Minnesota,MN,Plains,Four-year undergraduate,Private,No,0.841,1315,20832,54950
+San Francisco Conservatory of Music,CA,Far West,Four-year undergraduate,Private,No,0.4562,243,26835,37744
+Southern California Institute of Architecture,CA,Far West,Four-year undergraduate,Private,No,0.673,249,33750,71946
+Southern New Hampshire University,NH,New England,Four-year undergraduate,Private,No,0.9354,109233,20867,52024
+Spalding University,KY,Southeast,Four-year undergraduate,Private,No,0.9343,842,25000,47088
+St. John's College,MD,Mid East,Four-year undergraduate,Private,No,0.6139,383,27000,48751
+St. John's College,NM,Southwest,Four-year undergraduate,Private,No,0.6891,268,27000,43203
+St. Joseph's College of Nursing,NY,Mid East,Two-year undergraduate,Private,No,0.7273,383,12000,68467
+Stanford University,CA,Far West,Four-year undergraduate,Private,No,0.0519,6366,12000,97798
+Stevens Institute of Technology,NJ,Mid East,Four-year undergraduate,Private,No,0.5306,3787,27000,98159
+Stevenson University,MD,Mid East,Four-year undergraduate,Private,No,0.8918,3008,27000,56567
+Sweet Briar College,VA,Southeast,Four-year undergraduate,Private,No,0.7595,356,27000,48425
+Texas County Technical College,MO,Plains,Two-year undergraduate,Private,No,0.625,52,13875,29463
+Texas Wesleyan University,TX,Southwest,Four-year undergraduate,Private,No,0.4679,1403,23495,49382
+The College of Wooster,OH,Great Lakes,Four-year undergraduate,Private,No,0.653,1924,26000,51866
+The New England Conservatory of Music,MA,New England,Four-year undergraduate,Private,No,0.3627,386,25250,38489
+The New School,NY,Mid East,Four-year undergraduate,Private,No,0.691,6339,23250,53981
+Tougaloo College,MS,Southeast,Four-year undergraduate,Private,No,0.712,654,32100,33291
+Trine University,IN,Great Lakes,Four-year undergraduate,Private,No,0.7894,2254,23945,52957
+Tusculum University,TN,Southeast,Four-year undergraduate,Private,No,0.6715,1194,24141,40083
+Union College,KY,Southeast,Four-year undergraduate,Private,No,0.5733,927,25291,38076
+Union College,NE,Plains,Four-year undergraduate,Private,No,0.976,602,27000,45198
+Union College,NY,Mid East,Four-year undergraduate,Private,No,0.4126,2035,25831,71055
+Universidad Central Del Caribe,PR,Outlying Areas,Four-year undergraduate,Private,No,0.8571,123,7500,28509
+Universidad del Sagrado Corazon,PR,Outlying Areas,Four-year undergraduate,Private,No,0.4331,4067,16750,26108
+University of Evansville,IN,Great Lakes,Four-year undergraduate,Private,No,0.643,1763,25183,50415
+University of Hartford,CT,New England,Four-year undergraduate,Private,No,0.7741,4378,27000,58087
+University of Lynchburg,VA,Southeast,Four-year undergraduate,Private,No,0.9727,1801,27000,49490
+University of Mary,ND,Plains,Four-year undergraduate,Private,No,0.7168,2178,23250,55720
+University of New Haven,CT,New England,Four-year undergraduate,Private,No,0.911,5078,27000,52610
+Upper Iowa University,IA,Plains,Four-year undergraduate,Private,No,0.653,2934,24972,49292
+Washington University in St Louis,MO,Plains,Four-year undergraduate,Private,No,0.1602,7366,17000,82732
+Webster University,MO,Plains,Four-year undergraduate,Private,No,0.5312,2535,22500,47663
+Wells College,NY,Mid East,Four-year undergraduate,Private,No,0.6436,356,26500,45188
+Westmont College,CA,Far West,Four-year undergraduate,Private,No,0.7016,1226,23250,60057
+Widener University,PA,Mid East,Four-year undergraduate,Private,No,0.7458,2866,27000,62030
+William Jessup University,CA,Far West,Four-year undergraduate,Private,No,0.6521,1279,22334,51693
+Xavier University,OH,Great Lakes,Four-year undergraduate,Private,No,0.8122,5250,24536,62015
+Yale University,CT,New England,Four-year undergraduate,Private,No,0.0653,4701,13142,88655

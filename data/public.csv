@@ -1,0 +1,72 @@
+name,state,region,inst_type,control,for_profit,adm_rate,undergrads,mdn_debt,mdn_earn
+Abraham Baldwin Agricultural College,GA,Southeast,Four-year undergraduate,Public,No,0.7599,3546,17500,32130
+Ball State University,IN,Great Lakes,Four-year undergraduate,Public,No,0.8705,15171,23250,45934
+Binghamton University,NY,Mid East,Four-year undergraduate,Public,No,0.4303,14300,18750,72980
+California State University-Chico,CA,Far West,Four-year undergraduate,Public,No,0.9017,15689,16931,56270
+California State University-Monterey Bay,CA,Far West,Four-year undergraduate,Public,No,0.8562,6456,13750,53190
+California State University-San Marcos,CA,Far West,Four-year undergraduate,Public,No,0.7942,15016,17134,54811
+Central Connecticut State University,CT,New England,Four-year undergraduate,Public,No,0.6485,8402,22000,52515
+Central State University,OH,Great Lakes,Four-year undergraduate,Public,No,0.5804,4009,31000,31922
+Clemson University,SC,Southeast,Four-year undergraduate,Public,No,0.6194,20796,21500,63857
+Colorado State University-Fort Collins,CO,Rocky Mountains,Four-year undergraduate,Public,No,0.8352,23332,20500,54983
+CUNY City College,NY,Mid East,Four-year undergraduate,Public,No,0.5054,11967,12348,55741
+CUNY Lehman College,NY,Mid East,Four-year undergraduate,Public,No,0.4701,12087,10812,51661
+Dutchess BOCES-Practical Nursing Program,NY,Mid East,NA,Public,No,0.8,81,6425,52370
+Eastern Michigan University,MI,Great Lakes,Four-year undergraduate,Public,No,0.7518,13148,25000,46112
+Eastern New Mexico University-Main Campus,NM,Southwest,Four-year undergraduate,Public,No,0.506,3129,16000,33395
+Fort Lewis College,CO,Rocky Mountains,Four-year undergraduate,Public,No,0.9151,3205,18013,38083
+Frostburg State University,MD,Mid East,Four-year undergraduate,Public,No,0.7361,3749,22250,49230
+Henderson State University,AR,Southeast,Four-year undergraduate,Public,No,0.749,2603,18933,39020
+Illinois State University,IL,Great Lakes,Four-year undergraduate,Public,No,0.8131,17955,20000,55457
+Indiana State University,IN,Great Lakes,Four-year undergraduate,Public,No,0.9229,8897,23457,42877
+Kennesaw State University,GA,Southeast,Four-year undergraduate,Public,No,0.8311,36284,24000,51792
+Lamar University,TX,Southwest,Four-year undergraduate,Public,No,0.8268,8220,21119,44159
+Madison Oneida BOCES-Practical Nursing Program,NY,Mid East,NA,Public,No,0.875,25,8633,34239
+Mansfield University of Pennsylvania,PA,Mid East,Four-year undergraduate,Public,No,0.9602,1614,25990,42931
+Marion Military Institute,AL,Southeast,Two-year undergraduate,Public,No,0.575,400,12000,48920
+McNeese State University,LA,Southeast,Four-year undergraduate,Public,No,0.633,5825,22534,42965
+Miami University-Oxford,OH,Great Lakes,Four-year undergraduate,Public,No,0.9195,16418,23522,54650
+Millersville University of Pennsylvania,PA,Mid East,Four-year undergraduate,Public,No,0.8455,6314,24194,48420
+New Jersey Institute of Technology,NJ,Mid East,Four-year undergraduate,Public,No,0.6603,8311,21500,80043
+New Mexico State University-Main Campus,NM,Southwest,Four-year undergraduate,Public,No,0.6267,11107,18464,36683
+Radford University,VA,Southeast,Four-year undergraduate,Public,No,0.7868,7267,23249,50383
+Rhode Island College,RI,New England,Four-year undergraduate,Public,No,0.8127,5892,21002,49249
+Sam Houston State University,TX,Southwest,Four-year undergraduate,Public,No,0.925,18811,22020,50125
+San Francisco State University,CA,Far West,Four-year undergraduate,Public,No,0.8409,23411,15369,60126
+Shepherd University,WV,Southeast,Four-year undergraduate,Public,No,0.977,2479,21170,45723
+Southeast Missouri State University,MO,Plains,Four-year undergraduate,Public,No,0.9333,7659,21614,39874
+Southeastern Oklahoma State University,OK,Southwest,Four-year undergraduate,Public,No,0.7859,3078,17513,41698
+Southern Connecticut State University,CT,New England,Four-year undergraduate,Public,No,0.7968,7239,21500,51551
+Southern Illinois University-Edwardsville,IL,Great Lakes,Four-year undergraduate,Public,No,0.8505,9892,20935,51671
+Southwestern Oklahoma State University,OK,Southwest,Four-year undergraduate,Public,No,0.932,3834,16156,43079
+Stony Brook University,NY,Mid East,Four-year undergraduate,Public,No,0.4891,17962,18750,66678
+SUNY College at Geneseo,NY,Mid East,Four-year undergraduate,Public,No,0.6136,4820,20047,56241
+SUNY College at Old Westbury,NY,Mid East,Four-year undergraduate,Public,No,0.5308,4543,15250,50921
+SUNY College of Technology at Alfred,NY,Mid East,Four-year undergraduate,Public,No,0.7172,3651,15000,48256
+Temple University,PA,Mid East,Four-year undergraduate,Public,No,0.7142,26969,24499,56800
+Tennessee Technological University,TN,Southeast,Four-year undergraduate,Public,No,0.7963,8564,16144,43326
+Texas A & M University-Kingsville,TX,Southwest,Four-year undergraduate,Public,No,0.8792,5114,23250,47368
+Texas Tech University,TX,Southwest,Four-year undergraduate,Public,No,0.7003,32412,22000,58435
+The Evergreen State College,WA,Far West,Four-year undergraduate,Public,No,0.9838,2053,19089,40782
+The University of Alabama,AL,Southeast,Four-year undergraduate,Public,No,0.8039,30610,23072,52751
+The University of Texas at Arlington,TX,Southwest,Four-year undergraduate,Public,No,0.8775,34726,18166,54633
+The University of Texas at El Paso,TX,Southwest,Four-year undergraduate,Public,No,0.9997,21070,18460,44770
+University of Alaska Fairbanks,AK,Far West,Four-year undergraduate,Public,No,0.6701,4259,19582,43728
+University of Alaska Southeast,AK,Far West,Four-year undergraduate,Public,No,0.6352,1063,20000,40727
+University of Baltimore,MD,Mid East,Four-year undergraduate,Public,No,0.7993,1856,22956,58128
+University of Connecticut-Hartford Campus,CT,New England,NA,Public,No,0.9616,1659,21500,72460
+University of Florida,FL,Southeast,Four-year undergraduate,Public,No,0.3113,34237,15580,64463
+University of Hawaii-West Oahu,HI,Far West,Four-year undergraduate,Public,No,0.9523,2755,15453,48268
+University of Maine at Farmington,ME,New England,Four-year undergraduate,Public,No,0.9461,1509,24499,35051
+University of Massachusetts-Amherst,MA,New England,Four-year undergraduate,Public,No,0.6532,23884,23149,62048
+University of Minnesota-Duluth,MN,Plains,Four-year undergraduate,Public,No,0.7855,8351,22514,54750
+University of Missouri-Kansas City,MO,Plains,Four-year undergraduate,Public,No,0.6301,7077,18751,52279
+University of Nebraska-Lincoln,NE,Plains,Four-year undergraduate,Public,No,0.7774,20128,21362,52360
+University of North Carolina at Chapel Hill,NC,Southeast,Four-year undergraduate,Public,No,0.25,19261,14500,61915
+University of North Florida,FL,Southeast,Four-year undergraduate,Public,No,0.7992,14308,16331,49338
+University of Oklahoma-Norman Campus,OK,Southwest,Four-year undergraduate,Public,No,0.8338,21087,20718,57071
+University of Wisconsin-River Falls,WI,Great Lakes,Four-year undergraduate,Public,No,0.7685,5238,20500,47441
+University of Wisconsin-Stevens Point,WI,Great Lakes,Four-year undergraduate,Public,No,0.8654,7258,22140,45855
+Utah State University,UT,Rocky Mountains,Four-year undergraduate,Public,No,0.9104,21087,14429,50432
+Western Kentucky University,KY,Southeast,Four-year undergraduate,Public,No,0.9775,13086,22500,39268
+Western Michigan University,MI,Great Lakes,Four-year undergraduate,Public,No,0.8494,15706,26000,49652
