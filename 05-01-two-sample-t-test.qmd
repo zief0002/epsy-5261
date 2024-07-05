@@ -130,7 +130,7 @@ Next, we carry out a two-sample *t*-test. The arguments we include are:
 We can assign the output of the `t_test()` function into an object, and use the `t_results()` and `plot_t_dist()` functions to examine the output of the two-sample *t*-test and view the *t*-distribution and shaded *p*-value, respectively.
 
 ```{r}
-# One-sample t-test
+# Two-sample t-test
 my_t <- t_test(
   ~ iq_change | cannabis_dep, 
   data = cannabis, 
@@ -263,7 +263,7 @@ df_stats(~age | show, data = bachelor)
 While the sample data suggests that the average age for Bachelor contestants is higher than the average age of Bachelorette contestants, is this difference only due to sampling variation? To answer this, we will carry out a two-sample *t*-test to evaluate the sample differences in light of the expected sampling variation.
 
 ```{r}
-# One-sample t-test
+# Two-sample t-test
 my_t <- t_test(
   ~age | show, data = bachelor, 
   mu = 0, 

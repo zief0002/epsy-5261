@@ -74,6 +74,10 @@ dplyr::tibble(
 
 The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as $\mu_{\textrm{Sleep}}<9$, $\mu_{\textrm{Sleep}}>9$, and $\mu_{\textrm{Sleep}}\neq9$. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be $\mu_{\textrm{Sleep}}<9$. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of $\mu_{\textrm{Sleep}}>9$. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be $\mu_{\textrm{Sleep}}\neq9$. 
 
+:::fyi
+In the parlance of statisticians, hypothesis tests that use an alternative hypothesis of not equal ($\neq$) are referred to as *two-sided* or *two-tailed* tests. If the alternative hypothesis is less than (<) or greater than (>), it is referred to as a *one-sided* or *one-tailed* test.
+:::
+
 <br />
 
 

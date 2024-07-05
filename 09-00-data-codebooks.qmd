@@ -1,0 +1,351 @@
+# Data and Codebooks
+
+In this section you can find the raw data and the data codebook associated with each of the datasets used in the book, as well as in the EPSY 5261 course.
+
+
+<br />
+
+<table class="table">
+
+<thead>
+<tr>
+<th style="width:50%;">**Name**</th>
+<th style="width:25%;text-align:center;">**Data**</th>
+<th style="width:25%;text-align:center;">**Codebook**</th>
+</tr>
+</thead>
+
+
+<tbody>
+
+<tr>
+<td>bachelor.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/bachelor.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>body-temp.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/body-temp.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/body-temp.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>cannabis.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/cannabis.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>cereal.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cereal.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/cereal.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>college-scorecard.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/college-scorecard.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>continuous-assessment.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>countries.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/countries.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/countries.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>fast-x-reviews.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fast-x-reviews.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/fast-x-reviews.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>films.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/films.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/films.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>granola.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/granola.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/granola.html)
+</td>
+
+
+<tr style="border-top:1px solid;">
+<td>high-peaks.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/high-peaks.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/high-peaks.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>housing-and-income.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/housing-and-income.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>midwest-college-scorecard.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/midwest-college-scorecard.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/midwest-college-scorecard.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>mn-lead.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/mn-lead.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>nhanes.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/nhanes.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/nhanes.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>olympics.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/olympics.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/olympics.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>phone-incentives.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/phone-incentives.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>private.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/private.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/private.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>public.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/public.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/public.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>sandwiches.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/sandwiches.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/sandwiches.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>social-media.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/social-media.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/social-media.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>teen-sleep.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/teen-sleep.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>tik-tok.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/tik-tok.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/tik-tok.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>wine.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/wine.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/wine.html)
+</td>
+</tr>
+
+
+<!-- <tr style="border-top:1px solid;"> -->
+<!-- <td>world-life-expectancy.csv</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--     [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/world-life-expectancy.csv) -->
+<!-- </td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--     [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/world-life-expectancy.html) -->
+<!-- </td> -->
+<!-- </tr> -->
+
+
+<tr style="border-top:1px solid;">
+<td>worry.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/worry.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/worry.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>worry-large.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/worry-large.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/worry-large.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>zillow.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/zillow.html)
+</td>
+</tr>
+
+
+<tr style="border-top:1px solid;">
+<td>zillow-sample.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/zillow-sample.html)
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+<br />
+
+
+## How to Download a CSV File to Your Computer
+
+To download a data (CSV) file, click on the data set. Then click the `RAW` button. Now you should be able to right-click the dataset and save it. If you are using Safari on a Mac, make sure that the downloaded data does not have an extra *.txt* appended to it when it downloads. If it does, just delete the extra *.txt* suffix.
+
+
+
+<br /><br />

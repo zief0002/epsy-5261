@@ -267,7 +267,7 @@ Create a density plot for the distribution of median earnings for students. Add 
 <div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 gf_density(
-  ~ median_earnings, data = colleges,
+  ~ mdn_earn, data = colleges,
   color = "black", 
   fill = "yellow",
   xlab = "Median Earnings",
@@ -344,7 +344,7 @@ Compute the mean and median for the distribution of students' median earnings 10
 
 <div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-df_stats(~median_earnings, data = colleges)
+df_stats(~mdn_earn, data = colleges)
 ```
 
 
@@ -411,7 +411,7 @@ Compute the range, IQR, and standard deviation for the distribution of students'
 
 <div id="exercise_03-02-06" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-df_stats(~median_earnings, data = colleges)
+df_stats(~mdn_earn, data = colleges)
 # Range = 132969 - 19513 = 113456
 # IQR = 56535.75 - 43031 = 13504.75
 # SD = 14.601k

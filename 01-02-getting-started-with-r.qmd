@@ -69,6 +69,55 @@ That being said, well-written code includes space! Space in code makes it easier
 <br />
 
 
+## Script Files: Recording Your Syntax
+
+It is important to be able to record the syntax you use. This acts as a way of "saving" your work, and it also acts as a record of the analysis for your collaborators in the spirit of reproducible work. One way to record the R syntax you use is to employ a *script file*. You can create a new script file by selecting `File > New File > R Script` from the RStudio menu bar. You can also obtain a new R script by clicking the `New File` icon (document with the plus-sign) on the tool bar and selecting `R Script`.
+
+```{r}
+#| echo: false
+#| out-width: "60%"
+#| fig-cap: "LEFT: Create a new script file using RStudio's `File` menu. RIGHT: Create a new script file by clicking on the `New File` icon in the toolbar."
+
+knitr::include_graphics("figs/01-02-new-script-file.png")
+```
+
+Script files should only include your R syntax and comments. Script files should NOT include:
+
+- prompts (`>`)
+- output
+
+Comments, which are human-readable annotations or explanations of the syntax, are written using the hashtag (`#`). These can be placed on their own line in the script file, or can be placed at the end of a line with syntax. The comment continues until you hit the <enter> key. Comments help other people understand your syntax and also act as a reminder for the future you of what your code actually does. Get is the habit of including comments in your syntax. Not only is it good coding practice, but it also will help you become familiar with and learn the R syntax as you describe the purpose of the syntax you are writing.
+
+```{r}
+#| echo: false
+#| out-width: "60%"
+#| fig-cap: "Example script file with comments."
+
+knitr::include_graphics("figs/01-02-script-file.png")
+```
+
+Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R sesssion. Just open your saved script file, highlight the parts you want to re-run, and click the `Run` button! 
+
+<br />
+
+
+### Executing Syntax from a Script File
+
+Not only does the script file record your syntax, but it can also act as the vehicle from which you run your R syntax. Syntax in the script file can be executed by highlighting it and pressing the `Run` button in the toolbar. You can run one line at a time, or highlight multiple lines and execute all of them sequentially. 
+
+```{r}
+#| echo: false
+#| out-width: "80%"
+#| fig-cap: "To execute syntax from the script file, highlight the syntax you want to run and then click the `Run` button in the toolbar."
+
+knitr::include_graphics("figs/01-02-run-script.png")
+```
+
+Writing syntax directly in the script file and running it is a groovy workflow for using R. Writing syntax directly in the script file also saves you from having to copy-and-paste syntax you want to save from the console. In my own work, I use this workflow almost daily.
+
+
+<br />
+
 ## Functions: The Workhorse of R
 
 Almost all commands in R are built around the use of a function. Functions carry out operations on their inputs (called *arguments*) and produce an output (called a *returned value*).
@@ -307,7 +356,26 @@ Comments, which are human-readable annotations or explanations of the syntax, ar
 knitr::include_graphics("figs/01-02-script-file.png")
 ```
 
-Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R session. Just open your saved script file, highlight the parts you want to re-run, and click the `Run` button! 
+:::exercises
+#### Your Turn {.unnumbered}
+
+Open a new script file and add the some syntax to sum two numbers. Also add a comment to describe this computation. Save your script file to your computer.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_script');">Show/Hide Solution</button>
+
+<div id="exercise_script" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+#| echo: false
+#| out-width: "40%"
+knitr::include_graphics("figs/exercise-script.png")
+```
+
+</div>
+:::
+
+
+
+
 
 <br />
 
@@ -325,6 +393,23 @@ knitr::include_graphics("figs/01-02-run-script.png")
 ```
 
 Writing syntax directly in the script file and running it is a groovy workflow for using R. Writing syntax directly in the script file also saves you from having to copy-and-paste syntax you want to save from the console. In my own work, I use this workflow almost daily.
+
+:::fyi
+Script files can be saved and opened the same as any other document. So, no more worrying about losing your work or objects that you created when you close your R session. Just open your saved script file, highlight the parts you want to re-run, and click the `Run` button! 
+:::
+
+
+:::exercises
+#### Your Turn {.unnumbered}
+
+Run the syntax to sum two numbers from your script file.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_script-run');">Show/Hide Solution</button>
+
+<div id="exercise_script-run" style="display:none; margin: -40px 0 40px 40px;">
+If this worked, you should see the result of your computation in the console pane. Note that when you run your script nothing changes in the script file itself; the output is printed in the console pane. Remember, we do not include output in the script file.
+</div>
+:::
 
 <br />
 
@@ -361,6 +446,7 @@ Twenty-nine packages were included when you installed R on your computer. When y
 knitr::include_graphics("figs/01-02-default-packages.png")
 ```
 
+
 <br />
 
 
@@ -382,7 +468,7 @@ library(lme4)
 ```
 
 :::protip
-Once the package is loaded, all of the functions, data sets, etc. in that package are available to you. Packages will need to be loaded every time you launch a new R session. 
+Once the package is loaded, all of the functions, data sets, etc. in that package are available to you. **Packages will need to be loaded every time you launch a new R session.** Because of this it is good practice to load all of your packages at the top of your script file!
 :::
 
 <br />

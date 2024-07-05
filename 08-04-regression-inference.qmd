@@ -378,7 +378,7 @@ Instead, we look at whether the ranges of the completion rates for a smaller set
 
 ```{r}
 #| label: fig-equal-var
-#| caption: "Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin."
+#| fig-cap: "Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin."
 #| echo: false
 # colleges |> filter(act <= 22.5) |> select(act, completion_rate) |> arrange(act)
 # colleges |> filter(act > 22.5 & act <= 25) |> select(act, completion_rate) |> arrange(act) |> print(n = Inf)
@@ -433,9 +433,7 @@ One thing that psychologists have found is that comparing things that are not le
 
 
 ```{r}
-#| label: fig-equal-var-level
-#| caption: "Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin."
-#| out-width: "80"
+#| eval: false
 #| echo: false
 #| message: false
 # colleges |> filter(act <= 22.5)            |> summarize(mean(completion_rate))
@@ -531,6 +529,8 @@ anim_save(filename = "figs/p1.gif", animation = p1_gif)
 
 
 ```{r}
+#| label: fig-equal-var-level
+#| fig-cap: "Leveling the boxes makes it easier for people to judge whether the range of the completion rates for those schools in each bin (i.e., vertical length of each box) is roughly the same."
 #| echo: false
 #| message: false
 knitr::include_graphics("figs/p1.gif")
