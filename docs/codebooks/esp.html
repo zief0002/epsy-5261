@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>zillow-sample.csv</title>
+<title>esp.csv</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,26 +57,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="zillow-sample_files/libs/clipboard/clipboard.min.js"></script>
-<script src="zillow-sample_files/libs/quarto-html/quarto.js"></script>
-<script src="zillow-sample_files/libs/quarto-html/popper.min.js"></script>
-<script src="zillow-sample_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="zillow-sample_files/libs/quarto-html/anchor.min.js"></script>
-<link href="zillow-sample_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="zillow-sample_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="zillow-sample_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="zillow-sample_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="zillow-sample_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="zillow-sample_files/libs/htmltools-fill/fill.css" rel="stylesheet">
-<script src="zillow-sample_files/libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="zillow-sample_files/libs/datatables-css/datatables-crosstalk.css" rel="stylesheet">
-<script src="zillow-sample_files/libs/datatables-binding/datatables.js"></script>
-<script src="zillow-sample_files/libs/jquery/jquery-3.6.0.min.js"></script>
-<link href="zillow-sample_files/libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="zillow-sample_files/libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="zillow-sample_files/libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="zillow-sample_files/libs/crosstalk/css/crosstalk.min.css" rel="stylesheet">
-<script src="zillow-sample_files/libs/crosstalk/js/crosstalk.min.js"></script>
+<script src="esp_files/libs/clipboard/clipboard.min.js"></script>
+<script src="esp_files/libs/quarto-html/quarto.js"></script>
+<script src="esp_files/libs/quarto-html/popper.min.js"></script>
+<script src="esp_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="esp_files/libs/quarto-html/anchor.min.js"></script>
+<link href="esp_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="esp_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="esp_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="esp_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="esp_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="esp_files/libs/htmltools-fill/fill.css" rel="stylesheet">
+<script src="esp_files/libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="esp_files/libs/datatables-css/datatables-crosstalk.css" rel="stylesheet">
+<script src="esp_files/libs/datatables-binding/datatables.js"></script>
+<script src="esp_files/libs/jquery/jquery-3.6.0.min.js"></script>
+<link href="esp_files/libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="esp_files/libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="esp_files/libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="esp_files/libs/crosstalk/css/crosstalk.min.css" rel="stylesheet">
+<script src="esp_files/libs/crosstalk/js/crosstalk.min.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -118,7 +118,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">zillow-sample.csv</h1>
+<h1 class="title">esp.csv</h1>
 </div>
 
 
@@ -135,15 +135,12 @@ window.Quarto = {
 </header>
 
 
-<p>The <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv">zillow-sample.csv</a> data include information on <span class="math inline">\(n=30\)</span> Bayfield, Wisconsin houses listed for sale in 2015 on Zillow.</p>
+<p>The <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/esp.csv">esp.csv</a> data include information on <span class="math inline">\(n=20\)</span> predictions made in the EPSY 5261 ESP experiment.</p>
 <hr>
 <p>The attributes included in the data are:</p>
 <ul>
-<li><code>price</code>: Listed price of the house</li>
-<li><code>beds</code>: Number of bedrooms in the house</li>
-<li><code>baths</code>: Number of bathrooms in the house</li>
-<li><code>sqft</code>: Square footage of the liveable space in the house</li>
-<li><code>age</code>: Age of the house (in years)</li>
+<li><code>prediction_num</code>: Prediction number</li>
+<li><code>correct</code>: Was the prediction correct (Yes) or not (No)</li>
 </ul>
 <hr>
 <section id="preview" class="level3">
@@ -151,12 +148,12 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>zillow_sample <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>esp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/esp.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e52da6a003b51ecc91b5" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e52da6a003b51ecc91b5">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],[319000,249000,565000,400000,429900,979900,329900,319000,669900,700000,525000,529900,320000,425000,774900,351500,374900,349900,209900,289000,749500,419000,349900,375000,699000,274900,399900,259900,395000,299900],[4,2,4,5,4,4,4,4,4,4,5,5,4,4,4,4,4,3,3,3,6,4,4,4,4,3,4,3,4,4],[3,2,4,3,4,4,2.5,3.5,5,3.5,4,3.5,3,3,5,3,3,2.5,2,2,6,3,3,2.5,3,2,2.5,1.5,2.5,2],[2406,1551,2804,3205,2574,4144,2247,2599,4097,4896,3399,3726,2196,2866,4540,2589,2538,2224,1200,1790,5394,2800,2310,2630,3425,1782,2849,1422,3420,2113],[46,68,23,37,47,15,48,58,28,18,28,21,51,37,19,47,48,55,58,56,34,37,26,44,5,51,38,56,37,61]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>price<\/th>\n      <th>beds<\/th>\n      <th>baths<\/th>\n      <th>sqft<\/th>\n      <th>age<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"price","targets":1},{"name":"beds","targets":2},{"name":"baths","targets":3},{"name":"sqft","targets":4},{"name":"age","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-80db75c9128494741781" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-80db75c9128494741781">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],["Yes","Yes","No","Yes","Yes","No","Yes","No","No","No","Yes","Yes","No","Yes","No","No","No","Yes","Yes","No"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>prediction_num<\/th>\n      <th>correct<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":1},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"prediction_num","targets":1},{"name":"correct","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <!-- ### References -->
