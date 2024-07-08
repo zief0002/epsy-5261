@@ -159,7 +159,7 @@ dplyr::tibble(
       columns = Total
       )
     ) |>
-  fmt_markdown(columns = TRUE) |>
+  fmt_markdown(columns = everything()) |>
   as_raw_html()
 ```
 
@@ -384,7 +384,7 @@ Then we can use the `z_results()` and `plot_z_dist()` functions (both from the `
 
 ```{r}
 #| label: fig-z-bachelorette
-#| fig-cap: "Density plot of the *z*-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed *z*-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated *p*-value of .440 that corresponds to the alternative hypothesis that the two population proprtions are equal (there is no difference between them)."
+#| fig-cap: "Density plot of the *z*-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed *z*-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated *p*-value of .440 that corresponds to the probability of seeing an observed result of -.772 (or a result more extreme than that) if the null hypothesis that the two population proportions are equal is true."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
