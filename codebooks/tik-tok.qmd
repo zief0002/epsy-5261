@@ -24,8 +24,7 @@ Social media plays a big part in many people's lives. The rise of TikTok influen
 
 The attributes included in the data are:
 
-- `name`: Ttik-tok influencer's handle
-- `subs`: 
+- `name`: Tik-tok influencer's handle
 - `views`: Total number of views
 - `likes`: Total number of likes
 - `comments`: Total number of comments
