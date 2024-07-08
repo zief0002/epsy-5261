@@ -34,7 +34,6 @@ The attributes included in the data are:
 - `recent_depression`: Participant's response to the question: "Over the last 2 weeks, have you felt down, depressed, or hopeless?" (`YES`, `NO`)
 - `age`: Participant's age (in years)
 - `martital_status`: Participant's marital status (`Married`, `Divorced`, `Separated`, `Never Married`, `Live with Partner`, or `Widowed`)
-- `us_citizen`:  Participant's response to the question: "Are you a citizen of the United States? [Information about citizenship is being collected by the U.S. Public Health Service to perform health related research. Providing this information is voluntary and is collected under the authority of the Public Health Service Act. There will be no effect on pending immigration or citizenship petitions.]" (`YES`, `NO`)
 
 ---
 
