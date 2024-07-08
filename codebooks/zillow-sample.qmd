@@ -18,7 +18,7 @@ source("../assets/codebook-setup.R")
 ```
 
 
-The [zillow-sample.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv) data include information on $n=30$ house listings obtained from Zillow.com.
+The [zillow-sample.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv) data include information on $n=30$ Bayfield, Wisconsin houses listed for sale in 2015 on Zillow.
 ---
 
 The attributes included in the data are:
