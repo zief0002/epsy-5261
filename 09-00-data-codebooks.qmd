@@ -129,6 +129,16 @@ In this section you can find the raw data and the data codebook associated with 
 
 
 <tr style="border-top:1px solid;">
+<td>grades.csv</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/grades.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+    [<span class="fas fa-book-open" style="font-size: 20px;"></span>](https://zief0002.github.io/epsy-5261/codebooks/grades.html)
+</td>
+
+
+<tr style="border-top:1px solid;">
 <td>granola.csv</td>
 <td align="center" style="vertical-align:middle;">
     [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/granola.csv)
