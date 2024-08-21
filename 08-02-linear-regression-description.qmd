@@ -52,7 +52,7 @@ The distribution of completion rates for the 92 colleges in the sample is unimod
 
 ```{r}
 #| fig-cap: "Density plot of ACT scores for the 92 colleges in the sample."
-# Explore wine rating
+# Explore ACT scores
 gf_density(
   ~act, data = colleges,
   color = "black",

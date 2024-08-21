@@ -535,15 +535,15 @@ h = 2 \arcsin(\sqrt{p_1}) – 2 \arcsin(\sqrt{p_2})
 </div>
 </div>
 </div>
-<p>Based on the proportion that are still together, <span class="math inline">\(\hat{p}_{\text{Bachelor}} = .111, ~\hat{p}_{\text{Bachelorette}} = .174\)</span>, the difference is .063—this is a raw effect of the difference. To compute Cohen’s <em>h</em>, the standardized effect, we can employ those proportions in to the formula above. Because arcsine transformations might not be at the tip of your brain, we use R to do this with the function <code>asin()</code>.</p>
+<p>Based on the proportion that are still together, <span class="math inline">\(\hat{p}_{\text{Bachelor}} = .111, ~\hat{p}_{\text{Bachelorette}} = .190\)</span>, the difference is .079—this is a raw effect of the difference. To compute Cohen’s <em>h</em>, the standardized effect, we can employ those proportions in to the formula above. Because arcsine transformations might not be at the tip of your brain, we use R to do this with the function <code>asin()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's h</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">174</span>)) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">111</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">190</span>)) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(.<span class="dv">111</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1812569</code></pre>
+<pre><code>[1] 0.2227334</code></pre>
 </div>
 </div>
-<p>Cohen’s <em>h</em> value is .181. While the metric used for Cohen’s <em>h</em> is standardized, we typically don’t interpret the value; we just report it. We can, however, interpret the magnitude of Cohen’s <em>h</em> using the same guidelines as Cohen’s <em>d</em>:</p>
+<p>Cohen’s <em>h</em> value is .222. While the metric used for Cohen’s <em>h</em> is standardized, we typically don’t interpret the value; we just report it. We can, however, interpret the magnitude of Cohen’s <em>h</em> using the same guidelines as Cohen’s <em>d</em>:</p>
 <p><span class="math display">\[
 \begin{split}
 h &amp;\approx 0.2 \qquad \text{Small Effect} \\[2ex]
@@ -634,7 +634,7 @@ Show/Hide Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Cohen's h</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_cohens_h</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.190</span>, <span class="co">#Proportion for Bachelorette</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
@@ -646,17 +646,17 @@ Show/Hide Solution
 95% Confidence Interval
 --------------------------------------------------
 
-Cohen's h = 0.09062846
+Cohen's h = 0.1113667
 
-Lower Limit = -0.3627418
-Upper Limit = 0.7252556
+Lower Limit = -0.3212653
+Upper Limit = 0.7667322
 
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([-0.36,~0.73]\)</span>. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
+<p>The CI is <span class="math inline">\([-0.32,~0.77]\)</span>. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:</p>
 <ul>
-<li>There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.</li>
+<li>There might be a somewhat small-to-moderate effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.</li>
 <li>There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,</li>
 <li>There might be a fairly large effect in the direction that the proportion of Bachelorettes that stay together with their chosen suitor might be higher than the proportion of Bachelors that stay together with their chosen suitor.</li>
 </ul>
@@ -721,10 +721,10 @@ Show/Hide Solution
 <p><span class="math display">\[
 \begin{split}
 \text{Risk Ratio} &amp;= \frac{p_1}{p_2} \\[2ex]
-&amp;= \frac{.174}{.111} \\[2ex]
-&amp;= 1.56
+&amp;= \frac{.190}{.111} \\[2ex]
+&amp;= 1.71
 \end{split}
-\]</span> We can interpret this as Bachelorettes (numerator proportion) are 1.56 times as likely to stay together as Bachelors (denominator proportion).</p>
+\]</span> We can interpret this as Bachelorettes (numerator proportion) are 1.71 times as likely to stay together as Bachelors (denominator proportion).</p>
 <div class="fyi">
 <p>The choice of which group goes in the numerator is irrelevant. However, interpretationally it is easier if you put the bigger proportion in the numerator.</p>
 </div>
@@ -798,7 +798,7 @@ dbl (1): lead_level
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for risk ratio</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci_risk_ratio</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.174</span>, <span class="co">#Proportion for Bachelorette</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.190</span>, <span class="co">#Proportion for Bachelorette</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1 =</span> <span class="dv">25</span>,    <span class="co">#Sample size for Bachelorette</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> .<span class="dv">111</span>,  <span class="co">#Proportion for Bachelor</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2 =</span> <span class="dv">27</span>,    <span class="co">#Sample size for Bachelor</span></span>
@@ -810,19 +810,19 @@ dbl (1): lead_level
 95% Confidence Interval
 --------------------------------------------------
 
-Risk Ratio = 1.567568
+Risk Ratio = 1.711712
 
-Lower Limit = 0.7941019
-Upper Limit = 3.094399
+Lower Limit = 0.8790555
+Upper Limit = 3.333074
 
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([0.79,~3.09]\)</span>, indicating that Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:</p>
+<p>The CI is <span class="math inline">\([0.88,~3.33]\)</span>, indicating that Bachelorettes (numerator proportion) are between 0.88 and 3.33 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:</p>
 <ul>
-<li>It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.79 times as likely).</li>
+<li>It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.88 times as likely).</li>
 <li>It may be that both groups are EQUALLY likely to stay together with their chosen suitor. Or,</li>
-<li>It may be that Bachelorettes are MORE likely than Bachelors to stay together with their chosen suitor (up to 3.09 times as likely).</li>
+<li>It may be that Bachelorettes are MORE likely than Bachelors to stay together with their chosen suitor (up to 3.33 times as likely).</li>
 </ul>
 <p><br></p>
 <section id="using-conf_risk_ratio-with-a-single-sample" class="level3" data-number="23.3.1">

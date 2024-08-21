@@ -34,14 +34,14 @@ bachelor
 df_stats(~still_together | show, data = bachelor, props)
 ```
 
-Based on the proportion that are still together, $\hat{p}_{\text{Bachelor}} = .111, ~\hat{p}_{\text{Bachelorette}} = .174$, the difference is .063---this is a raw effect of the difference. To compute Cohen's *h*, the standardized effect, we can employ those proportions in to the formula above. Because arcsine transformations might not be at the tip of your brain, we use R to do this with the function `asin()`. 
+Based on the proportion that are still together, $\hat{p}_{\text{Bachelor}} = .111, ~\hat{p}_{\text{Bachelorette}} = .190$, the difference is .079---this is a raw effect of the difference. To compute Cohen's *h*, the standardized effect, we can employ those proportions in to the formula above. Because arcsine transformations might not be at the tip of your brain, we use R to do this with the function `asin()`. 
 
 ```{r}
 # Compute Cohen's h
-2 * asin(sqrt(.174)) - 2 * asin(sqrt(.111))
+2 * asin(sqrt(.190)) - 2 * asin(sqrt(.111))
 ```
 
-Cohen's *h* value is .181. While the metric used for Cohen's *h* is standardized, we typically don't interpret the value; we just report it. We can, however, interpret the magnitude of Cohen's *h* using the same guidelines as Cohen's *d*:
+Cohen's *h* value is .222. While the metric used for Cohen's *h* is standardized, we typically don't interpret the value; we just report it. We can, however, interpret the magnitude of Cohen's *h* using the same guidelines as Cohen's *d*:
 
 $$
 \begin{split}
@@ -134,7 +134,7 @@ For example, to compute the 95% confidence interval for Cohen's *h* in the popul
 ```{r}
 # Compute CI for Cohen's h
 ci_cohens_h(
-  p1 = 0.174, #Proportion for Bachelorette
+  p1 = 0.190, #Proportion for Bachelorette
   n1 = 25,    #Sample size for Bachelorette
   p2 = .111,  #Proportion for Bachelor
   n2 = 27,    #Sample size for Bachelor
@@ -142,9 +142,9 @@ ci_cohens_h(
   )
 ```
 
-The CI is $[-0.36,~0.73]$. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
+The CI is $[-0.32,~0.77]$. Note that the lower limit is negative. This suggests that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor. So, this CI is indicating that:
 
-- There might be a somewhat small effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.
+- There might be a somewhat small-to-moderate effect in the direction that the proportion of Bachelors that stay together with their chosen suitor might be higher than the proportion of Bachelorettes that stay together with their chosen suitor.
 - There might be no difference in the proportion of Bachelors and Bachelorettes that stay together with their chosen suitor, Or,
 - There might be a fairly large effect in the direction that the proportion of Bachelorettes that stay together with their chosen suitor might be higher than the proportion of Bachelors that stay together with their chosen suitor.
 
@@ -214,11 +214,11 @@ In our Bachelor/Bachelorette example the risk ratio of staying together is:
 $$
 \begin{split}
 \text{Risk Ratio} &= \frac{p_1}{p_2} \\[2ex]
-&= \frac{.174}{.111} \\[2ex]
-&= 1.56
+&= \frac{.190}{.111} \\[2ex]
+&= 1.71
 \end{split}
 $$
-We can interpret this as Bachelorettes (numerator proportion) are 1.56 times as likely to stay together as Bachelors (denominator proportion).
+We can interpret this as Bachelorettes (numerator proportion) are 1.71 times as likely to stay together as Bachelors (denominator proportion).
 
 :::fyi
 The choice of which group goes in the numerator is irrelevant. However, interpretationally it is easier if you put the bigger proportion in the numerator. 
@@ -283,7 +283,7 @@ For example, to compute the 95% confidence interval for the risk ratio in our Ba
 ```{r}
 # Compute CI for risk ratio
 ci_risk_ratio(
-  p1 = 0.174, #Proportion for Bachelorette
+  p1 = 0.190, #Proportion for Bachelorette
   n1 = 25,    #Sample size for Bachelorette
   p2 = .111,  #Proportion for Bachelor
   n2 = 27,    #Sample size for Bachelor
@@ -291,11 +291,11 @@ ci_risk_ratio(
   )
 ```
 
-The CI is $[0.79,~3.09]$, indicating that Bachelorettes (numerator proportion) are between 0.79 and 3.11 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:
+The CI is $[0.88,~3.33]$, indicating that Bachelorettes (numerator proportion) are between 0.88 and 3.33 times as likely to stay together as Bachelors (denominator proportion). Note that the lower limit is below 1. This suggests that Bachelors are more likely than Bachelorettes to stay together with their chosen suitor. A risk ratio of 1 suggests that both groups are equally likely to stay together with their chosen suitor. So, this CI is indicating quite a lot of uncertainty:
 
-- It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.79 times as likely).
+- It may be that Bachelorettes are LESS likely than Bachelors to stay together with their chosen suitor (up to 0.88 times as likely).
 - It may be that both groups are EQUALLY likely to stay together with their chosen suitor. Or,
-- It may be that Bachelorettes are MORE likely than Bachelors to stay together with their chosen suitor (up to 3.09 times as likely).
+- It may be that Bachelorettes are MORE likely than Bachelors to stay together with their chosen suitor (up to 3.33 times as likely).
 
 <br />
 
