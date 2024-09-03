@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis - 8&nbsp; Bootstrapping: Using Simulation to Estimate the Uncertainty</title>
+<title>8&nbsp; Bootstrapping: Using Simulation to Estimate the Uncertainty – An Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -136,7 +136,7 @@ function toggle_visibility(id) {
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -176,13 +176,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -214,7 +214,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Computation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -243,7 +243,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -260,7 +260,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing and Visualizing Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -283,7 +283,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Data to a Standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -330,7 +330,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -365,7 +365,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effect Size</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -429,7 +429,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Relationships</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -518,7 +518,7 @@ window.Quarto = {
 <p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html" class="quarto-xref"><span>Chapter 7</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-thought-experiment" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
@@ -534,7 +534,7 @@ Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from t
 <p>Efron’s big discovery was that in the thought experiment, we could replace the population with a sample, and then randomly sample from that initial sample. He proved that using this methodology, you can obtain a good estimate of the sampling variation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment-bootstrap" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-thought-experiment-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%">
@@ -600,17 +600,17 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8.333333  7.500000  8.583333  7.916667  4.916667  7.500000  5.916667
- [8]  9.166667  9.166667  8.250000  6.750000  7.500000  7.500000  7.500000
-[15]  7.083333  7.666667  7.666667  8.083333  6.750000  8.583333  6.083333
-[22]  4.666667  7.416667  7.916667  8.083333  7.583333  8.500000  8.916667
-[29]  4.416667  7.583333 10.083333  7.583333  4.583333  7.083333 10.083333
-[36]  7.166667  7.750000  8.333333 11.083333  6.416667  7.666667  5.166667
-[43]  6.416667  7.333333  8.333333  7.000000  7.666667  6.083333  6.916667
-[50]  7.750000  7.333333  5.166667  7.916667  7.666667  5.416667  4.166667
-[57]  4.500000  7.916667  7.500000 10.083333  6.333333  4.666667  5.833333
-[64]  5.916667  5.416667  4.666667  9.083333  9.916667  6.583333  8.333333
-[71]  7.333333  5.166667  8.333333  9.750000  6.500000</code></pre>
+<pre><code> [1]  7.666667  7.666667  6.333333  7.333333  6.916667  4.916667  7.333333
+ [8]  9.166667  7.583333  6.083333  4.416667  6.083333  4.416667  5.833333
+[15]  4.666667  7.416667  5.916667  5.916667  8.500000  7.916667  7.750000
+[22]  4.666667  6.750000  7.583333  7.333333  6.500000  9.166667  8.583333
+[29]  6.750000  7.083333  7.583333  5.916667  7.666667  6.833333  5.833333
+[36]  8.333333  5.916667  7.583333  8.083333  7.333333  6.583333  4.666667
+[43]  7.750000  4.916667  6.083333  6.500000  7.333333  9.166667  7.583333
+[50]  6.916667  6.750000  8.916667  8.750000  7.333333  7.833333  8.333333
+[57]  7.500000  8.916667  7.000000  7.750000  7.750000  8.583333  7.750000
+[64]  7.333333  8.833333 11.083333  6.416667  8.083333  4.583333  7.833333
+[71]  6.916667  4.916667  4.166667  7.166667  4.666667</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
@@ -618,17 +618,17 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  7.833333  9.166667  7.500000  6.750000  4.500000  5.916667  6.416667
- [8]  6.083333  7.583333  7.583333  6.916667  8.333333  7.666667  4.166667
-[15]  5.916667  6.083333  9.750000  4.500000 11.083333  9.166667  7.166667
-[22]  4.833333  6.500000  5.416667  6.916667  5.416667  8.750000  4.166667
-[29] 10.333333  7.916667  7.333333  8.500000  7.583333  6.083333  6.583333
-[36]  7.916667  4.583333  7.166667  7.083333  6.833333  4.500000  4.166667
-[43] 11.083333  5.833333 11.083333  7.500000  7.500000  4.833333  8.083333
-[50]  7.666667  5.833333  5.416667  7.500000  4.666667  6.500000  6.750000
-[57]  8.833333  7.916667  8.750000  4.583333  4.833333  7.166667  7.500000
-[64]  7.500000  8.416667  8.333333  5.916667  8.416667  8.333333  4.666667
-[71]  7.333333  7.333333  8.750000  8.583333  7.916667</code></pre>
+<pre><code> [1]  5.916667  7.583333  6.333333  8.750000  6.083333  7.916667  6.916667
+ [8]  9.916667  9.166667  7.916667  7.666667  5.916667  9.916667  7.500000
+[15]  5.166667  8.333333  8.416667  7.500000  6.750000  7.916667  5.166667
+[22]  8.333333  8.583333  7.500000 11.083333  7.750000  7.500000  8.750000
+[29]  8.333333  4.666667  7.500000  7.666667  9.083333  4.666667  7.333333
+[36]  9.083333  7.166667  4.916667  8.083333  7.583333  7.000000  8.500000
+[43]  7.916667  6.083333  7.916667  8.583333  6.583333  7.166667  4.166667
+[50]  9.916667  8.416667  7.583333  7.916667  6.500000  8.583333  8.500000
+[57]  8.333333  7.083333  8.083333  7.583333  8.750000  5.916667  8.333333
+[64]  7.583333  6.333333  6.583333  9.083333  7.083333  8.333333  4.500000
+[71]  6.500000  9.166667 10.083333  7.666667  9.166667</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -640,7 +640,7 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.233333</code></pre>
+<pre><code>[1] 7.513333</code></pre>
 </div>
 </div>
 <p>You could re-run this syntax to draw another bootstrap sample and compute the mean.</p>
@@ -658,7 +658,7 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.431111"},{"1":"7.394444"},{"1":"7.090000"},{"1":"7.405556"},{"1":"7.505556"},{"1":"7.167778"},{"1":"7.416667"},{"1":"7.601111"},{"1":"7.441111"},{"1":"7.516667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.061111"},{"1":"7.512222"},{"1":"7.295556"},{"1":"7.256667"},{"1":"7.126667"},{"1":"7.381111"},{"1":"7.386667"},{"1":"7.440000"},{"1":"7.581111"},{"1":"7.596667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -693,7 +693,7 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-bootstrap-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-bootstrap-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" width="672">
@@ -780,18 +780,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -823,7 +812,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -858,7 +887,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

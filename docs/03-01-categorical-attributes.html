@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis - 5&nbsp; Summarizing and Visualizing Categorical Attributes</title>
+<title>5&nbsp; Summarizing and Visualizing Categorical Attributes – An Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -116,7 +116,7 @@ function toggle_visibility(id) {
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -156,13 +156,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-00-exploring-and-describing-data.html">Summarizing and Visualizing Data</a></li><li class="breadcrumb-item"><a href="./03-01-categorical-attributes.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing and Visualizing Categorical Attributes</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -194,7 +194,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Computation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -223,7 +223,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -240,7 +240,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing and Visualizing Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,7 +263,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Data to a Standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -310,7 +310,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -345,7 +345,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -368,7 +368,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effect Size</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -409,7 +409,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Relationships</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -498,7 +498,7 @@ window.Quarto = {
 <p>Imagine you have surveyed 10 pet owners about the type of pet they own.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The data you collected is shown in <a href="#fig-pets" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pets" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-pets" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-01-pet-sample.png" class="img-fluid figure-img" width="248">
@@ -542,18 +542,17 @@ Figure&nbsp;5.1: Data collected from 10 pet owners about the type of pet the own
 </ul>
 <p>The count and proportion values are often reported in a table, especially if there are more than a couple values in the categorical attribute. <a href="#tbl-pets" class="quarto-xref">Table&nbsp;<span>5.1</span></a> is an example table indicating the counts and proportions of values in our hypothetical pet example.</p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-pets" class="cell quarto-float anchored">
+<div id="tbl-pets" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5.1: Counts and proportions of pet owners who own each type of pet.
 </figcaption>
 <div aria-describedby="tbl-pets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="xxquqacphy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gwicogtine" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="header gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
 <th id="Pet" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Pet</th>
@@ -588,7 +587,6 @@ Table&nbsp;5.1: Counts and proportions of pet owners who own each type of pet.
 </div>
 </div>
 </div>
-</div>
 </figure>
 </div>
 </div>
@@ -599,7 +597,7 @@ Table&nbsp;5.1: Counts and proportions of pet owners who own each type of pet.
 <p>To visualize categorical attributes we typically use a <strong>bar chart</strong>. <a href="#fig-pet-barchart" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> shows a bar chart of the pet data.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pet-barchart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-pet-barchart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pet-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-02-pet-barchart.png" class="img-fluid figure-img" width="520">
@@ -615,7 +613,7 @@ Figure&nbsp;5.2: Bar chart indicating the counts of each type of pet owned.
 <p>Sometimes the axes in the bar chart are transposed; categories are placed on the <em>y</em>-axis and counts on the <em>x</em> axis. Also, you might see a bar chart indicating proportions rather than counts. <a href="#fig-pet-barchart2" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> shows a transposed bar chart indicating the proportion of each pet type.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pet-barchart2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-pet-barchart2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pet-barchart2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-03-pet-barchart-horz.png" class="img-fluid figure-img" width="681">
@@ -636,7 +634,7 @@ Figure&nbsp;5.3: Bar chart indicating the counts of each type of pet owned. In t
 <p>There are several variations on the bar chart that you may see in practice. For example, the <strong>segmented bar chart</strong> is a variation of the bar chart. This variation of the plot, which always uses proportions rather than counts, has a single bar that is split into segments—one for each category. A segmented bar chart summarizing the pet data is shown in <a href="#fig-barchart-seg" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-barchart-seg" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-seg" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-seg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-04-pet-barchart-hseg.png" class="img-fluid figure-img" width="511">
@@ -651,7 +649,7 @@ Figure&nbsp;5.4: Segmented bar chart indicating the proportion of each type of p
 <p>Another variation of the bar chart is the <strong>donut chart</strong>. A donut chart is simply a segmented bar chart that is presented in a circular layout. <a href="#fig-donut-chart" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> presents a donut chart summarizing the pet data. Because there is no axis to indicate the proportion of each category in a donut chart, it is conventional to indicate the percentages of each category in the plot. Here percentages are used rather than proportions.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-donut-chart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-donut-chart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-donut-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-05-pet-donut-chart.png" class="img-fluid figure-img" style="width:40.0%">
@@ -670,7 +668,7 @@ Figure&nbsp;5.5: Donut chart indicating the percentage of each type of pet owned
 <p>One last plot used to visualize summaries of categorical dat is the <strong>pie chart</strong>. <a href="#fig-pie-chart" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> shows a pie chart summarizing the pet data. Unlike any of the bar charts that we have looked at, a pie chart uses the proportional area of a circle to indicate the proportion or percentage of each pet type rather than the length of a bar.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pie-chart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-pie-chart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pie-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/03-06-pet-pie-chart.png" class="img-fluid figure-img" style="width:40.0%">
@@ -751,18 +749,17 @@ Figure&nbsp;5.6: Pie chart indicating the percentage of each type of pet owned. 
 </div>
 <p>These proportions (which can also be turned into percentages<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) tell a similar story to what the counts did. Most of the institutions in our sample are private nonprofit (63.5%) and public (30.9%) institutions. There is a smaller percentage of institutions that are private for-profit (5.7%).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> As we did with the numerical summaries of the pet data, we can include these values in a table.</p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-colleges" class="cell quarto-float anchored">
+<div id="tbl-colleges" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-colleges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5.2: Counts and proportions of institutions of higher learning by control.
 </figcaption>
 <div aria-describedby="tbl-colleges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="vnwbvezhup" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gsxejckkox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="header gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
 <th id="Control" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Control</th>
@@ -789,7 +786,6 @@ Table&nbsp;5.2: Counts and proportions of institutions of higher learning by con
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -845,7 +841,7 @@ Show/Hide Solution
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to create a bar chart for the control attribute</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_counts</span>(<span class="sc">~</span> control, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-barchart-control." class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-control." class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-control.-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-01-categorical-attributes_files/figure-html/fig-barchart-control.-1.png" class="img-fluid figure-img" width="672">
@@ -872,7 +868,7 @@ Figure&nbsp;5.7: Bar chart summarizing the counts of the control attribute.
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-barchart-control-axes-labels." class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-control-axes-labels." class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-control-axes-labels.-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-01-categorical-attributes_files/figure-html/fig-barchart-control-axes-labels.-1.png" class="img-fluid figure-img" width="672">
@@ -936,7 +932,7 @@ Show/Hide Solution
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-barchart-control-proportions" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-control-proportions" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-control-proportions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-01-categorical-attributes_files/figure-html/fig-barchart-control-proportions-1.png" class="img-fluid figure-img" width="672">
@@ -957,7 +953,7 @@ Figure&nbsp;5.9: Bar chart summarizing the proportions of institutions of higher
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Percent"</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-barchart-control-percents" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-control-percents" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-control-percents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-01-categorical-attributes_files/figure-html/fig-barchart-control-percents-1.png" class="img-fluid figure-img" width="672">
@@ -1016,7 +1012,7 @@ Show/Hide Solution
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-barchart-control-horz" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart-control-horz" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-control-horz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-01-categorical-attributes_files/figure-html/fig-barchart-control-horz-1.png" class="img-fluid figure-img" width="768">
@@ -1058,18 +1054,17 @@ Show/Hide Solution
 <h2 data-number="5.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.6</span> Summary</h2>
 <p>There are several R functions that are useful for summarizing categorical attributes. <a href="03-02-quantitative-attributes.html#tbl-r-functions" class="quarto-xref">Table&nbsp;<span>6.1</span></a> shows the functions (and their descriptions) you will use to summarize and visualize categorical attributes. Note that they all have very parallel syntax.</p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-r-functions" class="cell quarto-float anchored">
+<div id="tbl-r-functions" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-r-functions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5.3: The functions and their descriptions to summarize and visualize categorical attributes.
 </figcaption>
 <div aria-describedby="tbl-r-functions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="hynjkseudw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ifynaviffl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="100%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="100%" data-bgcolor="#FFFFFF">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -1082,7 +1077,8 @@ Table&nbsp;5.3: The functions and their descriptions to summarize and visualize 
 </thead>
 <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
 <tr class="odd gt_group_heading_row" style="border-style: none;">
-<td colspan="2" id="<strong>Summarize</strong>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><strong>Summarize</strong></td>
+<td colspan="2" id="<div data-qmd-base64=&quot;KipTdW1tYXJpemUqKg==&quot;><div class='gt_from_md'><p><strong>Summarize</strong></p>
+</div></div>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><p><strong>Summarize</strong></p></td>
 </tr>
 <tr class="even gt_row_group_first" style="border-style: none;">
 <td class="gt_row gt_left" headers="**Summarize**  Function" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p><code>df_stats(~attribute, data = data_object, counts)</code></p></td>
@@ -1097,7 +1093,8 @@ Table&nbsp;5.3: The functions and their descriptions to summarize and visualize 
 <td class="gt_row gt_left" headers="**Summarize**  Description" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle">Compute percentages of a categorical attribute</td>
 </tr>
 <tr class="odd gt_group_heading_row" style="border-style: none;">
-<td colspan="2" id="<strong>Visualize</strong>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><strong>Visualize</strong></td>
+<td colspan="2" id="<div data-qmd-base64=&quot;KipWaXN1YWxpemUqKg==&quot;><div class='gt_from_md'><p><strong>Visualize</strong></p>
+</div></div>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><p><strong>Visualize</strong></p></td>
 </tr>
 <tr class="even gt_row_group_first" style="border-style: none;">
 <td class="gt_row gt_left" headers="**Visualize**  Function" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p><code>gf_counts(~attribute, data = data_object)</code></p></td>
@@ -1129,24 +1126,22 @@ Table&nbsp;5.3: The functions and their descriptions to summarize and visualize 
 </div>
 </div>
 </div>
-</div>
 </figure>
 </div>
 </div>
 <p>Lastly, there are several optional arguments you can include in the visualization (<code>gf_</code>) functions to improve the aesthetic quality of your plot. Some of these are listed in <a href="#tbl-viz-arguments" class="quarto-xref">Table&nbsp;<span>5.4</span></a>.</p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-viz-arguments" class="cell quarto-float anchored">
+<div id="tbl-viz-arguments" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-viz-arguments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5.4: Optional argumnents that can be included in the visualization (<code>gf_</code>) functions.
 </figcaption>
 <div aria-describedby="tbl-viz-arguments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="yueydgcxeo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qabergjebq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="70%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="70%" data-bgcolor="#FFFFFF">
 <colgroup>
 <col style="width: 100%">
 </colgroup>
@@ -1157,36 +1152,37 @@ Table&nbsp;5.4: Optional argumnents that can be included in the visualization (<
 </thead>
 <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
 <tr class="odd gt_group_heading_row" style="border-style: none;">
-<td id="<strong>Labels</strong>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><strong>Labels</strong></td>
+<td id="<div data-qmd-base64=&quot;KipMYWJlbHMqKg==&quot;><div class='gt_from_md'><p><strong>Labels</strong></p>
+</div></div>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><p><strong>Labels</strong></p></td>
 </tr>
 <tr class="even gt_row_group_first" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p>`xlab =</p></td>
+<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p><code>xlab = "x-axis label"</code></p></td>
 </tr>
 <tr class="odd" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p>`ylab =</p></td>
+<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p><code>ylab = "y-axis label"</code></p></td>
 </tr>
 <tr class="even" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p>`title =</p></td>
+<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p><code>title = "Title for your plot."</code></p></td>
 </tr>
 <tr class="odd" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p>`subtitle =</p></td>
+<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p><code>subtitle = "Subtitle for your plot."</code></p></td>
 </tr>
 <tr class="even" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p>`caption =</p></td>
+<td class="gt_row gt_left" headers="**Labels**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p><code>caption = "Caption for your plot."</code></p></td>
 </tr>
 <tr class="odd gt_group_heading_row" style="border-style: none;">
-<td id="<strong>Color</strong>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><strong>Color</strong></td>
+<td id="<div data-qmd-base64=&quot;KipDb2xvcioq&quot;><div class='gt_from_md'><p><strong>Color</strong></p>
+</div></div>" class="gt_group_heading" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle;" data-bgcolor="#FFFFFF" data-valign="middle"><p><strong>Color</strong></p></td>
 </tr>
 <tr class="even gt_row_group_first" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Color**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p>`fill =</p></td>
+<td class="gt_row gt_left" headers="**Color**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; border-top-width: 2px;" data-valign="middle"><p><code>fill = "color name for bar color"</code></p></td>
 </tr>
 <tr class="odd" style="border-style: none;">
-<td class="gt_row gt_left" headers="**Color**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p>`color =</p></td>
+<td class="gt_row gt_left" headers="**Color**  Argument" style="text-align: left; border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden;" data-valign="middle"><p><code>color = "color name for bar outlines"</code></p></td>
 </tr>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -1243,18 +1239,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1286,7 +1271,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1321,7 +1346,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

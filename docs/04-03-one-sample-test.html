@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis - 9&nbsp; Hypothesis Testing: One-Sample t-Test</title>
+<title>9&nbsp; Hypothesis Testing: One-Sample t-Test – An Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ function toggle_visibility(id) {
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -122,13 +122,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-03-one-sample-test.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -160,7 +160,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Computation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -189,7 +189,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -206,7 +206,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing and Visualizing Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -229,7 +229,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Data to a Standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -276,7 +276,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -311,7 +311,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -334,7 +334,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effect Size</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -375,7 +375,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Relationships</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -491,18 +491,17 @@ window.Quarto = {
 \]</span></p>
 <p>The Greek letter mu (<span class="math inline">\(\mu\)</span>) denotes a population mean. In general Greek letters represent population parameters while Roman letters represent sample statistics. Here are a list of common statistical summaries and the mathematical notation used to denote them.</p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-summaries-notation" class="cell quarto-float anchored">
+<div id="tbl-summaries-notation" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summaries-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;9.1: Some common statistical summaries and the mathematical notation used to denote them.
 </figcaption>
 <div aria-describedby="tbl-summaries-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="gbmtxfvzst" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="insugdhkfc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="header gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
 <th id="Summary" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Summary</th>
@@ -532,7 +531,6 @@ Table&nbsp;9.1: Some common statistical summaries and the mathematical notation 
 </div>
 </div>
 </div>
-</div>
 </figure>
 </div>
 </div>
@@ -546,7 +544,7 @@ Table&nbsp;9.1: Some common statistical summaries and the mathematical notation 
 <p>A hypothesis test is predicated on the assumption that the null hypothesis is true. Thus, we want to produce a sampling distribution of potential sample summaries that we could see if <span class="math inline">\(H_0: \mu_{\textrm{Sleep}}=9\)</span> is actually true. In other words, we are carrying out a thought experiment assuming that the average amount of sleep for all teens is actually 9 hours.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-thought-experiment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-null-model-thought-experiment" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-null-model-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/04-05-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
@@ -561,7 +559,7 @@ Figure&nbsp;9.1: Visual depiction of the thought experiment underlying a hypothe
 <p>If we were able to carry out this thought experiment, here is what the sampling distribution of the sample means would look like:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-samp-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-null-model-samp-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-null-model-samp-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-null-model-samp-dist-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -590,7 +588,7 @@ Figure&nbsp;9.2: Density plot of the sampling distribution of the sample means b
 <p>The null distribution gives us an indication of the range of sample mean values that are expected assuming the null hypothesis is true. Using the null distribution as a reference, we can evaluate the mean we obtained from the observed data, which was 7.5 hours (see <a href="04-01-case-study-teen-sleep.html" class="quarto-xref"><span>Chapter 7</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-null-model-expected" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-null-model-expected" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-null-model-expected-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-null-model-expected-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -644,7 +642,7 @@ t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 <p>Recall that the null distribution is simply a distribution of sample means we expect if the null hypothesis is true. Because each case in this distribution is a sample mean, we could transform each case into a <em>t</em>-value. If we do that, the resulting distribution is a <em>t</em>-distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-t-dist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-t-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-t-dist-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -675,7 +673,7 @@ Figure&nbsp;9.4: Density plot of the <em>t</em>-distribution of the sample means
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-t-examples" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-t-examples" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-t-examples-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -719,7 +717,7 @@ Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <
 <p>Using these properties, we can sketch this <em>t</em>-distribution. We can also add the observed <em>t</em>-value of <span class="math inline">\(-8.82\)</span> into the distribution. (Note: We will have to go out about 9 SEs from the center value of 0 to place the observed <em>t</em>-value onto the distribution!)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-sketch-t" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sketch-t" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sketch-t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/04-06-t-sketch.jpg" class="img-fluid figure-img" style="width:80.0%">
@@ -765,7 +763,7 @@ P(t \leq -8.82)
 <p>As an example, consider the dotplot in <a href="#fig-p-value" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-p-value" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-p-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-p-value-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -796,7 +794,7 @@ P(t \leq -8.82) &amp;= \frac{2}{300} \\[1ex]
 <p>For example if we had the alternative hypothesis <span class="math inline">\(H_A:\mu&gt;9\)</span>, values at least as extreme as <span class="math inline">\(-8.82\)</span> correspond to all the values that are <em>greater than or equal to</em> <span class="math inline">\(-8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-p-value2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-p-value2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-p-value2-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -819,7 +817,7 @@ p &amp;= \frac{298}{300} \\[1ex]
 <p>Another potential alternative hypothesis that a researcher might have is <span class="math inline">\(H_A:\mu\neq9\)</span>. In this research hypothesis the researcher is not positing a direction—they are just saying we think it differs from 9 hours; it might be higher, it might be lower. What this means for identifying cases in the <em>t</em>-distribution that are at least as extreme as <span class="math inline">\(-8.82\)</span> is that we have to identify all values <em>less than or equal to</em> <span class="math inline">\(-8.82\)</span> AND all values <em>greater than or equal to</em> <span class="math inline">\(+8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-p-value3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-p-value3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-p-value3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-03-one-sample-test_files/figure-html/fig-p-value3-1.png" class="img-fluid figure-img" style="width:80.0%">
@@ -847,7 +845,7 @@ p &amp;= \frac{4}{300} \\[1ex]
 <p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p" class="quarto-xref">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-sketch-area-p" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sketch-area-p" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sketch-area-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/04-07-area-density-p.jpg" class="img-fluid figure-img" style="width:80.0%">
@@ -937,18 +935,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -980,7 +967,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1015,7 +1042,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

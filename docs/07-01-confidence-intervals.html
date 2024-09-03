@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Data Analysis - 19&nbsp; Confidence Intervals</title>
+<title>19&nbsp; Confidence Intervals – An Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -116,7 +116,7 @@ function toggle_visibility(id) {
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -156,13 +156,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-00-effect-size.html">Effect Size</a></li><li class="breadcrumb-item"><a href="./07-01-confidence-intervals.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -194,7 +194,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./01-00-statistical-computation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Computation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -223,7 +223,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./02-00-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -240,7 +240,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./03-00-exploring-and-describing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing and Visualizing Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,7 +263,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./04-00-comparing-to-a-standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Data to a Standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -310,7 +310,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./05-00-comparing-two-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Two Groups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -345,7 +345,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./06-00-study-design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -368,7 +368,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./07-00-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effect Size</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -409,7 +409,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./08-00-relationships.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Relationships</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -524,31 +524,30 @@ H_A: \mu \neq 322.46
 \]</span></p>
 <p>All confidence intervals are computed using this method. The only thing that changes is how the SE is computed. Remember from our reading in hypothesis tests, the formula for the SE depended on whether we were computing it for a single mean, the difference between two means, a single proportion, or a difference between two proportions. As a reminder, the formulas for SE are presented in <a href="#tbl-se" class="quarto-xref">Table&nbsp;<span>19.1</span></a>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="cell" data-tbl-colwidths="false">
-<div id="tbl-se" class="cell quarto-float anchored">
+<div id="tbl-se" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-se-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different situations we have studied in EPsy 5261.
 </figcaption>
 <div aria-describedby="tbl-se-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div>
-<div id="pmhsuimapl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pmhsuimapl table {
+<div id="whbdaswvvm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#whbdaswvvm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pmhsuimapl thead, #pmhsuimapl tbody, #pmhsuimapl tfoot, #pmhsuimapl tr, #pmhsuimapl td, #pmhsuimapl th {
+#whbdaswvvm thead, #whbdaswvvm tbody, #whbdaswvvm tfoot, #whbdaswvvm tr, #whbdaswvvm td, #whbdaswvvm th {
   border-style: none;
 }
 
-#pmhsuimapl p {
+#whbdaswvvm p {
   margin: 0;
   padding: 0;
 }
 
-#pmhsuimapl .gt_table {
+#whbdaswvvm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -574,12 +573,12 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-left-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_caption {
+#whbdaswvvm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pmhsuimapl .gt_title {
+#whbdaswvvm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -591,7 +590,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-width: 0;
 }
 
-#pmhsuimapl .gt_subtitle {
+#whbdaswvvm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -603,7 +602,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-top-width: 0;
 }
 
-#pmhsuimapl .gt_heading {
+#whbdaswvvm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -615,13 +614,13 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_bottom_border {
+#whbdaswvvm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_col_headings {
+#whbdaswvvm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -636,7 +635,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_col_heading {
+#whbdaswvvm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -656,7 +655,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   overflow-x: hidden;
 }
 
-#pmhsuimapl .gt_column_spanner_outer {
+#whbdaswvvm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -668,15 +667,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 4px;
 }
 
-#pmhsuimapl .gt_column_spanner_outer:first-child {
+#whbdaswvvm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pmhsuimapl .gt_column_spanner_outer:last-child {
+#whbdaswvvm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pmhsuimapl .gt_column_spanner {
+#whbdaswvvm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -688,11 +687,11 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   width: 100%;
 }
 
-#pmhsuimapl .gt_spanner_row {
+#whbdaswvvm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pmhsuimapl .gt_group_heading {
+#whbdaswvvm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -718,7 +717,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   text-align: left;
 }
 
-#pmhsuimapl .gt_empty_group_heading {
+#whbdaswvvm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -733,15 +732,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   vertical-align: middle;
 }
 
-#pmhsuimapl .gt_from_md > :first-child {
+#whbdaswvvm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pmhsuimapl .gt_from_md > :last-child {
+#whbdaswvvm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pmhsuimapl .gt_row {
+#whbdaswvvm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -760,7 +759,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   overflow-x: hidden;
 }
 
-#pmhsuimapl .gt_stub {
+#whbdaswvvm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -773,7 +772,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#pmhsuimapl .gt_stub_row_group {
+#whbdaswvvm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -787,15 +786,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   vertical-align: top;
 }
 
-#pmhsuimapl .gt_row_group_first td {
+#whbdaswvvm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pmhsuimapl .gt_row_group_first th {
+#whbdaswvvm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pmhsuimapl .gt_summary_row {
+#whbdaswvvm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -805,16 +804,16 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#pmhsuimapl .gt_first_summary_row {
+#whbdaswvvm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_first_summary_row.thick {
+#whbdaswvvm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pmhsuimapl .gt_last_summary_row {
+#whbdaswvvm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -824,7 +823,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_grand_summary_row {
+#whbdaswvvm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -834,7 +833,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#pmhsuimapl .gt_first_grand_summary_row {
+#whbdaswvvm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -844,7 +843,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-top-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_last_grand_summary_row_top {
+#whbdaswvvm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -854,11 +853,11 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_striped {
+#whbdaswvvm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pmhsuimapl .gt_table_body {
+#whbdaswvvm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -867,7 +866,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_footnotes {
+#whbdaswvvm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -881,7 +880,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_footnote {
+#whbdaswvvm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -890,7 +889,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#pmhsuimapl .gt_sourcenotes {
+#whbdaswvvm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -904,7 +903,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#pmhsuimapl .gt_sourcenote {
+#whbdaswvvm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -912,68 +911,77 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#pmhsuimapl .gt_left {
+#whbdaswvvm .gt_left {
   text-align: left;
 }
 
-#pmhsuimapl .gt_center {
+#whbdaswvvm .gt_center {
   text-align: center;
 }
 
-#pmhsuimapl .gt_right {
+#whbdaswvvm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pmhsuimapl .gt_font_normal {
+#whbdaswvvm .gt_font_normal {
   font-weight: normal;
 }
 
-#pmhsuimapl .gt_font_bold {
+#whbdaswvvm .gt_font_bold {
   font-weight: bold;
 }
 
-#pmhsuimapl .gt_font_italic {
+#whbdaswvvm .gt_font_italic {
   font-style: italic;
 }
 
-#pmhsuimapl .gt_super {
+#whbdaswvvm .gt_super {
   font-size: 65%;
 }
 
-#pmhsuimapl .gt_footnote_marks {
+#whbdaswvvm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pmhsuimapl .gt_asterisk {
+#whbdaswvvm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pmhsuimapl .gt_indent_1 {
+#whbdaswvvm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pmhsuimapl .gt_indent_2 {
+#whbdaswvvm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pmhsuimapl .gt_indent_3 {
+#whbdaswvvm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pmhsuimapl .gt_indent_4 {
+#whbdaswvvm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pmhsuimapl .gt_indent_5 {
+#whbdaswvvm .gt_indent_5 {
   text-indent: 25px;
+}
+
+#whbdaswvvm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#whbdaswvvm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="header gt_col_headings">
 <th id="Situation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Situation</th>
@@ -1000,7 +1008,6 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -1342,18 +1349,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1385,7 +1381,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1420,7 +1456,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
