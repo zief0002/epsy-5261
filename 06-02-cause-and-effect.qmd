@@ -72,34 +72,34 @@ It is important to differentiate between the drawing of causal inferences and ma
 
 
 
-<!-- ```{r} -->
-<!-- #| label: tbl-scope-inferences -->
-<!-- #| tbl-cap: "Four potential study designs researchers could have and the scope of inferences that they could make based on the study design." -->
-<!-- #| echo: false -->
-<!-- #| tbl-colwidths: false -->
-<!-- library(gt) -->
-<!-- dplyr::tibble( -->
-<!--   rs = c("&#10004;", "", "&#10004;", ""), -->
-<!--   ra = c("", "&#10004;", "&#10004;", ""), -->
-<!--   scope = c("Generalizable to population", "Cause-and-effect, but not generalizable to population", -->
-<!--             "Cause-and-effect and generalizable to population",  -->
-<!--             "No cause-and-effect and not generalizable to population") -->
-<!-- ) |> -->
-<!--   gt() |> -->
-<!--   cols_label( -->
-<!--     rs = "Random Sample", -->
-<!--     ra = "Random Assignment", -->
-<!--     scope = "Scope of Inferences" -->
-<!--   ) |> -->
-<!--   cols_align( -->
-<!--     align = "center", -->
-<!--     columns = c(rs, ra) -->
-<!--   ) |> -->
-<!--   fmt_markdown(columns = c(rs, ra)) |> -->
-<!--   tab_options( -->
-<!--     table.width = pct(60) -->
-<!--     ) -->
-<!-- ``` -->
+```{r}
+#| label: tbl-scope-inferences
+#| tbl-cap: "Four potential study designs researchers could have and the scope of inferences that they could make based on the study design."
+#| echo: false
+#| tbl-colwidths: false
+library(gt)
+dplyr::tibble(
+  rs = c("✔", "", "✔", ""),
+  ra = c("", "✔", "✔", ""),
+  scope = c("Generalizable to population", "Cause-and-effect, but not generalizable to population",
+            "Cause-and-effect and generalizable to population",
+            "No cause-and-effect and not generalizable to population")
+) |>
+  gt() |>
+  cols_label(
+    rs = "Random Sample",
+    ra = "Random Assignment",
+    scope = "Scope of Inferences"
+  ) |>
+  cols_align(
+    align = "center",
+    columns = c(rs, ra)
+  ) |>
+  #fmt_markdown(columns = c(rs, ra))
+  tab_options(
+    table.width = pct(60)
+    )
+```
 
 As you read research articles and consider the evidence presented in those articles, it is important to take into account the design of the study. How was the sample selected? If there are groups being compared, how were participants assigned to groups? These aspects of the study are as important, if not more important, than statistical significance when it comes to the type of inferences one can make. Because they are so important to the conclusions of a study, most research will describe these aspects of the study's design. If a study does not describe these aspects, it should be assumed that random sampling and assignment were not employed. And while this doesn't necessarily make the study's results unimportant, it should give you pause as a researcher and reduce the weight of evidence the study gives to the broader scientific corpus.
 
