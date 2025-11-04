@@ -13,10 +13,11 @@ To illustrate how we can summarize and visualize quantitative attributes using R
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(ggformula)
 library(mosaicCore)
 library(tidyverse)
-
 
 # Import data
 colleges <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
@@ -42,6 +43,8 @@ The syntax used to create a histogram of the admission rates is:
 ```{r}
 #| label: fig-hist-01
 #| fig-cap: "Histogram of admission rates for the institutions of higher learning in the sample."
+#| fig-alt: "Histogram of admission rates for the institutions of higher learning in the sample."
+
 gf_histogram(~ adm_rate, data = colleges)
 ```
 
@@ -55,6 +58,8 @@ Histograms are created by collapsing the data into bins and then counting the nu
 ```{r}
 #| label: fig-hist-01-color
 #| fig-cap: "Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow. Axes labels are also added to the plot."
+#| fig-alt: "Histogram of college admission rates. Here the color of the bin lines to black and fill in the bars with yellow. Axes labels are also added to the plot."
+
 gf_histogram(
   ~ adm_rate, data = colleges, 
   color = "black", 
@@ -68,19 +73,6 @@ Each bar in a histogram represents indicates the number of cases with a range of
 
 One common assumption made with a histogram is that the width of each bar covers the same range over the attribute plotted. In this histogram, there are 25 total bars, which means that the range of each is 0.04 on the admission rate scale (i.e., 25 * .04 = 1.00 which is the rtange of the entire attribute). 
 
-:::exercises
-#### Your Turn {.unnumbered}
-
-Interpret the bar that is immediately to the left of 1.00.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-01');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-01" style="display:none; margin: -40px 0 40px 40px;">
-There are approximately 12 institutions of higher learning with admissions rates between about 0.96 and 1.00.
-</div>
-:::
-
-
 ### Describing the Distribution
 
 Rather than focusing on any one bin, we typically want to describe the distribution of the attribute plotted as a whole. For example, it appears as though most institutions admit a high proportion of applicants since the bins to the right of 0.50 have higher counts than the bins that are below 0.50. (In fact, the highest bins seem to be above 0.75.) There are a few institutions, however, that are quite selective, admitting fewer than 25% of the students who apply.
@@ -90,10 +82,11 @@ Statistically we would say that the distribution of admission rates is *left-ske
 ```{r}
 #| label: fig-skewed-dists
 #| layout-ncol: 2
-#| fig-cap: Examples of a left-skewed and right-skewed distribution.
+#| fig-cap: "Examples of a left-skewed and right-skewed distribution."
 #| fig-subcap:
 #|   - "Left-Skewed Distribution"
 #|   - "Right-Skewed Distribution"
+#| fig-alt: "Examples of a left-skewed and right-skewed distribution."
 #| echo: false
 
 
@@ -144,9 +137,11 @@ The skewness of a distribution describes a characteristic that we refer to as th
 
 ```{r}
 #| label: fig-symmetric
-#| fig-cap: Example of a symmetric distribution.
+#| fig-cap: "Example of a symmetric distribution."
+#| fig-alt: "Example of a symmetric distribution."
 #| out-width: "50%"
 #| echo: false
+
 tibble(
   x = c(rep(1, 1), rep(2, 3), rep(3, 2), rep(4, 5), rep(5, 6), 
         rep(6, 7), rep(7, 8), rep(8, 10), rep(9, 9), rep(10, 7), 
@@ -180,7 +175,9 @@ Density plots can be created with the `gf_density()` function which takes the sa
 ```{r}
 #| label: fig-density-01
 #| fig-cap: "Density plot of college admission rates."
+#| fig-alt: "Density plot of college admission rates."
 #| warning: false
+
 gf_density(
   ~ adm_rate, data = colleges,
   color = "black", 
@@ -193,6 +190,8 @@ gf_density(
 Based on the density plot, we can see that the shape of the distribution of admission rates is left-skewed.
 
 :::fyi
+**FYI**
+
 The metric on the *y*-axis in a density plot is no longer counts, it is "probability density", or just "density". We don't interpret those values, but rather focus on the relative height of the curve. That is, areas of the density curve that are higher indicate more data in those areas of the attribute of interest. Places where the density curve is lower indicates areas where data occur infrequently. 
 :::
 
@@ -212,6 +211,7 @@ Other distributions have multiple modes. For example, the distribution in @fig-t
 ```{r}
 #| label: fig-tc-marathon
 #| fig-cap: "Distribution of times for a random sample of runners who competed in the 2022 Legacy Marathon."
+#| fig-alt: "Distribution of times for a random sample of runners who competed in the 2022 Legacy Marathon."
 #| fig-width: 8
 #| fig-height: 6
 #| echo: false
@@ -247,7 +247,9 @@ The "center" of a distribution is misleading in that it doesn't literally mean t
 We also need to describe the variation in the distribution. When estimating the variation from a density plot we typically describe the overall range of values, as well as, the range of values within which most of the data falls. In the distribution of admission rates presented in  @fig-density-01, there are admission rates between 0 and 1, but most of the institutions of higher learning have an admission rate between 0.65 and 0.85. This could also be given as a range of values around the typical value---$0.75 \pm 0.10$
 
 :::fyi
-A full description of a quantitative distribution includes shape, center, and variation. Here is how we might descirbe the distribution of admission rates presented in @fig-density-01:
+**INTERPRETATION**
+
+A full description of a quantitative distribution includes shape, center, and variation. Here is how we might describe the distribution of admission rates presented in @fig-density-01:
 
 > The distribution of admission rates is left-skewed. Most institutions admit a high proportion of applicants. A typical institution in the distribution admits around 75% of its applicants ($\pm$ 10%). There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply. 
 
@@ -256,43 +258,15 @@ A full description of a quantitative distribution includes shape, center, and va
 
 In a multi-modal distribution, the identification of center and variation is more difficult, since there are multiple typical values. For example, in the distribution of marathon times presented in @fig-tc-marathon, there are two typical values, one around 180 minutes and another around 300 minutes. Similarly, in describing the variation we often describe a range of values around each typical value that depicts where most of the data fall. From @fig-tc-marathon, most of the faster runners finished the Legacy Marathon between 160 and 190 minutes, whereas most of the slower runners finished with a time between 200 and 400 minutes.
 
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Create a density plot for the distribution of median earnings for students. Add appropriate labels to the axes.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
-```{r}
-gf_density(
-  ~ mdn_earn, data = colleges,
-  color = "black", 
-  fill = "yellow",
-  xlab = "Median Earnings",
-  ylab = "Density"
-  )
-```
-
-</div>
-
-Describe the shape, center, and variation of this distribution and what it tells you about students' median earnings 10 years after being enrolled in college.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
-The distribution of median earnings is right skewed. The median amount of money earned 10 years after graduation is around \$50k ($\pm \$10k$). There are some institutions where the median earnings of students is quite high (~100k).
-</div>
-:::
+<br />
 
 
 ## Numerical Summaries
 
 In the previous examples, we estimated the typical value (center) and variation from a visualization of the distribution. If the distribution is unimodal, we can also obtain more precise values for these characteristics by computing different numerical summaries.^[If the distribution is multi-modal many of these summaries cannot be computed, and even if they can be computed they are meaningless as summaries of a typical value or variation.]
 
-:::learnmore
-### Learn More
+:::fyi
+**LEARN MORE**
 
 In this class we will focus on the computation of these values using R and their interpretations rather than on the mathematical manipulation and formulas. Here are some links to learn more about the underlying calculations of the measures that we will focus on in this class if you are interested: [mean, median, and mode](https://statisticsbyjim.com/basics/measures-central-tendency-mean-median-mode/), [range](https://statisticsbyjim.com/?s=Range) [interquartile range (IQR)](https://statisticsbyjim.com/basics/interquartile-range/), [standard deviation](https://statisticsbyjim.com/basics/standard-deviation/).
 :::
@@ -306,11 +280,12 @@ In a perfectly symmetric distributions, the mean and median are the same value. 
 ```{r}
 #| label: fig-mean-median
 #| layout-ncol: 3
-#| fig-cap: Mean, median, and modal values in a left-skewed, symmetric, and right-skewed distribution.
+#| fig-cap: "Mean, median, and modal values in a left-skewed, symmetric, and right-skewed distribution."
 #| fig-subcap:
 #|   - "Left-Skewed Distribution"
 #|   - "Symmetric Distribution"
 #|   - "Right-Skewed Distribution"
+#| fig-alt: "Mean, median, and modal values in a left-skewed, symmetric, and right-skewed distribution."
 #| echo: false
 
 knitr::include_graphics("figs/04-01-left.png")
@@ -334,32 +309,6 @@ df_stats(~adm_rate, data = colleges)
 
 The mean, or average, of the 230 institutions' admission rates is 0.68 and the median admission rate for these institutions is 0.72. The slightly lower mean value is consistent with how the mean and median compare in a left-skew distribution. Because the distribution is skewed the median of 0.68, or modal value of 0.75, is a better indication of a typical admission rate.
 
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Compute the mean and median for the distribution of students' median earnings 10 years after being enrolled in college 
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
-```{r}
-df_stats(~mdn_earn, data = colleges)
-```
-
-
-The mean earnings is \$51,134 and the median earnings is \$49,316.
-</div>
-
-
-Based on the distribution of students' median earnings 10 years after being enrolled in college is the mean or median a better summary of a typical value in the distribution? Explain.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
-Because the distribution of earnings is right-skewed, the median is a better summary of a typical value in the distribution.
-</div>
-:::
 
 <br />
 
@@ -399,38 +348,13 @@ $$
 \end{split}
 $$
 
-That is the middle 50\% of the admission rates have a range of 0.281---they range from 0.56 to 0.84.
-
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Compute the range, IQR, and standard deviation for the distribution of students' median earnings 10 years after being enrolled in college.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-06');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-06" style="display:none; margin: -40px 0 40px 40px;">
-```{r}
-df_stats(~mdn_earn, data = colleges)
-# Range = 132969 - 19513 = 113456
-# IQR = 56535.75 - 43031 = 13504.75
-# SD = 14.601k
-```
-
-</div>
-
-Based on the distribution of students' median earnings 10 years after being enrolled in college which summary measure(s) of variation would you report? Explain.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-07');">Show/Hide Solution</button>
-
-<div id="exercise_03-02-07" style="display:none; margin: -40px 0 40px 40px;">
-Because the distribution of earnings is right-skewed, we might report the IQR in addition to the range.
-</div>
-:::
+That is the middle 50% of the admission rates have a range of 0.281---they range from 0.56 to 0.84.
 
 Similar to the numerical summaries for the center of a distribution, some measures of variation are better suited toward summarizing symmetric distributions and others for skewed distributions. For all distributions, the range is typically provided to summarize the overall variation. In addition, for symmetric distributions, the standard deviation is also conventionally used to summarize the variation for most cases. In skewed distributions, the IQR is a better numerical summary of the variation than the standard deviation.
 
 :::fyi
+**INTERPRETATION**
+
 Adding the numerical summaries to our previous description of the distribution of admission rates presented in @fig-density-01:
 
 > The distribution of admission rates is left-skewed. There is a great deal of variation in addmission rates, with institutions of higher learning admitting as few as .5% of their applicants, and some as many as 100%. A typical institution in the distribution admits around 72% (median) of its applicants with half admitting between 56% (Q1) and 84% (Q3) of their applicants. This suggests that most institutions admit a high proportion of applicants. There are, however, a few institutions that are quite selective, admitting fewer than 25% of the students who apply. 
@@ -440,7 +364,9 @@ Adding the numerical summaries to our previous description of the distribution o
 
 There is no one correct way to summarize and report the characteristics of a quantitative distribution. You will want to describe the shape, center, and variation, but how you do that may be different from how another person chooses to do that. For example, in the description of the distribution of admission rates I chose to report the characteristics using text/prose. Another researcher might have instead chosen to report this information in a table rather than writing about it. As an applied scientist or researcher you need to be able to do both.
 
-:::protip
+:::fyi
+**PROTIP**
+
 In practice you might try multiple reporting strategies within a paper before you settle on one that is "best" for that paper. Think of it like you do in drafting writing---often your first attempt isn't the same as the final product, and it may take several iterations to get to that final draft.
 :::
 
@@ -456,44 +382,67 @@ There are several R functions that are useful for summarizing categorical attrib
 #| tbl-cap: "The functions and their descriptions to summarize and visualize quantitative attributes."
 #| echo: false
 #| tbl-colwidths: false
+
 library(gt)
 library(gtExtras)
-
-dplyr::tibble(
-  Function = c(
-    "`df_stats(~attribute, data = data_object)`", 
-    "`gf_histogram(~attribute, data = data_object)`",
-    "`gf_density(~attribute, data = data_object)`"
-    ),
-  Description = c(
-    "Compute common summaries of a quantitative attribute",
-    "Create histogram",
-    "Create density plot"
-    )
-) |>
-  gt() |>
-  cols_align(
-    align = "left",
-    columns = c(Function, Description)
-  ) |>
-  fmt_markdown(columns = 1) |>
-  tab_row_group(
-    label = md("**Visualize**"),
-    rows = 2:3
-  ) |>
-  tab_row_group(
-    label = md("**Summarize**"),
-    rows = 1
-  ) |>
-  # row_group_order(
-  #   groups = c("num", "viz")
-  #   ) |>
-  tab_options(
-    table.width = pct(100),
-    table.font.size = "14px"
-    ) |>
-  as_raw_html()
+# 
+# dplyr::tibble(
+#   Function = c(
+#     "`df_stats(~attribute, data = data_object)`", 
+#     "`gf_histogram(~attribute, data = data_object)`",
+#     "`gf_density(~attribute, data = data_object)`"
+#     ),
+#   Description = c(
+#     "Compute common summaries of a quantitative attribute",
+#     "Create histogram",
+#     "Create density plot"
+#     )
+# ) |>
+#   gt() |>
+#   cols_align(
+#     align = "left",
+#     columns = c(Function, Description)
+#   ) |>
+#   fmt_markdown(columns = 1) |>
+#   tab_row_group(
+#     label = md("**Visualize**"),
+#     rows = 2:3
+#   ) |>
+#   tab_row_group(
+#     label = md("**Summarize**"),
+#     rows = 1
+#   ) |>
+#   tab_options(
+#     table.width = pct(100),
+#     table.font.size = "14px"
+#     ) |>
+#   as_raw_html()
 ```
+
+  
+<table>
+  <thead>
+    <tr style="border-top: 1px solid black; border-bottom: 1px solid black;">
+      <th id="func" style="width:60%; padding: 5px;">Function</th>
+      <th id="desc" style="width:40%; padding: 5px;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid black;">
+      <td headers="func" style="padding: 10px; font-size: 80%">`df_stats(~attribute, data = data_object)`</td>
+      <td headers="desc" style="padding: 10px;">Compute common summaries of a quantitative attribute</td>
+    </tr>
+    <tr style="border-bottom: 1px solid black;">
+      <td headers="func" style="padding: 10px; font-size: 80%">`gf_histogram(~attribute, data = data_object)`</td>
+      <td headers="desc" style="padding: 10px;">Create histogram</td>
+    </tr>
+    <tr  style="border-bottom: 1px solid black;">
+      <td headers="func" style="padding: 10px; font-size: 80%">`gf_density(~attribute, data = data_object)`</td>
+      <td headers="desc" style="padding: 10px;">Create density plot</td>
+    </tr>
+  </tbody>
+
+</table>
 
 
 When describing a quantitative distribution, there are three characteristics to attend to: shape, center, and variation. These can be estimated from a plot of the distribution, and the center and variation can also be summarized numerically. Often the shape of the distribution dictates which measures are provided in the description of the attribute. @tbl-dist-measures presents a guide for thinking about what should be reported based on the shape of the distribution.
@@ -504,49 +453,164 @@ When describing a quantitative distribution, there are three characteristics to 
 #| tbl-cap: "Characteristics (shape, center, and variation) of different quantitative distributions that might get reported to summarize them."
 #| echo: false
 #| tbl-colwidths: false
-dplyr::tibble(
-  Example = c(
-    "figs/04-01-left.png", 
-    "figs/04-02-symmetric.png", 
-    "figs/04-03-right.png"),
-  Shape = c(
-    "Left-skewed", 
-    "Symmetric",
-    "Right-skewed"
-    ),
-  Center = c(
-    "Median, Mode",
-    "Mean",
-    "Median or Mode"
-    ),
-  Variation = c(
-    "Range (overall) and IQR (typical)",
-    "Range (overall) and SD (typical)",
-    "Range (overall) and IQR (typical)"
-    )
-) |>
-  gt() |>
-  gt_img_rows(columns = Example, height = 90) |>
-  cols_align(
-    align = "left",
-    columns = c(Shape, Center, Variation)
-  ) |>
-  #fmt_markdown(columns = 1) |>
-  # tab_row_group(
-  #   label = md("**Color**"),
-  #   rows = 6:7
-  # ) |>
-  # tab_row_group(
-  #   label = md("**Labels**"),
-  #   rows = 1:5
-  # ) |>
-  # row_group_order(
-  #   groups = c("num", "viz")
-  #   ) |>
-  tab_options(
-    table.width = pct(70),
-    table.font.size = "14px"
-    ) |>
-  as_raw_html()
+
+# dplyr::tibble(
+#   Example = c(
+#     "figs/04-01-left.png", 
+#     "figs/04-02-symmetric.png", 
+#     "figs/04-03-right.png"),
+#   Shape = c(
+#     "Left-skewed", 
+#     "Symmetric",
+#     "Right-skewed"
+#     ),
+#   Center = c(
+#     "Median, Mode",
+#     "Mean",
+#     "Median or Mode"
+#     ),
+#   Variation = c(
+#     "Range (overall) and IQR (typical)",
+#     "Range (overall) and SD (typical)",
+#     "Range (overall) and IQR (typical)"
+#     )
+# ) |>
+#   gt() |>
+#   gt_img_rows(columns = Example, height = 90) |>
+#   cols_align(
+#     align = "left",
+#     columns = c(Shape, Center, Variation)
+#   ) |>
+#   tab_options(
+#     table.width = pct(70),
+#     table.font.size = "14px"
+#     ) |>
+#   as_raw_html()
 ```
+
+
+<table>
+  <thead>
+    <tr style="border-top: 1px solid black; border-bottom: 1px solid black;">
+      <th id="ex" style="width:30%; padding: 5px;">Example</th>
+      <th id="shp" style="width:20%; padding: 5px;">Shape</th>
+      <th id="ctr" style="width:25%; padding: 5px;">Center</th>
+      <th id="var" style="width:25%; padding: 5px;">Variation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid black;">
+      <td headers="ex" style="padding: 10px;"><img src="figs/04-01-left.png" alt="Left-skewed distribution" style="height:90px;"></td>
+      <td headers="shp" style="padding: 10px;">Left-skewed</td>
+      <td headers="ctr" style="padding: 10px;">Median, Mode</td>
+      <td headers="var" style="padding: 10px;">Range (overall) and IQR (typical)</td>
+    </tr>
+    <tr style="border-bottom: 1px solid black;">
+      <td headers="ex" style="padding: 10px;"><img src="figs/04-02-symmetric.png" alt="Symmetric distribution" style="height:90px;"></td>
+      <td headers="shp" style="padding: 10px;">Symmetric</td>
+      <td headers="ctr" style="padding: 10px;">Mean, Median, Mode</td>
+      <td headers="var" style="padding: 10px;">Range (overall) and SD (typical)</td>
+    </tr>
+    <tr  style="border-bottom: 1px solid black;">
+      <td headers="ex" style="padding: 10px;"><img src="figs/04-03-right.png" alt="Right-skewed distribution" style="height:90px;"></td>
+      <td headers="shp" style="padding: 10px;">Right-skewed</td>
+      <td headers="ctr" style="padding: 10px;">Median, Mode</td>
+      <td headers="var" style="padding: 10px;">Range (overall) and IQR (typical)</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+
+<br />
+
+
+## Exercises: Your Turn {-}
+
+1. Interpret the bar that is immediately to the left of 1.00.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-01');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-01" style="display:none; margin: -40px 0 40px 40px;">
+There are approximately 12 institutions of higher learning with admissions rates between about 0.96 and 1.00.
+</div>
+
+
+2. Create a density plot for the distribution of median earnings for students. Add appropriate labels to the axes.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+#| fig-alt: "Density plot of median arnings."
+gf_density(
+  ~ mdn_earn, data = colleges,
+  color = "black", 
+  fill = "yellow",
+  xlab = "Median Earnings",
+  ylab = "Density"
+  )
+```
+
+</div>
+
+
+3. Describe the shape, center, and variation of this distribution and what it tells you about students' median earnings 10 years after being enrolled in college.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
+The distribution of median earnings is right skewed. The median amount of money earned 10 years after graduation is around \$50k ($\pm \$10k$). There are some institutions where the median earnings of students is quite high (~100k).
+</div>
+
+
+4. Compute the mean and median for the distribution of students' median earnings 10 years after being enrolled in college 
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~mdn_earn, data = colleges)
+```
+
+
+The mean earnings is \$51,134 and the median earnings is \$49,316.
+</div>
+
+
+5. Based on the distribution of students' median earnings 10 years after being enrolled in college is the mean or median a better summary of a typical value in the distribution? Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+Because the distribution of earnings is right-skewed, the median is a better summary of a typical value in the distribution.
+</div>
+
+
+6. Compute the range, IQR, and standard deviation for the distribution of students' median earnings 10 years after being enrolled in college.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-06');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-06" style="display:none; margin: -40px 0 40px 40px;">
+```{r}
+df_stats(~mdn_earn, data = colleges)
+# Range = 132969 - 19513 = 113456
+# IQR = 56535.75 - 43031 = 13504.75
+# SD = 14.601k
+```
+
+</div>
+
+
+7. Based on the distribution of students' median earnings 10 years after being enrolled in college which summary measure(s) of variation would you report? Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-07');">Show/Hide Solution</button>
+
+<div id="exercise_03-02-07" style="display:none; margin: -40px 0 40px 40px;">
+Because the distribution of earnings is right-skewed, we might report the IQR in addition to the range.
+</div>
+
+<br />
 

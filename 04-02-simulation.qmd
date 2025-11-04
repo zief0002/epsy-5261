@@ -14,8 +14,10 @@ The key question addressed by using any statistical method of inference is "how 
 ```{r}
 #| label: fig-thought-experiment
 #| fig-cap: "Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn."
+#| fig-alt: "Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn."
 #| out-width: "100%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-04-thought-experiment.png")
 ```
 
@@ -26,8 +28,10 @@ Efron’s big discovery was that in the thought experiment, we could replace the
 ```{r}
 #| label: fig-thought-experiment-bootstrap
 #| fig-cap: "Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students' sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn."
+#| fig-alt: "Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students' sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn."
 #| out-width: "100%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/05-02-thought-experiment-bootstrap.png")
 ```
 
@@ -48,11 +52,12 @@ We will prepare for the analysis by loading in the `{tidyverse}`, `{ggformula}`,
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(ggformula)
 library(mosaicCore)
 library(mosaic)
 library(tidyverse)
-
 
 # Import data
 teen_sleep <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv")
@@ -160,6 +165,8 @@ Remember our goal was to compute the standard error, which quantifies the uncert
 ```{r}
 #| label: fig-bootstrap-dist
 #| fig-cap: "Distribution of 1000 bootstrapped means."
+#| fig-alt: "Distribution of 1000 bootstrapped means."
+
 # Create a density plot of the bootstrapped means
 gf_density(
   ~result, data = bootstrap_means,
@@ -177,7 +184,9 @@ df_stats(~result, data = bootstrap_means)
 
 Here the standard error (found in the `sd` column) is 0.17.
 
-:::protip
+:::fyi
+**PROTIP**
+
 The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in @fig-bootstrap-dist. This can be a self-check when you create a bootstrap distribution.
 :::
 
@@ -188,8 +197,6 @@ The distribution of bootstrapped means should be centered at the value of the or
 
 <!-- Because researchers often use mathematics to communicate in their work, it is important learn some of the notation that is commonly used. This will also make it easier to communicate as you present and publish your own work.  -->
 
-
-<br />
 
 
 ## References

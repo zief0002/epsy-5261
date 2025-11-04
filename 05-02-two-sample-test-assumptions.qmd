@@ -33,7 +33,10 @@ To evaluate the first assumption that the distributions of values in both popula
 ```{r}
 #| label: fig-cannabis
 #| fig-cap: "Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults."
+#| fig-alt: "Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults."
 #| warning: false
+#| message: false
+
 # Load libraries
 library(educate)
 library(ggformula)
@@ -58,10 +61,13 @@ The density plots suggests that the SAMPLE distributions of change in IQ scores 
 ```{r}
 #| label: fig-five-normal
 #| fig-cap: "Five simple random samples of size 14 and 23 drawn from a normal population."
+#| fig-alt: "Five simple random samples of size 14 and 23 drawn from a normal population."
 #| echo: false
 #| fig-width: 10
 #| fig-height: 4
 #| out-width: "100%"
+#| message: false
+
 set.seed(2500)
 d = data.frame(
   y = c(rnorm(n = 70, mean = -2.071429, sd = 7.770400), rnorm(n = 115, mean = -8.260870, sd = 7.136445)),
@@ -128,18 +134,18 @@ Because the larger variance (60.38) is not bigger than four times the smaller va
 <br />
 
 
-## Evaluating Assumptions in the Bachelor and Bachelorette Ages Case Study
 
-:::exercises
-#### Your Turn {.unnumbered}
+## Exercises: Your Turn {-}
 
-In the Bachelor and Bachelorette ages case study from @sec-two-sample-t-test, we evaluated whether, on average, there were age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. The histograms for the sample distributions of ages is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
+1. In the Bachelor and Bachelorette ages case study from @sec-two-sample-t-test, we evaluated whether, on average, there were age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. The histograms for the sample distributions of ages is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
 
 ```{r}
 #| label: fig-bachelor-age
 #| fig-cap: "Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants."
+#| fig-alt: "Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants."
 #| echo: false
 #| message: false
+
 bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
 
 # Create histogram
@@ -159,7 +165,8 @@ gf_histogram(
 The normality assumption may not be tenable. Both sample distributions are skewed to the right. Moreover, the sample sizes for the two groups are both less than 30.
 </div>
 
-Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/bachelor.html), do you believe the independence assumption is tenable?
+
+2. Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/bachelor.html), do you believe the independence assumption is tenable?
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-02-02');">Show/Hide Solution</button>
 
@@ -167,7 +174,8 @@ Based on the data collection process described in the [data codebook](https://zi
 There was no random chance used to select the sample data, nor was random chance used to assign the daa into the two groups. Making a logical argument, would knowing one Bachelor's or Bachelorette's age give us information about another's age? Probably not (independence seems tenable), but there might be a case made that it does (independence is not tenable).
 </div>
 
-Based on the summary statistics provided below, do you believe the equal variances assumption is tenable?
+
+3. Based on the summary statistics provided below, do you believe the equal variances assumption is tenable?
 
 ```{r}
 #| echo: false
@@ -179,7 +187,7 @@ df_stats(~age | show, data = bachelor)
 <div id="exercise_05-02-03" style="display:none; margin: -40px 0 40px 40px;">
 The variance for the Bachelor ages is $3.80^2=14.45$, and that for the Bachelorette ages is $3.04^2=9.24$. Since 14.45 is less than four times 9.24, the assumption of equal population variances seems tenable.
 </div>
-:::
+
 
 <br />
 

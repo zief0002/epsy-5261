@@ -41,8 +41,10 @@ The key to generalization and accuracy in the CI is that the sample was chosen u
 ```{r}
 #| label: fig-keys-ci-bias
 #| fig-cap: "This figure is a metaphor for statistical bias."
-#| out-width: "60%"
+#| fig-alt: "This figure is a metaphor for statistical bias."
+#| out-width: "80%"
 #| echo: false
+
 knitr::include_graphics("figs/07-03-01-ci-keys.png")
 ```
 
@@ -60,8 +62,10 @@ To more deeply understand how an unbiased method affects accuracy of the CI, let
 ```{r}
 #| label: fig-ci-thought-experiment 
 #| fig-cap: "A thought experiment in which we randomly sample n=25 observations from a N(10, 2) population. We do this many times (say 100 times). For each sample we compute the CI."
-#| out-width: "60%"
+#| fig-alt: "A thought experiment in which we randomly sample n=25 observations from a N(10, 2) population. We do this many times (say 100 times). For each sample we compute the CI."
+#| out-width: "70%"
 #| echo: false
+
 knitr::include_graphics("figs/07-03-02-thought-experiment.png")
 ```
 
@@ -70,9 +74,10 @@ A plot of the 100 CIs is shown in @fig-unbiased-cis. The population mean is show
 ```{r}
 #| label: fig-unbiased-cis
 #| fig-cap: "The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
+#| fig-alt: "The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
-#| out-width: "60%"
+#| out-width: "70%"
 #| echo: false
 
 library(ggplot2)
@@ -117,10 +122,12 @@ Now let's carry out a thought experiment in which a biased sampling method is us
 ```{r}
 #| label: fig-biased-cis
 #| fig-cap: "The 100 CIs for each of the 100 samples drawn using a biased sampling method. The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
+#| fig-alt: "The 100 CIs for each of the 100 samples drawn using a biased sampling method. The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
-#| out-width: "60%"
+#| out-width: "70%"
 #| echo: false
+
 x = vector(mode='list', length=100)
 n = 25
 
@@ -160,6 +167,8 @@ In @fig-biased-cis the CIs that include the population value of 10 are again col
 In both @fig-unbiased-cis and @fig-biased-cis we can see that some of the CIs include 10 and some don't. But, on average, the unbiased sampling method produces many more CIs that include 10 than the biased sampling method does. Because of this, we would say that the unbiased sampling method produces more accurate estimates of the sample mean. Accuracy refers to whether the CI includes the population parameter for most CIs *that could be produced*. It does not mean that any one CI will be accurate or not. It is just *more likely* that a CI will include the population parameter if the sample that produced the CI was selected using an unbiased method.
 
 :::fyi
+**FYI**
+
 In practice we do not draw many samples---we have one sample. This sample is used to create a single CI that we use to estimate the mean. Unlike in the thought experiment, in practice, we do not know what the value of the population parameter actually is. So we don't know whether our CI includes this value (is a gray CI) or doesn't (is a red CI). If we used an unbiased sampling method to select our sample, our CI is more likely to be gray than red.
 :::
 
@@ -212,9 +221,10 @@ To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we ca
 ```{r}
 #| label: fig-unbiased-cis-99
 #| fig-cap: "The 99% CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
+#| fig-alt: "The 99% CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red)."
 #| fig-width: 4
 #| fig-height: 10
-#| out-width: "60%"
+#| out-width: "70%"
 #| echo: false
 
 x = vector(mode='list', length=100)
@@ -264,6 +274,7 @@ To change the confidence level for our CI, we need to include the argument `conf
 
 ```{r}
 #| message: false
+
 # Load libraries
 library(ggformula)
 library(mosaic)
@@ -305,16 +316,20 @@ The amount of precision in the CI is all governed by the margin of error. In our
 ```{r}
 #| label: fig-keys-ci-high-prec
 #| fig-cap: "This figure is a metaphor for high precision. Note there is not much uncertainty in the area that needs to be searched."
+#| fig-alt: "This figure is a metaphor for high precision. Note there is not much uncertainty in the area that needs to be searched."
 #| out-width: "100%"
 #| echo: false
+
 knitr::include_graphics("figs/07-03-03-ci-keys-high-precision.png")
 ```
 
 ```{r}
 #| label: fig-keys-ci-low-prec
 #| fig-cap: "This figure is a metaphor for low precision. Note there is much more uncertainty in the area that needs to be searched."
+#| fig-alt: "This figure is a metaphor for low precision. Note there is much more uncertainty in the area that needs to be searched."
 #| out-width: "100%"
 #| echo: false
+
 knitr::include_graphics("figs/07-03-03-ci-keys-low-precision.png")
 ```
 :::
@@ -346,6 +361,8 @@ where the value 2 was a multiplication factor related to the confidence level, S
 In the social sciences, since we always use a 95% CI, the multiplication factor will be 2, so we can't really manipulate this without sacrificing accuracy. The SD is a function of the data, so there is really no way to manipulate this either (at least not easily). The only factor we as researchers can change is the sample size, and sometimes we don't have control over that either.
 
 :::fyi
+**FYI**
+
 Larger sample sizes result in more precision (less uncertainty) in our estimates.
 :::
 
@@ -378,6 +395,8 @@ To obtain a 95% CI with a margin of error of \$1,000, we need a sample of salari
 
 
 :::fyi
+**FYI**
+
 Obtaining a high degree of precision is often quite costly in terms of the sample size. You generally need a very large sample size to ensure high precision in a CI, which is not always possible in practice. This often means that estimates in the social sciences typically have a lot of uncertainty.
 :::
 

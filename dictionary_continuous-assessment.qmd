@@ -1,0 +1,54 @@
+# continuous-assessment.csv {-}
+
+
+These data are based on data from @Abejehu:2016 who collected survey data from teachers in order to study the practice of continuous assessment in Ethiopian primary schools. Continuous assessment promotes the use of formative assessment as a method to improve teaching and learning. In the study, a 24-item survey was administered to primary school teachers who were randomly selected from the total population of 191 primary school teachers using a lottery system. The data in [continuous-assessment.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv) include $n=30$ teachers' data from three of the items. The response options for all items was a four-point Likert scale, where:
+
+- 4 = Strongly Agree, 
+- 3 = Agree,
+- 2 = Disagree, and 
+- 1 = Strongly Disagree 
+
+---
+
+The attributes included in the data are:
+
+- `prior_knowledge`: Responses to the survey item: "I always assess students’ prior knowledge before starting new lesson."
+- `only_achievement`: Responses to the survey item: "I give assessment feedback only by marking students’ achievement"
+- `prompt_feedback`: Responses to the survey item: "After assessment I give prompt feedback to students comprising their strengths and weaknesses."
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+assessment <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
+
+# View data
+assessment
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv") |>
+  print(width = Inf)
+```
+
+<br />
+
+
+## References
+
+
+

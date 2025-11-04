@@ -1,0 +1,47 @@
+# world-life-expectancy.csv {-}
+
+
+The [world-life-expectancy.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/world-life-expectancy.csv) data include information on the life expectancy for $N=207$ countries.
+
+---
+
+The attributes included in the data are:
+
+- `country`: Country name
+- `life_expect`: Life expectancy for all sexes (in years). This is the number of years a newborn infant would be expected to live if the current mortality rates at different ages were to stay the same.
+
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+world_life_expectancy <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/world-life-expectancy.csv")
+
+# View data
+world_life_expectancy
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/world-life-expectancy.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+

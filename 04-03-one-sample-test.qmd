@@ -41,6 +41,7 @@ The Greek letter mu ($\mu$) denotes a population mean. In general Greek letters 
 #| tbl-cap: "Some common statistical summaries and the mathematical notation used to denote them."
 #| echo: false
 #| tbl-colwidths: false
+
 library(gt)
 library(gtExtras)
 dplyr::tibble(
@@ -75,6 +76,8 @@ dplyr::tibble(
 The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as $\mu_{\textrm{Sleep}}<9$, $\mu_{\textrm{Sleep}}>9$, and $\mu_{\textrm{Sleep}}\neq9$. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be $\mu_{\textrm{Sleep}}<9$. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of $\mu_{\textrm{Sleep}}>9$. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be $\mu_{\textrm{Sleep}}\neq9$. 
 
 :::fyi
+**VOCABULARY**
+
 In the parlance of statisticians, hypothesis tests that use an alternative hypothesis of not equal ($\neq$) are referred to as *two-sided* or *two-tailed* tests. If the alternative hypothesis is less than (<) or greater than (>), it is referred to as a *one-sided* or *one-tailed* test.
 :::
 
@@ -88,8 +91,10 @@ A hypothesis test is predicated on the assumption that the null hypothesis is tr
 ```{r}
 #| label: fig-null-model-thought-experiment
 #| fig-cap: "Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours."
+#| fig-alt: "Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours."
 #| out-width: "100%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-05-thought-experiment.png")
 ```
 
@@ -98,6 +103,7 @@ If we were able to carry out this thought experiment, here is what the sampling 
 ```{r}
 #| label: fig-null-model-samp-dist
 #| fig-cap: "Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours."
+#| fig-alt: "Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours."
 #| out-width: "80%"
 #| echo: FALSE
 #| message: false
@@ -127,6 +133,8 @@ Interpreting these features, we find that in the thought experiment where we ass
 
 
 :::fyi
+**FYI**
+
 The null distribution will always be centered at the parameter value specified in the null hypothesis! The SE of the null distribution gives us an indication of how much a sample statistic is likely to vary from the parameter specified in the null hypothesis. We expect most values will be within 2 standard errors of the center.
 :::
 
@@ -141,6 +149,7 @@ The null distribution gives us an indication of the range of sample mean values 
 ```{r}
 #| label: fig-null-model-expected
 #| fig-cap: "Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data."
+#| fig-alt: "Density plot of the sampling distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours. The blue shaded area represents the sample mean values we expect under the hypothesis that the average amount of sleep for all tennagers is 9 hours. The pink dot represnts the sample mean of 7.5 that we observed in the teen sleep data."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -208,8 +217,10 @@ $$
 
 Expecting a sample mean between 8.6 and 9.4 is essentially the same as expecting a *t*-value between $-2.35$ and 2.35. 
 
-:::protip
-**Rule-of-Thumb:** An observed mean that has a *t*-value with an absolute value less than 2 is fairly consistent with the null hypothesis being true. An observed mean that has a *t*-value with an absolute value greater than 2 is less consistent with the null hypothesis being true, and the further away from 2, the more evidence against the null hypothesis.
+:::fyi
+**RULE-OF-THUMB**
+
+An observed mean that has a *t*-value with an absolute value less than 2 is fairly consistent with the null hypothesis being true. An observed mean that has a *t*-value with an absolute value greater than 2 is less consistent with the null hypothesis being true, and the further away from 2, the more evidence against the null hypothesis.
 :::
 
 
@@ -224,10 +235,12 @@ Recall that the null distribution is simply a distribution of sample means we ex
 ```{r}
 #| label: fig-t-dist
 #| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The blue shaded area represents the *t*-values we expect if the null hypothesis is true. The pink dot represents the observed *t*-value of -8.82."
+#| fig-alt: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The blue shaded area represents the *t*-values we expect if the null hypothesis is true. The pink dot represents the observed *t*-value of -8.82."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 rectangle = data.frame(
   x2 = c(-2.3, -2.3, 2.3, 2.3),
   y = c(0, 0.45, 0, 0.45)
@@ -272,10 +285,12 @@ The degrees-of-freedom parameter impacts the shape and SE (variation) in the *t*
 ```{r}
 #| label: fig-t-examples
 #| fig-cap: "Density plot of three different *t*-distributions. The *t*-distributions shown have <span style='background-color: #0072b233;'>3 degree-of-freedom (SE = 1.73)</span>, <span style='background-color: #e69f0033;'>5 degree-of-freedom (SE = 1.29)</span>, and <span style='background-color: #77777733;'>99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution."
+#| fig-alt: "Density plot of three different *t*-distributions. The *t*-distributions shown have <span style='background-color: #0072b233;'>3 degree-of-freedom (SE = 1.73)</span>, <span style='background-color: #e69f0033;'>5 degree-of-freedom (SE = 1.29)</span>, and <span style='background-color: #77777733;'>99 degree-of-freedom (SE = 1.01)</span>, respectively. Note that the degrees-of-freedom value impacts the shape and variation in the distribution."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 dat = data.frame(
   x = seq(from = -5, to = 5, by = .01)
   ) |>
@@ -308,7 +323,9 @@ $$
 In empirical data analyses, the *df* will almost always be higher than 2 since the sample size for most analyses will be $n\geq3$. Memorizing these formulas is not important (you an always look them up on Wikipedia), the important thing to see is that when *df* gets bigger the *SE* becomes approximately 1.
 
 
-:::protip
+:::fyi
+**FYI**
+
 When you report *t*-values or give information about a *t*-distribution, you should always report the degrees-of-freedom. 
 :::
 
@@ -337,8 +354,10 @@ Using these properties, we can sketch this *t*-distribution. We can also add the
 ```{r}
 #| label: fig-sketch-t
 #| fig-cap: "Sketch of the *t*-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of *t*-values that would be expected if the null hypothesis is true."
+#| fig-alt: "Sketch of the *t*-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of *t*-values that would be expected if the null hypothesis is true."
 #| out-width: "80%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-06-t-sketch.jpg")
 ```
 
@@ -392,11 +411,13 @@ As an example, consider the dotplot in @fig-p-value.
 ```{r}
 #| label: fig-p-value
 #| fig-cap: "Dot plot of an example *t*-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82)."
+#| fig-alt: "Dot plot of an example *t*-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82)."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: false
 #| message: false
+
 set.seed(42)
 rand = sample(11:989, size = 279, replace = FALSE)
 
@@ -465,11 +486,13 @@ For example if we had the alternative hypothesis $H_A:\mu>9$, values at least as
 ```{r}
 #| label: fig-p-value2
 #| fig-cap: "Dot plot of an example *t*-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu > -8.82)."
+#| fig-alt: "Dot plot of an example *t*-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu > -8.82)."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: false
 #| message: false
+
 extreme = dat2 |>
   filter(x >= -8.82)
 
@@ -508,11 +531,13 @@ Another potential alternative hypothesis that a researcher might have is $H_A:\m
 ```{r}
 #| label: fig-p-value3
 #| fig-cap: "Dot plot of an example *t*-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82)."
+#| fig-alt: "Dot plot of an example *t*-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82)."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: false
 #| message: false
+
 extreme = dat2 |>
   filter(x <= -8.82 | x >= 8.82)
 
@@ -558,14 +583,18 @@ The method we use with density plots is to compute the area under the density cu
 ```{r}
 #| label: fig-sketch-area-p
 #| fig-cap: "Dot plot of an example *t*-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82). The area under the density curve that is less than -8.82 is also shaded."
+#| fig-alt: "Dot plot of an example *t*-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82). The area under the density curve that is less than -8.82 is also shaded."
 #| out-width: "80%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-07-area-density-p.jpg")
 ```
 
 Finding the area under the density curve requires calculus, or software. We will show you how to use R to find this area in @sec-one-sample-test-r. We can, however estimate this area for a quick approximation. Since the area under the entire density curve is 1, the shaded area (*p*-value) is found by determining the proportion that the shaded area is of the whole curve. (Remember that a proportion is a value between 0 and 1; it is not a percent.) In this example, the shaded area is roughly .01 of the whole curve, so we would say the *p*-value was .01. 
 
-:::protip
+:::fyi
+**PROTIP**
+
 It is very difficult to get an accurate *p*-value from estimating it from the density curve, especially when the *p*-value is small. In practice, we always use software to obtain the *p*-value. However, understanding that the software is calculating the area under the density curve is useful for "gut-checking" the size of the *p*-value that the software gives us. For example, based on the shaded area in @fig-sketch-area-p, we would not expect a *p*-value of 0.5 since the shaded are is not half of the whole curve.
 :::
 

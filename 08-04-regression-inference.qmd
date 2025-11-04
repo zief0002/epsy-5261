@@ -11,6 +11,7 @@ In @sec-scatter-corr, we fitted a linear regression model to answer the research
 
 ```{r}
 #| message: false
+
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -43,6 +44,8 @@ $$
 The results of the regression analysis suggested that each 1-point difference in 75th percentile ACT scores of education is associated with a 0.037-unit difference in completion rates, on average. 
 
 :::fyi
+**FYI**
+
 The slope coefficient is often referred to as the effect of the predictor. In our example, the sample effect of 75th percentile ACT scores on completion rates is 0.037. Note that although it is referred to as an "effect", that this nomenclature has nothing to do with cause-and-effect (i.e., it is not causal).
 :::
 
@@ -83,6 +86,7 @@ The thought experiment for this test is shown in @fig-thought-reg.
 ```{r}
 #| label: fig-thought-reg
 #| fig-cap: "Thought experiment underlying the hypothesis test for the slope."
+#| fig-alt: "Thought experiment underlying the hypothesis test for the slope."
 #| out-width: "90%"
 #| echo: false
 
@@ -94,6 +98,7 @@ Plotting the slopes from these samples gives us the sampling distribution for th
 ```{r}
 #| label: fig-samp-dist-slope
 #| fig-cap: "Sampling distribution of the slope under the null hypothesis. The mean of this distribution is 0 and the SE is 0.00287, which was estimated from the sample data."
+#| fig-alt: "Sampling distribution of the slope under the null hypothesis. The mean of this distribution is 0 and the SE is 0.00287, which was estimated from the sample data."
 #| fig-width: 6
 #| fig-height: 4
 #| echo: false
@@ -140,9 +145,11 @@ This value indicates that our observed slope of 0.0374, is 13 standard errors hi
 ```{r}
 #| label: fig-t-reg
 #| fig-cap: "T-distribution under the null hypothesis. This distribution is based on 90 degrees-of-freedom."
+#| fig-alt: "T-distribution under the null hypothesis. This distribution is based on 90 degrees-of-freedom."
 #| fig-width: 6
 #| fig-height: 4
 #| echo: false
+
 ggplot(data.frame(x = c(-3, 3)), aes(x)) +
   stat_function(fun = dt, args = list(df = 90), color = "#1f77b4") +
   theme_bw() +
@@ -184,10 +191,12 @@ To evaluate whether the observed slope of 0.037 is consistent with the null hypo
 ```{r}
 #| label: fig-samp-dist-p
 #| fig-cap: "Sampling distribution of the slope under the null hypothesis. The observed slope of 0.037 is shown as a vertical line in this distribution. Since the test was two-tailed, the slope of -0.037 is also demarcated. The p-value is shown as the shaded area under the curve that is at least as extreme os those slopes."
+#| fig-alt: "Sampling distribution of the slope under the null hypothesis. The observed slope of 0.037 is shown as a vertical line in this distribution. Since the test was two-tailed, the slope of -0.037 is also demarcated. The p-value is shown as the shaded area under the curve that is at least as extreme os those slopes."
 #| fig-width: 10
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: false
+
 ggplot(data.frame(x = c(-15, 15)), aes(x)) +
   stat_function(fun = dt, args = list(df = 90), color = "#1f77b4") +
   stat_function(fun = dt, args = list(df = 90), geom = "area", xlim = c(-15, -13),
@@ -211,6 +220,7 @@ To compute the *p*-value (along with the SE and *t*-value), we use the `tidy()` 
 
 ```{r}
 #| message: false
+
 # Load library
 library(broom)
 
@@ -292,23 +302,15 @@ Note you can use the acronym LINE to help remember these assumptions. Remember t
 
 ```{r}
 #| label: fig-visual-model
-#| echo: false 
 #| fig-cap: "Plot displaying conditional distribution of *Y* at several *X* values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of *Y* for each conditional distribution."
+#| fig-alt: "Plot displaying conditional distribution of *Y* at several *X* values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of *Y* for each conditional distribution."
+#| echo: false 
 #| out-width: "80%"
+
 knitr::include_graphics("figs/conditional-means.png")
 ```
 
-Remember that this plot shows that at each value of *X* there is a conditional distribution of *Y*-values. Each conditional distribution of *Y* has a mean (denoted as $\hat{Y}$). Each conditional distribution of *Y* is normally distributed. The variance for all these conditional distributions are all the same value.
-
-
-
-
-This
-
-
-
-
-Below we give a further description of each of these assumptions and also indicate how to evaluate them.
+Remember that this plot shows that at each value of *X* there is a conditional distribution of *Y*-values. Each conditional distribution of *Y* has a mean (denoted as $\hat{Y}$). Each conditional distribution of *Y* is normally distributed. The variance for all these conditional distributions are all the same value. Below we give a further description of each of these assumptions and also indicate how to evaluate them.
 
 <br />
 
@@ -320,6 +322,10 @@ The linearity assumption is that the functional form for the model in the popula
 To evaluate the linearity assumption, we typically look at a scatterplot of the data and make a judgment about whether the relationship between the predictor and outcome is linear.
 
 ```{r}
+#| label: fig-linearity
+#| fig-cap: "Scatterplot of 75th percentile ACT scores versus completion rates."
+#| fig-alt: "Scatterplot of 75th percentile ACT scores versus completion rates."
+
 # Examine linearity
 gf_point(
   completion_rate ~ act, data = colleges,
@@ -351,6 +357,10 @@ To evaluate this, we would hypothetically take all the outcome values for a part
 In practice, we have to work on the sample data and then make a judgment about the population. Carrying out this process, even on the sample is all but impossible. Because of this, researchers often evaluate the normality assumption by examining the shape of the distribution of the sample outcome values without separating them by different predictor values. If the sample distribution of the outcome seems approximately normal, we would say that this would be consistent with the population outcome distribution also being normal. 
 
 ```{r}
+#| label: fig-normality
+#| fig-cap: "Histogram of the completion rates."
+#| fig-alt: "Histogram of the completion rates."
+
 # Evaluate normality of outcome
 gf_histogram(
   ~completion_rate, data = colleges,
@@ -379,7 +389,9 @@ Instead, we look at whether the ranges of the completion rates for a smaller set
 ```{r}
 #| label: fig-equal-var
 #| fig-cap: "Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin."
+#| fig-alt: "Scatterplot showing thew relationship between 75th percentil ACT scores and completion rate. Colleges with similar ACT scores have been binned together in a box. The vertical length of the box indicates the range of the completion rates for those schools in the bin."
 #| echo: false
+
 # colleges |> filter(act <= 22.5) |> select(act, completion_rate) |> arrange(act)
 # colleges |> filter(act > 22.5 & act <= 25) |> select(act, completion_rate) |> arrange(act) |> print(n = Inf)
 # colleges |> filter(act > 25 & act <= 28) |> select(act, completion_rate) |> arrange(completion_rate) |> print(n = Inf)
@@ -436,6 +448,7 @@ One thing that psychologists have found is that comparing things that are not le
 #| eval: false
 #| echo: false
 #| message: false
+
 # colleges |> filter(act <= 22.5)            |> summarize(mean(completion_rate))
 # colleges |> filter(act > 22.5 & act <= 25) |> summarize(mean(completion_rate))
 # colleges |> filter(act > 25 & act <= 28)   |> summarize(mean(completion_rate))
@@ -531,8 +544,10 @@ anim_save(filename = "figs/p1.gif", animation = p1_gif)
 ```{r}
 #| label: fig-equal-var-level
 #| fig-cap: "Leveling the boxes makes it easier for people to judge whether the range of the completion rates for those schools in each bin (i.e., vertical length of each box) is roughly the same."
+#| fig-alt: "Leveling the boxes makes it easier for people to judge whether the range of the completion rates for those schools in each bin (i.e., vertical length of each box) is roughly the same."
 #| echo: false
 #| message: false
+
 knitr::include_graphics("figs/p1.gif")
 ```
 
@@ -557,6 +572,10 @@ out
 The attribute `act` is the column that has the predictor values (same name as in our original data), and the column `.resid` includes the residual values. Then we can use `gf_point()` to create the levelled scatterplot.
 
 ```{r}
+#| label: fig-resid
+#| fig-cap: "Scatterplot of residuals versus 75th percentile ACT scores."
+#| fig-alt: "Scatterplot of residuals versus 75th percentile ACT scores."
+
 # Scatterplot of residuals versus ACT values
 gf_point(
   .resid ~ act, data = out,
@@ -587,6 +606,8 @@ However.
 Where does this leave us? The violation of the assumptions make the inferential evidence (e.g., the SEs, *t*-values, and *p*-values) suspect. It is probably not a good idea to place much trust in the results. 
 
 :::fyi
+**LEARN MORE**
+
 Statisticians have tools for dealing with violations of assumptions---for linear regression, and for all of the other analyses you have learned about. Several of these methods are introduced in advanced coursework such as EPSY 8251 and EPSY 8252. You can also learn more about regression and extensions to the methods you learned about in this class in EPSY 5262. You can learn more about these courses in the [UMN Course Catalog](https://umtc.catalog.prod.coursedog.com/).
 :::
 

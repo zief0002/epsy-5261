@@ -1,0 +1,47 @@
+# grades.csv {-}
+
+
+The [grades.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/grades.csv) data includes grades for $n=100$ student who were enrolled in an underwater basket weaving class (UBW 101) during spring semester of the 1984-85 academic year. 
+
+---
+
+The attributes included in the data are:
+
+- `id`: Student identifier
+- `grade`: Final grade on a 100-pt scale
+- `instructor`: Instructor (Dr. Cooper or Dr. Hofstadter)
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+grades <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/grades.csv")
+
+# View data
+grades
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/grades.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ## References -->
+
+
+

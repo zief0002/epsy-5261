@@ -15,6 +15,8 @@ To answer this question, we are going to examine the relationship between the 75
 
 ```{r}
 #| message: false
+
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -34,7 +36,10 @@ colleges
 As always, we will begin with an initial exploration of the sample data, in particular the distributions of the `act` and `completion_rate` attributes.
 
 ```{r}
+#| label: fig-density-completion
 #| fig-cap: "Density plot of completion rates for the 92 institutions in the sample."
+#| fig-alt: "Density plot of completion rates for the 92 institutions in the sample."
+
 # Explore completion rates
 gf_density(
   ~completion_rate, data = colleges,
@@ -51,7 +56,10 @@ The distribution of completion rates for the 92 colleges in the sample is unimod
 
 
 ```{r}
-#| fig-cap: "Density plot of ACT scores for the 92 colleges in the sample."
+#| label: fig-density-act
+#| fig-cap: "Density plot of 75th percentile ACT scores for the 92 institutions in the sample."
+#| fig-alt: "Density plot of 75th percentile ACT scores for the 92 institutions in the sample."
+
 # Explore ACT scores
 gf_density(
   ~act, data = colleges,
@@ -75,7 +83,11 @@ To explore the relationship between ACT scores and completion rates we will crea
 
 
 ```{r}
-#| fig-cap: "Scatterplot displaying the relationship between wine price and rating for the 90 wines in the sample."
+#| label: fig-scatterplot-wines
+#| fig-cap: "Scatterplot displaying the relationship between 75th percentile ACT scores and completion rates for the 92 institutions in the sample."
+#| fig-alt: "Scatterplot displaying the relationship between 75th percentile ACT scores and completion rates for the 92 institutions in the sample."
+
+# Scatterplot
 gf_point(
   completion_rate ~ act, data = colleges,
   xlab = "75th percentile ACT score",
@@ -126,8 +138,10 @@ To help better understand the model, consider the following plot:
 
 ```{r}
 #| label: fig-visual-model
-#| echo: false 
 #| fig-cap: "Plot displaying conditional distribution of *Y* at several *X* values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of *Y* for each conditional distribution."
+#| fig-alt: "Plot displaying conditional distribution of *Y* at several *X* values. The OLS fitted regression line (dotted) is also shown. The red points show the mean value of *Y* for each conditional distribution."
+#| echo: false 
+
 knitr::include_graphics("figs/conditional-means.png")
 ```
 
@@ -174,9 +188,12 @@ This equation implies that each observed *Y*-value is the sum of the conditional
 To further understand the residual term, consider the plot below. This figure shows the relationship between 75th percentile ACT scores and completion rates we plotted earlier. It also includes the regression line.
 
 ```{r}
+#| label: fig-regression
+#| fig-cap: "Scatterplot displaying the relationship between 75th percentile ACT scores and completion rates. The OLS fitted regression line is also displayed. The blue point is the mean completion rate for colleges with a 75th percentile ACT score of 21."
+#| fig-alt: "Scatterplot displaying the relationship between 75th percentile ACT scores and completion rates. The OLS fitted regression line is also displayed. The blue point is the mean completion rate for colleges with a 75th percentile ACT score of 21."
 #| echo: false
 #| message: false
-#| fig-cap: "Scatterplot displaying the relationship between 75th percentile ACT scores and completion rates. The OLS fitted regression line is also displayed. The blue point is the mean completion rate for colleges with a 75th percentile ACT score of 21."
+
 rectangle = data.frame(
   act = c(20.5, 20.5, 21.5, 21.5),
   completion_rate = c(0.3, 0.55, 0.55, 0.3)
@@ -218,7 +235,7 @@ $$
 
 To fit the regression model to data using R, we will use the `lm()` function. The syntax for this function looks like this:
 
-> `lm(`**outcome** ~ `1 + ` **predictor**, `data =` **dataframe**`)`
+<span class="output1">lm(`**outcome** ~ `1 + ` **predictor**, `data =` **dataframe**`)</span>
 
 where **outcome** is the name of the outcome/response attribute, **predictor** is the name of the predictor attribute, and **dataframe** is the name of the data frame. (The `1` on the right side of the tilde tells R to include the intercept in its computation.) When we fit a regression model in R, we will also assign the output to a new object in R. Below, we fit the model using education level to predict income. Here the output is assigned to an object called `lm.a`. We can print the regression parameter estimates by typing the `lm()` object name and hitting enter.
 
@@ -329,6 +346,7 @@ As an example, consider the data for the Marquette University.
 
 ```{r}
 #| echo: false
+
 colleges |>
   filter(row_number() == 71)
 ```
@@ -358,9 +376,12 @@ $$
 The positive residual suggests that Marquette University has a completion rate that is 0.057 higher than the average predicted completion rate for colleges with a 75th percentile ACT score of 30. We can also represent these values graphically.
 
 ```{r}
+#| label: fig-regression-marquette
+#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
+#| fig-alt: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
 #| echo: false
 #| message: false
-#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
+
 ggplot(data = colleges, aes(x = act, y = completion_rate)) +
   geom_point(alpha = 0.3) +
   geom_segment(x = 30, xend = 30, y = 0.7572312, yend = 0.814, color = "#009e73") +

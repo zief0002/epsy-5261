@@ -18,11 +18,13 @@ Throughout the chapters in this section we will use the College Scorecard data t
 - [CSV File](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv)
 - [Data Codebook](http://zief0002.github.io/epsy-5261/codebooks/college-scorecard.html)
 
+<br />
 
 ```{r}
 #| label: import-data
 #| message: false
 #| echo: false
+
 # Import data
 colleges <- readr::read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/college-scorecard.csv")
 

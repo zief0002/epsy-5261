@@ -1,0 +1,52 @@
+# housing-and-income.csv {-}
+
+
+The data in [housing-and-income.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv) include data on house prices and household incomes for $n=42$ cities in the United States. The data, collated by [Construction Coverage](https://constructioncoverage.com), come from the U.S. Census Bureau's [American Community Survey](https://www.census.gov/programs-surveys/acs) and Zillow’s [Zillow Home Value Index](https://www.zillow.com/research/data/).
+
+
+---
+
+The attributes included in the data are:
+
+- `city`: City name
+- `state`: State
+- `house_income_ratio`: The ratio of median house cost to median household income
+- `median_house_price`: Median listing price of the house (in thousands of dollars)
+- `median_income`: Median household income (in thousands of dollars)
+- `house_change`: 5-year change in the median house price (as a percentage)
+- `greater_30`: Percentage of mortgage holders who spend more than 30% of their household income on housing costs annually
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+house <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv")
+
+# View data
+house
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+

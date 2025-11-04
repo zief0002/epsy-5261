@@ -1,0 +1,51 @@
+# social-media.csv {-}
+
+
+The Olympic Games are an international multi-sport event held every four years in which thousands of athletes from around the world participate in various sports competitions. The social-media are one of the most significant and prestigious sporting events globally, promoting unity, friendship, and fair play among nations.
+
+The data in [social-media.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/social-media.csv) includes information about $N=24$ college students who were enrolled in a study to examine whether social media use negatively impacts mental health. Prior to the study, participants were administered a series of surveys specifically designed to measure constructs such as depression, loneliness, fear of missing out, anxiety, and self acceptance. These served as baseline measures of mental health.
+
+---
+
+The attributes included in the data are:
+
+- `id`: An ID number associated with each participant
+- `depression`: Participant's baseline measure of depression (Yes = Depressed, No = Not depressed)
+- `loneliness`: Participant's baseline score on the loneliness scale. Higher values indicate more loneliness.
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+social_media = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/social-media.csv")
+
+# View data
+social_media
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/social-media.csv") |>
+  print(width = Inf)
+```
+
+<br />
+
+
+## References
+
+
+

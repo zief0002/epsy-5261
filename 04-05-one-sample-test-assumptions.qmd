@@ -40,10 +40,11 @@ To evaluate the first assumption that the distribution of values in the populati
 
 ```{r}
 #| label: fig-hrs-sleep
+#| fig-cap: "Density plot of the hours of sleep for 75 teenagers."
+#| fig-alt: "Density plot of the hours of sleep for 75 teenagers."
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-cap: "Density plot of the hours of sleep for 75 teenagers."
 
 # Load libraries
 library(ggformula)
@@ -68,10 +69,11 @@ The sample distribution looks symmetric, but perhaps not exactly normal. This is
 
 ```{r}
 #| label: fig-normal-sim
+#| fig-cap: "Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed."
+#| fig-alt: "Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed."
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-cap: "Density plots for five samples of size 75 that were actually drawn from a population that was normally distributed."
 #| fig-width: 15
 #| fig-height: 3
 #| out-width: "100%"
@@ -128,22 +130,22 @@ Independence is often difficult to ascertain, and its tenability is made via a l
 The violation of independence is, however, not clear cut. The big question is does knowing that one teen's sleep duration convey any information about any other teen's sleep duration? If for example all the teens came from the same family this would likely be the case since teens in a family are often similar sleep schedules. It is less likely that this is a case for teens in the same school district. Because of this, we could argue that the independence assumption seems tenable.
 
 :::fyi
+**FYI**
+
 Because the tenability of the independence assumption is made via a logical argument, outside the use of random sampling to collect the data, different scholars might disagree about whether this assumption is tenable. In this class, and in your own work, you need to lay out the argument for why you think the independence assumption is reasonable or not.
 :::
 
 <br />
 
 
-### Evaluating Assumptions in the Continuous Assessment Case Study
+## Exercises: Your Turn {-}
 
-:::exercises
-#### Your Turn {.unnumbered}
-
-In the continuous assessment case study from @sec-one-sample-test-r, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students' prior knowledge. The histogram of the 30 teachers' responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
+1. In the continuous assessment case study from @sec-one-sample-test-r, we evaluated whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students' prior knowledge. The histogram of the 30 teachers' responses is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
 
 ```{r}
 #| label: fig-prior-knowledge
-#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
+#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson."
+#| fig-alt: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson."
 #| warning: false
 #| echo: false
 library(ggformula)
@@ -166,28 +168,22 @@ gf_histogram(
 Yes, the normality assumption seems tenable. While the distribution of the sample responses is not normally distributed, it is not egregiously skewed. Moreover, since the sample size is 30, the CLT would suggest that we can assume that the *p*-value is not going to be impacted by any deviation in the population distribution from normality.
 </div>
 
-Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html), do you believe the independence assumption is tenable?
+
+2. Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html), do you believe the independence assumption is tenable?
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-06');">Show/Hide Solution</button>
 
 <div id="exercise_04-05-06" style="display:none; margin: -40px 0 40px 40px;">
 Yes, the independence assumption is tenable. The use of random chance to select the sample data (random sampling) guarantees independence.
 </div>
-:::
-
-<br />
 
 
-### Evaluating Assumptions in the House Prices Case Study
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-In the house prices case study from @sec-one-sample-test-r, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than \$322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
+3. In the house prices case study from @sec-one-sample-test-r, we evaluated whether, on average, houses near the University of Minnesota campus are more expensive than \$322.46k (the average price of a single-family house in Minneapolis as of May 2023). The histogram of the 15 sample house prices is shown below. Based on this plot and the sample size, do you believe the normality assumption is tenable?
 
 ```{r}
 #| label: fig-house-prices
-#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus. "
+#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus."
+#| fig-alt: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus."
 #| warning: false
 #| echo: false
 zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
@@ -209,14 +205,15 @@ gf_histogram(
 The normality assumption may not be tenable. The distribution of the sample responses is not normally distributed, and is clearly left-skewed. Moreover, since the sample size is less than 30, we can not rely on the CLT.
 </div>
 
-Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/zillow.html), do you believe the independence assumption is tenable?
+
+4. Based on the data collection process described in the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/zillow.html), do you believe the independence assumption is tenable?
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-05-08');">Show/Hide Solution</button>
 
 <div id="exercise_04-05-08" style="display:none; margin: -40px 0 40px 40px;">
 It is unclear that the independence assumption is tenable. The data collection did not use random chance to select the sample data. Moreover, it is likely that knowing the sale price for one house would give us information about the sale price for other houses since houses in the same neighborhood are often sold for similar prices.
 </div>
-:::
+
 
 
 <br />

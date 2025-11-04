@@ -7,8 +7,8 @@ The initial chapters of this document will address:
 
 - Installing R and RStudio;
 - Getting started with R's computational syntax;
-- Wrangling data using functions from the **dplyr** package; and
-- Visualizing data using functions from the **ggplot2** package.
+- Wrangling data using functions from the `{dplyr}` package; and
+- Visualizing data using functions from the `{ggplot2}` package.
 
 
 <br /><br />

@@ -1,0 +1,49 @@
+# phone-incentives.csv {-}
+
+
+The data in [phone-incentives.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv) contains data from a study coducted by @Singer:2000. They studied different incentives to encourage individuals to participate in phone surveys. The Survey of Consumer Attitudes used random digit dialing to select 395 participants in November 1996. Of those 395 participants, 204 were randomly assigned to be in a control group. The remaining participants (191) received a \$10 incentive to participate in the phone survey.
+
+
+---
+
+The attributes included in the data are:
+
+- `id`: An ID number associated with each participant
+- `group`: Whether the participant was randomly assigned to receive a \$10 incentive to participate in the survey (`Incentive`) or not (`Control`)
+- `cooperate`: Whether the participant cooperated by completing the survey (`Yes`) or not (`No`)
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+phone_incentives = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv")
+
+# View data
+phone_incentives
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/phone-incentives.csv") |>
+  print(width = Inf)
+```
+
+<br />
+
+
+## References
+
+
+

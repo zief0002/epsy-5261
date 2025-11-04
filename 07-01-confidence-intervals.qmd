@@ -61,6 +61,7 @@ All confidence intervals are computed using this method. The only thing that cha
 #| tbl-cap: "Formulas to compute the standard error (SE) for the different situations we have studied in EPsy 5261."
 #| echo: false
 #| tbl-colwidths: false
+
 library(gt)
 dplyr::tibble(
   Situation = c("Single Mean", "Single Proportion", "Difference in Means", "Difference in Proportions"),
@@ -95,6 +96,8 @@ So we need to use the sample data to get the sample mean ($\bar{x}$), the sample
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(ggformula)
 library(mosaic)
 library(tidyverse)
@@ -130,6 +133,8 @@ $$
 Our CI tells us that, based on the data, we think the average price of a single-family house near the University of Minnesota is between \$352.07k and \$457.87k. Using this, we can now answer our follow-up questions. Is the average price of a single-family house near the UMN more or less expensive than in Minneapolis more broadly? And by how much? Based on the CI it seems the average price of a single-family house near the University of Minnesota is higher than the average single-family house price in Minneapolis more broadly (\$322.46k). It may be more expensive by as little as \$29.61k and as much as \$135.41k.
 
 :::fyi
+**FYI**
+
 Statistician formally interpret a CI for the mean in a very particular way. The template for this interpretation is "We are *X%* confident that the population mean is between *LL* and *UL*." In this template, we substitute values in for *X* (the confidence level), **LL** (the lower limit of the CI), and *UL* (the upper limit of the CI). In general the value for *X* is 95%, but you will learn more about this in @sec-confidence-intervals-assump. For our example, the formal interpretation would be:
 
 > We are 95% confident that the population mean is between \$29.61k and \$135.41k.
@@ -141,7 +146,9 @@ Statistician formally interpret a CI for the mean in a very particular way. The 
 Using substantive knowledge, one could then make decisions about whether differences this large is meaningful or not. For example, when it comes to real estate in the Twin Cities, a difference of around \$30k is not so big, but a difference of \$135k is pretty large. On the other hand, for many first time home buyers, even \$30k is meaningful. In order to understand whether effects are meaningful, it is necessary to contextualize them in relation to the area of research.
 
 :::fyi
-To reiterate some of the vocabulary, the standard error (SE) was 26.45. This quantified the amount of uncertainty in the mean estimate that is due to sampling variation. The margin of error ($2\times\text{SE}$) was 52.9 this increases the uncertainty due to sampling error by a factor of two, which makes it more likely that our confidence interval will include the population mean---you will learn more about this in class. Finally, the confidence interval (CI) is $[352.07,~457.87]$. This range includes plausible values for the population parameter, in our case the mean, based on the data and the estimated sampling uncertainty.
+**VOCABULARY**
+
+To reiterate some of the vocabulary, the **standard error** (SE) was 26.45. This quantified the amount of uncertainty in the mean estimate that is due to sampling variation. The **margin of error** ($2\times\text{SE}$) was 52.9 this increases the uncertainty due to sampling error by a factor of two, which makes it more likely that our confidence interval will include the population mean---you will learn more about this in class. Finally, the **confidence interval** (CI) is $[352.07,~457.87]$. This range includes plausible values for the population parameter, in our case the mean, based on the data and the estimated sampling uncertainty.
 :::
 
 
@@ -153,6 +160,8 @@ To reiterate some of the vocabulary, the standard error (SE) was 26.45. This qua
 To estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will compute a CI for a proportion rather than a mean. Below we import the data and compute the proportions. From the [data codebook](https://zief0002.github.io/epsy-5261/codebooks/mn-lead.html) we also know that the sample size is 91,706.
 
 ```{r}
+#| message: false
+
 # Import data
 mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
 
@@ -163,67 +172,6 @@ mn_lead
 df_stats(~ebll, data = mn_lead, props)
 ```
 
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Compute the SE for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 using the appropriate formula from @tbl-se.
-
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-01');">Show/Hide Solution</button>
-
-<div id="exercise_07-01-01" style="display:none; margin: -40px 0 40px 40px;">
-In this case study we have a single sample that we want to estimate the proportion for (i.e., single proportion). Thus we can compute the SE as:
-
-$$
-\begin{split}
-\text{SE} &= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\[2ex]
-&= \sqrt{\frac{.014(1-.014)}{91706}} \\[2ex]
-&= .0004
-\end{split}
-$$
-
-Since we are interested in the proportion of children above the MDH reference level, we need to use the proportion for "Yes" ($\hat{p}=.014$) in the formula.
-
-</div>
-
-
-Use the SE you computed to compute the margin of error.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-02');">Show/Hide Solution</button>
-
-<div id="exercise_07-01-02" style="display:none; margin: -40px 0 40px 40px;">
-We compute the margin of error as:
-
-$$
-\begin{split}
-\text{Margin of Error} &= 2 \times \text{SE} \\[2ex]
-&= 2 \times .0004 \\[2ex]
-&= .0008
-\end{split}
-$$
-</div>
-
-Use the initial sample estimate and the margin of error you just computed to compute the CI for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-03');">Show/Hide Solution</button>
-
-<div id="exercise_07-01-03" style="display:none; margin: -40px 0 40px 40px;">
-We compute the CI as:
-
-$$
-\begin{split}
-\text{Sample Estimate} &\pm \text{Margin of Error} \\[2ex]
-\hat{p} &\pm \text{Margin of Error} \\[2ex]
-.014 &\pm .0008 \\[2ex]
-&[.0132,~.0148]
-\end{split}
-$$
-Based on the CI, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .0132 and .0148.
-
-</div>
-
-:::
 
 <br />
 
@@ -256,6 +204,7 @@ We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief000
 ```{r}
 #| label: cannabis
 #| message: false
+
 # Import data
 cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
 
@@ -278,31 +227,6 @@ $$
 [1.07,&~11.31]
 \end{split}
 $$
-
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Using the information in the equations above, what is the margin of error?
-
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-04');">Show/Hide Solution</button>
-
-<div id="exercise_07-01-04" style="display:none; margin: -40px 0 40px 40px;">
-The margin of error is 5.12.
-</div>
-
-
-
-Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-05');">Show/Hide Solution</button>
-
-<div id="exercise_07-01-05" style="display:none; margin: -40px 0 40px 40px;">
-Based on the CI, we think the difference in average IQ score change is between 1.07 and 11.31 points higher for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens.
-</div>
-:::
-
 
 <br />
 
@@ -350,10 +274,92 @@ n &= 21
 \end{split}
 $$
 
-:::exercises
-#### Your Turn {.unnumbered}
+<br />
 
-Using the sample information provided above, compute the CI for the difference in the proportion of Bachelors and Bachelorettes that are still together with their suitors.
+
+
+## Exercises: Your Turn {-}
+
+1. Compute the SE for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 using the appropriate formula from @tbl-se.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-01" style="display:none; margin: -40px 0 40px 40px;">
+In this case study we have a single sample that we want to estimate the proportion for (i.e., single proportion). Thus we can compute the SE as:
+
+$$
+\begin{split}
+\text{SE} &= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\[2ex]
+&= \sqrt{\frac{.014(1-.014)}{91706}} \\[2ex]
+&= .0004
+\end{split}
+$$
+
+
+2. Since we are interested in the proportion of children above the MDH reference level, we need to use the proportion for "Yes" ($\hat{p}=.014$) in the formula.
+
+</div>
+
+
+3. Use the SE you computed to compute the margin of error.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-02" style="display:none; margin: -40px 0 40px 40px;">
+We compute the margin of error as:
+
+$$
+\begin{split}
+\text{Margin of Error} &= 2 \times \text{SE} \\[2ex]
+&= 2 \times .0004 \\[2ex]
+&= .0008
+\end{split}
+$$
+</div>
+
+
+4. Use the initial sample estimate and the margin of error you just computed to compute the CI for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-03" style="display:none; margin: -40px 0 40px 40px;">
+We compute the CI as:
+
+$$
+\begin{split}
+\text{Sample Estimate} &\pm \text{Margin of Error} \\[2ex]
+\hat{p} &\pm \text{Margin of Error} \\[2ex]
+.014 &\pm .0008 \\[2ex]
+&[.0132,~.0148]
+\end{split}
+$$
+Based on the CI, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .0132 and .0148.
+
+</div>
+
+
+5. Using the information in the equations above, what is the margin of error?
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-04" style="display:none; margin: -40px 0 40px 40px;">
+The margin of error is 5.12.
+</div>
+
+
+
+6. Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-05');">Show/Hide Solution</button>
+
+<div id="exercise_07-01-05" style="display:none; margin: -40px 0 40px 40px;">
+Based on the CI, we think the difference in average IQ score change is between 1.07 and 11.31 points higher for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens.
+</div>
+
+
+7. Using the sample information provided above, compute the CI for the difference in the proportion of Bachelors and Bachelorettes that are still together with their suitors.
 
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-06');">Show/Hide Solution</button>
@@ -372,7 +378,7 @@ $$
 
 
 
-Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
+8. Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-07');">Show/Hide Solution</button>
 
@@ -382,7 +388,8 @@ Based on the CI, we think the difference in proportion of Bachelors and Bachelor
 That is, the proportion of Bachelors that are still together with their suitors might be lower than the proportion of Bachelorettes that are still together with their suitors by .28, or it might be higher than the proportion of Bachelorettes that are still together with their suitors by as much as .12, or anywhere in between.
 </div>
 
-What does it mean that 0 is a value in the CI?
+
+9. What does it mean that 0 is a value in the CI?
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-01-08');">Show/Hide Solution</button>
 
@@ -391,14 +398,9 @@ If 0 is in the CI, it means it is a plausible value for the difference in the pr
 
 That is, the proportion of Bachelors that are still together with their suitors might be **the same as** the proportion of Bachelorettes that are still together with their suitors.
 </div>
-:::
 
 
-
-
-
-
-
+<br />
 
 
 <!-- ## References -->

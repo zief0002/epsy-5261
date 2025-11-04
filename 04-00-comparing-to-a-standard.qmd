@@ -6,5 +6,10 @@ In previous chapters you learned how to compute characteristics of the distribut
 
 Drawing conclusions beyond the data we have is called *inference*, and the associated methods that allow researchers to allows us to learn from incomplete or imperfect data are referred to as *statistical inference* [@Gelman:2007]. In this part of the textbook, you will learn about a set of statistical inferential methods that allow you to compare a sample of data to some standard in order to draw inferences about how the population compares to that standard (e.g., is the average income for a community higher than the poverty level?). To answer this type of inferential question, you will learn about how we quantify the amount of uncertainty associated with our sample numerical estimate when we have incomplete data (i.e., only a sample of data from the population we want to infer to). You will also learn how we then use that quantification in a one-sample hypothesis test to draw an inference about how a population parameter compares to that standard. Finally, you will learn about potential errors that can be made when conducting hypothesis tests and also assumptions underlying the methods we use to carry out these tests. 
 
+<br />
+
+
+## References
+
 
 

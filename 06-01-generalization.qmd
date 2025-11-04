@@ -28,8 +28,10 @@ The visual in @fig-keys-bias is a metaphor for the concept of statistical bias. 
 ```{r}
 #| label: fig-keys-bias
 #| fig-cap: "This figure is a metaphor for statistical bias."
-#| out-width: "60%"
+#| fig-alt: "This figure is a metaphor for statistical bias."
+#| out-width: "80%"
 #| echo: false
+
 knitr::include_graphics("figs/06-01-bias-keys.png")
 ```
 
@@ -39,8 +41,10 @@ Compare this with Arthur's search locations in @fig-keys-unbiasedness. In this p
 ```{r}
 #| label: fig-keys-unbiasedness
 #| fig-cap: "This figure is a metaphor for unbiasedness."
-#| out-width: "60%"
+#| fig-alt: "This figure is a metaphor for unbiasedness."
+#| out-width: "80%"
 #| echo: false
+
 knitr::include_graphics("figs/06-02-unbiased-keys.png")
 ```
 

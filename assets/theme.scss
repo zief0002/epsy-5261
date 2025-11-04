@@ -1,29 +1,55 @@
 /*-- scss:defaults --*/
 
 // Fonts
-$font-weight-base:            400 !default;
+$font-weight-base: 400 !default;
 
 
 // Links
-$link-decoration:       underline !default;
+$link-decoration: underline !default;
+/*$toc-color: #b3d3f5;  -- Set active link color for TOC sidebar (RIGHT) --*/
+
+//figure and table caption color
+$body-secondary: #595959;
+
+
+// Inline code
+$code-bg: #2b2b2b;
+$code-color: #ffd700;
 
 
 
 /*-- scss:rules --*/
 
+
+body {
+  background-color: #78BE21; /*FFD5C2;*/
+  font-size: 16px;
+}
+
+.content {
+  background-color: #fff;
+  border: 1px solid #273043;
+  border-radius: 25px;
+  padding: 25px 60px 25px;
+}
+
+ 
+
+
 // Headings
 h1, h2, h3, h4, h5, h6 {
-  color: #0677a3;
+  color: #000;
+  //color: #9f86c0;
 }
 
 .header-section-number {
-  color: #0677a3;
+  color: #000;
 }
 
 
 // Main text
 p {
-  font-family: 'Crimson Text', serif;
+  font-family: 'Atkinson Hyperlegible', serif;
   line-height: 1.5em;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -31,7 +57,7 @@ p {
 
 // List elements
 li {
-  font-family: 'Crimson Text', serif;
+  font-family: 'Atkinson Hyperlegible', serif;
   line-height: 1.5em;
 }
 
@@ -42,17 +68,25 @@ li > p {
 
 // Mouse over link
 a:hover {
-  color: darken(#0099d4, 15%);
+  color: #7d12ba;
 }
 
+
+// Title breadcrumbs
+.quarto-title-breadcrumbs .breadcrumb {
+  color: blue;
+}
+
+
+
 // Figure caption
-.figure-caption {
-  font-size: 11pt;
+figcaption {
+  font-size: 12pt;
   font-style: italic;
-  color: #595959;
+  color: #000;
   line-height: 1.3em;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 
 #callout {
@@ -78,11 +112,47 @@ a:hover {
   color: #fff;
 }
 
-
-// Sidebar navigation - RIGHT SIDE
-#TOC, #toc-title {
-  color: #5F634F; 
+div.sidebar-item-container .active .chapter-number {
+  color: #fff;
 }
+
+//Sidebar navigation - RIGHT SIDE
+#quarto-margin-sidebar {
+  background-color: #443850;
+}
+
+// Title color
+#TOC, #toc-title {
+  color: #fff;
+  font-size: 14pt;
+}
+
+// Nonactive sidebar items
+.sidebar nav[role="doc-toc"] ul > li > a {
+  color: #fff;
+}
+
+.sidebar.header-section-number{
+  color: #fff;
+}
+
+// Active sidebar item
+div.sidebar-item-container .active {
+  color: #fff;
+}
+
+
+.sidebar nav[role="doc-toc"] ul > li > a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a:hover .header-section-number {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
 
 
 // Style cover art 
@@ -101,28 +171,28 @@ div.sourceCode {
  border-radius: 0; 
 }
 
-/** Make the caption italic and black 
-.table caption{
-  font-style: italic;
-  color: black;
-  font-family: 'Crimson Text', serif;
-  font-size: 11px;
+a.uri {
+  word-break: break-word; 
 }
 
-.table caption span{
-  font-style: normal;
-  font-weight: bold;
-  margin-bottom: 30px;
-}**/
 
+.blockquote {
+  color: #5b0013;
+  border-left: .25rem solid #5b0013;
+}
+
+/** Left align table captions **/
+figure.quarto-float-tbl figcaption.quarto-float-caption-top {
+  text-align: left;
+}
 
 
 /** Change border color to black **/
 .table thead tr th {
   border-color: black;
   border-width: 1px;
-  font-family: 'Crimson Text', serif;
-  font-size: 11px;
+  font-family: 'Atkinson Hyperlegible', serif;
+  font-size: 12px;
   font-weight: normal;
 }
 
@@ -140,8 +210,8 @@ div.sourceCode {
 /** Format and remove borders within the table body **/
 .table tbody tr td {
   border: none;
-  font-family: 'Crimson Text', serif;
-  font-size: 11px;
+  font-family: 'Atkinson Hyperlegible', serif;
+  font-size: 12px;
 }
 
 
@@ -154,17 +224,31 @@ div.sourceCode {
 /** Format and remove borders within the table footer **/
 .table tfoot {
   border: none;
-  font-family: 'Crimson Text', serif;
-  font-size: 11px;
+  font-family: 'Atkinson Hyperlegible', serif;
+  font-size: 12px;
 }
 
 
+.cell-output-stdout code {
+  word-break: break-wor !important;
+  white-space: pre-wrap !important;
+}
 
-/* Show/Hide Solution buttons*/
+#references {
+  margin-bottom: 5em;
+}
 
+/** Make Seach button accessible **/
+button.aa-SubmitButton {
+  width: 24px;
+  height: 24px;
+}
+
+
+/** Buttons for hide/show solutions to exercises **/
 .solution-btn-default {
   color: #fff;
-  background-color: #0B4F6C;
+  background-color: #5b0013;
   border-color: #000;
   display: inline-block;
   padding: 6px 12px;
@@ -185,10 +269,46 @@ div.sourceCode {
 
 
 .solution-btn-default:hover {
-  background-color: #07364A;
+  background-color: #5b0013;
   color: white;
 }
 
-#references {
-  margin-bottom: 5em;
+// Smaller code
+.smaller-code .cell-output {
+  font-size: 0.8em;
+  color: #ffd700;
 }
+
+
+/* -----------Output (Left-Aligned)------------- */
+
+.output {  
+  background-color: #2b2b2b;
+  padding: .2em;
+  color: #ffd700;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 400;
+  font-size: 0.875em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: block;
+  unicode-bidi: embed;
+  }
+  
+  
+/* -----------Output (Cnetered)------------- */
+
+.output1 {  
+  background-color: #2b2b2b;
+  padding: .2em;
+  color: #ffd700;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 400;
+  font-size: 0.875em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  unicode-bidi: embed;
+  margin: 0 auto;
+  display: table;
+  }
+

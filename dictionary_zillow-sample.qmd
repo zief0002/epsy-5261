@@ -1,0 +1,50 @@
+# zillow-sample.csv {-}
+
+
+The [zillow-sample.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv) data include information on $n=30$ Bayfield, Wisconsin houses listed for sale in 2015 on Zillow.
+
+---
+
+The attributes included in the data are:
+
+- `price`: Listed price of the house
+- `beds`: Number of bedrooms in the house
+- `baths`: Number of bathrooms in the house
+- `sqft`: Square footage of the liveable space in the house
+- `age`: Age of the house (in years)
+
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+zillow_sample <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv")
+
+# View data
+zillow_sample
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow-sample.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+

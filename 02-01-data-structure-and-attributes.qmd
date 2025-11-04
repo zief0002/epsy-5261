@@ -7,6 +7,7 @@ Consider the following data which constitute a random sample of 25 New York Time
 #| label: nyt-data
 #| echo: false
 #| message: false
+
 nyt = readr::read_csv("data/nyt-best-sellers.csv")
 DT::datatable(nyt)
 ```
@@ -24,7 +25,9 @@ In these data, there are 25 cases, and each case is a NYT best selling book. Tha
 - The book's debut rank on the NYT Best Sellers list, and 
 - The book's highest rank while it was on the NYT Best Sellers list.
 
-:::protip
+:::fyi
+**FYI**
+
 Tabular data are required in order to carry out most analyses with computational tools, although not all data are tabular. For example, many websites store data in non-tabular forms such as [XML](https://www.w3.org/standards/xml/core) or [JSON](https://www.json.org/). In this course, all the data you work with will be tabular. 
 :::
 
@@ -46,10 +49,11 @@ The answers to these questions give us information about the data's context, whi
 - **How and where were the data collected?** These data were scraped from Hawes Publications, an online repository that publishes a PDF transcript of the list for every year of the last going back to 1931, using the open-source Python library pdfminer.
 - **Why were the data collected?** As per the [curatorial statement](https://data.post45.org/new-york-times-hardcover-fiction-bestsellers-1931-2020-curatorial-statement/), "[t]his dataset provides valuable metadata for researchers of 20th century American literature working in fields such as cultural analytics, book and publishing history, and the sociology of literature."
 
-:::protip
-Often these types of metadata (data about the data) are included in a **data codebook**. If you collect data as part of a study or project, you should create codebook for the data.
-:::
+:::fyi
+**PROTIP**
 
+Often these types of metadata (data about the data) are included in a **data codebook** or **data dictionary**. If you collect data as part of a study or project, you should create codebook for the data.
+:::
 
 <br />
 
@@ -63,19 +67,6 @@ We typically classify attributes as either **categorical attributes** or **quant
 Typically attributes that have numerical values are quantitative, but not always. In our data, consider the attribute that indicates whether the author identifies as a female. Although the values in the data are numeric, these numbers actually represent different categories: 0 = no (not female) and 1 = yes (female). Therefore, this attribute is actually a categorical attribute, not a quantitative attribute.
 
 One check of whether anattribute is actually quantitative is whether numeric computations, such as finding an average of the attribute, can be carried out *and* the result makes conceptual sense. For example, we cannot compute the mean author value (it is thus a categorical attribute). If we compute the mean of the `female` attribute we get a result, but it does not indicate anything about the gender identity of a NYT best selling author. The mean does not make conceptual sense and thus we classify `female` as a categorical attribute.
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Classify the `best_rank` attribute (the book's highest rank while it was on the NYT Best Sellers list) as either categorical or quantitative. Explain.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_01');">Show/Hide Solution</button>
-
-<div id="exercise_01" style="display:none; margin: -40px 0 40px 40px;">
-The attribute `best_rank` is a quantitative attribute. The data in this attribute are numeric values, and it makes conceptual sense to compute summaries such as the mean for this attribute.
-</div>
-:::
-
 
 <br />
 
@@ -161,22 +152,12 @@ Another question that has direct implications on the methods used in data analys
 Understanding how the data were generated allows us to determine whether the data we have constitute a **sample** of cases or the entire **population** of cases we are interested in learning about. Importantly, whether you have a sample or the entire population depends on how you define the cases/observations you are interested in drawing conclusions about. 
 
 :::fyi
-A **population** includes *all* cases/observations of interest, whereas a. **sample** includes a subset of cases from the population.
+**VOCABULARY**
+
+A **population** includes *all* cases/observations of interest, whereas a **sample** includes a subset of cases from the population.
 :::
 
 For example, consider a child psychologist who wants to draw conclusions about all students at a particular school in Minnesota. To do this, she collects data from every student in that school. Since her data includes every case (student) she is interest in drawing conclusions for, her data would be a population, Now consider a second child psychologist who is interested in drawing conclusions about all students in Minnesota. This psychologist also collects data from every student in the same school as the first psychologist. This second psychologist's data would be considered a sample since the cases they included in their data are only a subset of the cases they want to draw conclusions about.
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Is the New York Time best sellers data a population or a sample? Explain. 
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_02');">Show/Hide Solution</button>
-
-<div id="exercise_02" style="display:none; margin: -40px 0 40px 40px;">
-The New York Time best sellers data is a sample since it is only a subset of all the New York Times best selling books. 
-</div>
-:::
 
 <br />
 
@@ -188,7 +169,9 @@ In practice, we rarely have data collected from an entire population, but we sti
 ```{r}
 #| label: fig-pop-sample
 #| fig-cap: A sample of data is drawn from the population. Information from the sample is then analyzed and used to make a statistical inference about the population.
+#| fig-alt: A sample of data is drawn from the population. Information from the sample is then analyzed and used to make a statistical inference about the population.
 #| echo: false
+
 knitr::include_graphics("figs/03-01-population-to-sample.png")
 ```
 
@@ -196,6 +179,8 @@ knitr::include_graphics("figs/03-01-population-to-sample.png")
 This can be a very tricky thing to do since the sample does not give us complete information about the population. As an example, consider if you wanted to figure out the average monthly living expenses for all graduate students at the University of Minnesota. To do this you collect data on the monthly living expenses for the students in your EPSY 5261 class and compute the average monthly living expense based on the data you collected and use that value as a guess for the average monthly living expenses for all graduate students at the University of Minnesota. (Note that the cases in your data (students in your EPSY 5261 class) are a subset of the population you want to draw conclusions about (all graduate students at the University of Minnesota) and thus are a sample.)
 
 :::fyi
+**VOCABULARY**
+
 Summaries computed from the population are referred to as **parameters** and summaries computed from a sample are referred to as **statistics**. 
 :::
 
@@ -211,6 +196,8 @@ We don't expect the value of the statistic to be the same as that for the parame
 One way we consider whether an answer is reasonable is how much uncertainty we have in the estimate from our sample. Imagine if you repeated the study, but this time, you collected data on the monthly living expenses in a different section of EPSY 5261. The average computed from these data would likely be different from the average you computed from your section of EPSY 5261, and therefore your guess for the average monthly living expenses for all graduate students at the University of Minnesota would be different. This is because you would have different cases in your sample. 
 
 :::fyi
+**FYI**
+
 When using a sample to infer about a population, our guesses or estimates vary depending on the cases in our sample. This means that when we make inferences there is always some degree of uncertainty in our estimates.
 :::
 
@@ -219,7 +206,9 @@ The idea that estimates from samples vary depending on the cases in your sample 
 ```{r}
 #| label: fig-sampling-error
 #| fig-cap: Estimates for the mean living expense for all graduate students at the University of Minnesota will vary from sample to sample because of sampling error. In statistical inference this is expected and quantifying the amount of sampling error gives us an indication of how much uncertainty we have in our estimate.
+#| fig-alt: Estimates for the mean living expense for all graduate students at the University of Minnesota will vary from sample to sample because of sampling error. In statistical inference this is expected and quantifying the amount of sampling error gives us an indication of how much uncertainty we have in our estimate.
 #| echo: false
+
 knitr::include_graphics("figs/03-02-sampling-error.png")
 ```
 
@@ -231,7 +220,9 @@ knitr::include_graphics("figs/03-02-sampling-error.png")
 A second way we consider whether an answer is reasonable is to consider whether our sample of cases is representative of the population as a whole. In our example, we are asking the question of whether the students in your section of EPSY 5261 are representative of all graduate students at the University of Minnesota when it comes to living expenses. This is a really difficult question to answer, but generally (unless you have selected your sample randomly from the population), your sample is not representative. The key here is that the sampling method (how you chose your cases) matters!
 
 :::fyi
-When a sample is not randomly selected from the population we say that the sampling method is biased.
+**VOCABULARY**
+
+When a sample is not randomly selected from the population we say that the sampling method is **biased**.
 :::
 
 A biased sampling method leads to systematically wrong answers. For example, again say you were interested in determining the average monthly living expenses for all graduate students at the University of Minnesota. This time, your sampling method is to collect data about the monthly living expenses from all the graduate students who live in a particular apartment building in Downtown Minneapolis. Would these students' living expenses be representative of all graduate students at the University of Minnesota?
@@ -241,6 +232,8 @@ Again, probably not. The living expenses in Downtown Minneapolis are different (
 What about our original sampling method of collecting data from each of the graduate students in your EPSY 5261 section? While these students might live in different areas, and seem more representative, this sampling method is likely still biased. Even if we have a hard time identifying how, the estimate for the average monthly living expenses based on students in EPSY 5261 is likely systematically different than the average  monthly living expenses for all graduate students at the University of Minnesota. (It may be systematically too low, or too high.)
 
 :::fyi
+**FYI**
+
 The only sampling method that is guaranteed to be unbiased (and therefore representative) is to select your sample randomly from the population. 
 :::
 
@@ -251,26 +244,15 @@ The only sampling method that is guaranteed to be unbiased (and therefore repres
 
 There are many methods for randomly selecting a sample from the population. The simplest method that incorporates randomness into the sampling process is **Simple Random Sampling**. In simple random sampling each case in the population has an equal probability of being selected into the sample.^[Technically the definition of a simple random sample is all potential samples of size *n* have the same probability of being selected, which implies that each case in the population has an equal probability of being selected into the sample. Conceptually, however, it is easier to think about the probability of each case rather than of the probability of groups of size *n*.]
 
-:::protip
+:::fyi
+**PROTIP**
+
 In the discipline of statistics, there are words that we use that have very different meanings from their use in colloquial English. "Random" is one of those words. In our everyday language "random" might mean happenstance or unexpected. For example: It was so random that I saw Ferris Bueller at the 31 Flavors last night. In statistics, "random" does not mean happenstance at all. Random sampling is quite formal in ensuring that cases have a specified probability of being selected into the sample. 
 :::
 
 One of the most compelling and useful results in statistics is that a simple random sample is representative of the population, and moreover that even small samples that are selected with this method can be representative of very large populations. This is powerful! 
 
 But, it can sometimes be very difficult to draw a simple random sample in practice. For one thing, it requires that you have a list of all the cases in the population (called a **sampling frame**). This allows you to make sure that everyone in the population has the same probability of being selected. While it might be possible to obtain a list of all graduate students enrolled at the University of Minnesota, it is another thing to obtain a list of all people living in Minnesota. Or even a list of people living in Dinkytown. Depending on your population of interest you may not be able to get a simple random sample.^[In this case there are other more complex methods of random sampling that you could use (e.g., stratified random sampling, cluster random sampling.]
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-What is the sampling method for the New York Time best sellers data. Based on this method, are the estimates of the population parameters we compute from these data going to be biased or unbiased? 
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03');">Show/Hide Solution</button>
-
-<div id="exercise_03" style="display:none; margin: -40px 0 40px 40px;">
-The New York Time best sellers data was sampled using simple random sampling. Because the sampling method employed randomness, the estimates we compute from the data are unbiased estimates of the population parameters. 
-</div>
-:::
-
 
 <br />
 
@@ -281,6 +263,37 @@ Every time you encounter data, you should identify the cases and attributes in t
 
 <br />
 
+
+## Exercises: Your Turn {-}
+
+1. Classify the `best_rank` attribute (the book's highest rank while it was on the NYT Best Sellers list) as either categorical or quantitative. Explain.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_01');">Show/Hide Solution</button>
+
+<div id="exercise_01" style="display:none; margin: -40px 0 40px 40px;">
+The attribute `best_rank` is a quantitative attribute. The data in this attribute are numeric values, and it makes conceptual sense to compute summaries such as the mean for this attribute.
+</div>
+
+
+2. Is the New York Time best sellers data a population or a sample? Explain. 
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_02');">Show/Hide Solution</button>
+
+<div id="exercise_02" style="display:none; margin: -40px 0 40px 40px;">
+The New York Time best sellers data is a sample since it is only a subset of all the New York Times best selling books. 
+</div>
+
+
+3. What is the sampling method for the New York Time best sellers data. Based on this method, are the estimates of the population parameters we compute from these data going to be biased or unbiased? 
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03');">Show/Hide Solution</button>
+
+<div id="exercise_03" style="display:none; margin: -40px 0 40px 40px;">
+The New York Time best sellers data was sampled using simple random sampling. Because the sampling method employed randomness, the estimates we compute from the data are unbiased estimates of the population parameters. 
+</div>
+
+
+<br />
 
 ## References
 

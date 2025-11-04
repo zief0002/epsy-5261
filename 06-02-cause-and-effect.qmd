@@ -77,6 +77,7 @@ It is important to differentiate between the drawing of causal inferences and ma
 #| tbl-cap: "Four potential study designs researchers could have and the scope of inferences that they could make based on the study design."
 #| echo: false
 #| tbl-colwidths: false
+
 library(gt)
 dplyr::tibble(
   rs = c("✔", "", "✔", ""),

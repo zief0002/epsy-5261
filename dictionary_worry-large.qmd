@@ -1,0 +1,47 @@
+# worry-large.csv {-}
+
+
+The [worry-large.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/worry-large.csv) data include information on the results of a poll question related to worry about hunger and homelessness. These data were simulated to have the same proportion of respondents who answered "Yes" and "No" to a Gallup 2021 poll (see [here](https://zief0002.github.io/epsy-5261/codebooks/worry.html)). But, to pedagogically show the effects of sample size on inferential measures (e.g., the SE), it was simulated to have a sample size five times larger than the original data ($N=5050$).
+
+
+---
+
+The attributes included in the data are:
+
+- `id`: An ID number for each respondent
+- `worried`: Does the poll respondent worry-large "a great deal" about hunger and homelessness? (Yes, No)
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+worry_large <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/worry-large.csv")
+
+# View data
+worry_large
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/worry-large.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+

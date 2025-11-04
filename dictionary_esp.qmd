@@ -1,0 +1,47 @@
+# esp.csv {-}
+
+
+The [esp.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/esp.csv) data include information on $n=20$ predictions made in the EPSY 5261 ESP experiment. 
+
+---
+
+The attributes included in the data are:
+
+- `prediction_num`: Prediction number
+- `correct`: Was the prediction correct (Yes) or not (No)
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+esp <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/esp.csv")
+
+# View data
+esp
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/esp.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ## References -->
+
+
+

@@ -1,0 +1,46 @@
+# granola.csv {-}
+
+
+The [granola.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/granola.csv) data include information on $n=31$ granola bars that were randomly sampled to evaluate quality control.
+
+---
+
+The attributes included in the data are:
+
+- `protein`: The measured protein (in grams) in the granola bar
+
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+granola <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/granola.csv")
+
+# View data
+granola
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/granola.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ## References -->
+
+
+

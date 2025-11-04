@@ -12,6 +12,8 @@ We will prepare for the analysis by loading in the `{tidyverse}`, `{ggformula}`,
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(ggformula)
 library(mosaicCore)
 library(tidyverse)
@@ -34,7 +36,9 @@ After importing the data, we will start by exploring the data. Because we are in
 ```{r}
 #| label: fig-hrs-sleep
 #| fig-cap: "Density plot of the hours of sleep for 75 teenagers."
+#| fig-alt: "Density plot of the hours of sleep for 75 teenagers."
 #| warning: false
+
 # Create density plot
 gf_density(
   ~ hrs_sleep, data = teen_sleep,
@@ -59,6 +63,8 @@ Based on the visual and numerical evidence, we might conclude that, on average, 
 Using this interpretation, we can definitively say that the 75 teens in our sample are, on average, not getting 9 or more hours of sleep a night---they are averaging 7.4 hours of sleep a night (based on the sample mean). Our research question, however is not whether these 75 teens are getting the recommended amount of sleep, but whether teens more generally are getting the recommended 9 hours of sleep a night. To answer this requires that we infer beyond our sample of 75 teens to the broader population of teens from which they were sampled from.
 
 :::fyi
+**VOCABULARY**
+
 The data a researcher has is sometimes referred to as the *observed data*, it is after all what is observed. Consequently, the summary measures from the data are sometimes referred to as *observed results*. As an example, the mean in our teen sleep data of 7.5 might be referred to as the *observed mean*. Statisticians might also refer to the observed mean as the *sample mean*, since it is the mean of the sample data! 
 :::
 
@@ -72,10 +78,11 @@ In many studies, the primary interest is to learn about one or more characterist
 ```{r}
 #| label: fig-goldy
 #| layout-ncol: 2
-#| fig-cap: Goldy.
+#| fig-cap: "Goldy."
 #| fig-subcap:
 #|   - "Population"
 #|   - "Sample"
+#| fig-alt: "Goldy."
 #| echo: false
 #| out-width: "100%"
 knitr::include_graphics("figs/04-02-goldy-hockey.jpg")
@@ -105,6 +112,8 @@ Another source of uncertainty in estimates is imperfect measurement, or [measure
 In practice, despite these being very different sources of variation, measurement error and sampling error are often combined and treated as if all of the uncertainty was due to sampling error.
 
 :::fyi
+**FYI**
+
 EPsy 5261, we will focus on quantifying uncertainty via estimating the sampling variation/sampling error. You can learn more about how to compute and account for measurement error in courses like [EPsy 5221: Priciples of Educational and Psychological Measurment](https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=002247).
 :::
 
@@ -118,8 +127,10 @@ To give you a better sense of the uncertainty in an estimate that is due to samp
 ```{r}
 #| label: fig-thought-experiment
 #| fig-cap: "Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn."
+#| fig-alt: "Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn."
 #| out-width: "100%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-04-thought-experiment.png")
 ```
 
@@ -129,11 +140,13 @@ The 1000 sample means can then be plotted, and we can compute a numeric summary 
 ```{r}
 #| label: fig-thought-experiment-sampling-dist
 #| fig-cap: "Distribution of 1000 sample means. Each observation in the distribution is a mean indicating the average amount of sleep per night for one sample. The red dots show the means computed from @fig-thought-experiment."
+#| fig-alt: "Distribution of 1000 sample means. Each observation in the distribution is a mean indicating the average amount of sleep per night for one sample. The red dots show the means computed from @fig-thought-experiment."
 #| fig-width: 8
 #| fig-height: 5
 #| out-width: "90%"
 #| echo: FALSE
 #| message: false
+
 library(tidyverse)
 results = rep(NA, 1000)
 
@@ -164,15 +177,19 @@ In @fig-thought-experiment-sampling-dist each observation plotted in the distrib
 
 Remember that our purpose for producing this distribution is to summarize the variation in the mean values, that is, we want to produce a numerical summary of the variation in the sampling distribution of the means shown in @fig-thought-experiment-sampling-dist. This distribution is approximately normal (unimodal and symmetric), so the standard deviation will be a good summary of the variation in this distribution.  
 
-:::protip
+:::fyi
+**PROTIP**
+
 If you have a distribution that is unimodal and symmetric, you can estimate the standard deviation by determining the halfway point of the height of the middle of the distribution. You can then follow that out to either side of the distribution and that width is a good guess for the standard deviation.
 
 
 ```{r}
 #| label: fig-est-sd
 #| fig-cap: "Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution."
+#| fig-alt: "Visual depiction of how to estimate the standard deviation in a unimodal symmetric distribution."
 #| out-width: "80%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-03-estimate-sd.png")
 ```
 :::

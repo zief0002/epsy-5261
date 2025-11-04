@@ -12,6 +12,8 @@ Lead exposure has been shown to have deleterious effects on peoples' health and 
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -102,10 +104,12 @@ Unlike the *t*-distribution which is different depending on the *df*, there is o
 ```{r}
 #| label: fig-z-dist
 #| fig-cap: "Density plot of the *z*-distribution."
+#| fig-alt: "Density plot of the *z*-distribution."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 ggplot(data = data.frame(x = c(-3, 3)), aes(x = x)) +
     stat_function(
       fun = dnorm,
@@ -124,10 +128,12 @@ To find the *p*-value associated with the alternative hypothesis that $\pi\neq.0
 ```{r}
 #| label: fig-z-dist2
 #| fig-cap: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
+#| fig-alt: "Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 knitr::include_graphics("figs/04-08-z-dist-sketch.jpg")
 ```
 
@@ -146,9 +152,11 @@ To carry out the one-sample *z*-test, we will use the following syntax. Note tha
 ```{r}
 #| label: fig-z-dist-r
 #| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
+#| fig-alt: "Density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
+
 # One-sample z-test
 my_z <- prop_test(
   ~ebll == "Yes", 
@@ -211,12 +219,12 @@ H_A: \pi_{\text{Fresh}} \neq .50
 \end{split}
 $$
   
+<br />
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-Import the [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) data and compute the sample proportion of "Fresh" reviews.
+## Exercises: Your Turn {-}
 
+1. Import the [fastx-reviews.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv) data and compute the sample proportion of "Fresh" reviews.
 
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-01');">Show/Hide Solution</button>
@@ -234,7 +242,8 @@ df_stats(~fresh_rotten, data = fastx, props)
 The sample proportion of "Fresh" reviews is 0.538.
 </div>
 
-Which hypothesis the null or alternative, does the sample evidence support? Explain
+
+2. Which hypothesis the null or alternative, does the sample evidence support? Explain
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-02');">Show/Hide Solution</button>
 
@@ -242,7 +251,8 @@ Which hypothesis the null or alternative, does the sample evidence support? Expl
 The sample evidence supports the alternative hypothesis since $\hat{p}=.538$ is different than the hypothesized value of 0.5.
 </div>
 
-Compute the observed *z*-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.
+
+3. Compute the observed *z*-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-03');">Show/Hide Solution</button>
 
@@ -260,7 +270,7 @@ The observed *z*-value tells us that the sample proportion is 1.17 standard erro
 </div>
 
 
-Carry out a one-sample *z*-test to evaluate whether the sample evidence is only due to sampling error. Report the pertinent results from this test, and use those resultsa to draw a conclusion about the hypotheses assuming an $\alpha$-value of 0.05.
+4. Carry out a one-sample *z*-test to evaluate whether the sample evidence is only due to sampling error. Report the pertinent results from this test, and use those resultsa to draw a conclusion about the hypotheses assuming an $\alpha$-value of 0.05.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-04');">Show/Hide Solution</button>
 
@@ -286,7 +296,8 @@ z_results(my_z)
 The results of the one-sample *z*-test, $z=1.17$, $p=.243$, suggest we should fail to reject the null hypothesis. It is likely that the population proportion of "Fresh" reviews is not different than 0.50.
 </div>
 
-Sketch a picture of the *z*-distribution (try to do this initially without using R). Then add a vertical line at the observed *z*-value. Finally, shade the area under the *z*-distribution that is associated with the *p*-value. Check your sketch by using the `plot_z_dist()` function.
+
+5. Sketch a picture of the *z*-distribution (try to do this initially without using R). Then add a vertical line at the observed *z*-value. Finally, shade the area under the *z*-distribution that is associated with the *p*-value. Check your sketch by using the `plot_z_dist()` function.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-05');">Show/Hide Solution</button>
 
@@ -296,15 +307,17 @@ Your sketch should look like the distribution plotted in @fig-z-dist-fresh.
 ```{r}
 #| label: fig-z-dist-fresh
 #| fig-cap: "Density plot of the *z*-distribution with the observed *z*-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the *p*-value associated with the null hypothesis that the population proportion is different than .50."
+#| fig-alt: "Density plot of the *z*-distribution with the observed *z*-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the *p*-value associated with the null hypothesis that the population proportion is different than .50."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
+
 # Check your work
 plot_z_dist(my_z)
 ```
 </div>
 
-Based on your decision, what type of error might you have made? Explain.
+6. Based on your decision, what type of error might you have made? Explain.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-06');">Show/Hide Solution</button>
 
@@ -312,7 +325,8 @@ Based on your decision, what type of error might you have made? Explain.
 Because we failed to reject the null hypothesis, we may have made a Type II error. It may be that the population proportion of "Fresh" reviews actually is different than 0.5 and we erroneously concluded it was not.
 </div>
 
-Check and evaluate all of the assumptions for the one-sample *z*-test.
+
+7. Check and evaluate all of the assumptions for the one-sample *z*-test.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-07');">Show/Hide Solution</button>
 
@@ -339,9 +353,9 @@ n(1-\hat{p}) &= 238(1 - .5378151) \\[1ex]
 $$
 </div>
 
-:::
 
 <br />
 
-## References
+
+<!-- ## References -->
 

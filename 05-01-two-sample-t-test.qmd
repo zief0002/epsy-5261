@@ -7,7 +7,7 @@ In this chapter you will learn how to carry out a two-sample *t*-test using R to
 
 ## Case Study: Cannabis Effects on IQ
 
-In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples' health and well-being [@Volkow:2014], including long-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on [data collected from the Center for Disease Control in 2019](https://www.cdc.gov/marijuana/health-effects/teens.html), 37\% of U.S. high school students reported using marijuana at least once, and 22\% reported use in the past 30 days. 
+In recent years, many states have legalized the use of marijuana for medical and recreational purposes. Marijuana use has been shown to have adverse impact on peoples' health and well-being [@Volkow:2014], including long-term effects on IQ. This is especially true for adolescents and young adults since their brain is still developing. As you might expect, marijuana usage among younger people is quite prevalent. Based on [data collected from the Center for Disease Control in 2019](https://www.cdc.gov/marijuana/health-effects/teens.html), 37% of U.S. high school students reported using marijuana at least once, and 22% reported use in the past 30 days. 
 
 To study the long-term effects of cannabis, @Meier:2012 examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset).
 
@@ -16,6 +16,7 @@ We will use the data in [cannabis.csv](https://raw.githubusercontent.com/zief000
 ```{r}
 #| label: load-packages
 #| message: false
+
 # Load libraries
 library(educate)
 library(ggformula)
@@ -47,7 +48,9 @@ $$
 H_A: \mu_{\text{Adult-onset}} \neq \mu_{\text{Teen-onset}}
 $$
 
-:::protip
+:::fyi
+**PROTIP**
+
 The order of the two groups in the hypotheses does not matter. For example, we could also have written the hypotheses so that the mean for teen-onset was written before the mean for adult-onset:
 
 $$
@@ -72,6 +75,8 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 $$
 
 :::fyi
+**FYI**
+
 The output from `t_result()` will present the hypotheses as a difference between means.
 :::
 
@@ -93,7 +98,9 @@ $$
 \mathtt{\sim iq\_change ~|~ cannabis\_dep}
 $$
 
-:::protip
+:::fyi
+**READING SYNTAX**
+
 Reading this syntax, we would say: "model the attribute `iq_change` but separate this by `cannabis_dep`" You can also say: "model the attribute `iq_change` but condition this on `cannabis_dep`". In statistics a *conditional distribution* is a distribution for a particular group.
 :::
 
@@ -103,7 +110,9 @@ The syntax for creating density plots and computing numerical summaries is shown
 ```{r}
 #| label: fig-prior-knowledge
 #| fig-cap: "Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults."
+#| fig-alt: "Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults."
 #| warning: false
+
 # Create histogram
 gf_density(
   ~ iq_change | cannabis_dep, data = cannabis,
@@ -143,17 +152,21 @@ my_t <- t_test(
 t_results(my_t)
 ```
 
-:::protip
+:::fyi
+**PROTIP**
+
 When you get the results from the *t*-test, be sure it says "Two Sample t-test". If it says "Welch Two Sample t-test" you forgot to set the argument `var.equal=TRUE`.
 :::
 
 
 ```{r}
 #| label: fig-t-dist3
-#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (*t* value of 0). The red vertical lines represents the observed *t*-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that $\\mu\\neq0$."
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (*t*-value of 0). The red vertical lines represents the observed *t*-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that $\\mu\\neq0$."
+#| fig-alt: "Density plot of the t-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (t-value of 0). The red vertical lines represents the observed t-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that mu not equal to 0."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
+
 # View t-distribution
 plot_t_dist(my_t)
 ```
@@ -211,22 +224,7 @@ $$
 \end{split}
 $$
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-Write the hypotheses as a difference in the average ages of the Bachelor and Bachelorette contestants.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-01');">Show/Hide Solution</button>
-
-<div id="exercise_05-01-01" style="display:none; margin: -40px 0 40px 40px;">
-$$
-\begin{split}
-&H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
-&H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} \neq 0
-\end{split}
-$$
-</div>
-:::
 
 
 ```{r}
@@ -246,6 +244,8 @@ Below we create the distribution of ages for the bachelors and bachelorettes. Bo
 ```{r}
 #| label: fig-bachelor
 #| fig-cap: "Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants."
+#| fig-alt: "Histograms of ages for the 27 Bachelor and 23 Bachelorette contestants."
+
 # Create histogram
 gf_histogram(
   ~age | show, data = bachelor,
@@ -275,10 +275,28 @@ my_t <- t_test(
 t_results(my_t)
 ```
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-Use the results of the two-sample *t*-test to sketch the *t*-distribution with 48 *df*, add vertical lines at the observed *t*-value (and $-$*t*-value), and shade the area under the curve corresponding to the *p*-value.
+
+<br />
+
+
+## Exercises: Your Turn {-}
+
+1. Write the hypotheses as a difference in the average ages of the Bachelor and Bachelorette contestants.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-01');">Show/Hide Solution</button>
+
+<div id="exercise_05-01-01" style="display:none; margin: -40px 0 40px 40px;">
+$$
+\begin{split}
+&H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
+&H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} \neq 0
+\end{split}
+$$
+</div>
+
+
+2. Use the results of the two-sample *t*-test to sketch the *t*-distribution with 48 *df*, add vertical lines at the observed *t*-value (and $-$*t*-value), and shade the area under the curve corresponding to the *p*-value.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">Show/Hide Solution</button>
 
@@ -289,6 +307,7 @@ Your sketch should look something like the following.
 ```{r}
 #| label: fig-t-dist2
 #| fig-cap: "Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical lines represent the observed *t*-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated *p*-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants."
+#| fig-alt: "Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical lines represent the observed *t*-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated *p*-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -298,17 +317,18 @@ plot_t_dist(my_t)
 ```
 </div>
 
-Based on the results of the *t*-test, should we reject or fail to reject the null hypothesis? Explain why and also what this implies given the context of the case study.
+
+3. Based on the results of the *t*-test, should we reject or fail to reject the null hypothesis? Explain why and also what this implies given the context of the case study.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-03');">Show/Hide Solution</button>
 
 <div id="exercise_05-01-03" style="display:none; margin: -40px 0 40px 40px;">
 The *p*-value of .013 suggest we should reject the null hypothesis that the average age of Bachelor and Bachelorette contestants are the same (or that the difference between these averages is 0) since it is less than .05. This suggests that the average age for Bachelor contestants is different than the average age for Bachelorette contestants.  
 </div>
-:::
+
 
 <br />
 
 
-## References
+## References {-}
 

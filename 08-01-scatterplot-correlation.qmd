@@ -11,6 +11,8 @@ It is common knowledge that some cities have a higher cost of living than others
 
 ```{r}
 #| message: false
+
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -30,6 +32,10 @@ house_income
 As always, we will begin with an initial exploration of the sample data, in particular the distributions of the `median_income` and `median_house_price` attributes.
 
 ```{r}
+#| label: fig-income
+#| fig-cap: "Density plot of the median income for 42 metropolitan areas."
+#| fig-alt: "Density plot of the median income for 42 metropolitan areas."
+
 # Explore median_income
 gf_density(
   ~median_income, data = house_income,
@@ -44,6 +50,10 @@ The median income for the 42 cities in the sample have a right-skewed distributi
 
 
 ```{r}
+#| label: fig-house-price
+#| fig-cap: "Density plot of the median house price for 42 metropolitan areas."
+#| fig-alt: "Density plot of the median house price for 42 metropolitan areas."
+
 # Explore median_house_price
 gf_density(
   ~median_house_price, data = house_income,
@@ -66,16 +76,20 @@ Although examining the distributions of each attribute independently is an impor
 
 To create a scatterplot, we will use the `gf_point()` function from the `{ggformula}` package. The syntax for this function is similar to the other`gf_` functions:
 
-<center>
-`gf_point(y ~ x, data = data_name)`
-</center>
+<span class="output1">gf_point(y ~ x, data = data_name)</span>
+
+
 
 where `y` is the name of the attribute you want on the *y*-axis, `x` is the name of the variable you want on the *x*-axis, and `data_name` is the name of your object that you imported your data into. For example, to create a scatterplot in which median house price is on the *y*-axis, median income is on the *x*-axis, we can use the following syntax:
 
 
 
 ```{r}
+#| label: fig-scatterplot
 #| fig-cap: "Scatterplot displaying the relationship between median income and median house price for 42 cities."
+#| fig-alt: "Scatterplot displaying the relationship between median income and median house price for 42 cities."
+
+# Scatterplot
 gf_point(
   median_house_price ~ median_income, data = house_income,
   xlab = "Median Income",
@@ -89,7 +103,6 @@ The plot visually shows the relationship (at least for these cities) between med
 - Direction/Trend
 - Magnitude of the line, and
 - Strength
-<!-- - Observations that do not fit the trend (potential outliers) -->
 
 <br />
 
@@ -101,6 +114,7 @@ A *functional form* refers to the algebraic (mathematical) description of the re
 ```{r}
 #| label: fig-functional-forms
 #| fig-cap: "Four functional forms commonly used to describe relationships in the educational and social sciences."
+#| fig-alt: "Four functional forms commonly used to describe relationships in the educational and social sciences."
 #| fig-width: 12
 #| fig-height: 3
 #| out-width: "100%"
@@ -208,6 +222,7 @@ Once we pick the functional form, the next thing we want to do is identify the *
 ```{r}
 #| label: fig-direction
 #| fig-cap: "A positive, negative, and flat linear relationship."
+#| fig-alt: "A positive, negative, and flat linear relationship."
 #| fig-width: 9
 #| fig-height: 3
 #| out-width: "100%"
@@ -275,6 +290,8 @@ A positive relationship would imply that lower values of *x* are associated with
 
 
 :::fyi
+**FYI**
+
 When you describe what the direction/trend implies, be careful about the language you use. For example, we would not want to say "when *x* goes up, *y* goes up" when describing a positive relationship. This is because that statement is not true for all of our cases. The trend describes the general pattern in the relationship, which does not apply to all cases. That is why we use the wording "is associated with", which to other researchers indicates the general pattern. Other ways to describe a positive relationship would be that:
 
 - *On average*, higher values of *x* correspond to higher values of *y*.
@@ -282,6 +299,7 @@ When you describe what the direction/trend implies, be careful about the languag
 :::
 
 <br />
+
 
 ### Magnitude
 
@@ -293,6 +311,7 @@ To better understand this, consider the three linear relationships in @fig-magni
 ```{r}
 #| label: fig-magnitude
 #| fig-cap: "A steep, moderately steep, and shallow, positive linear relationship."
+#| fig-alt: "A steep, moderately steep, and shallow, positive linear relationship."
 #| fig-width: 9
 #| fig-height: 3
 #| out-width: "100%"
@@ -371,6 +390,7 @@ The strength of the relationship describes how well the data adhere to the funct
 ```{r}
 #| label: fig-strength
 #| fig-cap: "A weak, moderate, and strong positive linear relationship."
+#| fig-alt: "A weak, moderate, and strong positive linear relationship."
 #| fig-width: 9
 #| fig-height: 3
 #| out-width: "100%"
@@ -438,6 +458,8 @@ p1 | p2 | p3
 As you describe the strength of a relationship, know that the qualifiers 'weak', 'moderate', and 'strong' are somewhat subjective. For now, use your best judgment.
 
 :::fyi
+**FYI**
+
 After positing the functional form, put that line or curve on the scatterplot in your mind. This will help you better consider and describe the strength of the relationship. In a later chapter, we will actually learn how to do this in R.
 :::
 
@@ -491,7 +513,11 @@ After positing the functional form, put that line or curve on the scatterplot in
 Let's return to the scatterplot showing the relationship between median income and median house prices and use what we have learned to describe that relationship using the context of the data.
 
 ```{r}
+#| label: fig-scatterplot2
 #| fig-cap: "Scatterplot displaying the relationship between median income and median house price for 42 cities."
+#| fig-alt: "Scatterplot displaying the relationship between median income and median house price for 42 cities."
+
+# Scatterplot
 gf_point(
   median_house_price ~ median_income, data = house_income,
   xlab = "Median Income",
@@ -511,10 +537,12 @@ One issue that arises when we describe the magnitude and strength of the relatio
 ```{r}
 #| label: fig-scale
 #| fig-cap: "The two plots show the exact same data plotted using different scales on the x- and y-axis. This difference in scales can influence how we perceive both the magnitude and the strength of the relationship."
+#| fig-alt: "The two plots show the exact same data plotted using different scales on the x- and y-axis. This difference in scales can influence how we perceive both the magnitude and the strength of the relationship."
 #| fig-width: 6
 #| fig-height: 3
 #| out-width: "100%"
 #| echo: false
+
 p1 = gf_point(
   median_house_price ~ median_income, data = house_income,
   xlab = "Median Income",
@@ -554,6 +582,8 @@ cor(median_house_price ~ median_income, data = house_income)
 ```
 
 :::fyi
+**PROTIP**
+
 The order of attributes in the `cor()` function is irrelevant. For example, you could use the syntax `cor(y ~ x, data = data_name)` or `cor(x ~ y, data = data_name)`. The reason we suggest using `y~x` (rather than `x~y`) is that in fitting regression models, the syntax has to be `y~x`.
 :::
 
@@ -591,8 +621,10 @@ It is important to keep in mind that the correlation coefficient is only useful 
 ```{r}
 #| label: fig-daylight
 #| fig-cap: "Hours of daylight versus day of the year for $n=75$ days in Minneapolis."
+#| fig-alt: "Hours of daylight versus day of the year for $n=75$ days in Minneapolis."
 #| echo: false
 #| message: false
+
 # Reproduce sampling
 set.seed(100)
 
@@ -617,9 +649,11 @@ Another situation in which correlation can mislead is when you have subpopulatio
 ```{r}
 #| label: fig-salary-neuroticism-01
 #| fig-cap: "Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company."
+#| fig-alt: "Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company."
 #| out-width: "100%"
 #| echo: false
 #| message: false
+
 # Example 2
 set.seed(123)
 n = 1000
@@ -651,9 +685,11 @@ data |>
 ```{r}
 #| label: fig-salary-neuroticism
 #| fig-cap: "Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company. The data are colored by education level."
+#| fig-alt: "Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company. The data are colored by education level."
 #| out-width: "100%"
 #| echo: false
 #| message: false
+
 data |> 
   ggplot(aes(x = Neuroticism, y = Salary)) +
     geom_point(aes(col = Education), alpha = 0.5) + 
@@ -666,7 +702,7 @@ data |>
     theme(
         legend.background = element_rect(fill = "transparent"),
         legend.justification = c(1, 0),
-        legend.position = c(1, 0)
+        legend.position.inside = c(1, 0)
         )
 ```
 :::
@@ -674,55 +710,15 @@ data |>
 If we treat these data as one population (an assumption for using the correlation) the relationship between neurotocism and salary is positive; employees who are more neurotic tend to have higher salaries, on average. However, if we account for education level, the relationship between neurotocism and salary is negative for each of the education levels; once we account for education level, employees who are more neurotic tend to have lower salaries, on average. This reversal of the direction of the relationship once we account for other variables is quite common (so common it has a name, [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)) and makes it difficult to be sure about the "true" relationship between variables in observational data.
 
 
-:::protip
+:::fyi
+**PROTIP**
+
 You should always create a scatterplot to examine the relationship graphically before computing a correlation coefficient to numerically summarize it.
 :::
 
-<br />
-
-
-
-<!-- :::exercises -->
-<!-- #### Your Turn {.unnumbered} -->
-
-<!-- Use the `ci_risk_ratio()` function to compute the risk ratio and the 99% CI for the population risk ratio that compares the proportion of "Fresh" reviews to the hypothesized value of 0.5. -->
-
-
-<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-07');">Show/Hide Solution</button> -->
-
-<!-- <div id="exercise_07-05-07" style="display:none; margin: -40px 0 40px 40px;"> -->
-
-<!-- ```{r} -->
-<!-- # Compute CI for risk ratio -->
-<!-- ci_risk_ratio( -->
-<!--   p1 = 0.537, #Sample proportion -->
-<!--   n1 = 238,   #Sample size -->
-<!--   p2 = .5,    #Hypothesized value -->
-<!--   n2 = Inf,   #Inf goes with the hypothesized value -->
-<!--   conf.level = 0.99 -->
-<!--   ) -->
-<!-- ``` -->
-
-<!-- </div> -->
-
-
-<!-- Interpret the confidence interval by commenting on the plausible values in the interval.  -->
-
-<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-05-08');">Show/Hide Solution</button> -->
-
-<!-- <div id="exercise_07-05-08" style="display:none; margin: -40px 0 40px 40px;"> -->
-
-<!-- The CI is $[1.01,~1.14]$ indicating that the proportion of "fresh" reviews is between 1.01 and 1.14 times higher than 0.5. While this suggests that Fast X will likely have more than half of its reviews rated as "fresh", it won't be much over half. -->
-<!-- </div> -->
-
-<!-- ::: -->
 
 <br />
 
 
-
-
-
-
-## References
+<!-- ## References {-} -->
 

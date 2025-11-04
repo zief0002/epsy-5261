@@ -13,6 +13,7 @@ To compute a confidence interval (CI), we fit a two-sided *t*-test and then call
 ```{r}
 #| label: load-packages
 #| message: false
+
 # Load libraries
 library(ggformula)
 library(mosaic)
@@ -58,6 +59,8 @@ Notice that the CI is the same as we found earlier. This is because the computat
 We can also use the `confint()` function to compute the CI for a proportion. In a similar fashion, we would need to carry out a two-sided *z*-test (using `prop_test()`) and then call `confint()` on the results of that *z*-test. For example to compute a CI to estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will use the following syntax:
 
 ```{r}
+#| message: false
+
 # Import data
 mn_lead <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv")
 
@@ -87,6 +90,9 @@ From this output, our CI is computed as $[.013,~.015]$ which suggests that based
 You can also use the `confint()` function on the results of a two-sided *t*- or *z*-test in the same way. For example, to estimate the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose, we would use:
 
 ```{r}
+#| message: false
+#| warning: false
+
 # Import data
 bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
 
@@ -116,11 +122,12 @@ The lower bound of $-.28$ tells us that the proportion of Bacheorette contestant
 
 Because of this, we have uncertainty about which group is more likely to stay together with the person they chose. It may be Bachelor contestants, or it may be Bachelorette contestants, we just can't tell based on these data---there is too much uncertainty. Another possibility is that the proportions are the same. If the proportions are the same, the difference between them is 0---which falls in the range of the CI. Remember, any value in the range is a plausible value for the difference in population proportions!
 
+<br />
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-In [Section @sec-two-sample-t-test], we carried out a two-sample *t*-test to evaluate whether the effects on IQ were different for users who started using marijuana as a teen. The evidence from this test suggested that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. Compute a CI for the difference in the average amount of change in IQ scores between these groups.
+## Exercises: Your Turn {-}
+
+1. In [Section @sec-two-sample-t-test], we carried out a two-sample *t*-test to evaluate whether the effects on IQ were different for users who started using marijuana as a teen. The evidence from this test suggested that the difference in average IQ score change is likely different for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. Compute a CI for the difference in the average amount of change in IQ scores between these groups.
 
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-01');">Show/Hide Solution</button>
@@ -128,6 +135,8 @@ In [Section @sec-two-sample-t-test], we carried out a two-sample *t*-test to eva
 <div id="exercise_07-02-01" style="display:none; margin: -40px 0 40px 40px;">
 
 ```{r}
+#| message: false
+
 # Import data
 cannabis <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv")
 
@@ -150,7 +159,7 @@ The CI is $[1.11,~11.27]$
 </div>
 
 
-Interpret the CI you computed.
+2. Interpret the CI you computed.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-02');">Show/Hide Solution</button>
 
@@ -159,7 +168,8 @@ Interpret the CI you computed.
 Based on the data, the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 and 11.26.
 </div>
 
-Based on the CI, is it more detrimental on IQ for people who became persistent marijuana users as adults or those that became persistent marijuana users as teens? Explain.
+
+3. Based on the CI, is it more detrimental on IQ for people who became persistent marijuana users as adults or those that became persistent marijuana users as teens? Explain.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-03');">Show/Hide Solution</button>
 
@@ -169,19 +179,23 @@ The CI is computed alphabetically by category level, which means it is computed 
 
 Because both the lower and upper bounds of the CI are positive, it means that the data suggest that people who become persistent marijuana users as an adult have, on average, LESS of a decrease in IQ than people who become persistent marijuana users as a teen. And this difference might be as little as 1.11 IQ points or as large as 11.27 IQ points.
 
-:::protip
+:::fyi
+**BE CAREFUL**
+
 Be very careful when the means are negative and you are computing or estimating a difference. Interpretations can be tricky and it may take some thought in how you interpret findings.
 :::
 
 </div>
 
-In [Section @sec-one-sample-test-r], we carried out a one-sample *t*-test to evaluate whether Ethiopian primary teachers are measuring students' prior knowledge. The evidence from this test suggested that the empirical data were consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5 suggesting we were uncertain about whether, on average, they were measuring students' prior knowledge. Compute a CI for the average response score for Ethiopian primary teachers.
+4. In [Section @sec-one-sample-test-r], we carried out a one-sample *t*-test to evaluate whether Ethiopian primary teachers are measuring students' prior knowledge. The evidence from this test suggested that the empirical data were consistent with the hypothesis that the average response for all Ethiopian primary school teachers is 2.5 suggesting we were uncertain about whether, on average, they were measuring students' prior knowledge. Compute a CI for the average response score for Ethiopian primary teachers.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-04');">Show/Hide Solution</button>
 
 <div id="exercise_07-02-04" style="display:none; margin: -40px 0 40px 40px;">
 
 ```{r}
+#| message: false
+
 # Import data
 continuous_assessment <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
 
@@ -196,7 +210,8 @@ Based on the output, the CI for the average response score is $[2.10,~2.77]$.
 
 </div>
 
-Use the CI to compute the margin of error. Remember a CI is computed as $\text{Sample Estimate} \pm \text{Margin of Error}$.
+
+5. Use the CI to compute the margin of error. Remember a CI is computed as $\text{Sample Estimate} \pm \text{Margin of Error}$.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-05');">Show/Hide Solution</button>
 
@@ -212,7 +227,6 @@ The margin of error is 0.34.
 
 </div>
 
-:::
 
 <br />
 

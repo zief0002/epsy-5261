@@ -1,0 +1,48 @@
+# tik-tok.csv {-}
+
+
+Social media plays a big part in many people's lives. The rise of TikTok influencers also gives rise to a mountain of data. The [tik-tok.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/tik-tok.csv) data include information on $n=50$ tik-tok influencers sampled in 2022. The data were made available on [kaggle](https://www.kaggle.com/datasets/ramjasmaurya/top-1000-social-media-channels/data) by Ram Jas. 
+
+---
+
+The attributes included in the data are:
+
+- `name`: Tik-tok influencer's handle
+- `views`: Total number of views
+- `likes`: Total number of likes
+- `comments`: Total number of comments
+
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+tik_tok <- read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/tik-tok.csv")
+
+# View data
+tik_tok
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/tik-tok.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+

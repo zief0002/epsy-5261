@@ -5,6 +5,8 @@ In this chapter you will learn how to carry out a one-sample *t*-test using R to
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(ggformula)
 library(mosaic)
 library(tidyverse)
@@ -36,6 +38,7 @@ The analysis started by importing the data and visualizing and numerically descr
 ```{r}
 #| label: fig-hrs-sleep
 #| fig-cap: "Density plot of the hours of sleep for 75 teenagers."
+#| fig-alt: "Density plot of the hours of sleep for 75 teenagers."
 #| warning: false
 # Create density plot
 gf_density(
@@ -81,11 +84,13 @@ We can then sketch the *t*-distribution with 74 *df*, include the *t*-value we j
 
 ```{r}
 #| label: fig-t-dist
-#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The blue shaded area represents the *t*-values we expect if the null hypothesis is true. The pink dot represents the observed *t*-value of -9.47."
+#| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t*-value of 0).  The blue shaded area represents the *t*-values we expect if the null hypothesis is true. The pink dot represents the observed *t*-value of -9.47."
+#| fig-alt: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (t-value of 0).  The blue shaded area represents the t-values we expect if the null hypothesis is true. The pink dot represents the observed t-value of -9.47."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 ggplot(data.frame(x = c(-12, 12)), aes(x)) +
   stat_function(fun = dt,
                 geom = "line",
@@ -159,10 +164,10 @@ We can also use the `plot_t_dist()` to visualize the *t*-distribution with 74 *d
 ```{r}
 #| label: fig-t-dist2
 #| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The red vertical line represents the observed *t*-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated *p*-value of $4.33\\times10^{-14} = .0000000000000433$ that corresponds to the alternative hypothesis that $\\mu<9$."
+#| fig-alt: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The red vertical line represents the observed t-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated *p*-value of 4.33 times 10^{-14} = .0000000000000433$ that corresponds to the alternative hypothesis that mu<9."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
-
 
 # View t-distribution
 plot_t_dist(my_t)
@@ -190,6 +195,8 @@ To study the practice of continuous assessment in Ethiopian primary schools, @Ab
 
 
 ```{r}
+#| message: false
+
 # Import data
 continuous_assessment <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv")
 
@@ -211,7 +218,8 @@ Before we carry out a hypothesis test, we should always explore the data by crea
 
 ```{r}
 #| label: fig-prior-knowledge
-#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson. "
+#| fig-cap: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson."
+#| fig-alt: "Histogram of teachers responses to the survey item: I always assess students' prior knowledge before starting new lesson."
 #| warning: false
 # Create histogram
 gf_histogram(
@@ -232,6 +240,7 @@ The histogram suggests that the distribution of responses is somewhat symmetric,
 ```{r}
 #| label: fig-t-dist3
 #| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that $\\mu\\neq2.5$."
+#| fig-alt: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that mu is not equal to 2.5."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
@@ -271,11 +280,11 @@ H_A: \mu \neq 322.46
 $$
 
 ```{r}
-
 #| label: fig-house-prices
-#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus. "
+#| fig-cap: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus."
+#| fig-alt: "Histogram of the asking price for 15 houses in neighborhoods adjacent to the UMN campus."
 #| warning: false
-#| 
+
 # Import data
 zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
 
@@ -301,6 +310,7 @@ The sample distribution is left-skewed indicating that more of the houses are at
 ```{r}
 #| label: fig-t-dist4
 #| fig-cap: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is \\$322.46k (*t* value of 0).  The red vertical line represents the observed *t*-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated *p*-value of .004 that corresponds to the alternative hypothesis that $\\mu>\\$322.46k$."
+#| fig-alt: "Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (*t* value of 0).  The red vertical line represents the observed *t*-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated *p*-value of .004 that corresponds to the alternative hypothesis that mu > $322.46k."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"

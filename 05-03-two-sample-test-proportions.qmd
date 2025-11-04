@@ -19,23 +19,7 @@ H_A: \pi_{\text{Bachelor}} \neq \pi_{\text{Bachelorette}}
 $$
 where $\pi_{\text{Bacheor}}$ is the proportion of all Bachelor contestants that are still together with the person they chose, and $\pi_{\text{Bacheorette}}$ is the proportion of all Bachelorette contestants that are still together with the person they chose. (Reminder that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of $\pi$.) 
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-Similar to hypotheses we wrote for the two-sample *t*-test, hypotheses in which we compare two samples' proportions can also be written as differences. Re-write the null and alternative hypotheses as differences.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-03-01');">Show/Hide Solution</button>
-
-<div id="exercise_05-03-01" style="display:none; margin: -40px 0 40px 40px;">
-$$
-\begin{split}
-H_0: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} = 0 \\[1ex]
-H_A: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} \neq 0
-\end{split}
-$$
-As a reminder, we typically write the difference in alphabetical order based on the values in the grouping variable. In this case, we start with the `bachelor` group and subtract the `bachelorette` group to be consistent with how we will need to enter the syntax for the test in R.
-</div>
-:::
 
 
 To answer this question, we can compare the proportion of Bachelor and Bachelorette contestants in the sample that are still together with the person they chose, and then carry out a two-sample *z*-test to see if any differences we observed in the sample data are just due to sampling error. To begin, we will load a few libraries and import the data.
@@ -44,6 +28,8 @@ To answer this question, we can compare the proportion of Bachelor and Bachelore
 ```{r}
 #| label: load-packages
 #| message: false
+
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -83,7 +69,7 @@ $$
 <br />
 
 
-#### Missing Data
+### Missing Data
 
 One other thing we see is that there are 2 `NA` values in the counts and proportions. This is telling us that two cases in our data are missing values on the `still_together` attribute. Looking back at the CSV file, we find that two of the Bachelorette contestants, Britt Nilsson and Charity Lawson are missing values on the `still_together` attribute. In any analysis involving the `still_together` attribute, that will mean that these two cases will be dropped. 
 
@@ -103,7 +89,7 @@ While the `tally()` function includes an argument to only use those cases with d
 <br />
 
 
-#### Reporting Sample Results: Contingency Tables
+### Reporting Sample Results: Contingency Tables
 
 In reporting the sample results, we typically only need to report the sample values for one category of the outcome (e.g., the proportion that are still together). However, many manuscripts will also report the inverse of these values as well (e.g., the proportion who are NOT still together). @tbl-bachelor shows an example of a table summarizing the counts and proportions that might by produced in a manuscript.
 
@@ -112,6 +98,7 @@ In reporting the sample results, we typically only need to report the sample val
 #| tbl-cap: "Counts (and proportions) of Bachelor and Bachelorette contestants that are still together with the person they selected on the show. Proprtions are based on the total number of contestants within each show."
 #| echo: false
 #| tbl-colwidths: false
+
 library(gt)
 dplyr::tibble(
   Show = c("Bachelor", "Bachelorette", "Total"),
@@ -177,7 +164,7 @@ The key is, of course, to report the proportions that help you answer your resea
 <br />
 
 
-#### Reporting Sample Results: Segmented Bar Charts
+### Reporting Sample Results: Segmented Bar Charts
 
 Sometimes the summary results are reported in a visualization. One common visualization used to report counts or proportions for multiple groups is the segmented bar chart. Here we use the `gf_props()` function to plot the proportions of contestants still together (and not still together) within each show. To do this we give:
 
@@ -189,6 +176,10 @@ Sometimes the summary results are reported in a visualization. One common visual
 
 
 ```{r}
+#| label: fig-bach-seg
+#| fig-cap: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together."
+#| fig-alt: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together."
+
 # Syntax to create a segmented bar chart for the still_together attribute
 # A seperate bar is show for each show
 gf_props(
@@ -204,6 +195,10 @@ The default colors used to fill in the bars are not aesthetically pleasing. We c
 
 
 ```{r}
+#| label: fig-bach-seg2
+#| fig-cap: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together. The fill color was selelected manually using hex codes."
+#| fig-alt: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together. The fill color was selelected manually using hex codes."
+
 # Syntax to create a segmented bar chart for the still_together attribute
 # A seperate bar is show for each show
 gf_props(
@@ -220,12 +215,18 @@ gf_props(
 ```
 
 :::fyi
+**FYI**
+
 Remember different visualizations use `color=` or `fill=` to set the color. The `gf_props()` function uses `fill=` to set the fill color of the bars; `color=` would set the color of the bar outline. Because we used `fill=` in our `gf_` function, we use `scale_fill_manual()` to define the colors and change the legend title. If instead we had used `color=` in our `gf_` function we would have to use `scale_color_manual()`. 
 :::
 
 Lastly, we point out that these visualizations included the Bachelorettes with the missing values in the `stiltogether` attribute (e.g., the proportions are based on $n=23$ Bachelorette contestants). If you want to omit the missing values we need to add some syntax in the `gf_` function everytime we use the `still_together` attribute. Rather than using `fill=~still_together`, we want to fill based on only those values that are not missing. To do that we set this argument to: `fill=~!is.na(still_together)`. The `is.na()` function identifies all the cases that are missing is the `still_together` attribute and the `!` at the beginning tells `fill=` to only use those values that are NOT missing. Then, since there are no more missing vlaues, we would only need to provide two colors to the `scale_fill_manual()` functin
 
 ```{r}
+#| label: fig-bach-seg3
+#| fig-cap: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together. The fill color, based only on non-missing values, was selelected manually using hex codes."
+#| fig-alt: "Segmented bar chart showing the proportion of Bachelor and Bachelorette contestants who are still together. The fill color, based only on non-missing values, was selelected manually using hex codes."
+#| 
 # Syntax to create a segmented bar chart for the still_together attribute
 # A seperate bar is show for each show
 # The fill color is only based on non-missing values
@@ -275,7 +276,7 @@ where again, $\hat{p}_1$ is the sample proportion for group 1, $\hat{p}_2$ is th
 
 $$
 \begin{split}
-z &= \frac{.11 - .19}{\sqrt{\frac{.11(1 - .11)}{27}} + \sqrt{\frac{.19(1 - .19)}{21}}} \\[2ex]
+z &= \frac{.11 - .19}{\sqrt{\frac{.11(1 - .11)}{27} + \frac{.19(1 - .19)}{21}}} \\[2ex]
 &= \frac{-.08}{.105} \\[2ex]
 &= -0.762
 \end{split}
@@ -288,10 +289,12 @@ The *z*-distribution is shown in @fig-z-dist. A vertical line is shown at the ob
 ```{r}
 #| label: fig-z-dist
 #| fig-cap: "Density plot of the *z*-distribution."
+#| fig-alt: "Density plot of the *z*-distribution."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
 #| echo: FALSE
+
 ggplot(data = data.frame(x = c(-3, 3)), aes(x = x)) +
     stat_function(
       fun = dnorm,
@@ -346,7 +349,8 @@ To carry out the two-sample *z*-test to compare the proportion of Bachelor and B
 
 
 ```{r}
-#| error: true
+#| eval: false
+
 # Two-sample z-test
 my_z <- prop_test(
   ~still_together == "Yes" | show,
@@ -355,6 +359,10 @@ my_z <- prop_test(
   correct = FALSE
   )
 ```
+
+:::output
+Error: still_together == "Yes" has 3 levels (including NA).  Only 2 are allowed.
+:::
 
 If we try running this syntax we get an error message: "`Error: still_together == "Yes" has 3 levels (including NA).  Only 2 are allowed.`" As we stated earlier, this function cannot handle missing values in the data. The error message is saying that the NA values are being treated as a separate category and the function can only handle dichotomous attributes. There are a couple of options for dealing with the missing data:
 
@@ -371,6 +379,8 @@ The second option is to enter the information for the two-sampe *z*-test into th
 Because we are enter in the counts manually, we do not include a formula or `data=` argument. The syntax to enter the counts manually in the `prop_test()` function is:
 
 ```{r}
+#| warning: false
+
 # Two-sample z-test with counts entered manually
 my_z <- prop_test(
   x = c(3, 4),
@@ -385,9 +395,11 @@ Then we can use the `z_results()` and `plot_z_dist()` functions (both from the `
 ```{r}
 #| label: fig-z-bachelorette
 #| fig-cap: "Density plot of the *z*-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed *z*-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated *p*-value of .440 that corresponds to the probability of seeing an observed result of -.772 (or a result more extreme than that) if the null hypothesis that the two population proportions are equal is true."
+#| fig-alt: "Density plot of the *z*-distribution of the difference in sample proportions based on the thought experiment underlying a hypothesis test assuming that the difference in proportion of Bachelor and Bachelorette contestants who are still together with their selected suitor is 0. The red vertical line represents the observed *z*-value of -.772. The shaded area under the curve to the left of -.772 and to the right of +.772 shows the associated *p*-value of .440 that corresponds to the probability of seeing an observed result of -.772 (or a result more extreme than that) if the null hypothesis that the two population proportions are equal is true."
 #| fig-width: 6
 #| fig-height: 4
 #| out-width: "80%"
+
 # Plot z-distribution, observed z-value and shaded p-value
 plot_z_dist(my_z)
 
@@ -433,12 +445,39 @@ n(1-\hat{p}) &= 21(1 - .19) \\[1ex]
 $$
 This assumption does not seem tenable since two of the four values were less than 10. This violation may indicate that the *p*-value computed might not be accurate. 
 
-:::protip
+:::fyi
+**LEARN MORE**
+
 There are methods we can use to get a more accurate *p*-value when assumptions are violated. These methods can be Googled or you can learn about them in other courses (e.g., EPSY 8251 and 8252).
 :::
 
 
-<!-- <br /> -->
+<br />
+
+
+## Exercises: Your Turn {-}
+
+1. Similar to hypotheses we wrote for the two-sample *t*-test, hypotheses in which we compare two samples' proportions can also be written as differences. Re-write the null and alternative hypotheses as differences.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-03-01');">Show/Hide Solution</button>
+
+<div id="exercise_05-03-01" style="display:none; margin: -40px 0 40px 40px;">
+$$
+\begin{split}
+H_0: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} = 0 \\[1ex]
+H_A: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} \neq 0
+\end{split}
+$$
+As a reminder, we typically write the difference in alphabetical order based on the values in the grouping variable. In this case, we start with the `bachelor` group and subtract the `bachelorette` group to be consistent with how we will need to enter the syntax for the test in R.
+</div>
+
+
+
+
+
+
+<br />
+
 
 
 <!-- ### Case Study: Rotten Tomatoes -->

@@ -1,0 +1,55 @@
+# cereal.csv {-}
+
+
+The data in [cereal.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cereal.csv) includes nutrition information collected from $n=30$ breakfast cereals. The data, which were provided by @Lock:2020, were obtained from <http://nutritionresource.com/>. 
+
+---
+
+The attributes included in the data are:
+
+- `name`: Brand name of cereal
+- `company`: Manufacturer (G=General Mills, K=Kellog's or Q=Quaker)
+- `serving`: Serving size (in cups)
+- `calories`: Calories (per cup)
+- `fat`: Fat (grams per cup)
+- `sodium`: Sodium (mg per cup)
+- `carbs`: Carbohydrates (grams per cup)
+- `fiber`: Dietary Fiber (grams per cup)
+- `sugars`: Sugars (grams per cup)
+- `protein`: Protein (grams per cup)
+
+<br />
+
+
+## Preview
+
+```{r}
+#| eval: false
+#| message: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+cereal = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cereal.csv")
+
+# View data
+cereal
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cereal.csv") |>
+  print(width = Inf)
+
+```
+
+<br />
+
+
+## References
+
+
+

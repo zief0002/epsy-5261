@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -78,23 +79,21 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-03-one-sample-test.html" rel="next">
-<link href="./04-01-case-study-teen-sleep.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -132,9 +131,10 @@ function toggle_visibility(id) {
       e.style.display = 'block';
 }
 </script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -170,7 +170,7 @@ window.Quarto = {
 <link rel="stylesheet" href="assets/table-styles.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -179,9 +179,9 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
+        </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -463,38 +463,224 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-00-data-codebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data and Codebooks</span></a>
+ <span class="menu-text">Data</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Dictionaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_bachelor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">bachelor.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_body-temp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">body-temp.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_cannabis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">cannabis.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_cereal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">cereal.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_college-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">college-scorecard.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_continuous-assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">continuous-assessment.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_countries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">countries.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_esp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">esp.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_fast-x-reviews.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fastx-reviews.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_films.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">films.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">grades.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_granola.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">granola.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_high-peaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">high-peaks.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_housing-and-income.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">housing-and-income.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_midwest-college-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">midwest-college-scorecard.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_mn-lead.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">mn-lead.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_movies-2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">movies-2022.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_nhanes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">nhanes.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_olympics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">olympics.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_phone-incentives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">phone-incentives.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_private.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">private.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_public.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">public.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_sandwiches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">sandwiches.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_social-media.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">social-media.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_teen-sleep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">teen-sleep.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_tik-tok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tik-tok.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_wine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wine.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_world-life-expectancy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">world-life-expectancy.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_worry-large.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">worry-large.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_worry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">worry.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_zillow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">zillow.csv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary_zillow-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">zillow-sample.csv</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link active" data-scroll-target="#bootstrapping"><span class="header-section-number">8.1</span> Bootstrapping</a></li>
-  <li><a href="#importing-the-teen-sleep-data" id="toc-importing-the-teen-sleep-data" class="nav-link" data-scroll-target="#importing-the-teen-sleep-data"><span class="header-section-number">8.2</span> Importing the Teen Sleep Data</a></li>
-  <li><a href="#bootstrapping-from-the-teen-sleep-data" id="toc-bootstrapping-from-the-teen-sleep-data" class="nav-link" data-scroll-target="#bootstrapping-from-the-teen-sleep-data"><span class="header-section-number">8.3</span> Bootstrapping from the Teen Sleep Data</a>
-  <ul class="collapse">
-  <li><a href="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" id="toc-step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement" class="nav-link" data-scroll-target="#step-1-randomly-sample-75-observations-from-the-observed-sample-of-size-75-teen-sleep-amounts-with-replacement"><span class="header-section-number">8.3.1</span> STEP 1: Randomly sample 75 observations from the observed sample of size 75 teen sleep amounts (with replacement)</a></li>
-  <li><a href="#step-2-compute-the-mean-of-the-bootstrap-sample." id="toc-step-2-compute-the-mean-of-the-bootstrap-sample." class="nav-link" data-scroll-target="#step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">8.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</a></li>
-  <li><a href="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." id="toc-step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean." class="nav-link" data-scroll-target="#step-3-repeat-the-first-two-steps-in-the-process-many-times-say-1000-times-each-time-recording-the-mean."><span class="header-section-number">8.3.3</span> STEP 3: Repeat the first two steps in the process many times (say 1000 times), each time recording the mean.</a></li>
-  <li><a href="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." id="toc-step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean." class="nav-link" data-scroll-target="#step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">8.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.4</span> References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-00-comparing-to-a-standard.html">Comparing Data to a Standard</a></li><li class="breadcrumb-item"><a href="./04-02-simulation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
+<h1 class="title d-none d-lg-block"><span id="sec-bootstrap" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrapping: Using Simulation to Estimate the Uncertainty</span></span></h1>
 </div>
 
 
@@ -518,14 +704,14 @@ window.Quarto = {
 <p>The key question addressed by using any statistical method of inference is “how much variation is expected in a particular test statistic if one repeatedly draws random samples from the same population?” In the thought experiment we introduced in <a href="04-01-case-study-teen-sleep.html" class="quarto-xref"><span>Chapter 7</span></a>, the method for quantifying the uncertainty was to repeatedly sample from the population and measure the variation in the sample means. Recall that the quantification of the uncertainty (i.e., variation in the sample means) is referred to as the <em>standard error</em>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-thought-experiment" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.
 </figcaption>
+<div aria-describedby="fig-thought-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-04-thought-experiment.png" class="img-fluid figure-img" style="width:100.0%" alt="Thought experiment for drawing random samples of size 75 from the population to obtain different samples. The average amount of sleep per night is computed for each sample drawn.">
+</div>
 </figure>
 </div>
 </div>
@@ -534,14 +720,14 @@ Figure&nbsp;8.1: Thought experiment for drawing random samples of size 75 from t
 <p>Efron’s big discovery was that in the thought experiment, we could replace the population with a sample, and then randomly sample from that initial sample. He proved that using this methodology, you can obtain a good estimate of the sampling variation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-thought-experiment-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-thought-experiment-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students' sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students’ sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.
 </figcaption>
+<div aria-describedby="fig-thought-experiment-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/05-02-thought-experiment-bootstrap.png" class="img-fluid figure-img" style="width:100.0%" alt="Thought experiment for bootstrapping random samples of size 75 from the original sample of 75 students' sleep times to obtain different samples. The average amount of sleep per night is computed for each re-sample drawn.">
+</div>
 </figure>
 </div>
 </div>
@@ -558,23 +744,32 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 </ul>
 <p>We will prepare for the analysis by loading in the <code>{tidyverse}</code>, <code>{ggformula}</code>, and <code>{mosaicCore}</code> libraries and importing the teen sleep data. We will also load the <code>{mosiaic}</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>teen_sleep <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["bedtime"],"name":[1],"type":["chr"],"align":["left"]},{"label":["wakeup"],"name":[2],"type":["chr"],"align":["left"]},{"label":["hrs_sleep"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"22:15:00","2":"5:25:00","3":"7.166667"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:15:00","2":"5:45:00","3":"7.500000"},{"1":"20:0:00","2":"6:20:00","3":"10.333333"},{"1":"23:45:00","2":"5:50:00","3":"6.083333"},{"1":"22:5:00","2":"6:0:00","3":"7.916667"},{"1":"0:25:00","2":"5:20:00","3":"4.916667"},{"1":"21:10:00","2":"6:15:00","3":"9.083333"},{"1":"21:20:00","2":"5:15:00","3":"7.916667"},{"1":"21:10:00","2":"5:30:00","3":"8.333333"},{"1":"22:50:00","2":"5:50:00","3":"7.000000"},{"1":"22:30:00","2":"5:50:00","3":"7.333333"},{"1":"23:35:00","2":"5:40:00","3":"6.083333"},{"1":"20:30:00","2":"6:15:00","3":"9.750000"},{"1":"20:40:00","2":"5:50:00","3":"9.166667"},{"1":"21:20:00","2":"5:45:00","3":"8.416667"},{"1":"23:35:00","2":"5:30:00","3":"5.916667"},{"1":"21:35:00","2":"6:5:00","3":"8.500000"},{"1":"22:5:00","2":"5:10:00","3":"7.083333"},{"1":"23:25:00","2":"7:20:00","3":"7.916667"},{"1":"23:25:00","2":"5:30:00","3":"6.083333"},{"1":"22:40:00","2":"6:15:00","3":"7.583333"},{"1":"0:30:00","2":"5:55:00","3":"5.416667"},{"1":"22:20:00","2":"6:15:00","3":"7.916667"},{"1":"22:55:00","2":"5:15:00","3":"6.333333"},{"1":"22:50:00","2":"5:30:00","3":"6.666667"},{"1":"22:20:00","2":"5:15:00","3":"6.916667"},{"1":"23:25:00","2":"5:55:00","3":"6.500000"},{"1":"22:35:00","2":"5:0:00","3":"6.416667"},{"1":"20:0:00","2":"5:55:00","3":"9.916667"},{"1":"21:5:00","2":"5:40:00","3":"8.583333"},{"1":"22:50:00","2":"6:55:00","3":"8.083333"},{"1":"20:30:00","2":"5:40:00","3":"9.166667"},{"1":"23:5:00","2":"5:40:00","3":"6.583333"},{"1":"21:50:00","2":"5:20:00","3":"7.500000"},{"1":"22:10:00","2":"5:35:00","3":"7.416667"},{"1":"1:5:00","2":"5:55:00","3":"4.833333"},{"1":"22:45:00","2":"6:5:00","3":"7.333333"},{"1":"22:50:00","2":"6:30:00","3":"7.666667"},{"1":"0:35:00","2":"6:25:00","3":"5.833333"},{"1":"1:30:00","2":"5:40:00","3":"4.166667"},{"1":"19:40:00","2":"6:45:00","3":"11.083333"},{"1":"0:0:00","2":"4:35:00","3":"4.583333"},{"1":"22:35:00","2":"6:10:00","3":"7.583333"},{"1":"21:40:00","2":"5:25:00","3":"7.750000"},{"1":"23:20:00","2":"6:40:00","3":"7.333333"},{"1":"1:0:00","2":"5:30:00","3":"4.500000"},{"1":"21:55:00","2":"6:40:00","3":"8.750000"},{"1":"22:5:00","2":"5:50:00","3":"7.750000"},{"1":"22:35:00","2":"4:30:00","3":"5.916667"},{"1":"0:50:00","2":"5:30:00","3":"4.666667"},{"1":"20:30:00","2":"4:35:00","3":"8.083333"},{"1":"22:50:00","2":"5:55:00","3":"7.083333"},{"1":"22:45:00","2":"7:5:00","3":"8.333333"},{"1":"23:50:00","2":"4:15:00","3":"4.416667"},{"1":"22:55:00","2":"6:25:00","3":"7.500000"},{"1":"22:5:00","2":"4:50:00","3":"6.750000"},{"1":"23:10:00","2":"7:0:00","3":"7.833333"},{"1":"22:55:00","2":"6:40:00","3":"7.750000"},{"1":"20:55:00","2":"5:10:00","3":"8.250000"},{"1":"21:0:00","2":"5:35:00","3":"8.583333"},{"1":"22:5:00","2":"5:45:00","3":"7.666667"},{"1":"18:25:00","2":"5:30:00","3":"11.083333"},{"1":"0:0:00","2":"7:30:00","3":"7.500000"},{"1":"20:55:00","2":"5:50:00","3":"8.916667"},{"1":"22:25:00","2":"5:15:00","3":"6.833333"},{"1":"21:50:00","2":"6:10:00","3":"8.333333"},{"1":"22:20:00","2":"5:55:00","3":"7.583333"},{"1":"22:50:00","2":"5:45:00","3":"6.916667"},{"1":"22:5:00","2":"5:40:00","3":"7.583333"},{"1":"21:15:00","2":"6:5:00","3":"8.833333"},{"1":"21:30:00","2":"5:5:00","3":"7.583333"},{"1":"0:20:00","2":"5:0:00","3":"4.666667"},{"1":"20:50:00","2":"6:55:00","3":"10.083333"},{"1":"23:15:00","2":"4:25:00","3":"5.166667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 75 × 3
+   bedtime  wakeup  hrs_sleep
+   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
+ 1 22:15:00 5:25:00      7.17
+ 2 22:5:00  5:50:00      7.75
+ 3 22:15:00 5:45:00      7.5 
+ 4 20:0:00  6:20:00     10.3 
+ 5 23:45:00 5:50:00      6.08
+ 6 22:5:00  6:0:00       7.92
+ 7 0:25:00  5:20:00      4.92
+ 8 21:10:00 6:15:00      9.08
+ 9 21:20:00 5:15:00      7.92
+10 21:10:00 5:30:00      8.33
+# ℹ 65 more rows</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -595,40 +790,40 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <p>To randomly sample from a set of values we use the <code>sample()</code> function. We will need to specify the values we are sampling from (i.e., the original sample) as an input to the function. The data we want to randomly sample from is in a column called <code>hrs_sleep</code> inside the data object called <code>teen_sleep</code>. To specify a particular column in a data object we use the following notation: <code>teen_sleep$hrs_sleep</code>. We also need to set the number of observations to randomly sample, and tell this function that we are sampling with replacement.</p>
 <p>Thus to draw a random sample of values from our data we use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly sample from the hrs_sleep column located in the teen_sleep data object</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw 75 observations</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly sample from the hrs_sleep column located in the teen_sleep data object</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw 75 observations</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  7.666667  7.666667  6.333333  7.333333  6.916667  4.916667  7.333333
- [8]  9.166667  7.583333  6.083333  4.416667  6.083333  4.416667  5.833333
-[15]  4.666667  7.416667  5.916667  5.916667  8.500000  7.916667  7.750000
-[22]  4.666667  6.750000  7.583333  7.333333  6.500000  9.166667  8.583333
-[29]  6.750000  7.083333  7.583333  5.916667  7.666667  6.833333  5.833333
-[36]  8.333333  5.916667  7.583333  8.083333  7.333333  6.583333  4.666667
-[43]  7.750000  4.916667  6.083333  6.500000  7.333333  9.166667  7.583333
-[50]  6.916667  6.750000  8.916667  8.750000  7.333333  7.833333  8.333333
-[57]  7.500000  8.916667  7.000000  7.750000  7.750000  8.583333  7.750000
-[64]  7.333333  8.833333 11.083333  6.416667  8.083333  4.583333  7.833333
-[71]  6.916667  4.916667  4.166667  7.166667  4.666667</code></pre>
+<pre><code> [1]  9.083333 11.083333  9.083333  7.500000  7.583333  7.333333  8.333333
+ [8]  7.916667  8.750000  6.833333  7.583333  5.416667  4.916667  4.666667
+[15]  4.666667  8.583333  7.416667  4.916667  9.916667  8.750000  7.333333
+[22]  7.333333  4.583333  7.750000  7.083333  7.916667  8.500000  4.666667
+[29] 10.333333  9.083333 10.333333  6.583333  7.583333  7.333333  7.416667
+[36]  7.750000  8.750000  7.333333  6.833333  8.833333  6.500000  7.916667
+[43]  7.583333  7.416667  8.083333  7.750000  6.916667  4.583333  4.666667
+[50]  7.583333  6.916667  7.083333  7.750000  8.333333  8.916667  7.500000
+[57]  7.166667  6.083333  7.333333  4.833333  9.916667  6.833333  7.833333
+[64]  8.333333  7.166667  7.583333  8.750000  7.500000  5.833333  8.750000
+[71]  7.583333  6.416667  7.583333  7.583333  8.750000</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  5.916667  7.583333  6.333333  8.750000  6.083333  7.916667  6.916667
- [8]  9.916667  9.166667  7.916667  7.666667  5.916667  9.916667  7.500000
-[15]  5.166667  8.333333  8.416667  7.500000  6.750000  7.916667  5.166667
-[22]  8.333333  8.583333  7.500000 11.083333  7.750000  7.500000  8.750000
-[29]  8.333333  4.666667  7.500000  7.666667  9.083333  4.666667  7.333333
-[36]  9.083333  7.166667  4.916667  8.083333  7.583333  7.000000  8.500000
-[43]  7.916667  6.083333  7.916667  8.583333  6.583333  7.166667  4.166667
-[50]  9.916667  8.416667  7.583333  7.916667  6.500000  8.583333  8.500000
-[57]  8.333333  7.083333  8.083333  7.583333  8.750000  5.916667  8.333333
-[64]  7.583333  6.333333  6.583333  9.083333  7.083333  8.333333  4.500000
-[71]  6.500000  9.166667 10.083333  7.666667  9.166667</code></pre>
+<pre><code> [1]  8.833333  6.333333  9.083333  5.166667  7.666667  4.666667  7.583333
+ [8]  4.666667  6.083333  7.000000  7.750000  7.583333  5.916667 11.083333
+[15]  7.500000  7.083333  6.833333  8.416667  7.583333  4.666667  4.416667
+[22]  5.166667  7.916667  6.916667  6.416667  7.500000  7.500000  7.416667
+[29]  8.333333  6.583333  7.750000  6.083333  6.666667  7.916667  4.166667
+[36]  7.000000  7.583333  4.666667  7.666667  7.583333 11.083333  7.583333
+[43]  7.583333  5.833333  9.750000  4.416667  7.666667  8.583333  4.666667
+[50]  9.083333 10.333333  4.500000  4.833333  7.750000  7.000000  7.666667
+[57]  4.916667  4.666667  8.500000  7.500000  7.916667  8.583333  5.916667
+[64]  7.583333  6.833333  4.416667  6.083333  7.333333  8.500000  7.083333
+[71]  7.500000  5.833333  4.833333  4.416667 10.333333</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -637,10 +832,10 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">8.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</h3>
 <p>To compute the mean of a bootstrap sample, we are just going to embed our <code>sample()</code> syntax inside of the <code>mean()</code> function. For example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.513333</code></pre>
+<pre><code>[1] 7.328889</code></pre>
 </div>
 </div>
 <p>You could re-run this syntax to draw another bootstrap sample and compute the mean.</p>
@@ -652,32 +847,1034 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <pre><code>do(N times) * {Computations to repeat}</code></pre>
 <p>As an example, if we wanted to carry out our computations to draw a bootstrap sample and compute the mean 10 times, the synatx is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 10 times </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.061111"},{"1":"7.512222"},{"1":"7.295556"},{"1":"7.256667"},{"1":"7.126667"},{"1":"7.381111"},{"1":"7.386667"},{"1":"7.440000"},{"1":"7.581111"},{"1":"7.596667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 10 times </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     result
+1  7.271111
+2  7.384444
+3  7.615556
+4  7.504444
+5  7.676667
+6  7.231111
+7  7.403333
+8  7.394444
+9  7.552222
+10 7.395556</code></pre>
 </div>
 </div>
 <p>The computations are carried out 10 times and the results are recorded in a column (<code>result</code>) of a data object. Because we will ultimately want to compute on this data object, when we run this, we will want to assign the data into an object. Below, we draw 1000 bootstrap samples, each time computing the mean, and assign them into a data object called <code>bootstrap_means</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 1000 times </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign these into an object called bootstrap_means</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>bootstrap_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>bootstrap_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["result"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"7.557778"},{"1":"7.594444"},{"1":"7.327778"},{"1":"7.336667"},{"1":"7.498889"},{"1":"7.485556"},{"1":"7.294444"},{"1":"7.408889"},{"1":"7.262222"},{"1":"7.303333"},{"1":"7.273333"},{"1":"7.295556"},{"1":"7.112222"},{"1":"7.757778"},{"1":"7.655556"},{"1":"7.754444"},{"1":"7.266667"},{"1":"7.151111"},{"1":"7.428889"},{"1":"7.274444"},{"1":"7.415556"},{"1":"7.566667"},{"1":"7.460000"},{"1":"7.461111"},{"1":"7.370000"},{"1":"7.593333"},{"1":"7.343333"},{"1":"7.674444"},{"1":"7.378889"},{"1":"7.393333"},{"1":"7.608889"},{"1":"7.441111"},{"1":"7.232222"},{"1":"7.252222"},{"1":"7.375556"},{"1":"7.524444"},{"1":"7.591111"},{"1":"7.418889"},{"1":"7.242222"},{"1":"7.348889"},{"1":"7.672222"},{"1":"7.215556"},{"1":"7.632222"},{"1":"7.420000"},{"1":"7.224444"},{"1":"7.163333"},{"1":"7.435556"},{"1":"7.476667"},{"1":"7.465556"},{"1":"7.401111"},{"1":"7.216667"},{"1":"7.470000"},{"1":"7.467778"},{"1":"7.312222"},{"1":"7.460000"},{"1":"7.196667"},{"1":"7.685556"},{"1":"7.363333"},{"1":"7.583333"},{"1":"7.425556"},{"1":"7.228889"},{"1":"7.455556"},{"1":"7.466667"},{"1":"7.336667"},{"1":"7.432222"},{"1":"7.563333"},{"1":"7.260000"},{"1":"7.264444"},{"1":"7.575556"},{"1":"7.207778"},{"1":"7.532222"},{"1":"7.431111"},{"1":"7.607778"},{"1":"7.373333"},{"1":"7.381111"},{"1":"7.386667"},{"1":"7.313333"},{"1":"7.276667"},{"1":"7.771111"},{"1":"7.297778"},{"1":"7.398889"},{"1":"7.513333"},{"1":"7.552222"},{"1":"7.432222"},{"1":"7.335556"},{"1":"7.678889"},{"1":"7.557778"},{"1":"7.321111"},{"1":"7.496667"},{"1":"7.446667"},{"1":"7.452222"},{"1":"7.458889"},{"1":"7.227778"},{"1":"7.372222"},{"1":"7.227778"},{"1":"7.466667"},{"1":"7.177778"},{"1":"7.346667"},{"1":"7.617778"},{"1":"7.250000"},{"1":"7.390000"},{"1":"7.335556"},{"1":"7.373333"},{"1":"7.476667"},{"1":"7.490000"},{"1":"7.484444"},{"1":"7.566667"},{"1":"7.310000"},{"1":"6.946667"},{"1":"7.581111"},{"1":"7.666667"},{"1":"7.295556"},{"1":"7.593333"},{"1":"7.362222"},{"1":"7.285556"},{"1":"7.553333"},{"1":"7.295556"},{"1":"7.446667"},{"1":"7.313333"},{"1":"7.168889"},{"1":"7.397778"},{"1":"7.526667"},{"1":"7.332222"},{"1":"7.283333"},{"1":"7.281111"},{"1":"7.281111"},{"1":"7.388889"},{"1":"7.348889"},{"1":"7.264444"},{"1":"7.274444"},{"1":"7.486667"},{"1":"7.217778"},{"1":"7.146667"},{"1":"7.620000"},{"1":"7.302222"},{"1":"7.246667"},{"1":"7.487778"},{"1":"7.273333"},{"1":"7.411111"},{"1":"7.316667"},{"1":"7.537778"},{"1":"7.052222"},{"1":"7.584444"},{"1":"7.424444"},{"1":"7.317778"},{"1":"7.502222"},{"1":"7.381111"},{"1":"7.102222"},{"1":"7.110000"},{"1":"7.561111"},{"1":"7.312222"},{"1":"7.334444"},{"1":"7.404444"},{"1":"7.301111"},{"1":"7.391111"},{"1":"7.313333"},{"1":"7.292222"},{"1":"7.295556"},{"1":"7.415556"},{"1":"7.454444"},{"1":"7.228889"},{"1":"7.166667"},{"1":"7.258889"},{"1":"7.566667"},{"1":"7.472222"},{"1":"7.240000"},{"1":"7.412222"},{"1":"7.113333"},{"1":"7.277778"},{"1":"7.323333"},{"1":"6.924444"},{"1":"7.207778"},{"1":"7.352222"},{"1":"7.217778"},{"1":"7.330000"},{"1":"7.270000"},{"1":"7.354444"},{"1":"7.501111"},{"1":"7.398889"},{"1":"7.497778"},{"1":"7.036667"},{"1":"7.183333"},{"1":"8.023333"},{"1":"7.281111"},{"1":"7.515556"},{"1":"7.666667"},{"1":"7.401111"},{"1":"7.688889"},{"1":"7.468889"},{"1":"7.400000"},{"1":"7.597778"},{"1":"7.256667"},{"1":"7.433333"},{"1":"7.517778"},{"1":"7.336667"},{"1":"7.532222"},{"1":"7.262222"},{"1":"7.450000"},{"1":"7.212222"},{"1":"7.363333"},{"1":"7.398889"},{"1":"7.287778"},{"1":"7.430000"},{"1":"7.420000"},{"1":"7.578889"},{"1":"7.496667"},{"1":"7.178889"},{"1":"7.514444"},{"1":"7.697778"},{"1":"7.028889"},{"1":"7.508889"},{"1":"7.657778"},{"1":"7.368889"},{"1":"7.403333"},{"1":"7.612222"},{"1":"6.944444"},{"1":"7.308889"},{"1":"7.104444"},{"1":"7.300000"},{"1":"7.201111"},{"1":"7.342222"},{"1":"7.578889"},{"1":"7.627778"},{"1":"7.110000"},{"1":"7.480000"},{"1":"7.185556"},{"1":"7.512222"},{"1":"7.710000"},{"1":"7.714444"},{"1":"7.692222"},{"1":"7.280000"},{"1":"7.678889"},{"1":"7.494444"},{"1":"7.507778"},{"1":"7.340000"},{"1":"7.147778"},{"1":"6.988889"},{"1":"7.293333"},{"1":"7.526667"},{"1":"7.433333"},{"1":"7.355556"},{"1":"7.816667"},{"1":"7.197778"},{"1":"7.511111"},{"1":"7.506667"},{"1":"7.197778"},{"1":"7.577778"},{"1":"7.504444"},{"1":"7.355556"},{"1":"7.553333"},{"1":"7.363333"},{"1":"7.580000"},{"1":"7.383333"},{"1":"7.561111"},{"1":"7.425556"},{"1":"7.660000"},{"1":"7.393333"},{"1":"7.461111"},{"1":"7.320000"},{"1":"7.381111"},{"1":"7.451111"},{"1":"7.215556"},{"1":"7.010000"},{"1":"7.604444"},{"1":"7.647778"},{"1":"7.350000"},{"1":"7.566667"},{"1":"7.535556"},{"1":"7.701111"},{"1":"7.337778"},{"1":"7.200000"},{"1":"7.640000"},{"1":"7.117778"},{"1":"7.292222"},{"1":"7.513333"},{"1":"7.144444"},{"1":"7.410000"},{"1":"7.361111"},{"1":"7.311111"},{"1":"7.291111"},{"1":"7.414444"},{"1":"7.457778"},{"1":"7.401111"},{"1":"7.674444"},{"1":"7.495556"},{"1":"7.223333"},{"1":"7.250000"},{"1":"7.311111"},{"1":"7.472222"},{"1":"7.337778"},{"1":"7.462222"},{"1":"7.333333"},{"1":"7.547778"},{"1":"7.423333"},{"1":"7.595556"},{"1":"7.347778"},{"1":"7.662222"},{"1":"7.213333"},{"1":"7.434444"},{"1":"7.593333"},{"1":"7.580000"},{"1":"7.471111"},{"1":"7.120000"},{"1":"7.387778"},{"1":"7.446667"},{"1":"7.351111"},{"1":"7.392222"},{"1":"7.290000"},{"1":"7.536667"},{"1":"7.408889"},{"1":"7.542222"},{"1":"7.518889"},{"1":"7.356667"},{"1":"7.487778"},{"1":"7.598889"},{"1":"7.463333"},{"1":"7.464444"},{"1":"7.428889"},{"1":"7.294444"},{"1":"7.656667"},{"1":"7.630000"},{"1":"7.426667"},{"1":"7.335556"},{"1":"7.557778"},{"1":"7.464444"},{"1":"7.636667"},{"1":"7.477778"},{"1":"7.557778"},{"1":"7.584444"},{"1":"7.451111"},{"1":"7.205556"},{"1":"7.593333"},{"1":"7.357778"},{"1":"7.073333"},{"1":"7.475556"},{"1":"7.498889"},{"1":"7.291111"},{"1":"7.277778"},{"1":"7.315556"},{"1":"7.423333"},{"1":"7.406667"},{"1":"7.265556"},{"1":"7.330000"},{"1":"7.562222"},{"1":"7.273333"},{"1":"7.290000"},{"1":"7.306667"},{"1":"7.353333"},{"1":"7.261111"},{"1":"7.350000"},{"1":"7.303333"},{"1":"7.556667"},{"1":"7.218889"},{"1":"7.350000"},{"1":"7.280000"},{"1":"7.513333"},{"1":"7.622222"},{"1":"7.291111"},{"1":"7.478889"},{"1":"7.156667"},{"1":"7.515556"},{"1":"7.397778"},{"1":"7.290000"},{"1":"7.273333"},{"1":"7.032222"},{"1":"7.443333"},{"1":"7.528889"},{"1":"7.658889"},{"1":"7.473333"},{"1":"7.444444"},{"1":"7.677778"},{"1":"7.253333"},{"1":"7.420000"},{"1":"7.597778"},{"1":"7.102222"},{"1":"7.363333"},{"1":"7.534444"},{"1":"7.644444"},{"1":"7.716667"},{"1":"7.264444"},{"1":"6.886667"},{"1":"7.401111"},{"1":"7.446667"},{"1":"7.385556"},{"1":"7.451111"},{"1":"7.351111"},{"1":"7.578889"},{"1":"7.252222"},{"1":"7.131111"},{"1":"7.040000"},{"1":"7.605556"},{"1":"7.455556"},{"1":"7.296667"},{"1":"7.822222"},{"1":"7.277778"},{"1":"7.280000"},{"1":"7.087778"},{"1":"7.254444"},{"1":"7.273333"},{"1":"7.167778"},{"1":"7.263333"},{"1":"7.600000"},{"1":"7.401111"},{"1":"7.604444"},{"1":"7.403333"},{"1":"7.198889"},{"1":"7.275556"},{"1":"7.460000"},{"1":"7.347778"},{"1":"7.310000"},{"1":"7.383333"},{"1":"7.162222"},{"1":"7.441111"},{"1":"7.400000"},{"1":"7.532222"},{"1":"7.138889"},{"1":"7.158889"},{"1":"7.342222"},{"1":"7.313333"},{"1":"7.380000"},{"1":"7.187778"},{"1":"7.455556"},{"1":"7.381111"},{"1":"7.443333"},{"1":"7.320000"},{"1":"7.756667"},{"1":"7.255556"},{"1":"7.334444"},{"1":"7.666667"},{"1":"7.390000"},{"1":"7.582222"},{"1":"7.048889"},{"1":"7.247778"},{"1":"7.805556"},{"1":"7.072222"},{"1":"7.097778"},{"1":"7.605556"},{"1":"7.335556"},{"1":"7.345556"},{"1":"7.213333"},{"1":"7.507778"},{"1":"7.652222"},{"1":"7.372222"},{"1":"7.351111"},{"1":"7.258889"},{"1":"7.340000"},{"1":"7.500000"},{"1":"7.574444"},{"1":"7.254444"},{"1":"7.134444"},{"1":"7.410000"},{"1":"7.047778"},{"1":"7.438889"},{"1":"7.201111"},{"1":"7.505556"},{"1":"7.291111"},{"1":"7.661111"},{"1":"7.596667"},{"1":"7.331111"},{"1":"7.200000"},{"1":"7.303333"},{"1":"7.656667"},{"1":"7.416667"},{"1":"7.553333"},{"1":"7.346667"},{"1":"7.466667"},{"1":"7.402222"},{"1":"7.602222"},{"1":"7.688889"},{"1":"7.668889"},{"1":"7.467778"},{"1":"7.350000"},{"1":"7.421111"},{"1":"7.444444"},{"1":"7.406667"},{"1":"7.517778"},{"1":"7.372222"},{"1":"7.691111"},{"1":"7.397778"},{"1":"7.458889"},{"1":"7.723333"},{"1":"7.265556"},{"1":"7.116667"},{"1":"7.402222"},{"1":"7.396667"},{"1":"7.304444"},{"1":"7.384444"},{"1":"7.386667"},{"1":"7.404444"},{"1":"7.234444"},{"1":"7.514444"},{"1":"7.664444"},{"1":"7.231111"},{"1":"7.660000"},{"1":"7.490000"},{"1":"7.242222"},{"1":"7.576667"},{"1":"7.440000"},{"1":"7.200000"},{"1":"7.426667"},{"1":"7.566667"},{"1":"7.112222"},{"1":"7.588889"},{"1":"7.450000"},{"1":"7.571111"},{"1":"7.123333"},{"1":"7.111111"},{"1":"7.755556"},{"1":"7.398889"},{"1":"7.402222"},{"1":"7.286667"},{"1":"7.182222"},{"1":"7.092222"},{"1":"7.294444"},{"1":"7.354444"},{"1":"7.260000"},{"1":"6.977778"},{"1":"7.362222"},{"1":"7.267778"},{"1":"7.465556"},{"1":"7.380000"},{"1":"7.355556"},{"1":"7.562222"},{"1":"7.294444"},{"1":"7.194444"},{"1":"7.536667"},{"1":"7.355556"},{"1":"7.318889"},{"1":"7.418889"},{"1":"7.454444"},{"1":"7.701111"},{"1":"7.544444"},{"1":"7.663333"},{"1":"7.316667"},{"1":"7.307778"},{"1":"7.510000"},{"1":"7.360000"},{"1":"7.315556"},{"1":"7.415556"},{"1":"7.287778"},{"1":"7.207778"},{"1":"7.441111"},{"1":"7.833333"},{"1":"7.657778"},{"1":"7.292222"},{"1":"7.418889"},{"1":"7.328889"},{"1":"7.656667"},{"1":"7.605556"},{"1":"7.307778"},{"1":"7.673333"},{"1":"7.793333"},{"1":"7.421111"},{"1":"7.298889"},{"1":"7.564444"},{"1":"7.424444"},{"1":"7.328889"},{"1":"7.495556"},{"1":"7.331111"},{"1":"7.373333"},{"1":"7.657778"},{"1":"7.254444"},{"1":"7.580000"},{"1":"7.540000"},{"1":"7.510000"},{"1":"7.317778"},{"1":"7.526667"},{"1":"7.477778"},{"1":"7.535556"},{"1":"7.067778"},{"1":"7.555556"},{"1":"7.290000"},{"1":"7.432222"},{"1":"7.482222"},{"1":"7.205556"},{"1":"7.221111"},{"1":"7.080000"},{"1":"7.447778"},{"1":"7.397778"},{"1":"7.321111"},{"1":"7.215556"},{"1":"7.162222"},{"1":"7.547778"},{"1":"7.641111"},{"1":"7.531111"},{"1":"7.433333"},{"1":"7.446667"},{"1":"7.330000"},{"1":"7.451111"},{"1":"7.546667"},{"1":"7.571111"},{"1":"7.684444"},{"1":"7.228889"},{"1":"7.410000"},{"1":"7.728889"},{"1":"7.661111"},{"1":"7.603333"},{"1":"7.018889"},{"1":"7.144444"},{"1":"7.263333"},{"1":"7.376667"},{"1":"7.367778"},{"1":"7.333333"},{"1":"7.120000"},{"1":"7.416667"},{"1":"7.524444"},{"1":"7.432222"},{"1":"7.436667"},{"1":"7.218889"},{"1":"7.242222"},{"1":"7.251111"},{"1":"7.685556"},{"1":"7.410000"},{"1":"7.417778"},{"1":"7.886667"},{"1":"7.990000"},{"1":"7.532222"},{"1":"7.431111"},{"1":"7.368889"},{"1":"7.246667"},{"1":"7.548889"},{"1":"7.482222"},{"1":"7.496667"},{"1":"7.303333"},{"1":"7.480000"},{"1":"7.192222"},{"1":"7.297778"},{"1":"7.195556"},{"1":"7.693333"},{"1":"7.496667"},{"1":"7.363333"},{"1":"7.211111"},{"1":"7.603333"},{"1":"7.546667"},{"1":"7.247778"},{"1":"7.607778"},{"1":"7.175556"},{"1":"7.615556"},{"1":"7.265556"},{"1":"7.307778"},{"1":"7.484444"},{"1":"7.240000"},{"1":"7.335556"},{"1":"7.091111"},{"1":"7.388889"},{"1":"7.426667"},{"1":"7.664444"},{"1":"7.485556"},{"1":"7.578889"},{"1":"7.204444"},{"1":"7.300000"},{"1":"7.272222"},{"1":"7.242222"},{"1":"7.687778"},{"1":"7.400000"},{"1":"7.392222"},{"1":"7.452222"},{"1":"7.266667"},{"1":"6.938889"},{"1":"7.338889"},{"1":"7.763333"},{"1":"7.441111"},{"1":"7.456667"},{"1":"7.351111"},{"1":"7.487778"},{"1":"7.292222"},{"1":"7.038889"},{"1":"7.590000"},{"1":"7.720000"},{"1":"7.225556"},{"1":"7.324444"},{"1":"7.358889"},{"1":"7.414444"},{"1":"7.206667"},{"1":"7.263333"},{"1":"7.538889"},{"1":"7.496667"},{"1":"7.443333"},{"1":"7.296667"},{"1":"7.361111"},{"1":"7.594444"},{"1":"7.460000"},{"1":"7.153333"},{"1":"7.295556"},{"1":"7.104444"},{"1":"7.604444"},{"1":"7.697778"},{"1":"7.204444"},{"1":"7.276667"},{"1":"7.371111"},{"1":"7.163333"},{"1":"7.351111"},{"1":"7.262222"},{"1":"7.402222"},{"1":"7.444444"},{"1":"7.004444"},{"1":"7.331111"},{"1":"7.481111"},{"1":"7.060000"},{"1":"7.501111"},{"1":"7.285556"},{"1":"7.272222"},{"1":"7.348889"},{"1":"7.251111"},{"1":"6.981111"},{"1":"7.137778"},{"1":"7.484444"},{"1":"7.156667"},{"1":"7.286667"},{"1":"7.341111"},{"1":"7.412222"},{"1":"7.457778"},{"1":"7.396667"},{"1":"7.473333"},{"1":"7.431111"},{"1":"7.497778"},{"1":"7.271111"},{"1":"7.387778"},{"1":"7.515556"},{"1":"7.398889"},{"1":"7.403333"},{"1":"7.353333"},{"1":"7.420000"},{"1":"7.414444"},{"1":"7.520000"},{"1":"7.278889"},{"1":"7.280000"},{"1":"7.444444"},{"1":"7.472222"},{"1":"7.350000"},{"1":"7.597778"},{"1":"7.200000"},{"1":"7.597778"},{"1":"7.303333"},{"1":"7.667778"},{"1":"7.180000"},{"1":"7.342222"},{"1":"7.304444"},{"1":"7.386667"},{"1":"7.182222"},{"1":"7.241111"},{"1":"7.161111"},{"1":"7.753333"},{"1":"7.450000"},{"1":"7.406667"},{"1":"7.347778"},{"1":"7.210000"},{"1":"7.522222"},{"1":"7.332222"},{"1":"7.377778"},{"1":"7.333333"},{"1":"7.274444"},{"1":"7.388889"},{"1":"7.475556"},{"1":"7.352222"},{"1":"7.497778"},{"1":"7.405556"},{"1":"7.615556"},{"1":"7.272222"},{"1":"7.225556"},{"1":"7.418889"},{"1":"7.392222"},{"1":"7.328889"},{"1":"7.252222"},{"1":"7.597778"},{"1":"7.288889"},{"1":"7.444444"},{"1":"7.462222"},{"1":"7.272222"},{"1":"7.325556"},{"1":"7.691111"},{"1":"7.347778"},{"1":"7.364444"},{"1":"7.433333"},{"1":"7.394444"},{"1":"7.774444"},{"1":"7.598889"},{"1":"7.390000"},{"1":"7.354444"},{"1":"7.276667"},{"1":"7.370000"},{"1":"7.271111"},{"1":"7.458889"},{"1":"7.583333"},{"1":"7.124444"},{"1":"7.532222"},{"1":"7.453333"},{"1":"7.163333"},{"1":"7.728889"},{"1":"7.552222"},{"1":"7.108889"},{"1":"7.575556"},{"1":"7.311111"},{"1":"7.497778"},{"1":"7.252222"},{"1":"7.437778"},{"1":"7.373333"},{"1":"7.533333"},{"1":"7.418889"},{"1":"7.647778"},{"1":"7.257778"},{"1":"7.131111"},{"1":"7.617778"},{"1":"7.045556"},{"1":"7.183333"},{"1":"7.556667"},{"1":"7.707778"},{"1":"7.628889"},{"1":"7.171111"},{"1":"7.512222"},{"1":"7.180000"},{"1":"7.433333"},{"1":"7.360000"},{"1":"7.268889"},{"1":"7.344444"},{"1":"7.317778"},{"1":"7.673333"},{"1":"7.412222"},{"1":"7.451111"},{"1":"7.570000"},{"1":"7.261111"},{"1":"7.286667"},{"1":"7.500000"},{"1":"7.358889"},{"1":"7.357778"},{"1":"7.335556"},{"1":"7.224444"},{"1":"7.151111"},{"1":"7.095556"},{"1":"7.440000"},{"1":"7.470000"},{"1":"7.546667"},{"1":"7.523333"},{"1":"7.256667"},{"1":"7.655556"},{"1":"7.556667"},{"1":"7.477778"},{"1":"7.422222"},{"1":"7.187778"},{"1":"7.344444"},{"1":"7.098889"},{"1":"7.370000"},{"1":"7.367778"},{"1":"7.515556"},{"1":"7.370000"},{"1":"7.560000"},{"1":"7.315556"},{"1":"7.256667"},{"1":"7.654444"},{"1":"7.134444"},{"1":"7.150000"},{"1":"7.311111"},{"1":"7.311111"},{"1":"7.233333"},{"1":"7.605556"},{"1":"7.602222"},{"1":"7.384444"},{"1":"7.200000"},{"1":"7.643333"},{"1":"7.521111"},{"1":"7.530000"},{"1":"7.252222"},{"1":"7.488889"},{"1":"7.624444"},{"1":"7.322222"},{"1":"7.613333"},{"1":"7.522222"},{"1":"7.346667"},{"1":"7.145556"},{"1":"7.572222"},{"1":"7.247778"},{"1":"7.575556"},{"1":"7.505556"},{"1":"7.347778"},{"1":"7.604444"},{"1":"7.622222"},{"1":"7.310000"},{"1":"7.080000"},{"1":"7.611111"},{"1":"7.368889"},{"1":"7.674444"},{"1":"7.113333"},{"1":"7.610000"},{"1":"7.715556"},{"1":"7.633333"},{"1":"7.188889"},{"1":"7.302222"},{"1":"7.266667"},{"1":"7.267778"},{"1":"7.343333"},{"1":"7.328889"},{"1":"7.466667"},{"1":"7.425556"},{"1":"7.503333"},{"1":"7.203333"},{"1":"7.405556"},{"1":"7.072222"},{"1":"7.302222"},{"1":"7.143333"},{"1":"7.533333"},{"1":"7.346667"},{"1":"7.437778"},{"1":"7.162222"},{"1":"7.074444"},{"1":"7.160000"},{"1":"7.206667"},{"1":"7.472222"},{"1":"7.352222"},{"1":"7.594444"},{"1":"7.254444"},{"1":"7.685556"},{"1":"7.223333"},{"1":"7.455556"},{"1":"7.778889"},{"1":"7.364444"},{"1":"7.414444"},{"1":"7.322222"},{"1":"7.386667"},{"1":"7.417778"},{"1":"6.903333"},{"1":"7.535556"},{"1":"7.568889"},{"1":"7.138889"},{"1":"7.312222"},{"1":"7.382222"},{"1":"7.326667"},{"1":"7.422222"},{"1":"7.732222"},{"1":"7.272222"},{"1":"7.380000"},{"1":"7.348889"},{"1":"7.841111"},{"1":"7.337778"},{"1":"7.434444"},{"1":"7.670000"},{"1":"7.234444"},{"1":"7.226667"},{"1":"7.338889"},{"1":"7.616667"},{"1":"7.231111"},{"1":"7.424444"},{"1":"6.837778"},{"1":"7.417778"},{"1":"7.266667"},{"1":"7.256667"},{"1":"7.403333"},{"1":"7.606667"},{"1":"7.505556"},{"1":"7.403333"},{"1":"7.787778"},{"1":"7.278889"},{"1":"7.213333"},{"1":"7.407778"},{"1":"7.418889"},{"1":"7.597778"},{"1":"7.195556"},{"1":"7.160000"},{"1":"7.572222"},{"1":"7.480000"},{"1":"7.146667"},{"1":"7.443333"},{"1":"7.275556"},{"1":"7.451111"},{"1":"7.188889"},{"1":"7.493333"},{"1":"7.455556"},{"1":"7.203333"},{"1":"7.667778"},{"1":"7.377778"},{"1":"7.264444"},{"1":"7.613333"},{"1":"7.438889"},{"1":"7.516667"},{"1":"7.187778"},{"1":"7.395556"},{"1":"7.341111"},{"1":"7.241111"},{"1":"7.352222"},{"1":"7.401111"},{"1":"7.770000"},{"1":"7.281111"},{"1":"7.271111"},{"1":"7.332222"},{"1":"7.351111"},{"1":"7.291111"},{"1":"7.414444"},{"1":"7.327778"},{"1":"7.508889"},{"1":"7.311111"},{"1":"7.366667"},{"1":"7.414444"},{"1":"7.534444"},{"1":"7.180000"},{"1":"7.427778"},{"1":"7.237778"},{"1":"7.474444"},{"1":"7.262222"},{"1":"7.382222"},{"1":"7.441111"},{"1":"7.624444"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 1000 times </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign these into an object called bootstrap_means</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>bootstrap_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>bootstrap_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       result
+1    7.557778
+2    7.594444
+3    7.327778
+4    7.336667
+5    7.498889
+6    7.485556
+7    7.294444
+8    7.408889
+9    7.262222
+10   7.303333
+11   7.273333
+12   7.295556
+13   7.112222
+14   7.757778
+15   7.655556
+16   7.754444
+17   7.266667
+18   7.151111
+19   7.428889
+20   7.274444
+21   7.415556
+22   7.566667
+23   7.460000
+24   7.461111
+25   7.370000
+26   7.593333
+27   7.343333
+28   7.674444
+29   7.378889
+30   7.393333
+31   7.608889
+32   7.441111
+33   7.232222
+34   7.252222
+35   7.375556
+36   7.524444
+37   7.591111
+38   7.418889
+39   7.242222
+40   7.348889
+41   7.672222
+42   7.215556
+43   7.632222
+44   7.420000
+45   7.224444
+46   7.163333
+47   7.435556
+48   7.476667
+49   7.465556
+50   7.401111
+51   7.216667
+52   7.470000
+53   7.467778
+54   7.312222
+55   7.460000
+56   7.196667
+57   7.685556
+58   7.363333
+59   7.583333
+60   7.425556
+61   7.228889
+62   7.455556
+63   7.466667
+64   7.336667
+65   7.432222
+66   7.563333
+67   7.260000
+68   7.264444
+69   7.575556
+70   7.207778
+71   7.532222
+72   7.431111
+73   7.607778
+74   7.373333
+75   7.381111
+76   7.386667
+77   7.313333
+78   7.276667
+79   7.771111
+80   7.297778
+81   7.398889
+82   7.513333
+83   7.552222
+84   7.432222
+85   7.335556
+86   7.678889
+87   7.557778
+88   7.321111
+89   7.496667
+90   7.446667
+91   7.452222
+92   7.458889
+93   7.227778
+94   7.372222
+95   7.227778
+96   7.466667
+97   7.177778
+98   7.346667
+99   7.617778
+100  7.250000
+101  7.390000
+102  7.335556
+103  7.373333
+104  7.476667
+105  7.490000
+106  7.484444
+107  7.566667
+108  7.310000
+109  6.946667
+110  7.581111
+111  7.666667
+112  7.295556
+113  7.593333
+114  7.362222
+115  7.285556
+116  7.553333
+117  7.295556
+118  7.446667
+119  7.313333
+120  7.168889
+121  7.397778
+122  7.526667
+123  7.332222
+124  7.283333
+125  7.281111
+126  7.281111
+127  7.388889
+128  7.348889
+129  7.264444
+130  7.274444
+131  7.486667
+132  7.217778
+133  7.146667
+134  7.620000
+135  7.302222
+136  7.246667
+137  7.487778
+138  7.273333
+139  7.411111
+140  7.316667
+141  7.537778
+142  7.052222
+143  7.584444
+144  7.424444
+145  7.317778
+146  7.502222
+147  7.381111
+148  7.102222
+149  7.110000
+150  7.561111
+151  7.312222
+152  7.334444
+153  7.404444
+154  7.301111
+155  7.391111
+156  7.313333
+157  7.292222
+158  7.295556
+159  7.415556
+160  7.454444
+161  7.228889
+162  7.166667
+163  7.258889
+164  7.566667
+165  7.472222
+166  7.240000
+167  7.412222
+168  7.113333
+169  7.277778
+170  7.323333
+171  6.924444
+172  7.207778
+173  7.352222
+174  7.217778
+175  7.330000
+176  7.270000
+177  7.354444
+178  7.501111
+179  7.398889
+180  7.497778
+181  7.036667
+182  7.183333
+183  8.023333
+184  7.281111
+185  7.515556
+186  7.666667
+187  7.401111
+188  7.688889
+189  7.468889
+190  7.400000
+191  7.597778
+192  7.256667
+193  7.433333
+194  7.517778
+195  7.336667
+196  7.532222
+197  7.262222
+198  7.450000
+199  7.212222
+200  7.363333
+201  7.398889
+202  7.287778
+203  7.430000
+204  7.420000
+205  7.578889
+206  7.496667
+207  7.178889
+208  7.514444
+209  7.697778
+210  7.028889
+211  7.508889
+212  7.657778
+213  7.368889
+214  7.403333
+215  7.612222
+216  6.944444
+217  7.308889
+218  7.104444
+219  7.300000
+220  7.201111
+221  7.342222
+222  7.578889
+223  7.627778
+224  7.110000
+225  7.480000
+226  7.185556
+227  7.512222
+228  7.710000
+229  7.714444
+230  7.692222
+231  7.280000
+232  7.678889
+233  7.494444
+234  7.507778
+235  7.340000
+236  7.147778
+237  6.988889
+238  7.293333
+239  7.526667
+240  7.433333
+241  7.355556
+242  7.816667
+243  7.197778
+244  7.511111
+245  7.506667
+246  7.197778
+247  7.577778
+248  7.504444
+249  7.355556
+250  7.553333
+251  7.363333
+252  7.580000
+253  7.383333
+254  7.561111
+255  7.425556
+256  7.660000
+257  7.393333
+258  7.461111
+259  7.320000
+260  7.381111
+261  7.451111
+262  7.215556
+263  7.010000
+264  7.604444
+265  7.647778
+266  7.350000
+267  7.566667
+268  7.535556
+269  7.701111
+270  7.337778
+271  7.200000
+272  7.640000
+273  7.117778
+274  7.292222
+275  7.513333
+276  7.144444
+277  7.410000
+278  7.361111
+279  7.311111
+280  7.291111
+281  7.414444
+282  7.457778
+283  7.401111
+284  7.674444
+285  7.495556
+286  7.223333
+287  7.250000
+288  7.311111
+289  7.472222
+290  7.337778
+291  7.462222
+292  7.333333
+293  7.547778
+294  7.423333
+295  7.595556
+296  7.347778
+297  7.662222
+298  7.213333
+299  7.434444
+300  7.593333
+301  7.580000
+302  7.471111
+303  7.120000
+304  7.387778
+305  7.446667
+306  7.351111
+307  7.392222
+308  7.290000
+309  7.536667
+310  7.408889
+311  7.542222
+312  7.518889
+313  7.356667
+314  7.487778
+315  7.598889
+316  7.463333
+317  7.464444
+318  7.428889
+319  7.294444
+320  7.656667
+321  7.630000
+322  7.426667
+323  7.335556
+324  7.557778
+325  7.464444
+326  7.636667
+327  7.477778
+328  7.557778
+329  7.584444
+330  7.451111
+331  7.205556
+332  7.593333
+333  7.357778
+334  7.073333
+335  7.475556
+336  7.498889
+337  7.291111
+338  7.277778
+339  7.315556
+340  7.423333
+341  7.406667
+342  7.265556
+343  7.330000
+344  7.562222
+345  7.273333
+346  7.290000
+347  7.306667
+348  7.353333
+349  7.261111
+350  7.350000
+351  7.303333
+352  7.556667
+353  7.218889
+354  7.350000
+355  7.280000
+356  7.513333
+357  7.622222
+358  7.291111
+359  7.478889
+360  7.156667
+361  7.515556
+362  7.397778
+363  7.290000
+364  7.273333
+365  7.032222
+366  7.443333
+367  7.528889
+368  7.658889
+369  7.473333
+370  7.444444
+371  7.677778
+372  7.253333
+373  7.420000
+374  7.597778
+375  7.102222
+376  7.363333
+377  7.534444
+378  7.644444
+379  7.716667
+380  7.264444
+381  6.886667
+382  7.401111
+383  7.446667
+384  7.385556
+385  7.451111
+386  7.351111
+387  7.578889
+388  7.252222
+389  7.131111
+390  7.040000
+391  7.605556
+392  7.455556
+393  7.296667
+394  7.822222
+395  7.277778
+396  7.280000
+397  7.087778
+398  7.254444
+399  7.273333
+400  7.167778
+401  7.263333
+402  7.600000
+403  7.401111
+404  7.604444
+405  7.403333
+406  7.198889
+407  7.275556
+408  7.460000
+409  7.347778
+410  7.310000
+411  7.383333
+412  7.162222
+413  7.441111
+414  7.400000
+415  7.532222
+416  7.138889
+417  7.158889
+418  7.342222
+419  7.313333
+420  7.380000
+421  7.187778
+422  7.455556
+423  7.381111
+424  7.443333
+425  7.320000
+426  7.756667
+427  7.255556
+428  7.334444
+429  7.666667
+430  7.390000
+431  7.582222
+432  7.048889
+433  7.247778
+434  7.805556
+435  7.072222
+436  7.097778
+437  7.605556
+438  7.335556
+439  7.345556
+440  7.213333
+441  7.507778
+442  7.652222
+443  7.372222
+444  7.351111
+445  7.258889
+446  7.340000
+447  7.500000
+448  7.574444
+449  7.254444
+450  7.134444
+451  7.410000
+452  7.047778
+453  7.438889
+454  7.201111
+455  7.505556
+456  7.291111
+457  7.661111
+458  7.596667
+459  7.331111
+460  7.200000
+461  7.303333
+462  7.656667
+463  7.416667
+464  7.553333
+465  7.346667
+466  7.466667
+467  7.402222
+468  7.602222
+469  7.688889
+470  7.668889
+471  7.467778
+472  7.350000
+473  7.421111
+474  7.444444
+475  7.406667
+476  7.517778
+477  7.372222
+478  7.691111
+479  7.397778
+480  7.458889
+481  7.723333
+482  7.265556
+483  7.116667
+484  7.402222
+485  7.396667
+486  7.304444
+487  7.384444
+488  7.386667
+489  7.404444
+490  7.234444
+491  7.514444
+492  7.664444
+493  7.231111
+494  7.660000
+495  7.490000
+496  7.242222
+497  7.576667
+498  7.440000
+499  7.200000
+500  7.426667
+501  7.566667
+502  7.112222
+503  7.588889
+504  7.450000
+505  7.571111
+506  7.123333
+507  7.111111
+508  7.755556
+509  7.398889
+510  7.402222
+511  7.286667
+512  7.182222
+513  7.092222
+514  7.294444
+515  7.354444
+516  7.260000
+517  6.977778
+518  7.362222
+519  7.267778
+520  7.465556
+521  7.380000
+522  7.355556
+523  7.562222
+524  7.294444
+525  7.194444
+526  7.536667
+527  7.355556
+528  7.318889
+529  7.418889
+530  7.454444
+531  7.701111
+532  7.544444
+533  7.663333
+534  7.316667
+535  7.307778
+536  7.510000
+537  7.360000
+538  7.315556
+539  7.415556
+540  7.287778
+541  7.207778
+542  7.441111
+543  7.833333
+544  7.657778
+545  7.292222
+546  7.418889
+547  7.328889
+548  7.656667
+549  7.605556
+550  7.307778
+551  7.673333
+552  7.793333
+553  7.421111
+554  7.298889
+555  7.564444
+556  7.424444
+557  7.328889
+558  7.495556
+559  7.331111
+560  7.373333
+561  7.657778
+562  7.254444
+563  7.580000
+564  7.540000
+565  7.510000
+566  7.317778
+567  7.526667
+568  7.477778
+569  7.535556
+570  7.067778
+571  7.555556
+572  7.290000
+573  7.432222
+574  7.482222
+575  7.205556
+576  7.221111
+577  7.080000
+578  7.447778
+579  7.397778
+580  7.321111
+581  7.215556
+582  7.162222
+583  7.547778
+584  7.641111
+585  7.531111
+586  7.433333
+587  7.446667
+588  7.330000
+589  7.451111
+590  7.546667
+591  7.571111
+592  7.684444
+593  7.228889
+594  7.410000
+595  7.728889
+596  7.661111
+597  7.603333
+598  7.018889
+599  7.144444
+600  7.263333
+601  7.376667
+602  7.367778
+603  7.333333
+604  7.120000
+605  7.416667
+606  7.524444
+607  7.432222
+608  7.436667
+609  7.218889
+610  7.242222
+611  7.251111
+612  7.685556
+613  7.410000
+614  7.417778
+615  7.886667
+616  7.990000
+617  7.532222
+618  7.431111
+619  7.368889
+620  7.246667
+621  7.548889
+622  7.482222
+623  7.496667
+624  7.303333
+625  7.480000
+626  7.192222
+627  7.297778
+628  7.195556
+629  7.693333
+630  7.496667
+631  7.363333
+632  7.211111
+633  7.603333
+634  7.546667
+635  7.247778
+636  7.607778
+637  7.175556
+638  7.615556
+639  7.265556
+640  7.307778
+641  7.484444
+642  7.240000
+643  7.335556
+644  7.091111
+645  7.388889
+646  7.426667
+647  7.664444
+648  7.485556
+649  7.578889
+650  7.204444
+651  7.300000
+652  7.272222
+653  7.242222
+654  7.687778
+655  7.400000
+656  7.392222
+657  7.452222
+658  7.266667
+659  6.938889
+660  7.338889
+661  7.763333
+662  7.441111
+663  7.456667
+664  7.351111
+665  7.487778
+666  7.292222
+667  7.038889
+668  7.590000
+669  7.720000
+670  7.225556
+671  7.324444
+672  7.358889
+673  7.414444
+674  7.206667
+675  7.263333
+676  7.538889
+677  7.496667
+678  7.443333
+679  7.296667
+680  7.361111
+681  7.594444
+682  7.460000
+683  7.153333
+684  7.295556
+685  7.104444
+686  7.604444
+687  7.697778
+688  7.204444
+689  7.276667
+690  7.371111
+691  7.163333
+692  7.351111
+693  7.262222
+694  7.402222
+695  7.444444
+696  7.004444
+697  7.331111
+698  7.481111
+699  7.060000
+700  7.501111
+701  7.285556
+702  7.272222
+703  7.348889
+704  7.251111
+705  6.981111
+706  7.137778
+707  7.484444
+708  7.156667
+709  7.286667
+710  7.341111
+711  7.412222
+712  7.457778
+713  7.396667
+714  7.473333
+715  7.431111
+716  7.497778
+717  7.271111
+718  7.387778
+719  7.515556
+720  7.398889
+721  7.403333
+722  7.353333
+723  7.420000
+724  7.414444
+725  7.520000
+726  7.278889
+727  7.280000
+728  7.444444
+729  7.472222
+730  7.350000
+731  7.597778
+732  7.200000
+733  7.597778
+734  7.303333
+735  7.667778
+736  7.180000
+737  7.342222
+738  7.304444
+739  7.386667
+740  7.182222
+741  7.241111
+742  7.161111
+743  7.753333
+744  7.450000
+745  7.406667
+746  7.347778
+747  7.210000
+748  7.522222
+749  7.332222
+750  7.377778
+751  7.333333
+752  7.274444
+753  7.388889
+754  7.475556
+755  7.352222
+756  7.497778
+757  7.405556
+758  7.615556
+759  7.272222
+760  7.225556
+761  7.418889
+762  7.392222
+763  7.328889
+764  7.252222
+765  7.597778
+766  7.288889
+767  7.444444
+768  7.462222
+769  7.272222
+770  7.325556
+771  7.691111
+772  7.347778
+773  7.364444
+774  7.433333
+775  7.394444
+776  7.774444
+777  7.598889
+778  7.390000
+779  7.354444
+780  7.276667
+781  7.370000
+782  7.271111
+783  7.458889
+784  7.583333
+785  7.124444
+786  7.532222
+787  7.453333
+788  7.163333
+789  7.728889
+790  7.552222
+791  7.108889
+792  7.575556
+793  7.311111
+794  7.497778
+795  7.252222
+796  7.437778
+797  7.373333
+798  7.533333
+799  7.418889
+800  7.647778
+801  7.257778
+802  7.131111
+803  7.617778
+804  7.045556
+805  7.183333
+806  7.556667
+807  7.707778
+808  7.628889
+809  7.171111
+810  7.512222
+811  7.180000
+812  7.433333
+813  7.360000
+814  7.268889
+815  7.344444
+816  7.317778
+817  7.673333
+818  7.412222
+819  7.451111
+820  7.570000
+821  7.261111
+822  7.286667
+823  7.500000
+824  7.358889
+825  7.357778
+826  7.335556
+827  7.224444
+828  7.151111
+829  7.095556
+830  7.440000
+831  7.470000
+832  7.546667
+833  7.523333
+834  7.256667
+835  7.655556
+836  7.556667
+837  7.477778
+838  7.422222
+839  7.187778
+840  7.344444
+841  7.098889
+842  7.370000
+843  7.367778
+844  7.515556
+845  7.370000
+846  7.560000
+847  7.315556
+848  7.256667
+849  7.654444
+850  7.134444
+851  7.150000
+852  7.311111
+853  7.311111
+854  7.233333
+855  7.605556
+856  7.602222
+857  7.384444
+858  7.200000
+859  7.643333
+860  7.521111
+861  7.530000
+862  7.252222
+863  7.488889
+864  7.624444
+865  7.322222
+866  7.613333
+867  7.522222
+868  7.346667
+869  7.145556
+870  7.572222
+871  7.247778
+872  7.575556
+873  7.505556
+874  7.347778
+875  7.604444
+876  7.622222
+877  7.310000
+878  7.080000
+879  7.611111
+880  7.368889
+881  7.674444
+882  7.113333
+883  7.610000
+884  7.715556
+885  7.633333
+886  7.188889
+887  7.302222
+888  7.266667
+889  7.267778
+890  7.343333
+891  7.328889
+892  7.466667
+893  7.425556
+894  7.503333
+895  7.203333
+896  7.405556
+897  7.072222
+898  7.302222
+899  7.143333
+900  7.533333
+901  7.346667
+902  7.437778
+903  7.162222
+904  7.074444
+905  7.160000
+906  7.206667
+907  7.472222
+908  7.352222
+909  7.594444
+910  7.254444
+911  7.685556
+912  7.223333
+913  7.455556
+914  7.778889
+915  7.364444
+916  7.414444
+917  7.322222
+918  7.386667
+919  7.417778
+920  6.903333
+921  7.535556
+922  7.568889
+923  7.138889
+924  7.312222
+925  7.382222
+926  7.326667
+927  7.422222
+928  7.732222
+929  7.272222
+930  7.380000
+931  7.348889
+932  7.841111
+933  7.337778
+934  7.434444
+935  7.670000
+936  7.234444
+937  7.226667
+938  7.338889
+939  7.616667
+940  7.231111
+941  7.424444
+942  6.837778
+943  7.417778
+944  7.266667
+945  7.256667
+946  7.403333
+947  7.606667
+948  7.505556
+949  7.403333
+950  7.787778
+951  7.278889
+952  7.213333
+953  7.407778
+954  7.418889
+955  7.597778
+956  7.195556
+957  7.160000
+958  7.572222
+959  7.480000
+960  7.146667
+961  7.443333
+962  7.275556
+963  7.451111
+964  7.188889
+965  7.493333
+966  7.455556
+967  7.203333
+968  7.667778
+969  7.377778
+970  7.264444
+971  7.613333
+972  7.438889
+973  7.516667
+974  7.187778
+975  7.395556
+976  7.341111
+977  7.241111
+978  7.352222
+979  7.401111
+980  7.770000
+981  7.281111
+982  7.271111
+983  7.332222
+984  7.351111
+985  7.291111
+986  7.414444
+987  7.327778
+988  7.508889
+989  7.311111
+990  7.366667
+991  7.414444
+992  7.534444
+993  7.180000
+994  7.427778
+995  7.237778
+996  7.474444
+997  7.262222
+998  7.382222
+999  7.441111
+1000 7.624444</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -686,45 +1883,44 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">8.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</h3>
 <p>Remember our goal was to compute the standard error, which quantifies the uncertainty in the sample mean estimates that is due to sampling variation. Before we do that, we will visualize the distribution of bootstrapped means.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot of the bootstrapped means</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Mean value"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot of the bootstrapped means</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Mean value"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-bootstrap-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-bootstrap-dist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Distribution of 1000 bootstrapped means.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.3: Distribution of 1000 bootstrapped means.
 </figcaption>
+<div aria-describedby="fig-bootstrap-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-02-simulation_files/figure-html/fig-bootstrap-dist-1.png" class="img-fluid figure-img" alt="Distribution of 1000 bootstrapped means." width="672">
+</div>
 </figure>
 </div>
 </div>
 </div>
 <p>The distribution of bootstrapped means is unimodal and symmetric. This indicates that the standard deviation is a reasonable numeric summary of the variation. Again, since the cases in the distribution are means (summary measures), the standard deviation is referred to as a <em>standard error</em>. To compute the standard error, we use <code>df_stats()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SE</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["response"],"name":[1],"type":["chr"],"align":["left"]},{"label":["min"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Q1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Q3"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[9],"type":["int"],"align":["right"]},{"label":["missing"],"name":[10],"type":["int"],"align":["right"]}],"data":[{"1":"result","2":"6.837778","3":"7.278889","4":"7.391667","5":"7.509167","6":"8.023333","7":"7.395381","8":"0.1699168","9":"1000","10":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SE</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  response      min       Q1   median       Q3      max     mean        sd    n
+1   result 6.837778 7.278889 7.391667 7.509167 8.023333 7.395381 0.1699168 1000
+  missing
+1       0</code></pre>
 </div>
 </div>
 <p>Here the standard error (found in the <code>sd</code> column) is 0.17.</p>
-<div class="protip">
+<div class="fyi">
+<p><strong>PROTIP</strong></p>
 <p>The distribution of bootstrapped means should be centered at the value of the original sample mean. In our teen sleep example, the original sample had a mean of 7.4. This value is roughly at the center of the distribution in <a href="#fig-bootstrap-dist" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>. This can be a self-check when you create a bootstrap distribution.</p>
 </div>
 <p><br></p>
 <!-- ## Some Mathematical Notation -->
 <!-- Because researchers often use mathematics to communicate in their work, it is important learn some of the notation that is commonly used. This will also make it easier to communicate as you present and publish your own work.  -->
-<p><br></p>
 </section>
 </section>
 <section id="references" class="level2" data-number="8.4">
@@ -746,239 +1942,242 @@ Raspe, R. E. (1948). <em>Singular travels, campaigns and adventures of <span>B</
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -986,197 +2185,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./04-01-case-study-teen-sleep.html" class="pagination-link" aria-label="Case Study: Teen Sleep">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study: Teen Sleep</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./04-03-one-sample-test.html" class="pagination-link" aria-label="Hypothesis Testing: One-Sample t-Test">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis Testing: One-Sample t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

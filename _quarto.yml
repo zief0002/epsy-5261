@@ -4,17 +4,18 @@ project:
   preview:
     port: 4200
     browser: true
-  resources: 
-    - codebooks/ #Add codebooks to docs
-    - codebooks/body-temp.html #Add codebooks to docs
 
 book:
   title: "An Introduction to Data Analysis"
   author: ["Andrew Zieffler", "¢hel$ey £ega¢y"]
-  date: "`r Sys.Date()`"
+  date: today
+  page-navigation: false
+  bread-crumbs: false
   sidebar:
     search: true
-    background: "#0677a3"
+    background: "#003865"
+    collapse: false
+    pinned: true
   # cover-image: "figs/banner.png"
   chapters:
     - index.qmd
@@ -64,10 +65,40 @@ book:
         - 08-03-r-squared.qmd
         - 08-04-regression-inference.qmd
     - 09-00-data-codebooks.qmd
-      # chapters:
-      #   - 09-01-body-temp.qmd
-      #   - 09-02-college-debt.qmd
-      #   - 09-08-phone-incentives.qmd
+    - part: "Data Dictionaries"
+      chapters:
+        - dictionary_bachelor.qmd
+        - dictionary_body-temp.qmd
+        - dictionary_cannabis.qmd
+        - dictionary_cereal.qmd
+        - dictionary_college-scorecard.qmd
+        - dictionary_continuous-assessment.qmd
+        - dictionary_countries.qmd
+        - dictionary_esp.qmd
+        - dictionary_fast-x-reviews.qmd
+        - dictionary_films.qmd
+        - dictionary_grades.qmd
+        - dictionary_granola.qmd
+        - dictionary_high-peaks.qmd
+        - dictionary_housing-and-income.qmd
+        - dictionary_midwest-college-scorecard.qmd
+        - dictionary_mn-lead.qmd
+        - dictionary_movies-2022.qmd
+        - dictionary_nhanes.qmd
+        - dictionary_olympics.qmd
+        - dictionary_phone-incentives.qmd
+        - dictionary_private.qmd
+        - dictionary_public.qmd
+        - dictionary_sandwiches.qmd
+        - dictionary_social-media.qmd
+        - dictionary_teen-sleep.qmd
+        - dictionary_tik-tok.qmd
+        - dictionary_wine.qmd
+        - dictionary_world-life-expectancy.qmd
+        - dictionary_worry-large.qmd
+        - dictionary_worry.qmd
+        - dictionary_zillow.qmd
+        - dictionary_zillow-sample.qmd
 bibliography: ['assets/epsy-5261.bib']
 csl: 'assets/apa-single-spaced.csl'
 include-in-header: 'assets/epsy-5261.js'
@@ -78,14 +109,20 @@ format:
       - cosmo
       - "assets/theme.scss"
     css: ["assets/sticky-notes.css", "assets/table-styles.css"]
+    toc: false
     code-copy: true
-    highlight-style: zenburn
-    df-print: paged
-    mainfont: 'Crimson Text'
+    code-overflow: 'wrap'
+    highlight-style: 'a11y-dark'
+    mainfont: 'Atkinson Hyperlegible'
     fontsize: '12pt'
     linestretch: '1.5em'
-    linkcolor: "#0099d4"
+    linkcolor: '#5D295F'
     header-includes: |
       <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
-
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    #shift-heading-level-by: 1
+    tbl-cap-location: "top"
+    fig-cap-location: "top"
 editor: source

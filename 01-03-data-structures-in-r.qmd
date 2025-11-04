@@ -5,9 +5,12 @@ In this chapter, you will be learn about two common data structures that are use
 One way to think about vectors and data frames is to use the metaphor of bookcases. Vectors are single column bookcases and data frames are multi-column bookcases.^[Technically, a data frame can have a single column, but in practice most data frames you encounter will have many columns.]
 
 ```{r}
+#| label: fig-vector
+#| fig-cap: "LEFT: A visual mnemonic for a vector is a single-column bookcase. RIGHT: A visual mnemonic for a data frame is a multi-column bookcase."
+#| fig-alt: "LEFT: A visual mnemonic for a vector is a single-column bookcase. RIGHT: A visual mnemonic for a data frame is a multi-column bookcase."
 #| echo: false
-#| out-width: "60%"
-#|fig-cap: "LEFT: A visual mnemonic for a vector is a single-column bookcase. RIGHT: A visual mnemonic for a data frame is a multi-column bookcase."
+#| out-width: "90%"
+
 
 knitr::include_graphics("figs/01-03-vector-df.png")
 ```
@@ -16,9 +19,11 @@ Similar to real bookcases, the bookcases in our metaphor can be used to store th
 
 
 ```{r}
+#| label: fig-df
+#| fig-cap: "The data type in each column of a vector or data frame is homogeneous. All data in the skyblue columns are character strings. All data in the reddish-purple columns are numeric values. All data in the yellow columns are logical values."
+#| fig-alt: "The data type in each column of a vector or data frame is homogeneous. All data in the skyblue columns are character strings. All data in the reddish-purple columns are numeric values. All data in the yellow columns are logical values."
 #| echo: false
-#| out-width: "60%"
-#|fig-cap: "The data type in each column of a vector or data frame is homogeneous. All data in the skyblue columns are character strings. All data in the reddish-purple columns are numeric values. All data in the yellow columns are logical values."
+#| out-width: "90%"
 
 knitr::include_graphics("figs/01-03-vector-df-data.png")
 ```
@@ -133,9 +138,17 @@ spice
 Many computations that worked on numeric vectors do not work on character vectors. These will often return an error or unexpected result. In the syntax below, for example, we are told that the `mean()` function expects a numeric or logical vector, and since what we used was not either of those, the result returned was `NA`.
 
 ```{r}
+#| eval: false
+
 # Find mean name
 mean(spice)
 ```
+
+<pre class="output">
+Warning in mean.default(spice): argument is not numeric or logical: returning
+NA
+</pre>
+
 
 Some computations work the same way.
 
@@ -177,14 +190,18 @@ Note that we also assigned the data frame to an object called `spice_girls` so w
 In professional practice, you will often enter data into a spreadsheet and rather than typing it into R. When you save this work, many spreadsheet programs use a proprietary format for saving the information (e.g., Excel saves as a XLSX file; Google Sheets saves as a GSHEET file). These often include extraneous information (e.g., formatting) that is irrelevant to the raw data. While R includes libraries and functions that can import data in the XLSX and GSHEETS formats, it is generally easier to save or export your data to a CSV (comma separated value) file from within your spreadsheet program prior to importing it into R.
 
 ```{r}
+#| label: fig-import-data
+#| fig-cap: "Export or save your data using the CSV file format. In Google Sheets, you can download the data as a CSV file."
+#| fig-alt: "Export or save your data using the CSV file format. In Google Sheets, you can download the data as a CSV file."
 #| echo: false
-#| out-width: "80%"
-#|fig-cap: "Export or save your data using the CSV file format. In Google Sheets, you can download the data as a CSV file."
+#| out-width: "100%"
 
 knitr::include_graphics("figs/01-03-save-as-csv.png")
 ```
 
-:::protip
+:::fyi
+**PROTIP**
+
 Here are some tips for entering data into a spreadsheet:
 
 - The first row should be the variable names. Do not use spaces in variable names. 
@@ -201,6 +218,7 @@ Once your data are saved as a CSV file, it can be easily imported into R. To do 
 
 <br />
 
+
 ### Importing the Spice Girls Data
 
 The file *spice-girls.csv* is accessible at <https://raw.githubusercontent.com/zief0002/modeling/main/data/spice-girls.csv>. 
@@ -216,9 +234,11 @@ Clicking "Update" will open a preview of your data. Check to be sure the variabl
 After importing the data you should see the object in your global environment. 
 
 ```{r}
+#| label: fig-import-csv
+#| fig-cap: "Import data saved in a CSV file into R."
+#| fig-alt: "Import data saved in a CSV file into R."
 #| echo: false
-#| out-width: "90%"
-#|fig-cap: "Import data saved in a CSV file into R."
+#| out-width: "100%"
 
 knitr::include_graphics("figs/01-03-import-csv.png")
 ```
@@ -231,9 +251,11 @@ knitr::include_graphics("figs/01-03-import-csv.png")
 Even though you used the `Import` button---a point-and-click feature in RStudio---to import the data, behind the scenes, syntax was generated that was actually used to import the data into R. When we selected "From Text (readr)", the `read_csv()` function from the `{readr}` package was used to import the data. You can see the syntax generated in the `Code Preview` window after you selected your CSV file.
 
 ```{r}
+#| label: fig-import-preview
+#| fig-cap: "Code Preview window showing the syntax to import the *spice-girls.csv* data."
+#| fig-alt: "Code Preview window showing the syntax to import the *spice-girls.csv* data."
 #| echo: false
 #| out-width: "90%"
-#|fig-cap: "Code Preview window showing the syntax to import the *spice-girls.csv* data."
 
 knitr::include_graphics("figs/01-03-code-preview.png")
 ```
@@ -242,7 +264,9 @@ In the first line of syntax, the `{readr}` package is loaded using the `library(
 
 It is a good idea to copy the first two lines of syntax from the `Code Preview` window into your script file. It will be faster to import the data in the future by running it from a script file rather than trying to reproduce all the steps to import your data. The third line of syntax, using `View()`, is not essential to importing your data..
 
-:::protip
+:::fyi
+**FYI**
+
 Since there are better ways to actually "see" the contents of the data object (e.g., `print()`), you should not include the `View()` syntax line in your script file.
 :::
 
@@ -293,6 +317,7 @@ This is another good validity check to ensure that numeric columns have appropri
 
 
 <br />
+
 
 ## References {.unnumbered}
 

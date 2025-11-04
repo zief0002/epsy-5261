@@ -61,6 +61,7 @@ Let's compute Cohen's *d* for the cannabis case study. We will begin by importin
 
 ```{r}
 #| message: false
+
 # Load libraries
 library(educate)
 library(ggformula)
@@ -131,6 +132,8 @@ $$
 To compute Cohen's *d*, we import the data and compute numerical summaries.
 
 ```{r}
+#| message: false
+
 # Import data
 zillow <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv")
 
@@ -155,71 +158,9 @@ $$
 The difference between average house price in neighborhoods near the UMN campus and the hypothesized price of \$322.46k is 0.81 standard deviations. This is a large difference according to Cohen's guidelines.
 
 :::fyi
+**FYI**
+
 The choice of whether to report the effect in raw or standardized units is up to the researcher. In the house price example, it is probably better to report the raw effect rather than the standardized effect. Consider both the raw metric and the audience---will your audience be able to understand the magnitude of the raw effect? Or would it be more helpful to standardize it so that the magnitude is more interpretable.
-:::
-
-<br />
-
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-_While differences in average age are probably best repoirted in the raw metric, as practice, compute Cohen's *d* for the difference in the average age of the Bachelors and Bachelorettes._
-
-Import the [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) data and computing numerical summaries. Based on these summaries, compute *s*, the denominator for Cohen's *d*.
-
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-01');">Show/Hide Solution</button>
-
-<div id="exercise_07-04-01" style="display:none; margin: -40px 0 40px 40px;">
-
-```{r}
-# Import data
-bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
-
-# Compute numerical summaries
-df_stats(~age | show, data = bachelor)
-```
-
-Because the sample sizes are not equal (27 vs. 24), we need to compute *s* using a weighted average.
-
-
-$$
-\begin{split}
-s &= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
-&= \frac{27(3.80) + 23(3.03)}{27 + 23} \\[2ex]
-&= 3.45
-\end{split}
-$$
-
-</div>
-
-
-Compute Cohen's *d* using the values computed in the previous problem..
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-02');">Show/Hide Solution</button>
-
-<div id="exercise_07-04-02" style="display:none; margin: -40px 0 40px 40px;">
-
-$$
-\begin{split}
-d &= \frac{|\bar{x}_1 - \bar{x}_2|}{s} \\[2ex]
-&= \frac{|30.70 - 28.17|}{3.45} \\[2ex]
-&= .733
-\end{split}
-$$
-</div>
-
-Interpret the value of Cohen's *d*. Also comment on its magnitude.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-03');">Show/Hide Solution</button>
-
-<div id="exercise_07-04-03" style="display:none; margin: -40px 0 40px 40px;">
-
-The difference between the average age of Bachelors and Bachelorettes is 0.733 standard deviations. This is a fairly large effect.
-
-</div>
-
 :::
 
 <br />
@@ -241,6 +182,8 @@ smd(
 ```
 
 :::fyi
+**PROTIP**
+
 It doesn't matter which group you input in as Group 1 or Group 2...just be consistent in the function.
 :::
 
@@ -256,31 +199,6 @@ smd(
 )
 ```
 
-
-
-
-:::exercises
-#### Your Turn {.unnumbered}
-
-Use the `smd()` function to compute Cohen's *d* for the cannabis example.
-
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">Show/Hide Solution</button>
-
-<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
-
-```{r}
-# Compute Cohen's d
-smd(
-  Mean.1 = -2.07, s.1 = 7.77, n.1 = 14, #Adult summaries
-  Mean.2 = -8.26, s.2 = 7.14, n.2 = 23  #Teen summaries
-  )
-```
-
-Don't forget to load the `{MBESS}` package if you haven't already done so!
-
-</div>
-
-:::
 
 <br />
 
@@ -317,13 +235,97 @@ ci.smd(
 The CI for Cohen's $\delta$ is $[.14,~1.53]$. That is the population effect size is likely between .14 and 1.52 standard deviations. Using Cohen's guidelines, the population effect might be quite small, or huge, or anywhere in between. Again, we have a lot of uncertainty in the true size of the effect (due to the small sample sizes).
 
 :::fyi
+**FYI**
+
 To have reasonable precision in the CIs for a standardized effect, you need very large samples!
 :::
 
-:::exercises
-#### Your Turn {.unnumbered}
 
-Use the `ci.smd()` function to compute a 99% CI for Cohen's $\delta$ for the Bachelor/Bachelorette age example. You can change the confidence level using the `conf.level=` argument. The default is `conf.level=.95`, which produces a 95% CI.
+
+<br />
+
+
+## Exercises: Your Turn {-}
+
+_While differences in average age are probably best repoirted in the raw metric, as practice, compute Cohen's *d* for the difference in the average age of the Bachelors and Bachelorettes._
+
+1. Import the [bachelor.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv) data and computing numerical summaries. Based on these summaries, compute *s*, the denominator for Cohen's *d*.
+
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-01');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-01" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Import data
+bachelor <- read_csv("https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv")
+
+# Compute numerical summaries
+df_stats(~age | show, data = bachelor)
+```
+
+Because the sample sizes are not equal (27 vs. 24), we need to compute *s* using a weighted average.
+
+
+$$
+\begin{split}
+s &= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
+&= \frac{27(3.80) + 23(3.03)}{27 + 23} \\[2ex]
+&= 3.45
+\end{split}
+$$
+
+</div>
+
+
+2. Compute Cohen's *d* using the values computed in the previous problem..
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-02');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-02" style="display:none; margin: -40px 0 40px 40px;">
+
+$$
+\begin{split}
+d &= \frac{|\bar{x}_1 - \bar{x}_2|}{s} \\[2ex]
+&= \frac{|30.70 - 28.17|}{3.45} \\[2ex]
+&= .733
+\end{split}
+$$
+</div>
+
+
+3. Interpret the value of Cohen's *d*. Also comment on its magnitude.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-03');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-03" style="display:none; margin: -40px 0 40px 40px;">
+
+The difference between the average age of Bachelors and Bachelorettes is 0.733 standard deviations. This is a fairly large effect.
+
+</div>
+
+
+4. Use the `smd()` function to compute Cohen's *d* for the cannabis example.
+
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-04');">Show/Hide Solution</button>
+
+<div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
+
+```{r}
+# Compute Cohen's d
+smd(
+  Mean.1 = -2.07, s.1 = 7.77, n.1 = 14, #Adult summaries
+  Mean.2 = -8.26, s.2 = 7.14, n.2 = 23  #Teen summaries
+  )
+```
+
+Don't forget to load the `{MBESS}` package if you haven't already done so!
+
+</div>
+
+
+
+5. Use the `ci.smd()` function to compute a 99% CI for Cohen's $\delta$ for the Bachelor/Bachelorette age example. You can change the confidence level using the `conf.level=` argument. The default is `conf.level=.95`, which produces a 95% CI.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-05');">Show/Hide Solution</button>
 
@@ -343,10 +345,9 @@ Here the CI for Cohen's $\delta$ extends from $-.03$ to 1.48. The negative value
 
 </div>
 
-:::
 
 
 
 
-## References
+## References {-}
 

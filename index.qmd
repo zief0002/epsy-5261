@@ -1,4 +1,4 @@
-<img src="figs/banner.png" class="cover"/>
+<img src="figs/banner.png" class="cover" alt="Decoration"/>
 
 
 # Foreword {.unnumbered}
@@ -7,7 +7,7 @@
 #| include: false
 #| echo: false
 
-source("_common.R")
+source("_scripts/_common.R")
 ```
 
 
@@ -20,25 +20,18 @@ This work in progress is ultimately going to be the primarily textbook resource 
 
 ## Acknowledgments
 
-Many thanks to all the students in our courses who have provided feedback; you are the world’s greatest copyeditors. In particular, we would like to thank the following students who found errors and took the time to let us know: Drake Bauer, William Cornejo, Christie Nixon, Guobin Pan, and Joel Sundstrom.
+Many thanks to all the students in our courses who have provided feedback; you are the world’s greatest copyeditors. In particular, we would like to thank the following people who found errors and took the time to let us know: Drake Bauer, William Cornejo, Christie Nixon, Guobin Pan, Joel Sundstrom, and Yue Zhao.
 
 <br />
 
 
 ## Colophon
 
-Artwork by [&commat;allison_horst](https://twitter.com/allison_horst)
+- Artwork by [&commat;allison_horst](https://twitter.com/allison_horst)
+- The book is typeset using [Atkinson Hyperlegible](https://fonts.google.com/specimen/Atkinson+Hyperlegible). 
+- The color palette is based on the [Minnesota Brand Color Palette](https://mn.gov/portal/brand/style-guide/colors/).
 
-Icon and note ideas and prototypes by [Desirée De Leon](http://desiree.rbind.io/).
 
-The book is typeset using [Crimson Text](https://fonts.google.com/specimen/Crimson+Text) for the body font, [Raleway](https://fonts.google.com/specimen/Raleway) for the headings and [Sue Ellen Francisco](https://fonts.google.com/specimen/Sue+Ellen+Francisco) for the title. The color palette was generated using [coolors.co](https://coolors.co/).
-
-**Statistical Computing**
-
-- Laptop icon made by [Tomas Knop](https://www.flaticon.com/authors/tomas-knop) from [www.flaticon.com](https://www.flaticon.com/)
-- Directory icon made by [Darius Dan](https://www.flaticon.com/authors/darius-dan) from [www.flaticon.com](https://www.flaticon.com/)
-- Brain icon made by [Aranagraphics](https://www.flaticon.com/authors/aranagraphics) from [www.flaticon.com](https://www.flaticon.com/)
-- Internet icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
 
 <br />
 

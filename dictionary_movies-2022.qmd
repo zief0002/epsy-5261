@@ -1,0 +1,46 @@
+# movies-2022.csv {-}
+
+
+The data in [movies-2022.csv](https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/movies-2022.csv) includes information about $N=50$ randomly selected movies released in 2022.
+
+---
+
+The attributes included in the data are:
+
+- `movie`: Name of the movie
+- `runtime`: Runtime of the movie (in minutes)
+
+<br />
+
+
+## Preview
+
+```{r}
+#| message: false
+#| eval: false
+
+# Load library
+library(tidyverse)
+
+# Import data
+movies_2022 = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/movies-2022.csv")
+
+# View data
+movies_2022
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+# View data
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/movies-2022.csv") |>
+  print(width = Inf)
+```
+
+
+<!-- ### References -->
+
+
+
+

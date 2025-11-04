@@ -11,6 +11,8 @@ In @sec-scatter-corr, we fitted a linear regression model to answer the research
 
 ```{r}
 #| message: false
+
+# Load libraries
 library(educate)
 library(ggformula)
 library(mosaic)
@@ -61,7 +63,11 @@ Neither the correlation coefficient, nor the slope, however, provide a quantific
 Once we have the fitted equation, we can add that to the scatterplot to better evaluate the strength of the linear relationship. To do this we will use the `geom_abline()` function, which takes the arguments `intercept=` and `slope=`. We provide the estimates for these coefficients from our fitted equation to these arguments, and then literally add this function to the scatterplot.
 
 ```{r}
-#| fig-cap: "Scatterplot displaying the relationship between wine price and rating for the 90 wines in the sample. The fitted linear regression line is also displayed on the plot."
+#| label: fig-scatterplot-colleges
+#| fig-cap: "Scatterplot displaying the relationship between 75th percentile ACT score and completion rates for the 92 institutions in the sample. The fitted linear regression line is also displayed on the plot."
+#| fig-alt: "Scatterplot displaying the relationship between 75th percentile ACT score and completion rates for the 92 institutions in the sample. The fitted linear regression line is also displayed on the plot."
+
+# Scatterplot
 gf_point(
   completion_rate ~ act, data = colleges,
   xlab = "75th percentile ACT score",
@@ -86,9 +92,12 @@ Remember that visually, the residual is the vertical distance between the point 
 
 
 ```{r}
+#| label: fig-residual
+#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
+#| fig-alt: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
 #| echo: false
 #| message: false
-#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). Marquette University's observed completion rate (pink dot) and the predicted mean for colleges with a 75th percentile ACT score of 30 (blue dot) are both plotted. A visual representation of Marquette University's residual (green line) is also displayed."
+
 ggplot(data = colleges, aes(x = act, y = completion_rate)) +
   geom_point(alpha = 0.3) +
   geom_segment(x = 30, xend = 30, y = 0.7572312, yend = 0.814, color = "#009e73") +
@@ -108,9 +117,11 @@ Graphically, the length of the vertical line represents the value of the residua
 
 ```{r}
 #| label: fig-all-residuals
+#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). A visual representation of each university's residual (green lines) is also displayed."
+#| fig-alt: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). A visual representation of each university's residual (green lines) is also displayed."
 #| echo: false
 #| message: false
-#| fig-cap: "Plot displaying the 75th ACT scores and completion rates along with the fitted regression line (blue). A visual representation of each university's residual (green lines) is also displayed."
+
 ggplot(data = colleges, aes(x = act, y = completion_rate)) +
   geom_point(alpha = 0.3) +
   geom_segment(
@@ -186,6 +197,7 @@ $$
 Using R, we will square the residuals and then use the `sum()` function to add them together.
 
 ```{r}
+# Sum the squared residuals
 sum(my_residuals ^ 2)
 ```
 
@@ -227,7 +239,11 @@ $$
 We can plot this regression line using `geom_abline()` in the same way we plot any other regression line, noting that the slope of this line is 0.
 
 ```{r}
-#| fig-cap: "Scatterplot displaying the relationship between wine price and rating for the 90 wines in the sample. The fitted intercept-only linear regression line is also displayed on the plot."
+#| label: fig-scatterplot-line
+#| fig-cap: "Scatterplot displaying the relationship between 75th ACT scores and completion rates. The fitted intercept-only linear regression line is also displayed on the plot."
+#| fig-alt: "Scatterplot displaying the relationship between 75th ACT scores and completion rates. The fitted intercept-only linear regression line is also displayed on the plot."
+
+# Scatterplot with regression line
 gf_point(
   completion_rate ~ act, data = colleges,
   xlab = "75th percentile ACT score",
@@ -243,6 +259,8 @@ gf_point(
 The intercept-only line is a flat line. Think about what this means for predictions. Consider a college that has a 75th percentile ACT score of 20. Their predicted completion rate from this model is 0.6175. What about a college that has a 75th percentile ACT score of 25? Their predicted completion rate from this model is also 0.6175. How about a college that has a 75th percentile ACT score of 35. Their predicted completion rate from this model is also 0.6175. ACT score DOES NOT matter in the prediction of completion rate!
 
 :::fyi
+**FYI**
+
 One interesting fact about the value of 0.6175 is that it is the mean completion rate for all schools in the sample.
 
 ```{r}
@@ -262,12 +280,14 @@ We can also compute the residuals and SSE for the baseline model. @fig-all-resid
 
 ```{r}
 #| label: fig-all-residuals-two-models
+#| fig-cap: "LEFT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line for the intercept-only model (blue). A visual representation of each university's residual (green lines) is also displayed. RIGHT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line using ACT as a predictor (blue). A visual representation of each university's residual (green lines) is also displayed."
+#| fig-alt: "LEFT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line for the intercept-only model (blue). A visual representation of each university's residual (green lines) is also displayed. RIGHT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line using ACT as a predictor (blue). A visual representation of each university's residual (green lines) is also displayed."
 #| echo: false
 #| message: false
-#| fig-cap: "LEFT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line for the intercept-only model (blue). A visual representation of each university's residual (green lines) is also displayed. RIGHT: Plot displaying the 75th ACT scores and completion rates along with the fitted regression line using ACT as a predictor (blue). A visual representation of each university's residual (green lines) is also displayed."
 #| fig-width: 10
 #| fig-height: 5
 #| out-width: "100%"
+
 library(patchwork)
 
 p1 = ggplot(data = colleges, aes(x = act, y = completion_rate)) +
@@ -420,6 +440,7 @@ Because this strength metric is related to the correlation coefficient, we now c
 #| label: tab-corr-r2
 #| tbl-cap: "Correlation (*r*) and the corresponding $R^2$ value."
 #| echo: false
+
 library(gt)
 library(gtExtras)
 
@@ -456,10 +477,12 @@ Lastly, we point out that $R^2$ is often reported as an effect size for a regres
 
 
 :::fyi
+**FYI**
+
 As with other quantitative metrics, whether  a predictor is a "good" predictor can not be determined by the $R^2$ value alone. It also depends on the substantive field. An $R^2$ value of 0.34 might constitute a worthless predictor in some fields but a great predictor in another field. Only by reading and understanding the literature in a field can you make this judgement.
 :::
 
-
+<br />
 
 <!-- ## References -->
 
