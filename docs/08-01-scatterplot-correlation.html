@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -683,7 +657,7 @@ window.Quarto = {
 <h2 data-number="24.1" class="anchored" data-anchor-id="case-study-income-and-house-prices"><span class="header-section-number">24.1</span> Case Study: Income and House Prices</h2>
 <p>It is common knowledge that some cities have a higher cost of living than others. Those higher cost-of-living cities, however, also tend to be the more metropolitan areas where jobs (especially higher paying jobs) are more prevalent. One question that we may want to study is whether there is a relationship between people’s incomes and house prices (a reasonable proxy for the cost-of-living). To do this, we will use the <code>median_income</code> and <code>median_house_price</code> attributes from the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv">housing-and-income.csv</a> dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -695,7 +669,7 @@ window.Quarto = {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>house_income <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/housing-and-income.csv"</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>house_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>house_income</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 42 × 7
    city   state house_income_ratio median_house_price median_income house_change
@@ -719,14 +693,14 @@ window.Quarto = {
 <h2 data-number="24.2" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">24.2</span> Data Exploration</h2>
 <p>As always, we will begin with an initial exploration of the sample data, in particular the distributions of the <code>median_income</code> and <code>median_house_price</code> attributes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore median_income</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore median_income</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>median_income, <span class="at">data =</span> house_income,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Median Income"</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_income, <span class="at">data =</span> house_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_income, <span class="at">data =</span> house_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       response min   Q1 median Q3 max    mean       sd  n missing
 1 median_income  32 51.5   67.5 91 148 74.7619 29.12614 42       0</code></pre>
@@ -746,14 +720,14 @@ Figure&nbsp;24.1: Density plot of the median income for 42 metropolitan areas.
 </div>
 <p>The median income for the 42 cities in the sample have a right-skewed distribution with a typical city having a median income of close to $70k (median). There is a great deal of variation in the median income across these cities, however, with the median income ranging from $32k to $148k, and the middle 50% of cities having median incomes ranging from $52 to $91k.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore median_house_price</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore median_house_price</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>median_house_price, <span class="at">data =</span> house_income,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Median House Price"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_house_price, <span class="at">data =</span> house_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>median_house_price, <span class="at">data =</span> house_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            response min  Q1 median     Q3  max     mean       sd  n missing
 1 median_house_price  97 271    394 722.75 1523 537.5476 378.0378 42       0</code></pre>
@@ -781,12 +755,12 @@ Figure&nbsp;24.2: Density plot of the median house price for 42 metropolitan are
 <p><span class="output1">gf_point(y ~ x, data = data_name)</span></p>
 <p>where <code>y</code> is the name of the attribute you want on the <em>y</em>-axis, <code>x</code> is the name of the variable you want on the <em>x</em>-axis, and <code>data_name</code> is the name of your object that you imported your data into. For example, to create a scatterplot in which median house price is on the <em>y</em>-axis, median income is on the <em>x</em>-axis, we can use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  median_house_price <span class="sc">~</span> median_income, <span class="at">data =</span> house_income,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Median Income"</span>,</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Median House Price"</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot displaying the relationship between median income and median house price for 42 cities.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -937,12 +911,12 @@ Figure&nbsp;24.7: A weak, moderate, and strong positive linear relationship.
 <h3 data-number="24.3.5" class="anchored" data-anchor-id="back-to-the-example"><span class="header-section-number">24.3.5</span> Back to the Example</h3>
 <p>Let’s return to the scatterplot showing the relationship between median income and median house prices and use what we have learned to describe that relationship using the context of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  median_house_price <span class="sc">~</span> median_income, <span class="at">data =</span> house_income,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Median Income"</span>,</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Median House Price"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot displaying the relationship between median income and median house price for 42 cities.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -987,7 +961,7 @@ Figure&nbsp;24.9: The two plots show the exact same data plotted using different
 <pre><code>cor(y ~ x, data = data_name)</code></pre>
 <p>For example, to compute the correlation coefficient between median incomes and median house prices, we use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(median_house_price <span class="sc">~</span> median_income, <span class="at">data =</span> house_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(median_house_price <span class="sc">~</span> median_income, <span class="at">data =</span> house_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9080798</code></pre>
 </div>
@@ -997,24 +971,24 @@ Figure&nbsp;24.9: The two plots show the exact same data plotted using different
 <p>The order of attributes in the <code>cor()</code> function is irrelevant. For example, you could use the syntax <code>cor(y ~ x, data = data_name)</code> or <code>cor(x ~ y, data = data_name)</code>. The reason we suggest using <code>y~x</code> (rather than <code>x~y</code>) is that in fitting regression models, the syntax has to be <code>y~x</code>.</p>
 </div>
 <p>The correlation between median house price and median income is 0.908. Mathematically we use the lower-case letter “r” to indicate a correlation. In our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mtext mathvariant="normal">Mdn House Price, Mdn Income</mtext></msub><mo>=</mo><mn>0.908</mn></mrow><annotation encoding="application/x-tex">
 r_{\text{Mdn House Price, Mdn Income}} = 0.908
-\]</span></p>
+</annotation></semantics></math></p>
 <p>As we interpret the value of a correlation coefficient, keep in mind the following properties:</p>
 <ul>
 <li>Correlation has no units, it is just a value.</li>
-<li>Correlation coefficients always fall between <span class="math inline">\(-1\)</span> and <span class="math inline">\(+1\)</span>, that is <span class="math inline">\(-1 \leq r \leq +1\)</span>.</li>
+<li>Correlation coefficients always fall between <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math>, that is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1 \leq r \leq +1</annotation></semantics></math>.</li>
 <li>The sign of the correlation coefficient (positive or negative) indicates the direction of the relationship.</li>
 </ul>
 <p>The size of the correlation coefficient gives us an indication of the strength of the relationship. Here are some guidelines to help you think about the strength of the relationship:</p>
 <ul>
 <li>A value of 0 would indicate no relationship.</li>
-<li>Values around <span class="math inline">\(-0.2\)</span> or <span class="math inline">\(+0.2\)</span> might indicate a weak linear relationship.</li>
-<li>Values around <span class="math inline">\(-0.5\)</span> or <span class="math inline">\(+0.5\)</span> might indicate a moderate linear relationship.</li>
-<li>Values around <span class="math inline">\(-0.8\)</span> or <span class="math inline">\(+0.8\)</span> might indicate a strong linear relationship.</li>
-<li>Values of <span class="math inline">\(-1\)</span> or <span class="math inline">\(+1\)</span> indicate a perfect linear relationship (super-duper strong).</li>
+<li>Values around <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.2</mn></mrow><annotation encoding="application/x-tex">-0.2</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>0.2</mn></mrow><annotation encoding="application/x-tex">+0.2</annotation></semantics></math> might indicate a weak linear relationship.</li>
+<li>Values around <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.5</mn></mrow><annotation encoding="application/x-tex">-0.5</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>0.5</mn></mrow><annotation encoding="application/x-tex">+0.5</annotation></semantics></math> might indicate a moderate linear relationship.</li>
+<li>Values around <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.8</mn></mrow><annotation encoding="application/x-tex">-0.8</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>0.8</mn></mrow><annotation encoding="application/x-tex">+0.8</annotation></semantics></math> might indicate a strong linear relationship.</li>
+<li>Values of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math> indicate a perfect linear relationship (super-duper strong).</li>
 </ul>
-<p>These guidelines may or may not be useful. You really have to know the substantive literature in your discipline to know for sure what values indicate a strong or weak relationship. For example, in the educational sciences most of the relationships we see with educational outcomes (e.g., GPA, test scores) have correlation values that are less than 0.4. So <span class="math inline">\(r \approx 0.5\)</span> would be considered a strong relationship.</p>
+<p>These guidelines may or may not be useful. You really have to know the substantive literature in your discipline to know for sure what values indicate a strong or weak relationship. For example, in the educational sciences most of the relationships we see with educational outcomes (e.g., GPA, test scores) have correlation values that are less than 0.4. So <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>≈</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">r \approx 0.5</annotation></semantics></math> would be considered a strong relationship.</p>
 <p>Returning to our example, the correlation coefficient of 0.908 indicates a strong linear relationship between median income and median house prices. The positive value of the correlation coefficient also indicates that the relationship between median income and median house prices is positive. That is, cities with higher median incomes also tend to have higher median house prices.</p>
 <p><br></p>
 <section id="correlation-only-measures-a-linear-relationship" class="level3" data-number="24.5.1">
@@ -1025,7 +999,7 @@ r_{\text{Mdn House Price, Mdn Income}} = 0.908
 <div id="fig-daylight" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Hours of daylight versus day of the year for $n=75$ days in Minneapolis.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-daylight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.10: Hours of daylight versus day of the year for <span class="math inline">\(n=75\)</span> days in Minneapolis.
+Figure&nbsp;24.10: Hours of daylight versus day of the year for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>75</mn></mrow><annotation encoding="application/x-tex">n=75</annotation></semantics></math> days in Minneapolis.
 </figcaption>
 <div aria-describedby="fig-daylight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="08-01-scatterplot-correlation_files/figure-html/fig-daylight-1.png" class="img-fluid figure-img" alt="Hours of daylight versus day of the year for $n=75$ days in Minneapolis." width="672">
@@ -1034,7 +1008,7 @@ Figure&nbsp;24.10: Hours of daylight versus day of the year for <span class="mat
 </div>
 </div>
 </div>
-<p>Here there is a perfect relationship between day of the year and hours of daylight. If you fitted a nonlinear model here, your “line” would match the data exactly (no residual error!). But the correlation coefficient does not reflect that. The correlation coefficient would suggest that the relationship between day of the year and hours of daylight is weak (<span class="math inline">\(r=-0.34\)</span>).</p>
+<p>Here there is a perfect relationship between day of the year and hours of daylight. If you fitted a nonlinear model here, your “line” would match the data exactly (no residual error!). But the correlation coefficient does not reflect that. The correlation coefficient would suggest that the relationship between day of the year and hours of daylight is weak (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mi>−</mi><mn>0.34</mn></mrow><annotation encoding="application/x-tex">r=-0.34</annotation></semantics></math>).</p>
 <p>Another situation in which correlation can mislead is when you have subpopulations in your data. Here is an example of that.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -1043,7 +1017,7 @@ Figure&nbsp;24.10: Hours of daylight versus day of the year for <span class="mat
 <div id="fig-salary-neuroticism-01" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-salary-neuroticism-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.11: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company.
+Figure&nbsp;24.11: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">n=1000</annotation></semantics></math> employees from a Fortune 500 company.
 </figcaption>
 <div aria-describedby="fig-salary-neuroticism-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-01-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company.">
@@ -1057,7 +1031,7 @@ Figure&nbsp;24.11: Salary versus neuroticism (0 = not at all neurotic; 7= very n
 <div id="fig-salary-neuroticism" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company. The data are colored by education level.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-salary-neuroticism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.12: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <span class="math inline">\(n=1000\)</span> employees from a Fortune 500 company. The data are colored by education level.
+Figure&nbsp;24.12: Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">n=1000</annotation></semantics></math> employees from a Fortune 500 company. The data are colored by education level.
 </figcaption>
 <div aria-describedby="fig-salary-neuroticism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="08-01-scatterplot-correlation_files/figure-html/fig-salary-neuroticism-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Salary versus neuroticism (0 = not at all neurotic; 7= very neurotic) as measured by the Big Five personality survey for $n=1000$ employees from a Fortune 500 company. The data are colored by education level.">
@@ -1132,13 +1106,14 @@ Figure&nbsp;24.12: Salary versus neuroticism (0 = not at all neurotic; 7= very n
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

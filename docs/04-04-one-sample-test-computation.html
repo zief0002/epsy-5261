@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -86,14 +86,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,35 +137,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -192,7 +164,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -449,7 +423,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -699,7 +673,7 @@ window.Quarto = {
 
 <p>In this chapter you will learn how to carry out a one-sample <em>t</em>-test using R to statistically compare a sample of data to a standard by accounting for the sampling uncertainty.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -709,7 +683,7 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>teen_sleep <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 75 × 3
    bedtime  wakeup  hrs_sleep
@@ -730,15 +704,15 @@ window.Quarto = {
 <p><br></p>
 <section id="teen-sleep-a-quick-re-cap" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="teen-sleep-a-quick-re-cap"><span class="header-section-number">10.1</span> Teen Sleep: A Quick Re-Cap</h2>
-<p>In this case study, researchers collected data on the bedtime, wake-up time, and hours slept for a sample of <span class="math inline">\(n=75\)</span> American teens in Grades 9–12. These data were used to evaluate the following statistical hypotheses For example, here are a set of potential hypotheses about teen sleep:</p>
-<p><span class="math display">\[
+<p>In this case study, researchers collected data on the bedtime, wake-up time, and hours slept for a sample of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>75</mn></mrow><annotation encoding="application/x-tex">n=75</annotation></semantics></math> American teens in Grades 9–12. These data were used to evaluate the following statistical hypotheses For example, here are a set of potential hypotheses about teen sleep:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>9</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 9 \\[1ex]
 H_A: \mu &lt; 9
 \end{split}
-\]</span> The analysis started by importing the data and visualizing and numerically describing the amount of sleep for the teens in our sample.</p>
+</annotation></semantics></math> The analysis started by importing the data and visualizing and numerically describing the amount of sleep for the teens in our sample.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create density plot</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> hrs_sleep, <span class="at">data =</span> teen_sleep,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>, </span>
@@ -748,7 +722,7 @@ H_A: \mu &lt; 9
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   response      min       Q1   median       Q3      max     mean       sd  n
 1 hrs_sleep 4.166667 6.541667 7.583333 8.291667 11.08333 7.391111 1.522724 75
@@ -768,20 +742,20 @@ Figure&nbsp;10.1: Density plot of the hours of sleep for 75 teenagers.
 </div>
 </div>
 </div>
-<p>These analyses suggest that, on average, the 75 teens in the sample are not getting the recommended 9 hours of sleep a night. They seem to be getting much less sleep on average, with a typical teen in the sample getting around 7.5 hours of sleep a night (<em>SD</em> = 1.5). To evaluate whether this lower amount of sleep we are seeing in the sample data is only a function of sampling uncertainty, we will carry out a one-sample <em>t</em>-test. To do this, we need to convert our sample mean to a <em>t</em>-value and then evaluate it in a <em>t</em>-distribution with <span class="math inline">\(n-1\)</span> <em>df</em>.</p>
-<p><span class="math display">\[
+<p>These analyses suggest that, on average, the 75 teens in the sample are not getting the recommended 9 hours of sleep a night. They seem to be getting much less sleep on average, with a typical teen in the sample getting around 7.5 hours of sleep a night (<em>SD</em> = 1.5). To evaluate whether this lower amount of sleep we are seeing in the sample data is only a function of sampling uncertainty, we will carry out a one-sample <em>t</em>-test. To do this, we need to convert our sample mean to a <em>t</em>-value and then evaluate it in a <em>t</em>-distribution with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math> <em>df</em>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">.</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">M</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow><mo>−</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">.</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">M</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow></mrow><mrow><mi>S</mi><mi>E</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
-\]</span></p>
-<p>We have the observed mean (<span class="math inline">\(\bar{x}=7.39\)</span>), and the hypothesized mean (<span class="math inline">\(\mu=9\)</span>) from the data and null hypothesis, respectively. To obtain the <em>SE</em> we bootstrapped from the data.</p>
+</annotation></semantics></math></p>
+<p>We have the observed mean (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>7.39</mn></mrow><annotation encoding="application/x-tex">\bar{x}=7.39</annotation></semantics></math>), and the hypothesized mean (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu=9</annotation></semantics></math>) from the data and null hypothesis, respectively. To obtain the <em>SE</em> we bootstrapped from the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 1000 times </span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign these into an object called bootstrap_means</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>bootstrap_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries to get SE</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response      min       Q1   median       Q3      max     mean        sd    n
 1   result 6.837778 7.278889 7.391667 7.509167 8.023333 7.395381 0.1699168 1000
@@ -790,12 +764,12 @@ t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
 </div>
 </div>
 <p>Based on the bootstrapping, the <em>SE</em> is 0.170. Putting this together, we compute the <em>t</em>-value as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>7.39</mn><mo>−</mo><mn>9</mn></mrow><mn>.170</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>9.47</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 t &amp;= \frac{7.39 - 9}{.170} \\[2ex]
 &amp;= -9.47
 \end{split}
-\]</span> We can then sketch the <em>t</em>-distribution with 74 <em>df</em>, include the <em>t</em>-value we just computed, and shade the area under the density plot that corresponds to the alternative hypothesis.</p>
+</annotation></semantics></math> We can then sketch the <em>t</em>-distribution with 74 <em>df</em>, include the <em>t</em>-value we just computed, and shade the area under the density plot that corresponds to the alternative hypothesis.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-t-dist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (t-value of 0).  The blue shaded area represents the t-values we expect if the null hypothesis is true. The pink dot represents the observed t-value of -9.47.">
@@ -810,7 +784,7 @@ Figure&nbsp;10.2: Density plot of the <em>t</em>-distribution of the sample mean
 </div>
 </div>
 </div>
-<p>The <em>p</em>-value (proportion of the pink shaded area to the whole area under the curve) is quite small. Because it is so small, it is difficult to even estimate its size—<span class="math inline">\(p&lt;.001\)</span>. This small <em>p</em>-value leads us to <em>reject the null hypothesis</em>, indicating that the data suggest that the average amount of sleep teens are getting is likely less than 9 hours and that this result is not only because of sampling uncertainty. That is, the empirical evidence is pointing us to the conclusion that teens are not getting the recommended amount of sleep.</p>
+<p>The <em>p</em>-value (proportion of the pink shaded area to the whole area under the curve) is quite small. Because it is so small, it is difficult to even estimate its size—<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>.001</mn></mrow><annotation encoding="application/x-tex">p&lt;.001</annotation></semantics></math>. This small <em>p</em>-value leads us to <em>reject the null hypothesis</em>, indicating that the data suggest that the average amount of sleep teens are getting is likely less than 9 hours and that this result is not only because of sampling uncertainty. That is, the empirical evidence is pointing us to the conclusion that teens are not getting the recommended amount of sleep.</p>
 <p><br></p>
 </section>
 <section id="using-the-t_test-function" class="level2" data-number="10.2">
@@ -824,16 +798,16 @@ Figure&nbsp;10.2: Density plot of the <em>t</em>-distribution of the sample mean
 </ul>
 <p>To carry out the one-sample <em>t</em>-test in the earlier case study, we will use the following syntax. We assign the results of this <em>t</em>-test to an object (in this case, I called it <code>my_t</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep, <span class="at">mu =</span> <span class="dv">9</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>hrs_sleep, <span class="at">data =</span> teen_sleep, <span class="at">mu =</span> <span class="dv">9</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To see the results of the test, you can just call <code>my_t</code>, or whatever you named the object storing the <em>t</em>-test results. The output, however, is a bit unorganized. Instead, we are going to use two functions from the <code>{educate}</code> package to view the results of the <em>t</em>-test: <code>t_results()</code> and <code>plot_t_dist()</code>. To use these functions, we will need to load the <code>{educate}</code> library. Then, we can use each of these functions by supplying it with the name of the object storing our <em>t</em>-test results. We begin by using the <code>t_results()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load educate library</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load educate library</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -849,22 +823,22 @@ p = 4.328872e-14
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>This function outputs the null and alternative hypotheses being tested in the one-sample <em>t</em>-test. It also provide the observed <em>t</em>-value (<span class="math inline">\(-9.15\)</span>) and the <em>df</em> (74) for the <em>t</em>-distribution. Finally, it outputs the <em>p</em>-value for the test. When <em>p</em>-values are really small, R will output the <em>p</em>-value in <em>scientific notation</em>. The <code>e-14</code> part of the <em>p</em>-value means <span class="math inline">\(\times 10^{-14}\)</span>, which means, move the decimal point 14 places to the left. Thus the <em>p</em>-value is:</p>
-<p><span class="math display">\[
+<p>This function outputs the null and alternative hypotheses being tested in the one-sample <em>t</em>-test. It also provide the observed <em>t</em>-value (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>9.15</mn></mrow><annotation encoding="application/x-tex">-9.15</annotation></semantics></math>) and the <em>df</em> (74) for the <em>t</em>-distribution. Finally, it outputs the <em>p</em>-value for the test. When <em>p</em>-values are really small, R will output the <em>p</em>-value in <em>scientific notation</em>. The <code>e-14</code> part of the <em>p</em>-value means <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>×</mi><msup><mn>10</mn><mrow><mi>−</mi><mn>14</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\times 10^{-14}</annotation></semantics></math>, which means, move the decimal point 14 places to the left. Thus the <em>p</em>-value is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>p</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>4.328872</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>14</mn></mrow></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.0000000000000433</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 p &amp;= 4.328872 \times 10^{-14} \\[2ex]
 &amp;= .0000000000000433
 \end{split}
-\]</span> Note that the <em>t</em>-value we get from this function was different than the <em>t</em>-value we got earlier. This is because the <em>SE</em> computed by the <code>t_test()</code> function is different than the <em>SE</em> we get when we bootstrap. Because of this, it is very important to indicate the method you used to get the <em>t</em>-value; was it based on bootstrapping a <em>SE</em>? Or did you use the <code>t_test()</code> function, which uses a <em>normal-based</em> method for computing the <em>SE</em>?</p>
-<p>We can also use the <code>plot_t_dist()</code> to visualize the <em>t</em>-distribution with 74 <em>df</em>, where our observed <em>t</em>-value of <span class="math inline">\(-9.15\)</span>, falls in this distribution, and the shaded area under the curve associated with the <em>p</em>-value based on the specified alternative hypothesis. The results form the <em>t</em>-test will also be printed above the plot.</p>
+</annotation></semantics></math> Note that the <em>t</em>-value we get from this function was different than the <em>t</em>-value we got earlier. This is because the <em>SE</em> computed by the <code>t_test()</code> function is different than the <em>SE</em> we get when we bootstrap. Because of this, it is very important to indicate the method you used to get the <em>t</em>-value; was it based on bootstrapping a <em>SE</em>? Or did you use the <code>t_test()</code> function, which uses a <em>normal-based</em> method for computing the <em>SE</em>?</p>
+<p>We can also use the <code>plot_t_dist()</code> to visualize the <em>t</em>-distribution with 74 <em>df</em>, where our observed <em>t</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>9.15</mn></mrow><annotation encoding="application/x-tex">-9.15</annotation></semantics></math>, falls in this distribution, and the shaded area under the curve associated with the <em>p</em>-value based on the specified alternative hypothesis. The results form the <em>t</em>-test will also be printed above the plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-t-dist2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The red vertical line represents the observed t-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated *p*-value of 4.33 times 10^{-14} = .0000000000000433$ that corresponds to the alternative hypothesis that mu<9.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-t-dist2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated <em>p</em>-value of <span class="math inline">\(4.33\times10^{-14} = .0000000000000433\)</span> that corresponds to the alternative hypothesis that <span class="math inline">\(\mu&lt;9\)</span>.
+Figure&nbsp;10.3: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated <em>p</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.33</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>14</mn></mrow></msup><mo>=</mo><mn>.0000000000000433</mn></mrow><annotation encoding="application/x-tex">4.33\times10^{-14} = .0000000000000433</annotation></semantics></math> that corresponds to the alternative hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu&lt;9</annotation></semantics></math>.
 </figcaption>
 <div aria-describedby="fig-t-dist2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist2-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours (*t* value of 0).  The red vertical line represents the observed t-value of -9.15. The shaded area under the curve to the left of -9.15 shows the associated *p*-value of 4.33 times 10^{-14} = .0000000000000433$ that corresponds to the alternative hypothesis that mu<9.">
@@ -874,9 +848,9 @@ Figure&nbsp;10.3: Density plot of the <em>t</em>-distribution of the sample mean
 </div>
 </div>
 <p>The <code>t_test()</code> function uses a different method for computing the standard error than bootstrapping. It computes the standard error using a mathematical formula, namely,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>E</mi><mo>=</mo><mfrac><mrow><mi>S</mi><mi>D</mi></mrow><msqrt><mi>n</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">
 SE = \frac{SD}{\sqrt{n}}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where, <em>SD</em> is the sample standard deviation, and <em>n</em> is the sample size. This method of computing the standard error approximates the true standard error by employing information about the sample. In some cases this approximation is accurate and in other cases it is not. We will study this more in <a href="04-05-one-sample-test-assumptions.html" class="quarto-xref"><span>Chapter 11</span></a>.</p>
 <!-- :::fyi -->
 <!-- The only alternative hypothesis that gets tested in practice is the two-sided alternative hypothesis ($\neq$). Moving forward, we will only use the two-sided alternative hypothesis in our hypothesis tests. -->
@@ -887,11 +861,11 @@ SE = \frac{SD}{\sqrt{n}}
 <h2 data-number="10.3" class="anchored" data-anchor-id="case-study-2-continuous-assessment"><span class="header-section-number">10.3</span> Case Study 2: Continuous Assessment</h2>
 <p>To study the practice of continuous assessment in Ethiopian primary schools, <span class="citation" data-cites="Abejehu:2016">Abejehu (<a href="#ref-Abejehu:2016" role="doc-biblioref">2016</a>)</span> collected survey responses from several primary school teachers. One tenet of continuous assessment is that to evaluate learning, teachers need to understand students’ prior knowledge. One item on the survey asked teachers about this: “I always assess students’ prior knowledge before starting new lesson.” Teachers responded on a Likert scale, with options: Strongly Agree (4), Agree (3), Disagree (2), and Strongly Disagree (1). The responses for 30 teachers is given in the <code>prior_knowledge</code> attribute of the <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">continuous-assessment.csv</a> file (see <a href="https://zief0002.github.io/epsy-5261/codebooks/continuous-assessment.html">codebook</a> for additional detail).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>continuous_assessment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>continuous_assessment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>continuous_assessment</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 30 × 3
    prior_knowledge only_achievement prompt_feedback
@@ -910,14 +884,14 @@ SE = \frac{SD}{\sqrt{n}}
 </div>
 </div>
 <p>To evaluate whether Ethiopian primary teachers are measuring students’ prior knowledge, we will analyze the data in the <code>prior_knowledge</code> attribute. Because there is not substantive work on whether teachers actually do or do not assess students’ prior knowledge, we don’t have <em>a priori</em> conjectures about whether they will generally agree (3 or 4) or disagree (1 or 2) with the statement in the survey item. Because of that, we will examine the following set of potential hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>2.5</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>2.5</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 2.5 \\[1ex]
 H_A: \mu \neq 2.5
 \end{split}
-\]</span> Before we carry out a hypothesis test, we should always explore the data by creating visualizations and numerical summaries of the attribute. Because the data in the attribute is more discrete (can only be 1–4 with no values in between), we will create a histogram rather than a density plot of the responses. We will also set the <code>bins=</code> argument to <code>4</code> since there are only four possible response options.</p>
+</annotation></semantics></math> Before we carry out a hypothesis test, we should always explore the data by creating visualizations and numerical summaries of the attribute. Because the data in the attribute is more discrete (can only be 1–4 with no values in between), we will create a histogram rather than a density plot of the responses. We will also set the <code>bins=</code> argument to <code>4</code> since there are only four possible response options.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bins =</span> <span class="dv">4</span>,</span>
@@ -928,7 +902,7 @@ H_A: \mu \neq 2.5
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         response min Q1 median Q3 max     mean        sd  n missing
 1 prior_knowledge   1  2    2.5  3   4 2.433333 0.8976342 30       0</code></pre>
@@ -948,11 +922,11 @@ Figure&nbsp;10.4: Histogram of teachers responses to the survey item: I always a
 </div>
 <p>The histogram suggests that the distribution of responses is somewhat symmetric, with roughly an equal number of teachers assessing (3 and 4) and not assessing (1 and 2) students’ prior knowledge. Most teachers did not indicate strong agreement nor strong disagreement. The average response is 2.43, which indicates that a typical teacher does not assess students’ prior knowledge. However, the relatively large <em>SD</em> (0.90) suggests that there is a great deal of individual variation in the responses. Next, we carry out a one-sample <em>t</em>-test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment, <span class="at">mu =</span> <span class="fl">2.5</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -967,13 +941,13 @@ p = 0.6871492
 
 --------------------------------------------------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-t-dist3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that mu is not equal to 2.5.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.5: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated <em>p</em>-value of .687 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq2.5\)</span>.
+Figure&nbsp;10.5: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated <em>p</em>-value of .687 that corresponds to the alternative hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>≠</mo><mn>2.5</mn></mrow><annotation encoding="application/x-tex">\mu\neq2.5</annotation></semantics></math>.
 </figcaption>
 <div aria-describedby="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean response for all Ethiopian primary school teachers is 2.5 (*t* value of 0).  The red vertical line represents the observed *t*-value of -0.41. The shaded area under the curve to the left of -0.41 and to the right of +0.41 shows the associated *p*-value of .687 that corresponds to the alternative hypothesis that mu is not equal to 2.5.">
@@ -993,18 +967,18 @@ Figure&nbsp;10.5: Density plot of the <em>t</em>-distribution of the sample mean
 <section id="case-study-house-prices" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="case-study-house-prices"><span class="header-section-number">10.4</span> Case Study: House Prices</h2>
 <p>The average price of a single-family house in Minneapolis is $322.46k (as of May 2023). Is the average price of a house near the University of Minnesota different than that? The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv">zillow.csv</a> include the listing price (in thousands of dollars) for 15 houses in neighborhoods adjacent to the UMN campus (e.g., Como, Marcy-Holmes, Cedar-Riverside). We will use these data to evaluate the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>322.46</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>322.46</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
 H_A: \mu \neq 322.46
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>zillow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 1
    price
@@ -1025,7 +999,7 @@ H_A: \mu \neq 322.46
 14  500 
 15  399 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>price, <span class="at">data =</span> zillow,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="dv">75</span>,</span>
@@ -1036,7 +1010,7 @@ H_A: \mu \neq 322.46
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response   min  Q1 median      Q3   max    mean       sd  n missing
 1    price 249.9 327  399.9 499.995 549.9 404.966 102.4312 15       0</code></pre>
@@ -1056,11 +1030,11 @@ Figure&nbsp;10.6: Histogram of the asking price for 15 houses in neighborhoods a
 </div>
 <p>The sample distribution is left-skewed indicating that more of the houses are at the higher end of the price range. A typical single-family house near the UMN campus costs a little over 400 thousand dollars (<em>M</em> = $404.97k). There is a lot of variation in house price, with some as low as $250k and others as high as $550k (<em>SD</em> = $102.43k). The sample evidence supports the hypothesis that the average price of a house near the UMN campus is different than the average house in Minneapolis. Next, we will carry out a one-sample <em>t</em>-test to determine whether this difference is more than we expect because of sampling variation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow, <span class="at">mu =</span> <span class="fl">322.46</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -1075,13 +1049,13 @@ p = 0.007533288
 
 --------------------------------------------------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-t-dist4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (*t* value of 0).  The red vertical line represents the observed *t*-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated *p*-value of .004 that corresponds to the alternative hypothesis that mu > $322.46k.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-t-dist4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.7: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated <em>p</em>-value of .004 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu&gt;\$322.46k\)</span>.
+Figure&nbsp;10.7: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (<em>t</em> value of 0). The red vertical line represents the observed <em>t</em>-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated <em>p</em>-value of .004 that corresponds to the alternative hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&gt;</mo><mi>$</mi><mn>322.46</mn><mi>k</mi></mrow><annotation encoding="application/x-tex">\mu&gt;\$322.46k</annotation></semantics></math>.
 </figcaption>
 <div aria-describedby="fig-t-dist4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-04-one-sample-test-computation_files/figure-html/fig-t-dist4-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the *t*-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the mean cost for all houses near campus is $322.46k (*t* value of 0).  The red vertical line represents the observed *t*-value of 3.12. The shaded area under the curve to the right of 3.12 shows the associated *p*-value of .004 that corresponds to the alternative hypothesis that mu > $322.46k.">
@@ -1090,7 +1064,7 @@ Figure&nbsp;10.7: Density plot of the <em>t</em>-distribution of the sample mean
 </div>
 </div>
 </div>
-<p>The results of the <em>t</em>-test, <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .008\)</span>, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
+<p>The results of the <em>t</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>14</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3.12</mn></mrow><annotation encoding="application/x-tex">t(14)=3.12</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.008</mn></mrow><annotation encoding="application/x-tex">p = .008</annotation></semantics></math>, indicate we should reject the null hypothesis. This suggests that the empirical evidence is consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
 <p><br></p>
 </section>
 <section id="references" class="level2" data-number="10.5">
@@ -1156,13 +1130,14 @@ Abejehu, S. B. (2016). The <span>Practice</span> of <span>Continuous</span> <spa
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -690,7 +664,7 @@ window.Quarto = {
 <ol type="1">
 <li>The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”).</li>
 <li>The values in the population are <em>independent</em> from each other.</li>
-<li>The quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+<li>The quantities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(\hat{p})</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(1-\hat{p})</annotation></semantics></math> are both greater than 10, where <em>n</em> is the sample size and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math> is the sample proportion value.</li>
 </ol>
 <p>The assumptions for a CI to estimate the differences in means between two groups are:</p>
 <ol type="1">
@@ -702,7 +676,7 @@ window.Quarto = {
 <ol type="1">
 <li>The values in the two populations both follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”) for each group being compared.</li>
 <li>The values in the population are <em>independent</em> from each other.</li>
-<li>For both groups, the quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size used in the group and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+<li>For both groups, the quantities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(\hat{p})</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(1-\hat{p})</annotation></semantics></math> are both greater than 10, where <em>n</em> is the sample size used in the group and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math> is the sample proportion value.</li>
 </ol>
 <p><br></p>
 </section>
@@ -724,7 +698,7 @@ Figure&nbsp;21.1: This figure is a metaphor for statistical bias.
 </div>
 </div>
 <p>In this picture the search area, which represents the estimate of where Arthur thought they lost their keys, is inaccurate—the actual keys (population parameter) are not inside the bounds of the search area (inside the CI). This is because the search location (sample statistic) was initially produced by a biased method.</p>
-<p>For example, in <a href="07-02-confidence-intervals-computation.html" class="quarto-xref">Chapter&nbsp;<span>20</span></a> we computed a CI for the difference in the average amount of change in IQ scores between users who started using marijuana as adults and those who started using marijuana as teens. The CI, <span class="math inline">\([1.11,~11.27]\)</span>, indicated the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 and 11.26. Unfortunately the sample of users was not chosen randomly—they were all volunteers. Because our sample was not chosen using an unbiased sampling method, it is highly likely that the CI produced is inaccurate. That is, the true population difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is PROBABLY NOT between 1.11 and 11.26.</p>
+<p>For example, in <a href="07-02-confidence-intervals-computation.html" class="quarto-xref">Chapter&nbsp;<span>20</span></a> we computed a CI for the difference in the average amount of change in IQ scores between users who started using marijuana as adults and those who started using marijuana as teens. The CI, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>1.11</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>11.27</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[1.11,~11.27]</annotation></semantics></math>, indicated the difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is between 1.11 and 11.26. Unfortunately the sample of users was not chosen randomly—they were all volunteers. Because our sample was not chosen using an unbiased sampling method, it is highly likely that the CI produced is inaccurate. That is, the true population difference in the average amount of change in IQ scores between people who became persistent marijuana users as adults than those that became persistent marijuana users as teens is PROBABLY NOT between 1.11 and 11.26.</p>
 <p><br></p>
 <section id="deeper-understanding-of-unbiasedness-and-accuracy" class="level3" data-number="21.2.1">
 <h3 data-number="21.2.1" class="anchored" data-anchor-id="deeper-understanding-of-unbiasedness-and-accuracy"><span class="header-section-number">21.2.1</span> Deeper Understanding of Unbiasedness and Accuracy</h3>
@@ -743,7 +717,7 @@ Figure&nbsp;21.2: A thought experiment in which we randomly sample n=25 observat
 </div>
 </div>
 </div>
-<p>A plot of the 100 CIs is shown in <a href="#fig-unbiased-cis" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of <span class="math inline">\([9.64,~10.80]\)</span>. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it’s CI was <span class="math inline">\([9.34,~10.88]\)</span>, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in <a href="#fig-unbiased-cis" class="quarto-xref">Figure&nbsp;<span>21.3</span></a> are red. Those CIs do not include 10 as a plausible value.</p>
+<p>A plot of the 100 CIs is shown in <a href="#fig-unbiased-cis" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>. The population mean is shown as the vertical line at 10. Some of the CIs included the value of 10. For example, the first sample produced a CI of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>9.64</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>10.80</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[9.64,~10.80]</annotation></semantics></math>. It included 10 as a plausible value. This CI is the lowest CI on the plot. It is colored grey since it included the value of 10 as a plausible value. Similarly the second sample also included 10 as a plausible value, it’s CI was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>9.34</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>10.88</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[9.34,~10.88]</annotation></semantics></math>, so it is also colored grey (it is the second lowest CI in the plot). Some of the confidence intervals in <a href="#fig-unbiased-cis" class="quarto-xref">Figure&nbsp;<span>21.3</span></a> are red. Those CIs do not include 10 as a plausible value.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-unbiased-cis" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The 100 CIs for each of the 100 randomly drawn samples (unbiased sampling method). The vertical black line represents the value of 10, the population mean. Some of the CIs (grey) include the value of 10, while others do not (red).">
@@ -798,17 +772,17 @@ Figure&nbsp;21.4: The 100 CIs for each of the 100 samples drawn using a biased s
 <section id="changing-the-confidence-level" class="level3" data-number="21.3.1">
 <h3 data-number="21.3.1" class="anchored" data-anchor-id="changing-the-confidence-level"><span class="header-section-number">21.3.1</span> Changing the Confidence Level</h3>
 <p>We can change the method we use to produce the CI to raise or lower the accuracy level. For example, rather than creating a 95% CI, we could use a method that is 99% accurate (99% of the samples will produce a grey CI). In order to do this, we change the multiplication factor in the formula for the CI. For example, the following was the formula we introduced to compute a CI, which produces a 95% CI:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">
 \text{Sample Estimate} \pm 2 \times \text{SE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>To create a 99% CI we use:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mn>3</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">
 \text{Sample Estimate} \pm 3 \times \text{SE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>And to produce a 68% CI we use:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mn>1</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">
 \text{Sample Estimate} \pm 1 \times \text{SE}
-\]</span> The higher the confidence level, the larger the multiplication factor in the margin of error. Think about how this impacts the CI. For example, in our marijuana case study the 95% CI was <span class="math inline">\([1.11,~11.26]\)</span>. A 99% CI for this difference is <span class="math inline">\([-0.62,~13.00]\)</span>. The margin of error is bigger which makes the interval width wider. That is, we have more uncertainty (i.e., less <em>precision</em>) in our estimate.</p>
+</annotation></semantics></math> The higher the confidence level, the larger the multiplication factor in the margin of error. Think about how this impacts the CI. For example, in our marijuana case study the 95% CI was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>1.11</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>11.26</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[1.11,~11.26]</annotation></semantics></math>. A 99% CI for this difference is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mn>0.62</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>13.00</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.62,~13.00]</annotation></semantics></math>. The margin of error is bigger which makes the interval width wider. That is, we have more uncertainty (i.e., less <em>precision</em>) in our estimate.</p>
 <p>To see how the accuracy changes when using a 99% CI (rather than a 95% CI) we can carry out a thought experiement. In this thought experiment (using an unbiased sampling method), we will draw 100 different samples of size 25 and produce a 99% CI for each of the 100 samples. The result is shown in <a href="#fig-unbiased-cis-99" class="quarto-xref">Figure&nbsp;<span>21.5</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -832,7 +806,7 @@ Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbias
 <h3 data-number="21.3.2" class="anchored" data-anchor-id="using-r-to-obtain-a-99-ci"><span class="header-section-number">21.3.2</span> Using R to Obtain a 99% CI</h3>
 <p>To change the confidence level for our CI, we need to include the argument <code>conf.level=</code> in the <code>t_test()</code> function. For example, to obtain a 99% CI for the difference in the average amount of change in IQ scores between users who started using marijuana as adults and those who started using marijuana as teens, we use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -841,7 +815,7 @@ Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbias
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cannabis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 37 × 2
    iq_change cannabis_dep
@@ -858,7 +832,7 @@ Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbias
 10        -7 Adult       
 # ℹ 27 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Include conf.level=</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  iq_change <span class="sc">~</span>  cannabis_dep, </span>
@@ -868,7 +842,7 @@ Figure&nbsp;21.5: The 99% CIs for each of the 100 randomly drawn samples (unbias
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean in group Adult mean in group Teen      lower   upper level
 1           -2.071429           -8.26087 -0.6230182 13.0019  0.99</code></pre>
@@ -915,19 +889,19 @@ Figure&nbsp;21.7: This figure is a metaphor for low precision. Note there is muc
 </div>
 </div>
 <p>Numerically, the margin of error is half of the range of the confidence interval and is expressed as the part of the CI that gets added and subtracted from the sample estimate. For example the two CIs presented in the previous paragraph have a margin of error of $30,000 and $200, respectively. Their formulas to produce the CIs would be:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mn>50000</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>30000</mn><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>20000</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>80000</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>50000</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>200</mn><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>49800</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>50200</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 50000 &amp;\pm 30000 = [20000,~80000]\\[2ex]
 50000 &amp;\pm 200 = [49800,~50200]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Recall that the way we obtain the margin of error (when we are estimating the 95% CI for a single mean) is:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Margin of Error</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mfrac><mtext mathvariant="normal">SD</mtext><msqrt><mi>n</mi></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Margin of Error} &amp;= 2 \times \text{SE} \\[2ex]
 &amp;=2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where the value 2 was a multiplication factor related to the confidence level, SD is the sample standard deviation, and <em>n</em> is the sample size. To improve precision, we need to make the margin of error smaller (less uncertainty). How can we do this?</p>
 <ul>
 <li>Use a smaller multiplication factor than 2 (i.e., make the confidence level smaller)</li>
@@ -940,14 +914,14 @@ Figure&nbsp;21.7: This figure is a metaphor for low precision. Note there is muc
 <p>Larger sample sizes result in more precision (less uncertainty) in our estimates.</p>
 </div>
 <p>Thinking about this relationship between sample size and precision of the estimate prior to collecting any data can help you plan a more meaningful study. For example, say you wanted to be able to estimate the starting salary of teachers so that the margin of error was no more than $1,000 (a range of $2,000 in the CI). How big a sample size might you need? You could substitute the desired margin of error into our formula and solve for <em>n</em>.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Margin of Error</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>1000</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mfrac><mtext mathvariant="normal">SD</mtext><msqrt><mi>n</mi></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Margin of Error} &amp;= 2 \times \text{SE} \\[2ex]
 1000 &amp;=2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>To solve for <em>n</em>, we also need an estimate for the SD we might expect in the data we collect. Often good guesses for this can be found in previous studies or the substantive literature. In our example, based on previous data, we expect that a reasonable guess for the SD might be about $10,000. Including this in our formula and solving for sample size:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mn>1000</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mfrac><mn>10000</mn><msqrt><mi>n</mi></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>500</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>10000</mn><msqrt><mi>n</mi></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>500</mn><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mi>n</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>10000</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msqrt><mi>n</mi></msqrt></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>10000</mn><mn>500</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msqrt><mi>n</mi></msqrt></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>20</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mn>20</mn><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>400</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 1000 &amp;=2 \times \frac{10000}{\sqrt{n}} \\[2ex]
 500 &amp;= \frac{10000}{\sqrt{n}} \\[2ex]
@@ -957,7 +931,7 @@ Figure&nbsp;21.7: This figure is a metaphor for low precision. Note there is muc
 n &amp;= 20^2 \\[2ex]
 n &amp;= 400
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>To obtain a 95% CI with a margin of error of $1,000, we need a sample of salaries from 400 starting teachers (assuming that the SD in the data is $10,000).</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
@@ -1027,13 +1001,14 @@ n &amp;= 400
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

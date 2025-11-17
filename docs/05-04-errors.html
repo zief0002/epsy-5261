@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,35 +82,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -137,7 +109,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -394,7 +368,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -655,13 +629,13 @@ window.Quarto = {
 <section id="type-i-errors" class="level3" data-number="16.1.1">
 <h3 data-number="16.1.1" class="anchored" data-anchor-id="type-i-errors"><span class="header-section-number">16.1.1</span> Type I Errors</h3>
 <p>Anytime we reject the null hypothesis in a hypothesis test, we might make what is called a <em>Type I error</em>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> A Type I error is rejecting the null hypothesis when it is, in fact, true. In our example this would mean concluding that the average amount of sleep for all teens was less than 9 hours, when in fact it really wasn’t.</p>
-<p>Unfortunately, when we reject the null hypothesis, we can never know if we made a Type I error or not. In order to determine that, you would actually need to know what the population mean was, in which case you wouldn’t have to test what it was. While we can’t know if we made a Type I error, we can set the probability of making a Type I error. The probability of making a Type I error is called <span class="math inline">\(\alpha\)</span> (alpha)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and is the value we compare our <em>p</em>-value to. In the social sciences, this probability is almost always .05. That is why we compare our <em>p</em>-value to .05 in order to decide whether to reject the null hypothesis.</p>
+<p>Unfortunately, when we reject the null hypothesis, we can never know if we made a Type I error or not. In order to determine that, you would actually need to know what the population mean was, in which case you wouldn’t have to test what it was. While we can’t know if we made a Type I error, we can set the probability of making a Type I error. The probability of making a Type I error is called <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> (alpha)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and is the value we compare our <em>p</em>-value to. In the social sciences, this probability is almost always .05. That is why we compare our <em>p</em>-value to .05 in order to decide whether to reject the null hypothesis.</p>
 <p><br></p>
 </section>
 <section id="type-ii-errors" class="level3" data-number="16.1.2">
 <h3 data-number="16.1.2" class="anchored" data-anchor-id="type-ii-errors"><span class="header-section-number">16.1.2</span> Type II Errors</h3>
 <p>A <em>Type II error</em> is failing to reject the null hypothesis when it is, in fact, false. For example, if we had found a <em>p</em>-value in the teen sleep case study that was bigger than .05, we would have failed to reject the null hypothesis. In this case, our conclusion would have been that the average amount of sleep for all teens was NOT less than 9 hours. Once again, once you have drawn a conclusion about the null hypothesis, there is some probability that the conclusion you drew was wrong.</p>
-<p>Similar to our potential for making an error when we reject a null hypothesis, we can never know for sure whether we have made a Type II error or not after we fail to reject a null hypothesis. We can only know the probability of making a Type II error which is conventionally termed <span class="math inline">\(\beta\)</span> (beta)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The value of <span class="math inline">\(\beta\)</span> is somewhat complex, but has an inverse relationship with the value of <span class="math inline">\(\alpha\)</span>, such that as the value of <span class="math inline">\(\alpha\)</span> gets smaller, the value of <span class="math inline">\(\beta\)</span> gets larger, and vice versa. This means that if you make <span class="math inline">\(\alpha\)</span> smaller (to protect against making a Type I error), you will make the probability of making a Type II error larger!</p>
+<p>Similar to our potential for making an error when we reject a null hypothesis, we can never know for sure whether we have made a Type II error or not after we fail to reject a null hypothesis. We can only know the probability of making a Type II error which is conventionally termed <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> (beta)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is somewhat complex, but has an inverse relationship with the value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>, such that as the value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> gets smaller, the value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> gets larger, and vice versa. This means that if you make <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> smaller (to protect against making a Type I error), you will make the probability of making a Type II error larger!</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
 <p>The type of error you can make is completely dependent on the conclusion you draw about the null hypothesis. For example, if we reject the null hypothesis, the only type of error you can make is a Type I error. You cannot make a Type II error since that requires failing to reject the null hypothesis. That is, when you reject the null hypothesis, the probability of making a Type II error is 0. Similarly, if you fail to reject the null hypothesis, then you cannot make a Type I error; the probability of making a Type I error after you fail to reject the null hypothesis is 0.</p>
@@ -672,20 +646,20 @@ window.Quarto = {
 <section id="exercises-your-turn" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercises-your-turn">Exercises: Your Turn</h2>
 <p>In the continuous assessment case study from <a href="04-04-one-sample-test-computation.html" class="quarto-xref"><span>Chapter 10</span></a>, we evaluated the following set of hypotheses about whether, on average, Ethiopian primary school teachers agree/disagree with the statement that they assess students’ prior knowledge:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>2.5</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>2.5</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 2.5 \\[1ex]
 H_A: \mu \neq 2.5
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <ol type="1">
-<li>Based on the results of the one-sample <em>t</em>-test, <span class="math inline">\(t(29) = -0.41\)</span>, <span class="math inline">\(p = 0.687\)</span>, which type of error could we have made if we were using an <span class="math inline">\(\alpha\)</span>-value of .05? Explain.</li>
+<li>Based on the results of the one-sample <em>t</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>29</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mn>0.41</mn></mrow><annotation encoding="application/x-tex">t(29) = -0.41</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.687</mn></mrow><annotation encoding="application/x-tex">p = 0.687</annotation></semantics></math>, which type of error could we have made if we were using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05? Explain.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-04-01');">
 Show/Hide Solution
 </button>
 <div id="exercise_05-04-01" style="display:none; margin: -40px 0 40px 40px;">
-<p>Using an <span class="math inline">\(\alpha\)</span>-value of .05, we would have failed to reject the null hypothesis since our <em>p</em>-value was bigger than .05. Because we failed to reject the null hypothesis, the only type of error we can make is a Type II error.</p>
+<p>Using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05, we would have failed to reject the null hypothesis since our <em>p</em>-value was bigger than .05. Because we failed to reject the null hypothesis, the only type of error we can make is a Type II error.</p>
 </div>
 <ol start="2" type="1">
 <li>Using the context of the problem (i.e., survey responses of the assessment of prior knowledge) and the hypotheses tested, what does it mean to make this type of error?</li>
@@ -697,20 +671,20 @@ Show/Hide Solution
 <p>A Type II error in this context indicates that we come to the conclusion that Ethiopian primary school teachers neither agree nor disagree with the statement that they assess students’ prior knowledge on average, but in reality they actually do agree or disagree with that statement, on average.</p>
 </div>
 <p>In the house prices case study from <a href="04-04-one-sample-test-computation.html" class="quarto-xref"><span>Chapter 10</span></a>, we evaluated the following set of hypotheses about whether, on average, houses near the University of Minnesota campus more expensive than $322.46k (the average price of a single-family house in Minneapolis as of May 2023).</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>322.46</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&gt;</mo><mn>322.46</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
 H_A: \mu &gt; 322.46
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <ol start="3" type="1">
-<li>Based on the results of the one-sample <em>t</em>-test, <span class="math inline">\(t(14) = 3.12\)</span>, <span class="math inline">\(p = 0.004\)</span>, which type of error could we have made if we were using an <span class="math inline">\(\alpha\)</span>-value of .01? Explain.</li>
+<li>Based on the results of the one-sample <em>t</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>14</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3.12</mn></mrow><annotation encoding="application/x-tex">t(14) = 3.12</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.004</mn></mrow><annotation encoding="application/x-tex">p = 0.004</annotation></semantics></math>, which type of error could we have made if we were using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .01? Explain.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-04-03');">
 Show/Hide Solution
 </button>
 <div id="exercise_05-04-03" style="display:none; margin: -40px 0 40px 40px;">
-<p>Using an <span class="math inline">\(\alpha\)</span>-value of .01, we would have rejected the null hypothesis since our <em>p</em>-value was smaller than .05. Because we rejected the null hypothesis, the only type of error we can make is a Type I error.</p>
+<p>Using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .01, we would have rejected the null hypothesis since our <em>p</em>-value was smaller than .05. Because we rejected the null hypothesis, the only type of error we can make is a Type I error.</p>
 </div>
 <ol start="4" type="1">
 <li>Using the context of the problem (i.e., house prices near the UMN campus) and the hypotheses tested, what does it mean to make a this type of error?</li>
@@ -722,37 +696,37 @@ Show/Hide Solution
 <p>A Type I error in this context indicates that we rejected the null hypothesis that the average price of a house near the UMN campus is not more than $322.46k, but in reality it is not.</p>
 </div>
 <p>In the case study from <a href="05-01-two-sample-t-test.html" class="quarto-xref"><span>Chapter 13</span></a>, we evaluated the following set of hypotheses about whether the average decline in IQ scores for all persistent marijuana users that became dependent as adults is the same as the average decline in IQ scores for all persistent marijuana users that became dependent as teens.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>=</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>&gt;</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}} \\[1ex]
 H_0: \mu_{\text{Adult-onset}} &gt; \mu_{\text{Teen-onset}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <ol start="5" type="1">
-<li>Based on the results of the two-sample <em>t</em>-test, <span class="math inline">\(t(35) = 2.47\)</span>, <span class="math inline">\(p = 0.009\)</span>, which type of error could we have made if we were using an <span class="math inline">\(\alpha\)</span>-value of .05? Explain. Also, using the context of the problem and the hypotheses tested, what does it mean to make a this type of error?</li>
+<li>Based on the results of the two-sample <em>t</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>35</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2.47</mn></mrow><annotation encoding="application/x-tex">t(35) = 2.47</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.009</mn></mrow><annotation encoding="application/x-tex">p = 0.009</annotation></semantics></math>, which type of error could we have made if we were using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05? Explain. Also, using the context of the problem and the hypotheses tested, what does it mean to make a this type of error?</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-04-05');">
 Show/Hide Solution
 </button>
 <div id="exercise_05-04-05" style="display:none; margin: -40px 0 40px 40px;">
-<p>Using an <span class="math inline">\(\alpha\)</span>-value of .05, we reject the null hypothesis since our <em>p</em>-value was smaller than .05, which means the only type of error we can make is a Type I error.</p>
+<p>Using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05, we reject the null hypothesis since our <em>p</em>-value was smaller than .05, which means the only type of error we can make is a Type I error.</p>
 <p>A Type I error in this context indicates that we decided the average decline in IQ scores for all persistent marijuana users that became dependent as adults is greater than the average decline in IQ scores for all persistent marijuana users that became dependent as teens, but in reality it not.</p>
 </div>
 <p>In the case study from <a href="05-03-two-sample-test-proportions.html" class="quarto-xref"><span>Chapter 15</span></a>, we evaluated the following set of hypotheses about whether the proportion of Bachelor contestants that are still together with the suitor they chose is different than the proportion of Bachelorette contestants that are still together with the suitor they chose.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>=</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>≠</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \pi_{\text{Bachelor}} = \pi_{\text{Bachelorette}} \\[1ex]
 H_A: \pi_{\text{Bachelor}} \neq \pi_{\text{Bachelorette}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <ol start="6" type="1">
-<li>Based on the results of the two-sample <em>z</em>-test, <span class="math inline">\(z = -.772\)</span>, <span class="math inline">\(p = 0.440\)</span>, which type of error could we have made if we were using an <span class="math inline">\(\alpha\)</span>-value of .05? Explain. Also, using the context of the problem and the hypotheses tested, what does it mean to make a this type of error?</li>
+<li>Based on the results of the two-sample <em>z</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>−</mi><mn>.772</mn></mrow><annotation encoding="application/x-tex">z = -.772</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.440</mn></mrow><annotation encoding="application/x-tex">p = 0.440</annotation></semantics></math>, which type of error could we have made if we were using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05? Explain. Also, using the context of the problem and the hypotheses tested, what does it mean to make a this type of error?</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-04-06');">
 Show/Hide Solution
 </button>
 <div id="exercise_05-04-06" style="display:none; margin: -40px 0 40px 40px;">
-<p>Using an <span class="math inline">\(\alpha\)</span>-value of .05, we failed to reject the null hypothesis since our <em>p</em>-value was larger than .05, which means the only type of error we can make is a Type II error.</p>
+<p>Using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05, we failed to reject the null hypothesis since our <em>p</em>-value was larger than .05, which means the only type of error we can make is a Type II error.</p>
 <p>A Type II error in this context indicates that we decided the null hypothesis that the proportion of Bachelor and Bachelorette contestants that are still together with the suitor they chose is NOT different, but in reality it is different.</p>
 </div>
 <p><br></p>
@@ -764,8 +738,8 @@ Show/Hide Solution
 <hr>
 <ol>
 <li id="fn1"><p>Conventionally, we use Roman numerals to indicate the different types of errors we can make in hypothesis testing.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Fun Fact: <span class="math inline">\(\alpha\)</span> is the first letter in the Greek alphabet (equivalent to the Roman letter “a”) so that is why it is associated with the first type (i.e., Type I) error.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Fun Fact: <span class="math inline">\(\beta\)</span> is the second letter in the Greek alphabet (equivalent to the Roman letter “b”) so that is why it is associated with the second type (i.e., Type II) error.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Fun Fact: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> is the first letter in the Greek alphabet (equivalent to the Roman letter “a”) so that is why it is associated with the first type (i.e., Type I) error.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Fun Fact: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is the second letter in the Greek alphabet (equivalent to the Roman letter “b”) so that is why it is associated with the second type (i.e., Type II) error.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -821,13 +795,14 @@ Show/Hide Solution
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

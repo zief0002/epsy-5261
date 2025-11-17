@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -86,14 +86,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,35 +137,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -192,7 +164,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -449,7 +423,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -737,14 +711,14 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 </section>
 <section id="importing-the-teen-sleep-data" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="importing-the-teen-sleep-data"><span class="header-section-number">8.2</span> Importing the Teen Sleep Data</h2>
-<p>We will use the data in <em>teen-sleep.csv</em> to bootstrap a standard error of the mean. These data include the bedtime, wake-up time, and hours slept for a sample of <span class="math inline">\(n=75\)</span> American teens in Grades 9–12.</p>
+<p>We will use the data in <em>teen-sleep.csv</em> to bootstrap a standard error of the mean. These data include the bedtime, wake-up time, and hours slept for a sample of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>75</mn></mrow><annotation encoding="application/x-tex">n=75</annotation></semantics></math> American teens in Grades 9–12.</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv">teen-sleep.csv</a></li>
 <li><a href="http://zief0002.github.io/epsy-5261/codebooks/teen-sleep.html">Data Codebook</a></li>
 </ul>
 <p>We will prepare for the analysis by loading in the <code>{tidyverse}</code>, <code>{ggformula}</code>, and <code>{mosaicCore}</code> libraries and importing the teen sleep data. We will also load the <code>{mosiaic}</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -754,7 +728,7 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>teen_sleep <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/teen-sleep.csv"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>teen_sleep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 75 × 3
    bedtime  wakeup  hrs_sleep
@@ -790,40 +764,40 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <p>To randomly sample from a set of values we use the <code>sample()</code> function. We will need to specify the values we are sampling from (i.e., the original sample) as an input to the function. The data we want to randomly sample from is in a column called <code>hrs_sleep</code> inside the data object called <code>teen_sleep</code>. To specify a particular column in a data object we use the following notation: <code>teen_sleep$hrs_sleep</code>. We also need to set the number of observations to randomly sample, and tell this function that we are sampling with replacement.</p>
 <p>Thus to draw a random sample of values from our data we use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly sample from the hrs_sleep column located in the teen_sleep data object</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly sample from the hrs_sleep column located in the teen_sleep data object</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw 75 observations</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample with replacement</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  9.083333 11.083333  9.083333  7.500000  7.583333  7.333333  8.333333
- [8]  7.916667  8.750000  6.833333  7.583333  5.416667  4.916667  4.666667
-[15]  4.666667  8.583333  7.416667  4.916667  9.916667  8.750000  7.333333
-[22]  7.333333  4.583333  7.750000  7.083333  7.916667  8.500000  4.666667
-[29] 10.333333  9.083333 10.333333  6.583333  7.583333  7.333333  7.416667
-[36]  7.750000  8.750000  7.333333  6.833333  8.833333  6.500000  7.916667
-[43]  7.583333  7.416667  8.083333  7.750000  6.916667  4.583333  4.666667
-[50]  7.583333  6.916667  7.083333  7.750000  8.333333  8.916667  7.500000
-[57]  7.166667  6.083333  7.333333  4.833333  9.916667  6.833333  7.833333
-[64]  8.333333  7.166667  7.583333  8.750000  7.500000  5.833333  8.750000
-[71]  7.583333  6.416667  7.583333  7.583333  8.750000</code></pre>
+<pre><code> [1]  6.333333  6.416667 10.333333  5.166667  5.916667  7.750000  5.833333
+ [8]  7.916667  7.916667  6.500000  5.416667  6.083333  8.333333  8.583333
+[15]  4.500000  7.333333  7.333333  7.750000  6.333333  5.916667  4.666667
+[22]  6.916667  7.916667  7.916667  6.083333  4.583333  7.333333  7.916667
+[29]  7.583333  7.583333  7.666667  7.333333  7.750000  9.916667  7.583333
+[36]  6.083333  8.583333  7.583333 10.333333  4.583333  7.916667  7.416667
+[43]  7.583333  8.333333 11.083333  7.750000  7.000000  6.916667  8.750000
+[50]  8.333333  6.833333  8.083333  5.833333  5.416667  8.583333  6.583333
+[57]  7.666667 10.083333  7.750000  6.500000  7.500000  7.083333  8.583333
+[64]  7.333333  5.416667  8.333333  6.750000  7.083333  9.083333 10.083333
+[71]  8.416667  8.333333  8.750000  7.083333  7.583333</code></pre>
 </div>
 </div>
 <p>This is akin to drawing a bootstrap sample from the original sample. Note that because we are drawing randomly, if you are trying this on your computer, you might get a different bootstrap sample than the one shown here. If you re-run this syntax, you will get a different bootstrap sample.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a second bootstrap sample of 75 observations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8.833333  6.333333  9.083333  5.166667  7.666667  4.666667  7.583333
- [8]  4.666667  6.083333  7.000000  7.750000  7.583333  5.916667 11.083333
-[15]  7.500000  7.083333  6.833333  8.416667  7.583333  4.666667  4.416667
-[22]  5.166667  7.916667  6.916667  6.416667  7.500000  7.500000  7.416667
-[29]  8.333333  6.583333  7.750000  6.083333  6.666667  7.916667  4.166667
-[36]  7.000000  7.583333  4.666667  7.666667  7.583333 11.083333  7.583333
-[43]  7.583333  5.833333  9.750000  4.416667  7.666667  8.583333  4.666667
-[50]  9.083333 10.333333  4.500000  4.833333  7.750000  7.000000  7.666667
-[57]  4.916667  4.666667  8.500000  7.500000  7.916667  8.583333  5.916667
-[64]  7.583333  6.833333  4.416667  6.083333  7.333333  8.500000  7.083333
-[71]  7.500000  5.833333  4.833333  4.416667 10.333333</code></pre>
+<pre><code> [1]  6.500000  4.666667  4.583333 10.083333  4.666667  7.583333  9.916667
+ [8]  8.333333  4.500000  7.583333  8.333333 11.083333 10.083333  7.750000
+[15]  5.166667  4.416667  7.916667  6.666667  7.083333  7.500000  4.666667
+[22]  6.666667  7.916667  5.166667  4.833333  7.750000  7.916667  4.666667
+[29]  8.500000  6.500000  8.333333  7.500000  7.583333  5.916667  4.916667
+[36]  6.083333  6.833333  8.083333  8.333333  9.916667  8.500000  6.083333
+[43]  4.916667  8.083333  7.500000 10.333333  5.916667  4.583333  7.583333
+[50]  4.583333  7.583333  8.833333  5.416667  7.500000  7.000000  4.916667
+[57]  4.583333  6.750000  7.916667  9.166667  6.083333  7.583333  8.333333
+[64]  7.583333  6.083333  7.916667  8.583333  7.500000  5.916667  4.166667
+[71]  7.083333  7.083333  7.583333  4.833333  4.500000</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -832,10 +806,10 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="step-2-compute-the-mean-of-the-bootstrap-sample."><span class="header-section-number">8.3.2</span> STEP 2: Compute the mean of the bootstrap sample.</h3>
 <p>To compute the mean of a bootstrap sample, we are just going to embed our <code>sample()</code> syntax inside of the <code>mean()</code> function. For example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.328889</code></pre>
+<pre><code>[1] 7.584444</code></pre>
 </div>
 </div>
 <p>You could re-run this syntax to draw another bootstrap sample and compute the mean.</p>
@@ -847,32 +821,32 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <pre><code>do(N times) * {Computations to repeat}</code></pre>
 <p>As an example, if we wanted to carry out our computations to draw a bootstrap sample and compute the mean 10 times, the synatx is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 10 times </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     result
-1  7.271111
-2  7.384444
-3  7.615556
-4  7.504444
-5  7.676667
-6  7.231111
-7  7.403333
-8  7.394444
-9  7.552222
-10 7.395556</code></pre>
+1  7.696667
+2  7.381111
+3  7.420000
+4  7.111111
+5  7.134444
+6  7.202222
+7  7.223333
+8  7.530000
+9  7.433333
+10 6.968889</code></pre>
 </div>
 </div>
 <p>The computations are carried out 10 times and the results are recorded in a column (<code>result</code>) of a data object. Because we will ultimately want to compute on this data object, when we run this, we will want to assign the data into an object. Below, we draw 1000 bootstrap samples, each time computing the mean, and assign them into a data object called <code>bootstrap_means</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a bootstrap sample of 75 observations and compute the mean</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do this 1000 times </span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign these into an object called bootstrap_means</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>bootstrap_means <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> {<span class="fu">mean</span>(<span class="fu">sample</span>(teen_sleep<span class="sc">$</span>hrs_sleep, <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))}</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>bootstrap_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>bootstrap_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       result
 1    7.557778
@@ -1883,12 +1857,12 @@ Figure&nbsp;8.2: Thought experiment for bootstrapping random samples of size 75 
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="step-4-find-the-standard-deviation-of-these-means-i.e.-the-standard-error-of-the-mean."><span class="header-section-number">8.3.4</span> STEP 4: Find the standard deviation of these means (i.e., the standard error of the mean).</h3>
 <p>Remember our goal was to compute the standard error, which quantifies the uncertainty in the sample mean estimates that is due to sampling variation. Before we do that, we will visualize the distribution of bootstrapped means.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot of the bootstrapped means</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot of the bootstrapped means</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means,</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Mean value"</span>,</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-bootstrap-dist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Distribution of 1000 bootstrapped means.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1904,8 +1878,8 @@ Figure&nbsp;8.3: Distribution of 1000 bootstrapped means.
 </div>
 <p>The distribution of bootstrapped means is unimodal and symmetric. This indicates that the standard deviation is a reasonable numeric summary of the variation. Again, since the cases in the distribution are means (summary measures), the standard deviation is referred to as a <em>standard error</em>. To compute the standard error, we use <code>df_stats()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SE</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SE</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>result, <span class="at">data =</span> bootstrap_means)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response      min       Q1   median       Q3      max     mean        sd    n
 1   result 6.837778 7.278889 7.391667 7.509167 8.023333 7.395381 0.1699168 1000
@@ -1992,13 +1966,14 @@ Raspe, R. E. (1948). <em>Singular travels, campaigns and adventures of <span>B</
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

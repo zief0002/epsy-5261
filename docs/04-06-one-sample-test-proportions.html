@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -683,7 +657,7 @@ window.Quarto = {
 <h2 data-number="12.1" class="anchored" data-anchor-id="case-study-lead-levels-in-minnesota-children"><span class="header-section-number">12.1</span> Case Study: Lead Levels in Minnesota Children</h2>
 <p>Lead exposure has been shown to have deleterious effects on peoples’ health and well-being, especially children. The Center for Disease Control collects blood lead surveillance data from all 50 states in the United States. In 2012, the proportion of children tested under 6 years of age that had lead levels in their blood above the Minnesota Department of Health (MDH) reference level for high blood lead levels (5µg/dL) was .029. The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv">mn-lead.csv</a> contains the measured lead levels in the blood for all Minnesota children tested under 6 years of age in 2018. There is also an attribute (<code>ebll</code>) that indicates whether the lead level indicates an elevated blood lead level according to MDH (i.e., is blood lead level above 5 µg/dL).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -695,7 +669,7 @@ window.Quarto = {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>mn_lead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv"</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 91,706 × 2
    lead_level ebll 
@@ -714,28 +688,28 @@ window.Quarto = {
 </div>
 </div>
 <p>One question health officials might ask is: Is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 different than the proportion in 2012? That is, they might wish to examine the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Above MDH</mtext></msub><mo>=</mo><mn>.029</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Above MDH</mtext></msub><mo>≠</mo><mn>.029</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \pi_{\text{Above MDH}} = .029 \\[1ex]
 H_A: \pi_{\text{Above MDH}} \neq .029
 \end{split}
-\]</span> where <span class="math inline">\(\pi_{\text{Above MDH}}\)</span> (the Greek letter equivalent of “p”) is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of <span class="math inline">\(\pi\)</span>.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample <em>z</em>-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error.</p>
+</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mtext mathvariant="normal">Above MDH</mtext></msub><annotation encoding="application/x-tex">\pi_{\text{Above MDH}}</annotation></semantics></math> (the Greek letter equivalent of “p”) is the proportion of all Minnesota children under 6 years of age who are above the MDH reference level. (Note that it is convention to indicate the group you are hypothesizing the proportion for in the subscript of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>.) To answer this question, we can compute the proportion of Minnesota children under 6 years of age (who were tested) who have blood lead levels above the MDH reference level in 2018. We can then carry out a one-sample <em>z</em>-test to see if any differences between the 2012 and 2018 proportions are just due to sampling error.</p>
 <p><br></p>
 <section id="summarizing-the-sample-data" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="summarizing-the-sample-data"><span class="header-section-number">12.1.1</span> Summarizing the Sample Data</h3>
 <p>We will start the analysis by summarizing the <code>ebll</code> attribute to determine the proportion of Minnesota children in 2018 under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to compute the proportion for each category in the control attribute</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to compute the proportion for each category in the control attribute</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response  prop_No   prop_Yes
 1     ebll 0.986086 0.01391403</code></pre>
 </div>
 </div>
-<p>These summaries indicates that in 2018, the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level was .0139. The notation we use to denote a sample proportion is <span class="math inline">\(\hat{p}\)</span>.</p>
-<p><span class="math display">\[
+<p>These summaries indicates that in 2018, the proportion of Minnesota children under 6 years of age (who were tested) who have above blood lead levels above the MDH reference level was .0139. The notation we use to denote a sample proportion is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>.0139</mn></mrow><annotation encoding="application/x-tex">
 \hat{p} = .0139
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This is a lower proportion than was found in the 2012 data by .0151. The next question we would want to tackle is whether this difference is more than we expect because of sampling error. To determine this, we need to carry out a hypothesis test.</p>
 <p><br></p>
 </section>
@@ -754,20 +728,20 @@ H_A: \pi_{\text{Above MDH}} \neq .029
 <li>Determine the <em>p</em>-value by computing the area under the curve in the <em>z</em>-distribution that is at least as extreme as the observed <em>z</em>-value based on the alternative hypothesis.</li>
 </ul>
 <p>To compute the <em>z</em>-value, we use:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>π</mi></mrow><mrow><mi>S</mi><msub><mi>E</mi><mover><mi>p</mi><mo accent="true">̂</mo></mover></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 z = \frac{\hat{p} - \pi}{SE_{\hat{p}}}
-\]</span></p>
-<p>where <span class="math inline">\(\hat{p}\)</span> is the sample proportion, <span class="math inline">\(\pi\)</span> is the value hypothesized in the null hypothesis, and <span class="math inline">\(SE_{\hat{p}}\)</span> is the standard error for the proportion. This SE is computed as:</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math> is the sample proportion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math> is the value hypothesized in the null hypothesis, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>E</mi><mover><mi>p</mi><mo accent="true">̂</mo></mover></msub></mrow><annotation encoding="application/x-tex">SE_{\hat{p}}</annotation></semantics></math> is the standard error for the proportion. This SE is computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>E</mi><mover><mi>p</mi><mo accent="true">̂</mo></mover></msub><mo>=</mo><msqrt><mfrac><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>n</mi></mfrac></msqrt></mrow><annotation encoding="application/x-tex">
 SE_{\hat{p}} = \sqrt{\frac{\pi(1 - \pi)}{n}}
-\]</span> where again, <span class="math inline">\(\pi\)</span> is the hypothesized proportion in the null hypothesis and <span class="math inline">\(n\)</span> is the sample size. In our example, the <em>z</em>-value is:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> where again, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math> is the hypothesized proportion in the null hypothesis and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> is the sample size. In our example, the <em>z</em>-value is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>.01391403</mn><mo>−</mo><mn>.029</mn></mrow><msqrt><mrow><mn>.029</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.029</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>91706</mn></mrow></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mi>−</mi><mn>.0151</mn></mrow><mn>.0006</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>27.22</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 z &amp;= \frac{.01391403 - .029}{\sqrt{.029(1 - .029)/91706}} \\[1ex]
 &amp;= \frac{-.0151}{.0006} \\[1ex]
 &amp;= -27.22
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Similar to a <em>t</em>-value, a <em>z</em>-value indicates how many standard errors the sample mean is from the hypothesized value, In our case, the sample proportion we computed in the data of .0139 is 27.22 standard errors below the hypothesized value of .029. We can evaluate this in the <em>z</em>-distribution.</p>
 <p>Unlike the <em>t</em>-distribution which is different depending on the <em>df</em>, there is only one <em>z</em>-distribution. The <em>z</em>-distribution is a normal distribution that has a mean of 0 and a standard deviation of 1. The <em>z</em>-distribution is shown in <a href="05-03-two-sample-test-proportions.html#fig-z-dist" class="quarto-xref">Figure&nbsp;<span>15.4</span></a>.</p>
 <div class="cell">
@@ -784,7 +758,7 @@ Figure&nbsp;12.1: Density plot of the <em>z</em>-distribution.
 </div>
 </div>
 </div>
-<p>To find the <em>p</em>-value associated with the alternative hypothesis that <span class="math inline">\(\pi\neq.029\)</span>, we will include the observed <em>z</em>-values of <span class="math inline">\(-27.22\)</span> and 27.22 into the <em>z</em>-distribution and shade the area under the curve that is more extreme than these values—less than the observed <em>z</em>-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in <a href="#fig-z-dist2" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>.</p>
+<p>To find the <em>p</em>-value associated with the alternative hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>≠</mo><mn>.029</mn></mrow><annotation encoding="application/x-tex">\pi\neq.029</annotation></semantics></math>, we will include the observed <em>z</em>-values of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>27.22</mn></mrow><annotation encoding="application/x-tex">-27.22</annotation></semantics></math> and 27.22 into the <em>z</em>-distribution and shade the area under the curve that is more extreme than these values—less than the observed <em>z</em>-value of -27.22 and more than the extreme value of 27.22. A sketch of this is shown in <a href="#fig-z-dist2" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-z-dist2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Sketch of the density plot of the *z*-distribution with the observed *z*-value of -27.22 (and 27.22) also included. The shaded area to the left of -27.22 and right of 27.22 constitute the *p*-value associate with the null hypothesis that the population proportion is different than .029.">
@@ -799,7 +773,7 @@ Figure&nbsp;12.2: Sketch of the density plot of the <em>z</em>-distribution with
 </div>
 </div>
 </div>
-<p>The <em>p</em>-value here is going to be quite small since the combined area under the curve to the left of <span class="math inline">\(-27.22\)</span> and right of 27.22 is quite small relative to the area under the whole curve.</p>
+<p>The <em>p</em>-value here is going to be quite small since the combined area under the curve to the left of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>27.22</mn></mrow><annotation encoding="application/x-tex">-27.22</annotation></semantics></math> and right of 27.22 is quite small relative to the area under the whole curve.</p>
 <p>In practice, we will use the <code>prop_test()</code> function from the <code>{mosaic}</code> package to carry out the one-sample <em>z</em>-test and compute the <em>p</em>-value. This function takes:</p>
 <ul>
 <li>A formula using the tilde (<code>~</code>), similar to the <code>gf_</code> and <code>df_stats</code> functions, that specifies the attribute to carry out the one-sample <em>z</em>-test on. We also need to specify the level of the attribute we want to compute the sample proportion for using <code>==</code> and then giving the exact name for that level inside quotation marks.</li>
@@ -810,7 +784,7 @@ Figure&nbsp;12.2: Sketch of the density plot of the <em>z</em>-distribution with
 </ul>
 <p>To carry out the one-sample <em>z</em>-test, we will use the following syntax. Note that in the formula we also indicate that we want to compute the sample proportion for the <code>"Yes"</code> values. We assign the results of this <em>z</em>-test to an object (in this case, I called it <code>my_z</code>). Then we can use the <code>z_results()</code> and <code>plot_z_dist()</code> functions (both from the <code>{educate}</code> package) to show the results of the <em>z</em>-test and plot the <em>z</em>-distribution along with the observed <em>z</em>-value and shaded area associated with the <em>p</em>-value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>ebll <span class="sc">==</span> <span class="st">"Yes"</span>, </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> mn_lead, </span>
@@ -823,7 +797,7 @@ Figure&nbsp;12.2: Sketch of the density plot of the <em>z</em>-distribution with
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show z-test results</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -850,7 +824,7 @@ Figure&nbsp;12.3: Density plot of the <em>z</em>-distribution with the observed 
 </div>
 </div>
 </div>
-<p>Based on the <em>p</em>-value, and using an <span class="math inline">\(\alpha\)</span>-value of .05, we would reject the null hypothesis. This suggests <em>it is likely</em> that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is different than the proportion in 2012. In this interpretation we call attention to the words “it is likely” to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.</p>
+<p>Based on the <em>p</em>-value, and using an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of .05, we would reject the null hypothesis. This suggests <em>it is likely</em> that the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is different than the proportion in 2012. In this interpretation we call attention to the words “it is likely” to remind you that it is possible we may have made a Type I error in which case the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is NOT lower than the proportion in 2012.</p>
 <p><br></p>
 </section>
 </section>
@@ -860,29 +834,29 @@ Figure&nbsp;12.3: Density plot of the <em>z</em>-distribution with the observed 
 <ol type="1">
 <li>The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”).</li>
 <li>The values in the population are <em>independent</em> from each other.</li>
-<li>The quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+<li>The quantities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(\hat{p})</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(1-\hat{p})</annotation></semantics></math> are both greater than 10, where <em>n</em> is the sample size and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math> is the sample proportion value.</li>
 </ol>
 <p>To evaluate the first assumption that the distribution of values in the population follow a binomial distribution, we only need to confirm that the population only has two values. In our example, this is true; the only two values a case can have is “Yes” (blood lead level is above the MDH reference) or “No” (blood lead level is not above the MDH reference).</p>
 <p>We will evaluate the independence assumption the same way we did for the one-sample <em>t</em>-test, by referring to the study design. In our example, the cases in the data do not constitute a random sample of all Minnesota children. Does knowing that one Minnesota child’s blood lead level is above (or below) the MDH reference level give us any information about whether any other Minnesota child’s blood lead level is above (or below) the MDH reference level? Without additional data it is difficult to know, so we could argue that the independence assumption seems tenable.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Lastly we compute the quantities in the third assumption and check that they are both greater than 10.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>91706</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>.01391403</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1276</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>91706</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.01391403</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>90430</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 n(\hat{p}) &amp;= 91706(.01391403) \\[1ex]
 &amp;= 1276 \\[3ex]
 n(1-\hat{p}) &amp;= 91706(1 - .01391403) \\[1ex]
 &amp;= 90430
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p><br></p>
 <section id="case-study-rotten-tomatoes" class="level3" data-number="12.2.1">
 <h3 data-number="12.2.1" class="anchored" data-anchor-id="case-study-rotten-tomatoes"><span class="header-section-number">12.2.1</span> Case Study: Rotten Tomatoes</h3>
 <p>The <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> website includes both audiences’ and critics’ ratings for different movies. The ratings are then classified into one of two categories: “Fresh” (which indicates a positive review) or “Rotten” (which indicates a negative review). The data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv">fastx-reviews.csv</a> includes the critic ratings (as of May 23, 2023) for the film Fast X (the 10th installment of the <em>Fast &amp; the Furious</em> franchise). You will use the data in the <code>fresh_rotten</code> attribute to evaluate whether the proportion of all critics’ “Fresh” reviews is different than .50. Mathematically the hypotheses you will evaluate are:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Fresh</mtext></msub><mo>=</mo><mn>.50</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Fresh</mtext></msub><mo>≠</mo><mn>.50</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \pi_{\text{Fresh}} = .50 \\[1ex]
 H_A: \pi_{\text{Fresh}} \neq .50
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p><br></p>
 </section>
 </section>
@@ -896,11 +870,11 @@ Show/Hide Solution
 </button>
 <div id="exercise_04-06-01" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fastx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/fastx-reviews.csv"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample proportion of Fresh reviews</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>fresh_rotten, <span class="at">data =</span> fastx, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>fresh_rotten, <span class="at">data =</span> fastx, props)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      response prop_fresh prop_rotten
 1 fresh_rotten  0.5378151   0.4621849</code></pre>
@@ -915,7 +889,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_04-06-02" style="display:none; margin: -40px 0 40px 40px;">
-<p>The sample evidence supports the alternative hypothesis since <span class="math inline">\(\hat{p}=.538\)</span> is different than the hypothesized value of 0.5.</p>
+<p>The sample evidence supports the alternative hypothesis since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>.538</mn></mrow><annotation encoding="application/x-tex">\hat{p}=.538</annotation></semantics></math> is different than the hypothesized value of 0.5.</p>
 </div>
 <ol start="3" type="1">
 <li>Compute the observed <em>z</em>-value using the formula given earlier in the chapter. Also interpret what this value tells you about how far the sample proportion is from the hypothesized value.</li>
@@ -924,24 +898,24 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_04-06-03" style="display:none; margin: -40px 0 40px 40px;">
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>.5378151</mn><mo>−</mo><mn>.50</mn></mrow><msqrt><mrow><mn>.50</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.50</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>238</mn></mrow></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>0.0378151</mn><mn>0.03241019</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1.17</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 z &amp;= \frac{.5378151 - .50}{\sqrt{.50(1 - .50)/238}} \\[1ex]
 &amp;= \frac{0.0378151}{0.03241019} \\[1ex]
 &amp;= 1.17
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The observed <em>z</em>-value tells us that the sample proportion is 1.17 standard errors higher than the hypothesized value of 0.50.</p>
 </div>
 <ol start="4" type="1">
-<li>Carry out a one-sample <em>z</em>-test to evaluate whether the sample evidence is only due to sampling error. Report the pertinent results from this test, and use those resultsa to draw a conclusion about the hypotheses assuming an <span class="math inline">\(\alpha\)</span>-value of 0.05.</li>
+<li>Carry out a one-sample <em>z</em>-test to evaluate whether the sample evidence is only due to sampling error. Report the pertinent results from this test, and use those resultsa to draw a conclusion about the hypotheses assuming an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>-value of 0.05.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-06-04');">
 Show/Hide Solution
 </button>
 <div id="exercise_04-06-04" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>fresh_rotten <span class="sc">==</span> <span class="st">"fresh"</span>, </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> fastx, </span>
@@ -954,7 +928,7 @@ Show/Hide Solution
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_z_dist(my_z)</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show z-test results</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -969,7 +943,7 @@ p = 0.2433046
 --------------------------------------------------</code></pre>
 </div>
 </div>
-<p>The results of the one-sample <em>z</em>-test, <span class="math inline">\(z=1.17\)</span>, <span class="math inline">\(p=.243\)</span>, suggest we should fail to reject the null hypothesis. It is likely that the population proportion of “Fresh” reviews is not different than 0.50.</p>
+<p>The results of the one-sample <em>z</em>-test, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>1.17</mn></mrow><annotation encoding="application/x-tex">z=1.17</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.243</mn></mrow><annotation encoding="application/x-tex">p=.243</annotation></semantics></math>, suggest we should fail to reject the null hypothesis. It is likely that the population proportion of “Fresh” reviews is not different than 0.50.</p>
 </div>
 <ol start="5" type="1">
 <li>Sketch a picture of the <em>z</em>-distribution (try to do this initially without using R). Then add a vertical line at the observed <em>z</em>-value. Finally, shade the area under the <em>z</em>-distribution that is associated with the <em>p</em>-value. Check your sketch by using the <code>plot_z_dist()</code> function.</li>
@@ -980,8 +954,8 @@ Show/Hide Solution
 <div id="exercise_04-06-05" style="display:none; margin: -40px 0 40px 40px;">
 <p>Your sketch should look like the distribution plotted in <a href="#fig-z-dist-fresh" class="quarto-xref">Figure&nbsp;<span>12.4</span></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your work</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your work</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-z-dist-fresh" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *z*-distribution with the observed *z*-value of +1.17 (and -1.17) also included. The shaded area to the right of 1.17 and left of -1.17 constitute the *p*-value associated with the null hypothesis that the population proportion is different than .50.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1016,19 +990,19 @@ Show/Hide Solution
 <ol type="1">
 <li>The values in the population follow a binomial distribution. This is true so long as there are only two values the attribute can take on (e.g., “Yes” or “No”).</li>
 <li>The values in the population are <em>independent</em> from each other.</li>
-<li>The quantities <span class="math inline">\(n(\hat{p})\)</span> and <span class="math inline">\(n(1-\hat{p})\)</span> are both greater than 10, where <em>n</em> is the sample size and <span class="math inline">\(\hat{p}\)</span> is the sample proportion value.</li>
+<li>The quantities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(\hat{p})</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n(1-\hat{p})</annotation></semantics></math> are both greater than 10, where <em>n</em> is the sample size and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{p}</annotation></semantics></math> is the sample proportion value.</li>
 </ol>
 <p>The first assumption is met—the only two values for a review are “Fresh” or “Rotten”.</p>
 <p>The second assumption also seems tenable. Although the sample is not chosen randomly, knowing one reviewer’s rating does not likely give us information about another reviewer’s rating. (If you said that the independence assumption is not tenable, you would need to provide an explanation as to why one reviewer’s rating gives us information about another reviewer’s rating. For example, reviewers read each others’ reviews so one reviewer’s rating often influences another reviewer’s rating.)</p>
 <p>Lastly we compute the quantities in the third assumption and check that they are both greater than 10. This is the case, so the third assumption is also met.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>238</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>.5378151</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>128</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>238</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.5378151</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>110</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 n(\hat{p}) &amp;= 238(.5378151) \\[1ex]
 &amp;= 128 \\[3ex]
 n(1-\hat{p}) &amp;= 238(1 - .5378151) \\[1ex]
 &amp;= 110
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <p><br></p>
 <!-- ## References -->
@@ -1094,13 +1068,14 @@ n(1-\hat{p}) &amp;= 238(1 - .5378151) \\[1ex]
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -86,14 +86,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,35 +137,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -192,7 +164,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -449,7 +423,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -713,29 +687,29 @@ window.Quarto = {
 <p><br></p>
 </section>
 <section id="cohens-delta" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="cohens-delta"><span class="header-section-number">22.2</span> Cohen’s <span class="math inline">\(\delta\)</span></h2>
-<p><span class="citation" data-cites="Cohen:1962">Cohen (<a href="#ref-Cohen:1962" role="doc-biblioref">1962</a>)</span> introduced the first commonly recognized standardized effect size to measure the distance between two means. In his landmark book <span class="citation" data-cites="Cohen:1965">(<a href="#ref-Cohen:1965" role="doc-biblioref">Cohen, 1965</a>)</span>, he named this standardized effect size <span class="math inline">\(\delta\)</span> (the Greek letter “delta”; equivalent to the Roman lowercase “d”). It has henceforth been referred to as Cohen’s <span class="math inline">\(\delta\)</span>. The calculation of this standardized effect size is:</p>
-<p><span class="math display">\[
+<h2 data-number="22.2" class="anchored" data-anchor-id="cohens-delta"><span class="header-section-number">22.2</span> Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math></h2>
+<p><span class="citation" data-cites="Cohen:1962">Cohen (<a href="#ref-Cohen:1962" role="doc-biblioref">1962</a>)</span> introduced the first commonly recognized standardized effect size to measure the distance between two means. In his landmark book <span class="citation" data-cites="Cohen:1965">(<a href="#ref-Cohen:1965" role="doc-biblioref">Cohen, 1965</a>)</span>, he named this standardized effect size <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> (the Greek letter “delta”; equivalent to the Roman lowercase “d”). It has henceforth been referred to as Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>. The calculation of this standardized effect size is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>μ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>μ</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>σ</mi></mfrac></mrow><annotation encoding="application/x-tex">
 \delta = \frac{|\mu_1-\mu_2|}{\sigma}
-\]</span></p>
-<p>where <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> are the population means for the two groups, and <span class="math inline">\(\sigma\)</span> is the standard deviation of the population. (Remember one of the assumptions when we compare two means is that the two populations have the same variance, which implies they have the same standard deviation.) An estimate of this effect size is obtained by substituting the sample estimates for the mean and standard deviation into this formula. To identify this as an estimate, it is renamed <em>Cohen’s d</em>:</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\mu_1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\mu_2</annotation></semantics></math> are the population means for the two groups, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> is the standard deviation of the population. (Remember one of the assumptions when we compare two means is that the two populations have the same variance, which implies they have the same standard deviation.) An estimate of this effect size is obtained by substituting the sample estimates for the mean and standard deviation into this formula. To identify this as an estimate, it is renamed <em>Cohen’s d</em>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>s</mi></mfrac></mrow><annotation encoding="application/x-tex">
 d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Cohen pointed out that since the variances, and therefore the standard deviations, for the two populations are assumed to be equivalent, that the standard deviation estimate from either group could be used. However, in practice it is common to use the average of the two sample estimates. (If the groups have equal sample sizes, we use the simple average, but if they are different sizes, we use a weighted average.)</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi>𝐒</mi><mi>𝐢</mi><mi>𝐦</mi><mi>𝐩</mi><mi>𝐥</mi><mi>𝐞</mi><mspace width="0.222em"></mspace><mi>𝐀</mi><mi>𝐯</mi><mi>𝐞</mi><mi>𝐫</mi><mi>𝐚</mi><mi>𝐠</mi><mi>𝐞</mi></mrow><mo>:</mo></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mi>s</mi><mo>=</mo><mfrac><mrow><msub><mi>s</mi><mn>1</mn></msub><mo>+</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi>𝐖</mi><mi>𝐞</mi><mi>𝐢</mi><mi>𝐠</mi><mi>𝐡</mi><mi>𝐭</mi><mi>𝐞</mi><mi>𝐝</mi><mspace width="0.222em"></mspace><mi>𝐀</mi><mi>𝐯</mi><mi>𝐞</mi><mi>𝐫</mi><mi>𝐚</mi><mi>𝐠</mi><mi>𝐞</mi></mrow><mo>:</mo></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mi>s</mi><mo>=</mo><mfrac><mrow><msub><mi>n</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \mathbf{Simple~Average}:&amp;~s = \frac{s_1 + s_2}{2}\\[2ex]
 \mathbf{Weighted~Average}:&amp;~s = \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
 \end{split}
-\]</span> where <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> are the standard deviations of the two groups, respectively, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample sizes.</p>
+</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math> are the standard deviations of the two groups, respectively, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>1</mn></msub><annotation encoding="application/x-tex">n_1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>2</mn></msub><annotation encoding="application/x-tex">n_2</annotation></semantics></math> are the sample sizes.</p>
 <p>Examining the formula for Cohen’ <em>d</em>, we see that the numerator is expressing the estimated difference between the two population means (a distance between the two distributions). Dividing this distance by the standard deviation changes the metric of this distance. As an example, consider two objects that are 36 inches apart. To convert the distance to feet we divide the distance by 12. Note that it was the operation of dividing the distance that changed the metric. The value you divide by sets the new metric. For example if we had divided our 36 inch distance by 36 rather than 12 the metric would be in yards rather than feet. In Cohen’s <em>d</em>, the value we divide by is the standard deviation, so the new metric is the distance in <em>standard deviation units</em>.</p>
 <p><br></p>
 <section id="cannabis-case-study" class="level3" data-number="22.2.1">
 <h3 data-number="22.2.1" class="anchored" data-anchor-id="cannabis-case-study"><span class="header-section-number">22.2.1</span> Cannabis Case Study</h3>
 <p>Let’s compute Cohen’s <em>d</em> for the cannabis case study. We will begin by importing the data and computing numerical summaries for the two groups being compared.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -746,7 +720,7 @@ d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 37 × 2
    iq_change cannabis_dep
@@ -763,8 +737,8 @@ d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
 10        -7 Adult       
 # ℹ 27 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   response cannabis_dep min  Q1 median   Q3 max      mean       sd  n missing
 1 iq_change        Adult -16  -7     -3  4.0  11 -2.071429 7.770400 14       0
@@ -772,50 +746,50 @@ d = \frac{|\bar{x}_1-\bar{x}_2|}{s}
 </div>
 </div>
 <p>We note that the sample sizes for the two groups are not the same (one is 14 and the other 23). This means that we need to compute the weighted average for the standard deviation we will use in the formula for Cohen’s <em>d</em>. To do this:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>s</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mi>n</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>14</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>7.77</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>23</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>7.14</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mn>14</mn><mo>+</mo><mn>23</mn></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>7.38</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 s &amp;= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
 &amp;= \frac{14(7.77) + 23(7.14)}{14 + 23} \\[2ex]
 &amp;= 7.38
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>We can then compute Cohen’s <em>d</em> as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>s</mi></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mi>−</mi><mn>2.07</mn><mo>−</mo><mi>−</mi><mn>8.26</mn><mo stretchy="true" form="postfix">|</mo></mrow><mn>7.38</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>6.19</mn><mn>7.38</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.84</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 d &amp;= \frac{|\bar{x}_1-\bar{x}_2|}{s} \\[2ex]
 &amp;= \frac{|-2.07 - -8.26|}{7.38} \\[2ex]
 &amp;= \frac{6.19}{7.38} \\[2ex]
 &amp;= .84
 \end{split}
-\]</span> This is the distance between the two means in the standard deviation metric. In other words, the difference between average IQ score change between participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens is 0.84 standard deviations. In general, we can use the following guidelines to interpret Cohen’s <em>d</em> values:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> This is the distance between the two means in the standard deviation metric. In other words, the difference between average IQ score change between participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens is 0.84 standard deviations. In general, we can use the following guidelines to interpret Cohen’s <em>d</em> values:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>≈</mo><mn>0.2</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">Small Effect</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>≈</mo><mn>0.5</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">Moderate Effect</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>≈</mo><mn>0.8</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">Large Effect</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 d &amp;\approx 0.2 \qquad \text{Small Effect} \\[2ex]
 d &amp;\approx 0.5 \qquad \text{Moderate Effect} \\[2ex]
 d &amp;\approx 0.8 \qquad \text{Large Effect}
 \end{split}
-\]</span> Using these guidelines suggests that there is a large effect of age on IQ change. Had we used the raw metric, we would have computed a difference between these groups of 6.19 IQ points (the numerator of Cohen’s <em>d</em>). Without a deep understanding of the IQ metric, we might have written this off as a small difference. Standardizing the metric to use standard deviation units helps us better understand effects that are in less interpretable metrics!</p>
+</annotation></semantics></math> Using these guidelines suggests that there is a large effect of age on IQ change. Had we used the raw metric, we would have computed a difference between these groups of 6.19 IQ points (the numerator of Cohen’s <em>d</em>). Without a deep understanding of the IQ metric, we might have written this off as a small difference. Standardizing the metric to use standard deviation units helps us better understand effects that are in less interpretable metrics!</p>
 <p><br></p>
 </section>
 <section id="cohens-d-with-one-sample" class="level3" data-number="22.2.2">
 <h3 data-number="22.2.2" class="anchored" data-anchor-id="cohens-d-with-one-sample"><span class="header-section-number">22.2.2</span> Cohen’s <em>d</em> with One Sample</h3>
-<p>We can also compute Cohen’s <em>d</em> when we only have a single sample. Rather than computing the distance between two sample means in the numerator of Cohen’s <em>d</em>, we compute the distance between the sample mean and the hypothesized value of <span class="math inline">\(\mu\)</span> tested in a hypothesis test. In the denominator, we just employ the standard deviation for our sample:</p>
-<p><span class="math display">\[
+<p>We can also compute Cohen’s <em>d</em> when we only have a single sample. Rather than computing the distance between two sample means in the numerator of Cohen’s <em>d</em>, we compute the distance between the sample mean and the hypothesized value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> tested in a hypothesis test. In the denominator, we just employ the standard deviation for our sample:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Hyp</mtext></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>s</mi></mfrac></mrow><annotation encoding="application/x-tex">
 d = \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>As an example, consider the house prices case study from <a href="04-04-one-sample-test-computation.html" class="quarto-xref">Chapter&nbsp;<span>10</span></a>. We evaluated whether the average price of a house near the University of Minnesota was different than $322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>322.46</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>322.46</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
 H_A: \mu \neq 322.46
 \end{split}
-\]</span> To compute Cohen’s <em>d</em>, we import the data and compute numerical summaries.</p>
+</annotation></semantics></math> To compute Cohen’s <em>d</em>, we import the data and compute numerical summaries.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>zillow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 1
    price
@@ -836,22 +810,22 @@ H_A: \mu \neq 322.46
 14  500 
 15  399 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> price, <span class="at">data =</span> zillow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> price, <span class="at">data =</span> zillow)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response   min  Q1 median      Q3   max    mean       sd  n missing
 1    price 249.9 327  399.9 499.995 549.9 404.966 102.4312 15       0</code></pre>
 </div>
 </div>
 <p>Then we substitute these values along with the hypothesized mean of 322.46 (from the null hypothesis) into the formula for Cohen’s <em>d</em>:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Hyp</mtext></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>s</mi></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mn>404.97</mn><mo>−</mo><mn>322.46</mn><mo stretchy="true" form="postfix">|</mo></mrow><mn>102.43</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>82.51</mn><mn>102.43</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.81</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 d &amp;= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
 &amp;= \frac{|404.97 - 322.46|}{102.43} \\[2ex]
 &amp;= \frac{82.51}{102.43} \\[2ex]
 &amp;= 0.81
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The difference between average house price in neighborhoods near the UMN campus and the hypothesized price of $322.46k is 0.81 standard deviations. This is a large difference according to Cohen’s guidelines.</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
@@ -864,14 +838,14 @@ d &amp;= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
 <h2 data-number="22.3" class="anchored" data-anchor-id="using-r-to-compute-cohens-d"><span class="header-section-number">22.3</span> Using R to Compute Cohen’s d</h2>
 <p>The function <code>smd()</code> (standardized mean difference) can be used to compute Cohen’s <em>d</em>. This function is part of the <code>{MBESS}</code> package. (You will need to install this package.) To use the <code>smd()</code> function, we provide the means, standard deviations, and sample sizes of both groups. For example, the syntax to compute Cohen’s <em>d</em> for the Bachelor/Bachelorette ages example is shown below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MBESS package</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MBESS package</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="fl">30.70</span>, <span class="at">s.1 =</span> <span class="fl">3.80</span>, <span class="at">n.1 =</span> <span class="dv">27</span>, <span class="co">#Bachelor summaries</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="fl">28.17</span>, <span class="at">s.2 =</span> <span class="fl">3.04</span>, <span class="at">n.2 =</span> <span class="dv">23</span>  <span class="co">#Bachelorette summaries</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7286076</code></pre>
 </div>
@@ -882,12 +856,12 @@ d &amp;= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
 </div>
 <p>To use the <code>smd()</code> function to compute Cohen’s <em>d</em> to measure the distance between a sample mean and a hypothesized mean (i.e., in the one-sample situation) we use <code>Mean.1=</code> and <code>Mean.2=</code>, similar to the previous syntax. We also use <code>s=</code> to include the sample standard deviation. (We do not need to provide the sample sizes.) The syntax to compute Cohen’s <em>d</em> for our Zillow example is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d (one-sample)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d (one-sample)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="fl">404.97</span>, <span class="co">#Sample mean</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="fl">322.46</span>, <span class="co">#Hypothesized mean</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="fl">102.43</span> <span class="co">#Sample SD</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8055257</code></pre>
 </div>
@@ -896,14 +870,14 @@ d &amp;= \frac{|\bar{x} - \mu_{\text{Hyp}}|}{s} \\[2ex]
 </section>
 <section id="confidence-intervals-for-cohens-d" class="level2" data-number="22.4">
 <h2 data-number="22.4" class="anchored" data-anchor-id="confidence-intervals-for-cohens-d"><span class="header-section-number">22.4</span> Confidence Intervals for Cohen’s d</h2>
-<p>Cohen’s <em>d</em> is a <em>point estimate</em> (i.e., single number estimate) of the standardized population effect size Cohen’s <span class="math inline">\(\delta\)</span>. As with raw estimates of the effect, it is important to consider uncertainty in the estimate and report an <em>interval estimate</em> (i.e., range of plausible values) for the effect.</p>
-<p>To find a CI for Cohen’s <span class="math inline">\(\delta\)</span> in the one-sample situation—comparing a sample mean to a hypothesized mean—we can use the function <code>ci.sm()</code>, also part of the <code>{MBESS}</code> library. This function takes two arguments, <code>sm=</code> (Cohen’s <em>d</em>) and <code>N=</code> (the sample size). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the Zillow example is:</p>
+<p>Cohen’s <em>d</em> is a <em>point estimate</em> (i.e., single number estimate) of the standardized population effect size Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>. As with raw estimates of the effect, it is important to consider uncertainty in the estimate and report an <em>interval estimate</em> (i.e., range of plausible values) for the effect.</p>
+<p>To find a CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> in the one-sample situation—comparing a sample mean to a hypothesized mean—we can use the function <code>ci.sm()</code>, also part of the <code>{MBESS}</code> library. This function takes two arguments, <code>sm=</code> (Cohen’s <em>d</em>) and <code>N=</code> (the sample size). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the Zillow example is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Zillow example (one-sample)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI for Zillow example (one-sample)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.sm</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sm =</span> .<span class="dv">8055</span>, <span class="co">#Cohen's d</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="dv">15</span>      <span class="co">#Sample size</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Lower.Conf.Limit.Standardized.Mean
 [1] 0.2088108
@@ -915,14 +889,14 @@ $Upper.Conf.Limit.Standardized.Mean
 [1] 1.380891</code></pre>
 </div>
 </div>
-<p>The CI for Cohen’s <span class="math inline">\(\delta\)</span> is <span class="math inline">\([.21,~1.38]\)</span>. That is the population effect size is likely between .21 and 1.38 standard deviations. Using Cohen’s guidelines, the population effect might be small, or huge, or anywhere in between. We have a lot of uncertainty in the true size of the effect (due to the small sample size).</p>
-<p>For the two-sample situation—comparing two samples—we use the <code>ci.smd()</code> function (from the <code>{MBESS}</code> library) to compute a CI for Cohen’s <span class="math inline">\(\delta\)</span>. This function takes three arguments: <code>smd=</code> (Cohen’s <em>d</em>), <code>n.1=</code>, and <code>n.2=</code> (the two sample sizes, respectively). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the cannabis example is:</p>
+<p>The CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>.21</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.38</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[.21,~1.38]</annotation></semantics></math>. That is the population effect size is likely between .21 and 1.38 standard deviations. Using Cohen’s guidelines, the population effect might be small, or huge, or anywhere in between. We have a lot of uncertainty in the true size of the effect (due to the small sample size).</p>
+<p>For the two-sample situation—comparing two samples—we use the <code>ci.smd()</code> function (from the <code>{MBESS}</code> library) to compute a CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>. This function takes three arguments: <code>smd=</code> (Cohen’s <em>d</em>), <code>n.1=</code>, and <code>n.2=</code> (the two sample sizes, respectively). The syntax to compute a 95% CI for Cohen’s <em>d</em> in the cannabis example is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.smd</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.smd</span>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">smd =</span> .<span class="dv">8387</span>, <span class="co">#Cohen's d</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.1 =</span> <span class="dv">14</span>,    <span class="co">#Sample size for group 1</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.2 =</span> <span class="dv">23</span>    <span class="co">#Sample size for group 2</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Lower.Conf.Limit.smd
 [1] 0.1405644
@@ -934,7 +908,7 @@ $Upper.Conf.Limit.smd
 [1] 1.525818</code></pre>
 </div>
 </div>
-<p>The CI for Cohen’s <span class="math inline">\(\delta\)</span> is <span class="math inline">\([.14,~1.53]\)</span>. That is the population effect size is likely between .14 and 1.52 standard deviations. Using Cohen’s guidelines, the population effect might be quite small, or huge, or anywhere in between. Again, we have a lot of uncertainty in the true size of the effect (due to the small sample sizes).</p>
+<p>The CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>.14</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.53</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[.14,~1.53]</annotation></semantics></math>. That is the population effect size is likely between .14 and 1.52 standard deviations. Using Cohen’s guidelines, the population effect might be quite small, or huge, or anywhere in between. Again, we have a lot of uncertainty in the true size of the effect (due to the small sample sizes).</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
 <p>To have reasonable precision in the CIs for a standardized effect, you need very large samples!</p>
@@ -952,8 +926,8 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-04-01" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 50 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
@@ -964,8 +938,8 @@ dbl (2): season, age
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response         show min   Q1 median Q3 max     mean       sd  n missing
 1      age     Bachelor  25 28.0     30 33  40 30.70370 3.800960 27       0
@@ -973,13 +947,13 @@ dbl (2): season, age
 </div>
 </div>
 <p>Because the sample sizes are not equal (27 vs.&nbsp;24), we need to compute <em>s</em> using a weighted average.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>s</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mi>n</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>27</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>3.80</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>23</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>3.03</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mn>27</mn><mo>+</mo><mn>23</mn></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>3.45</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 s &amp;= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
 &amp;= \frac{27(3.80) + 23(3.03)}{27 + 23} \\[2ex]
 &amp;= 3.45
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <ol start="2" type="1">
 <li>Compute Cohen’s <em>d</em> using the values computed in the previous problem..</li>
@@ -988,13 +962,13 @@ s &amp;= \frac{n_1(s_1) + n_2(s_2)}{n_1 + n_2} \\[2ex]
 Show/Hide Solution
 </button>
 <div id="exercise_07-04-02" style="display:none; margin: -40px 0 40px 40px;">
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>s</mi></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mn>30.70</mn><mo>−</mo><mn>28.17</mn><mo stretchy="true" form="postfix">|</mo></mrow><mn>3.45</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.733</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 d &amp;= \frac{|\bar{x}_1 - \bar{x}_2|}{s} \\[2ex]
 &amp;= \frac{|30.70 - 28.17|}{3.45} \\[2ex]
 &amp;= .733
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <ol start="3" type="1">
 <li>Interpret the value of Cohen’s <em>d</em>. Also comment on its magnitude.</li>
@@ -1013,11 +987,11 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-04-04" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Cohen's d</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">smd</span>(</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.1 =</span> <span class="sc">-</span><span class="fl">2.07</span>, <span class="at">s.1 =</span> <span class="fl">7.77</span>, <span class="at">n.1 =</span> <span class="dv">14</span>, <span class="co">#Adult summaries</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean.2 =</span> <span class="sc">-</span><span class="fl">8.26</span>, <span class="at">s.2 =</span> <span class="fl">7.14</span>, <span class="at">n.2 =</span> <span class="dv">23</span>  <span class="co">#Teen summaries</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8387215</code></pre>
 </div>
@@ -1025,20 +999,20 @@ Show/Hide Solution
 <p>Don’t forget to load the <code>{MBESS}</code> package if you haven’t already done so!</p>
 </div>
 <ol start="5" type="1">
-<li>Use the <code>ci.smd()</code> function to compute a 99% CI for Cohen’s <span class="math inline">\(\delta\)</span> for the Bachelor/Bachelorette age example. You can change the confidence level using the <code>conf.level=</code> argument. The default is <code>conf.level=.95</code>, which produces a 95% CI.</li>
+<li>Use the <code>ci.smd()</code> function to compute a 99% CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> for the Bachelor/Bachelorette age example. You can change the confidence level using the <code>conf.level=</code> argument. The default is <code>conf.level=.95</code>, which produces a 95% CI.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-04-05');">
 Show/Hide Solution
 </button>
 <div id="exercise_07-04-05" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute 99% CI for Cohen's d</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute 99% CI for Cohen's d</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.smd</span>(</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">smd =</span> .<span class="dv">7286</span>,     <span class="co">#Cohen's d</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.1 =</span> <span class="dv">27</span>,        <span class="co">#Sample size for group 1</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.2 =</span> <span class="dv">23</span>,        <span class="co">#Sample size for group 2</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> .<span class="dv">99</span> <span class="co">#99% confidence level</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Lower.Conf.Limit.smd
 [1] -0.03017543
@@ -1050,7 +1024,7 @@ $Upper.Conf.Limit.smd
 [1] 1.480727</code></pre>
 </div>
 </div>
-<p>Here the CI for Cohen’s <span class="math inline">\(\delta\)</span> extends from <span class="math inline">\(-.03\)</span> to 1.48. The negative value at one end of the interval and a positve value indicates that the direction of the effect is in question…In the population, is the Bachelor’s average age older than that of the Bachelorettes? Or are the Bachelorette’s older, on average, than the Bachelors? There is too much uncertainty to determine this. Moreover, there is a lot of uncertainty in the size of the effect…it could be small or large.</p>
+<p>Here the CI for Cohen’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> extends from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>.03</mn></mrow><annotation encoding="application/x-tex">-.03</annotation></semantics></math> to 1.48. The negative value at one end of the interval and a positve value indicates that the direction of the effect is in question…In the population, is the Bachelor’s average age older than that of the Bachelorettes? Or are the Bachelorette’s older, on average, than the Bachelors? There is too much uncertainty to determine this. Moreover, there is a lot of uncertainty in the size of the effect…it could be small or large.</p>
 </div>
 </section>
 <section id="references" class="level2 unnumbered">
@@ -1119,13 +1093,14 @@ Cohen, J. (1965). <em>Statistical power analysis for the behavioral sciences</em
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

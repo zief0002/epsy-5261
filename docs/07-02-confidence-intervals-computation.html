@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -683,7 +657,7 @@ window.Quarto = {
 <h2 data-number="20.1" class="anchored" data-anchor-id="the-confint-function"><span class="header-section-number">20.1</span> The confint() Function</h2>
 <p>To compute a confidence interval (CI), we fit a two-sided <em>t</em>-test and then call the <code>confint()</code> function on the results. For example, to compute a CI to estimate the average price of a single-family house near the University of Minnesota we can use the following syntax.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -692,7 +666,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>zillow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 1
    price
@@ -713,27 +687,27 @@ window.Quarto = {
 14  500 
 15  399 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out two-sided t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out two-sided t-test</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow, <span class="at">mu =</span> <span class="fl">322.46</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean of x    lower    upper level
 1   404.966 348.2415 461.6905  0.95</code></pre>
 </div>
 </div>
-<p>The <code>lower</code> and <code>upper</code> values of the output give the lower and upper bounds of the CI, respectively. From this output, our CI is computed as <span class="math inline">\([348.24,~461.69]\)</span>.</p>
+<p>The <code>lower</code> and <code>upper</code> values of the output give the lower and upper bounds of the CI, respectively. From this output, our CI is computed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>348.24</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>461.69</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[348.24,~461.69]</annotation></semantics></math>.</p>
 <p><br></p>
 <section id="some-computational-shortcuts-for-computing-a-ci" class="level3" data-number="20.1.1">
 <h3 data-number="20.1.1" class="anchored" data-anchor-id="some-computational-shortcuts-for-computing-a-ci"><span class="header-section-number">20.1.1</span> Some Computational Shortcuts for Computing a CI</h3>
 <p>In the house prices case study, we had initially tested a two-sided hypothesis, so we already had written the syntax for the <code>t_test()</code> function. This will be true in most applications. If, however, you haven’t carried out a <em>t</em>-test, and you want to compute a CI, you can shorten the syntax in the <code>t_test()</code> function by omitting the arguments <code>mu=</code> and <code>alternative=</code>. For example, if we hadn’t previously carried out a <em>t</em>-test on our Zillow data, we could use the syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out two-sided t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out two-sided t-test</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean of x    lower    upper level
 1   404.966 348.2415 461.6905  0.95</code></pre>
@@ -747,11 +721,11 @@ window.Quarto = {
 <h2 data-number="20.2" class="anchored" data-anchor-id="computing-a-ci-for-a-proportion"><span class="header-section-number">20.2</span> Computing a CI for a Proportion</h2>
 <p>We can also use the <code>confint()</code> function to compute the CI for a proportion. In a similar fashion, we would need to carry out a two-sided <em>z</em>-test (using <code>prop_test()</code>) and then call <code>confint()</code> on the results of that <em>z</em>-test. For example to compute a CI to estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mn_lead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 91,706 × 2
    lead_level ebll 
@@ -768,7 +742,7 @@ window.Quarto = {
 10       3.73 No   
 # ℹ 91,696 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample z-test</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>ebll <span class="sc">==</span> <span class="st">"Yes"</span>, </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> mn_lead, </span>
@@ -778,24 +752,24 @@ window.Quarto = {
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           p      lower      upper level
 1 0.01391403 0.01317602 0.01469276  0.95</code></pre>
 </div>
 </div>
-<p>From this output, our CI is computed as <span class="math inline">\([.013,~.015]\)</span> which suggests that based on the data, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .013 and .015.</p>
+<p>From this output, our CI is computed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>.013</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>.015</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[.013,~.015]</annotation></semantics></math> which suggests that based on the data, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .013 and .015.</p>
 <p><br></p>
 </section>
 <section id="computing-a-ci-for-the-difference-in-means-or-proportions" class="level2" data-number="20.3">
 <h2 data-number="20.3" class="anchored" data-anchor-id="computing-a-ci-for-the-difference-in-means-or-proportions"><span class="header-section-number">20.3</span> Computing a CI for the Difference in Means or Proportions</h2>
 <p>You can also use the <code>confint()</code> function on the results of a two-sided <em>t</em>- or <em>z</em>-test in the same way. For example, to estimate the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose, we would use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>bachelor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>bachelor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 10
    show    season run_dates name    age winner runner_up proposal still_together
@@ -813,7 +787,7 @@ window.Quarto = {
 # ℹ 40 more rows
 # ℹ 1 more variable: relationship_status &lt;chr&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample z-test with counts entered manually</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample z-test with counts entered manually</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>),</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">21</span>),</span>
@@ -822,17 +796,17 @@ window.Quarto = {
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     prop 1    prop 2      lower     upper level
 1 0.1111111 0.1904762 -0.2849334 0.1262033  0.95</code></pre>
 </div>
 </div>
-<p>From this output, our CI is computed as <span class="math inline">\([-.28,~.13]\)</span> which suggests that based on the data, we think the the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose is between <span class="math inline">\(-.28\)</span> and 0.12.</p>
+<p>From this output, our CI is computed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mn>.28</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>.13</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-.28,~.13]</annotation></semantics></math> which suggests that based on the data, we think the the difference in the proportion of Bachelor and Bachelorette contestants that are still together with the person they chose is between <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>.28</mn></mrow><annotation encoding="application/x-tex">-.28</annotation></semantics></math> and 0.12.</p>
 <p>How can we have a negative value when we are dealing with proportions you might ask. Remember, that this represents our estimate of a <em>difference between two proportions</em>. When you compute the difference between two things you can get a negative value if you are subtracting a bigger value from a smaller value. To interpret this, recall that R subtracts in alphabetical order based on the category names; thus it is computing:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>−</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mrow><annotation encoding="application/x-tex">
 \pi_{\text{Bachelor}} -\pi_{\text{Bachelorette}}
-\]</span> The lower bound of <span class="math inline">\(-.28\)</span> tells us that the proportion of Bacheorette contestants that are still together with the person they chose may be higher than the proportion of Bachelor contestants that are still together with the person they chose by as much as .28. While the positive upper bound of .13 suggests that it may be that the proportion of Bachelor contestants still together with the person they chose is higher than the proportion of Bachelorette contestants still together with the person they chose by as much as .13.</p>
+</annotation></semantics></math> The lower bound of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>.28</mn></mrow><annotation encoding="application/x-tex">-.28</annotation></semantics></math> tells us that the proportion of Bacheorette contestants that are still together with the person they chose may be higher than the proportion of Bachelor contestants that are still together with the person they chose by as much as .28. While the positive upper bound of .13 suggests that it may be that the proportion of Bachelor contestants still together with the person they chose is higher than the proportion of Bachelorette contestants still together with the person they chose by as much as .13.</p>
 <p>Because of this, we have uncertainty about which group is more likely to stay together with the person they chose. It may be Bachelor contestants, or it may be Bachelorette contestants, we just can’t tell based on these data—there is too much uncertainty. Another possibility is that the proportions are the same. If the proportions are the same, the difference between them is 0—which falls in the range of the CI. Remember, any value in the range is a plausible value for the difference in population proportions!</p>
 <p><br></p>
 </section>
@@ -846,7 +820,7 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-02-01" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
@@ -859,13 +833,13 @@ Show/Hide Solution
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean in group Adult mean in group Teen    lower    upper level
 1           -2.071429           -8.26087 1.111976 11.26691  0.95</code></pre>
 </div>
 </div>
-<p>The CI is <span class="math inline">\([1.11,~11.27]\)</span></p>
+<p>The CI is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>1.11</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>11.27</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[1.11,~11.27]</annotation></semantics></math></p>
 </div>
 <ol start="2" type="1">
 <li>Interpret the CI you computed.</li>
@@ -883,7 +857,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_07-02-03" style="display:none; margin: -40px 0 40px 40px;">
-<p>The CI is computed alphabetically by category level, which means it is computed as <span class="math inline">\(\pi_{\text{Adult}}-\pi_{\text{Teen}}\)</span>. We can compute this difference using the sample means. In the output we see the average IQ change for adults (<span class="math inline">\(-2.07\)</span>) is a smaller decrease than it is for teens (<span class="math inline">\(8.26\)</span>). The difference in sample means is <span class="math inline">\(-2.07--8.26=+6.19\)</span>. So a positive difference between means suggests that the adult group has LESS of a decrease in IQ than the teen group.</p>
+<p>The CI is computed alphabetically by category level, which means it is computed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mtext mathvariant="normal">Adult</mtext></msub><mo>−</mo><msub><mi>π</mi><mtext mathvariant="normal">Teen</mtext></msub></mrow><annotation encoding="application/x-tex">\pi_{\text{Adult}}-\pi_{\text{Teen}}</annotation></semantics></math>. We can compute this difference using the sample means. In the output we see the average IQ change for adults (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.07</mn></mrow><annotation encoding="application/x-tex">-2.07</annotation></semantics></math>) is a smaller decrease than it is for teens (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8.26</mn><annotation encoding="application/x-tex">8.26</annotation></semantics></math>). The difference in sample means is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.07</mn><mo>−</mo><mi>−</mi><mn>8.26</mn><mo>=</mo><mi>+</mi><mn>6.19</mn></mrow><annotation encoding="application/x-tex">-2.07--8.26=+6.19</annotation></semantics></math>. So a positive difference between means suggests that the adult group has LESS of a decrease in IQ than the teen group.</p>
 <p>Because both the lower and upper bounds of the CI are positive, it means that the data suggest that people who become persistent marijuana users as an adult have, on average, LESS of a decrease in IQ than people who become persistent marijuana users as a teen. And this difference might be as little as 1.11 IQ points or as large as 11.27 IQ points.</p>
 <div class="fyi">
 <p><strong>BE CAREFUL</strong></p>
@@ -898,32 +872,32 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-02-04" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>continuous_assessment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/continuous-assessment.csv"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(<span class="sc">~</span>prior_knowledge, <span class="at">data =</span> continuous_assessment, <span class="at">mu =</span> <span class="fl">2.5</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute CI</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean of x    lower    upper level
 1  2.433333 2.098151 2.768515  0.95</code></pre>
 </div>
 </div>
-<p>Based on the output, the CI for the average response score is <span class="math inline">\([2.10,~2.77]\)</span>.</p>
+<p>Based on the output, the CI for the average response score is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>2.10</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>2.77</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[2.10,~2.77]</annotation></semantics></math>.</p>
 </div>
 <ol start="5" type="1">
-<li>Use the CI to compute the margin of error. Remember a CI is computed as <span class="math inline">\(\text{Sample Estimate} \pm \text{Margin of Error}\)</span>.</li>
+<li>Use the CI to compute the margin of error. Remember a CI is computed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mtext mathvariant="normal">Margin of Error</mtext></mrow><annotation encoding="application/x-tex">\text{Sample Estimate} \pm \text{Margin of Error}</annotation></semantics></math>.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_07-02-05');">
 Show/Hide Solution
 </button>
 <div id="exercise_07-02-05" style="display:none; margin: -40px 0 40px 40px;">
-<p>The sample estimate (<span class="math inline">\(\bar{x}\)</span>) is 2.43. Computing the distance from this value to the upper bound (orto the lower bound) will give us the margin of error.</p>
-<p><span class="math display">\[
+<p>The sample estimate (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar{x}</annotation></semantics></math>) is 2.43. Computing the distance from this value to the upper bound (orto the lower bound) will give us the margin of error.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.77</mn><mo>−</mo><mn>2.43</mn><mo>=</mo><mn>.34</mn></mrow><annotation encoding="application/x-tex">
 2.77 - 2.43 = .34
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The margin of error is 0.34.</p>
 </div>
 <p><br></p>
@@ -984,13 +958,14 @@ Show/Hide Solution
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

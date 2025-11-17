@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -682,35 +656,35 @@ window.Quarto = {
 <section id="house-prices-revisited" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="house-prices-revisited"><span class="header-section-number">19.1</span> House Prices (Revisited)</h2>
 <p>In the house prices case study from <a href="04-04-one-sample-test-computation.html" class="quarto-xref">Chapter&nbsp;<span>10</span></a>, we evaluated whether the average price of a house near the University of Minnesota was different than $322.46k, the price of a typical single-family house in Minneapolis, by testing the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>322.46</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>322.46</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \mu = 322.46 \\[1ex]
 H_A: \mu \neq 322.46
 \end{split}
-\]</span> The results of the one-sample <em>t</em>-test were: <span class="math inline">\(t(14)=3.12\)</span>, <span class="math inline">\(p = .008\)</span>. This small <em>p</em>-value led us to <em>reject the null hypothesis</em>, indicating that the empirical evidence was consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
+</annotation></semantics></math> The results of the one-sample <em>t</em>-test were: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>14</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3.12</mn></mrow><annotation encoding="application/x-tex">t(14)=3.12</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.008</mn></mrow><annotation encoding="application/x-tex">p = .008</annotation></semantics></math>. This small <em>p</em>-value led us to <em>reject the null hypothesis</em>, indicating that the empirical evidence was consistent with the average cost of a house near the UMN campus being different than the average cost of a house in Minneapolis more broadly.</p>
 <p><br></p>
 <section id="estimating-the-average-price-for-houses-near-the-university-of-minnesota" class="level3" data-number="19.1.1">
 <h3 data-number="19.1.1" class="anchored" data-anchor-id="estimating-the-average-price-for-houses-near-the-university-of-minnesota"><span class="header-section-number">19.1.1</span> Estimating the Average Price for Houses Near the University of Minnesota</h3>
 <p>While the results of the hypothesis test suggest that the average cost of a house near the UMN campus is different than the average cost of a house in Minneapolis more broadly, the results from a hypothesis tests cannot tell us (1) the direction of that difference, nor (2) how much different the average cost is. Is it more or less than $322.46k? How much more or less? These questions are natural follow-ups after carrying out a hypothesis test.</p>
 <p>Using the sample evidence (e.g., sample mean), we can begin to answer this question. For example, the mean cost of a single-family house near the UMN campus was $404.97k. The sample evidence suggests that the average price of a house near the UMN campus is $82.51k higher than the average house in Minneapolis.</p>
 <p>This is informative in answering our follow-up questions, but had we drawn a different sample of houses near the University of Minnesota, our estimate of the average house price would vary because of sampling error. Similar to how we accounted for sampling error in the hypothesis tests we carried out, we also need to account for it in the estimates/effect sizes that we give. To do this, we quantify the uncertainty in the estimate that is due to sampling error, and use that to produce a <em>margin of error</em>, which in turn is used to produce a <em>confidence interval</em> (CI) for the estimate by:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">CI</mtext><mo>=</mo><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mtext mathvariant="normal">Margin of Error</mtext></mrow><annotation encoding="application/x-tex">
 \text{CI} = \text{Sample Estimate} \pm \text{Margin of Error}
-\]</span> For example, if the margin of error was $10k, our confidence interval would be computed as:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> For example, if the margin of error was $10k, our confidence interval would be computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mn>404.97</mn><mo>±</mo><mn>10</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mo stretchy="true" form="prefix">[</mo><mn>394.97</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>414.97</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;404.97 \pm 10 \\[2ex]
 &amp;[394.97,~414.97]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>That is, the confidence interval would indicate that the average price of a single-family house near the University of Minnesota is between $394.97k and $414.97k. Adding and subtracting the margin of error to the sample estimate gives a range of values that are reasonable estimates for the average price of a single-family house near the University of Minnesota. Providing this range, rather than only a single value for the estimate, is an acknowledgement that we have uncertainty in our estimate.</p>
 <p>To obtain the margin of error we quantify the amount of sampling error in the sample estimate (i.e., compute the SE for the estimate) and multiply that by two.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> That is:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Margin of Error</mtext><mo>=</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">
 \text{Margin of Error} = 2 \times \text{SE}
-\]</span> Substituting this into our formula for confidence intervals, we find that a confidence interval is computed as:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> Substituting this into our formula for confidence intervals, we find that a confidence interval is computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">CI</mtext><mo>=</mo><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">
 \text{CI} = \text{Sample Estimate} \pm 2 \times \text{SE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>All confidence intervals are computed using this method. The only thing that changes is how the SE is computed. Remember from our reading in hypothesis tests, the formula for the SE depended on whether we were computing it for a single mean, the difference between two means, a single proportion, or a difference between two proportions. As a reminder, the formulas for SE are presented in <a href="#tbl-se" class="quarto-xref">Table&nbsp;<span>19.1</span></a>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="cell" data-tbl-colwidths="false">
 <div id="tbl-se" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
@@ -720,23 +694,23 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 </figcaption>
 <div aria-describedby="tbl-se-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="vqrtsnrflt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vqrtsnrflt table {
+<div id="hwxiuukjad" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hwxiuukjad table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vqrtsnrflt thead, #vqrtsnrflt tbody, #vqrtsnrflt tfoot, #vqrtsnrflt tr, #vqrtsnrflt td, #vqrtsnrflt th {
+#hwxiuukjad thead, #hwxiuukjad tbody, #hwxiuukjad tfoot, #hwxiuukjad tr, #hwxiuukjad td, #hwxiuukjad th {
   border-style: none;
 }
 
-#vqrtsnrflt p {
+#hwxiuukjad p {
   margin: 0;
   padding: 0;
 }
 
-#vqrtsnrflt .gt_table {
+#hwxiuukjad .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -762,12 +736,12 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-left-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_caption {
+#hwxiuukjad .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vqrtsnrflt .gt_title {
+#hwxiuukjad .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -779,7 +753,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-width: 0;
 }
 
-#vqrtsnrflt .gt_subtitle {
+#hwxiuukjad .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -791,7 +765,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-top-width: 0;
 }
 
-#vqrtsnrflt .gt_heading {
+#hwxiuukjad .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -803,13 +777,13 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_bottom_border {
+#hwxiuukjad .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_col_headings {
+#hwxiuukjad .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -824,7 +798,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_col_heading {
+#hwxiuukjad .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -844,7 +818,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   overflow-x: hidden;
 }
 
-#vqrtsnrflt .gt_column_spanner_outer {
+#hwxiuukjad .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -856,15 +830,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 4px;
 }
 
-#vqrtsnrflt .gt_column_spanner_outer:first-child {
+#hwxiuukjad .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vqrtsnrflt .gt_column_spanner_outer:last-child {
+#hwxiuukjad .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vqrtsnrflt .gt_column_spanner {
+#hwxiuukjad .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -876,11 +850,11 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   width: 100%;
 }
 
-#vqrtsnrflt .gt_spanner_row {
+#hwxiuukjad .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vqrtsnrflt .gt_group_heading {
+#hwxiuukjad .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -906,7 +880,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   text-align: left;
 }
 
-#vqrtsnrflt .gt_empty_group_heading {
+#hwxiuukjad .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -921,15 +895,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   vertical-align: middle;
 }
 
-#vqrtsnrflt .gt_from_md > :first-child {
+#hwxiuukjad .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vqrtsnrflt .gt_from_md > :last-child {
+#hwxiuukjad .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vqrtsnrflt .gt_row {
+#hwxiuukjad .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -948,7 +922,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   overflow-x: hidden;
 }
 
-#vqrtsnrflt .gt_stub {
+#hwxiuukjad .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -961,7 +935,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#vqrtsnrflt .gt_stub_row_group {
+#hwxiuukjad .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -975,15 +949,15 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   vertical-align: top;
 }
 
-#vqrtsnrflt .gt_row_group_first td {
+#hwxiuukjad .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vqrtsnrflt .gt_row_group_first th {
+#hwxiuukjad .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vqrtsnrflt .gt_summary_row {
+#hwxiuukjad .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -993,16 +967,16 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#vqrtsnrflt .gt_first_summary_row {
+#hwxiuukjad .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_first_summary_row.thick {
+#hwxiuukjad .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vqrtsnrflt .gt_last_summary_row {
+#hwxiuukjad .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1012,7 +986,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_grand_summary_row {
+#hwxiuukjad .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1022,7 +996,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#vqrtsnrflt .gt_first_grand_summary_row {
+#hwxiuukjad .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1032,7 +1006,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-top-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_last_grand_summary_row_top {
+#hwxiuukjad .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1042,11 +1016,11 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_striped {
+#hwxiuukjad .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vqrtsnrflt .gt_table_body {
+#hwxiuukjad .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1055,7 +1029,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-bottom-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_footnotes {
+#hwxiuukjad .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1069,7 +1043,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_footnote {
+#hwxiuukjad .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1078,7 +1052,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#vqrtsnrflt .gt_sourcenotes {
+#hwxiuukjad .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1092,7 +1066,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   border-right-color: #D3D3D3;
 }
 
-#vqrtsnrflt .gt_sourcenote {
+#hwxiuukjad .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1100,77 +1074,77 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
   padding-right: 5px;
 }
 
-#vqrtsnrflt .gt_left {
+#hwxiuukjad .gt_left {
   text-align: left;
 }
 
-#vqrtsnrflt .gt_center {
+#hwxiuukjad .gt_center {
   text-align: center;
 }
 
-#vqrtsnrflt .gt_right {
+#hwxiuukjad .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vqrtsnrflt .gt_font_normal {
+#hwxiuukjad .gt_font_normal {
   font-weight: normal;
 }
 
-#vqrtsnrflt .gt_font_bold {
+#hwxiuukjad .gt_font_bold {
   font-weight: bold;
 }
 
-#vqrtsnrflt .gt_font_italic {
+#hwxiuukjad .gt_font_italic {
   font-style: italic;
 }
 
-#vqrtsnrflt .gt_super {
+#hwxiuukjad .gt_super {
   font-size: 65%;
 }
 
-#vqrtsnrflt .gt_footnote_marks {
+#hwxiuukjad .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vqrtsnrflt .gt_asterisk {
+#hwxiuukjad .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vqrtsnrflt .gt_indent_1 {
+#hwxiuukjad .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vqrtsnrflt .gt_indent_2 {
+#hwxiuukjad .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vqrtsnrflt .gt_indent_3 {
+#hwxiuukjad .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vqrtsnrflt .gt_indent_4 {
+#hwxiuukjad .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vqrtsnrflt .gt_indent_5 {
+#hwxiuukjad .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vqrtsnrflt .katex-display {
+#hwxiuukjad .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vqrtsnrflt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hwxiuukjad div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Situation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Situation</th>
@@ -1204,16 +1178,16 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 </div>
 </div>
 <p>In the house prices case study we had a single sample that we want to estimate the mean for (i.e., single mean). Thus we can compute the CI as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">CI</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mtext mathvariant="normal">Sample Estimate</mtext><mo>±</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mtext mathvariant="normal">Sample Mean</mtext><mo>±</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE for single mean</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>±</mo><mn>2</mn><mo>×</mo><mfrac><mtext mathvariant="normal">SD</mtext><msqrt><mi>n</mi></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{CI} &amp;= \text{Sample Estimate} \pm 2 \times \text{SE} \\[2ex]
 &amp;= \text{Sample Mean} \pm 2 \times \text{SE for single mean} \\[2ex]
 &amp;= \bar{x} \pm 2 \times \frac{\text{SD}}{\sqrt{n}} \\[2ex]
 \end{split}
-\]</span></p>
-<p>So we need to use the sample data to get the sample mean (<span class="math inline">\(\bar{x}\)</span>), the sample standard deviation (SD), and the sample size (<em>n</em>). Remember we can get these values by using the <code>df_stats()</code> function.</p>
+</annotation></semantics></math></p>
+<p>So we need to use the sample data to get the sample mean (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar{x}</annotation></semantics></math>), the sample standard deviation (SD), and the sample size (<em>n</em>). Remember we can get these values by using the <code>df_stats()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -1223,7 +1197,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>zillow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/zillow.csv"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>zillow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>zillow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 1
    price
@@ -1244,8 +1218,8 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 14  500 
 15  399 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample statistics</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample statistics</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>price, <span class="at">data =</span> zillow)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response   min  Q1 median      Q3   max    mean       sd  n missing
 1    price 249.9 327  399.9 499.995 549.9 404.966 102.4312 15       0</code></pre>
@@ -1253,19 +1227,19 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 </div>
 <p>These values are:</p>
 <ul>
-<li><span class="math inline">\(\bar{x}=404.97\)</span>,</li>
-<li><span class="math inline">\(\text{SD} = 102.43\)</span>, and</li>
-<li><span class="math inline">\(n=15\)</span></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>404.97</mn></mrow><annotation encoding="application/x-tex">\bar{x}=404.97</annotation></semantics></math>,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SD</mtext><mo>=</mo><mn>102.43</mn></mrow><annotation encoding="application/x-tex">\text{SD} = 102.43</annotation></semantics></math>, and</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">n=15</annotation></semantics></math></li>
 </ul>
 <p>Then we substitute those values into the formula for the CI and get:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">CI</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>404.97</mn><mo>±</mo><mn>2</mn><mo>×</mo><mfrac><mn>102.43</mn><msqrt><mn>15</mn></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>404.97</mn><mo>±</mo><mn>2</mn><mo>×</mo><mn>26.45</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>404.97</mn><mo>±</mo><mn>52.9</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>352.07</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>457.87</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{CI} &amp;= 404.97 \pm 2 \times \frac{102.43}{\sqrt{15}} \\[2ex]
 &amp;= 404.97 \pm 2 \times 26.45 \\[2ex]
 &amp;= 404.97 \pm 52.9 \\[2ex]
 &amp;= [352.07,~457.87]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Our CI tells us that, based on the data, we think the average price of a single-family house near the University of Minnesota is between $352.07k and $457.87k. Using this, we can now answer our follow-up questions. Is the average price of a single-family house near the UMN more or less expensive than in Minneapolis more broadly? And by how much? Based on the CI it seems the average price of a single-family house near the University of Minnesota is higher than the average single-family house price in Minneapolis more broadly ($322.46k). It may be more expensive by as little as $29.61k and as much as $135.41k.</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
@@ -1277,7 +1251,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 <p>Using substantive knowledge, one could then make decisions about whether differences this large is meaningful or not. For example, when it comes to real estate in the Twin Cities, a difference of around $30k is not so big, but a difference of $135k is pretty large. On the other hand, for many first time home buyers, even $30k is meaningful. In order to understand whether effects are meaningful, it is necessary to contextualize them in relation to the area of research.</p>
 <div class="fyi">
 <p><strong>VOCABULARY</strong></p>
-<p>To reiterate some of the vocabulary, the <strong>standard error</strong> (SE) was 26.45. This quantified the amount of uncertainty in the mean estimate that is due to sampling variation. The <strong>margin of error</strong> (<span class="math inline">\(2\times\text{SE}\)</span>) was 52.9 this increases the uncertainty due to sampling error by a factor of two, which makes it more likely that our confidence interval will include the population mean—you will learn more about this in class. Finally, the <strong>confidence interval</strong> (CI) is <span class="math inline">\([352.07,~457.87]\)</span>. This range includes plausible values for the population parameter, in our case the mean, based on the data and the estimated sampling uncertainty.</p>
+<p>To reiterate some of the vocabulary, the <strong>standard error</strong> (SE) was 26.45. This quantified the amount of uncertainty in the mean estimate that is due to sampling variation. The <strong>margin of error</strong> (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mrow><annotation encoding="application/x-tex">2\times\text{SE}</annotation></semantics></math>) was 52.9 this increases the uncertainty due to sampling error by a factor of two, which makes it more likely that our confidence interval will include the population mean—you will learn more about this in class. Finally, the <strong>confidence interval</strong> (CI) is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>352.07</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>457.87</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[352.07,~457.87]</annotation></semantics></math>. This range includes plausible values for the population parameter, in our case the mean, based on the data and the estimated sampling uncertainty.</p>
 </div>
 <p><br></p>
 </section>
@@ -1286,11 +1260,11 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 <h2 data-number="19.2" class="anchored" data-anchor-id="estimating-lead-levels-in-mn-children"><span class="header-section-number">19.2</span> Estimating Lead Levels in MN Children</h2>
 <p>To estimate the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018, we will compute a CI for a proportion rather than a mean. Below we import the data and compute the proportions. From the <a href="https://zief0002.github.io/epsy-5261/codebooks/mn-lead.html">data codebook</a> we also know that the sample size is 91,706.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mn_lead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/mn-lead.csv"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>mn_lead</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 91,706 × 2
    lead_level ebll 
@@ -1307,8 +1281,8 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 10       3.73 No   
 # ℹ 91,696 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample proportions</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample proportions</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>ebll, <span class="at">data =</span> mn_lead, props)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response  prop_No   prop_Yes
 1     ebll 0.986086 0.01391403</code></pre>
@@ -1319,27 +1293,27 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 <section id="estimating-the-difference-between-two-sample-means" class="level2" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-means"><span class="header-section-number">19.3</span> Estimating the Difference Between Two Sample Means</h2>
 <p>In <a href="05-01-two-sample-t-test.html" class="quarto-xref">Chapter&nbsp;<span>13</span></a> we carried out a two-sample <em>t</em>-test to determine whether the effects on IQ were more adverse for users who started using marijuana as a teen Meier et al.&nbsp;posited that persistent marijuana users that became dependent as teens would have a bigger decline in IQ than those who became dependent as adults. To do that we tested the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>&gt;</mo><mn>0</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0 \\
 &amp;H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} &gt; 0
 \end{split}
-\]</span> The results of the <em>t</em>-test—<span class="math inline">\(t(35)=2.47\)</span>, <span class="math inline">\(p=.009\)</span>— suggested that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. So now, we want to ask the question: How much greater?</p>
+</annotation></semantics></math> The results of the <em>t</em>-test—<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>35</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2.47</mn></mrow><annotation encoding="application/x-tex">t(35)=2.47</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.009</mn></mrow><annotation encoding="application/x-tex">p=.009</annotation></semantics></math>— suggested that the difference in average IQ score change is greater for participants who became persistent marijuana users as adults than those that became persistent marijuana users as teens. So now, we want to ask the question: How much greater?</p>
 <p>In this case study we have two samples that we want to estimate the difference in means for. Thus we can compute the CI as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Sample Estimate</mtext></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Sample Difference in Means</mtext></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE for difference in means</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><msubsup><mtext mathvariant="normal">SD</mtext><mn>1</mn><mn>2</mn></msubsup><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><msubsup><mtext mathvariant="normal">SD</mtext><mn>2</mn><mn>2</mn></msubsup><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Sample Estimate} &amp;\pm 2 \times \text{SE} \\[2ex]
 \text{Sample Difference in Means} &amp;\pm 2 \times \text{SE for difference in means} \\[2ex]
 (\bar{x}_1 - \bar{x}_2) &amp;\pm 2 \bigg(\sqrt{\frac{\text{SD}_1^2}{n_1} + \frac{\text{SD}_2^2}{n_2}}\bigg)
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv">cannabis.csv</a> to obtain these sample values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>cannabis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 37 × 2
    iq_change cannabis_dep
@@ -1356,8 +1330,8 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 10        -7 Adult       
 # ℹ 27 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   response cannabis_dep min  Q1 median   Q3 max      mean       sd  n missing
 1 iq_change        Adult -16  -7     -3  4.0  11 -2.071429 7.770400 14       0
@@ -1365,7 +1339,7 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 </div>
 </div>
 <p>Substituting these values into the formula for the CI:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><msubsup><mtext mathvariant="normal">SD</mtext><mn>1</mn><mn>2</mn></msubsup><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><msubsup><mtext mathvariant="normal">SD</mtext><mn>2</mn><mn>2</mn></msubsup><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>2.07</mn><mo>−</mo><mi>−</mi><mn>8.26</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><msup><mn>7.77</mn><mn>2</mn></msup><mn>14</mn></mfrac><mo>+</mo><mfrac><msup><mn>7.14</mn><mn>2</mn></msup><mn>23</mn></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>6.19</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><mn>2.56</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>6.19</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>5.12</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">[</mo><mn>1.07</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mn>11.31</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 (\bar{x}_1 - \bar{x}_2) &amp;\pm 2 \bigg(\sqrt{\frac{\text{SD}_1^2}{n_1} + \frac{\text{SD}_2^2}{n_2}}\bigg) \\[2ex]
 (-2.07 - -8.26) &amp;\pm 2 \bigg(\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{23}}\bigg) \\[2ex]
@@ -1373,42 +1347,42 @@ Table&nbsp;19.1: Formulas to compute the standard error (SE) for the different s
 6.19 &amp;\pm 5.12 \\[2ex]
 [1.07,&amp;~11.31]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p><br></p>
 </section>
 <section id="estimating-the-difference-between-two-sample-proportions" class="level2" data-number="19.4">
 <h2 data-number="19.4" class="anchored" data-anchor-id="estimating-the-difference-between-two-sample-proportions"><span class="header-section-number">19.4</span> Estimating the Difference Between Two Sample Proportions</h2>
 <p>In <a href="05-03-two-sample-test-proportions.html" class="quarto-xref">Chapter&nbsp;<span>15</span></a> we carried out a two-sample <em>z</em>-test to determine whether the Bachelors or Bachelorettes were more successful in their selection of potential suitors by determining whether the proportion of couples that are still together is different for the Bachelors and Bachelorettes. To do that we tested the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>−</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>−</mo><msub><mi>π</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>≠</mo><mn>0</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} &amp;= 0 \\[1ex]
 H_A: \pi_{\text{Bachelor}} - \pi_{\text{Bachelorette}} &amp;\neq 0
 \end{split}
-\]</span> The results of the <em>z</em>-test—<span class="math inline">\(z=-.77\)</span>, <span class="math inline">\(p=.439\)</span>— suggested that the it is likely that the proportion of Bachelor contestants who are still together with their selected suitor is NOT different than the proportion of Bachelorette contestants who are still together with their selected suitor. Even if we fail to reject the null hypothesis, it can be useful to compute a CI.</p>
+</annotation></semantics></math> The results of the <em>z</em>-test—<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>−</mi><mn>.77</mn></mrow><annotation encoding="application/x-tex">z=-.77</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.439</mn></mrow><annotation encoding="application/x-tex">p=.439</annotation></semantics></math>— suggested that the it is likely that the proportion of Bachelor contestants who are still together with their selected suitor is NOT different than the proportion of Bachelorette contestants who are still together with their selected suitor. Even if we fail to reject the null hypothesis, it can be useful to compute a CI.</p>
 <p>In this case study we have two samples that we want to estimate the difference in proportions for. Thus we can compute the CI as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Sample Estimate</mtext></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Sample Difference in Proportions</mtext></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE for difference in proportions</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Sample Estimate} &amp;\pm 2 \times \text{SE} \\[2ex]
 \text{Sample Difference in Proportions} &amp;\pm 2 \times \text{SE for difference in proportions} \\[2ex]
 (\hat{p}_1 - \hat{p}_2) &amp;\pm 2 \bigg(\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\bigg)
 \end{split}
-\]</span> Below are the sample proportions and sample sizes for the two groups.</p>
+</annotation></semantics></math> Below are the sample proportions and sample sizes for the two groups.</p>
 <p><strong>Bachelor Contestants</strong></p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mtext mathvariant="normal">No</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.89</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mtext mathvariant="normal">Yes</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.11</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>27</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \hat{p}_{\text{No}} &amp;= 0.89 \\[2ex]
 \hat{p}_{\text{Yes}} &amp;= 0.11 \\[2ex]
 n &amp;= 27
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p><strong>Bachelorette Contestants</strong></p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mtext mathvariant="normal">No</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.81</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mtext mathvariant="normal">Yes</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.19</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>21</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \hat{p}_{\text{No}} &amp;= 0.81 \\[2ex]
 \hat{p}_{\text{Yes}} &amp;= 0.19 \\[2ex]
 n &amp;= 21
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p><br></p>
 </section>
 <section id="exercises-your-turn" class="level2 unnumbered">
@@ -1421,15 +1395,15 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-01-01" style="display:none; margin: -40px 0 40px 40px;">
 <p>In this case study we have a single sample that we want to estimate the proportion for (i.e., single proportion). Thus we can compute the SE as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">SE</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msqrt><mfrac><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>n</mi></mfrac></msqrt></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msqrt><mfrac><mrow><mn>.014</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.014</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>91706</mn></mfrac></msqrt></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.0004</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{SE} &amp;= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\[2ex]
 &amp;= \sqrt{\frac{.014(1-.014)}{91706}} \\[2ex]
 &amp;= .0004
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <ol start="2" type="1">
-<li>Since we are interested in the proportion of children above the MDH reference level, we need to use the proportion for “Yes” (<span class="math inline">\(\hat{p}=.014\)</span>) in the formula.</li>
+<li>Since we are interested in the proportion of children above the MDH reference level, we need to use the proportion for “Yes” (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>.014</mn></mrow><annotation encoding="application/x-tex">\hat{p}=.014</annotation></semantics></math>) in the formula.</li>
 </ol>
 </div>
 <ol start="3" type="1">
@@ -1440,13 +1414,13 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-01-02" style="display:none; margin: -40px 0 40px 40px;">
 <p>We compute the margin of error as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Margin of Error</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mtext mathvariant="normal">SE</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2</mn><mo>×</mo><mn>.0004</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.0008</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Margin of Error} &amp;= 2 \times \text{SE} \\[2ex]
 &amp;= 2 \times .0004 \\[2ex]
 &amp;= .0008
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <ol start="4" type="1">
 <li>Use the initial sample estimate and the margin of error you just computed to compute the CI for the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018</li>
@@ -1456,14 +1430,14 @@ Show/Hide Solution
 </button>
 <div id="exercise_07-01-03" style="display:none; margin: -40px 0 40px 40px;">
 <p>We compute the CI as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Sample Estimate</mtext></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mtext mathvariant="normal">Margin of Error</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mover><mi>p</mi><mo accent="true">̂</mo></mover></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mtext mathvariant="normal">Margin of Error</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>.014</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>.0008</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mo stretchy="true" form="prefix">[</mo><mn>.0132</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>.0148</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{Sample Estimate} &amp;\pm \text{Margin of Error} \\[2ex]
 \hat{p} &amp;\pm \text{Margin of Error} \\[2ex]
 .014 &amp;\pm .0008 \\[2ex]
 &amp;[.0132,~.0148]
 \end{split}
-\]</span> Based on the CI, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .0132 and .0148.</p>
+</annotation></semantics></math> Based on the CI, we think the proportion of all Minnesota children under 6 years of age who are above the MDH reference level in 2018 is between .0132 and .0148.</p>
 </div>
 <ol start="5" type="1">
 <li>Using the information in the equations above, what is the margin of error?</li>
@@ -1490,7 +1464,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_07-01-06" style="display:none; margin: -40px 0 40px 40px;">
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><mn>.11</mn><mo>−</mo><mn>.19</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><msqrt><mrow><mfrac><mrow><mn>.11</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.11</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>27</mn></mfrac><mo>+</mo><mfrac><mrow><mn>.19</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>.19</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>21</mn></mfrac></mrow></msqrt><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>.08</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>2</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><mn>.10</mn><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>.08</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>±</mi><mn>.20</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>.28</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mn>.12</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 (\hat{p}_1 - \hat{p}_2) &amp;\pm 2 \bigg(\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\bigg) \\[2ex]
 (.11 - .19) &amp;\pm 2 \bigg(\sqrt{\frac{.11(1-.11)}{27} + \frac{.19(1-.19)}{21}}\bigg) \\[2ex]
@@ -1498,7 +1472,7 @@ Show/Hide Solution
 -.08 &amp;\pm .20 \\[2ex]
 [-.28,&amp;~.12]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <ol start="8" type="1">
 <li>Using the context of the case study, interpret the confidence interval that was computed above. (What does this tell you?)</li>
@@ -1507,7 +1481,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_07-01-07" style="display:none; margin: -40px 0 40px 40px;">
-<p>Based on the CI, we think the difference in proportion of Bachelors and Bachelorettes that are still together with their suitors is between <span class="math inline">\(-.28\)</span> and .12.</p>
+<p>Based on the CI, we think the difference in proportion of Bachelors and Bachelorettes that are still together with their suitors is between <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>.28</mn></mrow><annotation encoding="application/x-tex">-.28</annotation></semantics></math> and .12.</p>
 <p>That is, the proportion of Bachelors that are still together with their suitors might be lower than the proportion of Bachelorettes that are still together with their suitors by .28, or it might be higher than the proportion of Bachelorettes that are still together with their suitors by as much as .12, or anywhere in between.</p>
 </div>
 <ol start="9" type="1">
@@ -1529,7 +1503,7 @@ Show/Hide Solution
 <hr>
 <ol>
 <li id="fn1"><p>Sometimes we use a different multiplier than two. We will talk about that in class.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Note the SE for the single proportion is slightly different than how we computed it for the hypothesis test. Here we are using the sample proportion <em>p</em> rather than the hypothesized proportion <span class="math inline">\(\pi\)</span> in the formula for SE.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note the SE for the single proportion is slightly different than how we computed it for the hypothesis test. Here we are using the sample proportion <em>p</em> rather than the hypothesized proportion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math> in the formula for SE.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1585,13 +1559,14 @@ Show/Hide Solution
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

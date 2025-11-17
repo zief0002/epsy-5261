@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -683,7 +657,7 @@ window.Quarto = {
 <h2 data-number="27.1" class="anchored" data-anchor-id="recap-college-completion-rates-and-act-scores"><span class="header-section-number">27.1</span> Recap: College Completion Rates and ACT Scores</h2>
 <p>In <a href="08-02-linear-regression-description.html" class="quarto-xref"><span>Chapter 25</span></a>, we fitted a linear regression model to answer the research question of whether ACT scores are predictive of better institutional outcomes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicCore)</span>
@@ -694,7 +668,7 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/midwest-college-scorecard.csv"</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>colleges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>colleges</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 92 × 9
    institution        control state admission_rate   act debt_all debt_graduates
@@ -712,16 +686,16 @@ window.Quarto = {
 # ℹ 82 more rows
 # ℹ 2 more variables: earnings &lt;dbl&gt;, completion_rate &lt;dbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correlation</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correlation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8083368</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit regression model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit regression model</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lm.a <span class="ot">=</span> <span class="fu">lm</span>(completion_rate <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> act, <span class="at">data =</span> colleges)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print regression coefficients</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>lm.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>lm.a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -733,9 +707,9 @@ Coefficients:
 </div>
 </div>
 <p>The fitted equation was:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">R</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi></mrow><mo accent="true">̂</mo></mover><mo>=</mo><mi>−</mi><mn>0.364</mn><mo>+</mo><mn>0.037</mn><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">T</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \hat{\mathrm{Completion~Rate}} = -0.364 + 0.037(\mathrm{ACT})
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The results of the regression analysis suggested that each 1-point difference in 75th percentile ACT scores of education is associated with a 0.037-unit difference in completion rates, on average.</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
@@ -749,18 +723,18 @@ Coefficients:
 <blockquote class="blockquote">
 <p>Is there an effect of 75th percentile ACT scores on college completion rates for the population of colleges?</p>
 </blockquote>
-<p>Since a slope of 0 would indicate no relationship (i.e., no effect) between the predictor and outcome, evaluating whether or not <span class="math inline">\(\beta_1=0\)</span> would give us insight about the answer to this research question. We will perform a hypothesis test to evaluate whether the population slope is different from 0. The null and alternative hypotheses for this test are:</p>
-<p><span class="math display">\[
+<p>Since a slope of 0 would indicate no relationship (i.e., no effect) between the predictor and outcome, evaluating whether or not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta_1=0</annotation></semantics></math> would give us insight about the answer to this research question. We will perform a hypothesis test to evaluate whether the population slope is different from 0. The null and alternative hypotheses for this test are:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>β</mi><mn>1</mn></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>β</mi><mn>1</mn></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>≠</mo><mn>0</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_0: \beta_1 &amp;= 0 \\[1ex]
 H_A: \beta_1 &amp;\neq 0
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>We proceed with this test using the same process we use with every other hypothesis test:</p>
 <ul>
 <li>Assume the null hypothesis is true.</li>
-<li>Find a distribution of the sample statistic (in this case <span class="math inline">\(b_1\)</span>) based on this assumption.</li>
-<li>Compare the observed sample statistic (our <span class="math inline">\(b_1\)</span> of 0.037) to the other slopes in the distribution creates based on the null hypothesis.</li>
+<li>Find a distribution of the sample statistic (in this case <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_1</annotation></semantics></math>) based on this assumption.</li>
+<li>Compare the observed sample statistic (our <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_1</annotation></semantics></math> of 0.037) to the other slopes in the distribution creates based on the null hypothesis.</li>
 <li>Obtain a <em>p</em>-value.</li>
 <li>Make a decision based on the <em>p</em>-value and communicate your conclusion in context.</li>
 </ul>
@@ -801,18 +775,18 @@ Figure&nbsp;27.2: Sampling distribution of the slope under the null hypothesis. 
 </section>
 <section id="compare-observed-slope-to-other-slopes-in-the-distribution" class="level3" data-number="27.2.2">
 <h3 data-number="27.2.2" class="anchored" data-anchor-id="compare-observed-slope-to-other-slopes-in-the-distribution"><span class="header-section-number">27.2.2</span> Compare Observed Slope to Other Slopes in the Distribution</h3>
-<p>Based on the sampling distribution of the slope, we expect that if the null hypothesis is true, we expect slopes in the range of <span class="math inline">\(-.00861\)</span> and .000861. Our observed slope of .0374 is quite large relative to what we expect if the null hypothesis is true.</p>
+<p>Based on the sampling distribution of the slope, we expect that if the null hypothesis is true, we expect slopes in the range of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>.00861</mn></mrow><annotation encoding="application/x-tex">-.00861</annotation></semantics></math> and .000861. Our observed slope of .0374 is quite large relative to what we expect if the null hypothesis is true.</p>
 <p>To further quantify how large our slope of .0374 is relative to what we expect, we convert each of the sample slopes in the sampling distribution to a <em>t</em>-value by using the formula:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><msub><mi>b</mi><mn>1</mn></msub><mrow><mi>S</mi><mi>E</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 t = \frac{b_1}{SE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>For example, to convert our observed slope of 0.0374 to a <em>t</em>-value, we use:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>0.0374</mn><mn>0.00287</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>13</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 t &amp;= \frac{0.0374}{0.00287} \\[1ex]
 &amp;= 13
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This value indicates that our observed slope of 0.0374, is 13 standard errors higher than the mean of 0. After converting all of the sample slopes in the sampling distribution to <em>t</em>-values, we get a <em>t</em>-distribution. The <em>t</em>-distribution is shown in <a href="#fig-t-reg" class="quarto-xref">Figure&nbsp;<span>27.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -829,16 +803,16 @@ Figure&nbsp;27.3: T-distribution under the null hypothesis. This distribution is
 </div>
 </div>
 <p>Recall that the exact shape of the <em>t</em>-distribution is based on the degrees-of-freedom (<em>df</em>). For the <em>t</em>-distribution for the slope, the <em>df</em> are calculated as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="italic">𝑑𝑓</mtext><mo>=</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
 \textit{df} = n - p - 1
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where <em>n</em> is the sample size and <em>p</em> is the number of predictors. So for our <em>t</em>-distribution, the degrees-of-freedom are:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="italic">𝑑𝑓</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>92</mn><mo>−</mo><mn>1</mn><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>90</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \textit{df} &amp;= 92 - 1 - 1 \\[1ex]
 &amp;= 90
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This distribution is based 90 degrees-of-freedom.</p>
 <p><br></p>
 </section>
@@ -861,11 +835,11 @@ Figure&nbsp;27.4: Sampling distribution of the slope under the null hypothesis. 
 </div>
 <p>To compute the <em>p</em>-value (along with the SE and <em>t</em>-value), we use the <code>tidy()</code> function from the <code>{broom}</code> package. To use this function we load the <code>{broom}</code> package (you may need to install it) and then provide the <code>tidy()</code> function the name of our fitted model. The syntax to do this for our example is shown below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get coefficient information</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -877,38 +851,38 @@ Figure&nbsp;27.4: Sampling distribution of the slope under the null hypothesis. 
 <p>Note that <code>tidy()</code> outputs information for both the intercept and slope of our fitted model. The information displayed includes:</p>
 <ul>
 <li><code>term</code>: This indicates which term (intercept, slope) the information is for. Note that the slope will be the name of the predictor used in the model. (For us this is <code>act</code>.)</li>
-<li><code>estimate</code>: This is the coefficient estimate for the terms. In our example the coefficient for the slope is .374 (i.e., <span class="math inline">\(b_1=.374\)</span>).</li>
-<li><code>std.error</code>: This is the standard error estimated from the data. In our example the standard error for the slope is .00287 (i.e., <span class="math inline">\(\textrm{SE}_{b_1}=.00287\)</span>).</li>
+<li><code>estimate</code>: This is the coefficient estimate for the terms. In our example the coefficient for the slope is .374 (i.e., <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><mn>.374</mn></mrow><annotation encoding="application/x-tex">b_1=.374</annotation></semantics></math>).</li>
+<li><code>std.error</code>: This is the standard error estimated from the data. In our example the standard error for the slope is .00287 (i.e., <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">SE</mtext><msub><mi>b</mi><mn>1</mn></msub></msub><mo>=</mo><mn>.00287</mn></mrow><annotation encoding="application/x-tex">\textrm{SE}_{b_1}=.00287</annotation></semantics></math>).</li>
 <li><code>statistic</code>: This is the <em>t</em>-value we get after converting our coefficient estimate to a <em>t</em>-statistic. For us that value is 13.0.</li>
-<li><code>p.value</code>: This is the <em>p</em>-value based on a two-sided alternative hypothesis. For the slope this is <span class="math inline">\(p=2.02 \times 10^{-22} = .0000000000000000000002022\)</span>.</li>
+<li><code>p.value</code>: This is the <em>p</em>-value based on a two-sided alternative hypothesis. For the slope this is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2.02</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>22</mn></mrow></msup><mo>=</mo><mn>.0000000000000000000002022</mn></mrow><annotation encoding="application/x-tex">p=2.02 \times 10^{-22} = .0000000000000000000002022</annotation></semantics></math>.</li>
 </ul>
 <p>If we were writing up the results of the hypothesis test for the slope, we might report the following:</p>
 <blockquote class="blockquote">
-<p>A hypothesis test was conducted to determine if there is an effect of 75th percentile ACT scores on college completion rates. The results of this test—<span class="math inline">\(t(90)=13.0\)</span>, <span class="math inline">\(p&lt;.001\)</span>—suggest that it is incredibly unlikely to observe an estimated slope of .0374 (or a slope value more extreme than .0374) if <span class="math inline">\(\beta_1 = 0\)</span>.</p>
+<p>A hypothesis test was conducted to determine if there is an effect of 75th percentile ACT scores on college completion rates. The results of this test—<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>90</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>13.0</mn></mrow><annotation encoding="application/x-tex">t(90)=13.0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>.001</mn></mrow><annotation encoding="application/x-tex">p&lt;.001</annotation></semantics></math>—suggest that it is incredibly unlikely to observe an estimated slope of .0374 (or a slope value more extreme than .0374) if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta_1 = 0</annotation></semantics></math>.</p>
 </blockquote>
 <p><br></p>
 </section>
 <section id="make-a-decision-based-on-the-p-value-and-communicate-results-in-context" class="level3" data-number="27.2.4">
 <h3 data-number="27.2.4" class="anchored" data-anchor-id="make-a-decision-based-on-the-p-value-and-communicate-results-in-context"><span class="header-section-number">27.2.4</span> Make a Decision Based on the <em>p</em>-Value and Communicate Results in Context</h3>
-<p>Using the criterion of <span class="math inline">\(\alpha = .05\)</span>, we would reject the null hypothesis that <span class="math inline">\(\beta_1 = 0\)</span> as our <em>p</em>-value is smaller than .05. It is likely that the population slope value is different than zero. This indicates that there likely IS an effect of 75th percentile ACT scores on completion rates for colleges in the population, and that the slope value of .0374 that we observed in the sample is not entirely due to sampling variation.</p>
+<p>Using the criterion of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>.05</mn></mrow><annotation encoding="application/x-tex">\alpha = .05</annotation></semantics></math>, we would reject the null hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta_1 = 0</annotation></semantics></math> as our <em>p</em>-value is smaller than .05. It is likely that the population slope value is different than zero. This indicates that there likely IS an effect of 75th percentile ACT scores on completion rates for colleges in the population, and that the slope value of .0374 that we observed in the sample is not entirely due to sampling variation.</p>
 <p><br></p>
 </section>
 </section>
 <section id="confidence-interval-for-the-slope" class="level2" data-number="27.3">
 <h2 data-number="27.3" class="anchored" data-anchor-id="confidence-interval-for-the-slope"><span class="header-section-number">27.3</span> Confidence Interval for the Slope</h2>
 <p>Based on the results of the hypothesis test, we believe there is an effect of 75th percentile ACT scores on completion rates for colleges in the population—that is, the slope is likely not 0. A natural question is, in the population, what is the value of the slope? What is the size of the effect?</p>
-<p>Based on the sample regression results, we have a point-estimate (single number guess) for the population effect, namely .0374. But, as we have learned, we also have to account for sampling uncertainty in our estimate. To do that, we compute a confidence interval for <span class="math inline">\(\beta_1\)</span> using:</p>
-<p><span class="math display">\[
+<p>Based on the sample regression results, we have a point-estimate (single number guess) for the population effect, namely .0374. But, as we have learned, we also have to account for sampling uncertainty in our estimate. To do that, we compute a confidence interval for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math> using:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">I</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">f</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mspace width="0.222em"></mspace></mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><msub><mi>b</mi><mn>1</mn></msub><mo>±</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><msub><mi>b</mi><mn>1</mn></msub></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \mathrm{CI~for~}\beta_1 = b_1 \pm 2(\mathrm{SE}_{b_1})
-\]</span></p>
+</annotation></semantics></math></p>
 <p>That is, we compute the uncertainty by doubling the standard error for the slope and then adding and subtracting that quantity from the sample slope estimate. For our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">I</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">f</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mspace width="0.222em"></mspace></mrow><msub><mi>β</mi><mn>1</mn></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>b</mi><mn>1</mn></msub><mo>±</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><msub><mi>b</mi><mn>1</mn></msub></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.0374</mn><mo>±</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>.00287</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.032</mn><mo>,</mo><mn>.043</mn><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \mathrm{CI~for~}\beta_1 &amp;= b_1 \pm 2(\mathrm{SE}_{b_1}) \\[2ex]
 &amp;= .0374 \pm 2(.00287) \\[2ex]
 &amp;= [0.032, .043]
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Interpreting this interval,</p>
 <blockquote class="blockquote">
 <p>We are 95% confident<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that the population slope is between .032 and .043.</p>
@@ -916,8 +890,8 @@ Figure&nbsp;27.4: Sampling distribution of the slope under the null hypothesis. 
 <p>This means that in the population each one-point difference in 75th percentile ACT score is associated with a model predicted difference of between 3.2 and 4.3 percentage points in mean completion rate.</p>
 <p>To obtain the confidence limits for the 95% CI directly, we add the argument <code>conf.int=TRUE</code> to the <code>tidy()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get confidence limits</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get confidence limits</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.a, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 7
   term        estimate std.error statistic  p.value conf.low conf.high
@@ -953,19 +927,19 @@ Figure&nbsp;27.5: Plot displaying conditional distribution of <em>Y</em> at seve
 </div>
 </div>
 </div>
-<p>Remember that this plot shows that at each value of <em>X</em> there is a conditional distribution of <em>Y</em>-values. Each conditional distribution of <em>Y</em> has a mean (denoted as <span class="math inline">\(\hat{Y}\)</span>). Each conditional distribution of <em>Y</em> is normally distributed. The variance for all these conditional distributions are all the same value. Below we give a further description of each of these assumptions and also indicate how to evaluate them.</p>
+<p>Remember that this plot shows that at each value of <em>X</em> there is a conditional distribution of <em>Y</em>-values. Each conditional distribution of <em>Y</em> has a mean (denoted as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{Y}</annotation></semantics></math>). Each conditional distribution of <em>Y</em> is normally distributed. The variance for all these conditional distributions are all the same value. Below we give a further description of each of these assumptions and also indicate how to evaluate them.</p>
 <p><br></p>
 <section id="linearity" class="level3" data-number="27.4.1">
 <h3 data-number="27.4.1" class="anchored" data-anchor-id="linearity"><span class="header-section-number">27.4.1</span> Linearity</h3>
 <p>The linearity assumption is that the functional form for the model in the population is linear. Referring back to <a href="#fig-visual-model" class="quarto-xref">Figure&nbsp;<span>27.5</span></a>, this assumption basically says that in the population, the conditional means can be connected using a line.If this is not the case, then we have mis-specified the model, fitting a linear model to the sample.</p>
 <p>To evaluate the linearity assumption, we typically look at a scatterplot of the data and make a judgment about whether the relationship between the predictor and outcome is linear.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine linearity</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine linearity</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges,</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"75th percentile ACT score"</span>,</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Completion rate"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-linearity" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of 75th percentile ACT scores versus completion rates.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -994,14 +968,14 @@ Figure&nbsp;27.6: Scatterplot of 75th percentile ACT scores versus completion ra
 <p>To evaluate this, we would hypothetically take all the outcome values for a particular predictor value—e.g., all the completion rates for colleges with a 75th percentile ACT score of 20—and make a judgment about whether that distribution was normally distributed. Then we would do the same for all the completion rates for colleges with a 75th percentile ACT score of 21. And all the completion rates for colleges with a 75th percentile ACT score of 22. We would need to do this for every value of the predictor in the population.</p>
 <p>In practice, we have to work on the sample data and then make a judgment about the population. Carrying out this process, even on the sample is all but impossible. Because of this, researchers often evaluate the normality assumption by examining the shape of the distribution of the sample outcome values without separating them by different predictor values. If the sample distribution of the outcome seems approximately normal, we would say that this would be consistent with the population outcome distribution also being normal.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate normality of outcome</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate normality of outcome</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>completion_rate, <span class="at">data =</span> colleges,</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"#722F37"</span>,</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Completion rate"</span>,</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Count"</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-normality" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of the completion rates.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1054,17 +1028,17 @@ Figure&nbsp;27.9: Leveling the boxes makes it easier for people to judge whether
 </div>
 </div>
 </div>
-<p>One way to make the boxes level, we need to subtract the conditional mean completion rate (the mean completion rate in the box) from the actual completion rate for each school. But remember, the conditional mean value is the predicted value (<span class="math inline">\(\hat{Y}\)</span>). That is we are essentially computing:</p>
-<p><span class="math display">\[
+<p>One way to make the boxes level, we need to subtract the conditional mean completion rate (the mean completion rate in the box) from the actual completion rate for each school. But remember, the conditional mean value is the predicted value (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{Y}</annotation></semantics></math>). That is we are essentially computing:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">
 Y - \hat{Y}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This, recall, is the error or residual. That means we can create a scatterplot of the predictor on the <em>x</em>-axis versus the residuals on the <em>y</em>-axis. To do this we will use the <code>augment()</code> function from the <code>{broom}</code> library to obtain a data frame that includes the predictor and residual values for each case. This function takes the name of the fitted model object as its only argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data frame that includes predictor values and residuals</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data frame that includes predictor values and residuals</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>out <span class="ot">=</span> <span class="fu">augment</span>(lm.a)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View augmented data</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 92 × 8
    completion_rate   act .fitted  .resid   .hat .sigma  .cooksd .std.resid
@@ -1084,12 +1058,12 @@ Y - \hat{Y}
 </div>
 <p>The attribute <code>act</code> is the column that has the predictor values (same name as in our original data), and the column <code>.resid</code> includes the residual values. Then we can use <code>gf_point()</code> to create the levelled scatterplot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of residuals versus ACT values</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of residuals versus ACT values</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  .resid <span class="sc">~</span> act, <span class="at">data =</span> out,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"75th percentile ACT score"</span>,</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Residuals"</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-resid" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of residuals versus 75th percentile ACT scores.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1188,13 +1162,14 @@ Figure&nbsp;27.10: Scatterplot of residuals versus 75th percentile ACT scores.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

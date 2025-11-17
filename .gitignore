@@ -46,3 +46,5 @@ vignettes/*.pdf
 figs/00-figs.key
 
 /.quarto/
+
+**/*.quarto_ipynb

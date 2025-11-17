@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -86,14 +86,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,35 +137,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -192,7 +164,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -449,7 +423,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -705,7 +679,7 @@ window.Quarto = {
 <p>To study the long-term effects of cannabis, <span class="citation" data-cites="Meier:2012">Meier et al. (<a href="#ref-Meier:2012" role="doc-biblioref">2012</a>)</span> examined data from a cohort of people who were followed for a 20 year time span. They identified participants who became persistent marijuana users during the course of the study and collected data on the change in IQ score between the start of the study (prior to the onset of any cannabis use) and then again 20 years later. Importantly, some of these participants were diagnosed with cannabis dependence prior to the 18 years of age (teen-onset) and others were not diagnosed with cannabis dependence until after 18 years of age (adult-onset).</p>
 <p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv">cannabis.csv</a> to evaluate whether the effects on IQ were different for users who started using marijuana as a teen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -716,7 +690,7 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cannabis <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/cannabis.csv"</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cannabis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 37 × 2
    iq_change cannabis_dep
@@ -739,31 +713,31 @@ window.Quarto = {
 <section id="writing-the-set-of-hypotheses" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="writing-the-set-of-hypotheses"><span class="header-section-number">13.2</span> Writing the Set of Hypotheses</h2>
 <p>When comparing two groups, the null hypothesis is that the population mean for the two groups is the same. In our example, the null hypothesis would be that the average decline in IQ scores for all persistent marijuana users that became dependent as adults is the same as the average decline in IQ scores for all persistent marijuana users that became dependent as teens. Mathematically:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>=</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub></mrow><annotation encoding="application/x-tex">
 H_0: \mu_{\text{Adult-onset}} = \mu_{\text{Teen-onset}}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The alternative hypothesis is either that the populations means are different, or a specification of how they are different. Since we want to determine if persistent marijuana users that became dependent as teens would have a different change in IQ than those who became dependent as adults, the alternative hypothesis would be:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>≠</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub></mrow><annotation encoding="application/x-tex">
 H_A: \mu_{\text{Adult-onset}} \neq \mu_{\text{Teen-onset}}
-\]</span></p>
+</annotation></semantics></math></p>
 <div class="fyi">
 <p><strong>PROTIP</strong></p>
 <p>The order of the two groups in the hypotheses does not matter. For example, we could also have written the hypotheses so that the mean for teen-onset was written before the mean for adult-onset:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>=</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>≠</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \mu_{\text{Teen-onset}} = \mu_{\text{Adult-onset}} \\
 &amp;H_A: \mu_{\text{Teen-onset}} \neq \mu_{\text{Adult-onset}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>However, when we go to use the <code>t_test()</code> function, the alternative hypothesis we specify will correspond to an alphabetical ordering of the groups based on their values in the attribute. In the <code>cannabis_dep</code> attribute, the two values are <code>Teen</code> and <code>Adult</code>.</p>
 </div>
 <p>We can also represent the hypotheses as a difference between the two means. For example, the null hypothesis posits the two means are equal. Mathematically this can be also expressed as the difference between the two means is equal to zero:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
 H_0: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} = 0
-\]</span> In a similar fashion the alternative hypothesis could be expressed as:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> In a similar fashion the alternative hypothesis could be expressed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
 H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
-\]</span></p>
+</annotation></semantics></math></p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
 <p>The output from <code>t_result()</code> will present the hypotheses as a difference between means.</p>
@@ -773,20 +747,20 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 <section id="visualizing-and-numerically-describing-sample-differences" class="level2" data-number="13.3">
 <h2 data-number="13.3" class="anchored" data-anchor-id="visualizing-and-numerically-describing-sample-differences"><span class="header-section-number">13.3</span> Visualizing and Numerically Describing Sample Differences</h2>
 <p>As with every analysis, we begin by visualizing and describing the sample data. Here we will create density plots of the distribution of changes in IQ scores for both groups. To do this, since the IQ change scores are all in a single column, we have to change the formula with the tilde we use in the <code>gf_</code> and <code>df_stats()</code> functions so that it will plot those for each group separately. The formula will now look like:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="monospace">∼</mo><mi>𝚢</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix" mathvariant="monospace">|</mo><mspace width="0.222em"></mspace><mi>𝚐</mi><mi>𝚛</mi><mi>𝚘</mi><mi>𝚞</mi><mi>𝚙</mi></mrow><annotation encoding="application/x-tex">
 \mathtt{\sim y ~|~ group}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where <code>y</code> is the attribute name that you want to plot, and <code>group</code> is the name of the attribute that has the groups in it. For example, since we want to plot the IQ change scores for the two groups we would use the formula:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="monospace">∼</mo><mi>𝚒</mi><mi>𝚚</mi><mi mathvariant="monospace">_</mi><mi>𝚌</mi><mi>𝚑</mi><mi>𝚊</mi><mi>𝚗</mi><mi>𝚐</mi><mi>𝚎</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix" mathvariant="monospace">|</mo><mspace width="0.222em"></mspace><mi>𝚌</mi><mi>𝚊</mi><mi>𝚗</mi><mi>𝚗</mi><mi>𝚊</mi><mi>𝚋</mi><mi>𝚒</mi><mi>𝚜</mi><mi mathvariant="monospace">_</mi><mi>𝚍</mi><mi>𝚎</mi><mi>𝚙</mi></mrow><annotation encoding="application/x-tex">
 \mathtt{\sim iq\_change ~|~ cannabis\_dep}
-\]</span></p>
+</annotation></semantics></math></p>
 <div class="fyi">
 <p><strong>READING SYNTAX</strong></p>
 <p>Reading this syntax, we would say: “model the attribute <code>iq_change</code> but separate this by <code>cannabis_dep</code>” You can also say: “model the attribute <code>iq_change</code> but condition this on <code>cannabis_dep</code>”. In statistics a <em>conditional distribution</em> is a distribution for a particular group.</p>
 </div>
 <p>The syntax for creating density plots and computing numerical summaries is shown below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_density</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"skyblue"</span>, </span>
@@ -795,7 +769,7 @@ H_A: \mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   response cannabis_dep min  Q1 median   Q3 max      mean       sd  n missing
 1 iq_change        Adult -16  -7     -3  4.0  11 -2.071429 7.770400 14       0
@@ -814,7 +788,7 @@ Figure&nbsp;13.1: Density plots of IQ score changes for participants who became 
 </div>
 </div>
 </div>
-<p>The density plots suggests that the distribution of change in IQ scores is not symmetric for either group. The distribution for participants who became persistent marijuana users as teens is also potentially bimodal. The average change in IQ score for participants who became persistent marijuana users as adults was <span class="math inline">\(-2.07\)</span> points indicating that the average IQ score decreased by about two points throughout the duration of the study. In contrast, the average change in IQ score for participants who became persistent marijuana users as teens was <span class="math inline">\(-8.26\)</span> points indicating that the average IQ score decreased by about eight points throughout the duration of the study. The was variation in IQ change in both groups, with both groups having a standard deviation near seven.</p>
+<p>The density plots suggests that the distribution of change in IQ scores is not symmetric for either group. The distribution for participants who became persistent marijuana users as teens is also potentially bimodal. The average change in IQ score for participants who became persistent marijuana users as adults was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.07</mn></mrow><annotation encoding="application/x-tex">-2.07</annotation></semantics></math> points indicating that the average IQ score decreased by about two points throughout the duration of the study. In contrast, the average change in IQ score for participants who became persistent marijuana users as teens was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.26</mn></mrow><annotation encoding="application/x-tex">-8.26</annotation></semantics></math> points indicating that the average IQ score decreased by about eight points throughout the duration of the study. The was variation in IQ change in both groups, with both groups having a standard deviation near seven.</p>
 <p>Next, we carry out a two-sample <em>t</em>-test. The arguments we include are:</p>
 <ul>
 <li>A formula of <code>~y|group</code> indicating the attribute to compare, and the groups that are being compared;</li>
@@ -825,7 +799,7 @@ Figure&nbsp;13.1: Density plots of IQ score changes for participants who became 
 </ul>
 <p>We can assign the output of the <code>t_test()</code> function into an object, and use the <code>t_results()</code> and <code>plot_t_dist()</code> functions to examine the output of the two-sample <em>t</em>-test and view the <em>t</em>-distribution and shaded <em>p</em>-value, respectively.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> cannabis, </span>
@@ -835,7 +809,7 @@ Figure&nbsp;13.1: Density plots of IQ score changes for participants who became 
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -856,13 +830,13 @@ p = 0.01832593
 <p>When you get the results from the <em>t</em>-test, be sure it says “Two Sample t-test”. If it says “Welch Two Sample t-test” you forgot to set the argument <code>var.equal=TRUE</code>.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-t-dist3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the t-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (t-value of 0). The red vertical lines represents the observed t-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that mu not equal to 0.">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.2: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em>-value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <span class="math inline">\(\mu\neq0\)</span>.
+Figure&nbsp;13.2: Density plot of the <em>t</em>-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (<em>t</em>-value of 0). The red vertical lines represents the observed <em>t</em>-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated <em>p</em>-value of .018 that corresponds to the alternative hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu\neq0</annotation></semantics></math>.
 </figcaption>
 <div aria-describedby="fig-t-dist3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="05-01-two-sample-t-test_files/figure-html/fig-t-dist3-1.png" class="img-fluid figure-img" style="width:80.0%" alt="Density plot of the t-distribution of the sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean IQ score change between participants who became persistent marijuana users as adults and those that became persistent marijuana users as teens is 0 (t-value of 0). The red vertical lines represents the observed t-value of 2.47 and -2.47. The shaded area under the curve to the right of 2.47 and left of -2.47 represent the associated *p*-value of .018 that corresponds to the alternative hypothesis that mu not equal to 0.">
@@ -877,43 +851,43 @@ Figure&nbsp;13.2: Density plot of the <em>t</em>-distribution of the sample mean
 <section id="computing-the-observed-t-value-and-degrees-of-freedom" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="computing-the-observed-t-value-and-degrees-of-freedom"><span class="header-section-number">13.4</span> Computing the Observed t-Value and Degrees-of-Freedom</h2>
 <p>The observed <em>t</em>-value is computed as part of using the <code>t_test()</code> function, but examining the mathematical formula may give us insight into what this <em>t</em>-statistic is measuring. In a two-sample <em>t</em>-test the <em>t</em>-value is computed as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><mo>−</mo><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Diff.</mtext></msub></mrow><mrow><mi>S</mi><msub><mi>E</mi><mtext mathvariant="normal">Mean Diff.</mtext></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 t = \frac{(\bar{y}_{1} - \bar{y}_{2}) - \mu_{\text{Diff.}}}{SE_{\text{Mean Diff.}}}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where,</p>
-<p><span class="math inline">\(\bar{y}_1\)</span> is the sample mean for Group 1, <span class="math inline">\(\bar{y}_2\)</span> is the sample mean for Group 2, <span class="math inline">\(\mu_{\text{Diff.}}\)</span> is the mean difference specified in the null hypothesis, and <span class="math inline">\(SE_{\text{Mean Diff.}}\)</span> is the standard error for the sample mean difference, which is computed as:</p>
-<p><span class="math display">\[
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mn>1</mn></msub><annotation encoding="application/x-tex">\bar{y}_1</annotation></semantics></math> is the sample mean for Group 1, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub><annotation encoding="application/x-tex">\bar{y}_2</annotation></semantics></math> is the sample mean for Group 2, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mtext mathvariant="normal">Diff.</mtext></msub><annotation encoding="application/x-tex">\mu_{\text{Diff.}}</annotation></semantics></math> is the mean difference specified in the null hypothesis, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>E</mi><mtext mathvariant="normal">Mean Diff.</mtext></msub></mrow><annotation encoding="application/x-tex">SE_{\text{Mean Diff.}}</annotation></semantics></math> is the standard error for the sample mean difference, which is computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>E</mi><mtext mathvariant="normal">Mean Diff.</mtext></msub><mo>=</mo><msqrt><mrow><mfrac><mrow><mi>S</mi><msubsup><mi>D</mi><mn>1</mn><mn>2</mn></msubsup></mrow><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><mrow><mi>S</mi><msubsup><mi>D</mi><mn>2</mn><mn>2</mn></msubsup></mrow><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">
 SE_{\text{Mean Diff.}} = \sqrt{\frac{SD_1^2}{n_1} + \frac{SD_2^2}{n_2}}
-\]</span></p>
-<p>And <span class="math inline">\(SD_1\)</span> and <span class="math inline">\(SD_1\)</span> are the sample standard deviations for Groups 1 and 2, respectively, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample sizes for those groups.</p>
+</annotation></semantics></math></p>
+<p>And <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>D</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">SD_1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>D</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">SD_1</annotation></semantics></math> are the sample standard deviations for Groups 1 and 2, respectively, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>1</mn></msub><annotation encoding="application/x-tex">n_1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>2</mn></msub><annotation encoding="application/x-tex">n_2</annotation></semantics></math> are the sample sizes for those groups.</p>
 <p>Looking at the numerator of the <em>t</em>-value, we are measuring how far the sample mean difference is from the hypothesized mean difference. Then, we are dividing by the SE, which changes the scale to standard error units. So our observed <em>t</em>-value is measuring the discrepancy between the sample and hypothesized mean difference in standard error units. In our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>2.07</mn><mo>−</mo><mi>−</mi><mn>8.26</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>0</mn></mrow><msqrt><mrow><mfrac><msup><mn>7.77</mn><mn>2</mn></msup><mn>14</mn></mfrac><mo>+</mo><mfrac><msup><mn>7.14</mn><mn>2</mn></msup><mn>22</mn></mfrac></mrow></msqrt></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>6.19</mn><mn>2.55</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2.47</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}} \\[2ex]
 &amp;= \frac{6.19}{2.55} \\[2ex]
 &amp;= 2.47
 \end{split}
-\]</span></p>
-<p>That is our observed mean difference of 6.19 is 2.47 standard errors from the hypothesized mean difference of 0. We then evaluate this <em>t</em>-value in a <em>t</em>-distribution with <span class="math inline">\(n1 + n_2 -2\)</span> degrees-of-freedom. In our case the <em>t</em>-value of 2.47 is evaluated in a <em>t</em>-distribution with 35 <em>df</em>. This is the same thing we got in the output of <code>t_results()</code>.</p>
-<p>Since the alternative hypothesis was <span class="math inline">\(\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0\)</span>, to find the <em>p</em>-value, we would find the area under the <em>t</em>-distribution that is greater than or equal to the observed <em>t</em>-value of 2.47 and less than or equal to <span class="math inline">\(-2.47\)</span>. This area is shaded in the output of <code>plot_t_dist()</code> and corresponds to .018 of the entire area under the curve.</p>
+</annotation></semantics></math></p>
+<p>That is our observed mean difference of 6.19 is 2.47 standard errors from the hypothesized mean difference of 0. We then evaluate this <em>t</em>-value in a <em>t</em>-distribution with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mn>1</mn><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n1 + n_2 -2</annotation></semantics></math> degrees-of-freedom. In our case the <em>t</em>-value of 2.47 is evaluated in a <em>t</em>-distribution with 35 <em>df</em>. This is the same thing we got in the output of <code>t_results()</code>.</p>
+<p>Since the alternative hypothesis was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Adult-onset</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Teen-onset</mtext></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu_{\text{Adult-onset}} - \mu_{\text{Teen-onset}} \neq 0</annotation></semantics></math>, to find the <em>p</em>-value, we would find the area under the <em>t</em>-distribution that is greater than or equal to the observed <em>t</em>-value of 2.47 and less than or equal to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.47</mn></mrow><annotation encoding="application/x-tex">-2.47</annotation></semantics></math>. This area is shaded in the output of <code>plot_t_dist()</code> and corresponds to .018 of the entire area under the curve.</p>
 <p><br></p>
 </section>
 <section id="case-study-2-bachelor-and-bachelorette-ages" class="level2" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="case-study-2-bachelor-and-bachelorette-ages"><span class="header-section-number">13.5</span> Case Study 2: Bachelor and Bachelorette Ages</h2>
 <p>Research suggests that men emotionally mature years later than women. This is because the human brain develops slower in men than in women, on average. In the reality television series The Bachelor and The Bachelorette, a single person is introduced to a pool of potential romantic interests. Throughout the show, they get to know these people by going on dates with them and eliminating those they are not interested in. At the end of the show, they are supposed to select one person that will become their fiancé. If there is a maturity gap between men and women, we might expect that the average age for Bachelor and Bachelorette contestants may differ.</p>
 <p>We will use the data in <a href="https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv">bachelor.csv</a> to evaluate whether there are age differences between those people selected to be The Bachelor and those selected to be The Bachelorette. In particular we will test the following hypotheses:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>=</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>≠</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelorette</mtext></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \mu_{\text{Bachelor}} = \mu_{\text{Bachelorette}} \\
 &amp;H_A: \mu_{\text{Bachelor}} \neq \mu_{\text{Bachelorette}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>bachelor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/bachelor.csv"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>bachelor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>bachelor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 10
    show    season run_dates name    age winner runner_up proposal still_together
@@ -934,7 +908,7 @@ t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}
 </div>
 <p>Below we create the distribution of ages for the bachelors and bachelorettes. Both distributions are right-skewed and have a range between about 25 and 40. The average age for the bachelor contestants is 30.7 while that for the Bachelorette contestants is slightly younger at 28.2. The SD for these distributions is slightly higher for the Bachelor contestants (3.80) than for the Bachelorette contestants (3.04) indicating a little more variation in the bachelors’ ages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="dv">2</span>,</span>
@@ -945,7 +919,7 @@ t &amp;= \frac{(-2.07 - -8.26) - 0}{\sqrt{\frac{7.77^2}{14} + \frac{7.14^2}{22}}
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  response         show min   Q1 median Q3 max     mean       sd  n missing
 1      age     Bachelor  25 28.0     30 33  40 30.70370 3.800960 27       0
@@ -966,7 +940,7 @@ Figure&nbsp;13.3: Histograms of ages for the 27 Bachelor and 23 Bachelorette con
 </div>
 <p>While the sample data suggests that the average age for Bachelor contestants is higher than the average age of Bachelorette contestants, is this difference only due to sampling variation? To answer this, we will carry out a two-sample <em>t</em>-test to evaluate the sample differences in light of the expected sampling variation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sample t-test</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>my_t <span class="ot">&lt;-</span> <span class="fu">t_test</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>age <span class="sc">|</span> show, <span class="at">data =</span> bachelor, </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu =</span> <span class="dv">0</span>, </span>
@@ -975,7 +949,7 @@ Figure&nbsp;13.3: Histograms of ages for the 27 Bachelor and 23 Bachelorette con
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-test results</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">t_results</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------
@@ -1002,15 +976,15 @@ p = 0.0134258
 Show/Hide Solution
 </button>
 <div id="exercise_05-01-01" style="display:none; margin: -40px 0 40px 40px;">
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelorette</mtext></msub><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelor</mtext></msub><mo>−</mo><msub><mi>μ</mi><mtext mathvariant="normal">Bachelorette</mtext></msub><mo>≠</mo><mn>0</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} = 0 \\
 &amp;H_A: \mu_{\text{Bachelor}} - \mu_{\text{Bachelorette}} \neq 0
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <ol start="2" type="1">
-<li>Use the results of the two-sample <em>t</em>-test to sketch the <em>t</em>-distribution with 48 <em>df</em>, add vertical lines at the observed <em>t</em>-value (and <span class="math inline">\(-\)</span><em>t</em>-value), and shade the area under the curve corresponding to the <em>p</em>-value.</li>
+<li>Use the results of the two-sample <em>t</em>-test to sketch the <em>t</em>-distribution with 48 <em>df</em>, add vertical lines at the observed <em>t</em>-value (and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math><em>t</em>-value), and shade the area under the curve corresponding to the <em>p</em>-value.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_05-01-02');">
 Show/Hide Solution
@@ -1018,8 +992,8 @@ Show/Hide Solution
 <div id="exercise_05-01-02" style="display:none; margin: -40px 0 40px 40px;">
 <p>Your sketch should look something like the following.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View t-distribution</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_t_dist</span>(my_t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-t-dist2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of the *t*-distribution of the difference in sample means based on the thought experiment underlying a hypothesis test assuming that the difference in mean age between Bachelor and Bachelorette contestants is 0 (*t* value of 0).  The red vertical lines represent the observed *t*-value of 2.57 and -2.57. The shaded area under the curve to the right of 2.57 and left of -2.57 show the associated *p*-value of .013 that corresponds to the alternative hypothesis that the average age for the Bachelor contestants is different than the average age of the Bachelorette contestants.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1111,13 +1085,14 @@ Volkow, N. D., Baler, R. D., Compton, W. M., &amp; Weiss, S. R. B. (2014). Adver
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

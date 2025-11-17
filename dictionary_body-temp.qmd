@@ -23,7 +23,7 @@ The attributes included in the data are:
 
 # Import data
 library(tidyverse)
-body_temp = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/body-temps.csv")
+body_temp = read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/body-temp.csv")
 
 # View data
 body_temp
@@ -33,7 +33,7 @@ body_temp
 #| echo: false
 #| message: false
 
-readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/body-temps.csv") |> 
+readr::read_csv(file = "https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/body-temp.csv") |> 
   print(width = Inf)
 ```
 

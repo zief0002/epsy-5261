@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,35 +82,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -137,7 +109,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -394,7 +368,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -647,27 +621,27 @@ window.Quarto = {
 <section id="statistical-inference-and-hypothesis-testing" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="statistical-inference-and-hypothesis-testing"><span class="header-section-number">9.1</span> Statistical Inference and Hypothesis Testing</h2>
 <p>One common approach to statistical inference—the drawing of conclusions about populations based on sample observations—is to use the sample observations to test <em>a priori</em> hypothesis<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> about the population. Hypotheses are <em>mathematical statements about population parameters</em> which are often formed based on prior knowledge and substantive literature in the area of content.</p>
-<p>In the social sciences, we typically write out two hypotheses about the population parameters: the null hypothesis (<span class="math inline">\(H_0\)</span>), often referred to as a statement of no effect, and the alternative hypothesis (<span class="math inline">\(H_A\)</span>), often termed the research (or alternative) hypothesis. For example, here are a set of potential hypotheses about teen sleep:</p>
-<p><span class="math display">\[
+<p>In the social sciences, we typically write out two hypotheses about the population parameters: the null hypothesis (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>), often referred to as a statement of no effect, and the alternative hypothesis (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>A</mi></msub><annotation encoding="application/x-tex">H_A</annotation></semantics></math>), often termed the research (or alternative) hypothesis. For example, here are a set of potential hypotheses about teen sleep:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mtext mathvariant="normal">The mean amount of sleep for all teens is equal to 9 hours.</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mtext mathvariant="normal">The mean amount of sleep for all teens is less than 9 hours.</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \textrm{The mean amount of sleep for all teens is equal to 9 hours.} \\[1ex]
-&amp;H_A: \textrm{The mean amount of sleep for all teens is less than 9 hours.}
+&amp;H_A: \textrm{The mean amount of sleep for all teens is less than 9 hours.} 
 \end{split}
-\]</span> There are a few things to notice about these hypotheses:</p>
+</annotation></semantics></math> There are a few things to notice about these hypotheses:</p>
 <ol type="1">
 <li>The statements are about the mean amount of sleep (i.e., summary measure).</li>
 <li>The statements are about the population (all teens), not the sample.</li>
-<li>The null hypothesis (<span class="math inline">\(H_0\)</span>) is a statement of equality (is equal to).</li>
+<li>The null hypothesis (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>) is a statement of equality (is equal to).</li>
 <li>The alternative hypothesis often indicates the researcher’s belief about the population summary (e.g., we think the average amount of sleep for all teens is less than 9 hours).</li>
 </ol>
 <p>Statisticians often use the language of mathematics to express these hypotheses. The same hypotheses expressed via the language of mathematics are:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>=</mo><mn>9</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>&lt;</mo><mn>9</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 &amp;H_0: \mu_{\textrm{Sleep}}=9 \\[1ex]
-&amp;H_A: \mu_{\textrm{Sleep}} &lt; 9
+&amp;H_A: \mu_{\textrm{Sleep}} &lt; 9 
 \end{split}
-\]</span></p>
-<p>The Greek letter mu (<span class="math inline">\(\mu\)</span>) denotes a population mean. In general Greek letters represent population parameters while Roman letters represent sample statistics. Here are a list of common statistical summaries and the mathematical notation used to denote them.</p>
+</annotation></semantics></math></p>
+<p>The Greek letter mu (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>) denotes a population mean. In general Greek letters represent population parameters while Roman letters represent sample statistics. Here are a list of common statistical summaries and the mathematical notation used to denote them.</p>
 <div class="cell" data-tbl-colwidths="false">
 <div id="tbl-summaries-notation" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="false">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -676,10 +650,10 @@ Table&nbsp;9.1: Some common statistical summaries and the mathematical notation 
 </figcaption>
 <div aria-describedby="tbl-summaries-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="wrqiwpvnxq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aevmwyzyvk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_col_headings header" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
 <th id="Summary" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col" style="text-align: left; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">Summary</th>
@@ -712,15 +686,15 @@ Table&nbsp;9.1: Some common statistical summaries and the mathematical notation 
 </figure>
 </div>
 </div>
-<p>The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>, <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>, and <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be <span class="math inline">\(\mu_{\textrm{Sleep}}&lt;9\)</span>. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of <span class="math inline">\(\mu_{\textrm{Sleep}}&gt;9\)</span>. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be <span class="math inline">\(\mu_{\textrm{Sleep}}\neq9\)</span>.</p>
+<p>The alternative hypothesis is always an inequality. In this example, the alternative hypothesis is the mean is LESS THAN 9 hours. Another potential alternative hypothesis would be that the mean is GREATER THAN 9 hours, while a third possibility is that the mean is NOT EQUAL TO 9 hours. Mathematically these could be expressed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}&lt;9</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}&gt;9</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>≠</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}\neq9</annotation></semantics></math>. The alternative hypothesis you choose is based on your conjecture about the population. For example, if we believed that teens sleep, on average, less than 9 hours a night, then the alternative hypothesis we choose would be <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}&lt;9</annotation></semantics></math>. If we thought they sleep more than 9 hours, on average, we would adopt the alternative hypothesis of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}&gt;9</annotation></semantics></math>. If we are unsure about whether they sleep less or more than 9 hours, then our alternative hypothesis would be <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>≠</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu_{\textrm{Sleep}}\neq9</annotation></semantics></math>.</p>
 <div class="fyi">
 <p><strong>VOCABULARY</strong></p>
-<p>In the parlance of statisticians, hypothesis tests that use an alternative hypothesis of not equal (<span class="math inline">\(\neq\)</span>) are referred to as <em>two-sided</em> or <em>two-tailed</em> tests. If the alternative hypothesis is less than (&lt;) or greater than (&gt;), it is referred to as a <em>one-sided</em> or <em>one-tailed</em> test.</p>
+<p>In the parlance of statisticians, hypothesis tests that use an alternative hypothesis of not equal (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≠</mo><annotation encoding="application/x-tex">\neq</annotation></semantics></math>) are referred to as <em>two-sided</em> or <em>two-tailed</em> tests. If the alternative hypothesis is less than (&lt;) or greater than (&gt;), it is referred to as a <em>one-sided</em> or <em>one-tailed</em> test.</p>
 </div>
 <p><br></p>
 <section id="the-null-model" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="the-null-model"><span class="header-section-number">9.1.1</span> The Null Model</h3>
-<p>A hypothesis test is predicated on the assumption that the null hypothesis is true. Thus, we want to produce a sampling distribution of potential sample summaries that we could see if <span class="math inline">\(H_0: \mu_{\textrm{Sleep}}=9\)</span> is actually true. In other words, we are carrying out a thought experiment assuming that the average amount of sleep for all teens is actually 9 hours.</p>
+<p>A hypothesis test is predicated on the assumption that the null hypothesis is true. Thus, we want to produce a sampling distribution of potential sample summaries that we could see if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mtext mathvariant="normal">Sleep</mtext></msub><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_0: \mu_{\textrm{Sleep}}=9</annotation></semantics></math> is actually true. In other words, we are carrying out a thought experiment assuming that the average amount of sleep for all teens is actually 9 hours.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-null-model-thought-experiment" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Visual depiction of the thought experiment underlying a hypothesis test assuming that the mean amount of sleep for all tennagers is 9 hours.">
@@ -756,7 +730,7 @@ Figure&nbsp;9.2: Density plot of the sampling distribution of the sample means b
 <li>The mean (center) of the distribution is at 9 hours.</li>
 <li>The SD of this distribution (the SE) is approximately 0.20.</li>
 </ul>
-<p>Interpreting these features, we find that in the thought experiment where we assume the mean amount of sleep is 9 hours, a typical mean is 9 hours! But, sample means will vary from 9 hours. That is, even if the true mean amount of sleep is 9 hours, we could expect a sample mean that differs from 9 hours. How much they will vary depends on the SE, which is approximately 0.20.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> So, it would not be unusual to see a sample mean as low as 8.6 (<span class="math inline">\(9 - 2(0.20) = 8.6\)</span>) or as high as 9.4 (<span class="math inline">\(9 + 2(0.20) = 9.4\)</span>).</p>
+<p>Interpreting these features, we find that in the thought experiment where we assume the mean amount of sleep is 9 hours, a typical mean is 9 hours! But, sample means will vary from 9 hours. That is, even if the true mean amount of sleep is 9 hours, we could expect a sample mean that differs from 9 hours. How much they will vary depends on the SE, which is approximately 0.20.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> So, it would not be unusual to see a sample mean as low as 8.6 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>−</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.20</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>8.6</mn></mrow><annotation encoding="application/x-tex">9 - 2(0.20) = 8.6</annotation></semantics></math>) or as high as 9.4 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>+</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.20</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>9.4</mn></mrow><annotation encoding="application/x-tex">9 + 2(0.20) = 9.4</annotation></semantics></math>).</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
 <p>The null distribution will always be centered at the parameter value specified in the null hypothesis! The SE of the null distribution gives us an indication of how much a sample statistic is likely to vary from the parameter specified in the null hypothesis. We expect most values will be within 2 standard errors of the center.</p>
@@ -792,27 +766,27 @@ Figure&nbsp;9.3: Density plot of the sampling distribution of the sample means b
 <section id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="quantifying-the-level-of-consistency-with-the-null-hypothesis-the-t-value"><span class="header-section-number">9.2</span> Quantifying the Level of Consistency with the Null Hypothesis: The t-Value</h2>
 <p>The <em>t</em>-value quantifies how far away the observed mean is from the hypothesized mean value in standard error units. To compute the <em>t</em>-value we use the following:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">.</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">M</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow><mo>−</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">.</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">M</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow></mrow><mrow><mi>S</mi><mi>E</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 t = \frac{\mathrm{Obs.~Mean} - \mathrm{Hyp.~Mean}}{SE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where, <em>Obs. Mean</em> is the observed sample mean from the data, <em>Hyp. Mean</em> is the hypothesized value in the null hypothesis, and <em>SE</em> is the standard error in the null distribution (which we compute via bootstrapping). Computing this for our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>7.5</mn><mo>−</mo><mn>9</mn></mrow><mn>0.17</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>8.82</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 t &amp;= \frac{7.5 - 9}{0.17} \\[2ex]
 &amp;= -8.82
 \end{split}
-\]</span> The <em>t</em>-value indicates that our observed sample mean of 7.5 is 8.82 standard errors below the hypothesized population mean value of 9. Changing the distance metric to standard error units helps standardize the distance for other scholars so they can better interpret how discrepant the observed mean is from the hypothesized value.</p>
+</annotation></semantics></math> The <em>t</em>-value indicates that our observed sample mean of 7.5 is 8.82 standard errors below the hypothesized population mean value of 9. Changing the distance metric to standard error units helps standardize the distance for other scholars so they can better interpret how discrepant the observed mean is from the hypothesized value.</p>
 <p>For example, if we hadn’t divided by the SE, we would have said our observed mean of 7.5 hours of sleep is 1.5 hours less than the hypothesized mean of 9 hours of sleep. Is this a lot less? Or a little less? The answer to that depends on how much we expect sample means to vary from the population mean under random sampling. This is what the SE quantifies. So dividing by the SE accounts for this expected variation and also changes the units from “hours of sleep” to “standard errors”.</p>
 <p>Now that we have a <em>t</em>-value, how do we judge its magnitude? To do this, we can again look back to the null distribution in <a href="#fig-null-model-expected" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>. Based on the null distribution, we said we expected sample means to fall in between 8.6 and 9.4. What are the <em>t</em>-values associated with 8.6 and 9.4?</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>8.6</mn><mo>−</mo><mn>9</mn></mrow><mn>0.17</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>2.35</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>t</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>9.4</mn><mo>−</mo><mn>9</mn></mrow><mn>0.17</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>2.35</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 t &amp;= \frac{8.6 - 9}{0.17} \\[2ex]
 &amp;= -2.35 \\[4em]
 t &amp;= \frac{9.4 - 9}{0.17} \\[2ex]
 &amp;= 2.35
 \end{split}
-\]</span></p>
-<p>Expecting a sample mean between 8.6 and 9.4 is essentially the same as expecting a <em>t</em>-value between <span class="math inline">\(-2.35\)</span> and 2.35.</p>
+</annotation></semantics></math></p>
+<p>Expecting a sample mean between 8.6 and 9.4 is essentially the same as expecting a <em>t</em>-value between <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.35</mn></mrow><annotation encoding="application/x-tex">-2.35</annotation></semantics></math> and 2.35.</p>
 <div class="fyi">
 <p><strong>RULE-OF-THUMB</strong></p>
 <p>An observed mean that has a <em>t</em>-value with an absolute value less than 2 is fairly consistent with the null hypothesis being true. An observed mean that has a <em>t</em>-value with an absolute value greater than 2 is less consistent with the null hypothesis being true, and the further away from 2, the more evidence against the null hypothesis.</p>
@@ -842,9 +816,9 @@ Figure&nbsp;9.4: Density plot of the <em>t</em>-distribution of the sample means
 <li>The SD of this <em>t</em>-distribution (the SE) is approximately 1.</li>
 </ul>
 <p>Note that the descriptions referred to “this <em>t</em>-distribution”. That is because there are many different <em>t</em>-distributions; in fact there are an infinite number of them. Each <em>t</em>-distribution is based on a parameter called the <em>degrees-of-freedom</em> (<em>df</em>), which is in turn based on the sample size for the observed data. The <em>df</em> for the <em>t</em>-distribution is computed as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mo>=</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
 \mathit{df} = n - 1
-\]</span></p>
+</annotation></semantics></math></p>
 <p>where <em>n</em> is the sample size.</p>
 <p>The degrees-of-freedom parameter impacts the shape and SE (variation) in the <em>t</em>-distribution. <a href="#fig-t-examples" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> shows the <em>t</em>-distribution based on a few different degrees-of-freedom values. From this figure we can see:</p>
 <ul>
@@ -867,14 +841,14 @@ Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <
 </div>
 </div>
 <p>The SE of a <em>t</em>-distribution depends directly on the degrees-of-freedom. Specifically,</p>
-<p><span class="math display">\[
-\mathit{SE} = \begin{cases}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>𝑆</mi><mi>𝐸</mi></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">U</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mo>≤</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>∞</mi><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left"><mn>1</mn><mo>&lt;</mo><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mo>≤</mo><mn>2</mn></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><msqrt><mfrac><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mrow><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mo>−</mo><mn>2</mn></mrow></mfrac></msqrt><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow><mo>&gt;</mo><mn>2</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\mathit{SE} = \begin{cases} 
 \mathrm{Undefined}, &amp; \text{if } &amp;\mathit{df}\leq1\\[2ex]
 \infty, &amp; \text{if } &amp;1&lt;\mathit{df}\leq2\\[2ex]
 \sqrt{\frac{\mathit{df}}{\mathit{df}-2}}, &amp; \text{if } &amp;\mathit{df}&gt;2
 \end{cases}
-\]</span></p>
-<p>In empirical data analyses, the <em>df</em> will almost always be higher than 2 since the sample size for most analyses will be <span class="math inline">\(n\geq3\)</span>. Memorizing these formulas is not important (you an always look them up on Wikipedia), the important thing to see is that when <em>df</em> gets bigger the <em>SE</em> becomes approximately 1.</p>
+</annotation></semantics></math></p>
+<p>In empirical data analyses, the <em>df</em> will almost always be higher than 2 since the sample size for most analyses will be <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n\geq3</annotation></semantics></math>. Memorizing these formulas is not important (you an always look them up on Wikipedia), the important thing to see is that when <em>df</em> gets bigger the <em>SE</em> becomes approximately 1.</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
 <p>When you report <em>t</em>-values or give information about a <em>t</em>-distribution, you should always report the degrees-of-freedom.</p>
@@ -883,20 +857,20 @@ Figure&nbsp;9.5: Density plot of three different <em>t</em>-distributions. The <
 </section>
 <section id="the-t-distribution-for-the-teen-sleep-example" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="the-t-distribution-for-the-teen-sleep-example"><span class="header-section-number">9.2.2</span> The t-Distribution for the Teen Sleep Example</h3>
-<p>Now that we understand a bit more about the properties of the <em>t</em>-distribution, we can sketch the <em>t</em>-distribution for the teen sleep example. Recall that the sample size for the observed data was <span class="math inline">\(n=75\)</span>. The <em>df</em> for the resulting <em>t</em>-distribution is:</p>
-<p><span class="math display">\[
+<p>Now that we understand a bit more about the properties of the <em>t</em>-distribution, we can sketch the <em>t</em>-distribution for the teen sleep example. Recall that the sample size for the observed data was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>75</mn></mrow><annotation encoding="application/x-tex">n=75</annotation></semantics></math>. The <em>df</em> for the resulting <em>t</em>-distribution is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi>𝑑</mi><mi>𝑓</mi></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>75</mn><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>74</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \mathit{df} &amp;= 75 - 1 \\[1ex]
 &amp;= 74
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This helps us think about the properties for this <em>t</em>-distribution:</p>
 <ul>
 <li>The distribution is unimodal and symmetric.</li>
 <li>The mean (center) of the <em>t</em>-distribution is 0.</li>
-<li>The SD of this <em>t</em>-distribution (the SE) is <span class="math inline">\(\sqrt{\frac{74}{74-2}}=1.014\)</span>.</li>
+<li>The SD of this <em>t</em>-distribution (the SE) is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mfrac><mn>74</mn><mrow><mn>74</mn><mo>−</mo><mn>2</mn></mrow></mfrac></msqrt><mo>=</mo><mn>1.014</mn></mrow><annotation encoding="application/x-tex">\sqrt{\frac{74}{74-2}}=1.014</annotation></semantics></math>.</li>
 </ul>
-<p>Using these properties, we can sketch this <em>t</em>-distribution. We can also add the observed <em>t</em>-value of <span class="math inline">\(-8.82\)</span> into the distribution. (Note: We will have to go out about 9 SEs from the center value of 0 to place the observed <em>t</em>-value onto the distribution!)</p>
+<p>Using these properties, we can sketch this <em>t</em>-distribution. We can also add the observed <em>t</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> into the distribution. (Note: We will have to go out about 9 SEs from the center value of 0 to place the observed <em>t</em>-value onto the distribution!)</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-sketch-t" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Sketch of the *t*-distribution with 74 degrees-of-freedom. The observed value (purple dot) of -8.82 is also shown. The shaded blue area indicates the magnitude of *t*-values that would be expected if the null hypothesis is true.">
@@ -913,9 +887,9 @@ Figure&nbsp;9.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedo
 </div>
 <p>Being able to create this sketch helps us understand how the observed data fit with or don’t fit with the null hypothesis. It also helps us understand the mechanics of what the computations for the <em>t</em>-test actually mean. In practice, you would not create this distribution for a manuscript, but rather report the pertinent information from these computations, namely the <em>t</em>-value, and the <em>df</em> for the <em>t</em>-distribution. In our example, we might report this as:</p>
 <blockquote class="blockquote">
-<p><span class="math inline">\(t(74)=-8.82\)</span></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>74</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">t(74)=-8.82</annotation></semantics></math></p>
 </blockquote>
-<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <span class="math inline">\(-2.028\)</span> and <span class="math inline">\(+2.2028\)</span>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <span class="math inline">\(-8.82\)</span>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <span class="math inline">\(-8.82\)</span> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
+<p>This small amount of information allows another researcher to re-create the sketch of the <em>t</em>-distribution that we made in <a href="#fig-sketch-t" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. We can also see that the observed data is not very consistent with the null hypothesis. If the true mean amount of sleep for all teenagers is 9 hours, we would expect that the magnitude of an observed <em>t</em>-value would be between <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.028</mn></mrow><annotation encoding="application/x-tex">-2.028</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>2.2028</mn></mrow><annotation encoding="application/x-tex">+2.2028</annotation></semantics></math>. (The <em>t</em>-value of zero corresponds to an average of 9 hrs of sleep, but we expect deviation from this in a sample mean because of sampling variation.) In the data, we found a <em>t</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>! This indicates that the sample mean for the observed data was 8.82 standard errors below the expected <em>t</em>-value of 0. Moreover, a <em>t</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> is quite a bit lower than we would expect if teenagers actually average 9 hours of sleep a night.</p>
 <p><br></p>
 </section>
 </section>
@@ -924,24 +898,24 @@ Figure&nbsp;9.6: Sketch of the <em>t</em>-distribution with 74 degrees-of-freedo
 <p>Computing the observed <em>t</em>-value gives us a method for determining how far (in SE units) the sample mean for the observed data are from a mean value specified in the null hypothesis. By placing the observed <em>t</em>-value in the appropriate <em>t</em>-distribution, we can also say whether the observed data are consistent with the claim made in the null hypothesis. Applied researchers also augment this information with one more piece of evidence called the <em>p</em>-value.</p>
 <p>The <em>p</em>-value provides a quantification of <em>the probability of observing data at least as extreme as what we observed if the null hypothesis is true</em>. In other words, with the <em>t</em>-value and <em>t</em>-distribution we can say that it is unlikely that we would observe a sample mean as small as 7.5 if teenagers really do average 9 hours of sleep a night. The <em>p</em>-value will take this one step further and quantify exactly how unlikely that would be.</p>
 <p>The computation of the <em>p</em>-value is based around the alternative (research) hypothesis. Recall that the alternative hypothesis was a statement of inequality about the population mean value. In our sleep example the alternative hypothesis was:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
 H_A: \mu &lt; 9
-\]</span></p>
+</annotation></semantics></math></p>
 <p>But it could also have been one of these other inequalities depending on the researcher’s hypothesis about how the population mean compared to 9 hours.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&gt;</mo><mn>9</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>9</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 H_A: \mu &gt; 9 \\[1ex]
 H_A: \mu \neq 9
 \end{split}
-\]</span> In computing <em>p</em>-value, we have to identify values that are <em>at least as extreme</em> as the observed data. Extremeness varies depending on the direction of the inequality. For example in the example alternative hypothesis that we had: <span class="math inline">\(H_A: \mu &lt; 9\)</span>, a value <em>more extreme</em> than our observed sample mean of 7.5 would be <em>less than</em> 7.5. So to compute the <em>p</em>-value for this alternative hypothesis, w need to find:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> In computing <em>p</em>-value, we have to identify values that are <em>at least as extreme</em> as the observed data. Extremeness varies depending on the direction of the inequality. For example in the example alternative hypothesis that we had: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_A: \mu &lt; 9</annotation></semantics></math>, a value <em>more extreme</em> than our observed sample mean of 7.5 would be <em>less than</em> 7.5. So to compute the <em>p</em>-value for this alternative hypothesis, w need to find:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>y</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>7.5</mn><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">if the null hypothesis is true</mtext></mrow><annotation encoding="application/x-tex">
 P(\bar{y} \leq 7.5) ~~~ \text{if the null hypothesis is true}
-\]</span></p>
-<p>Note that <span class="math inline">\(P(\cdot)\)</span> is the notation to indicate the probability of whatever is in the parentheses. In our case we are finding the probability of a sample mean (<span class="math inline">\(\bar{y}\)</span>) that is at least as extreme as the one we saw in our observed data (7.5) where extreme is defined in the alternative hypothesis (<span class="math inline">\(\leq\)</span>).</p>
+</annotation></semantics></math></p>
+<p>Note that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>⋅</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(\cdot)</annotation></semantics></math> is the notation to indicate the probability of whatever is in the parentheses. In our case we are finding the probability of a sample mean (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>y</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar{y}</annotation></semantics></math>) that is at least as extreme as the one we saw in our observed data (7.5) where extreme is defined in the alternative hypothesis (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math>).</p>
 <p>To find this probability we have to go back to the null distribution—which is based on the null hypothesis being true. (The probability defined above assumed the null hypothesis to be true.) We then need to identify all values that are less than or equal to the observed value and find their probability within that distribution. Typically, we do this in the <em>t</em>-distribution, so rather than finding the probability of values less than or equal to 7.5, we need to find:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>≤</mo><mi>−</mi><mn>8.82</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 P(t \leq -8.82)
-\]</span></p>
+</annotation></semantics></math></p>
 <p>As an example, consider the dotplot in <a href="#fig-p-value" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -957,23 +931,23 @@ Figure&nbsp;9.7: Dot plot of an example <em>t</em>-distribution. The vertical bl
 </div>
 </div>
 </div>
-<p>This plot shows 300 <em>t</em>-values that are part of a <em>t</em>-distribution created by assuming the null hypothesis was true. Of these 300 <em>t</em>-values, only 2 of them are less than or equal to the observed value of <span class="math inline">\(-8.82\)</span>. Thus we can compute the probability of observing data at least as extreme as what we observed as:</p>
-<p><span class="math display">\[
+<p>This plot shows 300 <em>t</em>-values that are part of a <em>t</em>-distribution created by assuming the null hypothesis was true. Of these 300 <em>t</em>-values, only 2 of them are less than or equal to the observed value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>. Thus we can compute the probability of observing data at least as extreme as what we observed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>≤</mo><mi>−</mi><mn>8.82</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>2</mn><mn>300</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.007</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 P(t \leq -8.82) &amp;= \frac{2}{300} \\[1ex]
 &amp;= .007
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>That is, if the null hypothesis is true, the probability we would observe a sample mean at least as extreme as we did is .007. (We report <em>p</em>-values as: <em>p</em> = .007) This is a very unlikely event if the null hypothesis is true. So because we did actually observe a mean this extreme, it causes us to reject the null hypothesis in favor of the alternative hypothesis. The empirical evidence does not seem consistent with teenagers getting 9 hours of sleep a night. It is more consistent with teenagers getting less than 9 hours of sleep a night, on average.</p>
 <div class="protip">
 <p><strong>Rule-of-Thumb:</strong> A <em>p</em>-value that is less than .05 usually is evidence against the null hypothesis in favor of the alternative hypothesis. In contrast, a <em>p</em>-value that is .05 or higher means that the evidence is consistent with the null hypothesis.</p>
-<p>Being consistent with the null hypothesis does not mean that the null hypothesis is necessarily true, but rather that it <em>could</em> be true. Because of this, if <span class="math inline">\(p \geq .05\)</span> we <strong>never</strong> “accept the null hypothesis”, but instead we “fail to reject the null hypothesis”.</p>
+<p>Being consistent with the null hypothesis does not mean that the null hypothesis is necessarily true, but rather that it <em>could</em> be true. Because of this, if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>≥</mo><mn>.05</mn></mrow><annotation encoding="application/x-tex">p \geq .05</annotation></semantics></math> we <strong>never</strong> “accept the null hypothesis”, but instead we “fail to reject the null hypothesis”.</p>
 </div>
 <p><br></p>
 <section id="computing-the-p-value-for-other-alternative-hypotheses" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="computing-the-p-value-for-other-alternative-hypotheses"><span class="header-section-number">9.3.1</span> Computing the p-Value for Other Alternative Hypotheses</h3>
-<p>In the example, we computed the <em>p</em>-value based on the alternative hypothesis, <span class="math inline">\(H_A:\mu&lt;9\)</span>. To do this we counted the cases in the <em>t</em>-distribution that were more extreme than our observed <em>t</em>-value of <span class="math inline">\(-8.82\)</span>, which in this alternative hypothesis corresponded to the <em>t</em>-values that were <em>less than or equal to</em> <span class="math inline">\(-8.82\)</span> and computed a probability (proportion) by dividing by the total number of values in the distribution. To compute this for other null hypotheses, we do the same thing, but we have to re-define <em>extreme</em>.</p>
-<p>For example if we had the alternative hypothesis <span class="math inline">\(H_A:\mu&gt;9\)</span>, values at least as extreme as <span class="math inline">\(-8.82\)</span> correspond to all the values that are <em>greater than or equal to</em> <span class="math inline">\(-8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
+<p>In the example, we computed the <em>p</em>-value based on the alternative hypothesis, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_A:\mu&lt;9</annotation></semantics></math>. To do this we counted the cases in the <em>t</em>-distribution that were more extreme than our observed <em>t</em>-value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>, which in this alternative hypothesis corresponded to the <em>t</em>-values that were <em>less than or equal to</em> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> and computed a probability (proportion) by dividing by the total number of values in the distribution. To compute this for other null hypotheses, we do the same thing, but we have to re-define <em>extreme</em>.</p>
+<p>For example if we had the alternative hypothesis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_A:\mu&gt;9</annotation></semantics></math>, values at least as extreme as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> correspond to all the values that are <em>greater than or equal to</em> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-p-value2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dot plot of an example *t*-distribution. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the right of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu > -8.82).">
@@ -988,15 +962,15 @@ Figure&nbsp;9.8: Dot plot of an example <em>t</em>-distribution. The vertical bl
 </div>
 </div>
 </div>
-<p>Based on this alternative hypothesis, we would have counted 298 cases that have a <em>t</em>-value greater than or equal to <span class="math inline">\(-8.82\)</span>. Based on this alternative hypothesis, the <em>p</em>-value would be computed as:</p>
-<p><span class="math display">\[
+<p>Based on this alternative hypothesis, we would have counted 298 cases that have a <em>t</em>-value greater than or equal to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>. Based on this alternative hypothesis, the <em>p</em>-value would be computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>p</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>298</mn><mn>300</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.993</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 p &amp;= \frac{298}{300} \\[1ex]
 &amp;= .993
 \end{split}
-\]</span></p>
-<p>This level of evidence does not support the alternative hypothesis since the <em>p</em>-value is not less than .05. Because of this, we do not think the average amount of sleep teenagers get a night is greater than 9 hours. The empirical evidence doesn’t support this. However, it isn’t clear from this test that the empirical evidence supports that students get 9 hours of sleep (i.e., <span class="math inline">\(\mu=9\)</span>); it may be they are getting less than 9 hours of sleep (<span class="math inline">\(\mu&lt;9\)</span>). That is why we cannot accept the null hypothesis that <span class="math inline">\(\mu=9\)</span>. The test has only ruled out values for <span class="math inline">\(\mu\)</span> that are greater than 9 hours; the mean actually being 9 hours is only one possibility of many that remain after we eliminate those values greater than 9!</p>
-<p>Another potential alternative hypothesis that a researcher might have is <span class="math inline">\(H_A:\mu\neq9\)</span>. In this research hypothesis the researcher is not positing a direction—they are just saying we think it differs from 9 hours; it might be higher, it might be lower. What this means for identifying cases in the <em>t</em>-distribution that are at least as extreme as <span class="math inline">\(-8.82\)</span> is that we have to identify all values <em>less than or equal to</em> <span class="math inline">\(-8.82\)</span> AND all values <em>greater than or equal to</em> <span class="math inline">\(+8.82\)</span>. These are shown a the yellow cases in the distribution below.</p>
+</annotation></semantics></math></p>
+<p>This level of evidence does not support the alternative hypothesis since the <em>p</em>-value is not less than .05. Because of this, we do not think the average amount of sleep teenagers get a night is greater than 9 hours. The empirical evidence doesn’t support this. However, it isn’t clear from this test that the empirical evidence supports that students get 9 hours of sleep (i.e., <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu=9</annotation></semantics></math>); it may be they are getting less than 9 hours of sleep (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu&lt;9</annotation></semantics></math>). That is why we cannot accept the null hypothesis that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu=9</annotation></semantics></math>. The test has only ruled out values for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> that are greater than 9 hours; the mean actually being 9 hours is only one possibility of many that remain after we eliminate those values greater than 9!</p>
+<p>Another potential alternative hypothesis that a researcher might have is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_A:\mu\neq9</annotation></semantics></math>. In this research hypothesis the researcher is not positing a direction—they are just saying we think it differs from 9 hours; it might be higher, it might be lower. What this means for identifying cases in the <em>t</em>-distribution that are at least as extreme as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> is that we have to identify all values <em>less than or equal to</em> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math> AND all values <em>greater than or equal to</em> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">+8.82</annotation></semantics></math>. These are shown a the yellow cases in the distribution below.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-p-value3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dot plot of an example *t*-distribution. The vertical blue dashed lines indicates the observed value of -8.82 and its counterpart at +8.82. The yellow dots (to the left of -8.82 and to the right of +8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu ≠ -8.82).">
@@ -1011,20 +985,20 @@ Figure&nbsp;9.9: Dot plot of an example <em>t</em>-distribution. The vertical bl
 </div>
 </div>
 </div>
-<p>Based on this alternative hypothesis, we would have counted 4 cases that have a <em>t</em>-value at least as extreme as <span class="math inline">\(-8.82\)</span>. Based on this alternative hypothesis, the <em>p</em>-value would be computed as:</p>
-<p><span class="math display">\[
+<p>Based on this alternative hypothesis, we would have counted 4 cases that have a <em>t</em>-value at least as extreme as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>. Based on this alternative hypothesis, the <em>p</em>-value would be computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>p</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>4</mn><mn>300</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.013</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 p &amp;= \frac{4}{300} \\[1ex]
 &amp;= .013
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Based on this <em>p</em>-value, which is less than .05, we would reject the null hypothesis in favor of the alternative hypothesis. This implies that the empirical evidence does not support the claim that teenagers get, on average, 9 hours of sleep, but rather that they get a different amount of sleep on average. Based on the results of this test, we cannot tell whether they get, on average, more or less sleep than 9 hours—only that it is likely a different amount.</p>
 <p><br></p>
 </section>
 <section id="p-values-in-density-plots" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="p-values-in-density-plots"><span class="header-section-number">9.3.2</span> p-Values in Density Plots</h3>
 <p>In the previous example we have looked at to compute the <em>p</em>-value, the <em>t</em>-distribution was presented as a dotplot. This makes it easy to count the observations at least as extreme as the observed value. In most cases, the <em>t</em>-distribution is presented as a density plot. Because individual cases are not shown in a density plot, we need to have another method of computing the <em>p</em>-value that is not based on counting.</p>
-<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p" class="quarto-xref">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <span class="math inline">\(H_A:\mu&lt;9\)</span>, rather than counting the cases to that are less than the observed value of <span class="math inline">\(-8.82\)</span>, we would find the area under the curve that is less than <span class="math inline">\(-8.82\)</span>. This area is shaded in the figure.</p>
+<p>The method we use with density plots is to compute the area under the density curve that corresponds to at least as extreme as the observed value. <a href="#fig-sketch-area-p" class="quarto-xref">Figure&nbsp;<span>9.10</span></a> shows both the dotplot and superimposed density curve for an example <em>t</em>-distribution. If the alternative hypothesis was <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>A</mi></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">H_A:\mu&lt;9</annotation></semantics></math>, rather than counting the cases to that are less than the observed value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>, we would find the area under the curve that is less than <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">-8.82</annotation></semantics></math>. This area is shaded in the figure.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-sketch-area-p" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dot plot of an example *t*-distribution with superimposed density. The vertical blue dashed line indicates the observed value of -8.82. The yellow dots (to the left of -8.82) are the *t*-values that are at least as extreme as -8.82 based the alternative hypothesis (mu < -8.82). The area under the density curve that is less than -8.82 is also shaded.">
@@ -1051,7 +1025,7 @@ Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution with superimpos
 <h2 data-number="9.4" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">9.4</span> Putting It All Together</h2>
 <p>It is important to not lose the forest in the trees when you are conducting a hypothesis test. We set out to answer a substantive question about whether or not teens are getting the recommended amount of sleep. All of the steps we carried out in the hypothesis test were a means to an end of actually answering this question based on the data we collected. So when we report results from the <em>t</em>-test, we need to not only report the pertinent statistical evidence (<em>t</em>-value, <em>df</em>, <em>p</em>-value), but we also need to answer the substantive/research question that drove this test in the first place. Below is an example write-up that an applied researcher might use:</p>
 <blockquote class="blockquote">
-<p>To determine whether or not teens are getting the recommended amount of sleep, a one-sample <em>t</em>-test was used to compare the sample mean amount of sleep for 75 teens to a hypothesized population mean of 9 hours (the amount of sleep recommended by medical experts). The sample mean of 7.40 hours of sleep (SD = 1.52) was found to be inconsistent with the hypothesis that teens are getting 9 (or more) hours of sleep a night, on average; <span class="math inline">\(t(74) = −8.82\)</span>, <span class="math inline">\(p = .007\)</span>. This suggest that teens might not be getting the recommended amount of sleep every night.</p>
+<p>To determine whether or not teens are getting the recommended amount of sleep, a one-sample <em>t</em>-test was used to compare the sample mean amount of sleep for 75 teens to a hypothesized population mean of 9 hours (the amount of sleep recommended by medical experts). The sample mean of 7.40 hours of sleep (SD = 1.52) was found to be inconsistent with the hypothesis that teens are getting 9 (or more) hours of sleep a night, on average; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>74</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mn>8.82</mn></mrow><annotation encoding="application/x-tex">t(74) = −8.82</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>.007</mn></mrow><annotation encoding="application/x-tex">p = .007</annotation></semantics></math>. This suggest that teens might not be getting the recommended amount of sleep every night.</p>
 </blockquote>
 <p><br></p>
 </section>
@@ -1134,13 +1108,14 @@ Figure&nbsp;9.10: Dot plot of an example <em>t</em>-distribution with superimpos
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

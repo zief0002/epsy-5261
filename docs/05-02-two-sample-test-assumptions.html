@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -699,7 +673,7 @@ window.Quarto = {
 <h3 data-number="14.1.1" class="anchored" data-anchor-id="evaluating-the-assumption-of-normality"><span class="header-section-number">14.1.1</span> Evaluating the Assumption of Normality</h3>
 <p>To evaluate the first assumption that the distributions of values in both populations are <em>normally distributed</em>, we plot the sample data for both groups and ask the question: Is this distribution close to normal? The density plot of the sample teen sleep data is shown in <a href="04-05-one-sample-test-assumptions.html#fig-hrs-sleep" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -715,7 +689,7 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">"skyblue"</span>, </span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Change in IQ Score"</span>,</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Density"</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-cannabis" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plots of IQ score changes for participants who became persistent marijuana users as teens and those who became persistent marijuana users as adults.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -746,7 +720,7 @@ Figure&nbsp;14.2: Five simple random samples of size 14 and 23 drawn from a norm
 </div>
 <p>We see that many of these sample distributions have multiple modes or indicate some skew. However, all of these were drawn from a normally distributed population, that is: the assumption of normality would be met. One take away from this is that with small sample sizes it is difficult to tell whether the assumption of normality is met since even sample distributions drawn from a normal population don’t necessarily look normal.</p>
 <p>In our example, the sample distributions do not appear normal. Is this because the population they come from is not normal? Or is it that the population is normal, but the small sample size resulted in a non-normal sample? We don’t know!</p>
-<p>As in the one-sample situation, even if the samples look non-normal, we can fall back on the <em>Central Limit Theorem (CLT)</em> if our sample size is large enough in both groups (i.e., <span class="math inline">\(n\geq 30\)</span>). In our example the sample sizes are 14 (adult) and 23 (teen), respectively. These sample sizes are both less than 30. So we cannot rely on the CLT.</p>
+<p>As in the one-sample situation, even if the samples look non-normal, we can fall back on the <em>Central Limit Theorem (CLT)</em> if our sample size is large enough in both groups (i.e., <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>30</mn></mrow><annotation encoding="application/x-tex">n\geq 30</annotation></semantics></math>). In our example the sample sizes are 14 (adult) and 23 (teen), respectively. These sample sizes are both less than 30. So we cannot rely on the CLT.</p>
 <p>Given that the sample distributions deviate from normality and the small sample sizes, it may be that the normality assumption is not tenable or it may be tenable…we just can’t tell. In this situation, it is safest to point out that the normality assumption may not be tenable.</p>
 <p><br></p>
 </section>
@@ -765,8 +739,8 @@ Figure&nbsp;14.2: Five simple random samples of size 14 and 23 drawn from a norm
 <h3 data-number="14.1.3" class="anchored" data-anchor-id="evaluating-the-equal-variances-assumption"><span class="header-section-number">14.1.3</span> Evaluating the Equal Variances Assumption</h3>
 <p>To evaluate the assumption that the two populations have equal variances<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, we will compare the sample variances for both groups.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute numerical summaries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span> iq_change <span class="sc">|</span> cannabis_dep, <span class="at">data =</span> cannabis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   response cannabis_dep min  Q1 median   Q3 max      mean       sd  n missing
 1 iq_change        Adult -16  -7     -3  4.0  11 -2.071429 7.770400 14       0
@@ -775,13 +749,13 @@ Figure&nbsp;14.2: Five simple random samples of size 14 and 23 drawn from a norm
 </div>
 <p>While the variances aren’t provided directly in the ouptut of the <code>df_stats()</code> function, they can be computed by squaring the standard deviations:</p>
 <ul>
-<li><strong>Adult Variance:</strong> <span class="math inline">\(\sigma^2_{\text{Adult}} = 7.77^2 = 60.38\)</span></li>
-<li><strong>Teen Variance:</strong> <span class="math inline">\(\sigma^2_{\text{Teen}} = 7.14^2 = 50.93\)</span></li>
+<li><strong>Adult Variance:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mtext mathvariant="normal">Adult</mtext><mn>2</mn></msubsup><mo>=</mo><msup><mn>7.77</mn><mn>2</mn></msup><mo>=</mo><mn>60.38</mn></mrow><annotation encoding="application/x-tex">\sigma^2_{\text{Adult}} = 7.77^2 = 60.38</annotation></semantics></math></li>
+<li><strong>Teen Variance:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mtext mathvariant="normal">Teen</mtext><mn>2</mn></msubsup><mo>=</mo><msup><mn>7.14</mn><mn>2</mn></msup><mo>=</mo><mn>50.93</mn></mrow><annotation encoding="application/x-tex">\sigma^2_{\text{Teen}} = 7.14^2 = 50.93</annotation></semantics></math></li>
 </ul>
 <p>Similar to the normality assumption, we don’t expect that both groups will have equal SAMPLE variances, but instead ask the question whether we believe that the POPULATION distributions have equal variances based on what we see in the sample variances. One rule-of-thumb that is often employed is that we find the assumption tenable if the larger variance is no more than four times the smaller variance. In our example, we would ask:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60.38</mn><mover><mo>&gt;</mo><mo accent="false">?</mo></mover><mn>50.93</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">
 60.38 \overset{?}{&gt;} 50.93 \times 4
-\]</span> Because the larger variance (60.38) is not bigger than four times the smaller variance (50.93), we would say the assumption of equal variances is tenable.</p>
+</annotation></semantics></math> Because the larger variance (60.38) is not bigger than four times the smaller variance (50.93), we would say the assumption of equal variances is tenable.</p>
 <p><br></p>
 </section>
 </section>
@@ -833,7 +807,7 @@ Show/Hide Solution
 Show/Hide Solution
 </button>
 <div id="exercise_05-02-03" style="display:none; margin: -40px 0 40px 40px;">
-<p>The variance for the Bachelor ages is <span class="math inline">\(3.80^2=14.45\)</span>, and that for the Bachelorette ages is <span class="math inline">\(3.04^2=9.24\)</span>. Since 14.45 is less than four times 9.24, the assumption of equal population variances seems tenable.</p>
+<p>The variance for the Bachelor ages is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>3.80</mn><mn>2</mn></msup><mo>=</mo><mn>14.45</mn></mrow><annotation encoding="application/x-tex">3.80^2=14.45</annotation></semantics></math>, and that for the Bachelorette ages is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>3.04</mn><mn>2</mn></msup><mo>=</mo><mn>9.24</mn></mrow><annotation encoding="application/x-tex">3.04^2=9.24</annotation></semantics></math>. Since 14.45 is less than four times 9.24, the assumption of equal population variances seems tenable.</p>
 </div>
 <p><br></p>
 <!-- ## References -->
@@ -899,13 +873,14 @@ Show/Hide Solution
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

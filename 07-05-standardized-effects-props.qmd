@@ -7,7 +7,7 @@ In this chapter you will learn about using standardized effects for differences 
 
 ## Cohen's h
 
-There are several methods for computing standardizd effect sizes for differences in proportions. For example, Cohen (of Cohen's *d* fame) developed a metric called Cohen's *h*, which measures the distance between two proportions. This is based on an arcsine transformation of the proportions (remember your trigonometry??) and is computed as:
+There are several methods for computing standardized effect sizes for differences in proportions. For example, Cohen (of Cohen's *d* fame) developed a metric called Cohen's *h*, which measures the distance between two proportions. This is based on an arcsine transformation of the proportions (remember your trigonometry??) and is computed as:
 
 $$
 h = 2 \arcsin(\sqrt{p_1}) – 2 \arcsin(\sqrt{p_2})
@@ -73,7 +73,7 @@ The `ci_cohens_h()` function from the `{educate}` package can be used to find Co
 
 - `p1`: Proportion for Sample 1
 - `n1`: Sample size for Sample 1
-- `n1`: Proportion for Sample 2
+- `p2`: Proportion for Sample 2
 - `n2`: Sample size for Sample 2
 - `conf.level`: The confidence level for the interval (default is `conf.level = 0.95`)
 

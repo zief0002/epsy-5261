@@ -2,7 +2,6 @@ project:
   type: book
   output-dir: docs
   preview:
-    port: 4200
     browser: true
 
 book:
@@ -125,4 +124,5 @@ format:
     #shift-heading-level-by: 1
     tbl-cap-location: "top"
     fig-cap-location: "top"
+    html-math-method: "mathml"
 editor: source

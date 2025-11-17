@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55365a36bfeb5b001e245fd22028e819.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f904091badbcb67f1316cf14adba7f4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,35 +117,6 @@ function toggle_visibility(id) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/table-styles.css">
@@ -160,7 +132,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title"><span id="sec-r2" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></h1>
+          <h1 class="quarto-secondary-nav-title"><span id="sec-r2" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -172,7 +144,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">An Introduction to Data Analysis</a> 
     </div>
@@ -429,7 +403,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-03-r-squared.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -660,7 +634,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span id="sec-r2" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\(R^2\)</span>: Quantifying the Strength of the Linear Relationship</span></span></h1>
+<h1 class="title d-none d-lg-block"><span id="sec-r2" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>: Quantifying the Strength of the Linear Relationship</span></span></h1>
 </div>
 
 
@@ -677,13 +651,13 @@ window.Quarto = {
 </header>
 
 
-<p>In this chapter you will learn about using the statistics <span class="math inline">\(R^2\)</span> to quantify the strength of a linear regression between two quantitative attributes.</p>
+<p>In this chapter you will learn about using the statistics <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> to quantify the strength of a linear regression between two quantitative attributes.</p>
 <p><br></p>
 <section id="recap-college-completion-rates-and-act-scores" class="level2" data-number="26.1">
 <h2 data-number="26.1" class="anchored" data-anchor-id="recap-college-completion-rates-and-act-scores"><span class="header-section-number">26.1</span> Recap: College Completion Rates and ACT Scores</h2>
 <p>In <a href="08-02-linear-regression-description.html" class="quarto-xref"><span>Chapter 25</span></a>, we fitted a linear regression model to answer the research question of whether ACT scores are predictive of better institutional outcomes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(educate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
@@ -695,7 +669,7 @@ window.Quarto = {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/zief0002/epsy-5261/main/data/midwest-college-scorecard.csv"</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>colleges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>colleges</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 92 × 9
    institution        control state admission_rate   act debt_all debt_graduates
@@ -713,16 +687,16 @@ window.Quarto = {
 # ℹ 82 more rows
 # ℹ 2 more variables: earnings &lt;dbl&gt;, completion_rate &lt;dbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correlation</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correlation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8083368</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit regression model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit regression model</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lm.a <span class="ot">=</span> <span class="fu">lm</span>(completion_rate <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> act, <span class="at">data =</span> colleges)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print regression coefficients</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>lm.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>lm.a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -733,10 +707,10 @@ Coefficients:
    -0.36421      0.03738  </code></pre>
 </div>
 </div>
-<p>The data suggested that there was a positive, linear relationship between 75th percentile ACT score and completion rate for the 92 institutions in our sample (<span class="math inline">\(r = 0.808\)</span>), indicating that colleges with higher 75th percentile ACT scores tended to also have higher completion rates. The fitted equation was:</p>
-<p><span class="math display">\[
+<p>The data suggested that there was a positive, linear relationship between 75th percentile ACT score and completion rate for the 92 institutions in our sample (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.808</mn></mrow><annotation encoding="application/x-tex">r = 0.808</annotation></semantics></math>), indicating that colleges with higher 75th percentile ACT scores tended to also have higher completion rates. The fitted equation was:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">R</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi></mrow><mo accent="true">̂</mo></mover><mo>=</mo><mi>−</mi><mn>0.36</mn><mo>+</mo><mn>0.04</mn><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">T</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \hat{\mathrm{Completion~Rate}} = -0.36 + 0.04(\mathrm{ACT})
-\]</span></p>
+</annotation></semantics></math></p>
 <p>The results of the regression analysis suggested that each 1-point difference in 75th percentile ACT scores of education is associated with a 0.037-unit difference in completion rates, on average.</p>
 <p><br></p>
 <section id="quantifying-aspects-of-the-relationship" class="level3" data-number="26.1.1">
@@ -748,11 +722,11 @@ Coefficients:
 <li>Magnitude of the line, and</li>
 <li>Strength</li>
 </ul>
-<p>The functional form helps us decide the mathematical form that the model should take (e.g., linear, quadratic). It also helps us determine the appropriate summary measures that can help quantify the other three characteristics we describe. For example, the correlation coefficient (<em>r</em>) helps us quantify the direction of the relationship, as does the slope of the regression line (<span class="math inline">\(b_1\)</span>). The slope of the regression line also quantifies the magnitude (i.e., “steepness”) of the relationship.</p>
+<p>The functional form helps us decide the mathematical form that the model should take (e.g., linear, quadratic). It also helps us determine the appropriate summary measures that can help quantify the other three characteristics we describe. For example, the correlation coefficient (<em>r</em>) helps us quantify the direction of the relationship, as does the slope of the regression line (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_1</annotation></semantics></math>). The slope of the regression line also quantifies the magnitude (i.e., “steepness”) of the relationship.</p>
 <p>Neither the correlation coefficient, nor the slope, however, provide a quantification of the strength of the relationship. Remember that the strength of the relationship describes how well the data adhere to the functional form (i.e., how closely the observations lie to the line).</p>
 <p>Once we have the fitted equation, we can add that to the scatterplot to better evaluate the strength of the linear relationship. To do this we will use the <code>geom_abline()</code> function, which takes the arguments <code>intercept=</code> and <code>slope=</code>. We provide the estimates for these coefficients from our fitted equation to these arguments, and then literally add this function to the scatterplot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"75th percentile ACT score"</span>,</span>
@@ -762,7 +736,7 @@ Coefficients:
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="sc">-</span><span class="fl">0.36421</span>, </span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="fl">0.03738</span>,</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"blue"</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot-colleges" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot displaying the relationship between 75th percentile ACT score and completion rates for the 92 institutions in the sample. The fitted linear regression line is also displayed on the plot.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -814,16 +788,16 @@ Figure&nbsp;26.3: Plot displaying the 75th ACT scores and completion rates along
 </div>
 <p>In general, if the observation is close to the line, the green line for the residuals is short, whereas if the observation is far away from the line the green line for the residuals is long. We can use this idea to quantify the strength of the relationship. That is, we can consider whether, in general, the green residual lines are short or long.</p>
 <p>While we can eyeball this from the plot, we want to quantify how close the observations are to the line. Recall that we can compute each observation’s residual using:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">
 e = Y - \hat{Y}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>We can use the <code>resid()</code> function to compute the residuals in R. We provide this function with the name of the <code>lm()</code> object, in our case <code>lm.a</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get residuals</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get residuals</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_residuals <span class="ot">&lt;-</span> <span class="fu">resid</span>(lm.a)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View residuals</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>my_residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>my_residuals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            1             2             3             4             5 
  0.0574753580  0.0910753580  0.0493379949 -0.1195312342  0.0585314027 
@@ -867,43 +841,43 @@ e = Y - \hat{Y}
 </div>
 <p>These residuals are in the same order as the observations in the data; the first observation in the data is Buena Vista University which corresponds to the first residual of 0.0574753580. To quantify the strength we need to determine whether these residuals are small or big, in general. One way to do that is to find the size of the average residual:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute average residual</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(my_residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute average residual</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(my_residuals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.413528e-18</code></pre>
 </div>
 </div>
-<p>The value we get is in scientific notation. The <code>e-18</code> means “times 10 to the <span class="math inline">\(-18\)</span>th power. That is:</p>
-<p><span class="math display">\[
+<p>The value we get is in scientific notation. The <code>e-18</code> means “times 10 to the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>18</mn></mrow><annotation encoding="application/x-tex">-18</annotation></semantics></math>th power. That is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>1.046491</mn><mi>e</mi><mo>−</mo><mn>18</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>1.046491</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>18</mn></mrow></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>0.00000000000000000104691</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 -1.046491e-18 &amp;= -1.046491 \times 10^{-18} \\[2ex]
 &amp;= -0.00000000000000000104691
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This is essentially equal to 0. We are saying that the average residual is 0! That is completely not true. Looking at the scatterplot, it is clear that the average residual will have some length…not 0. The problem is that some of the residuals are positive and some are negative, so adding them together gives a sum of 0.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∑</mo><mi>e</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
 \sum e = 0
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Because of this finding the average does not help us quantify the strength of the relationship.</p>
 <p><br></p>
 <section id="sum-of-squared-error" class="level3" data-number="26.2.1">
 <h3 data-number="26.2.1" class="anchored" data-anchor-id="sum-of-squared-error"><span class="header-section-number">26.2.1</span> Sum of Squared Error</h3>
 <p>To remedy this problem before we sum the residuals, we will square them to make them all positive. Mathematically, we are computing:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∑</mo><msup><mi>e</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
 \sum e^2
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Using R, we will square the residuals and then use the <code>sum()</code> function to add them together.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the squared residuals</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_residuals <span class="sc">^</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the squared residuals</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_residuals <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6120481</code></pre>
 </div>
 </div>
 <p>This value is refer to as the <em>Sum of Squares Residual</em> or the <em>Sum of Squared Error</em> (SSE). It is a quantification of the total amount of error in the model (albeit in a squared metric). In our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SSE</mtext><mo>=</mo><mn>0.612</mn></mrow><annotation encoding="application/x-tex">
 \text{SSE} = 0.612
-\]</span></p>
+</annotation></semantics></math></p>
 <p><br></p>
 </section>
 </section>
@@ -911,16 +885,16 @@ e = Y - \hat{Y}
 <h2 data-number="26.3" class="anchored" data-anchor-id="comparing-sse-to-a-baseline-model"><span class="header-section-number">26.3</span> Comparing SSE to a Baseline Model</h2>
 <p>While the SSE gives us a quantification of the total amount of error in the model it isn’t useful (by itself) for considering the strength of the relationship. This is for two reasons. First finding the average of this sum is not helpful as the metric has changed to squared completion rates. Even if we converted back to the original metric by taking the square root after finding the average, we still don’t know if the value represents a “weak”, “moderate”, or “strong” relationship. This is because the quantification would be dependent on the metric used in the <em>y</em> attribute, which is our second problem. This implies that you would have to evaluate strength differently depending on how you measured the attribute you use as your outcome. Ideally, we want to use a measure that does not depend on the metric used in the attribute.</p>
 <p>The solution to this is to compare the SSE value to a SSE value computed from a “baseline” model. The baseline model that we will use is the intercept-only model. The intercept-only model is mathematically expressed as:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">
 Y = \beta_0 + \epsilon
-\]</span></p>
+</annotation></semantics></math></p>
 <p>That is, it only includes the <em>y</em>-intercept and does not include any other effects. If we use this model to predict completion rates we are saying that ACT scores do not matter in predicting colleges’ completion rates as it is not included in the model. To fit this model we use <code>lm(y ~ 1, data=dataframe)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit intercept-only model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit intercept-only model</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.0</span> <span class="ot">=</span> <span class="fu">lm</span>(completion_rate <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> colleges)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View coefficient</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -932,12 +906,12 @@ Coefficients:
 </div>
 </div>
 <p>Here the fitted equation is:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mtext mathvariant="normal">Completion Rate</mtext><mo accent="true">̂</mo></mover><mo>=</mo><mn>0.618</mn></mrow><annotation encoding="application/x-tex">
 \hat{\text{Completion Rate}} = 0.618
-\]</span></p>
+</annotation></semantics></math></p>
 <p>We can plot this regression line using <code>geom_abline()</code> in the same way we plot any other regression line, noting that the slope of this line is 0.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with regression line</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with regression line</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges,</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"75th percentile ACT score"</span>,</span>
@@ -947,7 +921,7 @@ Coefficients:
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="fl">0.6175</span>, </span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="dv">0</span>,</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"blue"</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot-line" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot displaying the relationship between 75th ACT scores and completion rates. The fitted intercept-only linear regression line is also displayed on the plot.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -966,7 +940,7 @@ Figure&nbsp;26.4: Scatterplot displaying the relationship between 75th ACT score
 <p><strong>FYI</strong></p>
 <p>One interesting fact about the value of 0.6175 is that it is the mean completion rate for all schools in the sample.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>completion_rate, <span class="at">data =</span> colleges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>completion_rate, <span class="at">data =</span> colleges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         response   min      Q1  median       Q3    max      mean        sd  n
 1 completion_rate 0.225 0.54305 0.61415 0.726675 0.9145 0.6174576 0.1393038 92
@@ -996,11 +970,11 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
 </div>
 <p>We can compute the SSE for the intercept-only model similar to how we computed it for our model that included ASCT as a predictor.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get residuals for intercept-only model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get residuals for intercept-only model</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>my_residuals <span class="ot">&lt;-</span> <span class="fu">resid</span>(lm<span class="fl">.0</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View residuals</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>my_residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>my_residuals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            1             2             3             4             5 
  0.0103423913  0.0439423913 -0.0725576087  0.0202423913  0.1235423913 
@@ -1041,72 +1015,72 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
            91            92 
 -0.0629576087 -0.1515576087 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SSE</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_residuals <span class="sc">^</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute SSE</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_residuals <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.765905</code></pre>
 </div>
 </div>
 <p>Although this value is a sum of squared residuals, because it comes from the intercept-only model we refer to it as the <em>Sum of Squared Total</em> (SST). This is because it is a quantification of the total amount of variation in the data (again, in a squared metric). In our example,</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SST</mtext><mo>=</mo><mn>1.766</mn></mrow><annotation encoding="application/x-tex">
 \text{SST} = 1.766
-\]</span> If we again consider the mathematics behind the SST, we can gain some insight into why it is a quantification of the variation in the data, and also how it relates to other measures of variation that you already know. The way we computed SST was:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> If we again consider the mathematics behind the SST, we can gain some insight into why it is a quantification of the variation in the data, and also how it relates to other measures of variation that you already know. The way we computed SST was:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SST</mtext><mo>=</mo><mo>∑</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
 \text{SST} = \sum(Y - \hat{Y})^2
-\]</span></p>
-<p>But in the intercept only model we saw that the predicted value (i.e., <span class="math inline">\(\hat{Y}\)</span>) is the mean value of <em>Y</em>. So the SST can also be written as:</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>But in the intercept only model we saw that the predicted value (i.e., <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{Y}</annotation></semantics></math>) is the mean value of <em>Y</em>. So the SST can also be written as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SST</mtext><mo>=</mo><mo>∑</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
 \text{SST} = \sum(Y - \bar{Y})^2
-\]</span></p>
+</annotation></semantics></math></p>
 <p>This quantity is seen in our formulas for the variance and standard deviation. The formulas for these are:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mo>∑</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mspace width="2.0em"></mspace><mspace width="2.0em"></mspace><mtext mathvariant="normal">SD</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mfrac><mrow><mo>∑</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac></msqrt></mrow><annotation encoding="application/x-tex">
 \text{Var}(Y) = \frac{\sum(Y - \bar{Y})^2}{n-1} \qquad\qquad \text{SD}(Y) = \sqrt{\frac{\sum(Y - \bar{Y})^2}{n-1}}
-\]</span> Note that the variance formula is essentially a mean—it is a sum divided by how many things there are.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So the variance is finding the mean amount of variation (from the sample mean) in the data in a squared metric. The SD is the square root of the variance, so it is getting rid of the squared metric. That is why we interpret the SD as the average amount of variation from the sample mean.</p>
+</annotation></semantics></math> Note that the variance formula is essentially a mean—it is a sum divided by how many things there are.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So the variance is finding the mean amount of variation (from the sample mean) in the data in a squared metric. The SD is the square root of the variance, so it is getting rid of the squared metric. That is why we interpret the SD as the average amount of variation from the sample mean.</p>
 <p><br></p>
 </section>
 </section>
 <section id="using-the-sst-and-sse-to-quantify-strength" class="level2" data-number="26.4">
 <h2 data-number="26.4" class="anchored" data-anchor-id="using-the-sst-and-sse-to-quantify-strength"><span class="header-section-number">26.4</span> Using the SST and SSE to Quantify Strength</h2>
 <p>Now that we have both the SST and SSE values we can use them to quantify the strength of the initial relationship between 75th percentile ACT scores and completion rates. To do this, we are going to compute the proportion reduction in error (PRE) between the baseline (intercept-only) and ACT predictor models. This will tell us how much smaller the SSE is after we include ACT in the model relative to the SSE from the baseline model. That is, we are going to compute:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">PRE</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mtext mathvariant="normal">SSE</mtext><mtext mathvariant="normal">Baseline Model</mtext></msub><mo>−</mo><msub><mtext mathvariant="normal">SSE</mtext><mtext mathvariant="normal">ACT Model</mtext></msub></mrow><msub><mtext mathvariant="normal">SSE</mtext><mtext mathvariant="normal">Baseline Model</mtext></msub></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">SST</mtext><mo>−</mo><mtext mathvariant="normal">SSE</mtext></mrow><mtext mathvariant="normal">SST</mtext></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{PRE} &amp;= \frac{\text{SSE}_{\text{Baseline Model}} - \text{SSE}_{\text{ACT Model}}}{\text{SSE}_{\text{Baseline Model}}} \\[2ex]
 &amp;= \frac{\text{SST} - \text{SSE}}{\text{SST}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>For our example:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">PRE</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>1.766</mn><mo>−</mo><mn>0.612</mn></mrow><mn>1.766</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1.154</mn><mn>1.766</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.65</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{PRE} &amp;= \frac{1.766 - 0.612}{1.766} \\[2ex]
 &amp;= \frac{1.154}{1.766} \\[2ex]
 &amp;= 0.65
 \end{split}
-\]</span> To interpret this we say,</p>
+</annotation></semantics></math> To interpret this we say,</p>
 <blockquote class="blockquote">
 <p>Including 75th percentile ACT scores as a predictor of completion rates reduces the error variation in the model by 65.3%.</p>
 </blockquote>
 <p>Or, another way to interpret this value is to consider our sum of squares values. Mathematically, sums of squares are additive in that the SSE and another sum of squared value (the sum of squared model; SSM) add together to equal the SST.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SST</mtext><mo>=</mo><mtext mathvariant="normal">SSM</mtext><mo>+</mo><mtext mathvariant="normal">SSE</mtext></mrow><annotation encoding="application/x-tex">
 \text{SST} = \text{SSM} + \text{SSE}
-\]</span> Because of this the SSM is:</p>
-<p><span class="math display">\[
+</annotation></semantics></math> Because of this the SSM is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SSM</mtext><mo>=</mo><mtext mathvariant="normal">SST</mtext><mo>−</mo><mtext mathvariant="normal">SSE</mtext></mrow><annotation encoding="application/x-tex">
 \text{SSM} = \text{SST} - \text{SSE}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>For us the values of these sum of squares are:</p>
 <ul>
-<li><span class="math inline">\(\text{SST} = 1.766\)</span></li>
-<li><span class="math inline">\(\text{SSM} = 1.154\)</span></li>
-<li><span class="math inline">\(\text{SSE} = 0.612\)</span></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SST</mtext><mo>=</mo><mn>1.766</mn></mrow><annotation encoding="application/x-tex">\text{SST} = 1.766</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SSM</mtext><mo>=</mo><mn>1.154</mn></mrow><annotation encoding="application/x-tex">\text{SSM} = 1.154</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">SSE</mtext><mo>=</mo><mn>0.612</mn></mrow><annotation encoding="application/x-tex">\text{SSE} = 0.612</annotation></semantics></math></li>
 </ul>
 <p>The SSM represents the amount of variation (in a squared metric) that is explained by the model. Using the three quantities the total amount of variation in the data (SST) is equal to the amount of variation explained by the model (SSM) and the amount of variation that is unexplained by the model (SSE). That is after including 75th percentile ACT score in the model we explain some of the total variation in completion scores, but not all of it. There is still some variation in completion scores that is unexplained by differences in 75th percentile ACT scores.</p>
 <p>In other words, we see that there is variation in colleges’ completion rates (total variation in the data). Some of this is because colleges have different 75th percentile ACT scores (the explained variation by the model). Some of it is because of other factors (unexplained variation after ACT is included).</p>
 <p>Also notice that in our formula to compute the PRE, the SSM is the numerator value in this expression.</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">PRE</mtext></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">SST</mtext><mo>−</mo><mtext mathvariant="normal">SSE</mtext></mrow><mtext mathvariant="normal">SST</mtext></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mtext mathvariant="normal">SSM</mtext><mtext mathvariant="normal">SST</mtext></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{split}
 \text{PRE} &amp;= \frac{\text{SST} - \text{SSE}}{\text{SST}} \\[2ex]
 &amp;= \frac{\text{SSM}}{\text{SST}}
 \end{split}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>So the PRE is not only telling us the proportion of error that was reduced after including ACT in the model, but it also is a proportion of the explained variation relative to the total variation in the data. This gives us an alternative interpretation of the PRE, namely:</p>
 <blockquote class="blockquote">
 <p>Differences in 75th percentile ACT scores EXPLAIN 65.3% of the original variation in completion rates.</p>
@@ -1116,25 +1090,25 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
 <section id="shortcut-to-computing-pre" class="level3" data-number="26.4.1">
 <h3 data-number="26.4.1" class="anchored" data-anchor-id="shortcut-to-computing-pre"><span class="header-section-number">26.4.1</span> Shortcut to Computing PRE</h3>
 <p>It turns out that in a regression model that only includes a single predictor there is a shortcut for computing the PRE. The PRE is equal to the square of the correlation coefficient:</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">PRE</mtext><mo>=</mo><msup><mi>r</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
 \text{PRE} = r^2
-\]</span></p>
-<p>In applied work, the PRE metric is often referred to as <span class="math inline">\(R^2\)</span>. An alternative computation is to therefore, compute the correlation coefficient and square it.</p>
+</annotation></semantics></math></p>
+<p>In applied work, the PRE metric is often referred to as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>. An alternative computation is to therefore, compute the correlation coefficient and square it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute R2</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges) <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute R2</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(completion_rate <span class="sc">~</span> act, <span class="at">data =</span> colleges) <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6534083</code></pre>
 </div>
 </div>
-<p>Because this strength metric is related to the correlation coefficient, we now can think about what different values of <span class="math inline">\(R^2\)</span> indicate based on how they relate to the correlation value (<em>r</em>). Consider the following correlation values and <span class="math inline">\(R^2\)</span> values:</p>
+<p>Because this strength metric is related to the correlation coefficient, we now can think about what different values of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> indicate based on how they relate to the correlation value (<em>r</em>). Consider the following correlation values and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> values:</p>
 <div class="cell" data-tbl-cap="Correlation (*r*) and the corresponding $R^2$ value.">
 <div class="cell-output-display">
-<div id="owdtasuljo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="djlqgxbash" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
-<caption>Correlation (<em>r</em>) and the corresponding <span class="math inline">\(R^2\)</span> value.</caption>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false" width="60%" data-bgcolor="#FFFFFF">
+<caption>Correlation (<em>r</em>) and the corresponding <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> value.</caption>
 <thead style="border-style: none;">
 <tr class="gt_col_headings header" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
 <th id="r" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col" style="text-align: center; border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden;" data-bgcolor="#FFFFFF" data-valign="bottom">r</th>
@@ -1192,12 +1166,12 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
 </div>
 </div>
 </div>
-<p>Unless the correlation value is 0 or 1, the <span class="math inline">\(R^2\)</span> value is always less than the correlation value (after all, we are squaring decimal values). This means that the amount of variation in the outcome that a predictor explains will generally be less than its level of correlation. In fact, until you get to correlations of <span class="math inline">\(r &gt; 0.70\)</span>, the amount of variation explained by a predictor is less than half.</p>
-<p>Because the <span class="math inline">\(R^2\)</span> value is generally smaller than the <span class="math inline">\(r\)</span> value, it makes it a better indication of the strength of the relationship than the correlation coefficient, which is overly optimistic. Moreover, the value of <span class="math inline">\(R^2\)</span> is based on the residuals which measure the fit of the data to the line—which is how we defined strength.</p>
-<p>Lastly, we point out that <span class="math inline">\(R^2\)</span> is often reported as an effect size for a regression model. We will come back to this in the next chapter when we discuss inference to see how this value measures the extent to which sample regression results diverge from the expectations specified in the null hypothesis.</p>
+<p>Unless the correlation value is 0 or 1, the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> value is always less than the correlation value (after all, we are squaring decimal values). This means that the amount of variation in the outcome that a predictor explains will generally be less than its level of correlation. In fact, until you get to correlations of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>0.70</mn></mrow><annotation encoding="application/x-tex">r &gt; 0.70</annotation></semantics></math>, the amount of variation explained by a predictor is less than half.</p>
+<p>Because the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> value is generally smaller than the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> value, it makes it a better indication of the strength of the relationship than the correlation coefficient, which is overly optimistic. Moreover, the value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> is based on the residuals which measure the fit of the data to the line—which is how we defined strength.</p>
+<p>Lastly, we point out that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> is often reported as an effect size for a regression model. We will come back to this in the next chapter when we discuss inference to see how this value measures the extent to which sample regression results diverge from the expectations specified in the null hypothesis.</p>
 <div class="fyi">
 <p><strong>FYI</strong></p>
-<p>As with other quantitative metrics, whether a predictor is a “good” predictor can not be determined by the <span class="math inline">\(R^2\)</span> value alone. It also depends on the substantive field. An <span class="math inline">\(R^2\)</span> value of 0.34 might constitute a worthless predictor in some fields but a great predictor in another field. Only by reading and understanding the literature in a field can you make this judgement.</p>
+<p>As with other quantitative metrics, whether a predictor is a “good” predictor can not be determined by the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> value alone. It also depends on the substantive field. An <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> value of 0.34 might constitute a worthless predictor in some fields but a great predictor in another field. Only by reading and understanding the literature in a field can you make this judgement.</p>
 </div>
 <p><br></p>
 <!-- ## References -->
@@ -1208,7 +1182,7 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Technically we divide by <span class="math inline">\(n-1\)</span>, but for larger sample sizes <em>n</em> and <span class="math inline">\(n-1\)</span> are approximately the same.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Technically we divide by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>, but for larger sample sizes <em>n</em> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math> are approximately the same.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1264,13 +1238,14 @@ Figure&nbsp;26.5: LEFT: Plot displaying the 75th ACT scores and completion rates
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
